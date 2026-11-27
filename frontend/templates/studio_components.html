@@ -39,14 +39,18 @@
 </defs></svg>
 {%- endmacro %}
 
-{% macro topbar() -%}
-<header class="topbar">
-  <a class="brand" href="/" aria-label="TestPilot AI 首页"><span class="brand-mark">{{ icon('brand') }}</span>TestPilot <b>AI</b></a>
+{% macro context_selectors() -%}
   <div class="context-selectors">
     <label title="当前项目">{{ icon('folder') }}<span class="sr">当前项目</span><select id="project" disabled></select></label>
     <span class="slash" aria-hidden="true">/</span>
     <label title="文件版本">{{ icon('file') }}<span class="sr">文件版本</span><select id="file" disabled></select></label>
   </div>
+{%- endmacro %}
+
+{% macro topbar(show_context=true) -%}
+<header class="topbar">
+  <a class="brand" href="/" aria-label="TestPilot AI 首页"><span class="brand-mark">{{ icon('brand') }}</span>TestPilot <b>AI</b></a>
+  {% if show_context %}{{ context_selectors() }}{% endif %}
   {% if caller is defined %}{{ caller() }}{% endif %}
 </header>
 {%- endmacro %}
@@ -58,8 +62,8 @@
   </nav>
 {%- endmacro %}
 
-{% macro search(id, label, placeholder) -%}
-<label class="file-search">{{ icon('search') }}<input id="{{ id }}" type="search" aria-label="{{ label }}" placeholder="{{ placeholder }}"></label>
+{% macro search(id, label, placeholder, disabled=false) -%}
+<label class="file-search">{{ icon('search') }}<input id="{{ id }}" type="search" aria-label="{{ label }}" placeholder="{{ placeholder }}"{% if disabled %} disabled{% endif %}></label>
 {%- endmacro %}
 
 {% macro pane_heading(name, title) -%}

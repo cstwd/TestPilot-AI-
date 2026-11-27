@@ -68,7 +68,7 @@ async function start() {
   if (projectWorkspace) projectWorkspace.bindProjectPanels($);
   const changeProject = () => location.assign(link(page, {file: ""}));
   const projects = await api("/api/projects");
-  const requireExplicitMatch = page === "analysis" || page === "projects";
+  const requireExplicitMatch = page === "analysis" || page === "projects" || page === "generation";
   populate(project, projects, row => row.name, params.get("project"), "请先创建项目");
   if (requireExplicitMatch && params.get("project") && project.value !== params.get("project")) project.selectedIndex = -1;
   if (projectWorkspace) {
@@ -90,8 +90,7 @@ async function start() {
   }
   if (page === "generation") {
     const {showGeneration} = await import("./generation.js");
-    if (!file.value) return showEmpty("请先选择项目并导入需要生成测试的文件。");
-    await showGeneration({$, api, link, form, populate, params, fileId: file.value});
+    await showGeneration({$, api, link, params, projectId: project.value, file: files.find(row => String(row.id) === file.value)});
   }
   if (page === "runs") {
     const {showRuns} = await import("./runs.js");
@@ -119,5 +118,9 @@ start().catch(async error => {
   if (page === "analysis") {
     const {showAnalysisError} = await import("./analysis.js");
     showAnalysisError($, error);
+  }
+  if (page === "generation") {
+    const {showGenerationError} = await import("./generation.js");
+    showGenerationError($, error, link);
   }
 });
