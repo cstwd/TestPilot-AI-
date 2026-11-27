@@ -32,6 +32,7 @@
 .readout dt { color: var(--muted); font-size: 12px; }
 .readout dd { font-weight: 650; margin-top: 4px; }
 #run-result > *, .case-list { margin-top: 12px; }
+#bug-detail > * { margin-top: 12px; }
 .case-list { overflow-wrap: anywhere; padding-left: 20px; }
 .inline-links { display: flex; gap: 18px; flex-wrap: wrap; }
 summary { cursor: pointer; }

@@ -27,12 +27,13 @@ def run_record(db, key):
     return {**result, **row}
 
 
-def run_suite(path, suite_id, file_id):
+def run_suite(path, suite_id, file_id, *, on_saved=None):
     with connect(path) as db:
         suite = one(db, "SELECT s.source,s.sha256,f.project_id,f.filename FROM suites s JOIN files f "
                         "ON f.id=s.file_id WHERE s.id=?", (suite_id,))
-        file = one(db, "SELECT * FROM files WHERE id=?", (file_id,))
-    if file["project_id"] != suite["project_id"] or file["filename"].lower() != suite["filename"].lower():
+        file = one(db, "SELECT *, (project_id=? AND filename=?) AS same_subject FROM files WHERE id=?",
+                   (suite["project_id"], suite["filename"], file_id))
+    if not file["same_subject"]:
         raise HTTPException(422, "仅可对同一项目的同名文件运行该套件")
     if not SLOTS.acquire(blocking=False):
         raise HTTPException(409, "已有受限运行在进行，请稍后重试")
@@ -43,7 +44,10 @@ def run_suite(path, suite_id, file_id):
             key = db.execute("INSERT INTO runs(project_id,file_id,suite_id,status,duration_ms,result) "
                              "VALUES (?,?,?,?,?,?)", (file["project_id"], file_id, suite_id, result["status"],
                               result["duration_ms"], json.dumps(result, ensure_ascii=False))).lastrowid
-            return run_record(db, key)
+            run = run_record(db, key)
+            if on_saved is not None:
+                on_saved(db, run)
+            return run
     finally:
         SLOTS.release()
 

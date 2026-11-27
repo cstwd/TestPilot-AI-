@@ -1,0 +1,25 @@
+<section>
+  <h2>从失败用例登记缺陷</h2>
+  <label>来源运行<select id="bug-run"></select></label>
+  <form id="create-bug">
+    <label>失败用例<select id="nodeid"></select></label>
+    <label>缺陷标题<input id="bug-title" required maxlength="160"></label>
+    <button id="create-bug-button" disabled>登记缺陷</button>
+  </form>
+  <p class="hint" id="failure-hint"></p>
+</section>
+<section>
+  <h2>缺陷与回归记录</h2>
+  <label>项目缺陷<select id="bug"></select></label>
+  <div id="bug-detail" hidden>
+    <p id="bug-state"></p>
+    <p id="failure-node" class="hint"></p>
+    <p><a id="original-run">打开原始失败运行</a></p>
+    <form id="regress">
+      <label>修复后的文件版本<select id="fix-file"></select></label>
+      <button id="regress-button" disabled>运行回归</button>
+    </form>
+    <p class="hint" id="fix-hint"></p>
+    <ul class="case-list" id="regressions"></ul>
+  </div>
+</section>

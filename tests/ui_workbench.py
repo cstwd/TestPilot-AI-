@@ -85,3 +85,23 @@ def test_f04(page):
     expect(page.locator("#run-identity")).to_contain_text("运行 #1", timeout=120_000)
     expect(page.locator("#run-log")).to_contain_text("passed")
     expect(page.locator("#to-bugs")).to_have_attribute("href", f"/workbench/bugs?project={project}&file={file}&run=1")
+
+
+def test_f05(page):
+    project = page.request.post("/api/projects", data={"name": "回归验收"}).json()["id"]
+    filename = "counter.py"
+    source = 'def add(x: int) -> int:\n    """\n    >>> add(1)\n    2\n    """\n    return x\n'
+    first = import_source(page, project, source, filename)
+    suite = page.request.post(f"/api/files/{first}/suites", data={"target": "add"}).json()["id"]
+    failed = page.request.post(f"/api/suites/{suite}/runs", data={"file_id": first}, timeout=120_000).json()
+    assert failed["status"] == "failed", failed
+    fixed = import_source(page, project, source.replace("return x", "return x + 1"), filename)
+    page.goto(f"/workbench/bugs?project={project}&file={fixed}&run={failed['id']}")
+    page.get_by_label("缺陷标题").fill("加一示例失败")
+    page.get_by_role("button", name="登记缺陷").click()
+    expect(page.locator("#failure-node")).to_contain_text("test_example")
+    page.get_by_role("button", name="运行回归").click()
+    expect(page.locator("#regressions")).to_contain_text("已解决", timeout=120_000)
+    page.locator("#original-run").click()
+    expect(page.locator("#run-identity")).to_contain_text(f"运行 #{failed['id']} · 套件 #{suite} · {filename} v1")
+    expect(page.locator("#run-summary")).to_contain_text("失败")

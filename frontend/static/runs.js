@@ -3,6 +3,11 @@ const labels = {
   skipped: "跳过", unavailable: "执行器不可用", running: "运行中",
 };
 export const labelStatus = value => labels[value] || value || "未记录";
+// SQLite's NOCASE comparison folds only the ASCII letters.
+export const sameFilename = (a, b) => {
+  const fold = name => name.replace(/[A-Z]/g, char => char.toLowerCase());
+  return fold(a) === fold(b);
+};
 
 export function readout(node, values) {
   node.replaceChildren();
@@ -19,7 +24,7 @@ export function readout(node, values) {
 
 export async function showRuns({$, api, link, form, populate, params, files, projectId, fileId}) {
   const current = files.find(item => String(item.id) === fileId);
-  const revisions = files.filter(item => item.filename.toLowerCase() === current.filename.toLowerCase());
+  const revisions = files.filter(item => sameFilename(item.filename, current.filename));
   // Read older suites on demand so large histories don't fan out into many requests.
   const sourceSelect = document.createElement("select");
   const sourceLabel = document.createElement("label");

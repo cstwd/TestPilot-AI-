@@ -108,6 +108,11 @@ async function start() {
     if (!file.value) return showEmpty("请先导入源码并生成测试，再启动执行。");
     await showRuns({$, api, link, form, populate, params, files, projectId: project.value, fileId: file.value});
   }
+  if (page === "bugs") {
+    const {showBugs} = await import("./bugs.js");
+    if (!project.value) return showEmpty("先创建项目，并运行一组测试以获得缺陷证据。");
+    await showBugs({$, api, link, form, populate, params, files, projectId: project.value});
+  }
 }
 
 start().catch(error => message(error.message, true));
