@@ -1,0 +1,559 @@
+{
+  "utc": "2026-11-27T07:15:45.466479+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.11",
+  "packages": {
+    "mutmut": "3.8.1",
+    "cosmic-ray": "8.9.0",
+    "pytest": "9.2.0"
+  },
+  "sha256": "66285506688574dcf6d45f01fb2a5ec34619d19e405cf273c7881c7a514af359",
+  "fixture": "def charge(n, enabled):\n    try:\n        if n > 1 and enabled:\n            return n + 2\n        return 0\n    except TypeError:\n        return -1\n",
+  "tests": "from subject import charge\n\ndef test_enabled():\n    assert charge(3, True) == 5\n\ndef test_type_fallback():\n    assert charge(None, True) == -1\n",
+  "baseline": {
+    "command": [
+      "python.exe",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.799,
+    "stdout": "..                                                                       [100%]\n2 passed in 0.03s\n",
+    "stderr": ""
+  },
+  "mutmut_cli": [
+    {
+      "command": [
+        "mutmut.exe",
+        "run",
+        "--max-children",
+        "1"
+      ],
+      "returncode": 1,
+      "wall_seconds": 0.469,
+      "stdout": "To run mutmut on Windows, please use the WSL. Native windows support is tracked in issue https://github.com/boxed/mutmut/issues/397\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "mutmut.exe",
+        "run",
+        "--max-children",
+        "2"
+      ],
+      "returncode": 1,
+      "wall_seconds": 0.498,
+      "stdout": "To run mutmut on Windows, please use the WSL. Native windows support is tracked in issue https://github.com/boxed/mutmut/issues/397\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "mutmut.exe",
+        "results"
+      ],
+      "returncode": 1,
+      "wall_seconds": 0.464,
+      "stdout": "To run mutmut on Windows, please use the WSL. Native windows support is tracked in issue https://github.com/boxed/mutmut/issues/397\n",
+      "stderr": ""
+    }
+  ],
+  "mutmut_static": {
+    "seconds": 0.0214,
+    "count": 8,
+    "changes": [
+      [
+        "n > 1 and enabled",
+        "n > 1 or enabled"
+      ],
+      [
+        " > 1",
+        " >= 1"
+      ],
+      [
+        "1",
+        "2"
+      ],
+      [
+        "n + 2",
+        "n - 2"
+      ],
+      [
+        "2",
+        "3"
+      ],
+      [
+        "0",
+        "1"
+      ],
+      [
+        "-1",
+        "+1"
+      ],
+      [
+        "1",
+        "2"
+      ]
+    ],
+    "arithmetic_copy": "def charge(n, enabled):\n    try:\n        if n > 1 and enabled:\n            return n - 2\n        return 0\n    except TypeError:\n        return -1\n"
+  },
+  "cosmic_static": {
+    "seconds": 0.0045,
+    "registered": 213,
+    "opportunities": {
+      "core/ReplaceBinaryOperator_Add_Sub": [
+        [
+          [
+            4,
+            21
+          ],
+          [
+            4,
+            22
+          ]
+        ]
+      ],
+      "core/ReplaceBinaryOperator_Add_Mul": [
+        [
+          [
+            4,
+            21
+          ],
+          [
+            4,
+            22
+          ]
+        ]
+      ],
+      "core/ReplaceBinaryOperator_Add_Div": [
+        [
+          [
+            4,
+            21
+          ],
+          [
+            4,
+            22
+          ]
+        ]
+      ],
+      "core/ReplaceBinaryOperator_Add_FloorDiv": [
+        [
+          [
+            4,
+            21
+          ],
+          [
+            4,
+            22
+          ]
+        ]
+      ],
+      "core/ReplaceBinaryOperator_Add_Mod": [
+        [
+          [
+            4,
+            21
+          ],
+          [
+            4,
+            22
+          ]
+        ]
+      ],
+      "core/ReplaceBinaryOperator_Add_Pow": [
+        [
+          [
+            4,
+            21
+          ],
+          [
+            4,
+            22
+          ]
+        ]
+      ],
+      "core/ReplaceBinaryOperator_Add_RShift": [
+        [
+          [
+            4,
+            21
+          ],
+          [
+            4,
+            22
+          ]
+        ]
+      ],
+      "core/ReplaceBinaryOperator_Add_LShift": [
+        [
+          [
+            4,
+            21
+          ],
+          [
+            4,
+            22
+          ]
+        ]
+      ],
+      "core/ReplaceBinaryOperator_Add_BitOr": [
+        [
+          [
+            4,
+            21
+          ],
+          [
+            4,
+            22
+          ]
+        ]
+      ],
+      "core/ReplaceBinaryOperator_Add_BitAnd": [
+        [
+          [
+            4,
+            21
+          ],
+          [
+            4,
+            22
+          ]
+        ]
+      ],
+      "core/ReplaceBinaryOperator_Add_BitXor": [
+        [
+          [
+            4,
+            21
+          ],
+          [
+            4,
+            22
+          ]
+        ]
+      ],
+      "core/ReplaceComparisonOperator_Gt_Eq": [
+        [
+          [
+            3,
+            13
+          ],
+          [
+            3,
+            14
+          ]
+        ]
+      ],
+      "core/ReplaceComparisonOperator_Gt_NotEq": [
+        [
+          [
+            3,
+            13
+          ],
+          [
+            3,
+            14
+          ]
+        ]
+      ],
+      "core/ReplaceComparisonOperator_Gt_Lt": [
+        [
+          [
+            3,
+            13
+          ],
+          [
+            3,
+            14
+          ]
+        ]
+      ],
+      "core/ReplaceComparisonOperator_Gt_LtE": [
+        [
+          [
+            3,
+            13
+          ],
+          [
+            3,
+            14
+          ]
+        ]
+      ],
+      "core/ReplaceComparisonOperator_Gt_GtE": [
+        [
+          [
+            3,
+            13
+          ],
+          [
+            3,
+            14
+          ]
+        ]
+      ],
+      "core/ReplaceUnaryOperator_USub_UAdd": [
+        [
+          [
+            7,
+            15
+          ],
+          [
+            7,
+            16
+          ]
+        ]
+      ],
+      "core/ReplaceUnaryOperator_USub_Invert": [
+        [
+          [
+            7,
+            15
+          ],
+          [
+            7,
+            16
+          ]
+        ]
+      ],
+      "core/ReplaceUnaryOperator_USub_Not": [
+        [
+          [
+            7,
+            15
+          ],
+          [
+            7,
+            16
+          ]
+        ]
+      ],
+      "core/ReplaceUnaryOperator_Delete_USub": [
+        [
+          [
+            7,
+            15
+          ],
+          [
+            7,
+            16
+          ]
+        ]
+      ],
+      "core/AddNot": [
+        [
+          [
+            3,
+            11
+          ],
+          [
+            3,
+            28
+          ]
+        ]
+      ],
+      "core/ReplaceAndWithOr": [
+        [
+          [
+            3,
+            17
+          ],
+          [
+            3,
+            20
+          ]
+        ]
+      ],
+      "core/ExceptionReplacer": [
+        [
+          [
+            6,
+            11
+          ],
+          [
+            6,
+            20
+          ]
+        ]
+      ],
+      "core/NumberReplacer": [
+        [
+          [
+            3,
+            15
+          ],
+          [
+            3,
+            16
+          ]
+        ],
+        [
+          [
+            3,
+            15
+          ],
+          [
+            3,
+            16
+          ]
+        ],
+        [
+          [
+            4,
+            23
+          ],
+          [
+            4,
+            24
+          ]
+        ],
+        [
+          [
+            4,
+            23
+          ],
+          [
+            4,
+            24
+          ]
+        ],
+        [
+          [
+            5,
+            15
+          ],
+          [
+            5,
+            16
+          ]
+        ],
+        [
+          [
+            5,
+            15
+          ],
+          [
+            5,
+            16
+          ]
+        ],
+        [
+          [
+            7,
+            16
+          ],
+          [
+            7,
+            17
+          ]
+        ],
+        [
+          [
+            7,
+            16
+          ],
+          [
+            7,
+            17
+          ]
+        ]
+      ]
+    },
+    "arithmetic_copy": "def charge(n, enabled):\n    try:\n        if n > 1 and enabled:\n            return n - 2\n        return 0\n    except TypeError:\n        return -1\n"
+  },
+  "cosmic_init": {
+    "command": [
+      "cosmic-ray.exe",
+      "init",
+      "cosmic.toml",
+      "session.sqlite"
+    ],
+    "returncode": 0,
+    "wall_seconds": 1.958,
+    "stdout": "",
+    "stderr": ""
+  },
+  "cosmic_baseline": {
+    "command": [
+      "cosmic-ray.exe",
+      "baseline",
+      "cosmic.toml"
+    ],
+    "returncode": 0,
+    "wall_seconds": 2.491,
+    "stdout": "",
+    "stderr": ""
+  },
+  "cosmic_exec": {
+    "command": [
+      "cosmic-ray.exe",
+      "exec",
+      "cosmic.toml",
+      "session.sqlite"
+    ],
+    "returncode": 0,
+    "wall_seconds": 28.715,
+    "stdout": "",
+    "stderr": ""
+  },
+  "cosmic_dump": {
+    "command": [
+      "cosmic-ray.exe",
+      "dump",
+      "session.sqlite"
+    ],
+    "returncode": 0,
+    "wall_seconds": 1.687,
+    "stderr": "",
+    "outcomes": {
+      "killed": 24,
+      "survived": 7
+    }
+  },
+  "parallel": {
+    "workers": 2,
+    "total_seconds": 15.931,
+    "processes": [
+      {
+        "command": [
+          "cosmic-ray.exe",
+          "exec",
+          "cosmic.toml",
+          "session.sqlite"
+        ],
+        "returncode": 0,
+        "wall_seconds": 15.93,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "cosmic-ray.exe",
+          "exec",
+          "cosmic.toml",
+          "session.sqlite"
+        ],
+        "returncode": 0,
+        "wall_seconds": 14.952,
+        "stdout": "",
+        "stderr": ""
+      }
+    ],
+    "unique_jobs": 31,
+    "outcomes": {
+      "killed": 24,
+      "survived": 7
+    }
+  },
+  "native_classification_probe": {
+    "timeout": [
+      "killed",
+      "timeout"
+    ],
+    "missing_pytest_path": [
+      "killed",
+      "\r\nno tests ran in 0.00s\r\n"
+    ]
+  }
+}

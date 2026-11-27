@@ -1,0 +1,148 @@
+{
+  "original": {
+    "status": "passed",
+    "passed": 2,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_enabled",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_type_fallback",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 0,
+    "covered_lines": 6,
+    "total_lines": 7,
+    "coverage_pct": 85.71,
+    "log": "..\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_enabled\nPASSED test_generated.py::test_type_fallback\n2 passed in 0.06s",
+    "duration_ms": 6235,
+    "stdout": "..\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_enabled\nPASSED test_generated.py::test_type_fallback\n2 passed in 0.06s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [],
+    "failure_details_omitted": 0,
+    "covered_branches": 1,
+    "total_branches": 2,
+    "branch_pct": 50.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    }
+  },
+  "cosmic": {
+    "status": "failed",
+    "passed": 1,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_enabled",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_type_fallback",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 6,
+    "total_lines": 7,
+    "coverage_pct": 85.71,
+    "log": "F.\n=================================== FAILURES ===================================\n_________________________________ test_enabled _________________________________\ntest_generated.py:4: in test_enabled\n    assert charge(3, True) == 5\nE   assert 1 == 5\nE    +  where 1 = charge(3, True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_type_fallback\nFAILED test_generated.py::test_enabled - assert 1 == 5\n1 failed, 1 passed in 0.17s",
+    "duration_ms": 6359,
+    "stdout": "F.\n=================================== FAILURES ===================================\n_________________________________ test_enabled _________________________________\ntest_generated.py:4: in test_enabled\n    assert charge(3, True) == 5\nE   assert 1 == 5\nE    +  where 1 = charge(3, True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_type_fallback\nFAILED test_generated.py::test_enabled - assert 1 == 5\n1 failed, 1 passed in 0.17s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_enabled",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 1 == 5\n +  where 1 = charge(3, True)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 4,
+            "function": "test_enabled",
+            "source": "assert charge(3, True) == 5"
+          }
+        ],
+        "assertion_diff": "assert 1 == 5\n +  where 1 = charge(3, True)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 1,
+    "total_branches": 2,
+    "branch_pct": 50.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    }
+  },
+  "mutmut-static": {
+    "status": "failed",
+    "passed": 1,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_enabled",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_type_fallback",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 6,
+    "total_lines": 7,
+    "coverage_pct": 85.71,
+    "log": "F.\n=================================== FAILURES ===================================\n_________________________________ test_enabled _________________________________\ntest_generated.py:4: in test_enabled\n    assert charge(3, True) == 5\nE   assert 1 == 5\nE    +  where 1 = charge(3, True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_type_fallback\nFAILED test_generated.py::test_enabled - assert 1 == 5\n1 failed, 1 passed in 0.17s",
+    "duration_ms": 6569,
+    "stdout": "F.\n=================================== FAILURES ===================================\n_________________________________ test_enabled _________________________________\ntest_generated.py:4: in test_enabled\n    assert charge(3, True) == 5\nE   assert 1 == 5\nE    +  where 1 = charge(3, True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_type_fallback\nFAILED test_generated.py::test_enabled - assert 1 == 5\n1 failed, 1 passed in 0.17s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_enabled",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 1 == 5\n +  where 1 = charge(3, True)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 4,
+            "function": "test_enabled",
+            "source": "assert charge(3, True) == 5"
+          }
+        ],
+        "assertion_diff": "assert 1 == 5\n +  where 1 = charge(3, True)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 1,
+    "total_branches": 2,
+    "branch_pct": 50.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    }
+  }
+}
