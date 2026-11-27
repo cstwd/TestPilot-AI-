@@ -1,6 +1,6 @@
 # TestPilot AI
 
-智能软件测试生成与缺陷检测平台。当前版本提供本地 Dashboard、SQLite 健康检查和一次可以从浏览器发起的 Pytest 自检。F01–F06 的业务验收场景见[需求规格](docs/SPEC.md)。
+智能软件测试生成与缺陷检测平台。在同一个本地工作台导入 Python 源码、查看 AST、生成并运行测试、确认缺陷、回归修复并导出质量报告。应用使用 FastAPI、Jinja2 和 SQLite；所有页面由根入口启动的单一服务提供。
 
 ## Windows 11 上使用 PyCharm
 
@@ -21,11 +21,21 @@
 | 缺少依赖 | 对照 Run 控制台首行与项目 Interpreter 路径，用该解释器安装根目录依赖。 |
 | SQLite 初始化问题 | 默认路径为 `data/testpilot.sqlite3`。检查数据目录写权限、数据库版本和控制台异常。可在运行配置环境变量中用 `TESTPILOT_DATA_DIR` 指定独立数据目录。 |
 
+## 用一个真实缺陷演示六个模块
+
+1. 从仪表盘进入 **项目与文件**，创建项目并导入[缺陷版 magnitude.py](eval/phase02/buggy/magnitude.py)。文件中的 doctest 约定负数的绝对值应为正。
+2. 在 **代码分析** 选择该版本，查看 `magnitude(x: int) -> int` 的签名和行号。进入测试生成，选择 `magnitude` 并点击 **生成并验证**。
+3. 生成页显示套件编号、生成方式、真实首跑状态与测试源码。当前安装使用本地模板，无需模型密钥。首次运行会在本机编译并缓存 WASI 运行时，后续复用缓存。在 **测试执行** 查看失败节点、日志和实测行覆盖率。
+4. 在 **缺陷管理** 从失败的 `test_example_3` 登记一个缺陷。回到原项目导入[修复版同名文件](eval/phase02/fixed/magnitude.py)，选择新版本并点击 **运行回归**。只有原套件和原失败节点在修复版上通过，缺陷才会显示已解决。
+5. 在 **质量报告** 选择修复前或修复后的运行，核对通过、失败、错误、跳过及关联缺陷，下载同一份 JSON。通过率分母排除跳过项，覆盖率衡量该文件的可执行行。
+
+单次导入支持 128 KiB 以内的 UTF-8 单文件。业务测试在独立 WASI CPython 中运行，仅挂载只读源码及测试依赖，禁用网络和子进程。依赖已安装后可离线执行。当前来宾不支持 Hypothesis 的原生扩展，适用的属性建议随套件保存，相应用例记录为跳过；普通测试继续执行。
+
 ## 模块与验收
 
 - [入口](main.py)和[共享运行配置](.run/TestPilot_AI.run.xml)控制本地启动。[后端](backend/)提供路由、数据库探测与固定自检，[前端](frontend/)由同一服务发布 Jinja2 模板、CSS 和 JavaScript。
 - [架构](docs/ARCHITECTURE.md)、[功能映射](docs/FEATURE_MAP.md)、[三天计划](docs/THREE_DAY_PLAN.md)描述三天范围。[工作包](docs/work-packages/)和[贡献表](collab-log/member_contributions.md)列出负责人、实际操作和验收归属。
-- [本阶段验收报告](TP_PHASE_01_ACCEPTANCE.md)包含真实的 PyCharm Run、浏览器操作、断点、重启与端口冲突证据。
+- [PHASE-02 验收报告](TP_PHASE_02_ACCEPTANCE.md)索引六个模块、真实回归记录及导出样本。[PHASE-01 历史报告](TP_PHASE_01_ACCEPTANCE.md)保留初始启动与环境验收证据。
 
 可从 PyCharm 的测试运行配置执行 `tests/`。需要在 PowerShell 独立复验时，从项目根目录运行以下命令。本机浏览器验收采用已安装的 Microsoft Edge。
 
@@ -33,4 +43,4 @@
 .\.venv\Scripts\python.exe -m pytest tests -q
 ```
 
-当前工程只执行随项目发布的固定样例。项目导入、AI 生成测试以及对用户代码的受限执行将在后续阶段交付。
+首次部署请为 WASI 运行时缓存预留约 336 MB 磁盘空间。执行器一次受理一个运行；繁忙时页面提示重试。日志达到限额会中止当前运行并记录证据不完整。

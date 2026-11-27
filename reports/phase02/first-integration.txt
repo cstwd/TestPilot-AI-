@@ -1,0 +1,55 @@
+................................F..                                      [100%]
+================================== FAILURES ===================================
+__________________________________ test_f04 ___________________________________
+
+page = <Page url='http://127.0.0.1:53974/workbench/runs?project=1&file=1&suite=1&run=2'>
+
+    def test_f04(page):
+        project, file, suite = prepare_suite(page, "ִ������")
+        page.goto(f"/workbench/runs?project={project}&file={file}&suite={suite}")
+        with page.expect_response(lambda r: r.url.endswith(f"/api/suites/{suite}/runs") and r.request.method == "POST", timeout=120_000) as response:
+            page.get_by_role("button", name="ִ�в���").click()
+>       run_id = response.value.json()["id"]
+                 ^^^^^^^^^^^^^^^^^^^^^
+
+tests\ui_workbench.py:89: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv\Lib\site-packages\playwright\sync_api\_generated.py:22331: in json
+    return mapping.from_maybe_impl(self._sync(self._impl_obj.json()))
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\playwright\_impl\network.py:1061: in json
+    content = await self.text()
+              ^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\playwright\_impl\network.py:1057: in text
+    content = await self.body()
+              ^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\playwright\_impl\network.py:1053: in body
+    (await self._channel.body(timeout=NO_TIMEOUT))["binary"]
+     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\playwright\_impl\channel_owner.py:398: in _mapped
+    return mapper(await awaitable)
+                  ^^^^^^^^^^^^^^^
+.venv\Lib\site-packages\playwright\_impl\channel_owner.py:387: in finish
+    raise e from None
+.venv\Lib\site-packages\playwright\_impl\channel_owner.py:352: in finish
+    result = await zone.run_async(lambda: awaitable)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <playwright._impl.utils.zones.Zone object at 0x00000180BC21E210>
+func = <function ChannelOwner._wrap_api_call.<locals>.finish.<locals>.<lambda> at 0x00000180BC2E0720>
+
+    async def run_async(self, func: Callable[[], Awaitable[R]]) -> R:
+        # Python: run() of an async function. The coroutine runs when it is awaited,
+        # so the zone must be current while it is awaited, not while it is created.
+        token = _async_local_storage.set(self)
+        try:
+>           return await func()
+                   ^^^^^^^^^^^^
+E           playwright._impl._errors.Error: Response.json: Protocol error (Network.getResponseBody): No resource with given identifier found
+E           Response body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.
+
+.venv\Lib\site-packages\playwright\_impl\utils\zones.py:58: Error
+=========================== short test summary info ===========================
+FAILED tests/ui_workbench.py::test_f04 - playwright._impl._errors.Error: Resp...
+1 failed, 34 passed in 169.20s (0:02:49)
