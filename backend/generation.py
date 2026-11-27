@@ -9,6 +9,7 @@ from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
 
 from .analysis import analyze
+from .runs import run_suite
 from .store import connect, many, one
 
 router = APIRouter(prefix="/api")
@@ -125,7 +126,6 @@ def unpack(row):
     return {**row, "suggestions": json.loads(row["suggestions"]), "format_checked": True}
 
 
-@router.post("/files/{file_id}/suites")
 def generate(file_id: int, item: GenerateInput, request: Request):
     path = request.app.state.db_path
     adapter = request.app.state.generators.get(item.mode)
@@ -146,6 +146,16 @@ def generate(file_id: int, item: GenerateInput, request: Request):
                           (file_id, item.target, item.mode, digest)))
 
 
+@router.post("/files/{file_id}/suites")
+def generate_and_validate(file_id: int, item: GenerateInput, request: Request):
+    suite = generate(file_id, item, request)
+    saved = read_suite(suite["id"], request)
+    if saved["initial_run"] is None:
+        run_suite(request.app.state.db_path, suite["id"], file_id, reuse_existing=True)
+        return read_suite(suite["id"], request)
+    return saved
+
+
 @router.get("/files/{file_id}/suites")
 def list_suites(file_id: int, request: Request):
     with connect(request.app.state.db_path) as db:
@@ -156,4 +166,8 @@ def list_suites(file_id: int, request: Request):
 @router.get("/suites/{suite_id}")
 def read_suite(suite_id: int, request: Request):
     with connect(request.app.state.db_path) as db:
-        return unpack(one(db, "SELECT * FROM suites WHERE id=?", (suite_id,)))
+        suite = unpack(one(db, "SELECT * FROM suites WHERE id=?", (suite_id,)))
+        run = db.execute("SELECT id,status FROM runs WHERE suite_id=? AND file_id=? ORDER BY id LIMIT 1",
+                         (suite_id, suite["file_id"])).fetchone()
+        suite["initial_run"] = dict(run) if run is not None else None
+        return suite

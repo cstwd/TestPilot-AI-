@@ -27,7 +27,7 @@ def run_record(db, key):
     return {**result, **row}
 
 
-def run_suite(path, suite_id, file_id, *, on_saved=None):
+def run_suite(path, suite_id, file_id, *, on_saved=None, reuse_existing=False):
     with connect(path) as db:
         suite = one(db, "SELECT s.source,s.sha256,f.project_id,f.filename FROM suites s JOIN files f "
                         "ON f.id=s.file_id WHERE s.id=?", (suite_id,))
@@ -38,6 +38,12 @@ def run_suite(path, suite_id, file_id, *, on_saved=None):
     if not SLOTS.acquire(blocking=False):
         raise HTTPException(409, "已有受限运行在进行，请稍后重试")
     try:
+        if reuse_existing:
+            with connect(path) as db:
+                existing = db.execute("SELECT id FROM runs WHERE suite_id=? AND file_id=? ORDER BY id LIMIT 1",
+                                      (suite_id, file_id)).fetchone()
+                if existing is not None:
+                    return run_record(db, existing["id"])
         from .runner import execute
         result = execute(file["source"], suite["source"])
         with connect(path, write=True) as db:

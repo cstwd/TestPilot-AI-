@@ -1,0 +1,4 @@
+run=1 file_revision=1 suite=1 status=failed node=test_generated.py::test_example_3 metrics={'passed': 5, 'failed': 1, 'errors': 0, 'skipped': 1, 'pass_rate_pct': 83.33, 'coverage_pct': 100.0}
+run=2 file_revision=2 suite=1 status=passed node=test_generated.py::test_example_3 metrics={'passed': 6, 'failed': 0, 'errors': 0, 'skipped': 1, 'pass_rate_pct': 100.0, 'coverage_pct': 100.0}
+.
+1 passed in 17.57s

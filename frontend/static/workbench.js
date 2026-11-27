@@ -17,7 +17,9 @@ async function api(url, body) {
   const response = await fetch(url, options);
   if (!response.ok) {
     const payload = await response.json().catch(() => ({}));
-    throw new Error(typeof payload.detail === "string" ? payload.detail : "请求失败（HTTP " + response.status + "）");
+    const error = new Error(typeof payload.detail === "string" ? payload.detail : "请求失败（HTTP " + response.status + "）");
+    error.status = response.status;
+    throw error;
   }
   return response.json();
 }

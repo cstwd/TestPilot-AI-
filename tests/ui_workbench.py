@@ -2,6 +2,7 @@
 import os
 import sys
 import json
+from urllib.parse import parse_qs, urlsplit
 
 import pytest
 from playwright.sync_api import expect, sync_playwright
@@ -63,29 +64,38 @@ def test_f03(page):
     page.goto(f"/workbench/analysis?project={project}&file={file}")
     page.get_by_role("link", name="为此函数生成测试").click()
     expect(page.get_by_label("目标函数")).to_have_value("magnitude")
-    page.get_by_role("button", name="生成测试").click()
-    expect(page.locator("#test-source")).to_contain_text("def test_")
+    page.get_by_role("button", name="生成并验证").click()
+    expect(page.locator("#test-source")).to_contain_text("def test_", timeout=120_000)
     expect(page.locator("#suite-detail")).to_contain_text("template")
-    expect(page.get_by_role("link", name="前往执行此测试")).to_have_attribute("href", f"/workbench/runs?project={project}&file={file}&suite=1")
+    expect(page.locator("#initial-status")).to_contain_text("首次 Pytest 运行 #1 · 通过")
     page.reload()
     expect(page.locator("#suite-detail")).to_contain_text("语法检查通过")
+    page.get_by_role("link", name="查看首次执行记录").click()
+    expect(page.locator("#run-identity")).to_contain_text("运行 #1")
 
 
 def prepare_suite(page, name):
     project = page.request.post("/api/projects", data={"name": name}).json()["id"]
     file = import_source(page, project, "def add(x: int) -> int:\n    return x + 1\n")
-    result = page.request.post(f"/api/files/{file}/suites", data={"target": "add", "mode": "template"})
+    result = page.request.post(f"/api/files/{file}/suites", data={"target": "add", "mode": "template"}, timeout=120_000)
     assert result.ok, result.text()
     return project, file, result.json()["id"]
 
 
 def test_f04(page):
     project, file, suite = prepare_suite(page, "执行验收")
+    initial = page.request.get(f"/api/suites/{suite}").json()["initial_run"]["id"]
     page.goto(f"/workbench/runs?project={project}&file={file}&suite={suite}")
-    page.get_by_role("button", name="执行测试").click()
-    expect(page.locator("#run-identity")).to_contain_text("运行 #1", timeout=120_000)
+    with page.expect_response(lambda r: r.url.endswith(f"/api/suites/{suite}/runs") and r.request.method == "POST", timeout=120_000) as response:
+        page.get_by_role("button", name="执行测试").click()
+    assert response.value.ok
+    page.wait_for_url(lambda url: "run" in parse_qs(urlsplit(url).query), timeout=120_000)
+    run_id = int(parse_qs(urlsplit(page.url).query)["run"][0])
+    result = page.request.get(f"/api/runs/{run_id}").json()
+    assert run_id != initial and result["suite_id"] == suite and result["status"] == "passed"
+    expect(page.locator("#run-identity")).to_contain_text(f"运行 #{run_id}", timeout=120_000)
     expect(page.locator("#run-log")).to_contain_text("passed")
-    expect(page.locator("#to-bugs")).to_have_attribute("href", f"/workbench/bugs?project={project}&file={file}&run=1")
+    expect(page.locator("#to-bugs")).to_have_attribute("href", f"/workbench/bugs?project={project}&file={file}&run={run_id}")
 
 
 def test_f05(page):
@@ -93,7 +103,7 @@ def test_f05(page):
     filename = "counter.py"
     source = 'def add(x: int) -> int:\n    """\n    >>> add(1)\n    2\n    """\n    return x\n'
     first = import_source(page, project, source, filename)
-    suite = page.request.post(f"/api/files/{first}/suites", data={"target": "add"}).json()["id"]
+    suite = page.request.post(f"/api/files/{first}/suites", data={"target": "add"}, timeout=120_000).json()["id"]
     failed = page.request.post(f"/api/suites/{suite}/runs", data={"file_id": first}, timeout=120_000).json()
     assert failed["status"] == "failed", failed
     fixed = import_source(page, project, source.replace("return x", "return x + 1"), filename)
