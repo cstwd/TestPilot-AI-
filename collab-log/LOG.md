@@ -1,4 +1,10 @@
-# TP-PHASE-01 协作日志
+# TestPilot AI 协作日志
+
+[五人工作包分类索引及 20 条恢复记录](COURSE_HISTORY.md) · [贡献分配](member_contributions.md) · [原始会话](../transcripts/README.md) · [课程验收](../docs/COURSE_FINAL_REPORT.md)
+
+历史原始记录继续保存在 [PHASE-02](PHASE_02.md)、[PHASE-03](PHASE_03.md) 和 [PHASE-04](PHASE_04.md)。
+
+## TP-PHASE-01 原始协作日志
 
 2026-11-27，Windows 11 本机。组长按任务书统一协调。下表记录此轮可核对的代理操作，不推算成员工时。
 

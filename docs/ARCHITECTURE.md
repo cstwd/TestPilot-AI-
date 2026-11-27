@@ -1,4 +1,4 @@
-# TestPilot AI 技术架构 V1
+# TestPilot AI 技术架构
 
 ## 运行拓扑
 
@@ -38,6 +38,28 @@ SQLite 默认文件为 `data/testpilot.sqlite3`，由 `backend/database.py` 管�
 默认 `demo` 模式采用单实例和常规日志。开发时使用 `--mode dev` 开启调试日志和 `/docs`，断点可设在 `backend/app.py` 的路由函数内。自检由 `backend/self_test.py` 调用，运行期间重复自检返回 HTTP 409。参数、解释器配置及实际验证范围参见 [README](../README.md) 和 [阶段验收](../TP_PHASE_01_ACCEPTANCE.md)。
 
 ## 业务阶段的执行边界
+
+```mermaid
+flowchart LR
+    U[用户] --> W[同源 Web 工作台]
+    W --> P[F01 项目与版本] --> A[F02 AST 分析]
+    A --> G[F03/F09 测试生成] --> R[F04/F10 测试执行]
+    R --> B[F05 缺陷与回归] --> Q[F06 质量报告]
+    R --> M[F13 变异测试] --> F[AI 反馈补测]
+    F --> M
+    G --> L[本机 Qwen3.8-27B / Ollama Vulkan]
+    A -. 源码理解 .-> L
+    F --> L
+    R --> S[WASI CPython + Pytest]
+    M --> S
+    P --> D[(SQLite 证据)]
+    Q --> D
+    M --> D
+```
+
+F13 从已完成的智能引擎任务创建会话。质量报告和变异报告可各自导出。模型 Provider 通过同机回环与受监督的 Ollama 交互，生成源码由业务层静态检查后进入独立 WASI 作业。SQLite 记录文件版本、用例、执行、缺陷、回归和变异会话的联系。[系统规格](SPEC.md) · [运行隔离](phase03/SANDBOX.md) · [模型部署](phase06/DEPLOYMENT.md)
+
+### 初始化时的约束
 
 后续流水线由项目导入、静态分析、测试生成、受限执行、缺陷确认与回归、报告导出组成。导入的 Python 源码先作为数据解析。生成的测试与用户代码具有同一信任级别，均须进入独立受限环境，执行权限、可写目录、网络、时间及资源限额必须有验证证据。受限环境未验收时，业务运行请求保持关闭。当前固定自检只能证明平台可调用测试模块。
 

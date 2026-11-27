@@ -1,6 +1,10 @@
 # TestPilot AI
 
-智能软件测试生成与缺陷检测平台。在同一个本地工作台导入 Python 源码、查看 AST、生成并运行测试、确认缺陷、回归修复并导出质量报告。应用使用 FastAPI、Jinja2 和 SQLite；所有页面由根入口启动的单一服务提供。
+智能软件测试生成与缺陷检测平台。在同一个本地工作台导入 Python 源码、查看 AST、生成并运行测试、确认缺陷、回归修复并导出质量报告。F13 通过变异测试评估套件，并可调用本机 Qwen3.8-27B 为存活变异追加测试。所有页面与 API 由根入口启动的 FastAPI 服务提供。
+
+[产品规格](docs/SPEC.md) · [系统架构图](docs/ARCHITECTURE.md) · [课程验收](docs/COURSE_FINAL_REPORT.md) · [所有证据](docs/COURSE_EVIDENCE_INDEX.md) · [演示与汇报](presentation/README.md)
+
+![TestPilot AI 启动仪表盘](presentation/screenshots/00-dashboard.png)
 
 ## Windows 11 上使用 PyCharm
 
@@ -57,6 +61,19 @@
 2. 在已完成任务中点击 **评估变异测试与补测**。保留“将存活变异提交本机模型补测”并选择 **创建并运行**。页面先列出全部位置，再在隔离执行器中验证原版基线，逐一运行变异副本。
 3. 有存活变异时，F13 通过本机 Ollama 生成追加测试。页面列出前后结果，完整 JSON 提供每一位置的编辑、摘要、Pytest 节点、原版校准结果及模型记录。可终止会话，服务重启后可从已写入 SQLite 的检查点继续未结束的会话。
 
-F13 与 F03、F09、F12 共用本机 Qwen3.8-27B Provider。启动守护服务后，通过 `/api/model/health` 查看最新加载和推理证据。无可用模型时仍可查看真实初测结果及存活位置。[PHASE-06 本机部署](docs/phase06/DEPLOYMENT.md)
+Qwen3.8-27B UD-IQ3_XXS 是统一主模型。使用本机 Ollama 与经核对的现存 GGUF，在项目解释器启动 `python -m eval.phase06.serve --models E:/OllamaModels`，按 PyCharm 主入口运行后访问 `/api/model/health`。监督器在专用回环端口 11763 验证权重、Vulkan 和宿主资源。智能引擎可选“使用已配置模型”。F03 常规工作台使用模板，F03 API 可显式传入 `mode=ai`。模板路径可独立完成 F01–F06 和 F13 初测。[当前部署](docs/phase06/DEPLOYMENT.md)
 
 变异得分为杀死数除以清单总数。报告保留存活、执行错误、超时、终止、未运行及等价候选。得分变化只描述该版本、该算子配置和该组测试的实测效果。[选型实测](docs/phase04/TOOL_SELECTION.md) · [阶段验收](TP_PHASE_04_ACCEPTANCE.md)
+
+## 课程评测与目录
+
+对照使用 10 个冻结项目、3 个种子，每组 117 个预登记位置。0.5B 检出 0/117，模板 81/117，27B 初始 104/117，反馈后 105/117。RTX 5080 Laptop Vulkan 连续 10/10 响应通过，热请求首 Token 中位数 0.553 秒，热请求平均 19.21 token/s，严格源码理解 56/70。[历史对照与方法](reports/phase05/TP_PHASE_05_ACCEPTANCE.md) · [复验命令](docs/COURSE_TESTING.md)
+
+| 目录 | 用途 |
+|---|---|
+| `backend/`、`frontend/` | FastAPI、SQLite、WASI 与工作台 |
+| `tests/`、`eval/` | 工程回归、课程样例与冻结实验 |
+| `docs/`、`reports/` | 规格、部署与原始验收 |
+| `collab-log/`、`transcripts/` | 工作、缺陷与会话证据 |
+| `.claude/`、`mcp-server/`、`hooks/` | 工程工具与用法 |
+| `presentation/` | 截图、汇报与视频 |
