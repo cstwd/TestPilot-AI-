@@ -1,0 +1,7 @@
+[('test_wrong_output', 'program_defect', 'AssertionError'), ('test_wrong_input_assumption', 'test_error', 'ValueError'), ('test_wrong_expected', 'test_error', 'AssertionError'), ('test_unexpected_exception', 'program_defect', 'LookupError'), ('test_missing_exception', 'program_defect', 'Failed'), ('test_unknown_contract', 'undetermined', 'AssertionError'), ('test_test_code', 'test_error', 'NameError'), ('test_skip', 'skipped', None)]
+real traceback [{'path': 'test_generated.py', 'line': 14, 'function': 'test_unexpected_exception', 'source': 'assert target(4) == 25'}, {'path': 'subject.py', 'line': 20, 'function': 'units', 'source': 'raise LookupError("bad")'}]
+assertion difference assert 2 == 50
+ +  where 2 = target(n=2)
+.timeout WASI ִֹͣ�У�deadline
+....
+5 passed in 13.69s
