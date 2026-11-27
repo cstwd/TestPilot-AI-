@@ -4,11 +4,12 @@ import hashlib
 import json
 import keyword
 import operator
+import time
 from itertools import islice, product
 
 from .model_identity import MANIFEST_SHA256, MODEL
 from .model_protocol import MutationCase
-from .model_provider import ModelError, provider
+from .model_provider import ModelError, TIME_LIMIT, provider
 
 
 EXCEPTIONS = {"ValueError", "TypeError", "ZeroDivisionError", "IndexError", "KeyError",
@@ -150,10 +151,15 @@ def supplement(source, target, previous_code, survivors, *, should_cancel=None, 
     if not survivors:
         return {**result,"status":"not_needed","reason":"没有存活变异"}
     proposals = []
+    deadline = time.monotonic() + TIME_LIMIT
     for i, site in enumerate(survivors,1):
         if should_cancel and should_cancel():
             return {**result,"status":"cancelled","reason":"后续本地推理已终止",
                     "pending_ids":[m["id"] for m in survivors[i-1:]]}
+        remaining = deadline-time.monotonic()
+        if remaining<=0:
+            result.update(reason="变异反馈达到总推理时限",pending_ids=[m["id"] for m in survivors[i-1:]])
+            break
         measured = (observations or {}).get(site["id"],{})
         evidence = {k:measured.get(k) for k in ("status","exit_code","passed","failed","coverage_pct","branch_pct")}
         context = {"hint":prompt_for(source,target,previous_code,site),
@@ -178,7 +184,8 @@ def supplement(source, target, previous_code, survivors, *, should_cancel=None, 
             additions(json.dumps({"cases":[case]}),target,survivors,previous_code)
             return case
         try:
-            response=provider.infer("mutation-feedback",msgs,MutationCase,max_tokens=260,seed=seed,validate=validate)
+            response=provider.infer("mutation-feedback",msgs,MutationCase,max_tokens=260,seed=seed,
+                                    validate=validate,timeout=remaining)
             accepted=response.value
             if accepted:
                 proposals.append(accepted)

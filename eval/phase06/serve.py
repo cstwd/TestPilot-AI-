@@ -64,10 +64,11 @@ def main():
         try:
             while proc.poll() is None and not (a.data/"STOP").exists():
                 sample = resources.sample()
-                logs = (a.data/"ollama.log").read_text("utf8", errors="replace")
-                state.update(at=time.time(), pid=proc.pid, resources=sample,
-                             vulkan=any("library=Vulkan" in line and "RTX 5080" in line
-                                        for line in logs.splitlines() if "inference compute" in line))
+                if not state["vulkan"]:
+                    logs = (a.data/"ollama.log").read_text("utf8", errors="replace")
+                    state["vulkan"] = any("library=Vulkan" in line and "RTX 5080" in line
+                                          for line in logs.splitlines() if "inference compute" in line)
+                state.update(at=time.time(), pid=proc.pid, resources=sample)
                 telemetry.write(json.dumps({"at": state["at"], **sample})+"\n")
                 if not headroom(sample):
                     state.update(status="resource_guard")

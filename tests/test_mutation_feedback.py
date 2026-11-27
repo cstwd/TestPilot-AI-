@@ -31,6 +31,13 @@ def test_no_case_preserves_survivor(monkeypatch):
     assert r["status"]=="rejected" and not r["cases"]
     assert r["attempts"][0]["status"]=="no_distinguishing_case"
 
+def test_feedback_budget_leaves_complete_manifest_pending(monkeypatch):
+    clock=iter([1,1+mf.TIME_LIMIT])
+    monkeypatch.setattr(mf.time,"monotonic",lambda:next(clock))
+    result=mf.supplement(SOURCE,"double",PREVIOUS,SURVIVORS)
+    assert result["status"]=="unavailable" and result["pending_ids"]==["sample-id"]
+    assert result["attempts"]==[]
+
 def test_cancel_between_model_calls(monkeypatch):
     cancelled=False
     def infer(*args,**kwargs):
