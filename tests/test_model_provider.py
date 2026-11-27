@@ -25,6 +25,8 @@ def service(tmp_path, monkeypatch):
             return {"models":[{"name":MODEL,"digest":MANIFEST_SHA256}]}
         if route=="/api/show":
             return {"details":{"format":"gguf","quantization_level":"IQ3_XXS"},"model_info":{"general.basename":"Qwen3.8-27B"}}
+        if route=="/api/ps":
+            return {"models":[]}
         raw=responses.pop(0)
         if isinstance(raw,Exception):
             raise raw
@@ -76,6 +78,24 @@ def test_wrong_identity_stops_before_source(service,monkeypatch):
     with pytest.raises(ModelError) as err:
         p.infer("wrong",[],Probe,max_tokens=32)
     assert err.value.kind=="identity"
+
+
+def test_retry_rechecks_changed_endpoint_before_sending_source(service, monkeypatch):
+    p, calls, responses = service
+    states = iter([{"port":11763, "context":4096, "pid":1},
+                   {"port":12763, "context":4096, "pid":2}])
+    monkeypatch.setattr(p, "attest", lambda: next(states))
+    responses.extend(["invalid", '{"ok":true}'])
+    assert p.infer("retry", [], Probe, max_tokens=32).value.ok
+    assert [route for port, route, _ in calls if port == 12763] == [
+        "/api/version", "/api/tags", "/api/show", "/api/chat"]
+
+
+def test_failed_gpu_probe_does_not_report_recent_inference(service):
+    p, _, responses = service
+    responses.append('{"ok":true}')
+    assert p.probe()["state"] == "unavailable"
+    assert not p.has_recent_inference()
 
 
 def test_windows_snapshot_read_retries_without_trusting_stale_state(tmp_path,monkeypatch):

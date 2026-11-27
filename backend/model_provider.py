@@ -32,6 +32,7 @@ class Reply:
     run_id: str
     value: object
     attempts: list
+    health: dict | None = None
 
 
 def json_load(raw):
@@ -107,7 +108,13 @@ class ModelProvider:
                 hint = response.read(1024).decode("utf8","replace")
                 raise ModelError("http", f"Ollama HTTP {response.status}: {hint}")
             if not stream:
-                return json_load(response.read(MAX_BYTES+1))
+                data = response.read(MAX_BYTES + 1)
+                if len(data) > MAX_BYTES:
+                    raise ModelError("overflow", "Ollama 输出超过字节上限")
+                value = json_load(data)
+                if not isinstance(value, dict):
+                    raise ValueError("Expected a JSON object")
+                return value
             parts, length, first, final = [], 0, None, {}
             while True:
                 duration = remaining()
@@ -146,16 +153,23 @@ class ModelProvider:
         port = state["port"]
         version = self._fetch(port,"/api/version",None,deadline).get("version")
         entries = self._fetch(port,"/api/tags",None,deadline).get("models",[])
-        if not version or not any(m.get("name","").casefold()==MODEL.casefold() and
-                                  m.get("digest")==MANIFEST_SHA256 for m in entries):
+        if not isinstance(entries, list):
+            raise ModelError("protocol", "Ollama 模型清单格式无效")
+        if not isinstance(version, str) or not version or not any(
+            isinstance(model, dict) and str(model.get("name", "")).casefold() == MODEL.casefold()
+            and model.get("digest") == MANIFEST_SHA256 for model in entries
+        ):
             raise ModelError("identity","Ollama 实际清单与固定发布版本不一致")
         key = (state["pid"], port, version)
         if self.verified != key:
             show = self._fetch(port,"/api/show",{"model":MODEL},deadline)
             details = show.get("details",{})
+            model_info = show.get("model_info", {})
+            if not isinstance(details, dict) or not isinstance(model_info, dict):
+                raise ModelError("protocol", "Ollama 模型详情格式无效")
             if (show.get("remote_host") or show.get("remote_model") or details.get("format")!="gguf" or
                     details.get("quantization_level")!="IQ3_XXS" or
-                    show.get("model_info",{}).get("general.basename")!="Qwen3.8-27B"):
+                    model_info.get("general.basename")!="Qwen3.8-27B"):
                 raise ModelError("identity","Ollama 权重格式和模型身份校验失败")
             self.verified = key
         return version
@@ -170,7 +184,7 @@ class ModelProvider:
                 raise ModelError("audit", "模型审计记录无法写入") from exc
 
     def infer(self, operation, messages, schema, *, max_tokens, seed=23, temperature=0, validate=None,
-              timeout=TIME_LIMIT):
+              timeout=TIME_LIMIT, check_gpu=False):
         run_id = str(uuid4())
         attempts = []
         start = time.monotonic()
@@ -185,14 +199,17 @@ class ModelProvider:
             if not locked:
                 raise ModelError("queue_timeout","模型排队超时")
             queued_s = time.monotonic()-start
-            state = self.attest()
-            if sum(len(m["content"].encode("utf8")) for m in messages) > (state["context"]-max_tokens)*3:
-                raise ModelError("context","输入超过当前本机上下文的保守字节预算")
-            version = self.verify_identity(state,deadline)
             contract = schema.model_json_schema()
             request_messages = list(messages)
+            identity = None
             for attempt in range(1,3):
                 state = self.attest()
+                if sum(len(m["content"].encode("utf8")) for m in request_messages) > (state["context"]-max_tokens)*3:
+                    raise ModelError("context","输入超过当前本机上下文的保守字节预算")
+                endpoint = (state["pid"], state["port"])
+                if identity != endpoint:
+                    version = self.verify_identity(state, deadline)
+                    identity = endpoint
                 sent = time.monotonic()
                 result = self._fetch(state["port"],"/api/chat",{
                     "model":MODEL,"messages":request_messages,"format":contract,"stream":True,
@@ -224,9 +241,11 @@ class ModelProvider:
                 self._write({"operation":operation,"model":MODEL,"manifest":MANIFEST_SHA256,
                              "backend_version":version,"queue_s":queued_s,"at":time.time(),**note})
                 if note["status"] == "accepted":
+                    health = self.gpu_allocation(state, deadline) if check_gpu else None
                     self.status = {"state":"ready","model":DISPLAY_NAME,"manifest":MANIFEST_SHA256,
-                                   "backend_version":version,"at":time.time(),"run_id":run_id,"pid":state["pid"]}
-                    return Reply(run_id,value,attempts)
+                                   "backend_version":version,"at":time.time(),"run_id":run_id,
+                                   "pid":state["pid"], "port":state["port"]}
+                    return Reply(run_id,value,attempts,{**self.status, **health} if health else None)
                 request_messages = [*messages,{"role":"user","content":
                     f"Previous response rejected ({note['reason']}). Return a complete object matching this schema: "
                     +json.dumps(contract,ensure_ascii=False)}]
@@ -241,18 +260,27 @@ class ModelProvider:
                 self.active.release()
             self.slots.release()
 
+    def gpu_allocation(self, state, deadline):
+        latest = self.attest()
+        if (latest["pid"], latest["port"]) != (state["pid"], state["port"]):
+            raise ModelError("unavailable", "Ollama 在校验期间已重启")
+        ps = self._fetch(state["port"], "/api/ps", None, min(deadline, time.monotonic() + 5))
+        models = ps.get("models")
+        if not isinstance(models, list):
+            raise ModelError("protocol", "Ollama 模型加载清单格式无效")
+        for model in models:
+            if (isinstance(model, dict) and str(model.get("name", "")).casefold() == MODEL.casefold()
+                    and model.get("digest") == MANIFEST_SHA256
+                    and type(model.get("size_vram")) is int and model["size_vram"] > 0):
+                return {"vulkan": True, "weight_sha256": WEIGHT_SHA256, "revision": REVISION,
+                        "context": state["context"], "size_vram": model["size_vram"], "resources": latest["resources"]}
+        raise ModelError("identity", "Ollama 未报告已加载的固定权重与 GPU 分配")
+
     def probe(self):
         try:
-            self.infer("health",[{"role":"user","content":"Return the JSON object with ok set to true."}],
-                       Probe,max_tokens=32)
-            s = self.attest()
-            ps = self._fetch(s["port"],"/api/ps",None,time.monotonic()+5)
-            active = next((m for m in ps.get("models",[]) if m.get("name","").casefold()==MODEL.casefold()
-                           and m.get("digest")==MANIFEST_SHA256 and (m.get("size_vram") or 0)>0),None)
-            if not active:
-                raise ModelError("identity","Ollama 未报告已加载的固定权重与 GPU 分配")
-            return {**self.status,"vulkan":True,"weight_sha256":WEIGHT_SHA256,"revision":REVISION,
-                    "context":s["context"],"size_vram":active["size_vram"],"resources":s["resources"]}
+            reply = self.infer("health", [{"role":"user","content":"Return the JSON object with ok set to true."}],
+                               Probe, max_tokens=32, check_gpu=True)
+            return reply.health
         except ModelError as exc:
             return {"state":"unavailable","model":DISPLAY_NAME,"kind":exc.kind,"reason":str(exc)}
 
@@ -262,7 +290,7 @@ class ModelProvider:
         except ModelError:
             return False
         observed = self.status
-        return (observed["state"]=="ready" and observed["pid"]==state["pid"]
+        return (observed["state"]=="ready" and (observed["pid"], observed["port"])==(state["pid"], state["port"])
                 and time.time()-observed["at"]<=300)
 
 
