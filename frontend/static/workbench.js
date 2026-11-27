@@ -52,23 +52,12 @@ function form(id, action) {
   });
 }
 
-function showEmpty(text, dest = "projects", label = "前往项目与文件") {
-  const section = document.createElement("section");
-  const prompt = document.createElement("p");
-  prompt.textContent = text;
-  const anchor = document.createElement("a");
-  anchor.href = link(dest);
-  anchor.textContent = label;
-  section.append(prompt, anchor);
-  $("content").replaceChildren(section);
-}
-
 async function start() {
   const projectWorkspace = page === "projects" ? await import("./projects.js") : null;
   if (projectWorkspace) projectWorkspace.bindProjectPanels($);
   const changeProject = () => location.assign(link(page, {file: ""}));
   const projects = await api("/api/projects");
-  const requireExplicitMatch = ["analysis", "projects", "generation", "runs", "bugs"].includes(page);
+  const requireExplicitMatch = ["analysis", "projects", "generation", "runs", "bugs", "reports"].includes(page);
   populate(project, projects, row => row.name, params.get("project"), "请先创建项目");
   if (requireExplicitMatch && params.get("project") && project.value !== params.get("project")) project.selectedIndex = -1;
   if (projectWorkspace) {
@@ -102,8 +91,7 @@ async function start() {
   }
   if (page === "reports") {
     const {showReports} = await import("./reports.js");
-    if (!project.value) return showEmpty("先创建项目并执行测试，质量报告将使用该次运行的结果。");
-    await showReports({$, api, link, populate, params, projectId: project.value, showEmpty});
+    await showReports({$, api, link, params, projectId: project.value, files});
   }
 }
 
@@ -128,5 +116,9 @@ start().catch(async error => {
   if (page === "bugs") {
     const {showBugsError} = await import("./bugs.js");
     showBugsError($, error);
+  }
+  if (page === "reports") {
+    const {showReportsError} = await import("./reports.js");
+    showReportsError($, error);
   }
 });

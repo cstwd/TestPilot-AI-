@@ -71,8 +71,8 @@ function caseName(nodeid) {
   return delimiter >= 0 ? nodeid.slice(delimiter + 2) : "收集 · " + nodeid;
 }
 
-export function setupPager(node, size, render) {
-  let page = 0;
+export function setupPager(node, size, render, activeIndex = 0) {
+  let page = Math.floor(Math.max(0, activeIndex) / size);
   const previous = node.querySelector('[data-step="-1"]');
   const next = node.querySelector('[data-step="1"]');
   previous.onclick = () => { page--; render(); };
