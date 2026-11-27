@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:36:57.038325+00:00",
+  "id": "63cdecd8-6216-4c3a-8807-5ce4d6d3bd10",
+  "parent": "d7a096ec-d6e4-4dc4-9b1c-da95b5fbc811",
+  "seconds": 0.0006857999978819862,
+  "artifact": {
+    "code": "import sys as _tp_sys, types as _tp_types\n_tp_m = _tp_types.ModuleType('policy')\n_tp_m.__file__ = 'policy.py'\n_tp_sys.modules['policy'] = _tp_m\nexec(compile('RATE = 5\\n', _tp_m.__file__, 'exec'), _tp_m.__dict__)\n\nfrom subject import tax\n\ndef test_example_1():\n    assert tax(100) == 5\n\ndef test_boundary_zero():\n    assert tax(0) == 0\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "no surviving mutant; replay the complete manifest"
+}

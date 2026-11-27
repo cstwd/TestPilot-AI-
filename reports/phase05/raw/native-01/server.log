@@ -1,0 +1,33 @@
+0.00.206.688 I srv  llama_server: initializing ...
+0.00.206.712 I cmn  common_param: common_params_print_info: verbosity = 3 (adjust with the `-lv N` CLI arg)
+0.00.206.856 I srv  init_listene: The UI is disabled
+0.00.206.856 I srv  init_listene: Use --ui/--no-ui (or deprecated --webui/--no-webui) to enable/disable
+0.00.207.005 W srv  server_setup: security: no API key is set and CORS allows all origins (see https://github.com/ggml-org/llama.cpp/pull/25655)
+0.00.219.364 I srv    load_model: loading model 'D:\TestPilot AI\.runtime\tp-model-001\Qwen3.8-27B-UD-IQ3_XXS-fixed.gguf'
+0.00.803.060 W model has unused tensor blk.64.attn_norm.weight (size = 20480 bytes) -- ignoring
+0.00.803.078 W model has unused tensor blk.64.post_attention_norm.weight (size = 20480 bytes) -- ignoring
+0.00.803.098 W model has unused tensor blk.64.attn_q.weight (size = 51609600 bytes) -- ignoring
+0.00.803.105 W model has unused tensor blk.64.attn_k.weight (size = 5570560 bytes) -- ignoring
+0.00.803.112 W model has unused tensor blk.64.attn_v.weight (size = 5570560 bytes) -- ignoring
+0.00.803.139 W model has unused tensor blk.64.attn_output.weight (size = 25804800 bytes) -- ignoring
+0.00.803.147 W model has unused tensor blk.64.attn_q_norm.weight (size = 1024 bytes) -- ignoring
+0.00.803.154 W model has unused tensor blk.64.attn_k_norm.weight (size = 1024 bytes) -- ignoring
+0.00.803.162 W model has unused tensor blk.64.ffn_gate.weight (size = 73113600 bytes) -- ignoring
+0.00.803.169 W model has unused tensor blk.64.ffn_down.weight (size = 73113600 bytes) -- ignoring
+0.00.803.176 W model has unused tensor blk.64.ffn_up.weight (size = 73113600 bytes) -- ignoring
+0.00.803.185 W model has unused tensor blk.64.nextn.eh_proj.weight (size = 43008000 bytes) -- ignoring
+0.00.803.194 W model has unused tensor blk.64.nextn.enorm.weight (size = 20480 bytes) -- ignoring
+0.00.803.201 W model has unused tensor blk.64.nextn.hnorm.weight (size = 20480 bytes) -- ignoring
+0.00.803.224 W model has unused tensor blk.64.nextn.shared_head_norm.weight (size = 20480 bytes) -- ignoring
+0.41.210.327 I cmn          init: llama threadpool init, n_threads = 12
+0.54.354.627 I srv    load_model: initializing, n_slots = 1, n_ctx_slot = 8192, kv_unified = 'false'
+0.54.379.188 W srv          init: chat template supports preserving reasoning, it is enabled by default (may use more tokens, disable via --no-reasoning-preserve)
+0.54.379.759 I srv  server_run_i: model loaded
+0.54.381.923 I srv  server_on_li: listening on http://127.0.0.1:11753
+0.54.655.621 I slot       select: id  0 | task -1 | selected slot by LRU, n_tokens = 0, t_last = -1
+0.54.655.753 I slot launch_slot_: id  0 | task 0 | processing task, is_child = 0
+ptxas fatal   : Memory allocation failure
+2.23.932.248 E CUDA error: a PTX JIT compilation failed
+C:\a\ollama\ollama\build\llama-server-cuda_v13\_deps\llama_cpp-src\ggml\src\ggml-cuda\ggml-cuda.cu:119: CUDA error
+2.23.932.603 E   current device: 0, in function launch_mul_mat_q at C:\a\ollama\ollama\build\llama-server-cuda_v13\_deps\llama_cpp-src\ggml\src\ggml-cuda\template-instances\../mmq.cuh:1496
+2.23.932.610 E   cudaFuncSetAttribute((mul_mat_q<type, J, fallback, prec_src1, has_fusion>), cudaFuncAttributeMaxDynamicSharedMemorySize, nbytes_shared)

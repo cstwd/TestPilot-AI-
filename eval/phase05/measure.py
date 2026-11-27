@@ -3,6 +3,7 @@ import argparse
 import ast
 from concurrent.futures import ProcessPoolExecutor
 import json
+import msvcrt
 import os
 from pathlib import Path
 import time
@@ -53,6 +54,24 @@ def calibrate(code, trial):
 
 
 def run_one(args):
+    name, seed, arm = args
+    locks = LAB.parents[1] / ".runtime" / "phase05-locks"
+    locks.mkdir(parents=True, exist_ok=True)
+    with (locks / f"{name}-{seed}-{arm}.lock").open("a+b") as lock:
+        lock.seek(0)
+        try:
+            msvcrt.locking(lock.fileno(), msvcrt.LK_NBLCK, 1)
+        except OSError:
+            return "active in another worker"
+        try:
+            run_campaign(args)
+            return "archived"
+        finally:
+            lock.seek(0)
+            msvcrt.locking(lock.fileno(), msvcrt.LK_UNLCK, 1)
+
+
+def run_campaign(args):
     name,seed,arm=args
     p=get(name)
     out=directory(name,seed,arm)
@@ -123,8 +142,7 @@ def main():
         while pending or active:
             for key,future in list(active.items()):
                 if future.done():
-                    future.result()
-                    print(*key, "archived",flush=True)
+                    print(*key, future.result(),flush=True)
                     del active[key]
             for args in list(pending):
                 if len(active)>=a.workers:

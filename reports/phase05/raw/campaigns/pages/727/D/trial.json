@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "passed": 4,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_one_item",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_page_size_plus_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_two_full_pages_plus_one",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_one_item\nPASSED test_generated.py::test_boundary_page_size_plus_one\nPASSED test_generated.py::test_two_full_pages_plus_one\n4 passed in 0.07s",
+  "duration_ms": 5615,
+  "stdout": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_one_item\nPASSED test_generated.py::test_boundary_page_size_plus_one\nPASSED test_generated.py::test_two_full_pages_plus_one\n4 passed in 0.07s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "e3739c57-a7b7-4017-b217-4746107a69e1",
+  "started": "2026-11-27T08:35:52.912801+00:00",
+  "ended": "2026-11-27T08:35:58.528175+00:00",
+  "source_sha256": "1379dd26ef046cd5341c7e2a7fc476e7d64f25a5a56ab200fb2a7a024e32d0b5",
+  "test_sha256": "0fbb8603478f9b769723613aea3dbebbde773dcc3db2c816a32f75290cde855d"
+}

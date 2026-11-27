@@ -1,0 +1,13 @@
+{
+  "name": "tier",
+  "seed": 513,
+  "arm": "A",
+  "planned": 7,
+  "baseline": false,
+  "score": null,
+  "reason": "no validated suite from assigned generator",
+  "outcomes": {},
+  "id": "81716068-01e6-4cdb-9730-ef6491440a9c",
+  "generated": "fc60f01b-1363-4ca0-99bc-550f263d109e",
+  "finished": "2026-11-27T08:21:58.663287+00:00"
+}

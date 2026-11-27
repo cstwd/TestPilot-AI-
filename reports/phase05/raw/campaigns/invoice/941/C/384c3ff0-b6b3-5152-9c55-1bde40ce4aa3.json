@@ -1,0 +1,125 @@
+{
+  "id": "384c3ff0-b6b3-5152-9c55-1bde40ce4aa3",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_empty_values_with_discount",
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_single_value_discount_exceeds_total",
+      "test_generated.py::test_single_value_no_discount"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 0,
+    "failed": 4,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_empty_values_with_discount",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_single_value_no_discount",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_single_value_discount_exceeds_total",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 7,
+    "total_lines": 7,
+    "coverage_pct": 100.0,
+    "log": "FFFF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:10: in test_example_1\n    assert invoice([4, -2, 3], 2) == 5\nE   assert None == 5\nE    +  where None = invoice([4, -2, 3], 2)\n_______________________ test_empty_values_with_discount ________________________\ntest_generated.py:13: in test_empty_values_with_discount\n    assert invoice([], 2) == 0\nE   assert None == 0\nE    +  where None = invoice([], 2)\n________________________ test_single_value_no_discount _________________________\ntest_generated.py:16: in test_single_value_no_discount\n    assert invoice([1], 0) == 1\nE   assert None == 1\nE    +  where None = invoice([1], 0)\n___________________ test_single_value_discount_exceeds_total ___________________\ntest_generated.py:19: in test_single_value_discount_exceeds_total\n    assert invoice([1], 2) == 0\nE   assert None == 0\nE    +  where None = invoice([1], 2)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert None == 5\nFAILED test_generated.py::test_empty_values_with_discount - assert None == 0\nFAILED test_generated.py::test_single_value_no_discount - assert None == 1\nFAILED test_generated.py::test_single_value_discount_exceeds_total - assert N...\n4 failed in 0.35s",
+    "duration_ms": 7190,
+    "stdout": "FFFF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:10: in test_example_1\n    assert invoice([4, -2, 3], 2) == 5\nE   assert None == 5\nE    +  where None = invoice([4, -2, 3], 2)\n_______________________ test_empty_values_with_discount ________________________\ntest_generated.py:13: in test_empty_values_with_discount\n    assert invoice([], 2) == 0\nE   assert None == 0\nE    +  where None = invoice([], 2)\n________________________ test_single_value_no_discount _________________________\ntest_generated.py:16: in test_single_value_no_discount\n    assert invoice([1], 0) == 1\nE   assert None == 1\nE    +  where None = invoice([1], 0)\n___________________ test_single_value_discount_exceeds_total ___________________\ntest_generated.py:19: in test_single_value_discount_exceeds_total\n    assert invoice([1], 2) == 0\nE   assert None == 0\nE    +  where None = invoice([1], 2)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert None == 5\nFAILED test_generated.py::test_empty_values_with_discount - assert None == 0\nFAILED test_generated.py::test_single_value_no_discount - assert None == 1\nFAILED test_generated.py::test_single_value_discount_exceeds_total - assert N...\n4 failed in 0.35s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 5\n +  where None = invoice([4, -2, 3], 2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_example_1",
+            "source": "assert invoice([4, -2, 3], 2) == 5"
+          }
+        ],
+        "assertion_diff": "assert None == 5\n +  where None = invoice([4, -2, 3], 2)"
+      },
+      {
+        "nodeid": "test_generated.py::test_empty_values_with_discount",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 0\n +  where None = invoice([], 2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 13,
+            "function": "test_empty_values_with_discount",
+            "source": "assert invoice([], 2) == 0"
+          }
+        ],
+        "assertion_diff": "assert None == 0\n +  where None = invoice([], 2)"
+      },
+      {
+        "nodeid": "test_generated.py::test_single_value_no_discount",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 1\n +  where None = invoice([1], 0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 16,
+            "function": "test_single_value_no_discount",
+            "source": "assert invoice([1], 0) == 1"
+          }
+        ],
+        "assertion_diff": "assert None == 1\n +  where None = invoice([1], 0)"
+      },
+      {
+        "nodeid": "test_generated.py::test_single_value_discount_exceeds_total",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 0\n +  where None = invoice([1], 2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 19,
+            "function": "test_single_value_discount_exceeds_total",
+            "source": "assert invoice([1], 2) == 0"
+          }
+        ],
+        "assertion_diff": "assert None == 0\n +  where None = invoice([1], 2)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "07cff453-923c-4782-8024-5b6db09ffa54",
+    "started": "2026-11-27T08:39:36.206496+00:00",
+    "ended": "2026-11-27T08:39:43.396788+00:00",
+    "source_sha256": "9d82c61acf22c61d0211ddb937622f4c75e968e166739103ba3944e8dc4aa9cc",
+    "test_sha256": "2b8bd93d20234daf2afdfddb8cfe587dd70b18dfc638a6ea2a650a568fc41404"
+  }
+}

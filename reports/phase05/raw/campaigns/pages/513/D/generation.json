@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:25:46.890233+00:00",
+  "id": "1f76d19d-7778-4c4f-9ad5-0d6eeb72296e",
+  "parent": "eee8cf5b-5efd-46ff-a5a6-a38a0eb3eb57",
+  "seconds": 0.0012600999980350025,
+  "artifact": {
+    "code": "import sys as _tp_sys, types as _tp_types\n_tp_m = _tp_types.ModuleType('limits')\n_tp_m.__file__ = 'limits.py'\n_tp_sys.modules['limits'] = _tp_m\nexec(compile('PAGE_SIZE = 10\\n', _tp_m.__file__, 'exec'), _tp_m.__dict__)\n\nfrom subject import page_count\n\ndef test_example_1():\n    assert page_count(9) == 1\n\n\n\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "no surviving mutant; replay the complete manifest"
+}

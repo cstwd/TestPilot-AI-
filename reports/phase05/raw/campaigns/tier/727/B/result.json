@@ -1,0 +1,68 @@
+{
+  "name": "tier",
+  "seed": 727,
+  "arm": "B",
+  "planned": 7,
+  "baseline": true,
+  "score": {
+    "killed": 3,
+    "survived": 4,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 7,
+    "equivalent_candidates": 0,
+    "score_pct": 42.86
+  },
+  "reason": "complete",
+  "outcomes": {
+    "2c991105-9bf9-5bf9-b052-0a5994a361f2": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    },
+    "56ae1227-e5a9-5808-b8b0-29a7b2ec1f5a": {
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "nodeids": []
+    },
+    "f95da074-ef89-5b7f-915a-8f0dd4190fc1": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    },
+    "cb877967-f48c-550f-b2ee-5e7371e81e4d": {
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "nodeids": []
+    },
+    "8bc3b0f7-62da-58d6-931b-f71e205130af": {
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "nodeids": []
+    },
+    "ed3b7a56-c9d2-5fec-8b97-6a2683190e04": {
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "nodeids": []
+    },
+    "7e0a5981-824f-5d8b-a633-c55f559ce5e8": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_return_contract",
+        "test_generated.py::test_normal_return_contract"
+      ]
+    }
+  },
+  "id": "44b25274-f126-49a4-8ef0-88762b040f3e",
+  "generated": "aafe0bd0-a678-4d40-8b8f-2a262e8b73b6",
+  "test_sha256": "bb66f6df1f6f453ec235115d8175b449146146bc3e4f0e5d2fcbd0f41f16acb5",
+  "green_job": "7973f1af-df2f-497e-8340-48f9808557c3",
+  "finished": "2026-11-27T08:19:32.350496+00:00"
+}

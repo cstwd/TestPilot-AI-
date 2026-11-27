@@ -1,0 +1,125 @@
+{
+  "id": "9031e877-b1e2-5fab-af7d-c0bed44687c9",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_boundary_one_item",
+      "test_generated.py::test_boundary_page_size_plus_one",
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_two_full_pages_plus_one"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 0,
+    "failed": 4,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_one_item",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_page_size_plus_one",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_full_pages_plus_one",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "FFFF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:11: in test_example_1\n    assert page_count(9) == 1\nE   assert None == 1\nE    +  where None = page_count(9)\n____________________________ test_boundary_one_item ____________________________\ntest_generated.py:17: in test_boundary_one_item\n    assert page_count(1) == 1\nE   assert None == 1\nE    +  where None = page_count(1)\n_______________________ test_boundary_page_size_plus_one _______________________\ntest_generated.py:23: in test_boundary_page_size_plus_one\n    assert page_count(11) == 2\nE   assert None == 2\nE    +  where None = page_count(11)\n_________________________ test_two_full_pages_plus_one _________________________\ntest_generated.py:29: in test_two_full_pages_plus_one\n    assert page_count(21) == 3\nE   assert None == 3\nE    +  where None = page_count(21)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert None == 1\nFAILED test_generated.py::test_boundary_one_item - assert None == 1\nFAILED test_generated.py::test_boundary_page_size_plus_one - assert None == 2\nFAILED test_generated.py::test_two_full_pages_plus_one - assert None == 3\n4 failed in 0.23s",
+    "duration_ms": 5591,
+    "stdout": "FFFF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:11: in test_example_1\n    assert page_count(9) == 1\nE   assert None == 1\nE    +  where None = page_count(9)\n____________________________ test_boundary_one_item ____________________________\ntest_generated.py:17: in test_boundary_one_item\n    assert page_count(1) == 1\nE   assert None == 1\nE    +  where None = page_count(1)\n_______________________ test_boundary_page_size_plus_one _______________________\ntest_generated.py:23: in test_boundary_page_size_plus_one\n    assert page_count(11) == 2\nE   assert None == 2\nE    +  where None = page_count(11)\n_________________________ test_two_full_pages_plus_one _________________________\ntest_generated.py:29: in test_two_full_pages_plus_one\n    assert page_count(21) == 3\nE   assert None == 3\nE    +  where None = page_count(21)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert None == 1\nFAILED test_generated.py::test_boundary_one_item - assert None == 1\nFAILED test_generated.py::test_boundary_page_size_plus_one - assert None == 2\nFAILED test_generated.py::test_two_full_pages_plus_one - assert None == 3\n4 failed in 0.23s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 1\n +  where None = page_count(9)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_example_1",
+            "source": "assert page_count(9) == 1"
+          }
+        ],
+        "assertion_diff": "assert None == 1\n +  where None = page_count(9)"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_one_item",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 1\n +  where None = page_count(1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 17,
+            "function": "test_boundary_one_item",
+            "source": "assert page_count(1) == 1"
+          }
+        ],
+        "assertion_diff": "assert None == 1\n +  where None = page_count(1)"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_page_size_plus_one",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 2\n +  where None = page_count(11)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 23,
+            "function": "test_boundary_page_size_plus_one",
+            "source": "assert page_count(11) == 2"
+          }
+        ],
+        "assertion_diff": "assert None == 2\n +  where None = page_count(11)"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_full_pages_plus_one",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 3\n +  where None = page_count(21)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 29,
+            "function": "test_two_full_pages_plus_one",
+            "source": "assert page_count(21) == 3"
+          }
+        ],
+        "assertion_diff": "assert None == 3\n +  where None = page_count(21)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "01050c56-9dca-423c-93cf-fffe6d74c0f1",
+    "started": "2026-11-27T08:35:58.541981+00:00",
+    "ended": "2026-11-27T08:36:04.133282+00:00",
+    "source_sha256": "415b7bcfb8b46bc337dda732025d4b9ecf28fb58ef75be776bd2ff107e17a51f",
+    "test_sha256": "0fbb8603478f9b769723613aea3dbebbde773dcc3db2c816a32f75290cde855d"
+  }
+}

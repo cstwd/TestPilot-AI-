@@ -1,0 +1,49 @@
+{
+  "name": "expiry",
+  "seed": 727,
+  "arm": "D",
+  "planned": 2,
+  "baseline": true,
+  "score": {
+    "killed": 2,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 2,
+    "equivalent_candidates": 0,
+    "score_pct": 100.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "c41eb430-bacc-5a9f-aae8-69f74de31e5c": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_expired_at_limit",
+        "test_generated.py::test_expired_below_limit",
+        "test_generated.py::test_expired_custom_limit",
+        "test_generated.py::test_expired_custom_limit_not_expired",
+        "test_generated.py::test_expired_example_1",
+        "test_generated.py::test_expired_just_above_limit",
+        "test_generated.py::test_expired_negative_age",
+        "test_generated.py::test_expired_negative_limit",
+        "test_generated.py::test_expired_zero_age",
+        "test_generated.py::test_expired_zero_limit"
+      ]
+    },
+    "b89aea64-2d6b-5176-abc3-e20a0a23a069": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_expired_at_limit"
+      ]
+    }
+  },
+  "id": "4f3a4766-457b-4ec8-a920-31e599a3107e",
+  "generated": "227664c4-2fb6-4e0c-8f0b-4285ced7afb1",
+  "test_sha256": "e6c596c14acb8a46a228f5572232ccc6277e84f8f3322052d0541a560c68aec7",
+  "green_job": "5e1d8f8d-d193-4559-9679-0efbb0c5b48c",
+  "finished": "2026-11-27T08:35:06.578080+00:00"
+}

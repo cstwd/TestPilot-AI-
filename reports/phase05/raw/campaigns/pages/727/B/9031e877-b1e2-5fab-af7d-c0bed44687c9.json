@@ -1,0 +1,113 @@
+{
+  "id": "9031e877-b1e2-5fab-af7d-c0bed44687c9",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_boundary_return_contract",
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_normal_return_contract"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 1,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 1,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_property_return_contract",
+        "outcome": "skipped"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "FFF.s\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:11: in test_example_1\n    assert target(9) == 1\nE   assert None == 1\nE    +  where None = target(9)\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:14: in test_normal_return_contract\n    assert isinstance(target(items=2), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(items=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:17: in test_boundary_return_contract\n    assert isinstance(target(items=0), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(items=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:24: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_example_1 - assert None == 1\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n3 failed, 1 passed, 1 skipped in 0.21s",
+    "duration_ms": 5648,
+    "stdout": "FFF.s\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:11: in test_example_1\n    assert target(9) == 1\nE   assert None == 1\nE    +  where None = target(9)\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:14: in test_normal_return_contract\n    assert isinstance(target(items=2), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(items=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:17: in test_boundary_return_contract\n    assert isinstance(target(items=0), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(items=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:24: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_example_1 - assert None == 1\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n3 failed, 1 passed, 1 skipped in 0.21s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 1\n +  where None = target(9)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_example_1",
+            "source": "assert target(9) == 1"
+          }
+        ],
+        "assertion_diff": "assert None == 1\n +  where None = target(9)"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(items=2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 14,
+            "function": "test_normal_return_contract",
+            "source": "assert isinstance(target(items=2), int)"
+          }
+        ],
+        "assertion_diff": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(items=2)"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(items=0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 17,
+            "function": "test_boundary_return_contract",
+            "source": "assert isinstance(target(items=0), int)"
+          }
+        ],
+        "assertion_diff": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(items=0)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "1a613d22-0163-4236-96ab-471fefa8b188",
+    "started": "2026-11-27T08:18:41.590646+00:00",
+    "ended": "2026-11-27T08:18:47.238602+00:00",
+    "source_sha256": "415b7bcfb8b46bc337dda732025d4b9ecf28fb58ef75be776bd2ff107e17a51f",
+    "test_sha256": "1eda5033af52bd976e1c0c87d066358d99560f131ab6fa11ef9e26c036a761a6"
+  }
+}

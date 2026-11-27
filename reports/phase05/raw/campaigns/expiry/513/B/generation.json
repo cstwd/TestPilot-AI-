@@ -1,0 +1,14 @@
+{
+  "id": "415c3a78-0d3b-4fcb-9d93-923377519f9f",
+  "at": "2026-11-27T08:15:12.880053+00:00",
+  "seconds": 0.001357199998892611,
+  "artifact": {
+    "code": "import pytest\nfrom subject import expired as target\n\ndef test_example_1():\n    assert target(31) == True\n\ndef test_normal_return_contract():\n    assert isinstance(target(age=2, limit=2), bool)\n\ndef test_boundary_return_contract():\n    assert isinstance(target(age=0, limit=0), bool)\n\ndef test_invalid_keyword():\n    with pytest.raises(TypeError):\n        target(_testpilot_unexpected=None)\n",
+    "mode": "template",
+    "sha256": "b013e2a6f3b3b5555ef65f84e256ea1817c1d0bbd0cb06aaccf93ba347928729",
+    "provider": "local-template",
+    "model": null,
+    "attempts": [],
+    "fallback_reason": "任务明确选择本地模板"
+  }
+}

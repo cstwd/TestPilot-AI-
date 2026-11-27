@@ -1,0 +1,55 @@
+{
+  "status": "failed",
+  "passed": 0,
+  "failed": 1,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_expired",
+      "outcome": "failed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 2,
+  "total_lines": 2,
+  "coverage_pct": 100.0,
+  "log": "F\n=================================== FAILURES ===================================\n_________________________________ test_expired _________________________________\ntest_generated.py:6: in test_expired\n    assert expired(29) == True\nE   assert False == True\nE    +  where False = expired(29)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_expired - assert False == True\n1 failed in 0.31s",
+  "duration_ms": 6051,
+  "stdout": "F\n=================================== FAILURES ===================================\n_________________________________ test_expired _________________________________\ntest_generated.py:6: in test_expired\n    assert expired(29) == True\nE   assert False == True\nE    +  where False = expired(29)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_expired - assert False == True\n1 failed in 0.31s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_expired",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert False == True\n +  where False = expired(29)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 6,
+          "function": "test_expired",
+          "source": "assert expired(29) == True"
+        }
+      ],
+      "assertion_diff": "assert False == True\n +  where False = expired(29)"
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "d502d075-9d1b-4cf7-8b95-7d5e20833694",
+  "started": "2026-11-27T08:21:50.656185+00:00",
+  "ended": "2026-11-27T08:21:56.706825+00:00",
+  "source_sha256": "fc3801b4ae2db4b3941f139593312f1125035aa39872a62f92d0b4caa0b86855",
+  "test_sha256": "88870c4b32365634b1470ee0b08eb4d4eb1c610d29f19990799e1cfb77eaea1a"
+}

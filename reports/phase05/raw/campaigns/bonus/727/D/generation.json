@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:29:24.811994+00:00",
+  "id": "e4de8a18-b833-4ef0-bd1f-a6c34c6d1430",
+  "parent": "4d86162f-fd05-47f2-860f-2e088b908b12",
+  "seconds": 21.0120831000022,
+  "artifact": {
+    "code": "from subject import bonus\n\ndef test_example_1():\n    assert bonus(3) == 4\n\n\n\n\n\ndef test_zero_enabled_true():\n    assert bonus(n=0, enabled=True) == 0\n\ndef test_one_enabled_true():\n    assert bonus(n=1, enabled=True) == 1\n\ndef test_two_enabled_true():\n    assert bonus(n=2, enabled=True) == 3\n\ndef test_two_enabled_false():\n    assert bonus(n=2, enabled=False) == 2\n\n\ndef test_mutation_0473d9a7eced8496():\n    from subject import bonus\n    import pytest\n    with pytest.raises(ValueError):\n        bonus(-1, True)\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "original calibration completed; replay full manifest"
+}

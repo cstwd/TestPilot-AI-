@@ -1,0 +1,86 @@
+{
+  "name": "bonus",
+  "seed": 941,
+  "arm": "B",
+  "planned": 9,
+  "baseline": true,
+  "score": {
+    "killed": 4,
+    "survived": 3,
+    "timeout": 0,
+    "execution_error": 2,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 9,
+    "equivalent_candidates": 0,
+    "score_pct": 44.44
+  },
+  "reason": "complete",
+  "outcomes": {
+    "0dbe9494-ee8e-5026-89de-b6f42664f6ec": {
+      "status": "execution_error",
+      "reason": "失败没有完整的测试断言证据",
+      "nodeids": [
+        "test_generated.py::test_boundary_return_contract",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_normal_return_contract"
+      ]
+    },
+    "edf2e78e-d1b2-56b8-8cd9-3b007401ffab": {
+      "status": "execution_error",
+      "reason": "失败没有完整的测试断言证据",
+      "nodeids": [
+        "test_generated.py::test_boundary_return_contract"
+      ]
+    },
+    "bad0575f-acc5-58a6-a467-7a1cb312a19b": {
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "nodeids": []
+    },
+    "f8daf5dd-2eaa-52d6-bf62-cce4fa89dd2e": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    },
+    "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb": {
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "nodeids": []
+    },
+    "cba8892f-b4a9-5e37-8c64-c14034ca30b9": {
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "nodeids": []
+    },
+    "0eabf785-01da-5cf7-bfdc-d0fae838ff39": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_normal_return_contract"
+      ]
+    },
+    "bf1a369a-cd32-5a26-afa2-1c012d7269f8": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    },
+    "4baa324f-ef75-5210-9216-6e11b5fee5bb": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_return_contract"
+      ]
+    }
+  },
+  "id": "bcb5fa9e-7a6d-4556-afb0-dfe3c20cc14a",
+  "generated": "ecfb3a9a-37bd-4487-a194-06dffd5be523",
+  "test_sha256": "d90aecfce2fb6cef5a077380253ef77dfa1ebfaf72775ac3a14537f119c430e1",
+  "green_job": "67e2118c-6984-466f-917c-87823bcb4908",
+  "finished": "2026-11-27T08:20:32.579223+00:00"
+}

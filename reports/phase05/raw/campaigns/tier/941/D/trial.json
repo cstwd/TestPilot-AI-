@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "passed": 9,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_gold_lower",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_gold_above",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_silver_upper",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_silver_lower",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_silver_above",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_basic_upper",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_negative_points",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 6,
+  "total_lines": 6,
+  "coverage_pct": 100.0,
+  "log": ".........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_gold_lower\nPASSED test_generated.py::test_boundary_gold_above\nPASSED test_generated.py::test_boundary_silver_upper\nPASSED test_generated.py::test_boundary_silver_lower\nPASSED test_generated.py::test_boundary_silver_above\nPASSED test_generated.py::test_boundary_basic_upper\nPASSED test_generated.py::test_boundary_zero\nPASSED test_generated.py::test_negative_points\n9 passed in 0.18s",
+  "duration_ms": 7250,
+  "stdout": ".........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_gold_lower\nPASSED test_generated.py::test_boundary_gold_above\nPASSED test_generated.py::test_boundary_silver_upper\nPASSED test_generated.py::test_boundary_silver_lower\nPASSED test_generated.py::test_boundary_silver_above\nPASSED test_generated.py::test_boundary_basic_upper\nPASSED test_generated.py::test_boundary_zero\nPASSED test_generated.py::test_negative_points\n9 passed in 0.18s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "c158d8b8-3a8a-4185-8bac-b61a59122a8c",
+  "started": "2026-11-27T08:40:28.698828+00:00",
+  "ended": "2026-11-27T08:40:35.948548+00:00",
+  "source_sha256": "4920368152bc107b7e80143111b3f64de7fa42c9a3e230e04480afb51cd6d00c",
+  "test_sha256": "26150bed4028aaf98cd618ad751c7bed731378e118eb7b71010814af1e7e2c60"
+}

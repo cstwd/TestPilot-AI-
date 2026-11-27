@@ -1,0 +1,127 @@
+{
+  "id": "0dbe9494-ee8e-5026-89de-b6f42664f6ec",
+  "verdict": {
+    "status": "execution_error",
+    "reason": "失败没有完整的测试断言证据",
+    "nodeids": [
+      "test_generated.py::test_boundary_return_contract",
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_normal_return_contract"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 1,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 6,
+    "coverage_pct": 50.0,
+    "log": "FFF.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(3) == 4\n           ^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(n=2, enabled=True), int)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(n=0, enabled=False), int)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - ValueError: negative\nFAILED test_generated.py::test_normal_return_contract - ValueError: negative\nFAILED test_generated.py::test_boundary_return_contract - ValueError: negative\n3 failed, 1 passed in 0.23s",
+    "duration_ms": 5734,
+    "stdout": "FFF.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(3) == 4\n           ^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(n=2, enabled=True), int)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(n=0, enabled=False), int)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - ValueError: negative\nFAILED test_generated.py::test_normal_return_contract - ValueError: negative\nFAILED test_generated.py::test_boundary_return_contract - ValueError: negative\n3 failed, 1 passed in 0.23s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "ValueError",
+        "message": "negative",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 5,
+            "function": "test_example_1",
+            "source": "assert target(3) == 4"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "bonus",
+            "source": "raise ValueError(\"negative\")"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "phase": "call",
+        "exception_type": "ValueError",
+        "message": "negative",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 8,
+            "function": "test_normal_return_contract",
+            "source": "assert isinstance(target(n=2, enabled=True), int)"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "bonus",
+            "source": "raise ValueError(\"negative\")"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "phase": "call",
+        "exception_type": "ValueError",
+        "message": "negative",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_boundary_return_contract",
+            "source": "assert isinstance(target(n=0, enabled=False), int)"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "bonus",
+            "source": "raise ValueError(\"negative\")"
+          }
+        ],
+        "assertion_diff": null
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 1,
+    "total_branches": 4,
+    "branch_pct": 25.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "f5057837-f2fd-467d-ad9f-05b5b9430b0d",
+    "started": "2026-11-27T08:14:23.959075+00:00",
+    "ended": "2026-11-27T08:14:29.693457+00:00",
+    "source_sha256": "c15882f8c182354a062662980b75b5fe8237b25119d608f5155321bf1c9975e6",
+    "test_sha256": "d90aecfce2fb6cef5a077380253ef77dfa1ebfaf72775ac3a14537f119c430e1"
+  }
+}

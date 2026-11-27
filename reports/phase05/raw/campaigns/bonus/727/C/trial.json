@@ -1,0 +1,75 @@
+{
+  "status": "failed",
+  "passed": 5,
+  "failed": 1,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_negative_n_raises_value_error",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_zero_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_one_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_two_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_two_enabled_false",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 5,
+  "total_lines": 6,
+  "coverage_pct": 83.33,
+  "log": ".F....\n=================================== FAILURES ===================================\n______________________ test_negative_n_raises_value_error ______________________\ntest_generated.py:7: in test_negative_n_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^\nE   NameError: name 'pytest' is not defined\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_zero_enabled_true\nPASSED test_generated.py::test_one_enabled_true\nPASSED test_generated.py::test_two_enabled_true\nPASSED test_generated.py::test_two_enabled_false\nFAILED test_generated.py::test_negative_n_raises_value_error - NameError: nam...\n1 failed, 5 passed in 0.32s",
+  "duration_ms": 6998,
+  "stdout": ".F....\n=================================== FAILURES ===================================\n______________________ test_negative_n_raises_value_error ______________________\ntest_generated.py:7: in test_negative_n_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^\nE   NameError: name 'pytest' is not defined\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_zero_enabled_true\nPASSED test_generated.py::test_one_enabled_true\nPASSED test_generated.py::test_two_enabled_true\nPASSED test_generated.py::test_two_enabled_false\nFAILED test_generated.py::test_negative_n_raises_value_error - NameError: nam...\n1 failed, 5 passed in 0.32s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_negative_n_raises_value_error",
+      "phase": "call",
+      "exception_type": "NameError",
+      "message": "name 'pytest' is not defined",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 7,
+          "function": "test_negative_n_raises_value_error",
+          "source": "with pytest.raises(ValueError):"
+        }
+      ],
+      "assertion_diff": null
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 3,
+  "total_branches": 4,
+  "branch_pct": 75.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "33c99d1b-b1cf-48aa-b794-65b2cd31d0c5",
+  "started": "2026-11-27T08:27:44.767359+00:00",
+  "ended": "2026-11-27T08:27:51.765585+00:00",
+  "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+  "test_sha256": "2c9dccf92824d05a9e09c958ad469cfa8c7162da57728a817af30bdb0ddd353a"
+}

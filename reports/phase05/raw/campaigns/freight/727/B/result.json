@@ -1,0 +1,42 @@
+{
+  "name": "freight",
+  "seed": 727,
+  "arm": "B",
+  "planned": 2,
+  "baseline": true,
+  "score": {
+    "killed": 2,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 2,
+    "equivalent_candidates": 0,
+    "score_pct": 100.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "5f2627d6-c830-5a5c-84ac-6fc4c289ccee": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_return_contract",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_normal_return_contract"
+      ]
+    },
+    "9baee908-8cb2-5cd4-a219-d6d45e176f96": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    }
+  },
+  "id": "3f78d191-3bea-4ca2-8677-7611deeb147b",
+  "generated": "e83fd77d-ee38-4fe5-8f6f-e51fb929629c",
+  "test_sha256": "1ef6205cd9e0f820fe275487cfdca48bc524e48e04b6a3a4b44b5ca0c2a8cd77",
+  "green_job": "5f9955d9-43d0-4962-bbde-22c35efc5041",
+  "finished": "2026-11-27T08:17:45.164034+00:00"
+}

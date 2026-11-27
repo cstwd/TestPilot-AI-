@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "passed": 4,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 1,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_normal_return_contract",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_return_contract",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_invalid_keyword",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_property_return_contract",
+      "outcome": "skipped"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "....s\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:24: could not import 'hypothesis': No module named 'hypothesis'\n4 passed, 1 skipped in 0.09s",
+  "duration_ms": 5793,
+  "stdout": "....s\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:24: could not import 'hypothesis': No module named 'hypothesis'\n4 passed, 1 skipped in 0.09s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "5f9955d9-43d0-4962-bbde-22c35efc5041",
+  "started": "2026-11-27T08:17:27.552209+00:00",
+  "ended": "2026-11-27T08:17:33.345059+00:00",
+  "source_sha256": "917c066df9bb1c369085a82a1076a1a08cda8af5aedd9f15fdf0046c6855c19a",
+  "test_sha256": "1ef6205cd9e0f820fe275487cfdca48bc524e48e04b6a3a4b44b5ca0c2a8cd77"
+}

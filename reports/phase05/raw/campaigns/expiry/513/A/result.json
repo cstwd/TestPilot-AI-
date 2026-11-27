@@ -1,0 +1,13 @@
+{
+  "name": "expiry",
+  "seed": 513,
+  "arm": "A",
+  "planned": 2,
+  "baseline": false,
+  "score": null,
+  "reason": "original rejected candidate suite",
+  "outcomes": {},
+  "id": "0b172a79-ccba-43f7-8035-d543e04bc24f",
+  "generated": "d8b38e6d-1cdc-4c65-860c-f7cf7b2e9709",
+  "finished": "2026-11-27T08:21:56.721170+00:00"
+}

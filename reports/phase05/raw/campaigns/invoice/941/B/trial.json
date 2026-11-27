@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "passed": 4,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_normal_return_contract",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_return_contract",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_invalid_keyword",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 7,
+  "total_lines": 7,
+  "coverage_pct": 100.0,
+  "log": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.08s",
+  "duration_ms": 5731,
+  "stdout": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.08s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "2541b157-ee50-454c-8dad-a4c274d2a996",
+  "started": "2026-11-27T08:21:49.836389+00:00",
+  "ended": "2026-11-27T08:21:55.567201+00:00",
+  "source_sha256": "f5ee842f2490510d65f5f38552a0e5fedcd0905e9ca0702c83a56102c945cd7e",
+  "test_sha256": "3666ae13f018fbcf3331947e1f9bd6e9b38a8728c24e70ed6113b3aa91fc8fb2"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "8b10cb01-19b2-4585-9a84-db82189e9cc1",
+  "at": "2026-11-27T08:14:18.278414+00:00",
+  "seconds": 0.0014020999988133553,
+  "artifact": {
+    "code": "import pytest\nfrom subject import freight as target\n\ndef test_example_1():\n    assert target(3) == 8\n\ndef test_normal_return_contract():\n    assert isinstance(target(units=2), int)\n\ndef test_boundary_return_contract():\n    assert isinstance(target(units=0), int)\n\ndef test_invalid_keyword():\n    with pytest.raises(TypeError):\n        target(_testpilot_unexpected=None)\n\ndef test_property_return_contract():\n    hypothesis = pytest.importorskip('hypothesis')\n    from hypothesis import strategies as st\n\n    @hypothesis.settings(max_examples=12, database=None, deadline=None)\n    @hypothesis.given(st.integers(min_value=-100, max_value=100))\n    def check(x):\n        assert isinstance(target(units=x), int)\n    check()\n",
+    "mode": "template",
+    "sha256": "9e29fedfe159c8ea597e99c43295606389bb5cc29fdb29c9339207eddd8e775f",
+    "provider": "local-template",
+    "model": null,
+    "attempts": [],
+    "fallback_reason": "任务明确选择本地模板"
+  }
+}

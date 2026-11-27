@@ -1,0 +1,109 @@
+{
+  "status": "failed",
+  "passed": 4,
+  "failed": 3,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_zero_items",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_one_item",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_page_size_items",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_page_size_plus_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_two_full_pages",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_two_full_pages_plus_one",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": ".F.F.F.\n=================================== FAILURES ===================================\n___________________________ test_boundary_zero_items ___________________________\ntest_generated.py:14: in test_boundary_zero_items\n    assert page_count(0) == 0\nE   assert 1 == 0\nE    +  where 1 = page_count(0)\n________________________ test_boundary_page_size_items _________________________\ntest_generated.py:20: in test_boundary_page_size_items\n    assert page_count(10) == 1\nE   assert 2 == 1\nE    +  where 2 = page_count(10)\n_____________________________ test_two_full_pages ______________________________\ntest_generated.py:26: in test_two_full_pages\n    assert page_count(20) == 2\nE   assert 3 == 2\nE    +  where 3 = page_count(20)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_one_item\nPASSED test_generated.py::test_boundary_page_size_plus_one\nPASSED test_generated.py::test_two_full_pages_plus_one\nFAILED test_generated.py::test_boundary_zero_items - assert 1 == 0\nFAILED test_generated.py::test_boundary_page_size_items - assert 2 == 1\nFAILED test_generated.py::test_two_full_pages - assert 3 == 2\n3 failed, 4 passed in 0.48s",
+  "duration_ms": 7970,
+  "stdout": ".F.F.F.\n=================================== FAILURES ===================================\n___________________________ test_boundary_zero_items ___________________________\ntest_generated.py:14: in test_boundary_zero_items\n    assert page_count(0) == 0\nE   assert 1 == 0\nE    +  where 1 = page_count(0)\n________________________ test_boundary_page_size_items _________________________\ntest_generated.py:20: in test_boundary_page_size_items\n    assert page_count(10) == 1\nE   assert 2 == 1\nE    +  where 2 = page_count(10)\n_____________________________ test_two_full_pages ______________________________\ntest_generated.py:26: in test_two_full_pages\n    assert page_count(20) == 2\nE   assert 3 == 2\nE    +  where 3 = page_count(20)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_one_item\nPASSED test_generated.py::test_boundary_page_size_plus_one\nPASSED test_generated.py::test_two_full_pages_plus_one\nFAILED test_generated.py::test_boundary_zero_items - assert 1 == 0\nFAILED test_generated.py::test_boundary_page_size_items - assert 2 == 1\nFAILED test_generated.py::test_two_full_pages - assert 3 == 2\n3 failed, 4 passed in 0.48s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_boundary_zero_items",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 1 == 0\n +  where 1 = page_count(0)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 14,
+          "function": "test_boundary_zero_items",
+          "source": "assert page_count(0) == 0"
+        }
+      ],
+      "assertion_diff": "assert 1 == 0\n +  where 1 = page_count(0)"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_page_size_items",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 2 == 1\n +  where 2 = page_count(10)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 20,
+          "function": "test_boundary_page_size_items",
+          "source": "assert page_count(10) == 1"
+        }
+      ],
+      "assertion_diff": "assert 2 == 1\n +  where 2 = page_count(10)"
+    },
+    {
+      "nodeid": "test_generated.py::test_two_full_pages",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 3 == 2\n +  where 3 = page_count(20)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 26,
+          "function": "test_two_full_pages",
+          "source": "assert page_count(20) == 2"
+        }
+      ],
+      "assertion_diff": "assert 3 == 2\n +  where 3 = page_count(20)"
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "8dd2986f-8e39-4834-94c7-55eb731bcda4",
+  "started": "2026-11-27T08:31:36.961721+00:00",
+  "ended": "2026-11-27T08:31:44.931497+00:00",
+  "source_sha256": "1379dd26ef046cd5341c7e2a7fc476e7d64f25a5a56ab200fb2a7a024e32d0b5",
+  "test_sha256": "f0b5dab02e7d0f8b8bdd088dd4f65c3dd036f53ff9ac26bd234e32516b1f88f7"
+}

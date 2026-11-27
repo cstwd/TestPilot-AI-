@@ -1,0 +1,101 @@
+{
+  "id": "b89aea64-2d6b-5176-abc3-e20a0a23a069",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_expired_at_limit"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 9,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_expired_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_at_limit",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_just_above_limit",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_below_limit",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_custom_limit",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_custom_limit_not_expired",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_zero_age",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_zero_limit",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_negative_age",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_negative_limit",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 2,
+    "total_lines": 2,
+    "coverage_pct": 100.0,
+    "log": ".F........\n=================================== FAILURES ===================================\n____________________________ test_expired_at_limit _____________________________\ntest_generated.py:7: in test_expired_at_limit\n    assert expired(30) is False\nE   assert True is False\nE    +  where True = expired(30)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_expired_example_1\nPASSED test_generated.py::test_expired_just_above_limit\nPASSED test_generated.py::test_expired_below_limit\nPASSED test_generated.py::test_expired_custom_limit\nPASSED test_generated.py::test_expired_custom_limit_not_expired\nPASSED test_generated.py::test_expired_zero_age\nPASSED test_generated.py::test_expired_zero_limit\nPASSED test_generated.py::test_expired_negative_age\nPASSED test_generated.py::test_expired_negative_limit\nFAILED test_generated.py::test_expired_at_limit - assert True is False\n1 failed, 9 passed in 0.23s",
+    "duration_ms": 6148,
+    "stdout": ".F........\n=================================== FAILURES ===================================\n____________________________ test_expired_at_limit _____________________________\ntest_generated.py:7: in test_expired_at_limit\n    assert expired(30) is False\nE   assert True is False\nE    +  where True = expired(30)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_expired_example_1\nPASSED test_generated.py::test_expired_just_above_limit\nPASSED test_generated.py::test_expired_below_limit\nPASSED test_generated.py::test_expired_custom_limit\nPASSED test_generated.py::test_expired_custom_limit_not_expired\nPASSED test_generated.py::test_expired_zero_age\nPASSED test_generated.py::test_expired_zero_limit\nPASSED test_generated.py::test_expired_negative_age\nPASSED test_generated.py::test_expired_negative_limit\nFAILED test_generated.py::test_expired_at_limit - assert True is False\n1 failed, 9 passed in 0.23s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_expired_at_limit",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert True is False\n +  where True = expired(30)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 7,
+            "function": "test_expired_at_limit",
+            "source": "assert expired(30) is False"
+          }
+        ],
+        "assertion_diff": "assert True is False\n +  where True = expired(30)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "da2c53e2-813b-4fcb-bf02-07cca0667f2d",
+    "started": "2026-11-27T08:35:00.414832+00:00",
+    "ended": "2026-11-27T08:35:06.562837+00:00",
+    "source_sha256": "1d1f60266aefb64ea4f64bfa6f066143c1a53028fd8031d1f8f119bc22523b4e",
+    "test_sha256": "e6c596c14acb8a46a228f5572232ccc6277e84f8f3322052d0541a560c68aec7"
+  }
+}

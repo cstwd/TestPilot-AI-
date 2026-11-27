@@ -1,0 +1,55 @@
+{
+  "status": "failed",
+  "passed": 0,
+  "failed": 1,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_first",
+      "outcome": "failed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 4,
+  "total_lines": 4,
+  "coverage_pct": 100.0,
+  "log": "F\n=================================== FAILURES ===================================\n__________________________________ test_first __________________________________\ntest_generated.py:8: in test_first\n    assert first([1, 2, 3, 4]) == 2\nE   assert 1 == 2\nE    +  where 1 = first([1, 2, 3, 4])\n=========================== short test summary info ============================\nFAILED test_generated.py::test_first - assert 1 == 2\n1 failed in 0.18s",
+  "duration_ms": 5519,
+  "stdout": "F\n=================================== FAILURES ===================================\n__________________________________ test_first __________________________________\ntest_generated.py:8: in test_first\n    assert first([1, 2, 3, 4]) == 2\nE   assert 1 == 2\nE    +  where 1 = first([1, 2, 3, 4])\n=========================== short test summary info ============================\nFAILED test_generated.py::test_first - assert 1 == 2\n1 failed in 0.18s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_first",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 1 == 2\n +  where 1 = first([1, 2, 3, 4])",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 8,
+          "function": "test_first",
+          "source": "assert first([1, 2, 3, 4]) == 2"
+        }
+      ],
+      "assertion_diff": "assert 1 == 2\n +  where 1 = first([1, 2, 3, 4])"
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 2,
+  "total_branches": 2,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "556837d5-2880-4bfb-8017-df2c99dc1111",
+  "started": "2026-11-27T08:22:15.186880+00:00",
+  "ended": "2026-11-27T08:22:20.705819+00:00",
+  "source_sha256": "d05c9cc3c81b72421224a9692352d19e0de27f385f616e2b75f1b6d4580c5aff",
+  "test_sha256": "9c9c3b7aa425325182c92b87273b96345f853d92e0a86f379c6891a229fca0a4"
+}

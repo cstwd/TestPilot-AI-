@@ -1,0 +1,34 @@
+from subject import expired
+
+def test_expired():
+    assert expired(31) == True
+    assert expired(30) == False
+    assert expired(29) == True
+    assert expired(28) == False
+    assert expired(27) == True
+    assert expired(26) == False
+    assert expired(25) == True
+    assert expired(24) == False
+    assert expired(23) == True
+    assert expired(22) == False
+    assert expired(21) == True
+    assert expired(20) == False
+    assert expired(19) == True
+    assert expired(18) == False
+    assert expired(17) == True
+    assert expired(16) == False
+    assert expired(15) == True
+    assert expired(14) == False
+    assert expired(13) == True
+    assert expired(12) == False
+    assert expired(11) == True
+    assert expired(10) == False
+    assert expired(9) == True
+    assert expired(8) == False
+    assert expired(7) == True
+    assert expired(6) == False
+    assert expired(5) == True
+    assert expired(4) == False
+    assert expired(3) == True
+    assert expired(2) == False
+    assert expired(1) == True

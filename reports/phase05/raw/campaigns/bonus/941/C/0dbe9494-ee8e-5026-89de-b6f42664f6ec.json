@@ -1,0 +1,267 @@
+{
+  "id": "0dbe9494-ee8e-5026-89de-b6f42664f6ec",
+  "verdict": {
+    "status": "execution_error",
+    "reason": "失败没有完整的测试断言证据",
+    "nodeids": [
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_negative_one_raises_valueerror",
+      "test_generated.py::test_negative_raises_valueerror",
+      "test_generated.py::test_one_enabled_true",
+      "test_generated.py::test_three_enabled_false",
+      "test_generated.py::test_three_enabled_true",
+      "test_generated.py::test_two_enabled_false",
+      "test_generated.py::test_two_enabled_true",
+      "test_generated.py::test_zero_enabled_true"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 0,
+    "failed": 9,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_raises_valueerror",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_enabled_true",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_one_enabled_true",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_true",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_false",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_three_enabled_true",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_three_enabled_false",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_one_raises_valueerror",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 5,
+    "total_lines": 6,
+    "coverage_pct": 83.33,
+    "log": "FFFFFFFFF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert bonus(3) == 4\n           ^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_______________________ test_negative_raises_valueerror ________________________\ntest_generated.py:8: in test_negative_raises_valueerror\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n____________________________ test_zero_enabled_true ____________________________\ntest_generated.py:12: in test_zero_enabled_true\n    assert bonus(n=0, enabled=True) == 0\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n____________________________ test_one_enabled_true _____________________________\ntest_generated.py:15: in test_one_enabled_true\n    assert bonus(n=1, enabled=True) == 1\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n____________________________ test_two_enabled_true _____________________________\ntest_generated.py:18: in test_two_enabled_true\n    assert bonus(n=2, enabled=True) == 3\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n____________________________ test_two_enabled_false ____________________________\ntest_generated.py:21: in test_two_enabled_false\n    assert bonus(n=2, enabled=False) == 2\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n___________________________ test_three_enabled_true ____________________________\ntest_generated.py:24: in test_three_enabled_true\n    assert bonus(n=3, enabled=True) == 4\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n___________________________ test_three_enabled_false ___________________________\ntest_generated.py:27: in test_three_enabled_false\n    assert bonus(n=3, enabled=False) == 3\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_____________________ test_negative_one_raises_valueerror ______________________\ntest_generated.py:30: in test_negative_one_raises_valueerror\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - ValueError: negative\nFAILED test_generated.py::test_negative_raises_valueerror - Failed: DID NOT R...\nFAILED test_generated.py::test_zero_enabled_true - ValueError: negative\nFAILED test_generated.py::test_one_enabled_true - ValueError: negative\nFAILED test_generated.py::test_two_enabled_true - ValueError: negative\nFAILED test_generated.py::test_two_enabled_false - ValueError: negative\nFAILED test_generated.py::test_three_enabled_true - ValueError: negative\nFAILED test_generated.py::test_three_enabled_false - ValueError: negative\nFAILED test_generated.py::test_negative_one_raises_valueerror - Failed: DID N...\n9 failed in 0.40s",
+    "duration_ms": 6358,
+    "stdout": "FFFFFFFFF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert bonus(3) == 4\n           ^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_______________________ test_negative_raises_valueerror ________________________\ntest_generated.py:8: in test_negative_raises_valueerror\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n____________________________ test_zero_enabled_true ____________________________\ntest_generated.py:12: in test_zero_enabled_true\n    assert bonus(n=0, enabled=True) == 0\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n____________________________ test_one_enabled_true _____________________________\ntest_generated.py:15: in test_one_enabled_true\n    assert bonus(n=1, enabled=True) == 1\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n____________________________ test_two_enabled_true _____________________________\ntest_generated.py:18: in test_two_enabled_true\n    assert bonus(n=2, enabled=True) == 3\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n____________________________ test_two_enabled_false ____________________________\ntest_generated.py:21: in test_two_enabled_false\n    assert bonus(n=2, enabled=False) == 2\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n___________________________ test_three_enabled_true ____________________________\ntest_generated.py:24: in test_three_enabled_true\n    assert bonus(n=3, enabled=True) == 4\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n___________________________ test_three_enabled_false ___________________________\ntest_generated.py:27: in test_three_enabled_false\n    assert bonus(n=3, enabled=False) == 3\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_____________________ test_negative_one_raises_valueerror ______________________\ntest_generated.py:30: in test_negative_one_raises_valueerror\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - ValueError: negative\nFAILED test_generated.py::test_negative_raises_valueerror - Failed: DID NOT R...\nFAILED test_generated.py::test_zero_enabled_true - ValueError: negative\nFAILED test_generated.py::test_one_enabled_true - ValueError: negative\nFAILED test_generated.py::test_two_enabled_true - ValueError: negative\nFAILED test_generated.py::test_two_enabled_false - ValueError: negative\nFAILED test_generated.py::test_three_enabled_true - ValueError: negative\nFAILED test_generated.py::test_three_enabled_false - ValueError: negative\nFAILED test_generated.py::test_negative_one_raises_valueerror - Failed: DID N...\n9 failed in 0.40s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "ValueError",
+        "message": "negative",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 5,
+            "function": "test_example_1",
+            "source": "assert bonus(3) == 4"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "bonus",
+            "source": "raise ValueError(\"negative\")"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_raises_valueerror",
+        "phase": "call",
+        "exception_type": "Failed",
+        "message": "DID NOT RAISE ValueError",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 8,
+            "function": "test_negative_raises_valueerror",
+            "source": "with pytest.raises(ValueError):"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_enabled_true",
+        "phase": "call",
+        "exception_type": "ValueError",
+        "message": "negative",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 12,
+            "function": "test_zero_enabled_true",
+            "source": "assert bonus(n=0, enabled=True) == 0"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "bonus",
+            "source": "raise ValueError(\"negative\")"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_one_enabled_true",
+        "phase": "call",
+        "exception_type": "ValueError",
+        "message": "negative",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 15,
+            "function": "test_one_enabled_true",
+            "source": "assert bonus(n=1, enabled=True) == 1"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "bonus",
+            "source": "raise ValueError(\"negative\")"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_true",
+        "phase": "call",
+        "exception_type": "ValueError",
+        "message": "negative",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 18,
+            "function": "test_two_enabled_true",
+            "source": "assert bonus(n=2, enabled=True) == 3"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "bonus",
+            "source": "raise ValueError(\"negative\")"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_false",
+        "phase": "call",
+        "exception_type": "ValueError",
+        "message": "negative",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 21,
+            "function": "test_two_enabled_false",
+            "source": "assert bonus(n=2, enabled=False) == 2"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "bonus",
+            "source": "raise ValueError(\"negative\")"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_three_enabled_true",
+        "phase": "call",
+        "exception_type": "ValueError",
+        "message": "negative",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 24,
+            "function": "test_three_enabled_true",
+            "source": "assert bonus(n=3, enabled=True) == 4"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "bonus",
+            "source": "raise ValueError(\"negative\")"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_three_enabled_false",
+        "phase": "call",
+        "exception_type": "ValueError",
+        "message": "negative",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 27,
+            "function": "test_three_enabled_false",
+            "source": "assert bonus(n=3, enabled=False) == 3"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "bonus",
+            "source": "raise ValueError(\"negative\")"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_one_raises_valueerror",
+        "phase": "call",
+        "exception_type": "Failed",
+        "message": "DID NOT RAISE ValueError",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 30,
+            "function": "test_negative_one_raises_valueerror",
+            "source": "with pytest.raises(ValueError):"
+          }
+        ],
+        "assertion_diff": null
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 3,
+    "total_branches": 4,
+    "branch_pct": 75.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "2996f5ae-5278-4ce8-a023-e87617dcf6de",
+    "started": "2026-11-27T08:34:29.785408+00:00",
+    "ended": "2026-11-27T08:34:36.143058+00:00",
+    "source_sha256": "c15882f8c182354a062662980b75b5fe8237b25119d608f5155321bf1c9975e6",
+    "test_sha256": "43729929a773be4bf3cff0e84a69f3c4e6ffad48d179ef9e9a8aae6484a9b0b6"
+  }
+}

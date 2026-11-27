@@ -1,0 +1,93 @@
+{
+  "id": "3c593539-fc34-5911-bce9-1484a34c344a",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_normal_return_contract"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 2,
+    "failed": 2,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 4,
+    "total_lines": 4,
+    "coverage_pct": 100.0,
+    "log": "FF..\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target([8]) == 8\nE   assert None == 8\nE    +  where None = target([8])\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(items=[1], fallback=2), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(items=[1], fallback=2)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert None == 8\nFAILED test_generated.py::test_normal_return_contract - assert False\n2 failed, 2 passed in 0.17s",
+    "duration_ms": 6947,
+    "stdout": "FF..\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target([8]) == 8\nE   assert None == 8\nE    +  where None = target([8])\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(items=[1], fallback=2), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(items=[1], fallback=2)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert None == 8\nFAILED test_generated.py::test_normal_return_contract - assert False\n2 failed, 2 passed in 0.17s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 8\n +  where None = target([8])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 5,
+            "function": "test_example_1",
+            "source": "assert target([8]) == 8"
+          }
+        ],
+        "assertion_diff": "assert None == 8\n +  where None = target([8])"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(items=[1], fallback=2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 8,
+            "function": "test_normal_return_contract",
+            "source": "assert isinstance(target(items=[1], fallback=2), int)"
+          }
+        ],
+        "assertion_diff": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(items=[1], fallback=2)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 2,
+    "total_branches": 2,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "b4b69e79-d541-4b08-acd2-5c0994fd05b4",
+    "started": "2026-11-27T08:16:57.377210+00:00",
+    "ended": "2026-11-27T08:17:04.324275+00:00",
+    "source_sha256": "e5ee82f019839335aade5744a84affd556f6e4e25484bab6f7a66d44b484f334",
+    "test_sha256": "4100bf896f96237cec631bc0628fcf75750e384d40c750d9aba18f6f0a8589da"
+  }
+}

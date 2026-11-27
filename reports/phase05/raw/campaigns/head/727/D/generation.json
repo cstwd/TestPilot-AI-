@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:33:50.443230+00:00",
+  "id": "6a748345-b655-4b24-a368-aafc5fc3e580",
+  "parent": "65f963d4-57f9-4dc7-ba31-147249ff91c0",
+  "seconds": 0.0012521999997261446,
+  "artifact": {
+    "code": "from subject import first\n\ndef test_example_1():\n    assert first([8]) == 8\n\ndef test_empty_list_returns_zero():\n    assert first([]) == 0\n\ndef test_empty_list_with_fallback_returns_zero():\n    assert first([], fallback=2) == 0\n\ndef test_non_empty_list_returns_first_item():\n    assert first([1], fallback=2) == 1\n\ndef test_non_empty_list_with_zero_fallback():\n    assert first([1], fallback=0) == 1\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "no surviving mutant; replay the complete manifest"
+}

@@ -1,0 +1,93 @@
+{
+  "id": "56ae1227-e5a9-5808-b8b0-29a7b2ec1f5a",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_boundary_gold_lower"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 7,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_gold_lower",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_gold_above",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_silver_upper",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_silver_lower",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_silver_above",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_basic_upper",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_basic_zero",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 6,
+    "total_lines": 6,
+    "coverage_pct": 100.0,
+    "log": ".F......\n=================================== FAILURES ===================================\n___________________________ test_boundary_gold_lower ___________________________\ntest_generated.py:7: in test_boundary_gold_lower\n    assert tier(100) == 'gold'\nE   AssertionError: assert 'silver' == 'gold'\nE     \nE     - gold\nE     + silver\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_gold_above\nPASSED test_generated.py::test_boundary_silver_upper\nPASSED test_generated.py::test_boundary_silver_lower\nPASSED test_generated.py::test_boundary_silver_above\nPASSED test_generated.py::test_boundary_basic_upper\nPASSED test_generated.py::test_basic_zero\nFAILED test_generated.py::test_boundary_gold_lower - AssertionError: assert '...\n1 failed, 7 passed in 0.36s",
+    "duration_ms": 7502,
+    "stdout": ".F......\n=================================== FAILURES ===================================\n___________________________ test_boundary_gold_lower ___________________________\ntest_generated.py:7: in test_boundary_gold_lower\n    assert tier(100) == 'gold'\nE   AssertionError: assert 'silver' == 'gold'\nE     \nE     - gold\nE     + silver\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_gold_above\nPASSED test_generated.py::test_boundary_silver_upper\nPASSED test_generated.py::test_boundary_silver_lower\nPASSED test_generated.py::test_boundary_silver_above\nPASSED test_generated.py::test_boundary_basic_upper\nPASSED test_generated.py::test_basic_zero\nFAILED test_generated.py::test_boundary_gold_lower - AssertionError: assert '...\n1 failed, 7 passed in 0.36s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_boundary_gold_lower",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'silver' == 'gold'\n  \n  - gold\n  + silver",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 7,
+            "function": "test_boundary_gold_lower",
+            "source": "assert tier(100) == 'gold'"
+          }
+        ],
+        "assertion_diff": "assert 'silver' == 'gold'\n  \n  - gold\n  + silver"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "3dfc7059-46ff-4053-8c99-0a6028d9c7ec",
+    "started": "2026-11-27T08:30:49.165080+00:00",
+    "ended": "2026-11-27T08:30:56.666871+00:00",
+    "source_sha256": "e58480a6f57223096e63f755a4645ac6ffab6b76149ff65c9f1cb2faf78811f9",
+    "test_sha256": "2d522493e5f00807bbff37c106a57cfc4031065f565a1c315fdab9c40d6aac21"
+  }
+}

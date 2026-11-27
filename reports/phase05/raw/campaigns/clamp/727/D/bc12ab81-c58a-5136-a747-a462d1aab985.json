@@ -1,0 +1,83 @@
+{
+  "id": "bc12ab81-c58a-5136-a747-a462d1aab985",
+  "verdict": {
+    "status": "survived",
+    "reason": "相同测试节点运行通过",
+    "nodeids": []
+  },
+  "run": {
+    "status": "passed",
+    "passed": 10,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_n_less_than_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_n_equal_to_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_n_greater_than_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_n_zero_ceiling_positive",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_n_positive_ceiling_zero",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_n_zero_ceiling_zero",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_custom_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_n",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_ceiling",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 0,
+    "covered_lines": 4,
+    "total_lines": 4,
+    "coverage_pct": 100.0,
+    "log": "..........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_n_less_than_ceiling\nPASSED test_generated.py::test_n_equal_to_ceiling\nPASSED test_generated.py::test_n_greater_than_ceiling\nPASSED test_generated.py::test_boundary_n_zero_ceiling_positive\nPASSED test_generated.py::test_boundary_n_positive_ceiling_zero\nPASSED test_generated.py::test_boundary_n_zero_ceiling_zero\nPASSED test_generated.py::test_custom_ceiling\nPASSED test_generated.py::test_negative_n\nPASSED test_generated.py::test_negative_ceiling\n10 passed in 0.14s",
+    "duration_ms": 6085,
+    "stdout": "..........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_n_less_than_ceiling\nPASSED test_generated.py::test_n_equal_to_ceiling\nPASSED test_generated.py::test_n_greater_than_ceiling\nPASSED test_generated.py::test_boundary_n_zero_ceiling_positive\nPASSED test_generated.py::test_boundary_n_positive_ceiling_zero\nPASSED test_generated.py::test_boundary_n_zero_ceiling_zero\nPASSED test_generated.py::test_custom_ceiling\nPASSED test_generated.py::test_negative_n\nPASSED test_generated.py::test_negative_ceiling\n10 passed in 0.14s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [],
+    "failure_details_omitted": 0,
+    "covered_branches": 2,
+    "total_branches": 2,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "8565d0e0-7ed3-4123-90ed-03247631ffea",
+    "started": "2026-11-27T08:34:28.145178+00:00",
+    "ended": "2026-11-27T08:34:34.230495+00:00",
+    "source_sha256": "7a5b2659fe189e419d6a851ea1179d5e03b54e5a742bf6a4e811b6209bb52742",
+    "test_sha256": "900a3e4d11a3303f98dfec92608d1bd9feedd44c250b1d69bdc45021f10a097b"
+  }
+}

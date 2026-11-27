@@ -1,0 +1,55 @@
+{
+  "status": "failed",
+  "passed": 0,
+  "failed": 1,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_bonus",
+      "outcome": "failed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 1,
+  "total_lines": 6,
+  "coverage_pct": 16.67,
+  "log": "F\n=================================== FAILURES ===================================\n__________________________________ test_bonus __________________________________\ntest_generated.py:4: in test_bonus\n    with pytest.raises(ValueError):\n         ^^^^^^\nE   NameError: name 'pytest' is not defined\n=========================== short test summary info ============================\nFAILED test_generated.py::test_bonus - NameError: name 'pytest' is not defined\n1 failed in 0.22s",
+  "duration_ms": 6515,
+  "stdout": "F\n=================================== FAILURES ===================================\n__________________________________ test_bonus __________________________________\ntest_generated.py:4: in test_bonus\n    with pytest.raises(ValueError):\n         ^^^^^^\nE   NameError: name 'pytest' is not defined\n=========================== short test summary info ============================\nFAILED test_generated.py::test_bonus - NameError: name 'pytest' is not defined\n1 failed in 0.22s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_bonus",
+      "phase": "call",
+      "exception_type": "NameError",
+      "message": "name 'pytest' is not defined",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 4,
+          "function": "test_bonus",
+          "source": "with pytest.raises(ValueError):"
+        }
+      ],
+      "assertion_diff": null
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 4,
+  "branch_pct": 0.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "f59ec9dd-53f0-4357-9067-84a470c5ce81",
+  "started": "2026-11-27T08:21:42.646544+00:00",
+  "ended": "2026-11-27T08:21:49.161236+00:00",
+  "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+  "test_sha256": "6c8723dfe862395326d9e202539e49c2c3ca6b7f60937ee4c931aec591400cf2"
+}

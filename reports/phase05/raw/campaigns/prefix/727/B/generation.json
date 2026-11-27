@@ -1,0 +1,14 @@
+{
+  "id": "7d10aa15-afcf-4c4f-9bcf-e5880937136d",
+  "at": "2026-11-27T08:18:24.086527+00:00",
+  "seconds": 0.0010374999983469024,
+  "artifact": {
+    "code": "import pytest\nfrom subject import prefix_length as target\n\ndef test_example_1():\n    assert target([4, None, 2]) == 1\n\ndef test_normal_return_contract():\n    assert isinstance(target(values=[1]), int)\n\ndef test_boundary_return_contract():\n    assert isinstance(target(values=[]), int)\n\ndef test_invalid_keyword():\n    with pytest.raises(TypeError):\n        target(_testpilot_unexpected=None)\n",
+    "mode": "template",
+    "sha256": "1aa07ac4f6b5e2f7c8bf8fed0f2f216f6df8471d3ea784f4a649fb28251d7756",
+    "provider": "local-template",
+    "model": null,
+    "attempts": [],
+    "fallback_reason": "任务明确选择本地模板"
+  }
+}

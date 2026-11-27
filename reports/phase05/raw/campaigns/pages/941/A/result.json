@@ -1,0 +1,13 @@
+{
+  "name": "pages",
+  "seed": 941,
+  "arm": "A",
+  "planned": 3,
+  "baseline": false,
+  "score": null,
+  "reason": "no validated suite from assigned generator",
+  "outcomes": {},
+  "id": "d6a19bf4-9222-4ff1-8bf5-0302b974cb86",
+  "generated": "46cf6736-f26c-433b-a8ca-2a325d3673ae",
+  "finished": "2026-11-27T08:22:24.708605+00:00"
+}

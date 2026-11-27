@@ -1,0 +1,109 @@
+{
+  "id": "f20bac4c-4b3c-5bfd-b98c-559f2f648289",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_boundary_return_contract",
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_normal_return_contract"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 1,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 7,
+    "total_lines": 7,
+    "coverage_pct": 100.0,
+    "log": "FFF.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target([4, None, 2]) == 1\nE   assert None == 1\nE    +  where None = target([4, None, 2])\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(values=[1]), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(values=[1])\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(values=[]), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(values=[])\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert None == 1\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n3 failed, 1 passed in 0.46s",
+    "duration_ms": 7789,
+    "stdout": "FFF.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target([4, None, 2]) == 1\nE   assert None == 1\nE    +  where None = target([4, None, 2])\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(values=[1]), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(values=[1])\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(values=[]), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(values=[])\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert None == 1\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n3 failed, 1 passed in 0.46s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 1\n +  where None = target([4, None, 2])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 5,
+            "function": "test_example_1",
+            "source": "assert target([4, None, 2]) == 1"
+          }
+        ],
+        "assertion_diff": "assert None == 1\n +  where None = target([4, None, 2])"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(values=[1])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 8,
+            "function": "test_normal_return_contract",
+            "source": "assert isinstance(target(values=[1]), int)"
+          }
+        ],
+        "assertion_diff": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(values=[1])"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(values=[])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_boundary_return_contract",
+            "source": "assert isinstance(target(values=[]), int)"
+          }
+        ],
+        "assertion_diff": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(values=[])"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "b2767325-a839-4fc1-845c-8f5d31e25a2d",
+    "started": "2026-11-27T08:16:02.372714+00:00",
+    "ended": "2026-11-27T08:16:10.161915+00:00",
+    "source_sha256": "e56012f4f8dd23b8354b517d36958d64c4396ac318bcc3d95fe495a5f07a43fc",
+    "test_sha256": "1aa07ac4f6b5e2f7c8bf8fed0f2f216f6df8471d3ea784f4a649fb28251d7756"
+  }
+}

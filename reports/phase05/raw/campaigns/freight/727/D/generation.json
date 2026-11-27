@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:29:26.848979+00:00",
+  "id": "1ca823f8-5488-43f7-b570-efa2d17fca11",
+  "parent": "a6c5c95e-8614-4bc8-9eb6-b12575e923cb",
+  "seconds": 0.0012179000004834961,
+  "artifact": {
+    "code": "import sys as _tp_sys, types as _tp_types\n_tp_m = _tp_types.ModuleType('tariff')\n_tp_m.__file__ = 'tariff.py'\n_tp_sys.modules['tariff'] = _tp_m\nexec(compile('BASE = 5\\n', _tp_m.__file__, 'exec'), _tp_m.__dict__)\n\nfrom subject import freight\n\ndef test_example_1():\n    assert freight(3) == 8\n\ndef test_boundary_zero():\n    assert freight(0) == 5\n\ndef test_units_two():\n    assert freight(2) == 7\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "no surviving mutant; replay the complete manifest"
+}

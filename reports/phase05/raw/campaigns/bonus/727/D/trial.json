@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "passed": 6,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_zero_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_one_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_two_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_two_enabled_false",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_mutation_0473d9a7eced8496",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 6,
+  "total_lines": 6,
+  "coverage_pct": 100.0,
+  "log": "......\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_zero_enabled_true\nPASSED test_generated.py::test_one_enabled_true\nPASSED test_generated.py::test_two_enabled_true\nPASSED test_generated.py::test_two_enabled_false\nPASSED test_generated.py::test_mutation_0473d9a7eced8496\n6 passed in 0.19s",
+  "duration_ms": 7999,
+  "stdout": "......\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_zero_enabled_true\nPASSED test_generated.py::test_one_enabled_true\nPASSED test_generated.py::test_two_enabled_true\nPASSED test_generated.py::test_two_enabled_false\nPASSED test_generated.py::test_mutation_0473d9a7eced8496\n6 passed in 0.19s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "727f5668-da2c-4430-a1a6-7cb25b7b6916",
+  "started": "2026-11-27T08:32:37.712528+00:00",
+  "ended": "2026-11-27T08:32:45.711996+00:00",
+  "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+  "test_sha256": "4cb269005d3772862a8ec8b82f278c0d905b307131055d160b68880b0ec6e421"
+}

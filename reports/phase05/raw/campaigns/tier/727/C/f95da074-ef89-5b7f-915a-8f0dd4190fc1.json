@@ -1,0 +1,125 @@
+{
+  "id": "f95da074-ef89-5b7f-915a-8f0dd4190fc1",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_boundary_gold",
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_just_above_gold"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 5,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_gold",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_silver",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_below_silver",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_points",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_points",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_just_above_gold",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_just_above_silver",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 6,
+    "total_lines": 6,
+    "coverage_pct": 100.0,
+    "log": "FF....F.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:4: in test_example_1\n    assert tier(120) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = tier(120)\n______________________________ test_boundary_gold ______________________________\ntest_generated.py:7: in test_boundary_gold\n    assert tier(100) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = tier(100)\n_____________________________ test_just_above_gold _____________________________\ntest_generated.py:25: in test_just_above_gold\n    assert tier(101) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = tier(101)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_boundary_silver\nPASSED test_generated.py::test_below_silver\nPASSED test_generated.py::test_zero_points\nPASSED test_generated.py::test_negative_points\nPASSED test_generated.py::test_just_above_silver\nFAILED test_generated.py::test_example_1 - AssertionError: assert None == 'gold'\nFAILED test_generated.py::test_boundary_gold - AssertionError: assert None ==...\nFAILED test_generated.py::test_just_above_gold - AssertionError: assert None ...\n3 failed, 5 passed in 0.51s",
+    "duration_ms": 8407,
+    "stdout": "FF....F.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:4: in test_example_1\n    assert tier(120) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = tier(120)\n______________________________ test_boundary_gold ______________________________\ntest_generated.py:7: in test_boundary_gold\n    assert tier(100) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = tier(100)\n_____________________________ test_just_above_gold _____________________________\ntest_generated.py:25: in test_just_above_gold\n    assert tier(101) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = tier(101)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_boundary_silver\nPASSED test_generated.py::test_below_silver\nPASSED test_generated.py::test_zero_points\nPASSED test_generated.py::test_negative_points\nPASSED test_generated.py::test_just_above_silver\nFAILED test_generated.py::test_example_1 - AssertionError: assert None == 'gold'\nFAILED test_generated.py::test_boundary_gold - AssertionError: assert None ==...\nFAILED test_generated.py::test_just_above_gold - AssertionError: assert None ...\n3 failed, 5 passed in 0.51s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'gold'\n +  where None = tier(120)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 4,
+            "function": "test_example_1",
+            "source": "assert tier(120) == 'gold'"
+          }
+        ],
+        "assertion_diff": "assert None == 'gold'\n +  where None = tier(120)"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_gold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'gold'\n +  where None = tier(100)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 7,
+            "function": "test_boundary_gold",
+            "source": "assert tier(100) == 'gold'"
+          }
+        ],
+        "assertion_diff": "assert None == 'gold'\n +  where None = tier(100)"
+      },
+      {
+        "nodeid": "test_generated.py::test_just_above_gold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'gold'\n +  where None = tier(101)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 25,
+            "function": "test_just_above_gold",
+            "source": "assert tier(101) == 'gold'"
+          }
+        ],
+        "assertion_diff": "assert None == 'gold'\n +  where None = tier(101)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "bdabd020-db29-4640-bb77-1391683bf51e",
+    "started": "2026-11-27T08:32:45.079550+00:00",
+    "ended": "2026-11-27T08:32:53.486804+00:00",
+    "source_sha256": "c390908f9ba38c44890a3581f08f149338211bf2048cf018fac1450907958ee8",
+    "test_sha256": "f0151d3bd6305b5a61d19230321cc2bdd52be9ce3792d9f3a6f6e461277d6ffd"
+  }
+}

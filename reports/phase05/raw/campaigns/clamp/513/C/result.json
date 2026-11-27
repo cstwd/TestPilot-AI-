@@ -1,0 +1,64 @@
+{
+  "name": "clamp",
+  "seed": 513,
+  "arm": "C",
+  "planned": 4,
+  "baseline": true,
+  "score": {
+    "killed": 3,
+    "survived": 1,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 4,
+    "equivalent_candidates": 0,
+    "score_pct": 75.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "aa7bca94-80c9-57b8-9ca1-7f72dd6fe5ed": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_ceiling_zero",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_n_greater_than_ceiling",
+        "test_generated.py::test_n_less_than_ceiling",
+        "test_generated.py::test_n_zero_ceiling_positive",
+        "test_generated.py::test_negative_ceiling",
+        "test_generated.py::test_negative_n"
+      ]
+    },
+    "bc12ab81-c58a-5136-a747-a462d1aab985": {
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "nodeids": []
+    },
+    "a371407c-4086-54d1-8642-dbf1a42297b9": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_ceiling_zero",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_n_greater_than_ceiling",
+        "test_generated.py::test_negative_ceiling"
+      ]
+    },
+    "4bd7daa9-136d-5ec5-b80e-ba83e69f4245": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_n_equal_to_ceiling",
+        "test_generated.py::test_n_less_than_ceiling",
+        "test_generated.py::test_n_zero_ceiling_positive",
+        "test_generated.py::test_negative_n"
+      ]
+    }
+  },
+  "id": "cb8cbaca-98ca-42f5-9cc5-3f19827024a8",
+  "generated": "2d4fdd9e-7570-4c2a-9d37-81f4229567e4",
+  "test_sha256": "d71972bf89ff58f54debc5d626cf751a4d977cb271fe9f4cdd9a201076c84a42",
+  "green_job": "e0ee3167-4eed-496a-b23c-348bcccd8c2e",
+  "finished": "2026-11-27T08:24:00.708131+00:00"
+}

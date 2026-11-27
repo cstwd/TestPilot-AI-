@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "passed": 3,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_units_two",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "...\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_zero\nPASSED test_generated.py::test_units_two\n3 passed in 0.06s",
+  "duration_ms": 5591,
+  "stdout": "...\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_zero\nPASSED test_generated.py::test_units_two\n3 passed in 0.06s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "40056a0d-11ce-4edc-9159-f4bbd5b8686c",
+  "started": "2026-11-27T08:35:25.740269+00:00",
+  "ended": "2026-11-27T08:35:31.331183+00:00",
+  "source_sha256": "917c066df9bb1c369085a82a1076a1a08cda8af5aedd9f15fdf0046c6855c19a",
+  "test_sha256": "de4c6f06be1090d3d4fe8ff57e5c04a2e92cabebe17eb7875b261bd6b0d7902f"
+}

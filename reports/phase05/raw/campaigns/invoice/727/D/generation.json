@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:34:22.558747+00:00",
+  "id": "0b128f43-8ad0-4d1b-b8d7-f046083d21a3",
+  "parent": "17800510-e81f-4009-af9e-d5410274e817",
+  "seconds": 0.0012647000003198627,
+  "artifact": {
+    "code": "import sys as _tp_sys, types as _tp_types\n_tp_m = _tp_types.ModuleType('policy')\n_tp_m.__file__ = 'policy.py'\n_tp_sys.modules['policy'] = _tp_m\nexec(compile('def allowable(value):\\n    return value >= 0\\n', _tp_m.__file__, 'exec'), _tp_m.__dict__)\n\nfrom subject import invoice\n\ndef test_example_1():\n    assert invoice([4, -2, 3], 2) == 5\n\ndef test_empty_values_with_discount():\n    assert invoice([], 2) == 0\n\ndef test_single_value_no_discount():\n    assert invoice([1], 0) == 1\n\ndef test_single_value_exceeds_discount():\n    assert invoice([1], 2) == 0\n\ndef test_all_negative_values():\n    assert invoice([-1, -2, -3], 0) == 0\n\ndef test_mixed_values_with_discount():\n    assert invoice([5, -1, 3, -2, 4], 3) == 9\n\ndef test_zero_values():\n    assert invoice([0, 0, 0], 0) == 0\n\ndef test_discount_larger_than_total():\n    assert invoice([1, 2, 3], 10) == 0\n\ndef test_default_discount():\n    assert invoice([1, 2, 3]) == 6\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "no surviving mutant; replay the complete manifest"
+}

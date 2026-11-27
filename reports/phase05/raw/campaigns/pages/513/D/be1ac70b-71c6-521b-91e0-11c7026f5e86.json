@@ -1,0 +1,65 @@
+{
+  "id": "be1ac70b-71c6-521b-91e0-11c7026f5e86",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_example_1"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 0,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "F\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:10: in test_example_1\n    assert page_count(9) == 1\nE   assert 91 == 1\nE    +  where 91 = page_count(9)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert 91 == 1\n1 failed in 0.29s",
+    "duration_ms": 7639,
+    "stdout": "F\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:10: in test_example_1\n    assert page_count(9) == 1\nE   assert 91 == 1\nE    +  where 91 = page_count(9)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert 91 == 1\n1 failed in 0.29s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 91 == 1\n +  where 91 = page_count(9)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_example_1",
+            "source": "assert page_count(9) == 1"
+          }
+        ],
+        "assertion_diff": "assert 91 == 1\n +  where 91 = page_count(9)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "5607edd0-94bc-4f7a-bb6a-d6c4873ffa33",
+    "started": "2026-11-27T08:30:17.492787+00:00",
+    "ended": "2026-11-27T08:30:25.131821+00:00",
+    "source_sha256": "099617ca548f0bfe7f7bb2c445f5f7b04d7c7c8ce85e44bdd8029a50f49bdcf1",
+    "test_sha256": "4edc9dbf2df00bd28127f7cd6fb910f2485068e9bd8e0400bed7273cae67e899"
+  }
+}

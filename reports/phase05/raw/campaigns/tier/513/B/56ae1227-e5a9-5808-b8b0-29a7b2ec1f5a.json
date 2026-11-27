@@ -1,0 +1,63 @@
+{
+  "id": "56ae1227-e5a9-5808-b8b0-29a7b2ec1f5a",
+  "verdict": {
+    "status": "survived",
+    "reason": "相同测试节点运行通过",
+    "nodeids": []
+  },
+  "run": {
+    "status": "passed",
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 1,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_property_return_contract",
+        "outcome": "skipped"
+      }
+    ],
+    "exit_code": 0,
+    "covered_lines": 5,
+    "total_lines": 6,
+    "coverage_pct": 83.33,
+    "log": "....s\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:18: could not import 'hypothesis': No module named 'hypothesis'\n4 passed, 1 skipped in 0.16s",
+    "duration_ms": 7502,
+    "stdout": "....s\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:18: could not import 'hypothesis': No module named 'hypothesis'\n4 passed, 1 skipped in 0.16s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [],
+    "failure_details_omitted": 0,
+    "covered_branches": 3,
+    "total_branches": 4,
+    "branch_pct": 75.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "1f849424-d14f-4b2c-8a48-22c79ba45dd7",
+    "started": "2026-11-27T08:16:25.419194+00:00",
+    "ended": "2026-11-27T08:16:32.921345+00:00",
+    "source_sha256": "e58480a6f57223096e63f755a4645ac6ffab6b76149ff65c9f1cb2faf78811f9",
+    "test_sha256": "bb66f6df1f6f453ec235115d8175b449146146bc3e4f0e5d2fcbd0f41f16acb5"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "passed": 12,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_bonus_doctest_example",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_negative_raises_valueerror",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_zero_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_zero_enabled_false",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_one_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_one_enabled_false",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_two_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_two_enabled_false",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_three_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_three_enabled_false",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_negative_one_raises_valueerror",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_negative_one_enabled_false_raises_valueerror",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 6,
+  "total_lines": 6,
+  "coverage_pct": 100.0,
+  "log": "............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_doctest_example\nPASSED test_generated.py::test_bonus_negative_raises_valueerror\nPASSED test_generated.py::test_bonus_zero_enabled_true\nPASSED test_generated.py::test_bonus_zero_enabled_false\nPASSED test_generated.py::test_bonus_one_enabled_true\nPASSED test_generated.py::test_bonus_one_enabled_false\nPASSED test_generated.py::test_bonus_two_enabled_true\nPASSED test_generated.py::test_bonus_two_enabled_false\nPASSED test_generated.py::test_bonus_three_enabled_true\nPASSED test_generated.py::test_bonus_three_enabled_false\nPASSED test_generated.py::test_bonus_negative_one_raises_valueerror\nPASSED test_generated.py::test_bonus_negative_one_enabled_false_raises_valueerror\n12 passed in 0.25s",
+  "duration_ms": 7593,
+  "stdout": "............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_doctest_example\nPASSED test_generated.py::test_bonus_negative_raises_valueerror\nPASSED test_generated.py::test_bonus_zero_enabled_true\nPASSED test_generated.py::test_bonus_zero_enabled_false\nPASSED test_generated.py::test_bonus_one_enabled_true\nPASSED test_generated.py::test_bonus_one_enabled_false\nPASSED test_generated.py::test_bonus_two_enabled_true\nPASSED test_generated.py::test_bonus_two_enabled_false\nPASSED test_generated.py::test_bonus_three_enabled_true\nPASSED test_generated.py::test_bonus_three_enabled_false\nPASSED test_generated.py::test_bonus_negative_one_raises_valueerror\nPASSED test_generated.py::test_bonus_negative_one_enabled_false_raises_valueerror\n12 passed in 0.25s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "66f43aba-d9fc-433a-b950-9c94fffec314",
+  "started": "2026-11-27T08:26:30.309036+00:00",
+  "ended": "2026-11-27T08:26:37.901723+00:00",
+  "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+  "test_sha256": "78603e9eafba27c4269b13123ce6693c83320030a90a2ae06c928ae6990cefd0"
+}

@@ -1,0 +1,94 @@
+{
+  "name": "tier",
+  "seed": 941,
+  "arm": "D",
+  "planned": 7,
+  "baseline": true,
+  "score": {
+    "killed": 7,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 7,
+    "equivalent_candidates": 0,
+    "score_pct": 100.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "2c991105-9bf9-5bf9-b052-0a5994a361f2": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_basic_upper",
+        "test_generated.py::test_boundary_gold_above",
+        "test_generated.py::test_boundary_gold_lower",
+        "test_generated.py::test_boundary_silver_above",
+        "test_generated.py::test_boundary_silver_lower",
+        "test_generated.py::test_boundary_silver_upper",
+        "test_generated.py::test_boundary_zero",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_negative_points"
+      ]
+    },
+    "56ae1227-e5a9-5808-b8b0-29a7b2ec1f5a": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_gold_lower"
+      ]
+    },
+    "f95da074-ef89-5b7f-915a-8f0dd4190fc1": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_gold_above",
+        "test_generated.py::test_boundary_gold_lower",
+        "test_generated.py::test_example_1"
+      ]
+    },
+    "cb877967-f48c-550f-b2ee-5e7371e81e4d": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_basic_upper",
+        "test_generated.py::test_boundary_silver_above",
+        "test_generated.py::test_boundary_silver_lower",
+        "test_generated.py::test_boundary_silver_upper",
+        "test_generated.py::test_boundary_zero",
+        "test_generated.py::test_negative_points"
+      ]
+    },
+    "8bc3b0f7-62da-58d6-931b-f71e205130af": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_silver_lower"
+      ]
+    },
+    "ed3b7a56-c9d2-5fec-8b97-6a2683190e04": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_silver_above",
+        "test_generated.py::test_boundary_silver_lower",
+        "test_generated.py::test_boundary_silver_upper"
+      ]
+    },
+    "7e0a5981-824f-5d8b-a633-c55f559ce5e8": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_basic_upper",
+        "test_generated.py::test_boundary_zero",
+        "test_generated.py::test_negative_points"
+      ]
+    }
+  },
+  "id": "78c5ef76-72c4-4e2a-a855-9bc5411fcc4f",
+  "generated": "64c164e7-2af0-4f0d-8fba-409ff2a53bc5",
+  "test_sha256": "26150bed4028aaf98cd618ad751c7bed731378e118eb7b71010814af1e7e2c60",
+  "green_job": "c158d8b8-3a8a-4185-8bac-b61a59122a8c",
+  "finished": "2026-11-27T08:41:22.359130+00:00"
+}

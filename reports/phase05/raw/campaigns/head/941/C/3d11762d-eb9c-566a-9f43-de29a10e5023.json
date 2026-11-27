@@ -1,0 +1,97 @@
+{
+  "id": "3d11762d-eb9c-566a-9f43-de29a10e5023",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_empty_list_returns_zero",
+      "test_generated.py::test_empty_list_with_fallback_returns_zero"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 3,
+    "failed": 2,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_empty_list_returns_zero",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_empty_list_with_fallback_returns_zero",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_single_item_with_fallback",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_single_item_with_fallback_two",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 4,
+    "total_lines": 4,
+    "coverage_pct": 100.0,
+    "log": ".FF..\n=================================== FAILURES ===================================\n_________________________ test_empty_list_returns_zero _________________________\ntest_generated.py:7: in test_empty_list_returns_zero\n    assert first([]) == 0\nE   assert None == 0\nE    +  where None = first([])\n__________________ test_empty_list_with_fallback_returns_zero __________________\ntest_generated.py:10: in test_empty_list_with_fallback_returns_zero\n    assert first([], 2) == 0\nE   assert None == 0\nE    +  where None = first([], 2)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_single_item_with_fallback\nPASSED test_generated.py::test_single_item_with_fallback_two\nFAILED test_generated.py::test_empty_list_returns_zero - assert None == 0\nFAILED test_generated.py::test_empty_list_with_fallback_returns_zero - assert...\n2 failed, 3 passed in 0.47s",
+    "duration_ms": 7928,
+    "stdout": ".FF..\n=================================== FAILURES ===================================\n_________________________ test_empty_list_returns_zero _________________________\ntest_generated.py:7: in test_empty_list_returns_zero\n    assert first([]) == 0\nE   assert None == 0\nE    +  where None = first([])\n__________________ test_empty_list_with_fallback_returns_zero __________________\ntest_generated.py:10: in test_empty_list_with_fallback_returns_zero\n    assert first([], 2) == 0\nE   assert None == 0\nE    +  where None = first([], 2)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_single_item_with_fallback\nPASSED test_generated.py::test_single_item_with_fallback_two\nFAILED test_generated.py::test_empty_list_returns_zero - assert None == 0\nFAILED test_generated.py::test_empty_list_with_fallback_returns_zero - assert...\n2 failed, 3 passed in 0.47s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_empty_list_returns_zero",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 0\n +  where None = first([])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 7,
+            "function": "test_empty_list_returns_zero",
+            "source": "assert first([]) == 0"
+          }
+        ],
+        "assertion_diff": "assert None == 0\n +  where None = first([])"
+      },
+      {
+        "nodeid": "test_generated.py::test_empty_list_with_fallback_returns_zero",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 0\n +  where None = first([], 2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_empty_list_with_fallback_returns_zero",
+            "source": "assert first([], 2) == 0"
+          }
+        ],
+        "assertion_diff": "assert None == 0\n +  where None = first([], 2)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 2,
+    "total_branches": 2,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "72d6e6aa-8f55-49f5-9007-a98fb21183ef",
+    "started": "2026-11-27T08:39:05.860255+00:00",
+    "ended": "2026-11-27T08:39:13.788700+00:00",
+    "source_sha256": "c1ccf45158bf8219e406df2f208a5a66f04185c5a499211ea6d20c5e9e834bcc",
+    "test_sha256": "8f6232cedb9a4c22b77702000389f63ca9a037302d7fbb5339ebb493ac79d1dc"
+  }
+}

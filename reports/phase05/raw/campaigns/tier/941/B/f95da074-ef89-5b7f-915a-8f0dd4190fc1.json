@@ -1,0 +1,81 @@
+{
+  "id": "f95da074-ef89-5b7f-915a-8f0dd4190fc1",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_example_1"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 3,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 1,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_property_return_contract",
+        "outcome": "skipped"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 5,
+    "total_lines": 6,
+    "coverage_pct": 83.33,
+    "log": "F...s\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(120) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = target(120)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:18: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_example_1 - AssertionError: assert None == 'gold'\n1 failed, 3 passed, 1 skipped in 0.30s",
+    "duration_ms": 7511,
+    "stdout": "F...s\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(120) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = target(120)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:18: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_example_1 - AssertionError: assert None == 'gold'\n1 failed, 3 passed, 1 skipped in 0.30s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'gold'\n +  where None = target(120)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 5,
+            "function": "test_example_1",
+            "source": "assert target(120) == 'gold'"
+          }
+        ],
+        "assertion_diff": "assert None == 'gold'\n +  where None = target(120)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 3,
+    "total_branches": 4,
+    "branch_pct": 75.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "f058196d-0061-491e-a12f-40466533eb89",
+    "started": "2026-11-27T08:21:33.666394+00:00",
+    "ended": "2026-11-27T08:21:41.177623+00:00",
+    "source_sha256": "c390908f9ba38c44890a3581f08f149338211bf2048cf018fac1450907958ee8",
+    "test_sha256": "bb66f6df1f6f453ec235115d8175b449146146bc3e4f0e5d2fcbd0f41f16acb5"
+  }
+}

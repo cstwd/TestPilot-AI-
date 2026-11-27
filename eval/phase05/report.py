@@ -4,6 +4,7 @@ from statistics import mean
 from .aggregate import ARMS, read
 from .audit import RAW, REPORT
 from .corpus import SPEC, SEEDS
+from .overview import rows
 
 
 def percent(x):
@@ -20,6 +21,8 @@ def main():
     campaigns=summary["campaigns"]
     assert all(r["run_count"]==30 and r["planned"]==117 for r in groups.values())
     performance=read(RAW/"vulkan-01"/"ready.json")
+    stability=rows(RAW/"vulkan-01"/"stability.jsonl")
+    source_points=sum(sum(read(RAW/"understanding"/f"{name}.json")["scores"].values()) for name in SPEC)
     pairs=summary["paired"]
     table=[]
     for arm,row in groups.items():
@@ -55,6 +58,9 @@ def main():
       "A/C 通过既有 F09 适配器和 AST 门禁。回环转接记录实际提示与完整响应，并将同一采样参数应用到两种模型。原版由 F10 隔离执行。若有错误断言但原基线仍产生有效节点，则按完整函数去除失败用例并重验，保留原始代码、删减前执行记录和最终通过代码。模板降级只出现在生成日志中，AI 组对其保留未计分结果。","",
       "| 组别 | F09 来源或配对状态 | 返回的模型响应/请求 | 绿色原版 | 平均生成或反馈秒数 | Pytest 作业完整返回 |",
       "| --- | --- | ---: | ---: | ---: | ---: |",*lines,"",
+      *[f"{a} 组校准前的真实 Pytest 节点共 {passed+failed+errors} 个（通过 {passed}、失败 {failed}、错误 {errors}；跳过另存于原始 JSON）。"
+        for a in ("A","C") for passed,failed,errors in [tuple(sum(r[key] or 0 for r in campaigns if r["arm"]==a)
+        for key in ("trial_passed","trial_failed","trial_errors"))]],
       f"Qwen3.8 初始生成的实际后端平均吞吐为 {groups['C']['throughput_mean_tps']:.2f} token/s（按请求平均，含以结构拒绝的响应）。D 的生成时间包含原版校准。Pytest 完整返回率表示取得有效结构化作业记录，包含能正常报告断言失败的作业。","",
       "[完整 F09 提示、回复及测试文件](raw/campaigns) · [每次生成、原版和复跑指标](campaigns.csv)"])
     before=sum(p["before"] for p in pairs)
@@ -67,8 +73,12 @@ def main():
        f"变为 {after}/{total}（{percent(100*after/total if total else None)}）。配对中 {sum(v for k,v in differences.items() if k>0)} 次提升，"
        f"{differences[0]} 次持平，{sum(v for k,v in differences.items() if k<0)} 次下降。",
        f"存活变异的真实模型反馈 {d['responses']}/{d['model_requests']} 个响应；F13 AST/字面量校验并去重后有 {d['proposal_count']} 个候选，"
-       f"在原版上通过并采纳 {d['accepted_count']} 个，候选通过率 {percent(d['validated_candidate_pct'])}。",
+       f"在原版上通过并采纳 {d['accepted_count']} 个，候选通过率 {percent(d['validated_candidate_pct'])}。"
+       f"以全部模型请求为分母，得到已采纳补测的请求占 {percent(100*d['accepted_count']/d['model_requests'] if d['model_requests'] else None)}。",
        "每次请求包含原版文件、源代码差异、原套件和存活变异的 Pytest 节点、覆盖率及摘要。补测必须通过原版门禁；验证拒绝、重复、空候选和错误均可按位置查阅。无可采纳补测的有效原版套件仍执行全清单。","",
+       "第二轮 bonus 的模型补测要求 `bonus(-1, True)` 抛出 ValueError。该用例在原版通过，在抑制异常的变异版由 Pytest 给出 `DID NOT RAISE`。"
+       "另三次请求均针对 cap 的 `> → >=`，模型回复的理由字符串被截断。此变异在普通整数相等时两边返回同值，是人工复核的等价候选，三个位置仍按实际存活计入分母。",
+       "[bonus 原始模型回复](raw/campaigns/bonus/727/D/model-bad0575f-acc5-58a6-a467-7a1cb312a19b.json) · [相同变异的实际 Pytest](raw/campaigns/bonus/727/D/bad0575f-acc5-58a6-a467-7a1cb312a19b.json) · [cap 截断示例](raw/campaigns/clamp/513/D/model-bc12ab81-c58a-5136-a747-a462d1aab985.json)","",
        "| 项目 | 种子 | 初始杀死 | 复测杀死 | 分母 |",
        "| --- | ---: | ---: | ---: | ---: |",
        *[f"| {r['project']} | {r['seed']} | {r['before']} | {r['after']} | {r['total']} |" for r in pairs],"",
@@ -81,18 +91,19 @@ def main():
        "项目 TestPilot AI。责任工作包 WP03、WP04，阶段负责人陈帅廷，实验操作 Codex。基线 `307d4bd`，实验分支 `experiment/tp-phase-05`。",
        "目标模型为本机已有的 Qwen3.8-27B UD-IQ3_XXS GGUF。CUDA 在首请求遇到 PTX JIT 资源分配失败，改用 RTX 5080 Laptop Vulkan 后完成连续推理以及 F09、F13 全流程。推理经本机回环接口完成，API 费用为零。","",
        "| 维度 | 结果 |","| --- | --- |",
-       "| 模型源码理解 | 严格评分 56/70，80.00%。十组参数值在人工复核中正确，但结构与冻结要求不符，仍按规则计分。 |",
+       f"| 模型源码理解 | 严格评分 {source_points}/70，{100*source_points/70:.2f}%。十组参数值在人工复核中正确，但结构与冻结要求不符，仍按规则计分。 |",
        f"| 测试质量 | Qwen3.8 初始 {percent(cs)}，模板 {percent(groups['B']['all_manifest_detection'])}，补测后 {percent(ds)}。按所有预登记位置计算。 |",
-       f"| 推理性能 | 进程就绪 {performance['load_wall_s']:.3f} 秒，连续有效响应 10/10。短请求后九轮均值 19.21 token/s。 |","",
-       f"初始目标 ≥55% {hit(cs,55)}。补测目标 ≥70% {hit(ds,70)}。候选原版通过率 {percent(cov)}，≥80% {hit(cov,80)}。",
-       f"Qwen3.8 初始分数相对模板差 {cs-groups['B']['all_manifest_detection']:+.2f} 个百分点；反馈相对初始差 {ds-cs:+.2f} 个百分点。",
+       f"| 推理性能 | 进程就绪 {performance['load_wall_s']:.3f} 秒，连续有效响应 {sum(r['success'] for r in stability)}/10。短请求后九轮均值 {mean(r['timings']['predicted_per_second'] for r in stability[1:]):.2f} token/s。 |","",
+       f"初始目标 ≥55% {hit(cs,55)}。补测目标 ≥70% {hit(ds,70)}。候选原版通过率 {percent(cov)}（{d['accepted_count']}/{d['proposal_count']}），"
+       f"达到阈值的样本只有一条。全部 {d['model_requests']} 次反馈请求中有 {d['accepted_count']} 条转化为有效补测。",
+       f"Qwen3.8 初始分数比模板高 {cs-groups['B']['all_manifest_detection']:.2f} 个百分点。反馈比初始高 {ds-cs:.2f} 个百分点。",
        "结论适用于这十个小型项目、三个采样种子及固定算子配置。多文件加载是独立评测适配层。整机物理内存采样在模型加载和执行期间接近上限。性能记录采用文本推理模式。",
        "F13 发现身份比较变异的最小文本差分可能错过算子位置，导致整个清单拒绝。实验分支仅对经 Cosmic Ray 精确复验的 `is → is not` 插入做定位修正。既有 bonus 清单逐项与 PHASE-04 一致。","",
        "- [环境与权重审计](T01_ENVIRONMENT.md) · [连续推理及内存数据](T01_PERFORMANCE.md)",
        "- [源码理解报告](T02_SOURCE_UNDERSTANDING.md) · [F09 生成报告](T03_TEST_GENERATION.md)",
        "- [四组对照报告](T04_COMPARISON.md) · [得分图](mutation-score.png) · [反馈报告](T05_MUTATION_FEEDBACK.md)",
        "- [完整原始数据](raw) · [逐次 CSV](campaigns.csv) · [可复算汇总](summary.json) · [冻结协议](../../eval/phase05/PROTOCOL.md)",
-       "- [变异回归实测](raw/manifest-tests.txt) · [代码与实验脚本](../../eval/phase05)",
+       "- [四组分数复算](raw/independent-recalculation.txt) · [变异回归实测](raw/manifest-tests.txt) · [代码与实验脚本](../../eval/phase05)",
        "","项目组长人工签收待办。"])
 
 if __name__=="__main__":

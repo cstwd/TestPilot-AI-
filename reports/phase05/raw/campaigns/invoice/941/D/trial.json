@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "passed": 4,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_empty_values_with_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_single_value_no_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_single_value_discount_exceeds_total",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 7,
+  "total_lines": 7,
+  "coverage_pct": 100.0,
+  "log": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_empty_values_with_discount\nPASSED test_generated.py::test_single_value_no_discount\nPASSED test_generated.py::test_single_value_discount_exceeds_total\n4 passed in 0.14s",
+  "duration_ms": 7343,
+  "stdout": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_empty_values_with_discount\nPASSED test_generated.py::test_single_value_no_discount\nPASSED test_generated.py::test_single_value_discount_exceeds_total\n4 passed in 0.14s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "f6000341-b6ad-48fd-9dcd-41d7fcc1c9f9",
+  "started": "2026-11-27T08:40:52.219923+00:00",
+  "ended": "2026-11-27T08:40:59.562895+00:00",
+  "source_sha256": "f5ee842f2490510d65f5f38552a0e5fedcd0905e9ca0702c83a56102c945cd7e",
+  "test_sha256": "2b8bd93d20234daf2afdfddb8cfe587dd70b18dfc638a6ea2a650a568fc41404"
+}

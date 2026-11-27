@@ -1,0 +1,55 @@
+{
+  "status": "passed",
+  "passed": 5,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_zero_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_one_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_two_enabled_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_two_enabled_false",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 5,
+  "total_lines": 6,
+  "coverage_pct": 83.33,
+  "log": ".....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_zero_enabled_true\nPASSED test_generated.py::test_one_enabled_true\nPASSED test_generated.py::test_two_enabled_true\nPASSED test_generated.py::test_two_enabled_false\n5 passed in 0.15s",
+  "duration_ms": 6911,
+  "stdout": ".....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_zero_enabled_true\nPASSED test_generated.py::test_one_enabled_true\nPASSED test_generated.py::test_two_enabled_true\nPASSED test_generated.py::test_two_enabled_false\n5 passed in 0.15s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 3,
+  "total_branches": 4,
+  "branch_pct": 75.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "bd2da75f-daec-4185-8f0e-f0f187305a10",
+  "started": "2026-11-27T08:27:51.782886+00:00",
+  "ended": "2026-11-27T08:27:58.693759+00:00",
+  "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+  "test_sha256": "b61e0295f63c9ce06565ccb8ae377b01bbdba91adccfda75eada3c6a48d7adfb"
+}

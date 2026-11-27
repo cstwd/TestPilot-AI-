@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "passed": 9,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_empty_values_with_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_single_value_no_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_single_value_exceeds_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_all_negative_values",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_mixed_values_with_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_zero_values",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_discount_larger_than_total",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_default_discount",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 7,
+  "total_lines": 7,
+  "coverage_pct": 100.0,
+  "log": ".........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_empty_values_with_discount\nPASSED test_generated.py::test_single_value_no_discount\nPASSED test_generated.py::test_single_value_exceeds_discount\nPASSED test_generated.py::test_all_negative_values\nPASSED test_generated.py::test_mixed_values_with_discount\nPASSED test_generated.py::test_zero_values\nPASSED test_generated.py::test_discount_larger_than_total\nPASSED test_generated.py::test_default_discount\n9 passed in 0.13s",
+  "duration_ms": 5849,
+  "stdout": ".........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_empty_values_with_discount\nPASSED test_generated.py::test_single_value_no_discount\nPASSED test_generated.py::test_single_value_exceeds_discount\nPASSED test_generated.py::test_all_negative_values\nPASSED test_generated.py::test_mixed_values_with_discount\nPASSED test_generated.py::test_zero_values\nPASSED test_generated.py::test_discount_larger_than_total\nPASSED test_generated.py::test_default_discount\n9 passed in 0.13s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "7c43a409-1fc6-458f-aa01-f090d2f1e022",
+  "started": "2026-11-27T08:37:23.490458+00:00",
+  "ended": "2026-11-27T08:37:29.339484+00:00",
+  "source_sha256": "f5ee842f2490510d65f5f38552a0e5fedcd0905e9ca0702c83a56102c945cd7e",
+  "test_sha256": "673964b6dbb63ac235704a9a4d09a0e509a69920211769aec86aef754f44ff83"
+}

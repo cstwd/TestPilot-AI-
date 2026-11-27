@@ -1,0 +1,13 @@
+{
+  "name": "clamp",
+  "seed": 941,
+  "arm": "A",
+  "planned": 4,
+  "baseline": false,
+  "score": null,
+  "reason": "no validated suite from assigned generator",
+  "outcomes": {},
+  "id": "235686cc-446c-4dfc-8919-8b95a0168f81",
+  "generated": "4c8306e8-d71a-4c72-a278-7f46d6c0cc84",
+  "finished": "2026-11-27T08:22:22.695232+00:00"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "de360437-4df8-462c-aa81-dbc49413405f",
+  "at": "2026-11-27T08:20:02.180876+00:00",
+  "seconds": 0.001021999996737577,
+  "artifact": {
+    "code": "import pytest\nfrom subject import cap as target\n\ndef test_example_1():\n    assert target(12) == 10\n\ndef test_normal_return_contract():\n    assert isinstance(target(n=2, ceiling=2), int)\n\ndef test_boundary_return_contract():\n    assert isinstance(target(n=0, ceiling=0), int)\n\ndef test_invalid_keyword():\n    with pytest.raises(TypeError):\n        target(_testpilot_unexpected=None)\n",
+    "mode": "template",
+    "sha256": "29dbf6a2fd18b95a02c2bb1847004719f5792376a96488fb39d52576925532e5",
+    "provider": "local-template",
+    "model": null,
+    "attempts": [],
+    "fallback_reason": "任务明确选择本地模板"
+  }
+}

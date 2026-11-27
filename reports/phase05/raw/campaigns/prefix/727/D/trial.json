@@ -1,0 +1,63 @@
+{
+  "status": "passed",
+  "passed": 7,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_empty_list",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_no_none",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_all_none",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_none_at_start",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_multiple_values_before_none",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_none_at_end",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 7,
+  "total_lines": 7,
+  "coverage_pct": 100.0,
+  "log": ".......\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_empty_list\nPASSED test_generated.py::test_no_none\nPASSED test_generated.py::test_all_none\nPASSED test_generated.py::test_none_at_start\nPASSED test_generated.py::test_multiple_values_before_none\nPASSED test_generated.py::test_none_at_end\n7 passed in 0.12s",
+  "duration_ms": 5575,
+  "stdout": ".......\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_empty_list\nPASSED test_generated.py::test_no_none\nPASSED test_generated.py::test_all_none\nPASSED test_generated.py::test_none_at_start\nPASSED test_generated.py::test_multiple_values_before_none\nPASSED test_generated.py::test_none_at_end\n7 passed in 0.12s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "5fede666-3d97-41ec-9847-96f322d68e12",
+  "started": "2026-11-27T08:35:29.893481+00:00",
+  "ended": "2026-11-27T08:35:35.468129+00:00",
+  "source_sha256": "7da5ee86f43d7ca80d9ef31a156cd5e69bb6b8bb7ca414245cada6a86afa6808",
+  "test_sha256": "ecfd9b277add80ac362dc277682ac117c31d349e33af09f8edb6be1f64627120"
+}

@@ -1,0 +1,157 @@
+{
+  "id": "319ad200-9c32-5c85-aaf1-5dacde6812a7",
+  "verdict": {
+    "status": "execution_error",
+    "reason": "失败没有完整的测试断言证据",
+    "nodeids": [
+      "test_generated.py::test_empty_list_returns_zero",
+      "test_generated.py::test_empty_list_with_fallback_returns_zero",
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_non_empty_list_returns_first_item",
+      "test_generated.py::test_non_empty_list_with_zero_fallback"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 0,
+    "failed": 5,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_empty_list_returns_zero",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_empty_list_with_fallback_returns_zero",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_non_empty_list_returns_first_item",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_non_empty_list_with_zero_fallback",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 4,
+    "total_lines": 4,
+    "coverage_pct": 100.0,
+    "log": "FFFFF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:4: in test_example_1\n    assert first([8]) == 8\nE   assert 0 == 8\nE    +  where 0 = first([8])\n_________________________ test_empty_list_returns_zero _________________________\ntest_generated.py:7: in test_empty_list_returns_zero\n    assert first([]) == 0\n           ^^^^^^^^^\nsubject.py:9: in first\n    return items[0]\n           ^^^^^^^^\nE   IndexError: list index out of range\n__________________ test_empty_list_with_fallback_returns_zero __________________\ntest_generated.py:10: in test_empty_list_with_fallback_returns_zero\n    assert first([], fallback=2) == 0\n           ^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in first\n    return items[0]\n           ^^^^^^^^\nE   IndexError: list index out of range\n____________________ test_non_empty_list_returns_first_item ____________________\ntest_generated.py:13: in test_non_empty_list_returns_first_item\n    assert first([1], fallback=2) == 1\nE   assert 0 == 1\nE    +  where 0 = first([1], fallback=2)\n____________________ test_non_empty_list_with_zero_fallback ____________________\ntest_generated.py:16: in test_non_empty_list_with_zero_fallback\n    assert first([1], fallback=0) == 1\nE   assert 0 == 1\nE    +  where 0 = first([1], fallback=0)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert 0 == 8\nFAILED test_generated.py::test_empty_list_returns_zero - IndexError: list ind...\nFAILED test_generated.py::test_empty_list_with_fallback_returns_zero - IndexE...\nFAILED test_generated.py::test_non_empty_list_returns_first_item - assert 0 == 1\nFAILED test_generated.py::test_non_empty_list_with_zero_fallback - assert 0 == 1\n5 failed in 0.52s",
+    "duration_ms": 8660,
+    "stdout": "FFFFF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:4: in test_example_1\n    assert first([8]) == 8\nE   assert 0 == 8\nE    +  where 0 = first([8])\n_________________________ test_empty_list_returns_zero _________________________\ntest_generated.py:7: in test_empty_list_returns_zero\n    assert first([]) == 0\n           ^^^^^^^^^\nsubject.py:9: in first\n    return items[0]\n           ^^^^^^^^\nE   IndexError: list index out of range\n__________________ test_empty_list_with_fallback_returns_zero __________________\ntest_generated.py:10: in test_empty_list_with_fallback_returns_zero\n    assert first([], fallback=2) == 0\n           ^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in first\n    return items[0]\n           ^^^^^^^^\nE   IndexError: list index out of range\n____________________ test_non_empty_list_returns_first_item ____________________\ntest_generated.py:13: in test_non_empty_list_returns_first_item\n    assert first([1], fallback=2) == 1\nE   assert 0 == 1\nE    +  where 0 = first([1], fallback=2)\n____________________ test_non_empty_list_with_zero_fallback ____________________\ntest_generated.py:16: in test_non_empty_list_with_zero_fallback\n    assert first([1], fallback=0) == 1\nE   assert 0 == 1\nE    +  where 0 = first([1], fallback=0)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert 0 == 8\nFAILED test_generated.py::test_empty_list_returns_zero - IndexError: list ind...\nFAILED test_generated.py::test_empty_list_with_fallback_returns_zero - IndexE...\nFAILED test_generated.py::test_non_empty_list_returns_first_item - assert 0 == 1\nFAILED test_generated.py::test_non_empty_list_with_zero_fallback - assert 0 == 1\n5 failed in 0.52s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 0 == 8\n +  where 0 = first([8])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 4,
+            "function": "test_example_1",
+            "source": "assert first([8]) == 8"
+          }
+        ],
+        "assertion_diff": "assert 0 == 8\n +  where 0 = first([8])"
+      },
+      {
+        "nodeid": "test_generated.py::test_empty_list_returns_zero",
+        "phase": "call",
+        "exception_type": "IndexError",
+        "message": "list index out of range",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 7,
+            "function": "test_empty_list_returns_zero",
+            "source": "assert first([]) == 0"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "first",
+            "source": "return items[0]"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_empty_list_with_fallback_returns_zero",
+        "phase": "call",
+        "exception_type": "IndexError",
+        "message": "list index out of range",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_empty_list_with_fallback_returns_zero",
+            "source": "assert first([], fallback=2) == 0"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "first",
+            "source": "return items[0]"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_non_empty_list_returns_first_item",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 0 == 1\n +  where 0 = first([1], fallback=2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 13,
+            "function": "test_non_empty_list_returns_first_item",
+            "source": "assert first([1], fallback=2) == 1"
+          }
+        ],
+        "assertion_diff": "assert 0 == 1\n +  where 0 = first([1], fallback=2)"
+      },
+      {
+        "nodeid": "test_generated.py::test_non_empty_list_with_zero_fallback",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 0 == 1\n +  where 0 = first([1], fallback=0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 16,
+            "function": "test_non_empty_list_with_zero_fallback",
+            "source": "assert first([1], fallback=0) == 1"
+          }
+        ],
+        "assertion_diff": "assert 0 == 1\n +  where 0 = first([1], fallback=0)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 2,
+    "total_branches": 2,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "1ab140b4-845a-4212-a583-6c78d7d19ad6",
+    "started": "2026-11-27T08:33:25.696601+00:00",
+    "ended": "2026-11-27T08:33:34.356594+00:00",
+    "source_sha256": "eb9facd7826770c2b290be950a0923a55d38f249f61d5b7bb5f74001870d05a2",
+    "test_sha256": "b11fa39d2e001f3ba80990937da2b9466c064f09c7f00dbdd87763a7148b233e"
+  }
+}

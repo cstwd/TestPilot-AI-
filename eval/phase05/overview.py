@@ -20,7 +20,8 @@ def main():
     h=meta["hardware"]
     vk=RAW/"vulkan-01"
     live=rows(vk/"stability.jsonl")
-    peak=[r for r in rows(vk/"memory.jsonl") if r["at"]<=live[-1]["at"]]
+    all_samples=rows(vk/"memory.jsonl")
+    peak=[r for r in all_samples if r["at"]<=live[-1]["at"]]
     cuda=[r for r in rows((RAW/"native-01")/"memory.jsonl")]
     w=lambda x: f"{x:.2f}"
     write("T01_ENVIRONMENT.md",["# T01 模型文件和本地环境","",
@@ -41,7 +42,8 @@ def main():
     write("T01_PERFORMANCE.md",["# T01 本机推理性能","",
        f"使用 Vulkan1、8192 token 上下文、一个推理槽。进程启动到健康检查通过 {sample['load_wall_s']:.3f} 秒。GGUF 已做全文件校验，操作系统文件缓存可能已热。关闭空请求预热，因此第一次流式调用计入首次着色器和提示处理的成本。",
        f"连续完整响应 {len(ok)}/{len(live)}，算术内容正确 {sum(r.get('correct',False) for r in live)}/{len(live)}。稳定性得分 {100*len(ok)/10:.1f}/100。首轮可见 token 延迟 {ok[0]['ttft_visible_s']:.3f} 秒，后九轮中位数 {median(r['ttft_visible_s'] for r in ok[1:]):.3f} 秒。十轮后端报告的输出速度算术均值 {mean(rates):.2f} token/s，后九轮均值 {mean(rates[1:]):.2f} token/s。",
-       f"从启动前到第十条响应结束，以 0.5 秒间隔采样。显存峰值 {max(r['vram_used_mib'] for r in peak):.1f} MiB，整机物理内存峰值 {max(r['ram_used_gib'] for r in peak):.2f} GiB。显存为 NVML 整卡已用量，内存为整机占用。CUDA 失败尝试单独采得显存峰值 {max(r['vram_used_mib'] for r in cuda):.1f} MiB、整机物理内存峰值 {max(r['ram_used_gib'] for r in cuda):.2f} GiB。","",
+       f"从启动前到第十条响应结束，以 0.5 秒间隔采样。显存峰值 {max(r['vram_used_mib'] for r in peak):.1f} MiB，整机物理内存峰值 {max(r['ram_used_gib'] for r in peak):.2f} GiB。显存为 NVML 整卡已用量，内存为整机占用。CUDA 失败尝试单独采得显存峰值 {max(r['vram_used_mib'] for r in cuda):.1f} MiB、整机物理内存峰值 {max(r['ram_used_gib'] for r in cuda):.2f} GiB。",
+       f"后续十项目评估和对照执行与测量共享该机器。完整本机服务采样共 {len(all_samples)} 条，整卡显存峰值 {max(r['vram_used_mib'] for r in all_samples):.1f} MiB，整机内存峰值 {max(r['ram_used_gib'] for r in all_samples):.2f} GiB。该峰值包含同机小模型和 WASI 的运行负载。","",
        "| 轮次 | 可见首 token 秒 | 输出 token | 后端 token/s | 总秒数 | 完整 / 正确 |","| ---: | ---: | ---: | ---: | ---: | --- |",
        *[f"| {r['round']} | {r['ttft_visible_s']:.3f} | {r['usage']['completion_tokens']} | {r['timings']['predicted_per_second']:.2f} | {r['wall_s']:.3f} | {r['success']} / {r['correct']} |" for r in ok],"",
        "[逐请求提示、流式原文与计时](raw/vulkan-01/stability.jsonl) · [逐采样内存数据](raw/vulkan-01/memory.jsonl) · [就绪记录](raw/vulkan-01/ready.json)"])

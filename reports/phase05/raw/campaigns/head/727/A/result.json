@@ -1,0 +1,13 @@
+{
+  "name": "head",
+  "seed": 727,
+  "arm": "A",
+  "planned": 3,
+  "baseline": false,
+  "score": null,
+  "reason": "original rejected candidate suite",
+  "outcomes": {},
+  "id": "6b8ce6fa-42c8-49a2-8bbb-f62262dc5c56",
+  "generated": "8249083b-5977-46b4-b98d-09356c8818bd",
+  "finished": "2026-11-27T08:22:20.720912+00:00"
+}

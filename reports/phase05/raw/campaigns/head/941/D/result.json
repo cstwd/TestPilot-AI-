@@ -1,0 +1,54 @@
+{
+  "name": "head",
+  "seed": 941,
+  "arm": "D",
+  "planned": 3,
+  "baseline": true,
+  "score": {
+    "killed": 2,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 1,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 3,
+    "equivalent_candidates": 0,
+    "score_pct": 66.67
+  },
+  "reason": "complete",
+  "outcomes": {
+    "319ad200-9c32-5c85-aaf1-5dacde6812a7": {
+      "status": "execution_error",
+      "reason": "失败没有完整的测试断言证据",
+      "nodeids": [
+        "test_generated.py::test_empty_list_returns_zero",
+        "test_generated.py::test_empty_list_with_fallback_returns_zero",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_single_item_with_fallback",
+        "test_generated.py::test_single_item_with_fallback_two"
+      ]
+    },
+    "3d11762d-eb9c-566a-9f43-de29a10e5023": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_empty_list_returns_zero",
+        "test_generated.py::test_empty_list_with_fallback_returns_zero"
+      ]
+    },
+    "3c593539-fc34-5911-bce9-1484a34c344a": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_single_item_with_fallback",
+        "test_generated.py::test_single_item_with_fallback_two"
+      ]
+    }
+  },
+  "id": "7482c58b-0b95-4cd1-b6fc-b92d25d87fb3",
+  "generated": "1c561332-a41f-497d-8eae-e19fa46c937f",
+  "test_sha256": "8f6232cedb9a4c22b77702000389f63ca9a037302d7fbb5339ebb493ac79d1dc",
+  "green_job": "d5734472-c9e7-47d3-9556-e6fedc029b46",
+  "finished": "2026-11-27T08:41:07.974439+00:00"
+}

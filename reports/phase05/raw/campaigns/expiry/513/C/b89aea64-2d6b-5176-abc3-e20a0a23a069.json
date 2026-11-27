@@ -1,0 +1,117 @@
+{
+  "id": "b89aea64-2d6b-5176-abc3-e20a0a23a069",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_expired_at_limit",
+      "test_generated.py::test_expired_custom_limit_equal"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 8,
+    "failed": 2,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_expired_example",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_at_limit",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_just_above_limit",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_just_below_limit",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_zero_age",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_custom_limit",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_custom_limit_equal",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_custom_limit_below",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_negative_age",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_negative_limit",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 2,
+    "total_lines": 2,
+    "coverage_pct": 100.0,
+    "log": ".F....F...\n=================================== FAILURES ===================================\n____________________________ test_expired_at_limit _____________________________\ntest_generated.py:7: in test_expired_at_limit\n    assert expired(30) is False\nE   assert True is False\nE    +  where True = expired(30)\n_______________________ test_expired_custom_limit_equal ________________________\ntest_generated.py:22: in test_expired_custom_limit_equal\n    assert expired(3, 3) is False\nE   assert True is False\nE    +  where True = expired(3, 3)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_expired_example\nPASSED test_generated.py::test_expired_just_above_limit\nPASSED test_generated.py::test_expired_just_below_limit\nPASSED test_generated.py::test_expired_zero_age\nPASSED test_generated.py::test_expired_custom_limit\nPASSED test_generated.py::test_expired_custom_limit_below\nPASSED test_generated.py::test_expired_negative_age\nPASSED test_generated.py::test_expired_negative_limit\nFAILED test_generated.py::test_expired_at_limit - assert True is False\nFAILED test_generated.py::test_expired_custom_limit_equal - assert True is False\n2 failed, 8 passed in 0.23s",
+    "duration_ms": 5710,
+    "stdout": ".F....F...\n=================================== FAILURES ===================================\n____________________________ test_expired_at_limit _____________________________\ntest_generated.py:7: in test_expired_at_limit\n    assert expired(30) is False\nE   assert True is False\nE    +  where True = expired(30)\n_______________________ test_expired_custom_limit_equal ________________________\ntest_generated.py:22: in test_expired_custom_limit_equal\n    assert expired(3, 3) is False\nE   assert True is False\nE    +  where True = expired(3, 3)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_expired_example\nPASSED test_generated.py::test_expired_just_above_limit\nPASSED test_generated.py::test_expired_just_below_limit\nPASSED test_generated.py::test_expired_zero_age\nPASSED test_generated.py::test_expired_custom_limit\nPASSED test_generated.py::test_expired_custom_limit_below\nPASSED test_generated.py::test_expired_negative_age\nPASSED test_generated.py::test_expired_negative_limit\nFAILED test_generated.py::test_expired_at_limit - assert True is False\nFAILED test_generated.py::test_expired_custom_limit_equal - assert True is False\n2 failed, 8 passed in 0.23s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_expired_at_limit",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert True is False\n +  where True = expired(30)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 7,
+            "function": "test_expired_at_limit",
+            "source": "assert expired(30) is False"
+          }
+        ],
+        "assertion_diff": "assert True is False\n +  where True = expired(30)"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_custom_limit_equal",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert True is False\n +  where True = expired(3, 3)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 22,
+            "function": "test_expired_custom_limit_equal",
+            "source": "assert expired(3, 3) is False"
+          }
+        ],
+        "assertion_diff": "assert True is False\n +  where True = expired(3, 3)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "7a928747-02c3-4f59-b755-30fb2ea1996c",
+    "started": "2026-11-27T08:24:12.563829+00:00",
+    "ended": "2026-11-27T08:24:18.273624+00:00",
+    "source_sha256": "1d1f60266aefb64ea4f64bfa6f066143c1a53028fd8031d1f8f119bc22523b4e",
+    "test_sha256": "25b5d1f1d2448540d5fc0fe98fd04bcec76ebe702b01d212637a26b75b0fb836"
+  }
+}

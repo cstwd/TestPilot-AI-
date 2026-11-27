@@ -1,0 +1,14 @@
+{
+  "id": "6bedb7d3-e5be-4101-8cef-5a16a059d647",
+  "at": "2026-11-27T08:17:10.028330+00:00",
+  "seconds": 0.0011033999981009401,
+  "artifact": {
+    "code": "import pytest\nfrom subject import bonus as target\n\ndef test_example_1():\n    assert target(3) == 4\n\ndef test_normal_return_contract():\n    assert isinstance(target(n=2, enabled=True), int)\n\ndef test_boundary_return_contract():\n    assert isinstance(target(n=0, enabled=False), int)\n\ndef test_invalid_keyword():\n    with pytest.raises(TypeError):\n        target(_testpilot_unexpected=None)\n",
+    "mode": "template",
+    "sha256": "d90aecfce2fb6cef5a077380253ef77dfa1ebfaf72775ac3a14537f119c430e1",
+    "provider": "local-template",
+    "model": null,
+    "attempts": [],
+    "fallback_reason": "任务明确选择本地模板"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "id": "4baa324f-ef75-5210-9216-6e11b5fee5bb",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_one_enabled_true",
+      "test_generated.py::test_two_enabled_false",
+      "test_generated.py::test_zero_enabled_true"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 2,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_enabled_true",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_one_enabled_true",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_true",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_false",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 5,
+    "total_lines": 6,
+    "coverage_pct": 83.33,
+    "log": ".FF.F\n=================================== FAILURES ===================================\n____________________________ test_zero_enabled_true ____________________________\ntest_generated.py:11: in test_zero_enabled_true\n    assert bonus(n=0, enabled=True) == 0\nE   assert None == 0\nE    +  where None = bonus(n=0, enabled=True)\n____________________________ test_one_enabled_true _____________________________\ntest_generated.py:14: in test_one_enabled_true\n    assert bonus(n=1, enabled=True) == 1\nE   assert None == 1\nE    +  where None = bonus(n=1, enabled=True)\n____________________________ test_two_enabled_false ____________________________\ntest_generated.py:20: in test_two_enabled_false\n    assert bonus(n=2, enabled=False) == 2\nE   assert None == 2\nE    +  where None = bonus(n=2, enabled=False)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_two_enabled_true\nFAILED test_generated.py::test_zero_enabled_true - assert None == 0\nFAILED test_generated.py::test_one_enabled_true - assert None == 1\nFAILED test_generated.py::test_two_enabled_false - assert None == 2\n3 failed, 2 passed in 0.37s",
+    "duration_ms": 7414,
+    "stdout": ".FF.F\n=================================== FAILURES ===================================\n____________________________ test_zero_enabled_true ____________________________\ntest_generated.py:11: in test_zero_enabled_true\n    assert bonus(n=0, enabled=True) == 0\nE   assert None == 0\nE    +  where None = bonus(n=0, enabled=True)\n____________________________ test_one_enabled_true _____________________________\ntest_generated.py:14: in test_one_enabled_true\n    assert bonus(n=1, enabled=True) == 1\nE   assert None == 1\nE    +  where None = bonus(n=1, enabled=True)\n____________________________ test_two_enabled_false ____________________________\ntest_generated.py:20: in test_two_enabled_false\n    assert bonus(n=2, enabled=False) == 2\nE   assert None == 2\nE    +  where None = bonus(n=2, enabled=False)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_two_enabled_true\nFAILED test_generated.py::test_zero_enabled_true - assert None == 0\nFAILED test_generated.py::test_one_enabled_true - assert None == 1\nFAILED test_generated.py::test_two_enabled_false - assert None == 2\n3 failed, 2 passed in 0.37s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_zero_enabled_true",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 0\n +  where None = bonus(n=0, enabled=True)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_zero_enabled_true",
+            "source": "assert bonus(n=0, enabled=True) == 0"
+          }
+        ],
+        "assertion_diff": "assert None == 0\n +  where None = bonus(n=0, enabled=True)"
+      },
+      {
+        "nodeid": "test_generated.py::test_one_enabled_true",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 1\n +  where None = bonus(n=1, enabled=True)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 14,
+            "function": "test_one_enabled_true",
+            "source": "assert bonus(n=1, enabled=True) == 1"
+          }
+        ],
+        "assertion_diff": "assert None == 1\n +  where None = bonus(n=1, enabled=True)"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_false",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 2\n +  where None = bonus(n=2, enabled=False)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 20,
+            "function": "test_two_enabled_false",
+            "source": "assert bonus(n=2, enabled=False) == 2"
+          }
+        ],
+        "assertion_diff": "assert None == 2\n +  where None = bonus(n=2, enabled=False)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 3,
+    "total_branches": 4,
+    "branch_pct": 75.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "034d6611-fc3b-43fb-b531-96582c927a19",
+    "started": "2026-11-27T08:28:55.307741+00:00",
+    "ended": "2026-11-27T08:29:02.722094+00:00",
+    "source_sha256": "e3d216038c672b002f86f3558fe501b5a7f1528f177e3976eccd44ccdd56b41c",
+    "test_sha256": "b61e0295f63c9ce06565ccb8ae377b01bbdba91adccfda75eada3c6a48d7adfb"
+  }
+}

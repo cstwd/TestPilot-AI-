@@ -1,0 +1,87 @@
+{
+  "status": "failed",
+  "passed": 8,
+  "failed": 1,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_gold",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_silver",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_below_silver",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_zero_points",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_negative_points",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_just_below_gold",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_just_above_gold",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_just_above_silver",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 6,
+  "total_lines": 6,
+  "coverage_pct": 100.0,
+  "log": "......F..\n=================================== FAILURES ===================================\n_____________________________ test_just_below_gold _____________________________\ntest_generated.py:22: in test_just_below_gold\n    assert tier(99) == 'basic'\nE   AssertionError: assert 'silver' == 'basic'\nE     \nE     - basic\nE     + silver\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_gold\nPASSED test_generated.py::test_boundary_silver\nPASSED test_generated.py::test_below_silver\nPASSED test_generated.py::test_zero_points\nPASSED test_generated.py::test_negative_points\nPASSED test_generated.py::test_just_above_gold\nPASSED test_generated.py::test_just_above_silver\nFAILED test_generated.py::test_just_below_gold - AssertionError: assert 'silv...\n1 failed, 8 passed in 0.33s",
+  "duration_ms": 6987,
+  "stdout": "......F..\n=================================== FAILURES ===================================\n_____________________________ test_just_below_gold _____________________________\ntest_generated.py:22: in test_just_below_gold\n    assert tier(99) == 'basic'\nE   AssertionError: assert 'silver' == 'basic'\nE     \nE     - basic\nE     + silver\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_gold\nPASSED test_generated.py::test_boundary_silver\nPASSED test_generated.py::test_below_silver\nPASSED test_generated.py::test_zero_points\nPASSED test_generated.py::test_negative_points\nPASSED test_generated.py::test_just_above_gold\nPASSED test_generated.py::test_just_above_silver\nFAILED test_generated.py::test_just_below_gold - AssertionError: assert 'silv...\n1 failed, 8 passed in 0.33s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_just_below_gold",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 'silver' == 'basic'\n  \n  - basic\n  + silver",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 22,
+          "function": "test_just_below_gold",
+          "source": "assert tier(99) == 'basic'"
+        }
+      ],
+      "assertion_diff": "assert 'silver' == 'basic'\n  \n  - basic\n  + silver"
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "6f9bf67d-44b1-46e8-bb60-05941bd7debb",
+  "started": "2026-11-27T08:32:14.992231+00:00",
+  "ended": "2026-11-27T08:32:21.978949+00:00",
+  "source_sha256": "4920368152bc107b7e80143111b3f64de7fa42c9a3e230e04480afb51cd6d00c",
+  "test_sha256": "ff1c17ed20e1a106225ce45033d5592f4665d6e545ae5a42725e62dba6616cd1"
+}
