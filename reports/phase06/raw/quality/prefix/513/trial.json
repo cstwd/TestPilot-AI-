@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "passed": 13,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_prefix_length_empty_list",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_prefix_length_no_none",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_prefix_length_none_at_start",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_prefix_length_none_at_end",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_prefix_length_none_in_middle",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_prefix_length_single_non_none",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_prefix_length_single_none",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_prefix_length_all_none",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_prefix_length_mixed_types",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_prefix_length_zero_values",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_prefix_length_false_values",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_prefix_length_empty_strings",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_prefix_length_none_only_after_prefix",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 7,
+  "total_lines": 7,
+  "coverage_pct": 100.0,
+  "log": ".............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_prefix_length_empty_list\nPASSED test_generated.py::test_prefix_length_no_none\nPASSED test_generated.py::test_prefix_length_none_at_start\nPASSED test_generated.py::test_prefix_length_none_at_end\nPASSED test_generated.py::test_prefix_length_none_in_middle\nPASSED test_generated.py::test_prefix_length_single_non_none\nPASSED test_generated.py::test_prefix_length_single_none\nPASSED test_generated.py::test_prefix_length_all_none\nPASSED test_generated.py::test_prefix_length_mixed_types\nPASSED test_generated.py::test_prefix_length_zero_values\nPASSED test_generated.py::test_prefix_length_false_values\nPASSED test_generated.py::test_prefix_length_empty_strings\nPASSED test_generated.py::test_prefix_length_none_only_after_prefix\n13 passed in 0.34s",
+  "duration_ms": 8309,
+  "stdout": ".............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_prefix_length_empty_list\nPASSED test_generated.py::test_prefix_length_no_none\nPASSED test_generated.py::test_prefix_length_none_at_start\nPASSED test_generated.py::test_prefix_length_none_at_end\nPASSED test_generated.py::test_prefix_length_none_in_middle\nPASSED test_generated.py::test_prefix_length_single_non_none\nPASSED test_generated.py::test_prefix_length_single_none\nPASSED test_generated.py::test_prefix_length_all_none\nPASSED test_generated.py::test_prefix_length_mixed_types\nPASSED test_generated.py::test_prefix_length_zero_values\nPASSED test_generated.py::test_prefix_length_false_values\nPASSED test_generated.py::test_prefix_length_empty_strings\nPASSED test_generated.py::test_prefix_length_none_only_after_prefix\n13 passed in 0.34s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "ba5cefff-73e4-4b8f-84f4-7e383cd6355c",
+  "started": "2026-11-27T09:03:37.435577+00:00",
+  "ended": "2026-11-27T09:03:45.745104+00:00",
+  "source_sha256": "7da5ee86f43d7ca80d9ef31a156cd5e69bb6b8bb7ca414245cada6a86afa6808",
+  "test_sha256": "23306b2ae3d410b6bd281a17359bc3582052f7d878203b85b0e9d456a53ebe17"
+}

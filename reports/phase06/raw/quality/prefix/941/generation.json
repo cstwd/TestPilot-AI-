@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom subject import prefix_length\n\ndef test_prefix_length_with_none_in_middle():\n    \"\"\"Test that prefix_length counts entries before the first None.\"\"\"\n    assert prefix_length([4, None, 2]) == 1\n\ndef test_prefix_length_with_no_none():\n    \"\"\"Test that prefix_length returns the full length when no None is present.\"\"\"\n    assert prefix_length([1, 2, 3]) == 3\n\ndef test_prefix_length_with_none_at_start():\n    \"\"\"Test that prefix_length returns 0 when the first element is None.\"\"\"\n    assert prefix_length([None, 1, 2]) == 0\n\ndef test_prefix_length_with_empty_list():\n    \"\"\"Test that prefix_length returns 0 for an empty list.\"\"\"\n    assert prefix_length([]) == 0\n\ndef test_prefix_length_with_single_non_none():\n    \"\"\"Test that prefix_length returns 1 for a single non-None element.\"\"\"\n    assert prefix_length([1]) == 1\n\ndef test_prefix_length_with_single_none():\n    \"\"\"Test that prefix_length returns 0 for a single None element.\"\"\"\n    assert prefix_length([None]) == 0\n\ndef test_prefix_length_with_multiple_nones():\n    \"\"\"Test that prefix_length stops at the first None even if there are more Nones.\"\"\"\n    assert prefix_length([1, None, None, 2]) == 1\n\ndef test_prefix_length_with_none_at_end():\n    \"\"\"Test that prefix_length counts all elements before a trailing None.\"\"\"\n    assert prefix_length([1, 2, 3, None]) == 3\n\ndef test_prefix_length_with_zero_values():\n    \"\"\"Test that prefix_length handles zero values correctly.\"\"\"\n    assert prefix_length([0, 0, None, 1]) == 2\n\ndef test_prefix_length_with_negative_values():\n    \"\"\"Test that prefix_length handles negative values correctly.\"\"\"\n    assert prefix_length([-1, -2, None, 1]) == 2\n\ndef test_prefix_length_with_strings():\n    \"\"\"Test that prefix_length works with string values.\"\"\"\n    assert prefix_length(['a', 'b', None, 'c']) == 2\n\ndef test_prefix_length_with_mixed_types():\n    \"\"\"Test that prefix_length works with mixed types before None.\"\"\"\n    assert prefix_length([1, 'a', None, 2]) == 2\n",
+  "mode": "ai",
+  "sha256": "2f052ae58132d4126de4aae74d67d19285f37a45b451fec5fb2de13c3fd6abee",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "583104b2-e9be-41e4-808e-413bc6871889",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import prefix_length\\n\\n\\ndef test_prefix_length_with_none_in_middle():\\n    \\\"\\\"\\\"Test that prefix_length counts entries before the first None.\\\"\\\"\\\"\\n    assert prefix_length([4, None, 2]) == 1\\n\\n\\ndef test_prefix_length_with_no_none():\\n    \\\"\\\"\\\"Test that prefix_length returns the full length when no None is present.\\\"\\\"\\\"\\n    assert prefix_length([1, 2, 3]) == 3\\n\\n\\ndef test_prefix_length_with_none_at_start():\\n    \\\"\\\"\\\"Test that prefix_length returns 0 when the first element is None.\\\"\\\"\\\"\\n    assert prefix_length([None, 1, 2]) == 0\\n\\n\\ndef test_prefix_length_with_empty_list():\\n    \\\"\\\"\\\"Test that prefix_length returns 0 for an empty list.\\\"\\\"\\\"\\n    assert prefix_length([]) == 0\\n\\n\\ndef test_prefix_length_with_single_non_none():\\n    \\\"\\\"\\\"Test that prefix_length returns 1 for a single non-None element.\\\"\\\"\\\"\\n    assert prefix_length([1]) == 1\\n\\n\\ndef test_prefix_length_with_single_none():\\n    \\\"\\\"\\\"Test that prefix_length returns 0 for a single None element.\\\"\\\"\\\"\\n    assert prefix_length([None]) == 0\\n\\n\\ndef test_prefix_length_with_multiple_nones():\\n    \\\"\\\"\\\"Test that prefix_length stops at the first None even if there are more Nones.\\\"\\\"\\\"\\n    assert prefix_length([1, None, None, 2]) == 1\\n\\n\\ndef test_prefix_length_with_none_at_end():\\n    \\\"\\\"\\\"Test that prefix_length counts all elements before a trailing None.\\\"\\\"\\\"\\n    assert prefix_length([1, 2, 3, None]) == 3\\n\\n\\ndef test_prefix_length_with_zero_values():\\n    \\\"\\\"\\\"Test that prefix_length handles zero values correctly.\\\"\\\"\\\"\\n    assert prefix_length([0, 0, None, 1]) == 2\\n\\n\\ndef test_prefix_length_with_negative_values():\\n    \\\"\\\"\\\"Test that prefix_length handles negative values correctly.\\\"\\\"\\\"\\n    assert prefix_length([-1, -2, None, 1]) == 2\\n\\n\\ndef test_prefix_length_with_strings():\\n    \\\"\\\"\\\"Test that prefix_length works with string values.\\\"\\\"\\\"\\n    assert prefix_length([\\\"a\\\", \\\"b\\\", None, \\\"c\\\"]) == 2\\n\\n\\ndef test_prefix_length_with_mixed_types():\\n    \\\"\\\"\\\"Test that prefix_length works with mixed types before None.\\\"\\\"\\\"\\n    assert prefix_length([1, \\\"a\\\", None, 2]) == 2\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 369,
+      "tokens_out": 597,
+      "generation_ns": 24646211000,
+      "load_ns": 7046800,
+      "ttft_s": 5.8514391999997315,
+      "elapsed_s": 30.497833400000673,
+      "seed": 941,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "583104b2-e9be-41e4-808e-413bc6871889",
+  "seconds": 30.5360127999993
+}

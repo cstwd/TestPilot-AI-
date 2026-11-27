@@ -1,0 +1,91 @@
+{
+  "status": "passed",
+  "passed": 14,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_tax_example_100",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_below_one_hundred",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_one_hundred",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_large_value",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_negative_value",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_non_integer_string_raises",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_none_raises",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_missing_argument_raises",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_returns_int_type",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_rate_consistency",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_boundary_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_boundary_19",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_boundary_20",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "..............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tax_example_100\nPASSED test_generated.py::test_tax_zero\nPASSED test_generated.py::test_tax_below_one_hundred\nPASSED test_generated.py::test_tax_one_hundred\nPASSED test_generated.py::test_tax_large_value\nPASSED test_generated.py::test_tax_negative_value\nPASSED test_generated.py::test_tax_non_integer_string_raises\nPASSED test_generated.py::test_tax_none_raises\nPASSED test_generated.py::test_tax_missing_argument_raises\nPASSED test_generated.py::test_tax_returns_int_type\nPASSED test_generated.py::test_tax_rate_consistency\nPASSED test_generated.py::test_tax_boundary_1\nPASSED test_generated.py::test_tax_boundary_19\nPASSED test_generated.py::test_tax_boundary_20\n14 passed in 0.30s",
+  "duration_ms": 8051,
+  "stdout": "..............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tax_example_100\nPASSED test_generated.py::test_tax_zero\nPASSED test_generated.py::test_tax_below_one_hundred\nPASSED test_generated.py::test_tax_one_hundred\nPASSED test_generated.py::test_tax_large_value\nPASSED test_generated.py::test_tax_negative_value\nPASSED test_generated.py::test_tax_non_integer_string_raises\nPASSED test_generated.py::test_tax_none_raises\nPASSED test_generated.py::test_tax_missing_argument_raises\nPASSED test_generated.py::test_tax_returns_int_type\nPASSED test_generated.py::test_tax_rate_consistency\nPASSED test_generated.py::test_tax_boundary_1\nPASSED test_generated.py::test_tax_boundary_19\nPASSED test_generated.py::test_tax_boundary_20\n14 passed in 0.30s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "ea37fe2a-d085-4d5e-a514-0bbc260b4bc1",
+  "started": "2026-11-27T09:10:22.688902+00:00",
+  "ended": "2026-11-27T09:10:30.739966+00:00",
+  "source_sha256": "6d8d2166906fa703c3159bddf8aec959d022e6acf0b7e873683cb8a7ca8e0582",
+  "test_sha256": "6e2a9947cae2b11b89659c23f20fae9d272d0e4619fc71bb6ca98c5348a99dd7"
+}

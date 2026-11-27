@@ -1,0 +1,71 @@
+{
+  "project": "tier",
+  "predicted": {
+    "functions": [
+      "subject.py:tier"
+    ],
+    "parameters": [
+      [
+        "points",
+        "int",
+        null
+      ]
+    ],
+    "return_value": "silver",
+    "branch_lines": [
+      7,
+      9
+    ],
+    "boundary_value": 100,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "expected": {
+    "functions": [
+      "subject.py:tier"
+    ],
+    "parameters": [
+      [
+        "points",
+        "int",
+        null
+      ]
+    ],
+    "return_value": "silver",
+    "branch_lines": [
+      7,
+      9
+    ],
+    "boundary_value": "gold",
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 1,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 0,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "run_id": "7d53c2fe-0f5a-42c8-8563-16ba22ea9c41",
+  "attempts": [
+    {
+      "run_id": "7d53c2fe-0f5a-42c8-8563-16ba22ea9c41",
+      "attempt": 1,
+      "raw": "{\"boundary_value\": 100, \"branch_lines\": [7, 9], \"defect_line\": null, \"exception\": \"TypeError\", \"functions\": [\"subject.py:tier\"], \"parameters\": [[\"points\", \"int\", null]],\"return_value\": \"silver\"}",
+      "finish": "stop",
+      "tokens_in": 306,
+      "tokens_out": 61,
+      "generation_ns": 2848496000,
+      "load_ns": 10427700,
+      "ttft_s": 1.3779232000015327,
+      "elapsed_s": 4.226640600001701,
+      "seed": 23,
+      "temperature": 0,
+      "schema": "Understanding",
+      "status": "accepted"
+    }
+  ]
+}

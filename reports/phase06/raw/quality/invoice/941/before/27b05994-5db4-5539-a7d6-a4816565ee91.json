@@ -1,0 +1,285 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 10,
+    "failed": 10,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_empty_values_with_discount",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_single_value_no_discount",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_discount_exceeds_total",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_values_ignored",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_mixed_values",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_value",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_large_values",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_default_discount",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_all_negative_values",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_discount_equals_total",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_single_negative_value",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_float_values",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_discount",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_large_discount",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_multiple_zero_values",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_positive_and_negative_pairs",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_single_large_value",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_discount_as_float",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_values_with_zeros_and_negatives",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 7,
+    "total_lines": 7,
+    "coverage_pct": 100.0,
+    "log": "FF.F.F.F..F.F.F...FF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:11: in test_example_1\n    assert invoice([4, -2, 3], 2) == 5\nE   assert 9 == 5\nE    +  where 9 = invoice([4, -2, 3], 2)\n_______________________ test_empty_values_with_discount ________________________\ntest_generated.py:14: in test_empty_values_with_discount\n    assert invoice([], 2) == 0\nE   assert 2 == 0\nE    +  where 2 = invoice([], 2)\n_________________________ test_discount_exceeds_total __________________________\ntest_generated.py:20: in test_discount_exceeds_total\n    assert invoice([1], 2) == 0\nE   assert 3 == 0\nE    +  where 3 = invoice([1], 2)\n______________________________ test_mixed_values _______________________________\ntest_generated.py:26: in test_mixed_values\n    assert invoice([5, -1, 3, -2, 4], 1) == 11\nE   assert 13 == 11\nE    +  where 13 = invoice([5, -1, 3, -2, 4], 1)\n______________________________ test_large_values _______________________________\ntest_generated.py:32: in test_large_values\n    assert invoice([1000, 2000, 3000], 500) == 5500\nE   assert 6500 == 5500\nE    +  where 6500 = invoice([1000, 2000, 3000], 500)\n__________________________ test_discount_equals_total __________________________\ntest_generated.py:41: in test_discount_equals_total\n    assert invoice([10, 20], 30) == 0\nE   assert 60 == 0\nE    +  where 60 = invoice([10, 20], 30)\n______________________________ test_float_values _______________________________\ntest_generated.py:47: in test_float_values\n    assert invoice([1.5, 2.5, -0.5], 1) == 3\nE   assert 5.0 == 3\nE    +  where 5.0 = invoice([1.5, 2.5, -0.5], 1)\n_____________________________ test_large_discount ______________________________\ntest_generated.py:53: in test_large_discount\n    assert invoice([100], 1000) == 0\nE   assert 1100 == 0\nE    +  where 1100 = invoice([100], 1000)\n____________________________ test_discount_as_float ____________________________\ntest_generated.py:65: in test_discount_as_float\n    assert invoice([10, 20], 5.5) == 24.5\nE   assert 35.5 == 24.5\nE    +  where 35.5 = invoice([10, 20], 5.5)\n_____________________ test_values_with_zeros_and_negatives _____________________\ntest_generated.py:68: in test_values_with_zeros_and_negatives\n    assert invoice([0, -1, 5, -2, 0, 3], 1) == 7\nE   assert 9 == 7\nE    +  where 9 = invoice([0, -1, 5, -2, 0, 3], 1)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_single_value_no_discount\nPASSED test_generated.py::test_negative_values_ignored\nPASSED test_generated.py::test_zero_value\nPASSED test_generated.py::test_default_discount\nPASSED test_generated.py::test_all_negative_values\nPASSED test_generated.py::test_single_negative_value\nPASSED test_generated.py::test_zero_discount\nPASSED test_generated.py::test_multiple_zero_values\nPASSED test_generated.py::test_positive_and_negative_pairs\nPASSED test_generated.py::test_single_large_value\nFAILED test_generated.py::test_example_1 - assert 9 == 5\nFAILED test_generated.py::test_empty_values_with_discount - assert 2 == 0\nFAILED test_generated.py::test_discount_exceeds_total - assert 3 == 0\nFAILED test_generated.py::test_mixed_values - assert 13 == 11\nFAILED test_generated.py::test_large_values - assert 6500 == 5500\nFAILED test_generated.py::test_discount_equals_total - assert 60 == 0\nFAILED test_generated.py::test_float_values - assert 5.0 == 3\nFAILED test_generated.py::test_large_discount - assert 1100 == 0\nFAILED test_generated.py::test_discount_as_float - assert 35.5 == 24.5\nFAILED test_generated.py::test_values_with_zeros_and_negatives - assert 9 == 7\n10 failed, 10 passed in 0.81s",
+    "duration_ms": 7930,
+    "stdout": "FF.F.F.F..F.F.F...FF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:11: in test_example_1\n    assert invoice([4, -2, 3], 2) == 5\nE   assert 9 == 5\nE    +  where 9 = invoice([4, -2, 3], 2)\n_______________________ test_empty_values_with_discount ________________________\ntest_generated.py:14: in test_empty_values_with_discount\n    assert invoice([], 2) == 0\nE   assert 2 == 0\nE    +  where 2 = invoice([], 2)\n_________________________ test_discount_exceeds_total __________________________\ntest_generated.py:20: in test_discount_exceeds_total\n    assert invoice([1], 2) == 0\nE   assert 3 == 0\nE    +  where 3 = invoice([1], 2)\n______________________________ test_mixed_values _______________________________\ntest_generated.py:26: in test_mixed_values\n    assert invoice([5, -1, 3, -2, 4], 1) == 11\nE   assert 13 == 11\nE    +  where 13 = invoice([5, -1, 3, -2, 4], 1)\n______________________________ test_large_values _______________________________\ntest_generated.py:32: in test_large_values\n    assert invoice([1000, 2000, 3000], 500) == 5500\nE   assert 6500 == 5500\nE    +  where 6500 = invoice([1000, 2000, 3000], 500)\n__________________________ test_discount_equals_total __________________________\ntest_generated.py:41: in test_discount_equals_total\n    assert invoice([10, 20], 30) == 0\nE   assert 60 == 0\nE    +  where 60 = invoice([10, 20], 30)\n______________________________ test_float_values _______________________________\ntest_generated.py:47: in test_float_values\n    assert invoice([1.5, 2.5, -0.5], 1) == 3\nE   assert 5.0 == 3\nE    +  where 5.0 = invoice([1.5, 2.5, -0.5], 1)\n_____________________________ test_large_discount ______________________________\ntest_generated.py:53: in test_large_discount\n    assert invoice([100], 1000) == 0\nE   assert 1100 == 0\nE    +  where 1100 = invoice([100], 1000)\n____________________________ test_discount_as_float ____________________________\ntest_generated.py:65: in test_discount_as_float\n    assert invoice([10, 20], 5.5) == 24.5\nE   assert 35.5 == 24.5\nE    +  where 35.5 = invoice([10, 20], 5.5)\n_____________________ test_values_with_zeros_and_negatives _____________________\ntest_generated.py:68: in test_values_with_zeros_and_negatives\n    assert invoice([0, -1, 5, -2, 0, 3], 1) == 7\nE   assert 9 == 7\nE    +  where 9 = invoice([0, -1, 5, -2, 0, 3], 1)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_single_value_no_discount\nPASSED test_generated.py::test_negative_values_ignored\nPASSED test_generated.py::test_zero_value\nPASSED test_generated.py::test_default_discount\nPASSED test_generated.py::test_all_negative_values\nPASSED test_generated.py::test_single_negative_value\nPASSED test_generated.py::test_zero_discount\nPASSED test_generated.py::test_multiple_zero_values\nPASSED test_generated.py::test_positive_and_negative_pairs\nPASSED test_generated.py::test_single_large_value\nFAILED test_generated.py::test_example_1 - assert 9 == 5\nFAILED test_generated.py::test_empty_values_with_discount - assert 2 == 0\nFAILED test_generated.py::test_discount_exceeds_total - assert 3 == 0\nFAILED test_generated.py::test_mixed_values - assert 13 == 11\nFAILED test_generated.py::test_large_values - assert 6500 == 5500\nFAILED test_generated.py::test_discount_equals_total - assert 60 == 0\nFAILED test_generated.py::test_float_values - assert 5.0 == 3\nFAILED test_generated.py::test_large_discount - assert 1100 == 0\nFAILED test_generated.py::test_discount_as_float - assert 35.5 == 24.5\nFAILED test_generated.py::test_values_with_zeros_and_negatives - assert 9 == 7\n10 failed, 10 passed in 0.81s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 9 == 5\n +  where 9 = invoice([4, -2, 3], 2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_example_1",
+            "source": "assert invoice([4, -2, 3], 2) == 5"
+          }
+        ],
+        "assertion_diff": "assert 9 == 5\n +  where 9 = invoice([4, -2, 3], 2)"
+      },
+      {
+        "nodeid": "test_generated.py::test_empty_values_with_discount",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 2 == 0\n +  where 2 = invoice([], 2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 14,
+            "function": "test_empty_values_with_discount",
+            "source": "assert invoice([], 2) == 0"
+          }
+        ],
+        "assertion_diff": "assert 2 == 0\n +  where 2 = invoice([], 2)"
+      },
+      {
+        "nodeid": "test_generated.py::test_discount_exceeds_total",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 3 == 0\n +  where 3 = invoice([1], 2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 20,
+            "function": "test_discount_exceeds_total",
+            "source": "assert invoice([1], 2) == 0"
+          }
+        ],
+        "assertion_diff": "assert 3 == 0\n +  where 3 = invoice([1], 2)"
+      },
+      {
+        "nodeid": "test_generated.py::test_mixed_values",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 13 == 11\n +  where 13 = invoice([5, -1, 3, -2, 4], 1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 26,
+            "function": "test_mixed_values",
+            "source": "assert invoice([5, -1, 3, -2, 4], 1) == 11"
+          }
+        ],
+        "assertion_diff": "assert 13 == 11\n +  where 13 = invoice([5, -1, 3, -2, 4], 1)"
+      },
+      {
+        "nodeid": "test_generated.py::test_large_values",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 6500 == 5500\n +  where 6500 = invoice([1000, 2000, 3000], 500)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 32,
+            "function": "test_large_values",
+            "source": "assert invoice([1000, 2000, 3000], 500) == 5500"
+          }
+        ],
+        "assertion_diff": "assert 6500 == 5500\n +  where 6500 = invoice([1000, 2000, 3000], 500)"
+      },
+      {
+        "nodeid": "test_generated.py::test_discount_equals_total",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 60 == 0\n +  where 60 = invoice([10, 20], 30)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 41,
+            "function": "test_discount_equals_total",
+            "source": "assert invoice([10, 20], 30) == 0"
+          }
+        ],
+        "assertion_diff": "assert 60 == 0\n +  where 60 = invoice([10, 20], 30)"
+      },
+      {
+        "nodeid": "test_generated.py::test_float_values",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 5.0 == 3\n +  where 5.0 = invoice([1.5, 2.5, -0.5], 1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 47,
+            "function": "test_float_values",
+            "source": "assert invoice([1.5, 2.5, -0.5], 1) == 3"
+          }
+        ],
+        "assertion_diff": "assert 5.0 == 3\n +  where 5.0 = invoice([1.5, 2.5, -0.5], 1)"
+      },
+      {
+        "nodeid": "test_generated.py::test_large_discount",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 1100 == 0\n +  where 1100 = invoice([100], 1000)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 53,
+            "function": "test_large_discount",
+            "source": "assert invoice([100], 1000) == 0"
+          }
+        ],
+        "assertion_diff": "assert 1100 == 0\n +  where 1100 = invoice([100], 1000)"
+      },
+      {
+        "nodeid": "test_generated.py::test_discount_as_float",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 35.5 == 24.5\n +  where 35.5 = invoice([10, 20], 5.5)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 65,
+            "function": "test_discount_as_float",
+            "source": "assert invoice([10, 20], 5.5) == 24.5"
+          }
+        ],
+        "assertion_diff": "assert 35.5 == 24.5\n +  where 35.5 = invoice([10, 20], 5.5)"
+      },
+      {
+        "nodeid": "test_generated.py::test_values_with_zeros_and_negatives",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 9 == 7\n +  where 9 = invoice([0, -1, 5, -2, 0, 3], 1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 68,
+            "function": "test_values_with_zeros_and_negatives",
+            "source": "assert invoice([0, -1, 5, -2, 0, 3], 1) == 7"
+          }
+        ],
+        "assertion_diff": "assert 9 == 7\n +  where 9 = invoice([0, -1, 5, -2, 0, 3], 1)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "39a0cedb-c91e-409d-9462-78e973fc1112",
+    "started": "2026-11-27T09:19:04.967823+00:00",
+    "ended": "2026-11-27T09:19:12.897428+00:00",
+    "source_sha256": "d72134f5b45bec08faba449c1b0fd0f33742843a2f913846760a0306a699c9d8",
+    "test_sha256": "7afae4a4a689aef9e1490012a09c358bb90db6abc625b6b4d365697189d1d44d"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_discount_as_float",
+      "test_generated.py::test_discount_equals_total",
+      "test_generated.py::test_discount_exceeds_total",
+      "test_generated.py::test_empty_values_with_discount",
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_float_values",
+      "test_generated.py::test_large_discount",
+      "test_generated.py::test_large_values",
+      "test_generated.py::test_mixed_values",
+      "test_generated.py::test_values_with_zeros_and_negatives"
+    ]
+  },
+  "mutant": "27b05994-5db4-5539-a7d6-a4816565ee91"
+}

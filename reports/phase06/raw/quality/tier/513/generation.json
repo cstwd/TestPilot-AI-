@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom subject import tier\n\ndef test_tier_gold_above_threshold():\n    assert tier(100) == 'gold'\n\ndef test_tier_gold_above_threshold_higher():\n    assert tier(101) == 'gold'\n\ndef test_tier_gold_doctest_example():\n    assert tier(120) == 'gold'\n\ndef test_tier_silver_at_threshold():\n    assert tier(50) == 'silver'\n\ndef test_tier_silver_above_threshold():\n    assert tier(51) == 'silver'\n\ndef test_tier_silver_below_gold_threshold():\n    assert tier(99) == 'silver'\n\ndef test_tier_basic_below_silver_threshold():\n    assert tier(49) == 'basic'\n\ndef test_tier_basic_zero_points():\n    assert tier(0) == 'basic'\n\ndef test_tier_basic_negative_points():\n    assert tier(-1) == 'basic'\n\ndef test_tier_missing_argument_raises():\n    with pytest.raises(TypeError):\n        tier()\n\ndef test_tier_non_integer_argument_raises():\n    with pytest.raises(TypeError):\n        tier(points='100')\n",
+  "mode": "ai",
+  "sha256": "292d9a5a46ae9a75e999bb3e0bb2a07c2c60a552a809afe79bdde2aef390b8df",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "dbb11e90-21be-4c4f-b929-6697fdf561f4",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import tier\\n\\n\\ndef test_tier_gold_above_threshold():\\n    assert tier(100) == \\\"gold\\\"\\n\\n\\ndef test_tier_gold_above_threshold_higher():\\n    assert tier(101) == \\\"gold\\\"\\n\\n\\ndef test_tier_gold_doctest_example():\\n    assert tier(120) == \\\"gold\\\"\\n\\n\\ndef test_tier_silver_at_threshold():\\n    assert tier(50) == \\\"silver\\\"\\n\\n\\ndef test_tier_silver_above_threshold():\\n    assert tier(51) == \\\"silver\\\"\\n\\n\\ndef test_tier_silver_below_gold_threshold():\\n    assert tier(99) == \\\"silver\\\"\\n\\n\\ndef test_tier_basic_below_silver_threshold():\\n    assert tier(49) == \\\"basic\\\"\\n\\n\\ndef test_tier_basic_zero_points():\\n    assert tier(0) == \\\"basic\\\"\\n\\n\\ndef test_tier_basic_negative_points():\\n    assert tier(-1) == \\\"basic\\\"\\n\\n\\ndef test_tier_missing_argument_raises():\\n    with pytest.raises(TypeError):\\n        tier()\\n\\n\\ndef test_tier_non_integer_argument_raises():\\n    with pytest.raises(TypeError):\\n        tier(points=\\\"100\\\")\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 418,
+      "tokens_out": 299,
+      "generation_ns": 12343384000,
+      "load_ns": 12646500,
+      "ttft_s": 4.974025600000459,
+      "elapsed_s": 17.317676500002563,
+      "seed": 513,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "dbb11e90-21be-4c4f-b929-6697fdf561f4",
+  "seconds": 17.420674100001634
+}

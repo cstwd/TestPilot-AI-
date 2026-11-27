@@ -1,0 +1,9 @@
+{
+  "project": "freight",
+  "seed": 513,
+  "before": null,
+  "after": null,
+  "planned": 2,
+  "initial_run_id": "cc112b26-48b5-497e-b429-b8046aab015d",
+  "reason": "模型响应无法通过冻结协议或模块校验"
+}

@@ -1,0 +1,91 @@
+{
+  "status": "failed",
+  "passed": 9,
+  "failed": 1,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_cap_returns_ceiling_when_n_exceeds_ceiling",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_cap_returns_n_when_n_is_less_than_ceiling",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_cap_returns_ceiling_when_n_equals_ceiling",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_cap_with_custom_ceiling",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_cap_with_zero_n",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_cap_with_zero_ceiling",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_cap_with_negative_n",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_cap_with_negative_ceiling",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_cap_with_negative_n_and_ceiling",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_cap_with_large_values",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 4,
+  "total_lines": 4,
+  "coverage_pct": 100.0,
+  "log": "........F.\n=================================== FAILURES ===================================\n_____________________ test_cap_with_negative_n_and_ceiling _____________________\ntest_generated.py:29: in test_cap_with_negative_n_and_ceiling\n    assert cap(-10, ceiling=-5) == -5\nE   assert -10 == -5\nE    +  where -10 = cap(-10, ceiling=-5)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_cap_returns_ceiling_when_n_exceeds_ceiling\nPASSED test_generated.py::test_cap_returns_n_when_n_is_less_than_ceiling\nPASSED test_generated.py::test_cap_returns_ceiling_when_n_equals_ceiling\nPASSED test_generated.py::test_cap_with_custom_ceiling\nPASSED test_generated.py::test_cap_with_zero_n\nPASSED test_generated.py::test_cap_with_zero_ceiling\nPASSED test_generated.py::test_cap_with_negative_n\nPASSED test_generated.py::test_cap_with_negative_ceiling\nPASSED test_generated.py::test_cap_with_large_values\nFAILED test_generated.py::test_cap_with_negative_n_and_ceiling - assert -10 =...\n1 failed, 9 passed in 0.31s",
+  "duration_ms": 6245,
+  "stdout": "........F.\n=================================== FAILURES ===================================\n_____________________ test_cap_with_negative_n_and_ceiling _____________________\ntest_generated.py:29: in test_cap_with_negative_n_and_ceiling\n    assert cap(-10, ceiling=-5) == -5\nE   assert -10 == -5\nE    +  where -10 = cap(-10, ceiling=-5)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_cap_returns_ceiling_when_n_exceeds_ceiling\nPASSED test_generated.py::test_cap_returns_n_when_n_is_less_than_ceiling\nPASSED test_generated.py::test_cap_returns_ceiling_when_n_equals_ceiling\nPASSED test_generated.py::test_cap_with_custom_ceiling\nPASSED test_generated.py::test_cap_with_zero_n\nPASSED test_generated.py::test_cap_with_zero_ceiling\nPASSED test_generated.py::test_cap_with_negative_n\nPASSED test_generated.py::test_cap_with_negative_ceiling\nPASSED test_generated.py::test_cap_with_large_values\nFAILED test_generated.py::test_cap_with_negative_n_and_ceiling - assert -10 =...\n1 failed, 9 passed in 0.31s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_cap_with_negative_n_and_ceiling",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert -10 == -5\n +  where -10 = cap(-10, ceiling=-5)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 29,
+          "function": "test_cap_with_negative_n_and_ceiling",
+          "source": "assert cap(-10, ceiling=-5) == -5"
+        }
+      ],
+      "assertion_diff": "assert -10 == -5\n +  where -10 = cap(-10, ceiling=-5)"
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 2,
+  "total_branches": 2,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "d779a755-94f9-413d-8b47-0e23582792fd",
+  "started": "2026-11-27T09:07:55.842818+00:00",
+  "ended": "2026-11-27T09:08:02.088246+00:00",
+  "source_sha256": "8f04a45d14075c72c4e30e2dca8fd21f35465fedfa67c299605b6c052efb76a8",
+  "test_sha256": "d9e9f951eae3caf8d31ff7d77f78b81f8bacebd31613b2576bd7f35942a4390e"
+}

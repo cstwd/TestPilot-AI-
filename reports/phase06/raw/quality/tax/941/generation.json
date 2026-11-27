@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom policy import RATE\nfrom subject import tax\n\ndef test_tax_example_1():\n    \"\"\"Test the doctest example: tax(100) should return 5.\"\"\"\n    assert tax(100) == 5\n\ndef test_tax_zero():\n    \"\"\"Test boundary value: tax(0) should return 0.\"\"\"\n    assert tax(0) == 0\n\ndef test_tax_one():\n    \"\"\"Test with 1 cent: should return 0 (5% of 1 is 0.05, rounded down to 0).\"\"\"\n    assert tax(1) == 0\n\ndef test_tax_100():\n    \"\"\"Test with 100 cents: 5% of 100 is 5.\"\"\"\n    assert tax(100) == 5\n\ndef test_tax_101():\n    \"\"\"Test with 101 cents: 5% of 101 is 5.05, integer division gives 5.\"\"\"\n    assert tax(101) == 5\n\ndef test_tax_199():\n    \"\"\"Test with 199 cents: 5% of 199 is 9.95, integer division gives 9.\"\"\"\n    assert tax(199) == 9\n\ndef test_tax_200():\n    \"\"\"Test with 200 cents: 5% of 200 is 10.\"\"\"\n    assert tax(200) == 10\n\ndef test_tax_1000():\n    \"\"\"Test with 1000 cents: 5% of 1000 is 50.\"\"\"\n    assert tax(1000) == 50\n\ndef test_tax_negative():\n    \"\"\"Test with negative cents: -100 * 5 // 100 = -5.\"\"\"\n    assert tax(-100) == -5\n\ndef test_tax_1():\n    \"\"\"Test with 1 cent: 1 * 5 // 100 = 0.\"\"\"\n    assert tax(1) == 0\n\ndef test_tax_2():\n    \"\"\"Test with 2 cents: 2 * 5 // 100 = 0.\"\"\"\n    assert tax(2) == 0\n\ndef test_tax_19():\n    \"\"\"Test with 19 cents: 19 * 5 // 100 = 95 // 100 = 0.\"\"\"\n    assert tax(19) == 0\n\ndef test_tax_20():\n    \"\"\"Test with 20 cents: 20 * 5 // 100 = 100 // 100 = 1.\"\"\"\n    assert tax(20) == 1\n\ndef test_tax_large_value():\n    \"\"\"Test with a large value: 1000000 cents * 5 // 100 = 50000.\"\"\"\n    assert tax(1000000) == 50000\n\ndef test_tax_returns_int():\n    \"\"\"Test that the return type is int.\"\"\"\n    result = tax(100)\n    assert isinstance(result, int)\n\ndef test_tax_with_rate_5_percent():\n    \"\"\"Verify the calculation uses RATE=5 (5 percent).\"\"\"\n    assert tax(1000) == 50\n    assert tax(500) == 25\n    assert tax(250) == 12\n",
+  "mode": "ai",
+  "sha256": "0b9d145f65d1d4036794e74caed1081eca00e12de0b9fcf6720575da270b540f",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "a68037f6-2f43-44f0-b260-a3b67a71d6ef",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\nfrom policy import RATE\\nfrom subject import tax\\n\\ndef test_tax_example_1():\\n    \\\"\\\"\\\"Test the doctest example: tax(100) should return 5.\\\"\\\"\\\"\\n    assert tax(100) == 5\\n\\ndef test_tax_zero():\\n    \\\"\\\"\\\"Test boundary value: tax(0) should return 0.\\\"\\\"\\\"\\n    assert tax(0) == 0\\n\\ndef test_tax_one():\\n    \\\"\\\"\\\"Test with 1 cent: should return 0 (5% of 1 is 0.05, rounded down to 0).\\\"\\\"\\\"\\n    assert tax(1) == 0\\n\\ndef test_tax_100():\\n    \\\"\\\"\\\"Test with 100 cents: 5% of 100 is 5.\\\"\\\"\\\"\\n    assert tax(100) == 5\\n\\ndef test_tax_101():\\n    \\\"\\\"\\\"Test with 101 cents: 5% of 101 is 5.05, integer division gives 5.\\\"\\\"\\\"\\n    assert tax(101) == 5\\n\\ndef test_tax_199():\\n    \\\"\\\"\\\"Test with 199 cents: 5% of 199 is 9.95, integer division gives 9.\\\"\\\"\\\"\\n    assert tax(199) == 9\\n\\ndef test_tax_200():\\n    \\\"\\\"\\\"Test with 200 cents: 5% of 200 is 10.\\\"\\\"\\\"\\n    assert tax(200) == 10\\n\\ndef test_tax_1000():\\n    \\\"\\\"\\\"Test with 1000 cents: 5% of 1000 is 50.\\\"\\\"\\\"\\n    assert tax(1000) == 50\\n\\ndef test_tax_negative():\\n    \\\"\\\"\\\"Test with negative cents: -100 * 5 // 100 = -5.\\\"\\\"\\\"\\n    assert tax(-100) == -5\\n\\ndef test_tax_1():\\n    \\\"\\\"\\\"Test with 1 cent: 1 * 5 // 100 = 0.\\\"\\\"\\\"\\n    assert tax(1) == 0\\n\\ndef test_tax_2():\\n    \\\"\\\"\\\"Test with 2 cents: 2 * 5 // 100 = 0.\\\"\\\"\\\"\\n    assert tax(2) == 0\\n\\ndef test_tax_19():\\n    \\\"\\\"\\\"Test with 19 cents: 19 * 5 // 100 = 95 // 100 = 0.\\\"\\\"\\\"\\n    assert tax(19) == 0\\n\\ndef test_tax_20():\\n    \\\"\\\"\\\"Test with 20 cents: 20 * 5 // 100 = 100 // 100 = 1.\\\"\\\"\\\"\\n    assert tax(20) == 1\\n\\ndef test_tax_large_value():\\n    \\\"\\\"\\\"Test with a large value: 1000000 cents * 5 // 100 = 50000.\\\"\\\"\\\"\\n    assert tax(1000000) == 50000\\n\\ndef test_tax_returns_int():\\n    \\\"\\\"\\\"Test that the return type is int.\\\"\\\"\\\"\\n    result = tax(100)\\n    assert isinstance(result, int)\\n\\ndef test_tax_with_rate_5_percent():\\n    \\\"\\\"\\\"Verify the calculation uses RATE=5 (5 percent).\\\"\\\"\\\"\\n    # 5% of 1000 = 50\\n    assert tax(1000) == 50\\n    # 5% of 500 = 25\\n    assert tax(500) == 25\\n    # 5% of 250 = 12.5 -> 12 (integer division)\\n    assert tax(250) == 12\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 340,
+      "tokens_out": 934,
+      "generation_ns": 38616393000,
+      "load_ns": 9742700,
+      "ttft_s": 1.5851442999992287,
+      "elapsed_s": 40.20138849999785,
+      "seed": 941,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "a68037f6-2f43-44f0-b260-a3b67a71d6ef",
+  "seconds": 40.25154119999934
+}

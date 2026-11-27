@@ -1,0 +1,38 @@
+INFO testpilot 启动 demo 模式 http://127.0.0.1:11806
+INFO:     Started server process [35564]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:57250 - "GET /api/model/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57274 - "POST /api/projects HTTP/1.1" 201 Created
+INFO:     127.0.0.1:57275 - "POST /api/projects/1/files HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57276 - "GET /api/engine/files/1/analysis HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57277 - "POST /api/engine/files/1/understanding HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61396 - "POST /api/files/1/suites HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49252 - "GET /api/runs/1 HTTP/1.1" 200 OK
+INFO testpilot.engine task=ea3513a8-6fb5-49f5-8671-2324e1cc4408 record=a562a7ef-943e-4de7-9f54-e131d0c62165 kind=SourceAnalysis status=ready
+INFO testpilot.engine task=ea3513a8-6fb5-49f5-8671-2324e1cc4408 record=20b2d1e9-acf1-44fc-b7f6-b3921d0ab5a4 kind=TestStrategy status=ready
+INFO testpilot.engine task=ea3513a8-6fb5-49f5-8671-2324e1cc4408 record=619a1fb3-f063-4589-abf8-53e67c86696e kind=GeneratedTest status=ready
+INFO testpilot.engine task=ea3513a8-6fb5-49f5-8671-2324e1cc4408 record=c659383d-504d-411f-b622-3390a0391366 kind=TestExecution status=passed
+INFO testpilot.engine task=ea3513a8-6fb5-49f5-8671-2324e1cc4408 record=5f637472-b578-4bba-b37b-dc6f952bd41f kind=CoverageResult status=measured
+INFO testpilot.engine task=ea3513a8-6fb5-49f5-8671-2324e1cc4408 record=e53d7e33-c205-4c25-9d4b-1fe17c9f2a42 kind=FailureAnalysis status=analyzed
+INFO testpilot.engine task=ea3513a8-6fb5-49f5-8671-2324e1cc4408 terminal=completed runs=1
+INFO:     127.0.0.1:49253 - "POST /api/engine/files/1/tasks HTTP/1.1" 201 Created
+INFO testpilot.engine task=aa06edf5-8249-4bb7-be4e-424cc9cf5259 record=9c722faf-ba2a-4489-96a5-6dd6e1cbeb08 kind=SourceAnalysis status=ready
+INFO testpilot.engine task=aa06edf5-8249-4bb7-be4e-424cc9cf5259 record=85c79ab6-fe66-4ed0-9b75-89bb777903ea kind=TestStrategy status=ready
+INFO testpilot.engine task=aa06edf5-8249-4bb7-be4e-424cc9cf5259 record=35796046-8039-401e-b79e-664466728022 kind=GeneratedTest status=ready
+INFO testpilot.engine task=aa06edf5-8249-4bb7-be4e-424cc9cf5259 record=2ddd6343-4777-4a58-8ae5-2eb735b3fcb3 kind=TestExecution status=passed
+INFO testpilot.engine task=aa06edf5-8249-4bb7-be4e-424cc9cf5259 record=948331be-a529-4e00-bb05-502f03909b51 kind=CoverageResult status=measured
+INFO testpilot.engine task=aa06edf5-8249-4bb7-be4e-424cc9cf5259 record=4fe6314f-2659-4da3-9968-f8b79bd2fa3c kind=FailureAnalysis status=analyzed
+INFO testpilot.engine task=aa06edf5-8249-4bb7-be4e-424cc9cf5259 terminal=completed runs=1
+INFO:     127.0.0.1:53112 - "POST /api/engine/files/1/tasks HTTP/1.1" 201 Created
+INFO:     127.0.0.1:57526 - "POST /api/engine/tasks/aa06edf5-8249-4bb7-be4e-424cc9cf5259/mutations HTTP/1.1" 201 Created
+INFO:     127.0.0.1:57529 - "POST /api/mutations/51a9b5d8-4b04-4b1a-a7a9-6868796585d1/run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56049 - "GET /api/mutations/51a9b5d8-4b04-4b1a-a7a9-6868796585d1/report HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50420 - "POST /api/engine/tasks/ea3513a8-6fb5-49f5-8671-2324e1cc4408/mutations HTTP/1.1" 201 Created
+INFO:     127.0.0.1:50421 - "POST /api/mutations/ccd1e0dc-3a22-4545-a264-5625812f52e5/run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56392 - "GET /api/mutations/ccd1e0dc-3a22-4545-a264-5625812f52e5/report HTTP/1.1" 200 OK
+INFO:     127.0.0.1:61371 - "GET /api/model/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55133 - "GET /api/model/health HTTP/1.1" 503 Service Unavailable
+INFO:     127.0.0.1:55136 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52822 - "GET /api/model/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59466 - "GET /api/model/health HTTP/1.1" 200 OK

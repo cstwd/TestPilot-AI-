@@ -1,0 +1,83 @@
+{
+  "status": "passed",
+  "passed": 12,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_tax_doctest_example",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_ninety_nine",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_one_hundred",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_one_hundred_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_uses_policy_rate",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_is_integer",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_negative",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_large_value",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_missing_argument",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_wrong_type",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tax_doctest_example\nPASSED test_generated.py::test_tax_zero\nPASSED test_generated.py::test_tax_one\nPASSED test_generated.py::test_tax_ninety_nine\nPASSED test_generated.py::test_tax_one_hundred\nPASSED test_generated.py::test_tax_one_hundred_one\nPASSED test_generated.py::test_tax_uses_policy_rate\nPASSED test_generated.py::test_tax_is_integer\nPASSED test_generated.py::test_tax_negative\nPASSED test_generated.py::test_tax_large_value\nPASSED test_generated.py::test_tax_missing_argument\nPASSED test_generated.py::test_tax_wrong_type\n12 passed in 0.31s",
+  "duration_ms": 8990,
+  "stdout": "............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tax_doctest_example\nPASSED test_generated.py::test_tax_zero\nPASSED test_generated.py::test_tax_one\nPASSED test_generated.py::test_tax_ninety_nine\nPASSED test_generated.py::test_tax_one_hundred\nPASSED test_generated.py::test_tax_one_hundred_one\nPASSED test_generated.py::test_tax_uses_policy_rate\nPASSED test_generated.py::test_tax_is_integer\nPASSED test_generated.py::test_tax_negative\nPASSED test_generated.py::test_tax_large_value\nPASSED test_generated.py::test_tax_missing_argument\nPASSED test_generated.py::test_tax_wrong_type\n12 passed in 0.31s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "035126ff-787c-4f86-a9a1-75e9c5b6cde5",
+  "started": "2026-11-27T09:03:30.873194+00:00",
+  "ended": "2026-11-27T09:03:39.863124+00:00",
+  "source_sha256": "6d8d2166906fa703c3159bddf8aec959d022e6acf0b7e873683cb8a7ca8e0582",
+  "test_sha256": "5a5543d2c4f54756e4a46da1c377a4f12424cd6080b260cfc36a715801d7660d"
+}

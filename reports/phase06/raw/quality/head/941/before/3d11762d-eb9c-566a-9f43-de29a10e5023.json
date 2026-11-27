@@ -1,0 +1,137 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 13,
+    "failed": 2,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_first_returns_first_item",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_returns_first_item_with_fallback",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_empty_list_returns_zero",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_single_element_list",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_multiple_elements_returns_first",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_zero_as_first_element",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_negative_first_element",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_string_elements",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_none_as_first_element",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_fallback_zero",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_empty_list_default_fallback",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_boolean_elements",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_mixed_types",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_large_list",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_float_elements",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 4,
+    "total_lines": 4,
+    "coverage_pct": 100.0,
+    "log": "..F.......F....\n=================================== FAILURES ===================================\n______________________ test_first_empty_list_returns_zero ______________________\ntest_generated.py:16: in test_first_empty_list_returns_zero\n    assert result == 0\nE   assert None == 0\n____________________ test_first_empty_list_default_fallback ____________________\ntest_generated.py:56: in test_first_empty_list_default_fallback\n    assert result == 0\nE   assert None == 0\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_first_returns_first_item\nPASSED test_generated.py::test_first_returns_first_item_with_fallback\nPASSED test_generated.py::test_first_single_element_list\nPASSED test_generated.py::test_first_multiple_elements_returns_first\nPASSED test_generated.py::test_first_with_zero_as_first_element\nPASSED test_generated.py::test_first_with_negative_first_element\nPASSED test_generated.py::test_first_with_string_elements\nPASSED test_generated.py::test_first_with_none_as_first_element\nPASSED test_generated.py::test_first_with_fallback_zero\nPASSED test_generated.py::test_first_with_boolean_elements\nPASSED test_generated.py::test_first_with_mixed_types\nPASSED test_generated.py::test_first_with_large_list\nPASSED test_generated.py::test_first_with_float_elements\nFAILED test_generated.py::test_first_empty_list_returns_zero - assert None == 0\nFAILED test_generated.py::test_first_empty_list_default_fallback - assert Non...\n2 failed, 13 passed in 0.41s",
+    "duration_ms": 7527,
+    "stdout": "..F.......F....\n=================================== FAILURES ===================================\n______________________ test_first_empty_list_returns_zero ______________________\ntest_generated.py:16: in test_first_empty_list_returns_zero\n    assert result == 0\nE   assert None == 0\n____________________ test_first_empty_list_default_fallback ____________________\ntest_generated.py:56: in test_first_empty_list_default_fallback\n    assert result == 0\nE   assert None == 0\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_first_returns_first_item\nPASSED test_generated.py::test_first_returns_first_item_with_fallback\nPASSED test_generated.py::test_first_single_element_list\nPASSED test_generated.py::test_first_multiple_elements_returns_first\nPASSED test_generated.py::test_first_with_zero_as_first_element\nPASSED test_generated.py::test_first_with_negative_first_element\nPASSED test_generated.py::test_first_with_string_elements\nPASSED test_generated.py::test_first_with_none_as_first_element\nPASSED test_generated.py::test_first_with_fallback_zero\nPASSED test_generated.py::test_first_with_boolean_elements\nPASSED test_generated.py::test_first_with_mixed_types\nPASSED test_generated.py::test_first_with_large_list\nPASSED test_generated.py::test_first_with_float_elements\nFAILED test_generated.py::test_first_empty_list_returns_zero - assert None == 0\nFAILED test_generated.py::test_first_empty_list_default_fallback - assert Non...\n2 failed, 13 passed in 0.41s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_first_empty_list_returns_zero",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 0",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 16,
+            "function": "test_first_empty_list_returns_zero",
+            "source": "assert result == 0"
+          }
+        ],
+        "assertion_diff": "assert None == 0"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_empty_list_default_fallback",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 0",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 56,
+            "function": "test_first_empty_list_default_fallback",
+            "source": "assert result == 0"
+          }
+        ],
+        "assertion_diff": "assert None == 0"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 2,
+    "total_branches": 2,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "3bd2105b-5925-4725-840b-12e200785b61",
+    "started": "2026-11-27T09:18:01.092619+00:00",
+    "ended": "2026-11-27T09:18:08.619534+00:00",
+    "source_sha256": "c1ccf45158bf8219e406df2f208a5a66f04185c5a499211ea6d20c5e9e834bcc",
+    "test_sha256": "c1af1d27b0966ca4e0fe17fc18013622f9304ebef34a2a2b1265311c43bd8d7d"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_first_empty_list_default_fallback",
+      "test_generated.py::test_first_empty_list_returns_zero"
+    ]
+  },
+  "mutant": "3d11762d-eb9c-566a-9f43-de29a10e5023"
+}

@@ -1,0 +1,106 @@
+{
+  "status": "failed",
+  "passed": 8,
+  "failed": 2,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_tier_gold_above_threshold",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_gold_at_threshold",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_silver_above_threshold",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_silver_at_threshold",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_basic_below_silver",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_basic_at_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_gold_above_100",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_silver_below_gold",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_missing_argument_raises",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_invalid_type_raises",
+      "outcome": "failed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 6,
+  "total_lines": 6,
+  "coverage_pct": 100.0,
+  "log": "........FF\n=================================== FAILURES ===================================\n______________________ test_tier_missing_argument_raises _______________________\ntest_generated.py:28: in test_tier_missing_argument_raises\n    with pytest.raises(TypeError):\n         ^^^^^^\nE   NameError: name 'pytest' is not defined\n________________________ test_tier_invalid_type_raises _________________________\ntest_generated.py:32: in test_tier_invalid_type_raises\n    with pytest.raises(TypeError):\n         ^^^^^^\nE   NameError: name 'pytest' is not defined\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tier_gold_above_threshold\nPASSED test_generated.py::test_tier_gold_at_threshold\nPASSED test_generated.py::test_tier_silver_above_threshold\nPASSED test_generated.py::test_tier_silver_at_threshold\nPASSED test_generated.py::test_tier_basic_below_silver\nPASSED test_generated.py::test_tier_basic_at_zero\nPASSED test_generated.py::test_tier_gold_above_100\nPASSED test_generated.py::test_tier_silver_below_gold\nFAILED test_generated.py::test_tier_missing_argument_raises - NameError: name...\nFAILED test_generated.py::test_tier_invalid_type_raises - NameError: name 'py...\n2 failed, 8 passed in 0.33s",
+  "duration_ms": 6460,
+  "stdout": "........FF\n=================================== FAILURES ===================================\n______________________ test_tier_missing_argument_raises _______________________\ntest_generated.py:28: in test_tier_missing_argument_raises\n    with pytest.raises(TypeError):\n         ^^^^^^\nE   NameError: name 'pytest' is not defined\n________________________ test_tier_invalid_type_raises _________________________\ntest_generated.py:32: in test_tier_invalid_type_raises\n    with pytest.raises(TypeError):\n         ^^^^^^\nE   NameError: name 'pytest' is not defined\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tier_gold_above_threshold\nPASSED test_generated.py::test_tier_gold_at_threshold\nPASSED test_generated.py::test_tier_silver_above_threshold\nPASSED test_generated.py::test_tier_silver_at_threshold\nPASSED test_generated.py::test_tier_basic_below_silver\nPASSED test_generated.py::test_tier_basic_at_zero\nPASSED test_generated.py::test_tier_gold_above_100\nPASSED test_generated.py::test_tier_silver_below_gold\nFAILED test_generated.py::test_tier_missing_argument_raises - NameError: name...\nFAILED test_generated.py::test_tier_invalid_type_raises - NameError: name 'py...\n2 failed, 8 passed in 0.33s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_tier_missing_argument_raises",
+      "phase": "call",
+      "exception_type": "NameError",
+      "message": "name 'pytest' is not defined",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 28,
+          "function": "test_tier_missing_argument_raises",
+          "source": "with pytest.raises(TypeError):"
+        }
+      ],
+      "assertion_diff": null
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_invalid_type_raises",
+      "phase": "call",
+      "exception_type": "NameError",
+      "message": "name 'pytest' is not defined",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 32,
+          "function": "test_tier_invalid_type_raises",
+          "source": "with pytest.raises(TypeError):"
+        }
+      ],
+      "assertion_diff": null
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "6fe6d59a-aa47-4c1a-97d8-92e72e2b7375",
+  "started": "2026-11-27T09:17:14.779154+00:00",
+  "ended": "2026-11-27T09:17:21.238894+00:00",
+  "source_sha256": "4920368152bc107b7e80143111b3f64de7fa42c9a3e230e04480afb51cd6d00c",
+  "test_sha256": "792660c8b68fe81a1b6f3fbe2627372c846a9fc5ad560160bbfbcb7a26ec6351"
+}

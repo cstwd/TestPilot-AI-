@@ -1,0 +1,9 @@
+{
+  "project": "expiry",
+  "seed": 941,
+  "before": null,
+  "after": null,
+  "planned": 2,
+  "initial_run_id": "1c829c24-b7a3-416a-9dd8-3bc2068f35c8",
+  "reason": "Ollama 已触发 Windows 资源保护"
+}

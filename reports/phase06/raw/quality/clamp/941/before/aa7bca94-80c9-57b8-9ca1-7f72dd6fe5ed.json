@@ -1,0 +1,313 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 2,
+    "failed": 13,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_cap_returns_n_when_less_than_ceiling",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_returns_ceiling_when_n_greater",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_returns_ceiling_when_n_equals_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_default_ceiling",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_zero_n",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_zero_ceiling",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_negative_n",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_negative_ceiling",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_both_negative",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_large_values",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_same_large_values",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_keyword_arguments",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_mixed_keyword_arguments",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_ceiling_as_keyword",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_doctest_example",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 4,
+    "total_lines": 4,
+    "coverage_pct": 100.0,
+    "log": "FF.FFFFFFF.FFFF\n=================================== FAILURES ===================================\n__________________ test_cap_returns_n_when_less_than_ceiling ___________________\ntest_generated.py:4: in test_cap_returns_n_when_less_than_ceiling\n    assert cap(5, 10) == 5\nE   assert 10 == 5\nE    +  where 10 = cap(5, 10)\n___________________ test_cap_returns_ceiling_when_n_greater ____________________\ntest_generated.py:7: in test_cap_returns_ceiling_when_n_greater\n    assert cap(12, 10) == 10\nE   assert 12 == 10\nE    +  where 12 = cap(12, 10)\n________________________ test_cap_with_default_ceiling _________________________\ntest_generated.py:13: in test_cap_with_default_ceiling\n    assert cap(12) == 10\nE   assert 12 == 10\nE    +  where 12 = cap(12)\n_____________________________ test_cap_with_zero_n _____________________________\ntest_generated.py:16: in test_cap_with_zero_n\n    assert cap(0, 10) == 0\nE   assert 10 == 0\nE    +  where 10 = cap(0, 10)\n__________________________ test_cap_with_zero_ceiling __________________________\ntest_generated.py:19: in test_cap_with_zero_ceiling\n    assert cap(5, 0) == 0\nE   assert 5 == 0\nE    +  where 5 = cap(5, 0)\n___________________________ test_cap_with_negative_n ___________________________\ntest_generated.py:22: in test_cap_with_negative_n\n    assert cap(-5, 10) == -5\nE   assert 10 == -5\nE    +  where 10 = cap(-5, 10)\n________________________ test_cap_with_negative_ceiling ________________________\ntest_generated.py:25: in test_cap_with_negative_ceiling\n    assert cap(5, -10) == -10\nE   assert 5 == -10\nE    +  where 5 = cap(5, -10)\n_________________________ test_cap_with_both_negative __________________________\ntest_generated.py:28: in test_cap_with_both_negative\n    assert cap(-5, -10) == -10\nE   assert -5 == -10\nE    +  where -5 = cap(-5, -10)\n__________________________ test_cap_with_large_values __________________________\ntest_generated.py:31: in test_cap_with_large_values\n    assert cap(1000000, 500000) == 500000\nE   assert 1000000 == 500000\nE    +  where 1000000 = cap(1000000, 500000)\n_______________________ test_cap_with_keyword_arguments ________________________\ntest_generated.py:37: in test_cap_with_keyword_arguments\n    assert cap(n=12, ceiling=10) == 10\nE   assert 12 == 10\nE    +  where 12 = cap(n=12, ceiling=10)\n____________________ test_cap_with_mixed_keyword_arguments _____________________\ntest_generated.py:40: in test_cap_with_mixed_keyword_arguments\n    assert cap(12, ceiling=10) == 10\nE   assert 12 == 10\nE    +  where 12 = cap(12, ceiling=10)\n_______________________ test_cap_with_ceiling_as_keyword _______________________\ntest_generated.py:43: in test_cap_with_ceiling_as_keyword\n    assert cap(n=12, ceiling=10) == 10\nE   assert 12 == 10\nE    +  where 12 = cap(n=12, ceiling=10)\n___________________________ test_cap_doctest_example ___________________________\ntest_generated.py:46: in test_cap_doctest_example\n    assert cap(12) == 10\nE   assert 12 == 10\nE    +  where 12 = cap(12)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_cap_returns_ceiling_when_n_equals_ceiling\nPASSED test_generated.py::test_cap_with_same_large_values\nFAILED test_generated.py::test_cap_returns_n_when_less_than_ceiling - assert ...\nFAILED test_generated.py::test_cap_returns_ceiling_when_n_greater - assert 12...\nFAILED test_generated.py::test_cap_with_default_ceiling - assert 12 == 10\nFAILED test_generated.py::test_cap_with_zero_n - assert 10 == 0\nFAILED test_generated.py::test_cap_with_zero_ceiling - assert 5 == 0\nFAILED test_generated.py::test_cap_with_negative_n - assert 10 == -5\nFAILED test_generated.py::test_cap_with_negative_ceiling - assert 5 == -10\nFAILED test_generated.py::test_cap_with_both_negative - assert -5 == -10\nFAILED test_generated.py::test_cap_with_large_values - assert 1000000 == 500000\nFAILED test_generated.py::test_cap_with_keyword_arguments - assert 12 == 10\nFAILED test_generated.py::test_cap_with_mixed_keyword_arguments - assert 12 =...\nFAILED test_generated.py::test_cap_with_ceiling_as_keyword - assert 12 == 10\nFAILED test_generated.py::test_cap_doctest_example - assert 12 == 10\n13 failed, 2 passed in 0.72s",
+    "duration_ms": 6992,
+    "stdout": "FF.FFFFFFF.FFFF\n=================================== FAILURES ===================================\n__________________ test_cap_returns_n_when_less_than_ceiling ___________________\ntest_generated.py:4: in test_cap_returns_n_when_less_than_ceiling\n    assert cap(5, 10) == 5\nE   assert 10 == 5\nE    +  where 10 = cap(5, 10)\n___________________ test_cap_returns_ceiling_when_n_greater ____________________\ntest_generated.py:7: in test_cap_returns_ceiling_when_n_greater\n    assert cap(12, 10) == 10\nE   assert 12 == 10\nE    +  where 12 = cap(12, 10)\n________________________ test_cap_with_default_ceiling _________________________\ntest_generated.py:13: in test_cap_with_default_ceiling\n    assert cap(12) == 10\nE   assert 12 == 10\nE    +  where 12 = cap(12)\n_____________________________ test_cap_with_zero_n _____________________________\ntest_generated.py:16: in test_cap_with_zero_n\n    assert cap(0, 10) == 0\nE   assert 10 == 0\nE    +  where 10 = cap(0, 10)\n__________________________ test_cap_with_zero_ceiling __________________________\ntest_generated.py:19: in test_cap_with_zero_ceiling\n    assert cap(5, 0) == 0\nE   assert 5 == 0\nE    +  where 5 = cap(5, 0)\n___________________________ test_cap_with_negative_n ___________________________\ntest_generated.py:22: in test_cap_with_negative_n\n    assert cap(-5, 10) == -5\nE   assert 10 == -5\nE    +  where 10 = cap(-5, 10)\n________________________ test_cap_with_negative_ceiling ________________________\ntest_generated.py:25: in test_cap_with_negative_ceiling\n    assert cap(5, -10) == -10\nE   assert 5 == -10\nE    +  where 5 = cap(5, -10)\n_________________________ test_cap_with_both_negative __________________________\ntest_generated.py:28: in test_cap_with_both_negative\n    assert cap(-5, -10) == -10\nE   assert -5 == -10\nE    +  where -5 = cap(-5, -10)\n__________________________ test_cap_with_large_values __________________________\ntest_generated.py:31: in test_cap_with_large_values\n    assert cap(1000000, 500000) == 500000\nE   assert 1000000 == 500000\nE    +  where 1000000 = cap(1000000, 500000)\n_______________________ test_cap_with_keyword_arguments ________________________\ntest_generated.py:37: in test_cap_with_keyword_arguments\n    assert cap(n=12, ceiling=10) == 10\nE   assert 12 == 10\nE    +  where 12 = cap(n=12, ceiling=10)\n____________________ test_cap_with_mixed_keyword_arguments _____________________\ntest_generated.py:40: in test_cap_with_mixed_keyword_arguments\n    assert cap(12, ceiling=10) == 10\nE   assert 12 == 10\nE    +  where 12 = cap(12, ceiling=10)\n_______________________ test_cap_with_ceiling_as_keyword _______________________\ntest_generated.py:43: in test_cap_with_ceiling_as_keyword\n    assert cap(n=12, ceiling=10) == 10\nE   assert 12 == 10\nE    +  where 12 = cap(n=12, ceiling=10)\n___________________________ test_cap_doctest_example ___________________________\ntest_generated.py:46: in test_cap_doctest_example\n    assert cap(12) == 10\nE   assert 12 == 10\nE    +  where 12 = cap(12)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_cap_returns_ceiling_when_n_equals_ceiling\nPASSED test_generated.py::test_cap_with_same_large_values\nFAILED test_generated.py::test_cap_returns_n_when_less_than_ceiling - assert ...\nFAILED test_generated.py::test_cap_returns_ceiling_when_n_greater - assert 12...\nFAILED test_generated.py::test_cap_with_default_ceiling - assert 12 == 10\nFAILED test_generated.py::test_cap_with_zero_n - assert 10 == 0\nFAILED test_generated.py::test_cap_with_zero_ceiling - assert 5 == 0\nFAILED test_generated.py::test_cap_with_negative_n - assert 10 == -5\nFAILED test_generated.py::test_cap_with_negative_ceiling - assert 5 == -10\nFAILED test_generated.py::test_cap_with_both_negative - assert -5 == -10\nFAILED test_generated.py::test_cap_with_large_values - assert 1000000 == 500000\nFAILED test_generated.py::test_cap_with_keyword_arguments - assert 12 == 10\nFAILED test_generated.py::test_cap_with_mixed_keyword_arguments - assert 12 =...\nFAILED test_generated.py::test_cap_with_ceiling_as_keyword - assert 12 == 10\nFAILED test_generated.py::test_cap_doctest_example - assert 12 == 10\n13 failed, 2 passed in 0.72s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_cap_returns_n_when_less_than_ceiling",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 10 == 5\n +  where 10 = cap(5, 10)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 4,
+            "function": "test_cap_returns_n_when_less_than_ceiling",
+            "source": "assert cap(5, 10) == 5"
+          }
+        ],
+        "assertion_diff": "assert 10 == 5\n +  where 10 = cap(5, 10)"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_returns_ceiling_when_n_greater",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 12 == 10\n +  where 12 = cap(12, 10)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 7,
+            "function": "test_cap_returns_ceiling_when_n_greater",
+            "source": "assert cap(12, 10) == 10"
+          }
+        ],
+        "assertion_diff": "assert 12 == 10\n +  where 12 = cap(12, 10)"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_default_ceiling",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 12 == 10\n +  where 12 = cap(12)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 13,
+            "function": "test_cap_with_default_ceiling",
+            "source": "assert cap(12) == 10"
+          }
+        ],
+        "assertion_diff": "assert 12 == 10\n +  where 12 = cap(12)"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_zero_n",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 10 == 0\n +  where 10 = cap(0, 10)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 16,
+            "function": "test_cap_with_zero_n",
+            "source": "assert cap(0, 10) == 0"
+          }
+        ],
+        "assertion_diff": "assert 10 == 0\n +  where 10 = cap(0, 10)"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_zero_ceiling",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 5 == 0\n +  where 5 = cap(5, 0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 19,
+            "function": "test_cap_with_zero_ceiling",
+            "source": "assert cap(5, 0) == 0"
+          }
+        ],
+        "assertion_diff": "assert 5 == 0\n +  where 5 = cap(5, 0)"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_negative_n",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 10 == -5\n +  where 10 = cap(-5, 10)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 22,
+            "function": "test_cap_with_negative_n",
+            "source": "assert cap(-5, 10) == -5"
+          }
+        ],
+        "assertion_diff": "assert 10 == -5\n +  where 10 = cap(-5, 10)"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_negative_ceiling",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 5 == -10\n +  where 5 = cap(5, -10)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 25,
+            "function": "test_cap_with_negative_ceiling",
+            "source": "assert cap(5, -10) == -10"
+          }
+        ],
+        "assertion_diff": "assert 5 == -10\n +  where 5 = cap(5, -10)"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_both_negative",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert -5 == -10\n +  where -5 = cap(-5, -10)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 28,
+            "function": "test_cap_with_both_negative",
+            "source": "assert cap(-5, -10) == -10"
+          }
+        ],
+        "assertion_diff": "assert -5 == -10\n +  where -5 = cap(-5, -10)"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_large_values",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 1000000 == 500000\n +  where 1000000 = cap(1000000, 500000)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 31,
+            "function": "test_cap_with_large_values",
+            "source": "assert cap(1000000, 500000) == 500000"
+          }
+        ],
+        "assertion_diff": "assert 1000000 == 500000\n +  where 1000000 = cap(1000000, 500000)"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_keyword_arguments",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 12 == 10\n +  where 12 = cap(n=12, ceiling=10)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 37,
+            "function": "test_cap_with_keyword_arguments",
+            "source": "assert cap(n=12, ceiling=10) == 10"
+          }
+        ],
+        "assertion_diff": "assert 12 == 10\n +  where 12 = cap(n=12, ceiling=10)"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_mixed_keyword_arguments",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 12 == 10\n +  where 12 = cap(12, ceiling=10)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 40,
+            "function": "test_cap_with_mixed_keyword_arguments",
+            "source": "assert cap(12, ceiling=10) == 10"
+          }
+        ],
+        "assertion_diff": "assert 12 == 10\n +  where 12 = cap(12, ceiling=10)"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_ceiling_as_keyword",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 12 == 10\n +  where 12 = cap(n=12, ceiling=10)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 43,
+            "function": "test_cap_with_ceiling_as_keyword",
+            "source": "assert cap(n=12, ceiling=10) == 10"
+          }
+        ],
+        "assertion_diff": "assert 12 == 10\n +  where 12 = cap(n=12, ceiling=10)"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_doctest_example",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 12 == 10\n +  where 12 = cap(12)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 46,
+            "function": "test_cap_doctest_example",
+            "source": "assert cap(12) == 10"
+          }
+        ],
+        "assertion_diff": "assert 12 == 10\n +  where 12 = cap(12)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 2,
+    "total_branches": 2,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "58182afc-7b44-4add-b82f-df88d8651471",
+    "started": "2026-11-27T09:14:22.343278+00:00",
+    "ended": "2026-11-27T09:14:29.335750+00:00",
+    "source_sha256": "29fe20a83dfa858572d7fb7a05980d6d4315c8617cd4b6650d00920312a17bbc",
+    "test_sha256": "6aa320e19c85ee70f54b7f7ff571f34d0058f4bfd6e558c031bb863aeb5fe213"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_cap_doctest_example",
+      "test_generated.py::test_cap_returns_ceiling_when_n_greater",
+      "test_generated.py::test_cap_returns_n_when_less_than_ceiling",
+      "test_generated.py::test_cap_with_both_negative",
+      "test_generated.py::test_cap_with_ceiling_as_keyword",
+      "test_generated.py::test_cap_with_default_ceiling",
+      "test_generated.py::test_cap_with_keyword_arguments",
+      "test_generated.py::test_cap_with_large_values",
+      "test_generated.py::test_cap_with_mixed_keyword_arguments",
+      "test_generated.py::test_cap_with_negative_ceiling",
+      "test_generated.py::test_cap_with_negative_n",
+      "test_generated.py::test_cap_with_zero_ceiling",
+      "test_generated.py::test_cap_with_zero_n"
+    ]
+  },
+  "mutant": "aa7bca94-80c9-57b8-9ca1-7f72dd6fe5ed"
+}

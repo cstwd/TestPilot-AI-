@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom subject import page_count\nfrom limits import PAGE_SIZE\n\ndef test_page_count_doctest_example():\n    assert page_count(9) == 1\n\ndef test_page_count_zero_items():\n    assert page_count(0) == 0\n\ndef test_page_count_exactly_one_page():\n    assert page_count(PAGE_SIZE) == 1\n\ndef test_page_count_one_over_one_page():\n    assert page_count(PAGE_SIZE + 1) == 2\n\ndef test_page_count_two_full_pages():\n    assert page_count(2 * PAGE_SIZE) == 2\n\ndef test_page_count_two_pages_plus_one():\n    assert page_count(2 * PAGE_SIZE + 1) == 3\n\ndef test_page_count_large_multiple():\n    assert page_count(100 * PAGE_SIZE) == 100\n\ndef test_page_count_large_multiple_plus_one():\n    assert page_count(100 * PAGE_SIZE + 1) == 101\n\ndef test_page_count_negative_items():\n    assert page_count(-1) == 0\n\ndef test_page_count_missing_argument_raises():\n    with pytest.raises(TypeError):\n        page_count()\n\ndef test_page_count_extra_argument_raises():\n    with pytest.raises(TypeError):\n        page_count(items=2, _testpilot_unknown=None)\n",
+  "mode": "ai",
+  "sha256": "6b7983c40bfa51ea035b4d297d4b4016d4f170f7e2c734a3c639e9b381d2d5ba",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "59b1b6e3-9e84-4049-af11-f0d1b65f0c10",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import page_count\\nfrom limits import PAGE_SIZE\\n\\n\\ndef test_page_count_doctest_example():\\n    assert page_count(9) == 1\\n\\n\\ndef test_page_count_zero_items():\\n    assert page_count(0) == 0\\n\\n\\ndef test_page_count_exactly_one_page():\\n    assert page_count(PAGE_SIZE) == 1\\n\\n\\ndef test_page_count_one_over_one_page():\\n    assert page_count(PAGE_SIZE + 1) == 2\\n\\n\\ndef test_page_count_two_full_pages():\\n    assert page_count(2 * PAGE_SIZE) == 2\\n\\n\\ndef test_page_count_two_pages_plus_one():\\n    assert page_count(2 * PAGE_SIZE + 1) == 3\\n\\n\\ndef test_page_count_large_multiple():\\n    assert page_count(100 * PAGE_SIZE) == 100\\n\\n\\ndef test_page_count_large_multiple_plus_one():\\n    assert page_count(100 * PAGE_SIZE + 1) == 101\\n\\n\\ndef test_page_count_negative_items():\\n    assert page_count(-1) == 0\\n\\n\\ndef test_page_count_missing_argument_raises():\\n    with pytest.raises(TypeError):\\n        page_count()\\n\\n\\ndef test_page_count_extra_argument_raises():\\n    with pytest.raises(TypeError):\\n        page_count(items=2, _testpilot_unknown=None)\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 352,
+      "tokens_out": 324,
+      "generation_ns": 13336394000,
+      "load_ns": 9745200,
+      "ttft_s": 1.598547800000233,
+      "elapsed_s": 14.935400700000173,
+      "seed": 941,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "59b1b6e3-9e84-4049-af11-f0d1b65f0c10",
+  "seconds": 14.987178900002618
+}

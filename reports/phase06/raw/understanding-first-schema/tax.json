@@ -1,0 +1,65 @@
+{
+  "project": "tax",
+  "predicted": {
+    "functions": [
+      "subject.py:tax"
+    ],
+    "parameters": [
+      [
+        "cents",
+        "int",
+        null
+      ]
+    ],
+    "return_value": 10,
+    "branch_lines": [],
+    "boundary_value": 1,
+    "exception": null,
+    "defect_line": 9
+  },
+  "expected": {
+    "functions": [
+      "subject.py:tax"
+    ],
+    "parameters": [
+      [
+        "cents",
+        "int",
+        null
+      ]
+    ],
+    "return_value": 10,
+    "branch_lines": [],
+    "boundary_value": 0,
+    "exception": "TypeError",
+    "defect_line": 9
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 1,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 0,
+    "exception": 0,
+    "defect_line": 1
+  },
+  "run_id": "db647a0c-0c2a-4753-bbdc-a86d51d4d343",
+  "attempts": [
+    {
+      "run_id": "db647a0c-0c2a-4753-bbdc-a86d51d4d343",
+      "attempt": 1,
+      "raw": "{\n  \"boundary_value\": 1,\n  \"branch_lines\": [],\n  \"defect_line\": 9,\n  \"exception\": null,\n  \"functions\": [\n    \"subject.py:tax\"\n  ],\n  \"parameters\": [\n    [\n      \"cents\",\n      \"int\",\n      null\n    ]\n  ],\n  \"return_value\": 10\n}",
+      "finish": "stop",
+      "tokens_in": 285,
+      "tokens_out": 92,
+      "generation_ns": 4035594000,
+      "load_ns": 9024800,
+      "ttft_s": 1.3889557000002242,
+      "elapsed_s": 5.424871400002303,
+      "seed": 23,
+      "temperature": 0,
+      "schema": "Understanding",
+      "status": "accepted"
+    }
+  ]
+}

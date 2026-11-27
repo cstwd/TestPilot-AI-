@@ -1,0 +1,103 @@
+{
+  "status": "failed",
+  "passed": 12,
+  "failed": 1,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_tax_doctest_example",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_ninety_nine",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_one_hundred",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_one_hundred_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_uses_policy_rate",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_is_integer",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_negative",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_large_value",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_missing_argument",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_wrong_type",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_float_input",
+      "outcome": "failed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "............F\n=================================== FAILURES ===================================\n_____________________________ test_tax_float_input _____________________________\ntest_generated.py:50: in test_tax_float_input\n    with pytest.raises(TypeError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE TypeError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tax_doctest_example\nPASSED test_generated.py::test_tax_zero\nPASSED test_generated.py::test_tax_one\nPASSED test_generated.py::test_tax_ninety_nine\nPASSED test_generated.py::test_tax_one_hundred\nPASSED test_generated.py::test_tax_one_hundred_one\nPASSED test_generated.py::test_tax_uses_policy_rate\nPASSED test_generated.py::test_tax_is_integer\nPASSED test_generated.py::test_tax_negative\nPASSED test_generated.py::test_tax_large_value\nPASSED test_generated.py::test_tax_missing_argument\nPASSED test_generated.py::test_tax_wrong_type\nFAILED test_generated.py::test_tax_float_input - Failed: DID NOT RAISE TypeError\n1 failed, 12 passed in 0.55s",
+  "duration_ms": 8845,
+  "stdout": "............F\n=================================== FAILURES ===================================\n_____________________________ test_tax_float_input _____________________________\ntest_generated.py:50: in test_tax_float_input\n    with pytest.raises(TypeError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE TypeError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tax_doctest_example\nPASSED test_generated.py::test_tax_zero\nPASSED test_generated.py::test_tax_one\nPASSED test_generated.py::test_tax_ninety_nine\nPASSED test_generated.py::test_tax_one_hundred\nPASSED test_generated.py::test_tax_one_hundred_one\nPASSED test_generated.py::test_tax_uses_policy_rate\nPASSED test_generated.py::test_tax_is_integer\nPASSED test_generated.py::test_tax_negative\nPASSED test_generated.py::test_tax_large_value\nPASSED test_generated.py::test_tax_missing_argument\nPASSED test_generated.py::test_tax_wrong_type\nFAILED test_generated.py::test_tax_float_input - Failed: DID NOT RAISE TypeError\n1 failed, 12 passed in 0.55s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_tax_float_input",
+      "phase": "call",
+      "exception_type": "Failed",
+      "message": "DID NOT RAISE TypeError",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 50,
+          "function": "test_tax_float_input",
+          "source": "with pytest.raises(TypeError):"
+        }
+      ],
+      "assertion_diff": null
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "099545a6-3a29-492a-b1af-543a006299e8",
+  "started": "2026-11-27T09:03:22.012871+00:00",
+  "ended": "2026-11-27T09:03:30.857543+00:00",
+  "source_sha256": "6d8d2166906fa703c3159bddf8aec959d022e6acf0b7e873683cb8a7ca8e0582",
+  "test_sha256": "9291c1821c4f5b9a982d8bfc5f9d81ec7ad74178b7d46e3552d0a69c7f41b946"
+}

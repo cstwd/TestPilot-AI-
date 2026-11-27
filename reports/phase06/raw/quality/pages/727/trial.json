@@ -1,0 +1,174 @@
+{
+  "status": "failed",
+  "passed": 6,
+  "failed": 6,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_page_count_zero_items_returns_zero",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_one_item_returns_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_exactly_one_page_size_returns_one",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_one_more_than_page_size_returns_two",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_nine_returns_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_twenty_returns_two",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_twenty_one_returns_three",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_large_multiple_returns_correct_pages",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_large_multiple_plus_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_negative_items_raises",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_non_integer_raises",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_float_raises",
+      "outcome": "failed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "F.F..F.F.F.F\n=================================== FAILURES ===================================\n___________________ test_page_count_zero_items_returns_zero ____________________\ntest_generated.py:13: in test_page_count_zero_items_returns_zero\n    assert page_count(0) == 0\nE   assert 1 == 0\nE    +  where 1 = page_count(0)\n______________ test_page_count_exactly_one_page_size_returns_one _______________\ntest_generated.py:21: in test_page_count_exactly_one_page_size_returns_one\n    assert page_count(PAGE_SIZE) == 1\nE   assert 2 == 1\nE    +  where 2 = page_count(10)\n______________________ test_page_count_twenty_returns_two ______________________\ntest_generated.py:33: in test_page_count_twenty_returns_two\n    assert page_count(2 * PAGE_SIZE) == 2\nE   assert 3 == 2\nE    +  where 3 = page_count((2 * 10))\n_____________ test_page_count_large_multiple_returns_correct_pages _____________\ntest_generated.py:42: in test_page_count_large_multiple_returns_correct_pages\n    assert page_count(n_pages * PAGE_SIZE) == n_pages\nE   assert 101 == 100\nE    +  where 101 = page_count((100 * 10))\n____________________ test_page_count_negative_items_raises _____________________\ntest_generated.py:51: in test_page_count_negative_items_raises\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n_________________________ test_page_count_float_raises _________________________\ntest_generated.py:61: in test_page_count_float_raises\n    with pytest.raises(TypeError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE TypeError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_page_count_one_item_returns_one\nPASSED test_generated.py::test_page_count_one_more_than_page_size_returns_two\nPASSED test_generated.py::test_page_count_nine_returns_one\nPASSED test_generated.py::test_page_count_twenty_one_returns_three\nPASSED test_generated.py::test_page_count_large_multiple_plus_one\nPASSED test_generated.py::test_page_count_non_integer_raises\nFAILED test_generated.py::test_page_count_zero_items_returns_zero - assert 1 ...\nFAILED test_generated.py::test_page_count_exactly_one_page_size_returns_one\nFAILED test_generated.py::test_page_count_twenty_returns_two - assert 3 == 2\nFAILED test_generated.py::test_page_count_large_multiple_returns_correct_pages\nFAILED test_generated.py::test_page_count_negative_items_raises - Failed: DID...\nFAILED test_generated.py::test_page_count_float_raises - Failed: DID NOT RAIS...\n6 failed, 6 passed in 0.75s",
+  "duration_ms": 8944,
+  "stdout": "F.F..F.F.F.F\n=================================== FAILURES ===================================\n___________________ test_page_count_zero_items_returns_zero ____________________\ntest_generated.py:13: in test_page_count_zero_items_returns_zero\n    assert page_count(0) == 0\nE   assert 1 == 0\nE    +  where 1 = page_count(0)\n______________ test_page_count_exactly_one_page_size_returns_one _______________\ntest_generated.py:21: in test_page_count_exactly_one_page_size_returns_one\n    assert page_count(PAGE_SIZE) == 1\nE   assert 2 == 1\nE    +  where 2 = page_count(10)\n______________________ test_page_count_twenty_returns_two ______________________\ntest_generated.py:33: in test_page_count_twenty_returns_two\n    assert page_count(2 * PAGE_SIZE) == 2\nE   assert 3 == 2\nE    +  where 3 = page_count((2 * 10))\n_____________ test_page_count_large_multiple_returns_correct_pages _____________\ntest_generated.py:42: in test_page_count_large_multiple_returns_correct_pages\n    assert page_count(n_pages * PAGE_SIZE) == n_pages\nE   assert 101 == 100\nE    +  where 101 = page_count((100 * 10))\n____________________ test_page_count_negative_items_raises _____________________\ntest_generated.py:51: in test_page_count_negative_items_raises\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n_________________________ test_page_count_float_raises _________________________\ntest_generated.py:61: in test_page_count_float_raises\n    with pytest.raises(TypeError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE TypeError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_page_count_one_item_returns_one\nPASSED test_generated.py::test_page_count_one_more_than_page_size_returns_two\nPASSED test_generated.py::test_page_count_nine_returns_one\nPASSED test_generated.py::test_page_count_twenty_one_returns_three\nPASSED test_generated.py::test_page_count_large_multiple_plus_one\nPASSED test_generated.py::test_page_count_non_integer_raises\nFAILED test_generated.py::test_page_count_zero_items_returns_zero - assert 1 ...\nFAILED test_generated.py::test_page_count_exactly_one_page_size_returns_one\nFAILED test_generated.py::test_page_count_twenty_returns_two - assert 3 == 2\nFAILED test_generated.py::test_page_count_large_multiple_returns_correct_pages\nFAILED test_generated.py::test_page_count_negative_items_raises - Failed: DID...\nFAILED test_generated.py::test_page_count_float_raises - Failed: DID NOT RAIS...\n6 failed, 6 passed in 0.75s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_page_count_zero_items_returns_zero",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 1 == 0\n +  where 1 = page_count(0)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 13,
+          "function": "test_page_count_zero_items_returns_zero",
+          "source": "assert page_count(0) == 0"
+        }
+      ],
+      "assertion_diff": "assert 1 == 0\n +  where 1 = page_count(0)"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_exactly_one_page_size_returns_one",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 2 == 1\n +  where 2 = page_count(10)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 21,
+          "function": "test_page_count_exactly_one_page_size_returns_one",
+          "source": "assert page_count(PAGE_SIZE) == 1"
+        }
+      ],
+      "assertion_diff": "assert 2 == 1\n +  where 2 = page_count(10)"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_twenty_returns_two",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 3 == 2\n +  where 3 = page_count((2 * 10))",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 33,
+          "function": "test_page_count_twenty_returns_two",
+          "source": "assert page_count(2 * PAGE_SIZE) == 2"
+        }
+      ],
+      "assertion_diff": "assert 3 == 2\n +  where 3 = page_count((2 * 10))"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_large_multiple_returns_correct_pages",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 101 == 100\n +  where 101 = page_count((100 * 10))",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 42,
+          "function": "test_page_count_large_multiple_returns_correct_pages",
+          "source": "assert page_count(n_pages * PAGE_SIZE) == n_pages"
+        }
+      ],
+      "assertion_diff": "assert 101 == 100\n +  where 101 = page_count((100 * 10))"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_negative_items_raises",
+      "phase": "call",
+      "exception_type": "Failed",
+      "message": "DID NOT RAISE ValueError",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 51,
+          "function": "test_page_count_negative_items_raises",
+          "source": "with pytest.raises(ValueError):"
+        }
+      ],
+      "assertion_diff": null
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_float_raises",
+      "phase": "call",
+      "exception_type": "Failed",
+      "message": "DID NOT RAISE TypeError",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 61,
+          "function": "test_page_count_float_raises",
+          "source": "with pytest.raises(TypeError):"
+        }
+      ],
+      "assertion_diff": null
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "c1d74117-233c-4986-995d-2b466fea968e",
+  "started": "2026-11-27T09:10:49.487908+00:00",
+  "ended": "2026-11-27T09:10:58.431678+00:00",
+  "source_sha256": "1379dd26ef046cd5341c7e2a7fc476e7d64f25a5a56ab200fb2a7a024e32d0b5",
+  "test_sha256": "ffd19e8385311760989666f21780e5b7b923ced496efe33fe25377d28e83d89c"
+}

@@ -1,0 +1,140 @@
+{
+  "status": "failed",
+  "passed": 7,
+  "failed": 4,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_page_count_doctest_example",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_zero_items",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_exactly_one_page",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_one_over_one_page",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_two_full_pages",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_two_pages_plus_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_large_multiple",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_large_multiple_plus_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_negative_items",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_missing_argument_raises",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_extra_argument_raises",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": ".FF.F.F....\n=================================== FAILURES ===================================\n__________________________ test_page_count_zero_items __________________________\ntest_generated.py:15: in test_page_count_zero_items\n    assert page_count(0) == 0\nE   assert 1 == 0\nE    +  where 1 = page_count(0)\n_______________________ test_page_count_exactly_one_page _______________________\ntest_generated.py:18: in test_page_count_exactly_one_page\n    assert page_count(PAGE_SIZE) == 1\nE   assert 2 == 1\nE    +  where 2 = page_count(10)\n________________________ test_page_count_two_full_pages ________________________\ntest_generated.py:24: in test_page_count_two_full_pages\n    assert page_count(2 * PAGE_SIZE) == 2\nE   assert 3 == 2\nE    +  where 3 = page_count((2 * 10))\n________________________ test_page_count_large_multiple ________________________\ntest_generated.py:30: in test_page_count_large_multiple\n    assert page_count(100 * PAGE_SIZE) == 100\nE   assert 101 == 100\nE    +  where 101 = page_count((100 * 10))\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_page_count_doctest_example\nPASSED test_generated.py::test_page_count_one_over_one_page\nPASSED test_generated.py::test_page_count_two_pages_plus_one\nPASSED test_generated.py::test_page_count_large_multiple_plus_one\nPASSED test_generated.py::test_page_count_negative_items\nPASSED test_generated.py::test_page_count_missing_argument_raises\nPASSED test_generated.py::test_page_count_extra_argument_raises\nFAILED test_generated.py::test_page_count_zero_items - assert 1 == 0\nFAILED test_generated.py::test_page_count_exactly_one_page - assert 2 == 1\nFAILED test_generated.py::test_page_count_two_full_pages - assert 3 == 2\nFAILED test_generated.py::test_page_count_large_multiple - assert 101 == 100\n4 failed, 7 passed in 0.54s",
+  "duration_ms": 7082,
+  "stdout": ".FF.F.F....\n=================================== FAILURES ===================================\n__________________________ test_page_count_zero_items __________________________\ntest_generated.py:15: in test_page_count_zero_items\n    assert page_count(0) == 0\nE   assert 1 == 0\nE    +  where 1 = page_count(0)\n_______________________ test_page_count_exactly_one_page _______________________\ntest_generated.py:18: in test_page_count_exactly_one_page\n    assert page_count(PAGE_SIZE) == 1\nE   assert 2 == 1\nE    +  where 2 = page_count(10)\n________________________ test_page_count_two_full_pages ________________________\ntest_generated.py:24: in test_page_count_two_full_pages\n    assert page_count(2 * PAGE_SIZE) == 2\nE   assert 3 == 2\nE    +  where 3 = page_count((2 * 10))\n________________________ test_page_count_large_multiple ________________________\ntest_generated.py:30: in test_page_count_large_multiple\n    assert page_count(100 * PAGE_SIZE) == 100\nE   assert 101 == 100\nE    +  where 101 = page_count((100 * 10))\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_page_count_doctest_example\nPASSED test_generated.py::test_page_count_one_over_one_page\nPASSED test_generated.py::test_page_count_two_pages_plus_one\nPASSED test_generated.py::test_page_count_large_multiple_plus_one\nPASSED test_generated.py::test_page_count_negative_items\nPASSED test_generated.py::test_page_count_missing_argument_raises\nPASSED test_generated.py::test_page_count_extra_argument_raises\nFAILED test_generated.py::test_page_count_zero_items - assert 1 == 0\nFAILED test_generated.py::test_page_count_exactly_one_page - assert 2 == 1\nFAILED test_generated.py::test_page_count_two_full_pages - assert 3 == 2\nFAILED test_generated.py::test_page_count_large_multiple - assert 101 == 100\n4 failed, 7 passed in 0.54s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_page_count_zero_items",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 1 == 0\n +  where 1 = page_count(0)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 15,
+          "function": "test_page_count_zero_items",
+          "source": "assert page_count(0) == 0"
+        }
+      ],
+      "assertion_diff": "assert 1 == 0\n +  where 1 = page_count(0)"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_exactly_one_page",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 2 == 1\n +  where 2 = page_count(10)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 18,
+          "function": "test_page_count_exactly_one_page",
+          "source": "assert page_count(PAGE_SIZE) == 1"
+        }
+      ],
+      "assertion_diff": "assert 2 == 1\n +  where 2 = page_count(10)"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_two_full_pages",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 3 == 2\n +  where 3 = page_count((2 * 10))",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 24,
+          "function": "test_page_count_two_full_pages",
+          "source": "assert page_count(2 * PAGE_SIZE) == 2"
+        }
+      ],
+      "assertion_diff": "assert 3 == 2\n +  where 3 = page_count((2 * 10))"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_large_multiple",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 101 == 100\n +  where 101 = page_count((100 * 10))",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 30,
+          "function": "test_page_count_large_multiple",
+          "source": "assert page_count(100 * PAGE_SIZE) == 100"
+        }
+      ],
+      "assertion_diff": "assert 101 == 100\n +  where 101 = page_count((100 * 10))"
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "ce359dad-be64-4db1-b8e0-716f98c6ea52",
+  "started": "2026-11-27T09:16:40.091785+00:00",
+  "ended": "2026-11-27T09:16:47.174297+00:00",
+  "source_sha256": "1379dd26ef046cd5341c7e2a7fc476e7d64f25a5a56ab200fb2a7a024e32d0b5",
+  "test_sha256": "67f186aaf45dfcb131ac823b082d78117bc73a21494f7299690c4e36f9a9b412"
+}

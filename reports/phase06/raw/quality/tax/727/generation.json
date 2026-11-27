@@ -1,0 +1,45 @@
+{
+  "code": "import pytest\nfrom policy import RATE\nfrom subject import tax\n\ndef test_tax_example_100():\n    assert tax(100) == 5\n\ndef test_tax_zero():\n    assert tax(0) == 0\n\ndef test_tax_below_one_hundred():\n    assert tax(99) == 4\n\ndef test_tax_one_hundred():\n    assert tax(100) == 5\n\ndef test_tax_large_value():\n    assert tax(10000) == 500\n\ndef test_tax_negative_value():\n    assert tax(-100) == -5\n\ndef test_tax_non_integer_string_raises():\n    with pytest.raises(TypeError):\n        tax('100')\n\ndef test_tax_float_raises():\n    with pytest.raises(TypeError):\n        tax(100.5)\n\ndef test_tax_none_raises():\n    with pytest.raises(TypeError):\n        tax(None)\n\ndef test_tax_missing_argument_raises():\n    with pytest.raises(TypeError):\n        tax()\n\ndef test_tax_returns_int_type():\n    result = tax(100)\n    assert isinstance(result, int)\n\ndef test_tax_rate_consistency():\n    cents = 1234\n    expected = cents * RATE // 100\n    assert tax(cents) == expected\n\ndef test_tax_boundary_1():\n    assert tax(1) == 0\n\ndef test_tax_boundary_19():\n    assert tax(19) == 0\n\ndef test_tax_boundary_20():\n    assert tax(20) == 1\n",
+  "mode": "ai",
+  "sha256": "c974be2adbbdbe01ad9d586f6fcc97008076fb3a060ab7a0b8b62138075adf82",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "a35ef58d-d962-4e32-8424-fe6c4c13feed",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\nfrom subject import tax\\n\\ndef test_tax_example():\\n    assert tax(100) == 5\\n\\ndef test_tax_zero():\\n    assert tax(0) == 0\\n\\ndef test_tax_positive():\\n    assert tax(200) == 10\\n\\ndef test_tax_negative():\\n    assert tax(-100) == -5\\n\\ndef test_tax_float_input():\\n    assert tax(100.5) == 5\\n\\ndef test_tax_string_input():\\n    with pytest.raises(TypeError):\\n        tax(\\\"100\\\")\\n\\ndef test_tax_none_input():\\n    with pytest.raises(TypeError):\\n        tax(None)\\n\\ndef test_tax_list_input():\\n    with pytest.raises(TypeError):\\n        tax([100])\\n\\ndef test_tax_dict_input():\\n    with pytest.raises(TypeError):\\n        tax({\\\"cents\\\": 100})\\n\\ndef test_tax_tuple_input():\\n    with pytest.raises(TypeError):\\n        tax((100,))\\n\\ndef test_tax_set_input():\\n    with pytest.raises(TypeError):\\n        tax({100})\\n\\ndef test_tax_bool_input():\\n    assert tax(True) == 0\\n    assert tax(False) == 0\\n\\ndef test_tax_large_number():\\n    assert tax(1000000) == 50000\\n\\ndef test_tax_small_number():\\n    assert tax(1) == 0\\n\\ndef test_tax_just_below_rate():\\n    assert tax(99) == 4\\n\\ndef test_tax_just_above_rate():\\n    assert tax(101) == 5\\n\\ndef test_tax_multiple_of_rate():\\n    assert tax(500) == 25\\n\\ndef test_tax_not_multiple_of_rate():\\n    assert tax(101) == 5\\n\\ndef test_tax_very_large_number():\\n    assert tax(10**18) == 5 * 10**16\\n\\ndef test_tax_very_small_positive():\\n    assert tax(1) == 0\\n\\ndef test_tax_very_small_negative():\\n    assert tax(-1) == -1\\n\\ndef test_tax_boundary_at_zero():\\n    assert tax(0) == 0\\n\\ndef test_tax_boundary_just_above_zero():\\n    assert tax(1) == 0\\n\\ndef test_tax_boundary_just_below_zero():\\n    assert tax(-1) == -1\\n\\ndef test_tax_boundary_at_100():\\n    assert tax(100) == 5\\n\\ndef test_tax_boundary_just_below_100():\\n    assert tax(99) == 4\\n\\ndef test_tax_boundary_just_above_100():\\n    assert tax(101) == 5\\n\\ndef test_tax_boundary_at_200():\\n    assert tax(200) == 10\\n\\ndef test_tax_boundary_just_below_200():\\n    assert tax(199) == 9\\n\\ndef test_tax_boundary_just_above_200():\\n    assert tax(201) == 10\\n\\ndef test_tax_boundary_at_1000():\\n    assert tax(1000) == 50\\n\\ndef test_tax_boundary_just_below_1000():\\n    assert tax(999) == 49\\n\\ndef test_tax_boundary_just_above_1000():\\n    assert tax(1001) == 50\\n\\ndef test_tax_boundary_at_10000():\\n    assert tax(10000) == 500\\n\\ndef test_tax_boundary_just_below_10000():\\n    assert tax(9999) == 499\\n\\ndef test_tax_boundary_just_above_10000():\\n    assert tax(10001) == 500\\n\\ndef test_tax_boundary_at_100000():\\n    assert tax(100000) == 5000\\n\\ndef",
+      "finish": "length",
+      "tokens_in": 340,
+      "tokens_out": 950,
+      "generation_ns": 39278212000,
+      "load_ns": 9091100,
+      "ttft_s": 1.5621286999994481,
+      "elapsed_s": 40.8406458999998,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "rejected",
+      "reason": "empty, incomplete or truncated response"
+    },
+    {
+      "run_id": "a35ef58d-d962-4e32-8424-fe6c4c13feed",
+      "attempt": 2,
+      "raw": "{\"code\": \"import pytest\\nfrom policy import RATE\\nfrom subject import tax\\n\\ndef test_tax_example_100():\\n    assert tax(100) == 5\\n\\ndef test_tax_zero():\\n    assert tax(0) == 0\\n\\ndef test_tax_below_one_hundred():\\n    # 99 * 5 = 495 // 100 = 4\\n    assert tax(99) == 4\\n\\ndef test_tax_one_hundred():\\n    assert tax(100) == 5\\n\\ndef test_tax_large_value():\\n    # 10000 * 5 = 50000 // 100 = 500\\n    assert tax(10000) == 500\\n\\ndef test_tax_negative_value():\\n    # -100 * 5 = -500 // 100 = -5\\n    assert tax(-100) == -5\\n\\ndef test_tax_non_integer_string_raises():\\n    with pytest.raises(TypeError):\\n        tax(\\\"100\\\")\\n\\ndef test_tax_float_raises():\\n    with pytest.raises(TypeError):\\n        tax(100.5)\\n\\ndef test_tax_none_raises():\\n    with pytest.raises(TypeError):\\n        tax(None)\\n\\ndef test_tax_missing_argument_raises():\\n    with pytest.raises(TypeError):\\n        tax()\\n\\ndef test_tax_returns_int_type():\\n    result = tax(100)\\n    assert isinstance(result, int)\\n\\ndef test_tax_rate_consistency():\\n    # Verify the calculation matches the RATE constant\\n    cents = 1234\\n    expected = cents * RATE // 100\\n    assert tax(cents) == expected\\n\\ndef test_tax_boundary_1():\\n    # 1 * 5 = 5 // 100 = 0\\n    assert tax(1) == 0\\n\\ndef test_tax_boundary_19():\\n    # 19 * 5 = 95 // 100 = 0\\n    assert tax(19) == 0\\n\\ndef test_tax_boundary_20():\\n    # 20 * 5 = 100 // 100 = 1\\n    assert tax(20) == 1\\n\"}",
+      "finish": "stop",
+      "tokens_in": 426,
+      "tokens_out": 524,
+      "generation_ns": 21608924000,
+      "load_ns": 10455200,
+      "ttft_s": 1.8237287000010838,
+      "elapsed_s": 23.432875900001818,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "a35ef58d-d962-4e32-8424-fe6c4c13feed",
+  "seconds": 64.36083230000077
+}

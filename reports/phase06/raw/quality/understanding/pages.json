@@ -1,0 +1,65 @@
+{
+  "project": "pages",
+  "predicted": {
+    "functions": [
+      "subject.py:page_count"
+    ],
+    "parameters": [
+      [
+        "items",
+        "int",
+        null
+      ]
+    ],
+    "return_value": 2,
+    "branch_lines": [],
+    "boundary_value": 2,
+    "exception": "TypeError",
+    "defect_line": 9
+  },
+  "expected": {
+    "functions": [
+      "subject.py:page_count"
+    ],
+    "parameters": [
+      [
+        "items",
+        "int",
+        null
+      ]
+    ],
+    "return_value": 2,
+    "branch_lines": [],
+    "boundary_value": 2,
+    "exception": "TypeError",
+    "defect_line": 9
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 1,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "run_id": "9f95cfc1-920a-4d4a-a93b-8170b171d7e8",
+  "attempts": [
+    {
+      "run_id": "9f95cfc1-920a-4d4a-a93b-8170b171d7e8",
+      "attempt": 1,
+      "raw": "{\n  \"boundary_value\": 2,\n  \"branch_lines\": [],\n  \"defect_line\": 9,\n  \"exception\": \"TypeError\",\n  \"functions\": [\n    \"subject.py:page_count\"\n  ],\n  \"parameters\": [\n    [\n      \"items\",\n      \"int\",\n      null\n    ]\n  ],\n  \"return_value\": 2\n}",
+      "finish": "stop",
+      "tokens_in": 379,
+      "tokens_out": 92,
+      "generation_ns": 3776781000,
+      "load_ns": 10107600,
+      "ttft_s": 29.179234199997154,
+      "elapsed_s": 32.956290800000716,
+      "seed": 23,
+      "temperature": 0,
+      "schema": "Understanding",
+      "status": "accepted"
+    }
+  ]
+}

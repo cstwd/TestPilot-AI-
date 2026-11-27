@@ -1,0 +1,28 @@
+{
+  "project": "bonus",
+  "seed": 941,
+  "before": {
+    "killed": 7,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 2,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 9,
+    "equivalent_candidates": 0,
+    "score_pct": 77.78
+  },
+  "after": {
+    "killed": 7,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 2,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 9,
+    "equivalent_candidates": 0,
+    "score_pct": 77.78
+  },
+  "planned": 9,
+  "initial_run_id": "f7e29a13-4a8b-499a-bfec-6fdc98454e2e"
+}

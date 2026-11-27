@@ -1,0 +1,7 @@
+{
+  "project": "bonus",
+  "error": "resource",
+  "message": "Ollama 已触发 Windows 资源保护",
+  "attempts": [],
+  "scores": {}
+}

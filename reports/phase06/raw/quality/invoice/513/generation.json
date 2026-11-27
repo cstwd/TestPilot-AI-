@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom subject import invoice\n\ndef test_docstring_example():\n    \"\"\"Verify the documented doctest example.\"\"\"\n    assert invoice([4, -2, 3], 2) == 5\n\ndef test_empty_list_returns_zero():\n    \"\"\"An empty list with any discount should return 0.\"\"\"\n    assert invoice([], 2) == 0\n\ndef test_all_negative_values_returns_zero():\n    \"\"\"If all values are negative, the total is 0, so result is 0.\"\"\"\n    assert invoice([-1, -5, -10], 0) == 0\n\ndef test_discount_exceeds_total_returns_zero():\n    \"\"\"If discount is greater than the sum of allowable values, result is 0.\"\"\"\n    assert invoice([1], 2) == 0\n\ndef test_no_discount_returns_sum():\n    \"\"\"With no discount, the result is the sum of allowable values.\"\"\"\n    assert invoice([1, 2, 3], 0) == 6\n\ndef test_mixed_values_with_discount():\n    \"\"\"Only non-negative values are summed, then discount is applied.\"\"\"\n    assert invoice([10, -5, 5, -1], 3) == 12\n\ndef test_zero_value_is_allowable():\n    \"\"\"Zero is non-negative and should be included in the sum.\"\"\"\n    assert invoice([0, 0, 0], 0) == 0\n\ndef test_single_value_no_discount():\n    \"\"\"A single positive value with no discount returns that value.\"\"\"\n    assert invoice([7], 0) == 7\n\ndef test_discount_equals_total():\n    \"\"\"If discount equals the total, the result should be 0.\"\"\"\n    assert invoice([5, 5], 10) == 0\n\ndef test_large_values():\n    \"\"\"Test with larger values to ensure no overflow or logic issues.\"\"\"\n    assert invoice([1000, 2000, -500], 500) == 2500\n",
+  "mode": "ai",
+  "sha256": "fdf713f4e7db2c6c606047a601aedbdc9c813303d296292a3d6e115447664766",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "dffff9f2-e987-479c-89b8-762a116e8228",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import invoice\\n\\n\\ndef test_docstring_example():\\n    \\\"\\\"\\\"Verify the documented doctest example.\\\"\\\"\\\"\\n    assert invoice([4, -2, 3], 2) == 5\\n\\n\\ndef test_empty_list_returns_zero():\\n    \\\"\\\"\\\"An empty list with any discount should return 0.\\\"\\\"\\\"\\n    assert invoice([], 2) == 0\\n\\n\\ndef test_all_negative_values_returns_zero():\\n    \\\"\\\"\\\"If all values are negative, the total is 0, so result is 0.\\\"\\\"\\\"\\n    assert invoice([-1, -5, -10], 0) == 0\\n\\n\\ndef test_discount_exceeds_total_returns_zero():\\n    \\\"\\\"\\\"If discount is greater than the sum of allowable values, result is 0.\\\"\\\"\\\"\\n    assert invoice([1], 2) == 0\\n\\n\\ndef test_no_discount_returns_sum():\\n    \\\"\\\"\\\"With no discount, the result is the sum of allowable values.\\\"\\\"\\\"\\n    assert invoice([1, 2, 3], 0) == 6\\n\\n\\ndef test_mixed_values_with_discount():\\n    \\\"\\\"\\\"Only non-negative values are summed, then discount is applied.\\\"\\\"\\\"\\n    assert invoice([10, -5, 5, -1], 3) == 12\\n\\n\\ndef test_zero_value_is_allowable():\\n    \\\"\\\"\\\"Zero is non-negative and should be included in the sum.\\\"\\\"\\\"\\n    assert invoice([0, 0, 0], 0) == 0\\n\\n\\ndef test_single_value_no_discount():\\n    \\\"\\\"\\\"A single positive value with no discount returns that value.\\\"\\\"\\\"\\n    assert invoice([7], 0) == 7\\n\\n\\ndef test_discount_equals_total():\\n    \\\"\\\"\\\"If discount equals the total, the result should be 0.\\\"\\\"\\\"\\n    assert invoice([5, 5], 10) == 0\\n\\n\\ndef test_large_values():\\n    \\\"\\\"\\\"Test with larger values to ensure no overflow or logic issues.\\\"\\\"\\\"\\n    assert invoice([1000, 2000, -500], 500) == 2500\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 466,
+      "tokens_out": 514,
+      "generation_ns": 21257763000,
+      "load_ns": 9926500,
+      "ttft_s": 1.9066063999998732,
+      "elapsed_s": 23.164403099999618,
+      "seed": 513,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "dffff9f2-e987-479c-89b8-762a116e8228",
+  "seconds": 23.255079400001705
+}

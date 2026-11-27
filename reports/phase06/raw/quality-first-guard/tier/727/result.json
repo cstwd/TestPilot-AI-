@@ -1,0 +1,9 @@
+{
+  "project": "tier",
+  "seed": 727,
+  "before": null,
+  "after": null,
+  "planned": 7,
+  "initial_run_id": "35c04367-ca12-4953-af1e-0b6e8b84798e",
+  "reason": "Ollama 已触发 Windows 资源保护"
+}

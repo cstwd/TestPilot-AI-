@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "passed": 8,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_tier_gold_above_threshold",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_gold_at_threshold",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_silver_above_threshold",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_silver_at_threshold",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_basic_below_silver",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_basic_at_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_gold_above_100",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tier_silver_below_gold",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 6,
+  "total_lines": 6,
+  "coverage_pct": 100.0,
+  "log": "........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tier_gold_above_threshold\nPASSED test_generated.py::test_tier_gold_at_threshold\nPASSED test_generated.py::test_tier_silver_above_threshold\nPASSED test_generated.py::test_tier_silver_at_threshold\nPASSED test_generated.py::test_tier_basic_below_silver\nPASSED test_generated.py::test_tier_basic_at_zero\nPASSED test_generated.py::test_tier_gold_above_100\nPASSED test_generated.py::test_tier_silver_below_gold\n8 passed in 0.21s",
+  "duration_ms": 6575,
+  "stdout": "........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tier_gold_above_threshold\nPASSED test_generated.py::test_tier_gold_at_threshold\nPASSED test_generated.py::test_tier_silver_above_threshold\nPASSED test_generated.py::test_tier_silver_at_threshold\nPASSED test_generated.py::test_tier_basic_below_silver\nPASSED test_generated.py::test_tier_basic_at_zero\nPASSED test_generated.py::test_tier_gold_above_100\nPASSED test_generated.py::test_tier_silver_below_gold\n8 passed in 0.21s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "bbf7eefe-2e29-43ff-8873-45540d5c5643",
+  "started": "2026-11-27T09:17:21.250217+00:00",
+  "ended": "2026-11-27T09:17:27.825548+00:00",
+  "source_sha256": "4920368152bc107b7e80143111b3f64de7fa42c9a3e230e04480afb51cd6d00c",
+  "test_sha256": "f97e8c39f977e8f9e225b0b0cf1cc58a1b19568c82b1bf070d2b3631a8188835"
+}

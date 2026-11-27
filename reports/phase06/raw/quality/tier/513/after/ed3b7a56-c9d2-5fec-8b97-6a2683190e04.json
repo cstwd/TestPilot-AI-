@@ -1,0 +1,137 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 8,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_tier_gold_above_threshold",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_gold_above_threshold_higher",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_gold_doctest_example",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_at_threshold",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_above_threshold",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_below_gold_threshold",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_basic_below_silver_threshold",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_basic_zero_points",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_basic_negative_points",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_missing_argument_raises",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_non_integer_argument_raises",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 6,
+    "total_lines": 6,
+    "coverage_pct": 100.0,
+    "log": "...FFF.....\n=================================== FAILURES ===================================\n________________________ test_tier_silver_at_threshold _________________________\ntest_generated.py:14: in test_tier_silver_at_threshold\n    assert tier(50) == 'silver'\nE   AssertionError: assert None == 'silver'\nE    +  where None = tier(50)\n_______________________ test_tier_silver_above_threshold _______________________\ntest_generated.py:17: in test_tier_silver_above_threshold\n    assert tier(51) == 'silver'\nE   AssertionError: assert None == 'silver'\nE    +  where None = tier(51)\n____________________ test_tier_silver_below_gold_threshold _____________________\ntest_generated.py:20: in test_tier_silver_below_gold_threshold\n    assert tier(99) == 'silver'\nE   AssertionError: assert None == 'silver'\nE    +  where None = tier(99)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tier_gold_above_threshold\nPASSED test_generated.py::test_tier_gold_above_threshold_higher\nPASSED test_generated.py::test_tier_gold_doctest_example\nPASSED test_generated.py::test_tier_basic_below_silver_threshold\nPASSED test_generated.py::test_tier_basic_zero_points\nPASSED test_generated.py::test_tier_basic_negative_points\nPASSED test_generated.py::test_tier_missing_argument_raises\nPASSED test_generated.py::test_tier_non_integer_argument_raises\nFAILED test_generated.py::test_tier_silver_at_threshold - AssertionError: ass...\nFAILED test_generated.py::test_tier_silver_above_threshold - AssertionError: ...\nFAILED test_generated.py::test_tier_silver_below_gold_threshold - AssertionEr...\n3 failed, 8 passed in 0.30s",
+    "duration_ms": 6335,
+    "stdout": "...FFF.....\n=================================== FAILURES ===================================\n________________________ test_tier_silver_at_threshold _________________________\ntest_generated.py:14: in test_tier_silver_at_threshold\n    assert tier(50) == 'silver'\nE   AssertionError: assert None == 'silver'\nE    +  where None = tier(50)\n_______________________ test_tier_silver_above_threshold _______________________\ntest_generated.py:17: in test_tier_silver_above_threshold\n    assert tier(51) == 'silver'\nE   AssertionError: assert None == 'silver'\nE    +  where None = tier(51)\n____________________ test_tier_silver_below_gold_threshold _____________________\ntest_generated.py:20: in test_tier_silver_below_gold_threshold\n    assert tier(99) == 'silver'\nE   AssertionError: assert None == 'silver'\nE    +  where None = tier(99)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tier_gold_above_threshold\nPASSED test_generated.py::test_tier_gold_above_threshold_higher\nPASSED test_generated.py::test_tier_gold_doctest_example\nPASSED test_generated.py::test_tier_basic_below_silver_threshold\nPASSED test_generated.py::test_tier_basic_zero_points\nPASSED test_generated.py::test_tier_basic_negative_points\nPASSED test_generated.py::test_tier_missing_argument_raises\nPASSED test_generated.py::test_tier_non_integer_argument_raises\nFAILED test_generated.py::test_tier_silver_at_threshold - AssertionError: ass...\nFAILED test_generated.py::test_tier_silver_above_threshold - AssertionError: ...\nFAILED test_generated.py::test_tier_silver_below_gold_threshold - AssertionEr...\n3 failed, 8 passed in 0.30s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_tier_silver_at_threshold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'silver'\n +  where None = tier(50)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 14,
+            "function": "test_tier_silver_at_threshold",
+            "source": "assert tier(50) == 'silver'"
+          }
+        ],
+        "assertion_diff": "assert None == 'silver'\n +  where None = tier(50)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_above_threshold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'silver'\n +  where None = tier(51)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 17,
+            "function": "test_tier_silver_above_threshold",
+            "source": "assert tier(51) == 'silver'"
+          }
+        ],
+        "assertion_diff": "assert None == 'silver'\n +  where None = tier(51)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_below_gold_threshold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'silver'\n +  where None = tier(99)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 20,
+            "function": "test_tier_silver_below_gold_threshold",
+            "source": "assert tier(99) == 'silver'"
+          }
+        ],
+        "assertion_diff": "assert None == 'silver'\n +  where None = tier(99)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "f4f9f441-4934-4302-a08d-d1c510023033",
+    "started": "2026-11-27T09:06:43.042687+00:00",
+    "ended": "2026-11-27T09:06:49.378194+00:00",
+    "source_sha256": "dc62eaf9f4a44b853b569fc9378ce7004c8571a0333af27afea5051518d53a13",
+    "test_sha256": "292d9a5a46ae9a75e999bb3e0bb2a07c2c60a552a809afe79bdde2aef390b8df"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_tier_silver_above_threshold",
+      "test_generated.py::test_tier_silver_at_threshold",
+      "test_generated.py::test_tier_silver_below_gold_threshold"
+    ]
+  },
+  "mutant": "ed3b7a56-c9d2-5fec-8b97-6a2683190e04"
+}

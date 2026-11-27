@@ -1,0 +1,82 @@
+{
+  "project": "invoice",
+  "predicted": {
+    "functions": [
+      "policy.py:allowable",
+      "subject.py:invoice"
+    ],
+    "parameters": [
+      [
+        "values",
+        "list",
+        null
+      ],
+      [
+        "discount",
+        "int",
+        "0"
+      ]
+    ],
+    "return_value": 5,
+    "branch_lines": [
+      11
+    ],
+    "boundary_value": 0,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "expected": {
+    "functions": [
+      "policy.py:allowable",
+      "subject.py:invoice"
+    ],
+    "parameters": [
+      [
+        "values",
+        "list",
+        null
+      ],
+      [
+        "discount",
+        "int",
+        "0"
+      ]
+    ],
+    "return_value": 5,
+    "branch_lines": [
+      10,
+      11
+    ],
+    "boundary_value": 0,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 1,
+    "return_value": 1,
+    "branch_lines": 0,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "run_id": "e2c43d34-f09b-4932-9975-252bf1cb49b9",
+  "attempts": [
+    {
+      "run_id": "e2c43d34-f09b-4932-9975-252bf1cb49b9",
+      "attempt": 1,
+      "raw": "{\"boundary_value\": 0, \"branch_lines\": [11], \"defect_line\": null, \"exception\": \"TypeError\", \"functions\": [\"policy.py:allowable\", \"subject.py:invoice\"], \"parameters\": [[\"values\", \"list\", null], [\"discount\", \"int\", \"0\"]], \"return_value\": 5}",
+      "finish": "stop",
+      "tokens_in": 353,
+      "tokens_out": 73,
+      "generation_ns": 3191595000,
+      "load_ns": 8721400,
+      "ttft_s": 1.6386571999973967,
+      "elapsed_s": 4.830614200000127,
+      "seed": 23,
+      "temperature": 0,
+      "schema": "Understanding",
+      "status": "accepted"
+    }
+  ]
+}

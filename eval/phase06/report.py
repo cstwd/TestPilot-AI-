@@ -19,6 +19,7 @@ def main():
     feedback=d["feedback"]
     old=d["historical_kills"]
     live=read(RAW/"live.json",{})
+    main_probe=read(RAW/"main-head-health.json",{})
     evidence=live.get("F13/evidence",{}).get("payload",{})
     before=evidence.get("before")
     after=evidence.get("after")
@@ -53,8 +54,13 @@ def main():
         f"{after['killed'] if after else '—'}/9。另由默认 Qwen 初始套件经正式 API 获得 {ai_measure.get('killed','—')}/9。",
         f"F12 使用预设错误测试调用实际 Provider，原版 Pytest 为 {repair.get('before',{}).get('status','未记录')}，最终为 "
         f"{repair.get('after',{}).get('status','未记录')}，依据既有文档契约门选择 {repair.get('chosen',{}).get('mode','未记录')}。",
-        f"项目测试 JUnit 共 {len(nodes)} 项，其中 {len(failures)} 项失败。HTTP 协议中的异常情况使用明确标注的测试替身。真实 AI 判定来自模型与 WASI 的现场运行。",
-        "[完整 API 记录](raw/live.json) · [AI 初始套件实际 F13](raw/live-ai-mutation.json) · [F12 测试](raw/repair-live.json) · [JUnit](raw/full-regression.xml)"])
+        f"项目测试在集成提交 `0ddc083` 完成 {len(nodes)} 项，其中 {len(failures)} 项失败。"
+        "后续变异反馈总预算改动另有 21 项测试通过。HTTP 协议异常测试使用明确标注的替身，真实 AI 判定来自现场模型与 WASI。",
+        f"独立工作区运行期间，主分支已包含 Provider 及并行加固。对主分支快照 `{main_probe.get('head','—')}` "
+        f"使用独立 Ollama 实测健康状态为 `{main_probe.get('health',{}).get('state','—')}`。该快照完成真实健康探针。",
+        "[完整 API 记录](raw/live.json) · [AI 初始套件实际 F13](raw/live-ai-mutation.json) · "
+        "[F12 测试](raw/repair-live.json) · [完整 JUnit](raw/full-regression.xml) · "
+        "[最终定向复测](raw/final-budget-tests.txt) · [主分支真实探针](raw/main-head-health.json)"])
     write("PERFORMANCE.md",["# PHASE-06 本机负载、压力与恢复","",
          "同一固定权重，Ollama 单并发、Vulkan、量化 KV。物理内存与 Commit 余量各至少 2 GiB，显存余量至少 512 MiB。"
          "守护进程 0.5 秒采样并在触线时回收进程。首次默认缓存触发保护，明确保留停止记录。"
@@ -108,7 +114,8 @@ def main():
          f"| 质量对照 | 27B 初始 {quality['before'].get('killed',0)}/117，反馈后 {quality['after'].get('killed',0)}/117。 |",
          f"| 资源与恢复 | 稳定、压力及真实启停结果详见性能报告。恢复检查 {'通过' if restored else '存在未通过环节'}。 |","",
          "阶段实现提交 `98adf18`，Windows 状态读重试及复验流程提交 `0ddc083`。"
-         "量化模型按生产 4K 配置使用。更大上下文和长期运行均有独立记录。固定质量回归仍有五个生成尝试被拒，发布状态受影响。",
+         "量化模型按生产 4K 配置验证。更大上下文和长期运行均有独立记录。固定质量回归仍有五个生成尝试被拒，发布状态受影响。"
+         "验收服务在测试完成后关闭。本机统一模型部署按守护步骤启动。",
          "[真实端到端报告](E2E.md) · [完整回归](raw/full-regression.txt) · [性能与内存报告](PERFORMANCE.md) · [变异对比](MUTATIONS.md) · [原始证据](raw)"])
 
 if __name__=="__main__":

@@ -1,0 +1,45 @@
+{
+  "code": "from subject import tier\n\ndef test_tier_gold_above_threshold():\n    assert tier(120) == 'gold'\n\ndef test_tier_gold_at_threshold():\n    assert tier(100) == 'gold'\n\ndef test_tier_silver_above_threshold():\n    assert tier(51) == 'silver'\n\ndef test_tier_silver_at_threshold():\n    assert tier(50) == 'silver'\n\ndef test_tier_basic_below_silver():\n    assert tier(49) == 'basic'\n\ndef test_tier_basic_at_zero():\n    assert tier(0) == 'basic'\n\ndef test_tier_gold_above_100():\n    assert tier(101) == 'gold'\n\ndef test_tier_silver_below_gold():\n    assert tier(99) == 'silver'\n\ndef test_tier_missing_argument_raises():\n    with pytest.raises(TypeError):\n        tier()\n\ndef test_tier_invalid_type_raises():\n    with pytest.raises(TypeError):\n        tier(points=2, _testpilot_unknown=None)\n",
+  "mode": "ai",
+  "sha256": "792660c8b68fe81a1b6f3fbe2627372c846a9fc5ad560160bbfbcb7a26ec6351",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "bc037d8d-8ea1-4a46-b1e0-467854f56046",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import tier\\n\\n\\ndef test_tier_returns_gold_for_points_above_threshold():\\n    assert tier(101) == \\\"gold\\\"\\n\\n\\ndef test_tier_returns_gold_at_exact_threshold():\\n    assert tier(100) == \\\"gold\\\"\\n\\n\\ndef test_tier_returns_silver_for_points_above_threshold():\\n    assert tier(51) == \\\"silver\\\"\\n\\n\\ndef test_tier_returns_silver_at_exact_threshold():\\n    assert tier(50) == \\\"silver\\\"\\n\\n\\ndef test_tier_returns_basic_for_points_below_silver_threshold():\\n    assert tier(49) == \\\"basic\\\"\\n\\n\\ndef test_tier_returns_basic_for_zero_points():\\n    assert tier(0) == \\\"basic\\\"\\n\\n\\ndef test_tier_returns_basic_for_negative_points():\\n    assert tier(-1) == \\\"basic\\\"\\n\\n\\ndef test_tier_returns_gold_for_large_points():\\n    assert tier(1000) == \\\"gold\\\"\\n\\n\\ndef test_tier_returns_silver_for_points_between_thresholds():\\n    assert tier(75) == \\\"silver\\\"\\n\\n\\ndef test_tier_returns_basic_for_points_just_below_silver():\\n    assert tier(49) == \\\"basic\\\"\\n\\n\\ndef test_tier_returns_gold_for_points_just_above_gold():\\n    assert tier(101) == \\\"gold\\\"\\n\\n\\ndef test_tier_returns_silver_for_points_just_above_silver():\\n    assert tier(51) == \\\"silver\\\"\\n\\n\\ndef test_tier_returns_basic_for_points_just_below_silver():\\n    assert tier(49) == \\\"basic\\\"\\n\\n\\ndef test_tier_returns_gold_for_points_at_gold_threshold():\\n    assert tier(100) == \\\"gold\\\"\\n\\n\\ndef test_tier_returns_silver_for_points_at_silver_threshold():\\n    assert tier(50) == \\\"silver\\\"\\n\\n\\ndef test_tier_returns_basic_for_points_below_silver_threshold():\\n    assert tier(49) == \\\"basic\\\"\\n\\n\\ndef test_tier_returns_gold_for_points_above_gold_threshold():\\n    assert tier(101) == \\\"gold\\\"\\n\\n\\ndef test_tier_returns_silver_for_points_above_silver_threshold():\\n    assert tier(51) == \\\"silver\\\"\\n\\n\\ndef test_tier_returns_basic_for_points_below_silver_threshold():\\n    assert tier(49) == \\\"basic\\\"\\n\\n\\ndef test_tier_returns_gold_for_points_at_gold_threshold():\\n    assert tier(100) == \\\"gold\\\"\\n\\n\\ndef test_tier_returns_silver_for_points_at_silver_threshold():\\n    assert tier(50) == \\\"silver\\\"\\n\\n\\ndef test_tier_returns_basic_for_points_below_silver_threshold():\\n    assert tier(49) == \\\"basic\\\"\\n\\n\\ndef test_tier_returns_gold_for_points_above_gold_threshold():\\n    assert tier(101) == \\\"gold\\\"\\n\\n\\ndef test_tier_returns_silver_for_points_above_silver_threshold():\\n    assert tier(51) == \\\"silver\\\"\\n\\n\\ndef test_tier_returns_basic_for_points_below_silver_threshold():\\n    assert tier(49) == \\\"basic\\\"\\n\\n\\ndef test_tier_returns_gold_for_points_at_gold_threshold():\\n    assert tier(100) == \\\"gold\\\"\\n\\n\\ndef test_tier_returns_silver_for_points_at_silver_threshold():\\n    assert tier(50) == \\\"silver\\\"\\n\\n\\ndef test_tier_returns_basic_for_points_below_silver_threshold():\\n    assert tier(49) == \\\"basic\\\"\\n\\n\\ndef test_tier_returns_gold_for_points_above_gold_threshold():\\n    assert tier(101) == \\\"gold\\\"\\n\\n\\ndef test_tier_returns_silver_for_points_above_silver_threshold():\\n    assert tier(51) == \\\"silver\\\"\\n\\n\\ndef test_tier_returns_basic_for_points_below_silver_threshold():\\n    assert tier(49) == \\\"basic\\\"\\n\\n\\ndef test_tier_returns_gold_for_points_at_gold_threshold():\\n    assert tier(100) == \\\"gold\\\"\\n\\n\\ndef test_tier_returns_silver_for",
+      "finish": "length",
+      "tokens_in": 418,
+      "tokens_out": 950,
+      "generation_ns": 39277081000,
+      "load_ns": 7443300,
+      "ttft_s": 1.8148127999993449,
+      "elapsed_s": 41.09203229999912,
+      "seed": 941,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "rejected",
+      "reason": "empty, incomplete or truncated response"
+    },
+    {
+      "run_id": "bc037d8d-8ea1-4a46-b1e0-467854f56046",
+      "attempt": 2,
+      "raw": "{\"code\": \"from subject import tier\\n\\ndef test_tier_gold_above_threshold():\\n    assert tier(120) == \\\"gold\\\"\\n\\ndef test_tier_gold_at_threshold():\\n    assert tier(100) == \\\"gold\\\"\\n\\ndef test_tier_silver_above_threshold():\\n    assert tier(51) == \\\"silver\\\"\\n\\ndef test_tier_silver_at_threshold():\\n    assert tier(50) == \\\"silver\\\"\\n\\ndef test_tier_basic_below_silver():\\n    assert tier(49) == \\\"basic\\\"\\n\\ndef test_tier_basic_at_zero():\\n    assert tier(0) == \\\"basic\\\"\\n\\ndef test_tier_gold_above_100():\\n    assert tier(101) == \\\"gold\\\"\\n\\ndef test_tier_silver_below_gold():\\n    assert tier(99) == \\\"silver\\\"\\n\\ndef test_tier_missing_argument_raises():\\n    with pytest.raises(TypeError):\\n        tier()\\n\\ndef test_tier_invalid_type_raises():\\n    with pytest.raises(TypeError):\\n        tier(points=2, _testpilot_unknown=None)\\n\"}",
+      "finish": "stop",
+      "tokens_in": 504,
+      "tokens_out": 258,
+      "generation_ns": 10630415000,
+      "load_ns": 7274200,
+      "ttft_s": 2.076044399997045,
+      "elapsed_s": 12.685718899996573,
+      "seed": 941,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "bc037d8d-8ea1-4a46-b1e0-467854f56046",
+  "seconds": 53.846413300001586
+}

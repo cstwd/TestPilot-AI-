@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom subject import page_count\nfrom limits import PAGE_SIZE\n\ndef test_page_count_zero_items():\n    \"\"\"Zero items should require zero pages.\"\"\"\n    assert page_count(0) == 0\n\ndef test_page_count_one_item():\n    \"\"\"One item should require one page.\"\"\"\n    assert page_count(1) == 1\n\ndef test_page_count_exactly_one_page():\n    \"\"\"Exactly PAGE_SIZE items should require one page.\"\"\"\n    assert page_count(PAGE_SIZE) == 1\n\ndef test_page_count_one_more_than_one_page():\n    \"\"\"PAGE_SIZE + 1 items should require two pages.\"\"\"\n    assert page_count(PAGE_SIZE + 1) == 2\n\ndef test_page_count_multiple_full_pages():\n    \"\"\"Exactly 2 * PAGE_SIZE items should require 2 pages.\"\"\"\n    assert page_count(2 * PAGE_SIZE) == 2\n\ndef test_page_count_multiple_full_pages_plus_one():\n    \"\"\"2 * PAGE_SIZE + 1 items should require 3 pages.\"\"\"\n    assert page_count(2 * PAGE_SIZE + 1) == 3\n\ndef test_page_count_large_number():\n    \"\"\"A large number of items should compute correct page count.\"\"\"\n    items = 1000\n    assert page_count(items) == items // PAGE_SIZE + 1\n\ndef test_page_count_negative_items():\n    \"\"\"Negative items should raise an exception or return 0 based on contract.\"\"\"\n    with pytest.raises(Exception):\n        page_count(-1)\n",
+  "mode": "ai",
+  "sha256": "c27d3f9b041927f342bdc6bc563b73328f9a615ef8467d79532af413e176a8e6",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "108767d0-7933-4465-b682-611b9b6db81b",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import page_count\\nfrom limits import PAGE_SIZE\\n\\n\\ndef test_page_count_zero_items():\\n    \\\"\\\"\\\"Zero items should require zero pages.\\\"\\\"\\\"\\n    assert page_count(0) == 0\\n\\n\\ndef test_page_count_one_item():\\n    \\\"\\\"\\\"One item should require one page.\\\"\\\"\\\"\\n    assert page_count(1) == 1\\n\\n\\ndef test_page_count_exactly_one_page():\\n    \\\"\\\"\\\"Exactly PAGE_SIZE items should require one page.\\\"\\\"\\\"\\n    assert page_count(PAGE_SIZE) == 1\\n\\n\\ndef test_page_count_one_more_than_one_page():\\n    \\\"\\\"\\\"PAGE_SIZE + 1 items should require two pages.\\\"\\\"\\\"\\n    assert page_count(PAGE_SIZE + 1) == 2\\n\\n\\ndef test_page_count_multiple_full_pages():\\n    \\\"\\\"\\\"Exactly 2 * PAGE_SIZE items should require 2 pages.\\\"\\\"\\\"\\n    assert page_count(2 * PAGE_SIZE) == 2\\n\\n\\ndef test_page_count_multiple_full_pages_plus_one():\\n    \\\"\\\"\\\"2 * PAGE_SIZE + 1 items should require 3 pages.\\\"\\\"\\\"\\n    assert page_count(2 * PAGE_SIZE + 1) == 3\\n\\n\\ndef test_page_count_large_number():\\n    \\\"\\\"\\\"A large number of items should compute correct page count.\\\"\\\"\\\"\\n    items = 1000\\n    assert page_count(items) == items // PAGE_SIZE + 1\\n\\n\\ndef test_page_count_negative_items():\\n    \\\"\\\"\\\"Negative items should raise an exception or return 0 based on contract.\\\"\\\"\\\"\\n    # The docstring says \\\"Zero items need zero pages\\\" but doesn't specify negative.\\n    # However, the strategy includes boundary for 0. Let's check if negative is handled.\\n    # Given the formula items // PAGE_SIZE + 1, for negative items, it will be negative or zero.\\n    # But logically, negative items don't make sense. Let's see what the function does.\\n    # The problem statement doesn't explicitly say to raise for negative, but it's a boundary.\\n    # Let's just test that it doesn't crash and returns a sensible value, or if it raises.\\n    # Actually, the strategy says [\\\"boundary\\\", [\\\"page_count(items=0)\\\"]], so 0 is the key boundary.\\n    # Let's test a small negative to see behavior.\\n    with pytest.raises(Exception):\\n        page_count(-1)\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 352,
+      "tokens_out": 558,
+      "generation_ns": 23048667000,
+      "load_ns": 11435300,
+      "ttft_s": 6.4822550999997475,
+      "elapsed_s": 29.53140540000095,
+      "seed": 513,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "108767d0-7933-4465-b682-611b9b6db81b",
+  "seconds": 29.63783180000246
+}

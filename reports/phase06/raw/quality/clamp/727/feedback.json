@@ -1,0 +1,45 @@
+{
+  "status": "generated",
+  "mode": "ai",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "model_digest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+  "reason": "候选等待 WASI 原版校验",
+  "code": "from subject import cap\n\ndef test_cap_returns_ceiling_when_n_exceeds_ceiling():\n    assert cap(12) == 10\n\ndef test_cap_returns_n_when_n_is_less_than_ceiling():\n    assert cap(5) == 5\n\ndef test_cap_returns_ceiling_when_n_equals_ceiling():\n    assert cap(10) == 10\n\ndef test_cap_with_custom_ceiling():\n    assert cap(15, ceiling=20) == 15\n    assert cap(25, ceiling=20) == 20\n\ndef test_cap_with_zero_n():\n    assert cap(0) == 0\n\ndef test_cap_with_zero_ceiling():\n    assert cap(5, ceiling=0) == 0\n\ndef test_cap_with_negative_n():\n    assert cap(-5) == -5\n\ndef test_cap_with_negative_ceiling():\n    assert cap(5, ceiling=-1) == -1\n\n\n\n\ndef test_cap_with_large_values():\n    assert cap(1000000) == 10\n    assert cap(1000000, ceiling=2000000) == 1000000\n\n\ndef test_mutation_9bd8518be37365d7():\n    from subject import cap\n    assert cap(0, 0) == 0\n",
+  "added_code": "def test_mutation_9bd8518be37365d7():\n    from subject import cap\n    assert cap(0, 0) == 0\n",
+  "cases": [
+    {
+      "site": 1,
+      "call": "cap(0, 0)",
+      "reason": "Original returns 0; mutated returns 0. No difference.",
+      "expected": "0",
+      "mutant_id": "bc12ab81-c58a-5136-a747-a462d1aab985",
+      "test_name": "test_mutation_9bd8518be37365d7"
+    }
+  ],
+  "attempts": [
+    {
+      "focus_id": "bc12ab81-c58a-5136-a747-a462d1aab985",
+      "run_id": "b471c130-29c9-4b06-98cd-d0c71bfb6c15",
+      "status": "accepted",
+      "responses": [
+        {
+          "run_id": "b471c130-29c9-4b06-98cd-d0c71bfb6c15",
+          "attempt": 1,
+          "raw": "{\"call\": \"cap(0, 0)\", \"disposition\": \"test\", \"expected\": 0, \"reason\": \"Original returns 0; mutated returns 0. No difference.\"}",
+          "finish": "stop",
+          "tokens_in": 630,
+          "tokens_out": 43,
+          "generation_ns": 1754830000,
+          "load_ns": 10681400,
+          "ttft_s": 24.27634020000187,
+          "elapsed_s": 26.031076200000825,
+          "seed": 727,
+          "temperature": 0,
+          "schema": "MutationCase",
+          "status": "accepted"
+        }
+      ]
+    }
+  ]
+}

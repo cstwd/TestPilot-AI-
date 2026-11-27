@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom subject import expired\n\ndef test_expired_at_limit_returns_false():\n    \"\"\"An item is not expired when age equals the limit.\"\"\"\n    assert expired(30, 30) is False\n\ndef test_expired_just_above_limit_returns_true():\n    \"\"\"An item is expired when age is one greater than the limit.\"\"\"\n    assert expired(31, 30) is True\n\ndef test_expired_with_default_limit():\n    \"\"\"Expired uses default limit of 30.\"\"\"\n    assert expired(31) is True\n    assert expired(30) is False\n\ndef test_expired_zero_age():\n    \"\"\"Zero age is not expired for any non-negative limit.\"\"\"\n    assert expired(0, 2) is False\n\ndef test_expired_zero_limit():\n    \"\"\"Any positive age is expired when limit is zero.\"\"\"\n    assert expired(1, 0) is True\n    assert expired(0, 0) is False\n\ndef test_expired_negative_age():\n    \"\"\"Negative age is not expired.\"\"\"\n    assert expired(-1, 30) is False\n\ndef test_expired_negative_limit():\n    \"\"\"Any age greater than a negative limit is expired.\"\"\"\n    assert expired(0, -1) is True\n\ndef test_expired_large_values():\n    \"\"\"Works with large values.\"\"\"\n    assert expired(1000000, 999999) is True\n    assert expired(999999, 1000000) is False\n\ndef test_expired_returns_bool_type():\n    \"\"\"Function returns a boolean type.\"\"\"\n    result = expired(31, 30)\n    assert isinstance(result, bool)\n    result = expired(30, 30)\n    assert isinstance(result, bool)\n\ndef test_expired_keyword_arguments():\n    \"\"\"Function works with keyword arguments.\"\"\"\n    assert expired(age=31, limit=30) is True\n    assert expired(age=30, limit=30) is False\n\ndef test_expired_mixed_positional_keyword():\n    \"\"\"Function works with mixed positional and keyword arguments.\"\"\"\n    assert expired(31, limit=30) is True\n    assert expired(age=30, limit=30) is False\n",
+  "mode": "ai",
+  "sha256": "0fcc1e58f5b614ec5d4c0da3b16668386c93b9cef90dbfb2db144fbb7743844d",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "4e94bc48-f1de-4499-8dab-815516273619",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import expired\\n\\n\\ndef test_expired_at_limit_returns_false():\\n    \\\"\\\"\\\"An item is not expired when age equals the limit.\\\"\\\"\\\"\\n    assert expired(30, 30) is False\\n\\n\\ndef test_expired_just_above_limit_returns_true():\\n    \\\"\\\"\\\"An item is expired when age is one greater than the limit.\\\"\\\"\\\"\\n    assert expired(31, 30) is True\\n\\n\\ndef test_expired_with_default_limit():\\n    \\\"\\\"\\\"Expired uses default limit of 30.\\\"\\\"\\\"\\n    assert expired(31) is True\\n    assert expired(30) is False\\n\\n\\ndef test_expired_zero_age():\\n    \\\"\\\"\\\"Zero age is not expired for any non-negative limit.\\\"\\\"\\\"\\n    assert expired(0, 2) is False\\n\\n\\ndef test_expired_zero_limit():\\n    \\\"\\\"\\\"Any positive age is expired when limit is zero.\\\"\\\"\\\"\\n    assert expired(1, 0) is True\\n    assert expired(0, 0) is False\\n\\n\\ndef test_expired_negative_age():\\n    \\\"\\\"\\\"Negative age is not expired.\\\"\\\"\\\"\\n    assert expired(-1, 30) is False\\n\\n\\ndef test_expired_negative_limit():\\n    \\\"\\\"\\\"Any age greater than a negative limit is expired.\\\"\\\"\\\"\\n    assert expired(0, -1) is True\\n\\n\\ndef test_expired_large_values():\\n    \\\"\\\"\\\"Works with large values.\\\"\\\"\\\"\\n    assert expired(1000000, 999999) is True\\n    assert expired(999999, 1000000) is False\\n\\n\\ndef test_expired_returns_bool_type():\\n    \\\"\\\"\\\"Function returns a boolean type.\\\"\\\"\\\"\\n    result = expired(31, 30)\\n    assert isinstance(result, bool)\\n    result = expired(30, 30)\\n    assert isinstance(result, bool)\\n\\n\\ndef test_expired_keyword_arguments():\\n    \\\"\\\"\\\"Function works with keyword arguments.\\\"\\\"\\\"\\n    assert expired(age=31, limit=30) is True\\n    assert expired(age=30, limit=30) is False\\n\\n\\ndef test_expired_mixed_positional_keyword():\\n    \\\"\\\"\\\"Function works with mixed positional and keyword arguments.\\\"\\\"\\\"\\n    assert expired(31, limit=30) is True\\n    assert expired(age=30, limit=30) is False\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 374,
+      "tokens_out": 574,
+      "generation_ns": 23693676000,
+      "load_ns": 11300900,
+      "ttft_s": 5.294508900002256,
+      "elapsed_s": 28.98879549999765,
+      "seed": 513,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "4e94bc48-f1de-4499-8dab-815516273619",
+  "seconds": 29.063994700001786
+}

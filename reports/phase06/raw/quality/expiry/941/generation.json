@@ -1,0 +1,28 @@
+{
+  "code": "from subject import expired\n\ndef test_expired_true_when_age_exceeds_limit():\n    assert expired(31) is True\n\ndef test_expired_false_when_age_equals_limit():\n    assert expired(30) is False\n\ndef test_expired_false_when_age_below_limit():\n    assert expired(29) is False\n\ndef test_expired_custom_limit():\n    assert expired(5, limit=3) is True\n    assert expired(3, limit=3) is False\n    assert expired(2, limit=3) is False\n\ndef test_expired_zero_age():\n    assert expired(0) is False\n\ndef test_expired_zero_limit():\n    assert expired(1, limit=0) is True\n    assert expired(0, limit=0) is False\n\ndef test_expired_negative_age():\n    assert expired(-1) is False\n\ndef test_expired_negative_limit():\n    assert expired(0, limit=-1) is True\n\ndef test_expired_large_values():\n    assert expired(100, limit=99) is True\n    assert expired(99, limit=99) is False\n\ndef test_expired_keyword_arguments():\n    assert expired(age=31) is True\n    assert expired(age=31, limit=30) is True\n    assert expired(age=30, limit=30) is False\n",
+  "mode": "ai",
+  "sha256": "877ed0ff381beafcc1057181a2e1b98855864c933dec5f178b4b5f77cd1d56ed",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "2a7d7db4-4bb7-44e7-9337-299e1b821a48",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"from subject import expired\\n\\ndef test_expired_true_when_age_exceeds_limit():\\n    assert expired(31) is True\\n\\ndef test_expired_false_when_age_equals_limit():\\n    assert expired(30) is False\\n\\ndef test_expired_false_when_age_below_limit():\\n    assert expired(29) is False\\n\\ndef test_expired_custom_limit():\\n    assert expired(5, limit=3) is True\\n    assert expired(3, limit=3) is False\\n    assert expired(2, limit=3) is False\\n\\ndef test_expired_zero_age():\\n    assert expired(0) is False\\n\\ndef test_expired_zero_limit():\\n    assert expired(1, limit=0) is True\\n    assert expired(0, limit=0) is False\\n\\ndef test_expired_negative_age():\\n    assert expired(-1) is False\\n\\ndef test_expired_negative_limit():\\n    assert expired(0, limit=-1) is True\\n\\ndef test_expired_large_values():\\n    assert expired(100, limit=99) is True\\n    assert expired(99, limit=99) is False\\n\\ndef test_expired_keyword_arguments():\\n    assert expired(age=31) is True\\n    assert expired(age=31, limit=30) is True\\n    assert expired(age=30, limit=30) is False\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 374,
+      "tokens_out": 317,
+      "generation_ns": 13042967000,
+      "load_ns": 12266800,
+      "ttft_s": 1.62949849999859,
+      "elapsed_s": 14.672900999998092,
+      "seed": 941,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "2a7d7db4-4bb7-44e7-9337-299e1b821a48",
+  "seconds": 14.737424000002648
+}

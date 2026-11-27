@@ -1,0 +1,153 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 2,
+    "failed": 5,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_page_count_doctest_example",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_page_count_one_over_one_page",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_page_count_two_pages_plus_one",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_page_count_large_multiple_plus_one",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_page_count_negative_items",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_page_count_missing_argument_raises",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_page_count_extra_argument_raises",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "FFFFF..\n=================================== FAILURES ===================================\n_______________________ test_page_count_doctest_example ________________________\ntest_generated.py:12: in test_page_count_doctest_example\n    assert page_count(9) == 1\nE   assert 91 == 1\nE    +  where 91 = page_count(9)\n______________________ test_page_count_one_over_one_page _______________________\ntest_generated.py:21: in test_page_count_one_over_one_page\n    assert page_count(PAGE_SIZE + 1) == 2\nE   assert 111 == 2\nE    +  where 111 = page_count((10 + 1))\n______________________ test_page_count_two_pages_plus_one ______________________\ntest_generated.py:27: in test_page_count_two_pages_plus_one\n    assert page_count(2 * PAGE_SIZE + 1) == 3\nE   assert 211 == 3\nE    +  where 211 = page_count(((2 * 10) + 1))\n___________________ test_page_count_large_multiple_plus_one ____________________\ntest_generated.py:33: in test_page_count_large_multiple_plus_one\n    assert page_count(100 * PAGE_SIZE + 1) == 101\nE   assert 10011 == 101\nE    +  where 10011 = page_count(((100 * 10) + 1))\n________________________ test_page_count_negative_items ________________________\ntest_generated.py:36: in test_page_count_negative_items\n    assert page_count(-1) == 0\nE   assert -9 == 0\nE    +  where -9 = page_count(-1)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_page_count_missing_argument_raises\nPASSED test_generated.py::test_page_count_extra_argument_raises\nFAILED test_generated.py::test_page_count_doctest_example - assert 91 == 1\nFAILED test_generated.py::test_page_count_one_over_one_page - assert 111 == 2\nFAILED test_generated.py::test_page_count_two_pages_plus_one - assert 211 == 3\nFAILED test_generated.py::test_page_count_large_multiple_plus_one - assert 10...\nFAILED test_generated.py::test_page_count_negative_items - assert -9 == 0\n5 failed, 2 passed in 0.36s",
+    "duration_ms": 6492,
+    "stdout": "FFFFF..\n=================================== FAILURES ===================================\n_______________________ test_page_count_doctest_example ________________________\ntest_generated.py:12: in test_page_count_doctest_example\n    assert page_count(9) == 1\nE   assert 91 == 1\nE    +  where 91 = page_count(9)\n______________________ test_page_count_one_over_one_page _______________________\ntest_generated.py:21: in test_page_count_one_over_one_page\n    assert page_count(PAGE_SIZE + 1) == 2\nE   assert 111 == 2\nE    +  where 111 = page_count((10 + 1))\n______________________ test_page_count_two_pages_plus_one ______________________\ntest_generated.py:27: in test_page_count_two_pages_plus_one\n    assert page_count(2 * PAGE_SIZE + 1) == 3\nE   assert 211 == 3\nE    +  where 211 = page_count(((2 * 10) + 1))\n___________________ test_page_count_large_multiple_plus_one ____________________\ntest_generated.py:33: in test_page_count_large_multiple_plus_one\n    assert page_count(100 * PAGE_SIZE + 1) == 101\nE   assert 10011 == 101\nE    +  where 10011 = page_count(((100 * 10) + 1))\n________________________ test_page_count_negative_items ________________________\ntest_generated.py:36: in test_page_count_negative_items\n    assert page_count(-1) == 0\nE   assert -9 == 0\nE    +  where -9 = page_count(-1)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_page_count_missing_argument_raises\nPASSED test_generated.py::test_page_count_extra_argument_raises\nFAILED test_generated.py::test_page_count_doctest_example - assert 91 == 1\nFAILED test_generated.py::test_page_count_one_over_one_page - assert 111 == 2\nFAILED test_generated.py::test_page_count_two_pages_plus_one - assert 211 == 3\nFAILED test_generated.py::test_page_count_large_multiple_plus_one - assert 10...\nFAILED test_generated.py::test_page_count_negative_items - assert -9 == 0\n5 failed, 2 passed in 0.36s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_page_count_doctest_example",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 91 == 1\n +  where 91 = page_count(9)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 12,
+            "function": "test_page_count_doctest_example",
+            "source": "assert page_count(9) == 1"
+          }
+        ],
+        "assertion_diff": "assert 91 == 1\n +  where 91 = page_count(9)"
+      },
+      {
+        "nodeid": "test_generated.py::test_page_count_one_over_one_page",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 111 == 2\n +  where 111 = page_count((10 + 1))",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 21,
+            "function": "test_page_count_one_over_one_page",
+            "source": "assert page_count(PAGE_SIZE + 1) == 2"
+          }
+        ],
+        "assertion_diff": "assert 111 == 2\n +  where 111 = page_count((10 + 1))"
+      },
+      {
+        "nodeid": "test_generated.py::test_page_count_two_pages_plus_one",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 211 == 3\n +  where 211 = page_count(((2 * 10) + 1))",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 27,
+            "function": "test_page_count_two_pages_plus_one",
+            "source": "assert page_count(2 * PAGE_SIZE + 1) == 3"
+          }
+        ],
+        "assertion_diff": "assert 211 == 3\n +  where 211 = page_count(((2 * 10) + 1))"
+      },
+      {
+        "nodeid": "test_generated.py::test_page_count_large_multiple_plus_one",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 10011 == 101\n +  where 10011 = page_count(((100 * 10) + 1))",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 33,
+            "function": "test_page_count_large_multiple_plus_one",
+            "source": "assert page_count(100 * PAGE_SIZE + 1) == 101"
+          }
+        ],
+        "assertion_diff": "assert 10011 == 101\n +  where 10011 = page_count(((100 * 10) + 1))"
+      },
+      {
+        "nodeid": "test_generated.py::test_page_count_negative_items",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert -9 == 0\n +  where -9 = page_count(-1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 36,
+            "function": "test_page_count_negative_items",
+            "source": "assert page_count(-1) == 0"
+          }
+        ],
+        "assertion_diff": "assert -9 == 0\n +  where -9 = page_count(-1)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "bf2db897-898b-4c1a-acc2-67401e789eef",
+    "started": "2026-11-27T09:17:27.986527+00:00",
+    "ended": "2026-11-27T09:17:34.478423+00:00",
+    "source_sha256": "099617ca548f0bfe7f7bb2c445f5f7b04d7c7c8ce85e44bdd8029a50f49bdcf1",
+    "test_sha256": "63648138ed4bcafd0068e09775c260ff5f603a770d3fc609115a80688b423339"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_page_count_doctest_example",
+      "test_generated.py::test_page_count_large_multiple_plus_one",
+      "test_generated.py::test_page_count_negative_items",
+      "test_generated.py::test_page_count_one_over_one_page",
+      "test_generated.py::test_page_count_two_pages_plus_one"
+    ]
+  },
+  "mutant": "be1ac70b-71c6-521b-91e0-11c7026f5e86"
+}

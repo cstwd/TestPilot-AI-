@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom subject import cap\n\ndef test_cap_returns_ceiling_when_n_exceeds_ceiling():\n    assert cap(12) == 10\n\ndef test_cap_returns_n_when_n_is_less_than_ceiling():\n    assert cap(5) == 5\n\ndef test_cap_returns_ceiling_when_n_equals_ceiling():\n    assert cap(10) == 10\n\ndef test_cap_with_custom_ceiling():\n    assert cap(15, 20) == 15\n    assert cap(25, 20) == 20\n\ndef test_cap_with_zero_n():\n    assert cap(0) == 0\n\ndef test_cap_with_zero_ceiling():\n    assert cap(5, 0) == 0\n\ndef test_cap_with_negative_n():\n    assert cap(-5) == -5\n\ndef test_cap_with_negative_ceiling():\n    assert cap(5, -10) == -10\n\ndef test_cap_with_negative_n_and_ceiling():\n    assert cap(-5, -10) == -10\n\ndef test_cap_with_large_values():\n    assert cap(1000000, 500000) == 500000\n    assert cap(400000, 500000) == 400000\n\ndef test_cap_with_keyword_arguments():\n    assert cap(n=12, ceiling=10) == 10\n    assert cap(n=5, ceiling=10) == 5\n\ndef test_cap_returns_int_type():\n    result = cap(12)\n    assert isinstance(result, int)\n\ndef test_cap_boundary_equal_values():\n    assert cap(n=2, ceiling=2) == 2\n\ndef test_cap_boundary_zero_n_positive_ceiling():\n    assert cap(n=0, ceiling=2) == 0\n\ndef test_cap_boundary_positive_n_zero_ceiling():\n    assert cap(n=2, ceiling=0) == 0\n",
+  "mode": "ai",
+  "sha256": "3a51693a798ed5865553ecd31c30b52a315a4592aa291d8eda3ab30858aee67d",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "69a05053-b91b-4104-b6b7-001458d9aaf8",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import cap\\n\\ndef test_cap_returns_ceiling_when_n_exceeds_ceiling():\\n    assert cap(12) == 10\\n\\ndef test_cap_returns_n_when_n_is_less_than_ceiling():\\n    assert cap(5) == 5\\n\\ndef test_cap_returns_ceiling_when_n_equals_ceiling():\\n    assert cap(10) == 10\\n\\ndef test_cap_with_custom_ceiling():\\n    assert cap(15, 20) == 15\\n    assert cap(25, 20) == 20\\n\\ndef test_cap_with_zero_n():\\n    assert cap(0) == 0\\n\\ndef test_cap_with_zero_ceiling():\\n    assert cap(5, 0) == 0\\n\\ndef test_cap_with_negative_n():\\n    assert cap(-5) == -5\\n\\ndef test_cap_with_negative_ceiling():\\n    assert cap(5, -10) == -10\\n\\ndef test_cap_with_negative_n_and_ceiling():\\n    assert cap(-5, -10) == -10\\n\\ndef test_cap_with_large_values():\\n    assert cap(1000000, 500000) == 500000\\n    assert cap(400000, 500000) == 400000\\n\\ndef test_cap_with_keyword_arguments():\\n    assert cap(n=12, ceiling=10) == 10\\n    assert cap(n=5, ceiling=10) == 5\\n\\ndef test_cap_returns_int_type():\\n    result = cap(12)\\n    assert isinstance(result, int)\\n\\ndef test_cap_boundary_equal_values():\\n    assert cap(n=2, ceiling=2) == 2\\n\\ndef test_cap_boundary_zero_n_positive_ceiling():\\n    assert cap(n=0, ceiling=2) == 0\\n\\ndef test_cap_boundary_positive_n_zero_ceiling():\\n    assert cap(n=2, ceiling=0) == 0\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 399,
+      "tokens_out": 482,
+      "generation_ns": 19903654000,
+      "load_ns": 10467500,
+      "ttft_s": 4.766072599999461,
+      "elapsed_s": 24.670106399997167,
+      "seed": 513,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "69a05053-b91b-4104-b6b7-001458d9aaf8",
+  "seconds": 24.743259200000466
+}

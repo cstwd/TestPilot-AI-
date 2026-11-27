@@ -1,0 +1,297 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 3,
+    "failed": 12,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_first_returns_first_item",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_returns_first_item_with_fallback",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_empty_list_returns_zero",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_single_element_list",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_multiple_elements_returns_first",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_zero_as_first_element",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_negative_first_element",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_string_elements",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_none_as_first_element",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_fallback_zero",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_empty_list_default_fallback",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_boolean_elements",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_mixed_types",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_large_list",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_float_elements",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 4,
+    "total_lines": 4,
+    "coverage_pct": 100.0,
+    "log": "FF.FFFFF.F.FFFF\n=================================== FAILURES ===================================\n________________________ test_first_returns_first_item _________________________\ntest_generated.py:6: in test_first_returns_first_item\n    assert result == 8\nE   assert None == 8\n_________________ test_first_returns_first_item_with_fallback __________________\ntest_generated.py:11: in test_first_returns_first_item_with_fallback\n    assert result == 1\nE   assert None == 1\n________________________ test_first_single_element_list ________________________\ntest_generated.py:21: in test_first_single_element_list\n    assert result == 42\nE   assert None == 42\n__________________ test_first_multiple_elements_returns_first __________________\ntest_generated.py:26: in test_first_multiple_elements_returns_first\n    assert result == 1\nE   assert None == 1\n____________________ test_first_with_zero_as_first_element _____________________\ntest_generated.py:31: in test_first_with_zero_as_first_element\n    assert result == 0\nE   assert None == 0\n____________________ test_first_with_negative_first_element ____________________\ntest_generated.py:36: in test_first_with_negative_first_element\n    assert result == -5\nE   assert None == -5\n_______________________ test_first_with_string_elements ________________________\ntest_generated.py:41: in test_first_with_string_elements\n    assert result == 'a'\nE   AssertionError: assert None == 'a'\n________________________ test_first_with_fallback_zero _________________________\ntest_generated.py:51: in test_first_with_fallback_zero\n    assert result == 1\nE   assert None == 1\n_______________________ test_first_with_boolean_elements _______________________\ntest_generated.py:61: in test_first_with_boolean_elements\n    assert result is True\nE   assert None is True\n_________________________ test_first_with_mixed_types __________________________\ntest_generated.py:66: in test_first_with_mixed_types\n    assert result == 'hello'\nE   AssertionError: assert None == 'hello'\n__________________________ test_first_with_large_list __________________________\ntest_generated.py:72: in test_first_with_large_list\n    assert result == 0\nE   assert None == 0\n________________________ test_first_with_float_elements ________________________\ntest_generated.py:77: in test_first_with_float_elements\n    assert result == 3.14\nE   assert None == 3.14\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_first_empty_list_returns_zero\nPASSED test_generated.py::test_first_with_none_as_first_element\nPASSED test_generated.py::test_first_empty_list_default_fallback\nFAILED test_generated.py::test_first_returns_first_item - assert None == 8\nFAILED test_generated.py::test_first_returns_first_item_with_fallback - asser...\nFAILED test_generated.py::test_first_single_element_list - assert None == 42\nFAILED test_generated.py::test_first_multiple_elements_returns_first - assert...\nFAILED test_generated.py::test_first_with_zero_as_first_element - assert None...\nFAILED test_generated.py::test_first_with_negative_first_element - assert Non...\nFAILED test_generated.py::test_first_with_string_elements - AssertionError: a...\nFAILED test_generated.py::test_first_with_fallback_zero - assert None == 1\nFAILED test_generated.py::test_first_with_boolean_elements - assert None is True\nFAILED test_generated.py::test_first_with_mixed_types - AssertionError: asser...\nFAILED test_generated.py::test_first_with_large_list - assert None == 0\nFAILED test_generated.py::test_first_with_float_elements - assert None == 3.14\n12 failed, 3 passed in 0.88s",
+    "duration_ms": 7290,
+    "stdout": "FF.FFFFF.F.FFFF\n=================================== FAILURES ===================================\n________________________ test_first_returns_first_item _________________________\ntest_generated.py:6: in test_first_returns_first_item\n    assert result == 8\nE   assert None == 8\n_________________ test_first_returns_first_item_with_fallback __________________\ntest_generated.py:11: in test_first_returns_first_item_with_fallback\n    assert result == 1\nE   assert None == 1\n________________________ test_first_single_element_list ________________________\ntest_generated.py:21: in test_first_single_element_list\n    assert result == 42\nE   assert None == 42\n__________________ test_first_multiple_elements_returns_first __________________\ntest_generated.py:26: in test_first_multiple_elements_returns_first\n    assert result == 1\nE   assert None == 1\n____________________ test_first_with_zero_as_first_element _____________________\ntest_generated.py:31: in test_first_with_zero_as_first_element\n    assert result == 0\nE   assert None == 0\n____________________ test_first_with_negative_first_element ____________________\ntest_generated.py:36: in test_first_with_negative_first_element\n    assert result == -5\nE   assert None == -5\n_______________________ test_first_with_string_elements ________________________\ntest_generated.py:41: in test_first_with_string_elements\n    assert result == 'a'\nE   AssertionError: assert None == 'a'\n________________________ test_first_with_fallback_zero _________________________\ntest_generated.py:51: in test_first_with_fallback_zero\n    assert result == 1\nE   assert None == 1\n_______________________ test_first_with_boolean_elements _______________________\ntest_generated.py:61: in test_first_with_boolean_elements\n    assert result is True\nE   assert None is True\n_________________________ test_first_with_mixed_types __________________________\ntest_generated.py:66: in test_first_with_mixed_types\n    assert result == 'hello'\nE   AssertionError: assert None == 'hello'\n__________________________ test_first_with_large_list __________________________\ntest_generated.py:72: in test_first_with_large_list\n    assert result == 0\nE   assert None == 0\n________________________ test_first_with_float_elements ________________________\ntest_generated.py:77: in test_first_with_float_elements\n    assert result == 3.14\nE   assert None == 3.14\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_first_empty_list_returns_zero\nPASSED test_generated.py::test_first_with_none_as_first_element\nPASSED test_generated.py::test_first_empty_list_default_fallback\nFAILED test_generated.py::test_first_returns_first_item - assert None == 8\nFAILED test_generated.py::test_first_returns_first_item_with_fallback - asser...\nFAILED test_generated.py::test_first_single_element_list - assert None == 42\nFAILED test_generated.py::test_first_multiple_elements_returns_first - assert...\nFAILED test_generated.py::test_first_with_zero_as_first_element - assert None...\nFAILED test_generated.py::test_first_with_negative_first_element - assert Non...\nFAILED test_generated.py::test_first_with_string_elements - AssertionError: a...\nFAILED test_generated.py::test_first_with_fallback_zero - assert None == 1\nFAILED test_generated.py::test_first_with_boolean_elements - assert None is True\nFAILED test_generated.py::test_first_with_mixed_types - AssertionError: asser...\nFAILED test_generated.py::test_first_with_large_list - assert None == 0\nFAILED test_generated.py::test_first_with_float_elements - assert None == 3.14\n12 failed, 3 passed in 0.88s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_first_returns_first_item",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 8",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 6,
+            "function": "test_first_returns_first_item",
+            "source": "assert result == 8"
+          }
+        ],
+        "assertion_diff": "assert None == 8"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_returns_first_item_with_fallback",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 1",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_first_returns_first_item_with_fallback",
+            "source": "assert result == 1"
+          }
+        ],
+        "assertion_diff": "assert None == 1"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_single_element_list",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 42",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 21,
+            "function": "test_first_single_element_list",
+            "source": "assert result == 42"
+          }
+        ],
+        "assertion_diff": "assert None == 42"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_multiple_elements_returns_first",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 1",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 26,
+            "function": "test_first_multiple_elements_returns_first",
+            "source": "assert result == 1"
+          }
+        ],
+        "assertion_diff": "assert None == 1"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_zero_as_first_element",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 0",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 31,
+            "function": "test_first_with_zero_as_first_element",
+            "source": "assert result == 0"
+          }
+        ],
+        "assertion_diff": "assert None == 0"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_negative_first_element",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == -5",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 36,
+            "function": "test_first_with_negative_first_element",
+            "source": "assert result == -5"
+          }
+        ],
+        "assertion_diff": "assert None == -5"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_string_elements",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'a'",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 41,
+            "function": "test_first_with_string_elements",
+            "source": "assert result == 'a'"
+          }
+        ],
+        "assertion_diff": "assert None == 'a'"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_fallback_zero",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 1",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 51,
+            "function": "test_first_with_fallback_zero",
+            "source": "assert result == 1"
+          }
+        ],
+        "assertion_diff": "assert None == 1"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_boolean_elements",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None is True",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 61,
+            "function": "test_first_with_boolean_elements",
+            "source": "assert result is True"
+          }
+        ],
+        "assertion_diff": "assert None is True"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_mixed_types",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'hello'",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 66,
+            "function": "test_first_with_mixed_types",
+            "source": "assert result == 'hello'"
+          }
+        ],
+        "assertion_diff": "assert None == 'hello'"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_large_list",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 0",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 72,
+            "function": "test_first_with_large_list",
+            "source": "assert result == 0"
+          }
+        ],
+        "assertion_diff": "assert None == 0"
+      },
+      {
+        "nodeid": "test_generated.py::test_first_with_float_elements",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 3.14",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 77,
+            "function": "test_first_with_float_elements",
+            "source": "assert result == 3.14"
+          }
+        ],
+        "assertion_diff": "assert None == 3.14"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 2,
+    "total_branches": 2,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "a62615d4-1180-41f3-922c-626d567ee43b",
+    "started": "2026-11-27T09:18:08.634078+00:00",
+    "ended": "2026-11-27T09:18:15.924480+00:00",
+    "source_sha256": "e5ee82f019839335aade5744a84affd556f6e4e25484bab6f7a66d44b484f334",
+    "test_sha256": "c1af1d27b0966ca4e0fe17fc18013622f9304ebef34a2a2b1265311c43bd8d7d"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_first_multiple_elements_returns_first",
+      "test_generated.py::test_first_returns_first_item",
+      "test_generated.py::test_first_returns_first_item_with_fallback",
+      "test_generated.py::test_first_single_element_list",
+      "test_generated.py::test_first_with_boolean_elements",
+      "test_generated.py::test_first_with_fallback_zero",
+      "test_generated.py::test_first_with_float_elements",
+      "test_generated.py::test_first_with_large_list",
+      "test_generated.py::test_first_with_mixed_types",
+      "test_generated.py::test_first_with_negative_first_element",
+      "test_generated.py::test_first_with_string_elements",
+      "test_generated.py::test_first_with_zero_as_first_element"
+    ]
+  },
+  "mutant": "3c593539-fc34-5911-bce9-1484a34c344a"
+}

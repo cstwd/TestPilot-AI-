@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom subject import bonus\n\ndef test_bonus_negative_raises_value_error():\n    \"\"\"Reject negative n with ValueError.\"\"\"\n    with pytest.raises(ValueError):\n        bonus(-1)\n\ndef test_bonus_zero_enabled_returns_zero():\n    \"\"\"For n=0, enabled=True, n < 2, so return n.\"\"\"\n    assert bonus(0, enabled=True) == 0\n\ndef test_bonus_one_enabled_returns_one():\n    \"\"\"For n=1, enabled=True, n < 2, so return n.\"\"\"\n    assert bonus(1, enabled=True) == 1\n\ndef test_bonus_two_enabled_returns_three():\n    \"\"\"For n=2, enabled=True, n >= 2, so return n + 1.\"\"\"\n    assert bonus(2, enabled=True) == 3\n\ndef test_bonus_three_enabled_returns_four():\n    \"\"\"For n=3, enabled=True, n >= 2, so return n + 1.\"\"\"\n    assert bonus(3, enabled=True) == 4\n\ndef test_bonus_two_disabled_returns_two():\n    \"\"\"For n=2, enabled=False, return n.\"\"\"\n    assert bonus(2, enabled=False) == 2\n\ndef test_bonus_three_disabled_returns_three():\n    \"\"\"For n=3, enabled=False, return n.\"\"\"\n    assert bonus(3, enabled=False) == 3\n\ndef test_bonus_zero_disabled_returns_zero():\n    \"\"\"For n=0, enabled=False, return n.\"\"\"\n    assert bonus(0, enabled=False) == 0\n\ndef test_bonus_negative_one_raises_value_error():\n    \"\"\"Reject n=-1 with ValueError.\"\"\"\n    with pytest.raises(ValueError):\n        bonus(-1, enabled=True)\n\ndef test_bonus_negative_large_raises_value_error():\n    \"\"\"Reject n=-100 with ValueError.\"\"\"\n    with pytest.raises(ValueError):\n        bonus(-100, enabled=False)\n\ndef test_bonus_default_enabled_is_true():\n    \"\"\"Default enabled is True, so bonus(3) should return 4.\"\"\"\n    assert bonus(3) == 4\n\ndef test_bonus_default_enabled_zero():\n    \"\"\"Default enabled is True, so bonus(0) should return 0.\"\"\"\n    assert bonus(0) == 0\n\ndef test_bonus_default_enabled_one():\n    \"\"\"Default enabled is True, so bonus(1) should return 1.\"\"\"\n    assert bonus(1) == 1\n\ndef test_bonus_default_enabled_two():\n    \"\"\"Default enabled is True, so bonus(2) should return 3.\"\"\"\n    assert bonus(2) == 3\n",
+  "mode": "ai",
+  "sha256": "b1f56a294ab3f6fa6caa6a27bd6023bf9fbd4aa4cf93ce8a2ab14bc5a00205e7",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "d29e8f6b-7895-4bbc-8bd2-07f0db52ec51",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import bonus\\n\\n\\ndef test_bonus_negative_raises_value_error():\\n    \\\"\\\"\\\"Reject negative n with ValueError.\\\"\\\"\\\"\\n    with pytest.raises(ValueError):\\n        bonus(-1)\\n\\n\\ndef test_bonus_zero_enabled_returns_zero():\\n    \\\"\\\"\\\"For n=0, enabled=True, n < 2, so return n.\\\"\\\"\\\"\\n    assert bonus(0, enabled=True) == 0\\n\\n\\ndef test_bonus_one_enabled_returns_one():\\n    \\\"\\\"\\\"For n=1, enabled=True, n < 2, so return n.\\\"\\\"\\\"\\n    assert bonus(1, enabled=True) == 1\\n\\n\\ndef test_bonus_two_enabled_returns_three():\\n    \\\"\\\"\\\"For n=2, enabled=True, n >= 2, so return n + 1.\\\"\\\"\\\"\\n    assert bonus(2, enabled=True) == 3\\n\\n\\ndef test_bonus_three_enabled_returns_four():\\n    \\\"\\\"\\\"For n=3, enabled=True, n >= 2, so return n + 1.\\\"\\\"\\\"\\n    assert bonus(3, enabled=True) == 4\\n\\n\\ndef test_bonus_two_disabled_returns_two():\\n    \\\"\\\"\\\"For n=2, enabled=False, return n.\\\"\\\"\\\"\\n    assert bonus(2, enabled=False) == 2\\n\\n\\ndef test_bonus_three_disabled_returns_three():\\n    \\\"\\\"\\\"For n=3, enabled=False, return n.\\\"\\\"\\\"\\n    assert bonus(3, enabled=False) == 3\\n\\n\\ndef test_bonus_zero_disabled_returns_zero():\\n    \\\"\\\"\\\"For n=0, enabled=False, return n.\\\"\\\"\\\"\\n    assert bonus(0, enabled=False) == 0\\n\\n\\ndef test_bonus_negative_one_raises_value_error():\\n    \\\"\\\"\\\"Reject n=-1 with ValueError.\\\"\\\"\\\"\\n    with pytest.raises(ValueError):\\n        bonus(-1, enabled=True)\\n\\n\\ndef test_bonus_negative_large_raises_value_error():\\n    \\\"\\\"\\\"Reject n=-100 with ValueError.\\\"\\\"\\\"\\n    with pytest.raises(ValueError):\\n        bonus(-100, enabled=False)\\n\\n\\ndef test_bonus_default_enabled_is_true():\\n    \\\"\\\"\\\"Default enabled is True, so bonus(3) should return 4.\\\"\\\"\\\"\\n    assert bonus(3) == 4\\n\\n\\ndef test_bonus_default_enabled_zero():\\n    \\\"\\\"\\\"Default enabled is True, so bonus(0) should return 0.\\\"\\\"\\\"\\n    assert bonus(0) == 0\\n\\n\\ndef test_bonus_default_enabled_one():\\n    \\\"\\\"\\\"Default enabled is True, so bonus(1) should return 1.\\\"\\\"\\\"\\n    assert bonus(1) == 1\\n\\n\\ndef test_bonus_default_enabled_two():\\n    \\\"\\\"\\\"Default enabled is True, so bonus(2) should return 3.\\\"\\\"\\\"\\n    assert bonus(2) == 3\"\n}",
+      "finish": "stop",
+      "tokens_in": 510,
+      "tokens_out": 651,
+      "generation_ns": 26958375000,
+      "load_ns": 13226800,
+      "ttft_s": 1.96946399999797,
+      "elapsed_s": 28.927970700002334,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "d29e8f6b-7895-4bbc-8bd2-07f0db52ec51",
+  "seconds": 29.014257000002544
+}

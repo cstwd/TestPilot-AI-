@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom subject import bonus\n\ndef test_bonus_example_1():\n    assert bonus(3) == 4\n\ndef test_bonus_negative_raises_value_error():\n    with pytest.raises(ValueError):\n        bonus(-1)\n\ndef test_bonus_zero_enabled():\n    assert bonus(0, enabled=True) == 0\n\ndef test_bonus_one_enabled():\n    assert bonus(1, enabled=True) == 1\n\ndef test_bonus_two_enabled():\n    assert bonus(2, enabled=True) == 3\n\ndef test_bonus_two_disabled():\n    assert bonus(2, enabled=False) == 2\n\ndef test_bonus_three_enabled():\n    assert bonus(3, enabled=True) == 4\n\ndef test_bonus_three_disabled():\n    assert bonus(3, enabled=False) == 3\n\ndef test_bonus_negative_one_raises():\n    with pytest.raises(ValueError):\n        bonus(-1, enabled=True)\n\ndef test_bonus_negative_zero_raises():\n    with pytest.raises(ValueError):\n        bonus(-0, enabled=True)\n\ndef test_bonus_large_number_enabled():\n    assert bonus(100, enabled=True) == 101\n\ndef test_bonus_large_number_disabled():\n    assert bonus(100, enabled=False) == 100\n",
+  "mode": "ai",
+  "sha256": "2e6441f77e6e49f0538026e6bcb52c589ce3969774be0a6b4813c722087a4621",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "463f5a47-31d1-4d90-8500-5ae07531421d",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import bonus\\n\\n\\ndef test_bonus_example_1():\\n    assert bonus(3) == 4\\n\\n\\ndef test_bonus_negative_raises_value_error():\\n    with pytest.raises(ValueError):\\n        bonus(-1)\\n\\n\\ndef test_bonus_zero_enabled():\\n    assert bonus(0, enabled=True) == 0\\n\\n\\ndef test_bonus_one_enabled():\\n    assert bonus(1, enabled=True) == 1\\n\\n\\ndef test_bonus_two_enabled():\\n    assert bonus(2, enabled=True) == 3\\n\\n\\ndef test_bonus_two_disabled():\\n    assert bonus(2, enabled=False) == 2\\n\\n\\ndef test_bonus_three_enabled():\\n    assert bonus(3, enabled=True) == 4\\n\\n\\ndef test_bonus_three_disabled():\\n    assert bonus(3, enabled=False) == 3\\n\\n\\ndef test_bonus_negative_one_raises():\\n    with pytest.raises(ValueError):\\n        bonus(-1, enabled=True)\\n\\n\\ndef test_bonus_negative_zero_raises():\\n    with pytest.raises(ValueError):\\n        bonus(-0, enabled=True)\\n\\n\\ndef test_bonus_large_number_enabled():\\n    assert bonus(100, enabled=True) == 101\\n\\n\\ndef test_bonus_large_number_disabled():\\n    assert bonus(100, enabled=False) == 100\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 510,
+      "tokens_out": 314,
+      "generation_ns": 12915507000,
+      "load_ns": 7464900,
+      "ttft_s": 1.578831099999661,
+      "elapsed_s": 14.494482300000527,
+      "seed": 513,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "463f5a47-31d1-4d90-8500-5ae07531421d",
+  "seconds": 14.569651100002375
+}

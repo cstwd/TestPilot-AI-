@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "passed": 10,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_docstring_example",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_empty_list_returns_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_all_negative_values_returns_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_discount_exceeds_total_returns_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_no_discount_returns_sum",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_mixed_values_with_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_zero_value_is_allowable",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_single_value_no_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_discount_equals_total",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_large_values",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 7,
+  "total_lines": 7,
+  "coverage_pct": 100.0,
+  "log": "..........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_docstring_example\nPASSED test_generated.py::test_empty_list_returns_zero\nPASSED test_generated.py::test_all_negative_values_returns_zero\nPASSED test_generated.py::test_discount_exceeds_total_returns_zero\nPASSED test_generated.py::test_no_discount_returns_sum\nPASSED test_generated.py::test_mixed_values_with_discount\nPASSED test_generated.py::test_zero_value_is_allowable\nPASSED test_generated.py::test_single_value_no_discount\nPASSED test_generated.py::test_discount_equals_total\nPASSED test_generated.py::test_large_values\n10 passed in 0.16s",
+  "duration_ms": 6430,
+  "stdout": "..........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_docstring_example\nPASSED test_generated.py::test_empty_list_returns_zero\nPASSED test_generated.py::test_all_negative_values_returns_zero\nPASSED test_generated.py::test_discount_exceeds_total_returns_zero\nPASSED test_generated.py::test_no_discount_returns_sum\nPASSED test_generated.py::test_mixed_values_with_discount\nPASSED test_generated.py::test_zero_value_is_allowable\nPASSED test_generated.py::test_single_value_no_discount\nPASSED test_generated.py::test_discount_equals_total\nPASSED test_generated.py::test_large_values\n10 passed in 0.16s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "c28910ed-53e6-4c27-a73c-68288052d527",
+  "started": "2026-11-27T09:06:48.574330+00:00",
+  "ended": "2026-11-27T09:06:55.004266+00:00",
+  "source_sha256": "f5ee842f2490510d65f5f38552a0e5fedcd0905e9ca0702c83a56102c945cd7e",
+  "test_sha256": "0a92db01209364236cf0fc7b8963b5cb92575a2ffcf24ab1674e996bd9612648"
+}

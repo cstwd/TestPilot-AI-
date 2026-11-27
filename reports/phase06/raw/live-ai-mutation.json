@@ -1,0 +1,2560 @@
+{
+  "parent_task": "ea3513a8-6fb5-49f5-8671-2324e1cc4408",
+  "generated_run": "e0ed7dd4-d29b-4f76-ae7e-2b38aa055f1a",
+  "plan": {
+    "id": "ccd1e0dc-3a22-4545-a264-5625812f52e5",
+    "task_id": "ea3513a8-6fb5-49f5-8671-2324e1cc4408",
+    "file_id": 1,
+    "suite_id": "619a1fb3-f063-4589-abf8-53e67c86696e",
+    "target": "bonus",
+    "profile": "cosmic-ray-8.9.0/testpilot-first-order-v1",
+    "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+    "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505",
+    "feedback_enabled": true,
+    "timeout_s": 15,
+    "status": "ready",
+    "cancel_requested": false,
+    "created_at": "2026-11-27T09:24:18.551892+00:00",
+    "updated_at": "2026-11-27T09:24:18.551892+00:00",
+    "diagnostic": "",
+    "manifest": [
+      {
+        "id": "0dbe9494-ee8e-5026-89de-b6f42664f6ec",
+        "family": "condition",
+        "operator": "testpilot/NegateCondition",
+        "line": 8,
+        "column": 8,
+        "before": "n < 0",
+        "after": "not (n < 0)",
+        "edit": {
+          "start": 207,
+          "end": 212,
+          "old": "n < 0",
+          "new": "not (n < 0)"
+        },
+        "mutated_sha256": "c15882f8c182354a062662980b75b5fe8237b25119d608f5155321bf1c9975e6",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "edf2e78e-d1b2-56b8-8cd9-3b007401ffab",
+        "family": "comparison",
+        "operator": "core/ReplaceComparisonOperator_Lt_LtE",
+        "line": 8,
+        "column": 10,
+        "before": "<",
+        "after": "<=",
+        "edit": {
+          "start": 210,
+          "end": 210,
+          "old": "",
+          "new": "="
+        },
+        "mutated_sha256": "d03579d85a2f71cb2e947fa714f4597bc80297773b4b98477585077937b4a77a",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+        "family": "exception",
+        "operator": "testpilot/SuppressRaise",
+        "line": 9,
+        "column": 9,
+        "before": "raise ValueError(\"negative\")",
+        "after": "pass",
+        "edit": {
+          "start": 222,
+          "end": 250,
+          "old": "raise ValueError(\"negative\")",
+          "new": "pass"
+        },
+        "mutated_sha256": "04c0e2301f3901f176fa4538422aad7fe5b64ec009a81790a9e105946c9ddb39",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "f8daf5dd-2eaa-52d6-bf62-cce4fa89dd2e",
+        "family": "condition",
+        "operator": "testpilot/NegateCondition",
+        "line": 10,
+        "column": 8,
+        "before": "enabled and n >= 2",
+        "after": "not (enabled and n >= 2)",
+        "edit": {
+          "start": 258,
+          "end": 276,
+          "old": "enabled and n >= 2",
+          "new": "not (enabled and n >= 2)"
+        },
+        "mutated_sha256": "c6776223edd28f42d3831c65b22763e2e9d4080f888d8037799990f7de1a9564",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+        "family": "boolean",
+        "operator": "core/ReplaceAndWithOr",
+        "line": 10,
+        "column": 16,
+        "before": "and",
+        "after": "or",
+        "edit": {
+          "start": 266,
+          "end": 269,
+          "old": "and",
+          "new": "or"
+        },
+        "mutated_sha256": "fb03355a336b63592194fabb17842f19b66b429bd336a1311174b73de5f55878",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+        "family": "comparison",
+        "operator": "core/ReplaceComparisonOperator_GtE_Gt",
+        "line": 10,
+        "column": 22,
+        "before": ">=",
+        "after": ">",
+        "edit": {
+          "start": 273,
+          "end": 274,
+          "old": "=",
+          "new": ""
+        },
+        "mutated_sha256": "ba36e530baeb394fadf040a2957a25d9d02d246026ee53a9bc121bb749f396b1",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "0eabf785-01da-5cf7-bfdc-d0fae838ff39",
+        "family": "return",
+        "operator": "testpilot/ReturnNone",
+        "line": 11,
+        "column": 9,
+        "before": "return n + 1",
+        "after": "return None",
+        "edit": {
+          "start": 286,
+          "end": 298,
+          "old": "return n + 1",
+          "new": "return None"
+        },
+        "mutated_sha256": "185166b3a19937884a42ad122a0b48f351eb13f04fb4ae3af7aad3c89c09fdfe",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "bf1a369a-cd32-5a26-afa2-1c012d7269f8",
+        "family": "arithmetic",
+        "operator": "core/ReplaceBinaryOperator_Add_Sub",
+        "line": 11,
+        "column": 18,
+        "before": "+",
+        "after": "-",
+        "edit": {
+          "start": 295,
+          "end": 296,
+          "old": "+",
+          "new": "-"
+        },
+        "mutated_sha256": "d64a252244ba0ed98afbd29751ab3b6b683a8c28113a50247c3bcd085234d4db",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "4baa324f-ef75-5210-9216-6e11b5fee5bb",
+        "family": "return",
+        "operator": "testpilot/ReturnNone",
+        "line": 12,
+        "column": 5,
+        "before": "return n",
+        "after": "return None",
+        "edit": {
+          "start": 303,
+          "end": 311,
+          "old": "return n",
+          "new": "return None"
+        },
+        "mutated_sha256": "e3d216038c672b002f86f3558fe501b5a7f1528f177e3976eccd44ccdd56b41c",
+        "equivalent_candidate": false
+      }
+    ],
+    "events": [],
+    "before": null,
+    "after": null
+  },
+  "result": {
+    "id": "ccd1e0dc-3a22-4545-a264-5625812f52e5",
+    "task_id": "ea3513a8-6fb5-49f5-8671-2324e1cc4408",
+    "file_id": 1,
+    "suite_id": "619a1fb3-f063-4589-abf8-53e67c86696e",
+    "target": "bonus",
+    "profile": "cosmic-ray-8.9.0/testpilot-first-order-v1",
+    "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+    "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505",
+    "feedback_enabled": true,
+    "timeout_s": 15,
+    "status": "completed",
+    "cancel_requested": false,
+    "created_at": "2026-11-27T09:24:18.551892+00:00",
+    "updated_at": "2026-11-27T09:25:44.531239+00:00",
+    "diagnostic": "没有存活变异",
+    "manifest": [
+      {
+        "id": "0dbe9494-ee8e-5026-89de-b6f42664f6ec",
+        "family": "condition",
+        "operator": "testpilot/NegateCondition",
+        "line": 8,
+        "column": 8,
+        "before": "n < 0",
+        "after": "not (n < 0)",
+        "edit": {
+          "start": 207,
+          "end": 212,
+          "old": "n < 0",
+          "new": "not (n < 0)"
+        },
+        "mutated_sha256": "c15882f8c182354a062662980b75b5fe8237b25119d608f5155321bf1c9975e6",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "edf2e78e-d1b2-56b8-8cd9-3b007401ffab",
+        "family": "comparison",
+        "operator": "core/ReplaceComparisonOperator_Lt_LtE",
+        "line": 8,
+        "column": 10,
+        "before": "<",
+        "after": "<=",
+        "edit": {
+          "start": 210,
+          "end": 210,
+          "old": "",
+          "new": "="
+        },
+        "mutated_sha256": "d03579d85a2f71cb2e947fa714f4597bc80297773b4b98477585077937b4a77a",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+        "family": "exception",
+        "operator": "testpilot/SuppressRaise",
+        "line": 9,
+        "column": 9,
+        "before": "raise ValueError(\"negative\")",
+        "after": "pass",
+        "edit": {
+          "start": 222,
+          "end": 250,
+          "old": "raise ValueError(\"negative\")",
+          "new": "pass"
+        },
+        "mutated_sha256": "04c0e2301f3901f176fa4538422aad7fe5b64ec009a81790a9e105946c9ddb39",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "f8daf5dd-2eaa-52d6-bf62-cce4fa89dd2e",
+        "family": "condition",
+        "operator": "testpilot/NegateCondition",
+        "line": 10,
+        "column": 8,
+        "before": "enabled and n >= 2",
+        "after": "not (enabled and n >= 2)",
+        "edit": {
+          "start": 258,
+          "end": 276,
+          "old": "enabled and n >= 2",
+          "new": "not (enabled and n >= 2)"
+        },
+        "mutated_sha256": "c6776223edd28f42d3831c65b22763e2e9d4080f888d8037799990f7de1a9564",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+        "family": "boolean",
+        "operator": "core/ReplaceAndWithOr",
+        "line": 10,
+        "column": 16,
+        "before": "and",
+        "after": "or",
+        "edit": {
+          "start": 266,
+          "end": 269,
+          "old": "and",
+          "new": "or"
+        },
+        "mutated_sha256": "fb03355a336b63592194fabb17842f19b66b429bd336a1311174b73de5f55878",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+        "family": "comparison",
+        "operator": "core/ReplaceComparisonOperator_GtE_Gt",
+        "line": 10,
+        "column": 22,
+        "before": ">=",
+        "after": ">",
+        "edit": {
+          "start": 273,
+          "end": 274,
+          "old": "=",
+          "new": ""
+        },
+        "mutated_sha256": "ba36e530baeb394fadf040a2957a25d9d02d246026ee53a9bc121bb749f396b1",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "0eabf785-01da-5cf7-bfdc-d0fae838ff39",
+        "family": "return",
+        "operator": "testpilot/ReturnNone",
+        "line": 11,
+        "column": 9,
+        "before": "return n + 1",
+        "after": "return None",
+        "edit": {
+          "start": 286,
+          "end": 298,
+          "old": "return n + 1",
+          "new": "return None"
+        },
+        "mutated_sha256": "185166b3a19937884a42ad122a0b48f351eb13f04fb4ae3af7aad3c89c09fdfe",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "bf1a369a-cd32-5a26-afa2-1c012d7269f8",
+        "family": "arithmetic",
+        "operator": "core/ReplaceBinaryOperator_Add_Sub",
+        "line": 11,
+        "column": 18,
+        "before": "+",
+        "after": "-",
+        "edit": {
+          "start": 295,
+          "end": 296,
+          "old": "+",
+          "new": "-"
+        },
+        "mutated_sha256": "d64a252244ba0ed98afbd29751ab3b6b683a8c28113a50247c3bcd085234d4db",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "4baa324f-ef75-5210-9216-6e11b5fee5bb",
+        "family": "return",
+        "operator": "testpilot/ReturnNone",
+        "line": 12,
+        "column": 5,
+        "before": "return n",
+        "after": "return None",
+        "edit": {
+          "start": 303,
+          "end": 311,
+          "old": "return n",
+          "new": "return None"
+        },
+        "mutated_sha256": "e3d216038c672b002f86f3558fe501b5a7f1528f177e3976eccd44ccdd56b41c",
+        "equivalent_candidate": false
+      }
+    ],
+    "events": [
+      {
+        "id": "f1f26142-94eb-4183-a7ed-58d72244ab88",
+        "phase": "before",
+        "kind": "baseline",
+        "mutant_id": "",
+        "created_at": "2026-11-27T09:24:27.015070+00:00",
+        "status": "passed",
+        "reason": "原始源码通过基线验证",
+        "summary": {
+          "status": "passed",
+          "exit_code": 0,
+          "passed": 14,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "diagnostic": "",
+          "failures": []
+        }
+      },
+      {
+        "id": "d623934f-5473-4a47-a9ad-cb0adec9f2fc",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "0dbe9494-ee8e-5026-89de-b6f42664f6ec",
+        "created_at": "2026-11-27T09:24:35.938958+00:00",
+        "status": "execution_error",
+        "reason": "失败没有完整的测试断言证据"
+      },
+      {
+        "id": "885a2648-eedc-4334-b885-b08bafc6e18b",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "edf2e78e-d1b2-56b8-8cd9-3b007401ffab",
+        "created_at": "2026-11-27T09:24:44.258369+00:00",
+        "status": "execution_error",
+        "reason": "失败没有完整的测试断言证据"
+      },
+      {
+        "id": "2c73d9e7-8174-458a-93fa-b970e04d531c",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+        "created_at": "2026-11-27T09:24:52.374386+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言"
+      },
+      {
+        "id": "7ddee68f-b757-4979-a205-e3430e3ec264",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "f8daf5dd-2eaa-52d6-bf62-cce4fa89dd2e",
+        "created_at": "2026-11-27T09:25:00.741839+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言"
+      },
+      {
+        "id": "0c1602da-cc01-4c27-a29b-7c6490992e41",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+        "created_at": "2026-11-27T09:25:09.227556+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言"
+      },
+      {
+        "id": "c877392f-210b-42d3-9fa0-f5f5479e4808",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+        "created_at": "2026-11-27T09:25:18.025086+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言"
+      },
+      {
+        "id": "91f55bd9-dc5b-4a94-9e5c-830ca42d4117",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "0eabf785-01da-5cf7-bfdc-d0fae838ff39",
+        "created_at": "2026-11-27T09:25:26.633252+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言"
+      },
+      {
+        "id": "215cdc0a-977f-4086-97de-5ac9f85455e0",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "bf1a369a-cd32-5a26-afa2-1c012d7269f8",
+        "created_at": "2026-11-27T09:25:34.889697+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言"
+      },
+      {
+        "id": "5c06063f-fead-4c97-ab2a-742330840daa",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "4baa324f-ef75-5210-9216-6e11b5fee5bb",
+        "created_at": "2026-11-27T09:25:44.507514+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言"
+      }
+    ],
+    "before": {
+      "killed": 7,
+      "survived": 0,
+      "timeout": 0,
+      "execution_error": 2,
+      "cancelled": 0,
+      "unrun": 0,
+      "total": 9,
+      "equivalent_candidates": 0,
+      "score_pct": 77.78
+    },
+    "after": null
+  },
+  "report": {
+    "id": "ccd1e0dc-3a22-4545-a264-5625812f52e5",
+    "task_id": "ea3513a8-6fb5-49f5-8671-2324e1cc4408",
+    "file_id": 1,
+    "suite_id": "619a1fb3-f063-4589-abf8-53e67c86696e",
+    "target": "bonus",
+    "profile": "cosmic-ray-8.9.0/testpilot-first-order-v1",
+    "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+    "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505",
+    "feedback_enabled": true,
+    "timeout_s": 15,
+    "status": "completed",
+    "cancel_requested": false,
+    "created_at": "2026-11-27T09:24:18.551892+00:00",
+    "updated_at": "2026-11-27T09:25:44.531239+00:00",
+    "diagnostic": "没有存活变异",
+    "manifest": [
+      {
+        "id": "0dbe9494-ee8e-5026-89de-b6f42664f6ec",
+        "family": "condition",
+        "operator": "testpilot/NegateCondition",
+        "line": 8,
+        "column": 8,
+        "before": "n < 0",
+        "after": "not (n < 0)",
+        "edit": {
+          "start": 207,
+          "end": 212,
+          "old": "n < 0",
+          "new": "not (n < 0)"
+        },
+        "mutated_sha256": "c15882f8c182354a062662980b75b5fe8237b25119d608f5155321bf1c9975e6",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "edf2e78e-d1b2-56b8-8cd9-3b007401ffab",
+        "family": "comparison",
+        "operator": "core/ReplaceComparisonOperator_Lt_LtE",
+        "line": 8,
+        "column": 10,
+        "before": "<",
+        "after": "<=",
+        "edit": {
+          "start": 210,
+          "end": 210,
+          "old": "",
+          "new": "="
+        },
+        "mutated_sha256": "d03579d85a2f71cb2e947fa714f4597bc80297773b4b98477585077937b4a77a",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+        "family": "exception",
+        "operator": "testpilot/SuppressRaise",
+        "line": 9,
+        "column": 9,
+        "before": "raise ValueError(\"negative\")",
+        "after": "pass",
+        "edit": {
+          "start": 222,
+          "end": 250,
+          "old": "raise ValueError(\"negative\")",
+          "new": "pass"
+        },
+        "mutated_sha256": "04c0e2301f3901f176fa4538422aad7fe5b64ec009a81790a9e105946c9ddb39",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "f8daf5dd-2eaa-52d6-bf62-cce4fa89dd2e",
+        "family": "condition",
+        "operator": "testpilot/NegateCondition",
+        "line": 10,
+        "column": 8,
+        "before": "enabled and n >= 2",
+        "after": "not (enabled and n >= 2)",
+        "edit": {
+          "start": 258,
+          "end": 276,
+          "old": "enabled and n >= 2",
+          "new": "not (enabled and n >= 2)"
+        },
+        "mutated_sha256": "c6776223edd28f42d3831c65b22763e2e9d4080f888d8037799990f7de1a9564",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+        "family": "boolean",
+        "operator": "core/ReplaceAndWithOr",
+        "line": 10,
+        "column": 16,
+        "before": "and",
+        "after": "or",
+        "edit": {
+          "start": 266,
+          "end": 269,
+          "old": "and",
+          "new": "or"
+        },
+        "mutated_sha256": "fb03355a336b63592194fabb17842f19b66b429bd336a1311174b73de5f55878",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+        "family": "comparison",
+        "operator": "core/ReplaceComparisonOperator_GtE_Gt",
+        "line": 10,
+        "column": 22,
+        "before": ">=",
+        "after": ">",
+        "edit": {
+          "start": 273,
+          "end": 274,
+          "old": "=",
+          "new": ""
+        },
+        "mutated_sha256": "ba36e530baeb394fadf040a2957a25d9d02d246026ee53a9bc121bb749f396b1",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "0eabf785-01da-5cf7-bfdc-d0fae838ff39",
+        "family": "return",
+        "operator": "testpilot/ReturnNone",
+        "line": 11,
+        "column": 9,
+        "before": "return n + 1",
+        "after": "return None",
+        "edit": {
+          "start": 286,
+          "end": 298,
+          "old": "return n + 1",
+          "new": "return None"
+        },
+        "mutated_sha256": "185166b3a19937884a42ad122a0b48f351eb13f04fb4ae3af7aad3c89c09fdfe",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "bf1a369a-cd32-5a26-afa2-1c012d7269f8",
+        "family": "arithmetic",
+        "operator": "core/ReplaceBinaryOperator_Add_Sub",
+        "line": 11,
+        "column": 18,
+        "before": "+",
+        "after": "-",
+        "edit": {
+          "start": 295,
+          "end": 296,
+          "old": "+",
+          "new": "-"
+        },
+        "mutated_sha256": "d64a252244ba0ed98afbd29751ab3b6b683a8c28113a50247c3bcd085234d4db",
+        "equivalent_candidate": false
+      },
+      {
+        "id": "4baa324f-ef75-5210-9216-6e11b5fee5bb",
+        "family": "return",
+        "operator": "testpilot/ReturnNone",
+        "line": 12,
+        "column": 5,
+        "before": "return n",
+        "after": "return None",
+        "edit": {
+          "start": 303,
+          "end": 311,
+          "old": "return n",
+          "new": "return None"
+        },
+        "mutated_sha256": "e3d216038c672b002f86f3558fe501b5a7f1528f177e3976eccd44ccdd56b41c",
+        "equivalent_candidate": false
+      }
+    ],
+    "events": [
+      {
+        "id": "f1f26142-94eb-4183-a7ed-58d72244ab88",
+        "phase": "before",
+        "kind": "baseline",
+        "mutant_id": "",
+        "created_at": "2026-11-27T09:24:27.015070+00:00",
+        "status": "passed",
+        "reason": "原始源码通过基线验证",
+        "payload": {
+          "status": "passed",
+          "passed": 14,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_negative_zero_raises_value_error",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+              "outcome": "passed"
+            }
+          ],
+          "exit_code": 0,
+          "covered_lines": 6,
+          "total_lines": 6,
+          "coverage_pct": 100.0,
+          "log": "..............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_zero_enabled_returns_zero\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_two_enabled_returns_three\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_enabled\nPASSED test_generated.py::test_bonus_large_positive_disabled\n14 passed in 0.32s",
+          "duration_ms": 8425,
+          "stdout": "..............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_zero_enabled_returns_zero\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_two_enabled_returns_three\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_enabled\nPASSED test_generated.py::test_bonus_large_positive_disabled\n14 passed in 0.32s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [],
+          "failure_details_omitted": 0,
+          "covered_branches": 4,
+          "total_branches": 4,
+          "branch_pct": 100.0,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+          "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505"
+        }
+      },
+      {
+        "id": "d623934f-5473-4a47-a9ad-cb0adec9f2fc",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "0dbe9494-ee8e-5026-89de-b6f42664f6ec",
+        "created_at": "2026-11-27T09:24:35.938958+00:00",
+        "status": "execution_error",
+        "reason": "失败没有完整的测试断言证据",
+        "payload": {
+          "execution": {
+            "status": "failed",
+            "passed": 0,
+            "failed": 14,
+            "errors": 0,
+            "skipped": 0,
+            "cases": [
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_zero_raises_value_error",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "outcome": "failed"
+              }
+            ],
+            "exit_code": 1,
+            "covered_lines": 5,
+            "total_lines": 6,
+            "coverage_pct": 83.33,
+            "log": "FFFFFFFFFFFFFF\n=================================== FAILURES ===================================\n____________________ test_bonus_negative_raises_value_error ____________________\ntest_generated.py:5: in test_bonus_negative_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n_____________________ test_bonus_zero_enabled_returns_zero _____________________\ntest_generated.py:9: in test_bonus_zero_enabled_returns_zero\n    assert bonus(0, enabled=True) == 0\n           ^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n______________________ test_bonus_one_enabled_returns_one ______________________\ntest_generated.py:12: in test_bonus_one_enabled_returns_one\n    assert bonus(1, enabled=True) == 1\n           ^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_____________________ test_bonus_two_enabled_returns_three _____________________\ntest_generated.py:15: in test_bonus_two_enabled_returns_three\n    assert bonus(2, enabled=True) == 3\n           ^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n____________________ test_bonus_three_enabled_returns_four _____________________\ntest_generated.py:18: in test_bonus_three_enabled_returns_four\n    assert bonus(3, enabled=True) == 4\n           ^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_____________________ test_bonus_two_disabled_returns_two ______________________\ntest_generated.py:21: in test_bonus_two_disabled_returns_two\n    assert bonus(2, enabled=False) == 2\n           ^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n___________________ test_bonus_three_disabled_returns_three ____________________\ntest_generated.py:24: in test_bonus_three_disabled_returns_three\n    assert bonus(3, enabled=False) == 3\n           ^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n____________________ test_bonus_zero_disabled_returns_zero _____________________\ntest_generated.py:27: in test_bonus_zero_disabled_returns_zero\n    assert bonus(0, enabled=False) == 0\n           ^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_____________________ test_bonus_one_disabled_returns_one ______________________\ntest_generated.py:30: in test_bonus_one_disabled_returns_one\n    assert bonus(1, enabled=False) == 1\n           ^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n______________________ test_bonus_default_enabled_is_true ______________________\ntest_generated.py:33: in test_bonus_default_enabled_is_true\n    assert bonus(3) == 4\n           ^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_________________ test_bonus_negative_zero_raises_value_error __________________\ntest_generated.py:36: in test_bonus_negative_zero_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n_________________ test_bonus_negative_large_raises_value_error _________________\ntest_generated.py:40: in test_bonus_negative_large_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n______________________ test_bonus_large_positive_enabled _______________________\ntest_generated.py:44: in test_bonus_large_positive_enabled\n    assert bonus(100, enabled=True) == 101\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n______________________ test_bonus_large_positive_disabled ______________________\ntest_generated.py:47: in test_bonus_large_positive_disabled\n    assert bonus(100, enabled=False) == 100\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n=========================== short test summary info ============================\nFAILED test_generated.py::test_bonus_negative_raises_value_error - Failed: DI...\nFAILED test_generated.py::test_bonus_zero_enabled_returns_zero - ValueError: ...\nFAILED test_generated.py::test_bonus_one_enabled_returns_one - ValueError: ne...\nFAILED test_generated.py::test_bonus_two_enabled_returns_three - ValueError: ...\nFAILED test_generated.py::test_bonus_three_enabled_returns_four - ValueError:...\nFAILED test_generated.py::test_bonus_two_disabled_returns_two - ValueError: n...\nFAILED test_generated.py::test_bonus_three_disabled_returns_three - ValueErro...\nFAILED test_generated.py::test_bonus_zero_disabled_returns_zero - ValueError:...\nFAILED test_generated.py::test_bonus_one_disabled_returns_one - ValueError: n...\nFAILED test_generated.py::test_bonus_default_enabled_is_true - ValueError: ne...\nFAILED test_generated.py::test_bonus_negative_zero_raises_value_error - Faile...\nFAILED test_generated.py::test_bonus_negative_large_raises_value_error - Fail...\nFAILED test_generated.py::test_bonus_large_positive_enabled - ValueError: neg...\nFAILED test_generated.py::test_bonus_large_positive_disabled - ValueError: ne...\n14 failed in 1.14s",
+            "duration_ms": 8909,
+            "stdout": "FFFFFFFFFFFFFF\n=================================== FAILURES ===================================\n____________________ test_bonus_negative_raises_value_error ____________________\ntest_generated.py:5: in test_bonus_negative_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n_____________________ test_bonus_zero_enabled_returns_zero _____________________\ntest_generated.py:9: in test_bonus_zero_enabled_returns_zero\n    assert bonus(0, enabled=True) == 0\n           ^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n______________________ test_bonus_one_enabled_returns_one ______________________\ntest_generated.py:12: in test_bonus_one_enabled_returns_one\n    assert bonus(1, enabled=True) == 1\n           ^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_____________________ test_bonus_two_enabled_returns_three _____________________\ntest_generated.py:15: in test_bonus_two_enabled_returns_three\n    assert bonus(2, enabled=True) == 3\n           ^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n____________________ test_bonus_three_enabled_returns_four _____________________\ntest_generated.py:18: in test_bonus_three_enabled_returns_four\n    assert bonus(3, enabled=True) == 4\n           ^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_____________________ test_bonus_two_disabled_returns_two ______________________\ntest_generated.py:21: in test_bonus_two_disabled_returns_two\n    assert bonus(2, enabled=False) == 2\n           ^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n___________________ test_bonus_three_disabled_returns_three ____________________\ntest_generated.py:24: in test_bonus_three_disabled_returns_three\n    assert bonus(3, enabled=False) == 3\n           ^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n____________________ test_bonus_zero_disabled_returns_zero _____________________\ntest_generated.py:27: in test_bonus_zero_disabled_returns_zero\n    assert bonus(0, enabled=False) == 0\n           ^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_____________________ test_bonus_one_disabled_returns_one ______________________\ntest_generated.py:30: in test_bonus_one_disabled_returns_one\n    assert bonus(1, enabled=False) == 1\n           ^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n______________________ test_bonus_default_enabled_is_true ______________________\ntest_generated.py:33: in test_bonus_default_enabled_is_true\n    assert bonus(3) == 4\n           ^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n_________________ test_bonus_negative_zero_raises_value_error __________________\ntest_generated.py:36: in test_bonus_negative_zero_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n_________________ test_bonus_negative_large_raises_value_error _________________\ntest_generated.py:40: in test_bonus_negative_large_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n______________________ test_bonus_large_positive_enabled _______________________\ntest_generated.py:44: in test_bonus_large_positive_enabled\n    assert bonus(100, enabled=True) == 101\n           ^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n______________________ test_bonus_large_positive_disabled ______________________\ntest_generated.py:47: in test_bonus_large_positive_disabled\n    assert bonus(100, enabled=False) == 100\n           ^^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n=========================== short test summary info ============================\nFAILED test_generated.py::test_bonus_negative_raises_value_error - Failed: DI...\nFAILED test_generated.py::test_bonus_zero_enabled_returns_zero - ValueError: ...\nFAILED test_generated.py::test_bonus_one_enabled_returns_one - ValueError: ne...\nFAILED test_generated.py::test_bonus_two_enabled_returns_three - ValueError: ...\nFAILED test_generated.py::test_bonus_three_enabled_returns_four - ValueError:...\nFAILED test_generated.py::test_bonus_two_disabled_returns_two - ValueError: n...\nFAILED test_generated.py::test_bonus_three_disabled_returns_three - ValueErro...\nFAILED test_generated.py::test_bonus_zero_disabled_returns_zero - ValueError:...\nFAILED test_generated.py::test_bonus_one_disabled_returns_one - ValueError: n...\nFAILED test_generated.py::test_bonus_default_enabled_is_true - ValueError: ne...\nFAILED test_generated.py::test_bonus_negative_zero_raises_value_error - Faile...\nFAILED test_generated.py::test_bonus_negative_large_raises_value_error - Fail...\nFAILED test_generated.py::test_bonus_large_positive_enabled - ValueError: neg...\nFAILED test_generated.py::test_bonus_large_positive_disabled - ValueError: ne...\n14 failed in 1.14s\n",
+            "stderr": "",
+            "diagnostic": "",
+            "result_complete": true,
+            "failures": [
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+                "phase": "call",
+                "exception_type": "Failed",
+                "message": "DID NOT RAISE ValueError",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 5,
+                    "function": "test_bonus_negative_raises_value_error",
+                    "source": "with pytest.raises(ValueError):"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 9,
+                    "function": "test_bonus_zero_enabled_returns_zero",
+                    "source": "assert bonus(0, enabled=True) == 0"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 12,
+                    "function": "test_bonus_one_enabled_returns_one",
+                    "source": "assert bonus(1, enabled=True) == 1"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 15,
+                    "function": "test_bonus_two_enabled_returns_three",
+                    "source": "assert bonus(2, enabled=True) == 3"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 18,
+                    "function": "test_bonus_three_enabled_returns_four",
+                    "source": "assert bonus(3, enabled=True) == 4"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 21,
+                    "function": "test_bonus_two_disabled_returns_two",
+                    "source": "assert bonus(2, enabled=False) == 2"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 24,
+                    "function": "test_bonus_three_disabled_returns_three",
+                    "source": "assert bonus(3, enabled=False) == 3"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 27,
+                    "function": "test_bonus_zero_disabled_returns_zero",
+                    "source": "assert bonus(0, enabled=False) == 0"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 30,
+                    "function": "test_bonus_one_disabled_returns_one",
+                    "source": "assert bonus(1, enabled=False) == 1"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 33,
+                    "function": "test_bonus_default_enabled_is_true",
+                    "source": "assert bonus(3) == 4"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_zero_raises_value_error",
+                "phase": "call",
+                "exception_type": "Failed",
+                "message": "DID NOT RAISE ValueError",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 36,
+                    "function": "test_bonus_negative_zero_raises_value_error",
+                    "source": "with pytest.raises(ValueError):"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+                "phase": "call",
+                "exception_type": "Failed",
+                "message": "DID NOT RAISE ValueError",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 40,
+                    "function": "test_bonus_negative_large_raises_value_error",
+                    "source": "with pytest.raises(ValueError):"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 44,
+                    "function": "test_bonus_large_positive_enabled",
+                    "source": "assert bonus(100, enabled=True) == 101"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 47,
+                    "function": "test_bonus_large_positive_disabled",
+                    "source": "assert bonus(100, enabled=False) == 100"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              }
+            ],
+            "failure_details_omitted": 0,
+            "covered_branches": 3,
+            "total_branches": 4,
+            "branch_pct": 75.0,
+            "environment": {
+              "platform": "wasi",
+              "python": "3.15.2",
+              "pytest": "9.2.0",
+              "coverage": "7.17.5"
+            },
+            "source_sha256": "c15882f8c182354a062662980b75b5fe8237b25119d608f5155321bf1c9975e6",
+            "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505"
+          },
+          "nodeids": [
+            "test_generated.py::test_bonus_default_enabled_is_true",
+            "test_generated.py::test_bonus_large_positive_disabled",
+            "test_generated.py::test_bonus_large_positive_enabled",
+            "test_generated.py::test_bonus_negative_large_raises_value_error",
+            "test_generated.py::test_bonus_negative_raises_value_error",
+            "test_generated.py::test_bonus_negative_zero_raises_value_error",
+            "test_generated.py::test_bonus_one_disabled_returns_one",
+            "test_generated.py::test_bonus_one_enabled_returns_one",
+            "test_generated.py::test_bonus_three_disabled_returns_three",
+            "test_generated.py::test_bonus_three_enabled_returns_four",
+            "test_generated.py::test_bonus_two_disabled_returns_two",
+            "test_generated.py::test_bonus_two_enabled_returns_three",
+            "test_generated.py::test_bonus_zero_disabled_returns_zero",
+            "test_generated.py::test_bonus_zero_enabled_returns_zero"
+          ]
+        }
+      },
+      {
+        "id": "885a2648-eedc-4334-b885-b08bafc6e18b",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "edf2e78e-d1b2-56b8-8cd9-3b007401ffab",
+        "created_at": "2026-11-27T09:24:44.258369+00:00",
+        "status": "execution_error",
+        "reason": "失败没有完整的测试断言证据",
+        "payload": {
+          "execution": {
+            "status": "failed",
+            "passed": 12,
+            "failed": 2,
+            "errors": 0,
+            "skipped": 0,
+            "cases": [
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_zero_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "outcome": "passed"
+              }
+            ],
+            "exit_code": 1,
+            "covered_lines": 6,
+            "total_lines": 6,
+            "coverage_pct": 100.0,
+            "log": ".F.....F......\n=================================== FAILURES ===================================\n_____________________ test_bonus_zero_enabled_returns_zero _____________________\ntest_generated.py:9: in test_bonus_zero_enabled_returns_zero\n    assert bonus(0, enabled=True) == 0\n           ^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n____________________ test_bonus_zero_disabled_returns_zero _____________________\ntest_generated.py:27: in test_bonus_zero_disabled_returns_zero\n    assert bonus(0, enabled=False) == 0\n           ^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_two_enabled_returns_three\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_enabled\nPASSED test_generated.py::test_bonus_large_positive_disabled\nFAILED test_generated.py::test_bonus_zero_enabled_returns_zero - ValueError: ...\nFAILED test_generated.py::test_bonus_zero_disabled_returns_zero - ValueError:...\n2 failed, 12 passed in 0.58s",
+            "duration_ms": 8304,
+            "stdout": ".F.....F......\n=================================== FAILURES ===================================\n_____________________ test_bonus_zero_enabled_returns_zero _____________________\ntest_generated.py:9: in test_bonus_zero_enabled_returns_zero\n    assert bonus(0, enabled=True) == 0\n           ^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n____________________ test_bonus_zero_disabled_returns_zero _____________________\ntest_generated.py:27: in test_bonus_zero_disabled_returns_zero\n    assert bonus(0, enabled=False) == 0\n           ^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_two_enabled_returns_three\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_enabled\nPASSED test_generated.py::test_bonus_large_positive_disabled\nFAILED test_generated.py::test_bonus_zero_enabled_returns_zero - ValueError: ...\nFAILED test_generated.py::test_bonus_zero_disabled_returns_zero - ValueError:...\n2 failed, 12 passed in 0.58s\n",
+            "stderr": "",
+            "diagnostic": "",
+            "result_complete": true,
+            "failures": [
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 9,
+                    "function": "test_bonus_zero_enabled_returns_zero",
+                    "source": "assert bonus(0, enabled=True) == 0"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "phase": "call",
+                "exception_type": "ValueError",
+                "message": "negative",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 27,
+                    "function": "test_bonus_zero_disabled_returns_zero",
+                    "source": "assert bonus(0, enabled=False) == 0"
+                  },
+                  {
+                    "path": "subject.py",
+                    "line": 9,
+                    "function": "bonus",
+                    "source": "raise ValueError(\"negative\")"
+                  }
+                ],
+                "assertion_diff": null
+              }
+            ],
+            "failure_details_omitted": 0,
+            "covered_branches": 4,
+            "total_branches": 4,
+            "branch_pct": 100.0,
+            "environment": {
+              "platform": "wasi",
+              "python": "3.15.2",
+              "pytest": "9.2.0",
+              "coverage": "7.17.5"
+            },
+            "source_sha256": "d03579d85a2f71cb2e947fa714f4597bc80297773b4b98477585077937b4a77a",
+            "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505"
+          },
+          "nodeids": [
+            "test_generated.py::test_bonus_zero_disabled_returns_zero",
+            "test_generated.py::test_bonus_zero_enabled_returns_zero"
+          ]
+        }
+      },
+      {
+        "id": "2c73d9e7-8174-458a-93fa-b970e04d531c",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+        "created_at": "2026-11-27T09:24:52.374386+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言",
+        "payload": {
+          "execution": {
+            "status": "failed",
+            "passed": 11,
+            "failed": 3,
+            "errors": 0,
+            "skipped": 0,
+            "cases": [
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_zero_raises_value_error",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "outcome": "passed"
+              }
+            ],
+            "exit_code": 1,
+            "covered_lines": 6,
+            "total_lines": 6,
+            "coverage_pct": 100.0,
+            "log": "F.........FF..\n=================================== FAILURES ===================================\n____________________ test_bonus_negative_raises_value_error ____________________\ntest_generated.py:5: in test_bonus_negative_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n_________________ test_bonus_negative_zero_raises_value_error __________________\ntest_generated.py:36: in test_bonus_negative_zero_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n_________________ test_bonus_negative_large_raises_value_error _________________\ntest_generated.py:40: in test_bonus_negative_large_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_zero_enabled_returns_zero\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_two_enabled_returns_three\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_large_positive_enabled\nPASSED test_generated.py::test_bonus_large_positive_disabled\nFAILED test_generated.py::test_bonus_negative_raises_value_error - Failed: DI...\nFAILED test_generated.py::test_bonus_negative_zero_raises_value_error - Faile...\nFAILED test_generated.py::test_bonus_negative_large_raises_value_error - Fail...\n3 failed, 11 passed in 0.51s",
+            "duration_ms": 8096,
+            "stdout": "F.........FF..\n=================================== FAILURES ===================================\n____________________ test_bonus_negative_raises_value_error ____________________\ntest_generated.py:5: in test_bonus_negative_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n_________________ test_bonus_negative_zero_raises_value_error __________________\ntest_generated.py:36: in test_bonus_negative_zero_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n_________________ test_bonus_negative_large_raises_value_error _________________\ntest_generated.py:40: in test_bonus_negative_large_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_zero_enabled_returns_zero\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_two_enabled_returns_three\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_large_positive_enabled\nPASSED test_generated.py::test_bonus_large_positive_disabled\nFAILED test_generated.py::test_bonus_negative_raises_value_error - Failed: DI...\nFAILED test_generated.py::test_bonus_negative_zero_raises_value_error - Faile...\nFAILED test_generated.py::test_bonus_negative_large_raises_value_error - Fail...\n3 failed, 11 passed in 0.51s\n",
+            "stderr": "",
+            "diagnostic": "",
+            "result_complete": true,
+            "failures": [
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+                "phase": "call",
+                "exception_type": "Failed",
+                "message": "DID NOT RAISE ValueError",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 5,
+                    "function": "test_bonus_negative_raises_value_error",
+                    "source": "with pytest.raises(ValueError):"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_zero_raises_value_error",
+                "phase": "call",
+                "exception_type": "Failed",
+                "message": "DID NOT RAISE ValueError",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 36,
+                    "function": "test_bonus_negative_zero_raises_value_error",
+                    "source": "with pytest.raises(ValueError):"
+                  }
+                ],
+                "assertion_diff": null
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+                "phase": "call",
+                "exception_type": "Failed",
+                "message": "DID NOT RAISE ValueError",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 40,
+                    "function": "test_bonus_negative_large_raises_value_error",
+                    "source": "with pytest.raises(ValueError):"
+                  }
+                ],
+                "assertion_diff": null
+              }
+            ],
+            "failure_details_omitted": 0,
+            "covered_branches": 4,
+            "total_branches": 4,
+            "branch_pct": 100.0,
+            "environment": {
+              "platform": "wasi",
+              "python": "3.15.2",
+              "pytest": "9.2.0",
+              "coverage": "7.17.5"
+            },
+            "source_sha256": "04c0e2301f3901f176fa4538422aad7fe5b64ec009a81790a9e105946c9ddb39",
+            "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505"
+          },
+          "nodeids": [
+            "test_generated.py::test_bonus_negative_large_raises_value_error",
+            "test_generated.py::test_bonus_negative_raises_value_error",
+            "test_generated.py::test_bonus_negative_zero_raises_value_error"
+          ]
+        }
+      },
+      {
+        "id": "7ddee68f-b757-4979-a205-e3430e3ec264",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "f8daf5dd-2eaa-52d6-bf62-cce4fa89dd2e",
+        "created_at": "2026-11-27T09:25:00.741839+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言",
+        "payload": {
+          "execution": {
+            "status": "failed",
+            "passed": 3,
+            "failed": 11,
+            "errors": 0,
+            "skipped": 0,
+            "cases": [
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_zero_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "outcome": "failed"
+              }
+            ],
+            "exit_code": 1,
+            "covered_lines": 6,
+            "total_lines": 6,
+            "coverage_pct": 100.0,
+            "log": ".FFFFFFFFF..FF\n=================================== FAILURES ===================================\n_____________________ test_bonus_zero_enabled_returns_zero _____________________\ntest_generated.py:9: in test_bonus_zero_enabled_returns_zero\n    assert bonus(0, enabled=True) == 0\nE   assert 1 == 0\nE    +  where 1 = bonus(0, enabled=True)\n______________________ test_bonus_one_enabled_returns_one ______________________\ntest_generated.py:12: in test_bonus_one_enabled_returns_one\n    assert bonus(1, enabled=True) == 1\nE   assert 2 == 1\nE    +  where 2 = bonus(1, enabled=True)\n_____________________ test_bonus_two_enabled_returns_three _____________________\ntest_generated.py:15: in test_bonus_two_enabled_returns_three\n    assert bonus(2, enabled=True) == 3\nE   assert 2 == 3\nE    +  where 2 = bonus(2, enabled=True)\n____________________ test_bonus_three_enabled_returns_four _____________________\ntest_generated.py:18: in test_bonus_three_enabled_returns_four\n    assert bonus(3, enabled=True) == 4\nE   assert 3 == 4\nE    +  where 3 = bonus(3, enabled=True)\n_____________________ test_bonus_two_disabled_returns_two ______________________\ntest_generated.py:21: in test_bonus_two_disabled_returns_two\n    assert bonus(2, enabled=False) == 2\nE   assert 3 == 2\nE    +  where 3 = bonus(2, enabled=False)\n___________________ test_bonus_three_disabled_returns_three ____________________\ntest_generated.py:24: in test_bonus_three_disabled_returns_three\n    assert bonus(3, enabled=False) == 3\nE   assert 4 == 3\nE    +  where 4 = bonus(3, enabled=False)\n____________________ test_bonus_zero_disabled_returns_zero _____________________\ntest_generated.py:27: in test_bonus_zero_disabled_returns_zero\n    assert bonus(0, enabled=False) == 0\nE   assert 1 == 0\nE    +  where 1 = bonus(0, enabled=False)\n_____________________ test_bonus_one_disabled_returns_one ______________________\ntest_generated.py:30: in test_bonus_one_disabled_returns_one\n    assert bonus(1, enabled=False) == 1\nE   assert 2 == 1\nE    +  where 2 = bonus(1, enabled=False)\n______________________ test_bonus_default_enabled_is_true ______________________\ntest_generated.py:33: in test_bonus_default_enabled_is_true\n    assert bonus(3) == 4\nE   assert 3 == 4\nE    +  where 3 = bonus(3)\n______________________ test_bonus_large_positive_enabled _______________________\ntest_generated.py:44: in test_bonus_large_positive_enabled\n    assert bonus(100, enabled=True) == 101\nE   assert 100 == 101\nE    +  where 100 = bonus(100, enabled=True)\n______________________ test_bonus_large_positive_disabled ______________________\ntest_generated.py:47: in test_bonus_large_positive_disabled\n    assert bonus(100, enabled=False) == 100\nE   assert 101 == 100\nE    +  where 101 = bonus(100, enabled=False)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nFAILED test_generated.py::test_bonus_zero_enabled_returns_zero - assert 1 == 0\nFAILED test_generated.py::test_bonus_one_enabled_returns_one - assert 2 == 1\nFAILED test_generated.py::test_bonus_two_enabled_returns_three - assert 2 == 3\nFAILED test_generated.py::test_bonus_three_enabled_returns_four - assert 3 == 4\nFAILED test_generated.py::test_bonus_two_disabled_returns_two - assert 3 == 2\nFAILED test_generated.py::test_bonus_three_disabled_returns_three - assert 4 ...\nFAILED test_generated.py::test_bonus_zero_disabled_returns_zero - assert 1 == 0\nFAILED test_generated.py::test_bonus_one_disabled_returns_one - assert 2 == 1\nFAILED test_generated.py::test_bonus_default_enabled_is_true - assert 3 == 4\nFAILED test_generated.py::test_bonus_large_positive_enabled - assert 100 == 101\nFAILED test_generated.py::test_bonus_large_positive_disabled - assert 101 == 100\n11 failed, 3 passed in 1.00s",
+            "duration_ms": 8352,
+            "stdout": ".FFFFFFFFF..FF\n=================================== FAILURES ===================================\n_____________________ test_bonus_zero_enabled_returns_zero _____________________\ntest_generated.py:9: in test_bonus_zero_enabled_returns_zero\n    assert bonus(0, enabled=True) == 0\nE   assert 1 == 0\nE    +  where 1 = bonus(0, enabled=True)\n______________________ test_bonus_one_enabled_returns_one ______________________\ntest_generated.py:12: in test_bonus_one_enabled_returns_one\n    assert bonus(1, enabled=True) == 1\nE   assert 2 == 1\nE    +  where 2 = bonus(1, enabled=True)\n_____________________ test_bonus_two_enabled_returns_three _____________________\ntest_generated.py:15: in test_bonus_two_enabled_returns_three\n    assert bonus(2, enabled=True) == 3\nE   assert 2 == 3\nE    +  where 2 = bonus(2, enabled=True)\n____________________ test_bonus_three_enabled_returns_four _____________________\ntest_generated.py:18: in test_bonus_three_enabled_returns_four\n    assert bonus(3, enabled=True) == 4\nE   assert 3 == 4\nE    +  where 3 = bonus(3, enabled=True)\n_____________________ test_bonus_two_disabled_returns_two ______________________\ntest_generated.py:21: in test_bonus_two_disabled_returns_two\n    assert bonus(2, enabled=False) == 2\nE   assert 3 == 2\nE    +  where 3 = bonus(2, enabled=False)\n___________________ test_bonus_three_disabled_returns_three ____________________\ntest_generated.py:24: in test_bonus_three_disabled_returns_three\n    assert bonus(3, enabled=False) == 3\nE   assert 4 == 3\nE    +  where 4 = bonus(3, enabled=False)\n____________________ test_bonus_zero_disabled_returns_zero _____________________\ntest_generated.py:27: in test_bonus_zero_disabled_returns_zero\n    assert bonus(0, enabled=False) == 0\nE   assert 1 == 0\nE    +  where 1 = bonus(0, enabled=False)\n_____________________ test_bonus_one_disabled_returns_one ______________________\ntest_generated.py:30: in test_bonus_one_disabled_returns_one\n    assert bonus(1, enabled=False) == 1\nE   assert 2 == 1\nE    +  where 2 = bonus(1, enabled=False)\n______________________ test_bonus_default_enabled_is_true ______________________\ntest_generated.py:33: in test_bonus_default_enabled_is_true\n    assert bonus(3) == 4\nE   assert 3 == 4\nE    +  where 3 = bonus(3)\n______________________ test_bonus_large_positive_enabled _______________________\ntest_generated.py:44: in test_bonus_large_positive_enabled\n    assert bonus(100, enabled=True) == 101\nE   assert 100 == 101\nE    +  where 100 = bonus(100, enabled=True)\n______________________ test_bonus_large_positive_disabled ______________________\ntest_generated.py:47: in test_bonus_large_positive_disabled\n    assert bonus(100, enabled=False) == 100\nE   assert 101 == 100\nE    +  where 101 = bonus(100, enabled=False)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nFAILED test_generated.py::test_bonus_zero_enabled_returns_zero - assert 1 == 0\nFAILED test_generated.py::test_bonus_one_enabled_returns_one - assert 2 == 1\nFAILED test_generated.py::test_bonus_two_enabled_returns_three - assert 2 == 3\nFAILED test_generated.py::test_bonus_three_enabled_returns_four - assert 3 == 4\nFAILED test_generated.py::test_bonus_two_disabled_returns_two - assert 3 == 2\nFAILED test_generated.py::test_bonus_three_disabled_returns_three - assert 4 ...\nFAILED test_generated.py::test_bonus_zero_disabled_returns_zero - assert 1 == 0\nFAILED test_generated.py::test_bonus_one_disabled_returns_one - assert 2 == 1\nFAILED test_generated.py::test_bonus_default_enabled_is_true - assert 3 == 4\nFAILED test_generated.py::test_bonus_large_positive_enabled - assert 100 == 101\nFAILED test_generated.py::test_bonus_large_positive_disabled - assert 101 == 100\n11 failed, 3 passed in 1.00s\n",
+            "stderr": "",
+            "diagnostic": "",
+            "result_complete": true,
+            "failures": [
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 1 == 0\n +  where 1 = bonus(0, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 9,
+                    "function": "test_bonus_zero_enabled_returns_zero",
+                    "source": "assert bonus(0, enabled=True) == 0"
+                  }
+                ],
+                "assertion_diff": "assert 1 == 0\n +  where 1 = bonus(0, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 2 == 1\n +  where 2 = bonus(1, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 12,
+                    "function": "test_bonus_one_enabled_returns_one",
+                    "source": "assert bonus(1, enabled=True) == 1"
+                  }
+                ],
+                "assertion_diff": "assert 2 == 1\n +  where 2 = bonus(1, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 2 == 3\n +  where 2 = bonus(2, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 15,
+                    "function": "test_bonus_two_enabled_returns_three",
+                    "source": "assert bonus(2, enabled=True) == 3"
+                  }
+                ],
+                "assertion_diff": "assert 2 == 3\n +  where 2 = bonus(2, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 3 == 4\n +  where 3 = bonus(3, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 18,
+                    "function": "test_bonus_three_enabled_returns_four",
+                    "source": "assert bonus(3, enabled=True) == 4"
+                  }
+                ],
+                "assertion_diff": "assert 3 == 4\n +  where 3 = bonus(3, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 3 == 2\n +  where 3 = bonus(2, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 21,
+                    "function": "test_bonus_two_disabled_returns_two",
+                    "source": "assert bonus(2, enabled=False) == 2"
+                  }
+                ],
+                "assertion_diff": "assert 3 == 2\n +  where 3 = bonus(2, enabled=False)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 4 == 3\n +  where 4 = bonus(3, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 24,
+                    "function": "test_bonus_three_disabled_returns_three",
+                    "source": "assert bonus(3, enabled=False) == 3"
+                  }
+                ],
+                "assertion_diff": "assert 4 == 3\n +  where 4 = bonus(3, enabled=False)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 1 == 0\n +  where 1 = bonus(0, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 27,
+                    "function": "test_bonus_zero_disabled_returns_zero",
+                    "source": "assert bonus(0, enabled=False) == 0"
+                  }
+                ],
+                "assertion_diff": "assert 1 == 0\n +  where 1 = bonus(0, enabled=False)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 2 == 1\n +  where 2 = bonus(1, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 30,
+                    "function": "test_bonus_one_disabled_returns_one",
+                    "source": "assert bonus(1, enabled=False) == 1"
+                  }
+                ],
+                "assertion_diff": "assert 2 == 1\n +  where 2 = bonus(1, enabled=False)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 3 == 4\n +  where 3 = bonus(3)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 33,
+                    "function": "test_bonus_default_enabled_is_true",
+                    "source": "assert bonus(3) == 4"
+                  }
+                ],
+                "assertion_diff": "assert 3 == 4\n +  where 3 = bonus(3)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 100 == 101\n +  where 100 = bonus(100, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 44,
+                    "function": "test_bonus_large_positive_enabled",
+                    "source": "assert bonus(100, enabled=True) == 101"
+                  }
+                ],
+                "assertion_diff": "assert 100 == 101\n +  where 100 = bonus(100, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 101 == 100\n +  where 101 = bonus(100, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 47,
+                    "function": "test_bonus_large_positive_disabled",
+                    "source": "assert bonus(100, enabled=False) == 100"
+                  }
+                ],
+                "assertion_diff": "assert 101 == 100\n +  where 101 = bonus(100, enabled=False)"
+              }
+            ],
+            "failure_details_omitted": 0,
+            "covered_branches": 4,
+            "total_branches": 4,
+            "branch_pct": 100.0,
+            "environment": {
+              "platform": "wasi",
+              "python": "3.15.2",
+              "pytest": "9.2.0",
+              "coverage": "7.17.5"
+            },
+            "source_sha256": "c6776223edd28f42d3831c65b22763e2e9d4080f888d8037799990f7de1a9564",
+            "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505"
+          },
+          "nodeids": [
+            "test_generated.py::test_bonus_default_enabled_is_true",
+            "test_generated.py::test_bonus_large_positive_disabled",
+            "test_generated.py::test_bonus_large_positive_enabled",
+            "test_generated.py::test_bonus_one_disabled_returns_one",
+            "test_generated.py::test_bonus_one_enabled_returns_one",
+            "test_generated.py::test_bonus_three_disabled_returns_three",
+            "test_generated.py::test_bonus_three_enabled_returns_four",
+            "test_generated.py::test_bonus_two_disabled_returns_two",
+            "test_generated.py::test_bonus_two_enabled_returns_three",
+            "test_generated.py::test_bonus_zero_disabled_returns_zero",
+            "test_generated.py::test_bonus_zero_enabled_returns_zero"
+          ]
+        }
+      },
+      {
+        "id": "0c1602da-cc01-4c27-a29b-7c6490992e41",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+        "created_at": "2026-11-27T09:25:09.227556+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言",
+        "payload": {
+          "execution": {
+            "status": "failed",
+            "passed": 9,
+            "failed": 5,
+            "errors": 0,
+            "skipped": 0,
+            "cases": [
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_zero_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "outcome": "failed"
+              }
+            ],
+            "exit_code": 1,
+            "covered_lines": 6,
+            "total_lines": 6,
+            "coverage_pct": 100.0,
+            "log": ".FF..FF......F\n=================================== FAILURES ===================================\n_____________________ test_bonus_zero_enabled_returns_zero _____________________\ntest_generated.py:9: in test_bonus_zero_enabled_returns_zero\n    assert bonus(0, enabled=True) == 0\nE   assert 1 == 0\nE    +  where 1 = bonus(0, enabled=True)\n______________________ test_bonus_one_enabled_returns_one ______________________\ntest_generated.py:12: in test_bonus_one_enabled_returns_one\n    assert bonus(1, enabled=True) == 1\nE   assert 2 == 1\nE    +  where 2 = bonus(1, enabled=True)\n_____________________ test_bonus_two_disabled_returns_two ______________________\ntest_generated.py:21: in test_bonus_two_disabled_returns_two\n    assert bonus(2, enabled=False) == 2\nE   assert 3 == 2\nE    +  where 3 = bonus(2, enabled=False)\n___________________ test_bonus_three_disabled_returns_three ____________________\ntest_generated.py:24: in test_bonus_three_disabled_returns_three\n    assert bonus(3, enabled=False) == 3\nE   assert 4 == 3\nE    +  where 4 = bonus(3, enabled=False)\n______________________ test_bonus_large_positive_disabled ______________________\ntest_generated.py:47: in test_bonus_large_positive_disabled\n    assert bonus(100, enabled=False) == 100\nE   assert 101 == 100\nE    +  where 101 = bonus(100, enabled=False)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_two_enabled_returns_three\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_enabled\nFAILED test_generated.py::test_bonus_zero_enabled_returns_zero - assert 1 == 0\nFAILED test_generated.py::test_bonus_one_enabled_returns_one - assert 2 == 1\nFAILED test_generated.py::test_bonus_two_disabled_returns_two - assert 3 == 2\nFAILED test_generated.py::test_bonus_three_disabled_returns_three - assert 4 ...\nFAILED test_generated.py::test_bonus_large_positive_disabled - assert 101 == 100\n5 failed, 9 passed in 0.70s",
+            "duration_ms": 8470,
+            "stdout": ".FF..FF......F\n=================================== FAILURES ===================================\n_____________________ test_bonus_zero_enabled_returns_zero _____________________\ntest_generated.py:9: in test_bonus_zero_enabled_returns_zero\n    assert bonus(0, enabled=True) == 0\nE   assert 1 == 0\nE    +  where 1 = bonus(0, enabled=True)\n______________________ test_bonus_one_enabled_returns_one ______________________\ntest_generated.py:12: in test_bonus_one_enabled_returns_one\n    assert bonus(1, enabled=True) == 1\nE   assert 2 == 1\nE    +  where 2 = bonus(1, enabled=True)\n_____________________ test_bonus_two_disabled_returns_two ______________________\ntest_generated.py:21: in test_bonus_two_disabled_returns_two\n    assert bonus(2, enabled=False) == 2\nE   assert 3 == 2\nE    +  where 3 = bonus(2, enabled=False)\n___________________ test_bonus_three_disabled_returns_three ____________________\ntest_generated.py:24: in test_bonus_three_disabled_returns_three\n    assert bonus(3, enabled=False) == 3\nE   assert 4 == 3\nE    +  where 4 = bonus(3, enabled=False)\n______________________ test_bonus_large_positive_disabled ______________________\ntest_generated.py:47: in test_bonus_large_positive_disabled\n    assert bonus(100, enabled=False) == 100\nE   assert 101 == 100\nE    +  where 101 = bonus(100, enabled=False)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_two_enabled_returns_three\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_enabled\nFAILED test_generated.py::test_bonus_zero_enabled_returns_zero - assert 1 == 0\nFAILED test_generated.py::test_bonus_one_enabled_returns_one - assert 2 == 1\nFAILED test_generated.py::test_bonus_two_disabled_returns_two - assert 3 == 2\nFAILED test_generated.py::test_bonus_three_disabled_returns_three - assert 4 ...\nFAILED test_generated.py::test_bonus_large_positive_disabled - assert 101 == 100\n5 failed, 9 passed in 0.70s\n",
+            "stderr": "",
+            "diagnostic": "",
+            "result_complete": true,
+            "failures": [
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 1 == 0\n +  where 1 = bonus(0, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 9,
+                    "function": "test_bonus_zero_enabled_returns_zero",
+                    "source": "assert bonus(0, enabled=True) == 0"
+                  }
+                ],
+                "assertion_diff": "assert 1 == 0\n +  where 1 = bonus(0, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 2 == 1\n +  where 2 = bonus(1, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 12,
+                    "function": "test_bonus_one_enabled_returns_one",
+                    "source": "assert bonus(1, enabled=True) == 1"
+                  }
+                ],
+                "assertion_diff": "assert 2 == 1\n +  where 2 = bonus(1, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 3 == 2\n +  where 3 = bonus(2, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 21,
+                    "function": "test_bonus_two_disabled_returns_two",
+                    "source": "assert bonus(2, enabled=False) == 2"
+                  }
+                ],
+                "assertion_diff": "assert 3 == 2\n +  where 3 = bonus(2, enabled=False)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 4 == 3\n +  where 4 = bonus(3, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 24,
+                    "function": "test_bonus_three_disabled_returns_three",
+                    "source": "assert bonus(3, enabled=False) == 3"
+                  }
+                ],
+                "assertion_diff": "assert 4 == 3\n +  where 4 = bonus(3, enabled=False)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 101 == 100\n +  where 101 = bonus(100, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 47,
+                    "function": "test_bonus_large_positive_disabled",
+                    "source": "assert bonus(100, enabled=False) == 100"
+                  }
+                ],
+                "assertion_diff": "assert 101 == 100\n +  where 101 = bonus(100, enabled=False)"
+              }
+            ],
+            "failure_details_omitted": 0,
+            "covered_branches": 4,
+            "total_branches": 4,
+            "branch_pct": 100.0,
+            "environment": {
+              "platform": "wasi",
+              "python": "3.15.2",
+              "pytest": "9.2.0",
+              "coverage": "7.17.5"
+            },
+            "source_sha256": "fb03355a336b63592194fabb17842f19b66b429bd336a1311174b73de5f55878",
+            "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505"
+          },
+          "nodeids": [
+            "test_generated.py::test_bonus_large_positive_disabled",
+            "test_generated.py::test_bonus_one_enabled_returns_one",
+            "test_generated.py::test_bonus_three_disabled_returns_three",
+            "test_generated.py::test_bonus_two_disabled_returns_two",
+            "test_generated.py::test_bonus_zero_enabled_returns_zero"
+          ]
+        }
+      },
+      {
+        "id": "c877392f-210b-42d3-9fa0-f5f5479e4808",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+        "created_at": "2026-11-27T09:25:18.025086+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言",
+        "payload": {
+          "execution": {
+            "status": "failed",
+            "passed": 13,
+            "failed": 1,
+            "errors": 0,
+            "skipped": 0,
+            "cases": [
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_zero_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "outcome": "passed"
+              }
+            ],
+            "exit_code": 1,
+            "covered_lines": 6,
+            "total_lines": 6,
+            "coverage_pct": 100.0,
+            "log": "...F..........\n=================================== FAILURES ===================================\n_____________________ test_bonus_two_enabled_returns_three _____________________\ntest_generated.py:15: in test_bonus_two_enabled_returns_three\n    assert bonus(2, enabled=True) == 3\nE   assert 2 == 3\nE    +  where 2 = bonus(2, enabled=True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_zero_enabled_returns_zero\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_enabled\nPASSED test_generated.py::test_bonus_large_positive_disabled\nFAILED test_generated.py::test_bonus_two_enabled_returns_three - assert 2 == 3\n1 failed, 13 passed in 0.58s",
+            "duration_ms": 8784,
+            "stdout": "...F..........\n=================================== FAILURES ===================================\n_____________________ test_bonus_two_enabled_returns_three _____________________\ntest_generated.py:15: in test_bonus_two_enabled_returns_three\n    assert bonus(2, enabled=True) == 3\nE   assert 2 == 3\nE    +  where 2 = bonus(2, enabled=True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_zero_enabled_returns_zero\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_enabled\nPASSED test_generated.py::test_bonus_large_positive_disabled\nFAILED test_generated.py::test_bonus_two_enabled_returns_three - assert 2 == 3\n1 failed, 13 passed in 0.58s\n",
+            "stderr": "",
+            "diagnostic": "",
+            "result_complete": true,
+            "failures": [
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 2 == 3\n +  where 2 = bonus(2, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 15,
+                    "function": "test_bonus_two_enabled_returns_three",
+                    "source": "assert bonus(2, enabled=True) == 3"
+                  }
+                ],
+                "assertion_diff": "assert 2 == 3\n +  where 2 = bonus(2, enabled=True)"
+              }
+            ],
+            "failure_details_omitted": 0,
+            "covered_branches": 4,
+            "total_branches": 4,
+            "branch_pct": 100.0,
+            "environment": {
+              "platform": "wasi",
+              "python": "3.15.2",
+              "pytest": "9.2.0",
+              "coverage": "7.17.5"
+            },
+            "source_sha256": "ba36e530baeb394fadf040a2957a25d9d02d246026ee53a9bc121bb749f396b1",
+            "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505"
+          },
+          "nodeids": [
+            "test_generated.py::test_bonus_two_enabled_returns_three"
+          ]
+        }
+      },
+      {
+        "id": "91f55bd9-dc5b-4a94-9e5c-830ca42d4117",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "0eabf785-01da-5cf7-bfdc-d0fae838ff39",
+        "created_at": "2026-11-27T09:25:26.633252+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言",
+        "payload": {
+          "execution": {
+            "status": "failed",
+            "passed": 10,
+            "failed": 4,
+            "errors": 0,
+            "skipped": 0,
+            "cases": [
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_zero_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "outcome": "passed"
+              }
+            ],
+            "exit_code": 1,
+            "covered_lines": 6,
+            "total_lines": 6,
+            "coverage_pct": 100.0,
+            "log": "...FF....F..F.\n=================================== FAILURES ===================================\n_____________________ test_bonus_two_enabled_returns_three _____________________\ntest_generated.py:15: in test_bonus_two_enabled_returns_three\n    assert bonus(2, enabled=True) == 3\nE   assert None == 3\nE    +  where None = bonus(2, enabled=True)\n____________________ test_bonus_three_enabled_returns_four _____________________\ntest_generated.py:18: in test_bonus_three_enabled_returns_four\n    assert bonus(3, enabled=True) == 4\nE   assert None == 4\nE    +  where None = bonus(3, enabled=True)\n______________________ test_bonus_default_enabled_is_true ______________________\ntest_generated.py:33: in test_bonus_default_enabled_is_true\n    assert bonus(3) == 4\nE   assert None == 4\nE    +  where None = bonus(3)\n______________________ test_bonus_large_positive_enabled _______________________\ntest_generated.py:44: in test_bonus_large_positive_enabled\n    assert bonus(100, enabled=True) == 101\nE   assert None == 101\nE    +  where None = bonus(100, enabled=True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_zero_enabled_returns_zero\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_disabled\nFAILED test_generated.py::test_bonus_two_enabled_returns_three - assert None ...\nFAILED test_generated.py::test_bonus_three_enabled_returns_four - assert None...\nFAILED test_generated.py::test_bonus_default_enabled_is_true - assert None == 4\nFAILED test_generated.py::test_bonus_large_positive_enabled - assert None == 101\n4 failed, 10 passed in 0.70s",
+            "duration_ms": 8583,
+            "stdout": "...FF....F..F.\n=================================== FAILURES ===================================\n_____________________ test_bonus_two_enabled_returns_three _____________________\ntest_generated.py:15: in test_bonus_two_enabled_returns_three\n    assert bonus(2, enabled=True) == 3\nE   assert None == 3\nE    +  where None = bonus(2, enabled=True)\n____________________ test_bonus_three_enabled_returns_four _____________________\ntest_generated.py:18: in test_bonus_three_enabled_returns_four\n    assert bonus(3, enabled=True) == 4\nE   assert None == 4\nE    +  where None = bonus(3, enabled=True)\n______________________ test_bonus_default_enabled_is_true ______________________\ntest_generated.py:33: in test_bonus_default_enabled_is_true\n    assert bonus(3) == 4\nE   assert None == 4\nE    +  where None = bonus(3)\n______________________ test_bonus_large_positive_enabled _______________________\ntest_generated.py:44: in test_bonus_large_positive_enabled\n    assert bonus(100, enabled=True) == 101\nE   assert None == 101\nE    +  where None = bonus(100, enabled=True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_zero_enabled_returns_zero\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_disabled\nFAILED test_generated.py::test_bonus_two_enabled_returns_three - assert None ...\nFAILED test_generated.py::test_bonus_three_enabled_returns_four - assert None...\nFAILED test_generated.py::test_bonus_default_enabled_is_true - assert None == 4\nFAILED test_generated.py::test_bonus_large_positive_enabled - assert None == 101\n4 failed, 10 passed in 0.70s\n",
+            "stderr": "",
+            "diagnostic": "",
+            "result_complete": true,
+            "failures": [
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert None == 3\n +  where None = bonus(2, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 15,
+                    "function": "test_bonus_two_enabled_returns_three",
+                    "source": "assert bonus(2, enabled=True) == 3"
+                  }
+                ],
+                "assertion_diff": "assert None == 3\n +  where None = bonus(2, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert None == 4\n +  where None = bonus(3, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 18,
+                    "function": "test_bonus_three_enabled_returns_four",
+                    "source": "assert bonus(3, enabled=True) == 4"
+                  }
+                ],
+                "assertion_diff": "assert None == 4\n +  where None = bonus(3, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert None == 4\n +  where None = bonus(3)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 33,
+                    "function": "test_bonus_default_enabled_is_true",
+                    "source": "assert bonus(3) == 4"
+                  }
+                ],
+                "assertion_diff": "assert None == 4\n +  where None = bonus(3)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert None == 101\n +  where None = bonus(100, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 44,
+                    "function": "test_bonus_large_positive_enabled",
+                    "source": "assert bonus(100, enabled=True) == 101"
+                  }
+                ],
+                "assertion_diff": "assert None == 101\n +  where None = bonus(100, enabled=True)"
+              }
+            ],
+            "failure_details_omitted": 0,
+            "covered_branches": 4,
+            "total_branches": 4,
+            "branch_pct": 100.0,
+            "environment": {
+              "platform": "wasi",
+              "python": "3.15.2",
+              "pytest": "9.2.0",
+              "coverage": "7.17.5"
+            },
+            "source_sha256": "185166b3a19937884a42ad122a0b48f351eb13f04fb4ae3af7aad3c89c09fdfe",
+            "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505"
+          },
+          "nodeids": [
+            "test_generated.py::test_bonus_default_enabled_is_true",
+            "test_generated.py::test_bonus_large_positive_enabled",
+            "test_generated.py::test_bonus_three_enabled_returns_four",
+            "test_generated.py::test_bonus_two_enabled_returns_three"
+          ]
+        }
+      },
+      {
+        "id": "215cdc0a-977f-4086-97de-5ac9f85455e0",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "bf1a369a-cd32-5a26-afa2-1c012d7269f8",
+        "created_at": "2026-11-27T09:25:34.889697+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言",
+        "payload": {
+          "execution": {
+            "status": "failed",
+            "passed": 10,
+            "failed": 4,
+            "errors": 0,
+            "skipped": 0,
+            "cases": [
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_zero_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "outcome": "passed"
+              }
+            ],
+            "exit_code": 1,
+            "covered_lines": 6,
+            "total_lines": 6,
+            "coverage_pct": 100.0,
+            "log": "...FF....F..F.\n=================================== FAILURES ===================================\n_____________________ test_bonus_two_enabled_returns_three _____________________\ntest_generated.py:15: in test_bonus_two_enabled_returns_three\n    assert bonus(2, enabled=True) == 3\nE   assert 1 == 3\nE    +  where 1 = bonus(2, enabled=True)\n____________________ test_bonus_three_enabled_returns_four _____________________\ntest_generated.py:18: in test_bonus_three_enabled_returns_four\n    assert bonus(3, enabled=True) == 4\nE   assert 2 == 4\nE    +  where 2 = bonus(3, enabled=True)\n______________________ test_bonus_default_enabled_is_true ______________________\ntest_generated.py:33: in test_bonus_default_enabled_is_true\n    assert bonus(3) == 4\nE   assert 2 == 4\nE    +  where 2 = bonus(3)\n______________________ test_bonus_large_positive_enabled _______________________\ntest_generated.py:44: in test_bonus_large_positive_enabled\n    assert bonus(100, enabled=True) == 101\nE   assert 99 == 101\nE    +  where 99 = bonus(100, enabled=True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_zero_enabled_returns_zero\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_disabled\nFAILED test_generated.py::test_bonus_two_enabled_returns_three - assert 1 == 3\nFAILED test_generated.py::test_bonus_three_enabled_returns_four - assert 2 == 4\nFAILED test_generated.py::test_bonus_default_enabled_is_true - assert 2 == 4\nFAILED test_generated.py::test_bonus_large_positive_enabled - assert 99 == 101\n4 failed, 10 passed in 0.39s",
+            "duration_ms": 8243,
+            "stdout": "...FF....F..F.\n=================================== FAILURES ===================================\n_____________________ test_bonus_two_enabled_returns_three _____________________\ntest_generated.py:15: in test_bonus_two_enabled_returns_three\n    assert bonus(2, enabled=True) == 3\nE   assert 1 == 3\nE    +  where 1 = bonus(2, enabled=True)\n____________________ test_bonus_three_enabled_returns_four _____________________\ntest_generated.py:18: in test_bonus_three_enabled_returns_four\n    assert bonus(3, enabled=True) == 4\nE   assert 2 == 4\nE    +  where 2 = bonus(3, enabled=True)\n______________________ test_bonus_default_enabled_is_true ______________________\ntest_generated.py:33: in test_bonus_default_enabled_is_true\n    assert bonus(3) == 4\nE   assert 2 == 4\nE    +  where 2 = bonus(3)\n______________________ test_bonus_large_positive_enabled _______________________\ntest_generated.py:44: in test_bonus_large_positive_enabled\n    assert bonus(100, enabled=True) == 101\nE   assert 99 == 101\nE    +  where 99 = bonus(100, enabled=True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_zero_enabled_returns_zero\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_one_disabled_returns_one\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_disabled\nFAILED test_generated.py::test_bonus_two_enabled_returns_three - assert 1 == 3\nFAILED test_generated.py::test_bonus_three_enabled_returns_four - assert 2 == 4\nFAILED test_generated.py::test_bonus_default_enabled_is_true - assert 2 == 4\nFAILED test_generated.py::test_bonus_large_positive_enabled - assert 99 == 101\n4 failed, 10 passed in 0.39s\n",
+            "stderr": "",
+            "diagnostic": "",
+            "result_complete": true,
+            "failures": [
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 1 == 3\n +  where 1 = bonus(2, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 15,
+                    "function": "test_bonus_two_enabled_returns_three",
+                    "source": "assert bonus(2, enabled=True) == 3"
+                  }
+                ],
+                "assertion_diff": "assert 1 == 3\n +  where 1 = bonus(2, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 2 == 4\n +  where 2 = bonus(3, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 18,
+                    "function": "test_bonus_three_enabled_returns_four",
+                    "source": "assert bonus(3, enabled=True) == 4"
+                  }
+                ],
+                "assertion_diff": "assert 2 == 4\n +  where 2 = bonus(3, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 2 == 4\n +  where 2 = bonus(3)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 33,
+                    "function": "test_bonus_default_enabled_is_true",
+                    "source": "assert bonus(3) == 4"
+                  }
+                ],
+                "assertion_diff": "assert 2 == 4\n +  where 2 = bonus(3)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert 99 == 101\n +  where 99 = bonus(100, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 44,
+                    "function": "test_bonus_large_positive_enabled",
+                    "source": "assert bonus(100, enabled=True) == 101"
+                  }
+                ],
+                "assertion_diff": "assert 99 == 101\n +  where 99 = bonus(100, enabled=True)"
+              }
+            ],
+            "failure_details_omitted": 0,
+            "covered_branches": 4,
+            "total_branches": 4,
+            "branch_pct": 100.0,
+            "environment": {
+              "platform": "wasi",
+              "python": "3.15.2",
+              "pytest": "9.2.0",
+              "coverage": "7.17.5"
+            },
+            "source_sha256": "d64a252244ba0ed98afbd29751ab3b6b683a8c28113a50247c3bcd085234d4db",
+            "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505"
+          },
+          "nodeids": [
+            "test_generated.py::test_bonus_default_enabled_is_true",
+            "test_generated.py::test_bonus_large_positive_enabled",
+            "test_generated.py::test_bonus_three_enabled_returns_four",
+            "test_generated.py::test_bonus_two_enabled_returns_three"
+          ]
+        }
+      },
+      {
+        "id": "5c06063f-fead-4c97-ab2a-742330840daa",
+        "phase": "before",
+        "kind": "observation",
+        "mutant_id": "4baa324f-ef75-5210-9216-6e11b5fee5bb",
+        "created_at": "2026-11-27T09:25:44.507514+00:00",
+        "status": "killed",
+        "reason": "原始通过节点在变异副本上触发测试断言",
+        "payload": {
+          "execution": {
+            "status": "failed",
+            "passed": 7,
+            "failed": 7,
+            "errors": 0,
+            "skipped": 0,
+            "cases": [
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+                "outcome": "failed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_zero_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_enabled",
+                "outcome": "passed"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "outcome": "failed"
+              }
+            ],
+            "exit_code": 1,
+            "covered_lines": 6,
+            "total_lines": 6,
+            "coverage_pct": 100.0,
+            "log": ".FF..FFFF....F\n=================================== FAILURES ===================================\n_____________________ test_bonus_zero_enabled_returns_zero _____________________\ntest_generated.py:9: in test_bonus_zero_enabled_returns_zero\n    assert bonus(0, enabled=True) == 0\nE   assert None == 0\nE    +  where None = bonus(0, enabled=True)\n______________________ test_bonus_one_enabled_returns_one ______________________\ntest_generated.py:12: in test_bonus_one_enabled_returns_one\n    assert bonus(1, enabled=True) == 1\nE   assert None == 1\nE    +  where None = bonus(1, enabled=True)\n_____________________ test_bonus_two_disabled_returns_two ______________________\ntest_generated.py:21: in test_bonus_two_disabled_returns_two\n    assert bonus(2, enabled=False) == 2\nE   assert None == 2\nE    +  where None = bonus(2, enabled=False)\n___________________ test_bonus_three_disabled_returns_three ____________________\ntest_generated.py:24: in test_bonus_three_disabled_returns_three\n    assert bonus(3, enabled=False) == 3\nE   assert None == 3\nE    +  where None = bonus(3, enabled=False)\n____________________ test_bonus_zero_disabled_returns_zero _____________________\ntest_generated.py:27: in test_bonus_zero_disabled_returns_zero\n    assert bonus(0, enabled=False) == 0\nE   assert None == 0\nE    +  where None = bonus(0, enabled=False)\n_____________________ test_bonus_one_disabled_returns_one ______________________\ntest_generated.py:30: in test_bonus_one_disabled_returns_one\n    assert bonus(1, enabled=False) == 1\nE   assert None == 1\nE    +  where None = bonus(1, enabled=False)\n______________________ test_bonus_large_positive_disabled ______________________\ntest_generated.py:47: in test_bonus_large_positive_disabled\n    assert bonus(100, enabled=False) == 100\nE   assert None == 100\nE    +  where None = bonus(100, enabled=False)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_two_enabled_returns_three\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_enabled\nFAILED test_generated.py::test_bonus_zero_enabled_returns_zero - assert None ...\nFAILED test_generated.py::test_bonus_one_enabled_returns_one - assert None == 1\nFAILED test_generated.py::test_bonus_two_disabled_returns_two - assert None == 2\nFAILED test_generated.py::test_bonus_three_disabled_returns_three - assert No...\nFAILED test_generated.py::test_bonus_zero_disabled_returns_zero - assert None...\nFAILED test_generated.py::test_bonus_one_disabled_returns_one - assert None == 1\nFAILED test_generated.py::test_bonus_large_positive_disabled - assert None ==...\n7 failed, 7 passed in 0.81s",
+            "duration_ms": 9605,
+            "stdout": ".FF..FFFF....F\n=================================== FAILURES ===================================\n_____________________ test_bonus_zero_enabled_returns_zero _____________________\ntest_generated.py:9: in test_bonus_zero_enabled_returns_zero\n    assert bonus(0, enabled=True) == 0\nE   assert None == 0\nE    +  where None = bonus(0, enabled=True)\n______________________ test_bonus_one_enabled_returns_one ______________________\ntest_generated.py:12: in test_bonus_one_enabled_returns_one\n    assert bonus(1, enabled=True) == 1\nE   assert None == 1\nE    +  where None = bonus(1, enabled=True)\n_____________________ test_bonus_two_disabled_returns_two ______________________\ntest_generated.py:21: in test_bonus_two_disabled_returns_two\n    assert bonus(2, enabled=False) == 2\nE   assert None == 2\nE    +  where None = bonus(2, enabled=False)\n___________________ test_bonus_three_disabled_returns_three ____________________\ntest_generated.py:24: in test_bonus_three_disabled_returns_three\n    assert bonus(3, enabled=False) == 3\nE   assert None == 3\nE    +  where None = bonus(3, enabled=False)\n____________________ test_bonus_zero_disabled_returns_zero _____________________\ntest_generated.py:27: in test_bonus_zero_disabled_returns_zero\n    assert bonus(0, enabled=False) == 0\nE   assert None == 0\nE    +  where None = bonus(0, enabled=False)\n_____________________ test_bonus_one_disabled_returns_one ______________________\ntest_generated.py:30: in test_bonus_one_disabled_returns_one\n    assert bonus(1, enabled=False) == 1\nE   assert None == 1\nE    +  where None = bonus(1, enabled=False)\n______________________ test_bonus_large_positive_disabled ______________________\ntest_generated.py:47: in test_bonus_large_positive_disabled\n    assert bonus(100, enabled=False) == 100\nE   assert None == 100\nE    +  where None = bonus(100, enabled=False)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_two_enabled_returns_three\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_negative_zero_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_large_positive_enabled\nFAILED test_generated.py::test_bonus_zero_enabled_returns_zero - assert None ...\nFAILED test_generated.py::test_bonus_one_enabled_returns_one - assert None == 1\nFAILED test_generated.py::test_bonus_two_disabled_returns_two - assert None == 2\nFAILED test_generated.py::test_bonus_three_disabled_returns_three - assert No...\nFAILED test_generated.py::test_bonus_zero_disabled_returns_zero - assert None...\nFAILED test_generated.py::test_bonus_one_disabled_returns_one - assert None == 1\nFAILED test_generated.py::test_bonus_large_positive_disabled - assert None ==...\n7 failed, 7 passed in 0.81s\n",
+            "stderr": "",
+            "diagnostic": "",
+            "result_complete": true,
+            "failures": [
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert None == 0\n +  where None = bonus(0, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 9,
+                    "function": "test_bonus_zero_enabled_returns_zero",
+                    "source": "assert bonus(0, enabled=True) == 0"
+                  }
+                ],
+                "assertion_diff": "assert None == 0\n +  where None = bonus(0, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert None == 1\n +  where None = bonus(1, enabled=True)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 12,
+                    "function": "test_bonus_one_enabled_returns_one",
+                    "source": "assert bonus(1, enabled=True) == 1"
+                  }
+                ],
+                "assertion_diff": "assert None == 1\n +  where None = bonus(1, enabled=True)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert None == 2\n +  where None = bonus(2, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 21,
+                    "function": "test_bonus_two_disabled_returns_two",
+                    "source": "assert bonus(2, enabled=False) == 2"
+                  }
+                ],
+                "assertion_diff": "assert None == 2\n +  where None = bonus(2, enabled=False)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert None == 3\n +  where None = bonus(3, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 24,
+                    "function": "test_bonus_three_disabled_returns_three",
+                    "source": "assert bonus(3, enabled=False) == 3"
+                  }
+                ],
+                "assertion_diff": "assert None == 3\n +  where None = bonus(3, enabled=False)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert None == 0\n +  where None = bonus(0, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 27,
+                    "function": "test_bonus_zero_disabled_returns_zero",
+                    "source": "assert bonus(0, enabled=False) == 0"
+                  }
+                ],
+                "assertion_diff": "assert None == 0\n +  where None = bonus(0, enabled=False)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_one_disabled_returns_one",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert None == 1\n +  where None = bonus(1, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 30,
+                    "function": "test_bonus_one_disabled_returns_one",
+                    "source": "assert bonus(1, enabled=False) == 1"
+                  }
+                ],
+                "assertion_diff": "assert None == 1\n +  where None = bonus(1, enabled=False)"
+              },
+              {
+                "nodeid": "test_generated.py::test_bonus_large_positive_disabled",
+                "phase": "call",
+                "exception_type": "AssertionError",
+                "message": "assert None == 100\n +  where None = bonus(100, enabled=False)",
+                "frames": [
+                  {
+                    "path": "test_generated.py",
+                    "line": 47,
+                    "function": "test_bonus_large_positive_disabled",
+                    "source": "assert bonus(100, enabled=False) == 100"
+                  }
+                ],
+                "assertion_diff": "assert None == 100\n +  where None = bonus(100, enabled=False)"
+              }
+            ],
+            "failure_details_omitted": 0,
+            "covered_branches": 4,
+            "total_branches": 4,
+            "branch_pct": 100.0,
+            "environment": {
+              "platform": "wasi",
+              "python": "3.15.2",
+              "pytest": "9.2.0",
+              "coverage": "7.17.5"
+            },
+            "source_sha256": "e3d216038c672b002f86f3558fe501b5a7f1528f177e3976eccd44ccdd56b41c",
+            "test_sha256": "6e1ad1e4be8609ad37ae5d01a4386a8006dac980543b361855471310ad67c505"
+          },
+          "nodeids": [
+            "test_generated.py::test_bonus_large_positive_disabled",
+            "test_generated.py::test_bonus_one_disabled_returns_one",
+            "test_generated.py::test_bonus_one_enabled_returns_one",
+            "test_generated.py::test_bonus_three_disabled_returns_three",
+            "test_generated.py::test_bonus_two_disabled_returns_two",
+            "test_generated.py::test_bonus_zero_disabled_returns_zero",
+            "test_generated.py::test_bonus_zero_enabled_returns_zero"
+          ]
+        }
+      }
+    ],
+    "before": {
+      "killed": 7,
+      "survived": 0,
+      "timeout": 0,
+      "execution_error": 2,
+      "cancelled": 0,
+      "unrun": 0,
+      "total": 9,
+      "equivalent_candidates": 0,
+      "score_pct": 77.78
+    },
+    "after": null
+  }
+}

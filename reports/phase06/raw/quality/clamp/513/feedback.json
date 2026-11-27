@@ -1,0 +1,45 @@
+{
+  "status": "generated",
+  "mode": "ai",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "model_digest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+  "reason": "候选等待 WASI 原版校验",
+  "code": "import pytest\nfrom subject import cap\n\ndef test_cap_returns_ceiling_when_n_exceeds_ceiling():\n    assert cap(12) == 10\n\ndef test_cap_returns_n_when_n_is_less_than_ceiling():\n    assert cap(5) == 5\n\ndef test_cap_returns_ceiling_when_n_equals_ceiling():\n    assert cap(10) == 10\n\ndef test_cap_with_custom_ceiling():\n    assert cap(15, 20) == 15\n    assert cap(25, 20) == 20\n\ndef test_cap_with_zero_n():\n    assert cap(0) == 0\n\ndef test_cap_with_zero_ceiling():\n    assert cap(5, 0) == 0\n\ndef test_cap_with_negative_n():\n    assert cap(-5) == -5\n\ndef test_cap_with_negative_ceiling():\n    assert cap(5, -10) == -10\n\ndef test_cap_with_negative_n_and_ceiling():\n    assert cap(-5, -10) == -10\n\ndef test_cap_with_large_values():\n    assert cap(1000000, 500000) == 500000\n    assert cap(400000, 500000) == 400000\n\ndef test_cap_with_keyword_arguments():\n    assert cap(n=12, ceiling=10) == 10\n    assert cap(n=5, ceiling=10) == 5\n\ndef test_cap_returns_int_type():\n    result = cap(12)\n    assert isinstance(result, int)\n\ndef test_cap_boundary_equal_values():\n    assert cap(n=2, ceiling=2) == 2\n\ndef test_cap_boundary_zero_n_positive_ceiling():\n    assert cap(n=0, ceiling=2) == 0\n\ndef test_cap_boundary_positive_n_zero_ceiling():\n    assert cap(n=2, ceiling=0) == 0\n\n\ndef test_mutation_9bd8518be37365d7():\n    from subject import cap\n    assert cap(0, 0) == 0\n",
+  "added_code": "def test_mutation_9bd8518be37365d7():\n    from subject import cap\n    assert cap(0, 0) == 0\n",
+  "cases": [
+    {
+      "site": 1,
+      "call": "cap(0, 0)",
+      "reason": "Original returns 0; mutated version returns 0 (no difference).",
+      "expected": "0",
+      "mutant_id": "bc12ab81-c58a-5136-a747-a462d1aab985",
+      "test_name": "test_mutation_9bd8518be37365d7"
+    }
+  ],
+  "attempts": [
+    {
+      "focus_id": "bc12ab81-c58a-5136-a747-a462d1aab985",
+      "run_id": "29b22d04-07d8-47df-b29d-2e376faaa2c7",
+      "status": "accepted",
+      "responses": [
+        {
+          "run_id": "29b22d04-07d8-47df-b29d-2e376faaa2c7",
+          "attempt": 1,
+          "raw": "{\"call\": \"cap(0, 0)\", \"disposition\": \"test\", \"expected\": 0, \"reason\": \"Original returns 0; mutated version returns 0 (no difference).\"}",
+          "finish": "stop",
+          "tokens_in": 818,
+          "tokens_out": 44,
+          "generation_ns": 1800110000,
+          "load_ns": 13853200,
+          "ttft_s": 42.75679350000064,
+          "elapsed_s": 44.55681139999797,
+          "seed": 513,
+          "temperature": 0,
+          "schema": "MutationCase",
+          "status": "accepted"
+        }
+      ]
+    }
+  ]
+}

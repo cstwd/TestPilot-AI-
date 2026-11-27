@@ -1,0 +1,9 @@
+{
+  "project": "prefix",
+  "seed": 727,
+  "before": null,
+  "after": null,
+  "planned": 3,
+  "initial_run_id": "fb15deb0-17ab-4dd4-863b-17829b6e6421",
+  "reason": "模型响应无法通过冻结协议或模块校验"
+}

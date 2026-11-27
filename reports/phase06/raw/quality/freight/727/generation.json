@@ -1,0 +1,45 @@
+{
+  "code": "from subject import freight\n\ndef test_freight_doctest_example():\n    assert freight(3) == 8\n\ndef test_freight_zero_units():\n    assert freight(0) == 5\n\ndef test_freight_positive_units():\n    assert freight(1) == 6\n\ndef test_freight_negative_units():\n    assert freight(-2) == 3\n",
+  "mode": "ai",
+  "sha256": "21e4cb70014a7b4f388cb23c15e86021c9a4b05dfec679e8b76bb4addb77bcb5",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "8de44d28-fb4c-40bb-ae0d-930776204130",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\nfrom tariff import BASE\\nfrom tariff import freight\\n\\ndef test_freight_returns_base_plus_units():\\n    \\\"\\\"\\\"Test that freight returns BASE + units for a typical input.\\\"\\\"\\\"\\n    assert freight(3) == BASE + 3\\n\\ndef test_freight_with_zero_units():\\n    \\\"\\\"\\\"Test boundary value: units=0.\\\"\\\"\\\"\\n    assert freight(0) == BASE\\n\\ndef test_freight_with_negative_units():\\n    \\\"\\\"\\\"Test that negative units are handled (BASE + negative).\\\"\\\"\\\"\\n    assert freight(-1) == BASE - 1\\n\\ndef test_freight_with_large_units():\\n    \\\"\\\"\\\"Test with a larger unit count.\\\"\\\"\\\"\\n    assert freight(100) == BASE + 100\\n\\ndef test_freight_returns_int():\\n    \\\"\\\"\\\"Test that the return type is int.\\\"\\\"\\\"\\n    result = freight(5)\\n    assert isinstance(result, int)\\n\\ndef test_freight_missing_argument_raises():\\n    \\\"\\\"\\\"Test that calling freight without required argument raises TypeError.\\\"\\\"\\\"\\n    with pytest.raises(TypeError):\\n        freight()\\n\\ndef test_freight_with_extra_keyword_argument_raises():\\n    \\\"\\\"\\\"Test that passing an unexpected keyword argument raises TypeError.\\\"\\\"\\\"\\n    with pytest.raises(TypeError):\\n        freight(units=2, _testpilot_unknown=None)\\n\\ndef test_freight_with_non_integer_string_raises():\\n    \\\"\\\"\\\"Test that passing a string instead of int raises TypeError.\\\"\\\"\\\"\\n    with pytest.raises(TypeError):\\n        freight(\\\"3\\\")\\n\\ndef test_freight_with_float_raises():\\n    \\\"\\\"\\\"Test that passing a float raises TypeError.\\\"\\\"\\\"\\n    with pytest.raises(TypeError):\\n        freight(3.5)\\n\\ndef test_freight_with_none_raises():\\n    \\\"\\\"\\\"Test that passing None raises TypeError.\\\"\\\"\\\"\\n    with pytest.raises(TypeError):\\n        freight(None)\\n\\ndef test_freight_docstring_example():\\n    \\\"\\\"\\\"Verify the doctest example: freight(3) == 8 (since BASE=5).\\\"\\\"\\\"\\n    assert freight(3) == 8\\n\\ndef test_freight_consistency_with_base():\\n    \\\"\\\"\\\"Verify that freight(units) always equals BASE + units.\\\"\\\"\\\"\\n    for units in [-10, -1, 0, 1, 5, 42, 1000]:\\n        assert freight(units) == BASE + units\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 329,
+      "tokens_out": 559,
+      "generation_ns": 23125465000,
+      "load_ns": 8047900,
+      "ttft_s": 1.5334468000000925,
+      "elapsed_s": 24.658282000000327,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "rejected",
+      "reason": "测试须从 subject 导入并调用目标函数"
+    },
+    {
+      "run_id": "8de44d28-fb4c-40bb-ae0d-930776204130",
+      "attempt": 2,
+      "raw": "{\n  \"code\": \"from subject import freight\\n\\n\\ndef test_freight_doctest_example():\\n    assert freight(3) == 8\\n\\n\\ndef test_freight_zero_units():\\n    assert freight(0) == 5\\n\\n\\ndef test_freight_positive_units():\\n    assert freight(1) == 6\\n\\n\\ndef test_freight_negative_units():\\n    assert freight(-2) == 3\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 419,
+      "tokens_out": 101,
+      "generation_ns": 4140340000,
+      "load_ns": 6542600,
+      "ttft_s": 1.868344700000307,
+      "elapsed_s": 6.008806900001218,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "8de44d28-fb4c-40bb-ae0d-930776204130",
+  "seconds": 30.768068999997922
+}

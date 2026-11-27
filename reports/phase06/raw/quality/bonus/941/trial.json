@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "passed": 8,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_negative_n_raises_value_error",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_zero_returns_zero_when_enabled",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_one_returns_one_when_enabled",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_two_returns_three_when_enabled",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_three_returns_four_when_enabled",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_two_returns_two_when_disabled",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_three_returns_three_when_disabled",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_negative_n_raises_even_when_disabled",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 6,
+  "total_lines": 6,
+  "coverage_pct": 100.0,
+  "log": "........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_negative_n_raises_value_error\nPASSED test_generated.py::test_zero_returns_zero_when_enabled\nPASSED test_generated.py::test_one_returns_one_when_enabled\nPASSED test_generated.py::test_two_returns_three_when_enabled\nPASSED test_generated.py::test_three_returns_four_when_enabled\nPASSED test_generated.py::test_two_returns_two_when_disabled\nPASSED test_generated.py::test_three_returns_three_when_disabled\nPASSED test_generated.py::test_negative_n_raises_even_when_disabled\n8 passed in 0.15s",
+  "duration_ms": 6441,
+  "stdout": "........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_negative_n_raises_value_error\nPASSED test_generated.py::test_zero_returns_zero_when_enabled\nPASSED test_generated.py::test_one_returns_one_when_enabled\nPASSED test_generated.py::test_two_returns_three_when_enabled\nPASSED test_generated.py::test_three_returns_four_when_enabled\nPASSED test_generated.py::test_two_returns_two_when_disabled\nPASSED test_generated.py::test_three_returns_three_when_disabled\nPASSED test_generated.py::test_negative_n_raises_even_when_disabled\n8 passed in 0.15s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "d4f0ef3b-2b31-4b5e-b3fb-5e9e800597c1",
+  "started": "2026-11-27T09:13:30.149108+00:00",
+  "ended": "2026-11-27T09:13:36.590524+00:00",
+  "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+  "test_sha256": "4d897eddabdb0e9b7e6215e7483b951a5550331a27813b41ae0e42ce46afdb98"
+}

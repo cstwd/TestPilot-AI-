@@ -1,0 +1,77 @@
+{
+  "project": "expiry",
+  "predicted": {
+    "functions": [
+      "subject.py:expired"
+    ],
+    "parameters": [
+      [
+        "age",
+        "int",
+        null
+      ],
+      [
+        "limit",
+        "int",
+        "30"
+      ]
+    ],
+    "return_value": true,
+    "branch_lines": [
+      7
+    ],
+    "boundary_value": false,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "expected": {
+    "functions": [
+      "subject.py:expired"
+    ],
+    "parameters": [
+      [
+        "age",
+        "int",
+        null
+      ],
+      [
+        "limit",
+        "int",
+        "30"
+      ]
+    ],
+    "return_value": true,
+    "branch_lines": [],
+    "boundary_value": false,
+    "exception": "TypeError",
+    "defect_line": 7
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 1,
+    "return_value": 1,
+    "branch_lines": 0,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 0
+  },
+  "run_id": "ad53aad1-2252-4b86-9459-d4b5d979c8cf",
+  "attempts": [
+    {
+      "run_id": "ad53aad1-2252-4b86-9459-d4b5d979c8cf",
+      "attempt": 1,
+      "raw": "{\"boundary_value\": false, \"branch_lines\": [7], \"defect_line\": null, \"exception\": \"TypeError\", \"functions\": [\"subject.py:expired\"], \"parameters\": [[\"age\", \"int\", null], [\"limit\", \"int\", \"30\"]], \"return_value\": true}",
+      "finish": "stop",
+      "tokens_in": 347,
+      "tokens_out": 64,
+      "generation_ns": 2669534000,
+      "load_ns": 12523400,
+      "ttft_s": 26.43790160000208,
+      "elapsed_s": 29.107585599998856,
+      "seed": 23,
+      "temperature": 0,
+      "schema": "Understanding",
+      "status": "accepted"
+    }
+  ]
+}
