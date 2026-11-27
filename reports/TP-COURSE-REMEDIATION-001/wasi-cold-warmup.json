@@ -1,0 +1,18 @@
+{
+  "subject": "Run the same fixed WASI warmup as the workflow, in new empty working directories",
+  "input": "from wasi_python import run, stats\n\nresult = run(\n    [\"-c\", \"print(2 + 2)\"],\n    root=False,\n    memory_bytes=256 << 20,\n    deadline_s=180,\n    output_bytes=4096,\n    cache_dir=\".runtime/wasm-cache\",\n)\nprint(f\"WASI trusted warmup: exit={result.exit_code} trapped={result.trapped} stats={stats()}\")\nif result.exit_code != 0 or result.trapped or result.stdout.strip() != b\"4\":\n    raise SystemExit(\"Could not prepare the fixed enclosed WASI guest\")\n",
+  "initial": {
+    "chunk_id": "cb18b9",
+    "wall_time_seconds": 0.0000288,
+    "exit_code": 1,
+    "original_token_count": 466,
+    "output": "Traceback (most recent call last):\r\n  File \"<stdin>\", line 3, in <module>\r\n  File \"D:\\TestPilot AI\\.venv\\Lib\\site-packages\\wasi_python\\runner.py\", line 316, in run\r\n    return _run_checked_flushed(wt, checked, host, cache, artifacts, None)\r\n  File \"D:\\TestPilot AI\\.venv\\Lib\\site-packages\\wasi_python\\runner.py\", line 329, in _run_checked_flushed\r\n    return _call._run_checked(wt, checked, host, cache, artifacts, loop)\r\n           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\TestPilot AI\\.venv\\Lib\\site-packages\\wasi_python\\_call.py\", line 197, in _run_checked\r\n    root_path, private = _preopens(found, root, walked_root, walked, preopens, zip_want)\r\n                         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\n  File \"D:\\TestPilot AI\\.venv\\Lib\\site-packages\\wasi_python\\_call.py\", line 227, in _preopens\r\n    folder = _zip._zip_folder(found, zip_want)\r\n  File \"D:\\TestPilot AI\\.venv\\Lib\\site-packages\\wasi_python\\_zip.py\", line 50, in _zip_folder\r\n    return _zip_folder_locked(found, want, name)\r\n  File \"D:\\TestPilot AI\\.venv\\Lib\\site-packages\\wasi_python\\_zip.py\", line 77, in _zip_folder_locked\r\n    stamp = _copy_zip(found, lib / name, want)\r\n  File \"D:\\TestPilot AI\\.venv\\Lib\\site-packages\\wasi_python\\_zip.py\", line 292, in _copy_zip\r\n    os.replace(tmp, dest)\r\n    ~~~~~~~~~~^^^^^^^^^^^\r\nOSError: [WinError 650] 设备对象参数不是有效的设备对象，或者没有附到文件名指定的卷。: 'C:\\\\Users\\\\89777\\\\AppData\\\\Local\\\\Packages\\\\openai.codex_2p2nqsd0c76g0\\\\AC\\\\#!sandbox.{a9e4c288-c8ba-449a-9070-0cd2b3d8aac0}\\\\Temp\\\\wasi-python-zip-7822cf9e37310282\\\\lib\\\\.python-zip-bdy8ogi4' -> 'C:\\\\Users\\\\89777\\\\AppData\\\\Local\\\\Packages\\\\openai.codex_2p2nqsd0c76g0\\\\AC\\\\#!sandbox.{a9e4c288-c8ba-449a-9070-0cd2b3d8aac0}\\\\Temp\\\\wasi-python-zip-7822cf9e37310282\\\\lib\\\\python315.zip'\r\n"
+  },
+  "permitted_retry": {
+    "chunk_id": "0bcddc",
+    "wall_time_seconds": 0.0000231,
+    "exit_code": 0,
+    "original_token_count": 46,
+    "output": "WASI trusted warmup: exit=0 trapped=None stats={'compiled': 1, 'loaded': 0, 'written': 1, 'sessions_open': 0, 'snapshots_made': 0, 'snapshots_restored': 0, 'tool_threads_running': 0}\r\n"
+  }
+}

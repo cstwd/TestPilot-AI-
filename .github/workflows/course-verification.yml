@@ -66,8 +66,28 @@ jobs:
       - name: Verify independent Demo Lab scoring
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
         run: python -m pytest -q demo/TestPilot-Demo-Lab/tests/regression/test_evaluator.py --junitxml=reports/ci/demo-scoring.xml
-      - name: Run Pytest, Edge, WASI and Node regression
+      - name: Prepare the pinned WASI runtime on this runner
+        id: wasi
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: |
+          @'
+          from wasi_python import run, stats
+
+          result = run(
+              ["-c", "print(2 + 2)"],
+              root=False,
+              memory_bytes=256 << 20,
+              deadline_s=180,
+              output_bytes=4096,
+              cache_dir=".runtime/wasm-cache",
+          )
+          print(f"WASI trusted warmup: exit={result.exit_code} trapped={result.trapped} stats={stats()}")
+          if result.exit_code != 0 or result.trapped or result.stdout.strip() != b"4":
+              raise SystemExit("Could not prepare the fixed enclosed WASI guest")
+          '@ | python - 2>&1 | Tee-Object -FilePath reports/ci/wasi-warmup.txt
+          exit $LASTEXITCODE
+      - name: Run Pytest, Edge, WASI and Node regression
+        if: ${{ !cancelled() && steps.wasi.outcome == 'success' }}
         run: |
           python hooks/verify.py --scope full --report reports/ci/verify-full.txt
           $verifyStatus = $LASTEXITCODE
