@@ -11,7 +11,7 @@
 | MCP | stdio 握手与两项工具实际调用成功，真实 WASI 记录 6 通过／1 跳过，坏参数被拒。 [实测](../reports/course-final/toolchain.txt) |
 | 确定性 Hook | Git 实际触发拒绝和通过，已用于仓库课程提交。 [实测](../reports/course-final/toolchain.txt) |
 | 自定义 Subagent / Loop | 独立 Reviewer 复现并提交结构化问题报告，MCP 记录包含实际失败、诊断、修复和复验。 [审查](../reports/course-final/REVIEWER.md) · [循环](../reports/course-final/LOOP.md) |
-| 自动化、属性、差分与 AI 评估 | Pytest、Edge、WASI、宿主 Hypothesis、冻结对照及同节点差分。 [测试说明](COURSE_TESTING.md) · [只读复算](../reports/course-final/offline-replay.txt) |
+| 自动化、属性、差分与 AI 评估 | 固定快照 163 项 Pytest、3 项 Node 通过，后续模型变更与 F13 另做定向回归。覆盖真实 Edge、WASI、宿主 Hypothesis 与冻结差分。[全量复验](../reports/course-final/acceptance-72a53b8.txt) · [测试说明](COURSE_TESTING.md) · [只读复算](../reports/course-final/offline-replay.txt) |
 | 五人协作及 20% × 5 | 20 条有证据恢复记录，五个 WP 全覆盖，实际操作者和贡献份额可区分。 [日志](../collab-log/LOG.md) · [贡献](COURSE_TEAM_CONTRIBUTIONS.md) |
 | Bug 档案和 AI 引入 | 至少三份完整个案，包括真实本机模型参数输出格式偏离、生成器断言和 F13 定位。 [Bug 档案](../collab-log/bugs/LOG.md) |
 | Prompt 和关键输出 | 15 份历史任务或阶段摘录及本次原始任务。模型评测完整交互保留在冻结原始记录。 [会话索引](../transcripts/README.md) |

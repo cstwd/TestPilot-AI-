@@ -1,0 +1,282 @@
+TestPilot WP05 verify | 2026-11-27T17:34:49.376164+08:00
+Windows-11-10.0.26200-SP0 | Python 3.13.11 | full
+
+$ "D:\TestPilot AI\.venv\Scripts\python.exe" -X utf8 -m compileall -q main.py backend tests hooks mcp-server eval/phase05 eval/phase06
+exit=0 elapsed=1.89s
+
+$ "D:\TestPilot AI\.venv\Scripts\python.exe" -X utf8 -m pytest -q -s tests eval/phase05/test_manifest.py
+REFINED_CAMERA_LABELS {"names": 16, "labelHits": 0, "glyphHits": 0, "rootX": -12, "offscreenLabel": false, "initialZoom": 300, "pausedZoom": 293, "stable": true, "finishedZoom": 100, "resizedZoom": 376, "reducedZoom": 100}
+.TERMINAL_LAYOUT {"classes": 27, "minTracks": 3, "maxTracks": 3}
+.CONSOLE_REGRESSION {"project": 1, "file": 1, "revision": 1, "delayInjectedMs": 220, "timerWithInjectionMs": 239, "requests": ["GET", "GET", "GET"]}
+..REPLAY_CAMERA {"zoomed": "195%", "paused": "194%", "complete": "100%"}
+.VIEWPORTS [[1920, 1080, {"width": 1236, "height": 762, "pageWidth": 1920}], [1440, 900, {"width": 836, "height": 589, "pageWidth": 1440}], [1280, 800, {"width": 686, "height": 493, "pageWidth": 1280}], [1024, 768, {"width": 750, "height": 461, "pageWidth": 1024}], [768, 1024, {"width": 724, "height": 688, "pageWidth": 768}], [390, 844, {"width": 390, "height": 471, "pageWidth": 390}]]
+WORKFLOW {"project": "1", "file": "1", "revision": 1, "sha256": "84c097052cfbecef569b405c96b34f477373d3c7ce4037a245fb9934fc675490", "symbols": 15, "contains": 15, "target": "mean_value", "engine": "158.0.4370.33"}
+.BOUNDARIES {"revision_ids": [1, 2], "revisions": [1, 2], "duplicate_parents": ["symbol:2:1:Sensor", "symbol:2:3:Sensor"], "empty_nodes": 1}
+..REAL_LARGE {"analysisHttpMs": 57.79999999701977, "endOfNavigationToReadoutMs": 3068.5, "frames": 164, "frameIntervalP50": 16.699999999254942, "frameIntervalP95": 16.899999998509884}
+.SYNTHETIC_RENDERER {"nodes": 1000, "edges": 2000, "constructMs": 6.600000001490116, "zoomFrameMedianMs": 16.600000001490116, "zoomFrameP95Ms": 17.100000001490116, "repaintsWhileIdle": 0, "motionStages": ["COMPLETE"]}
+.F05_REGRESSION {"issue": 1, "source_run": 1, "suite": 1, "regression_run": 2, "candidate": 4, "revision": 2, "nodeid": "test_generated.py::test_example_2", "run_status": "failed", "judgement": "open", "issue_status": "open"}
+F05_REGRESSION {"issue": 1, "source_run": 1, "suite": 1, "regression_run": 3, "candidate": 5, "revision": 3, "nodeid": "test_generated.py::test_example_2", "run_status": "passed", "judgement": "resolved", "issue_status": "resolved"}
+F05_REGRESSION {"issue": 1, "source_run": 1, "suite": 1, "regression_run": 4, "candidate": 4, "revision": 2, "nodeid": "test_generated.py::test_example_2", "run_status": "failed", "judgement": "open", "issue_status": "resolved"}
+F05_VIEW {"width": 1440, "height": 900, "engine": "158.0.4370.33"}
+F05_VIEW {"width": 1024, "height": 768, "engine": "158.0.4370.33"}
+F05_VIEW {"width": 768, "height": 1024, "engine": "158.0.4370.33"}
+F05_VIEW {"width": 390, "height": 844, "engine": "158.0.4370.33"}
+..{"jsonrpc": "2.0", "id": 0, "result": {"protocolVersion": "2025-11-25", "capabilities": {"tools": {}}, "serverInfo": {"name": "testpilot", "version": "1.0.0"}}}
+{"jsonrpc": "2.0", "id": 2, "result": {"tools": [{"description": "List up to 50 recent TestPilot project IDs and names.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}, "name": "list_projects", "annotations": {"readOnlyHint": true, "openWorldHint": false}}, {"description": "Read the status and test counts for one TestPilot execution.", "inputSchema": {"type": "object", "properties": {"run_id": {"type": "integer", "minimum": 1, "maximum": 9223372036854775807}}, "required": ["run_id"], "additionalProperties": false}, "name": "get_run", "annotations": {"readOnlyHint": true, "openWorldHint": false}}]}}
+{"jsonrpc": "2.0", "id": 3, "result": {"content": [{"type": "text", "text": "{\"projects\": [{\"id\": 1, \"name\": \"Regression\"}]}"}]}}
+{"jsonrpc": "2.0", "id": 4, "result": {"content": [{"type": "text", "text": "{\"id\": 1, \"status\": \"passed\", \"passed\": 6, \"failed\": 0, \"errors\": 0, \"skipped\": 1}"}]}}
+{"jsonrpc": "2.0", "id": 5, "result": {"isError": true, "content": [{"type": "text", "text": "run_id must be a positive SQLite integer"}]}}
+.Hook rejected commit: TestPilot WP05: checking staged whitespace and conflict markers
+fixture.txt:1: trailing whitespace.
++example 
+Hook accepted commit: TestPilot WP05: checking staged whitespace and conflict markers f801311 clean staged whitespace
+.Browser: msedge 158.0.4370.33; self-test response: .                                                                        [100%]
+1 passed in 0.03s
+...F04_RUN {"id": 1, "project_id": 1, "file_id": 1, "suite_id": 1, "status": "passed", "passed": 5, "failed": 0, "errors": 0, "skipped": 0, "exit_code": 0}
+F04_RUN {"id": 2, "project_id": 1, "file_id": 2, "suite_id": 1, "status": "failed", "passed": 3, "failed": 2, "errors": 0, "skipped": 0, "exit_code": 1}
+F04_RUN {"id": 1, "project_id": 1, "file_id": 1, "suite_id": 1, "status": "passed", "passed": 5, "failed": 0, "errors": 0, "skipped": 0, "exit_code": 0}
+F04_RUN {"id": 2, "project_id": 1, "file_id": 2, "suite_id": 1, "status": "failed", "passed": 3, "failed": 2, "errors": 0, "skipped": 0, "exit_code": 1}
+F04_RUN {"id": 2, "project_id": 1, "file_id": 2, "suite_id": 1, "status": "failed", "passed": 3, "failed": 2, "errors": 0, "skipped": 0, "exit_code": 1}
+F04_VIEW {"width": 1440, "height": 900, "center": 832, "engine": "158.0.4370.33"}
+F04_VIEW {"width": 1024, "height": 768, "center": 538, "engine": "158.0.4370.33"}
+F04_VIEW {"width": 768, "height": 1024, "center": 724, "engine": "158.0.4370.33"}
+F04_VIEW {"width": 390, "height": 844, "center": 390, "engine": "158.0.4370.33"}
+.F04_RUN {"id": 2, "project_id": 1, "file_id": 2, "suite_id": 1, "status": "error", "passed": 0, "failed": 0, "errors": 1, "skipped": 0, "exit_code": 2}
+F04_RUN {"id": 3, "project_id": 1, "file_id": 3, "suite_id": 1, "status": "timeout", "passed": 0, "failed": 0, "errors": 0, "skipped": 0, "exit_code": null}
+F04_RUN {"id": 4, "project_id": 1, "file_id": 4, "suite_id": 1, "status": "error", "passed": 0, "failed": 0, "errors": 0, "skipped": 0, "exit_code": null}
+.F04_RUN {"id": 1, "project_id": 1, "file_id": 1, "suite_id": 1, "status": "error", "passed": 0, "failed": 0, "errors": 0, "skipped": 0, "exit_code": null}
+F04_RUN {"id": 2, "project_id": 1, "file_id": 1, "suite_id": 1, "status": "error", "passed": 0, "failed": 0, "errors": 0, "skipped": 0, "exit_code": null}
+............................................WASI {'platform': 'wasi', 'python': '3.15.2', 'pytest': '9.2.0', 'coverage': '7.17.5'} line 3/4 branch 1/2 {'nodeid': 'test_generated.py::test_compare', 'phase': 'call', 'exception_type': 'AssertionError', 'message': "assert 'positive' == 'other'\n  \n  - other\n  + positive", 'frames': [{'path': 'test_generated.py', 'line': 8, 'function': 'test_compare', 'source': 'assert classify(2) == "other"'}], 'assertion_diff': "assert 'positive' == 'other'\n  \n  - other\n  + positive"} {'nodeid': 'test_generated.py::test_type', 'phase': 'call', 'exception_type': 'TypeError', 'message': "'>' not supported between instances of 'NoneType' and 'int'", 'frames': [{'path': 'test_generated.py', 'line': 11, 'function': 'test_type', 'source': 'classify(None)'}, {'path': 'subject.py', 'line': 2, 'function': 'classify', 'source': 'if n > 0:'}], 'assertion_diff': None}
+.collection failure {'nodeid': 'test_generated.py', 'phase': 'collect', 'exception_type': 'ImportError', 'message': "cannot import name 'missing' from 'subject' (/work/subject.py)", 'frames': [{'path': 'test_generated.py', 'line': 1, 'function': '<module>', 'source': 'from subject import missing'}], 'assertion_diff': None}
+.deadline WASI 停止执行：deadline case counts and coverage unavailable
+.[('test_wrong_output', 'program_defect', 'AssertionError'), ('test_wrong_input_assumption', 'test_error', 'ValueError'), ('test_wrong_expected', 'test_error', 'AssertionError'), ('test_unexpected_exception', 'program_defect', 'LookupError'), ('test_missing_exception', 'program_defect', 'Failed'), ('test_unknown_contract', 'undetermined', 'AssertionError'), ('test_test_code', 'test_error', 'NameError'), ('test_skip', 'skipped', None)]
+real traceback [{'path': 'test_generated.py', 'line': 15, 'function': 'test_unexpected_exception', 'source': 'assert target(4) == 25'}, {'path': 'subject.py', 'line': 20, 'function': 'units', 'source': 'raise LookupError("bad")'}]
+assertion difference assert 2 == 50
+ +  where 2 = target(n=2)
+.timeout WASI 停止执行：deadline
+.stateful setup undetermined assert 2 == 1
+ +  where 2 = advance()
+.....actual executions [('c9517047-5fdf-40b5-947d-61ffbe760b44', 'failed', '6157dd2abfe707f3618c0edb42cbdeb98e79a6d45f5cfa8459cb828833c1b914'), ('96e85b06-08ca-44a6-9493-58cbec2c8a0d', 'passed', 'd43dc8b67d8b1699070b516bc5b77ff586baa85432cc69bdf36180cf6c4592ea')]
+.....F03_RESULT {"id": 1, "project_id": 1, "file_id": 1, "suite_id": 1, "status": "passed", "passed": 4, "failed": 0, "errors": 0, "skipped": 1, "exit_code": 0}
+F03_RESULT {"id": 2, "project_id": 1, "file_id": 1, "suite_id": 2, "status": "failed", "passed": 3, "failed": 1, "errors": 0, "skipped": 1, "exit_code": 1}
+F03_VIEW {"width": 1440, "height": 900, "center": 838, "engine": "158.0.4370.33"}
+F03_VIEW {"width": 1024, "height": 768, "center": 520, "engine": "158.0.4370.33"}
+F03_VIEW {"width": 768, "height": 1024, "center": 724, "engine": "158.0.4370.33"}
+F03_VIEW {"width": 390, "height": 844, "center": 390, "engine": "158.0.4370.33"}
+..F03_BUSY_RECOVERY {"project_id": 1, "file_id": 1, "suite_id": 1, "run_id": 1}
+............127.0.0.1 - - [27/Nov/2026 17:48:56] "GET /first HTTP/1.1" 307 -
+.WASI: 3 passed on original, 3 failed on mutant; {'status': 'killed', 'reason': '原始通过节点在变异副本上触发测试断言', 'nodeids': ['test_generated.py::test_direct_binding', 'test_generated.py::test_local_alias', 'test_generated.py::test_module_alias']}
+.WASI: 2 passed on original, 2 failed on mutant; {'status': 'execution_error', 'reason': '失败没有完整的测试断言证据', 'nodeids': ['test_generated.py::test_custom_binding', 'test_generated.py::test_rebound_alias']}
+...........baseline suite template d90aecfce2fb6cef5a077380253ef77dfa1ebfaf72775ac3a14537f119c430e1 before {'killed': 4, 'survived': 3, 'timeout': 0, 'execution_error': 2, 'cancelled': 0, 'unrun': 0, 'total': 9, 'equivalent_candidates': 0, 'score_pct': 44.44}
+.8 testpilot/NegateCondition 'n < 0' -> 'not (n < 0)'
+8 core/ReplaceComparisonOperator_Lt_LtE '<' -> '<='
+9 testpilot/SuppressRaise 'raise ValueError("negative")' -> 'pass'
+10 testpilot/NegateCondition 'enabled and n >= 2' -> 'not (enabled and n >= 2)'
+10 core/ReplaceAndWithOr 'and' -> 'or'
+10 core/ReplaceComparisonOperator_GtE_Gt '>=' -> '>'
+11 testpilot/ReturnNone 'return n + 1' -> 'return None'
+11 core/ReplaceBinaryOperator_Add_Sub '+' -> '-'
+12 testpilot/ReturnNone 'return n' -> 'return None'
+......GET /api/health {'status': 'ok', 'database': 'ok', 'mode': 'demo'}
+Graceful stop exit 0
+INFO testpilot 启动 demo 模式 http://127.0.0.1:55662
+INFO:     Started server process [50832]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:54078 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54083 - "GET /api/mutations/f5932072-6389-406f-8fd7-2fb36d4b8e82/report HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54088 - "POST /api/mutations/f5932072-6389-406f-8fd7-2fb36d4b8e82/run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60721 - "GET /api/mutations/f5932072-6389-406f-8fd7-2fb36d4b8e82/report HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60722 - "GET /api/files/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60725 - "POST /api/mutations/f5932072-6389-406f-8fd7-2fb36d4b8e82/run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60726 - "GET /api/mutations/f5932072-6389-406f-8fd7-2fb36d4b8e82/report HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [50832]
+
+original stopped: {'killed': 1, 'survived': 0, 'timeout': 0, 'execution_error': 0, 'cancelled': 1, 'unrun': 0, 'total': 2, 'equivalent_candidates': 0, 'score_pct': 50.0} checkpoint events: 2 recovered events: 3 final: {'killed': 2, 'survived': 0, 'timeout': 0, 'execution_error': 0, 'cancelled': 0, 'unrun': 0, 'total': 2, 'equivalent_candidates': 0, 'score_pct': 100.0}
+.red baseline: two planned, zero observations, score unavailable; exit 1
+.WASI 'return x + 1' passed 0 {'status': 'survived', 'reason': '相同测试节点运行通过', 'nodeids': []}
+.WASI 'return x + 2' failed 1 {'status': 'killed', 'reason': '原始通过节点在变异副本上触发测试断言', 'nodeids': ['test_generated.py::test_value']}
+.WASI "return int('invalid')" failed 1 {'status': 'execution_error', 'reason': '失败没有完整的测试断言证据', 'nodeids': ['test_generated.py::test_value']}
+.exception removed DID NOT RAISE ValueError {'status': 'killed', 'reason': '原始通过节点在变异副本上触发测试断言', 'nodeids': ['test_generated.py::test_negative']}
+..invalid or timed-out mutant 2 {'status': 'execution_error', 'reason': '执行不完整或前后测试节点集合不同', 'nodeids': []}
+.invalid or timed-out mutant None {'status': 'timeout', 'reason': 'WASI 停止执行：deadline', 'nodeids': []}
+..live guest cancelled; worker reaped; job cleaned; result_complete=False
+.queued slot timeout returns retryable resource_busy; queued cancellation stops before spawn
+....run=1 file_revision=1 suite=1 status=failed node=test_generated.py::test_example_3 metrics={'passed': 5, 'failed': 1, 'errors': 0, 'skipped': 1, 'pass_rate_pct': 83.33, 'coverage_pct': 100.0}
+run=2 file_revision=2 suite=1 status=passed node=test_generated.py::test_example_3 metrics={'passed': 6, 'failed': 0, 'errors': 0, 'skipped': 1, 'pass_rate_pct': 100.0, 'coverage_pct': 100.0}
+...quicksort [(6, 0, 0, 0)] 11 / 12 lines; 7 / 8 branches []
+.negative [(5, 1, 0, 1)] 2 / 2 lines; 0 / 0 branches ['program_defect', 'skipped']
+.empty [(3, 2, 0, 0)] 2 / 2 lines; 0 / 0 branches ['program_defect', 'undetermined']
+.boundary [(6, 1, 0, 0)] 2 / 2 lines; 0 / 0 branches ['program_defect']
+.exception [(4, 1, 0, 0)] 5 / 5 lines; 0 / 0 branches ['program_defect']
+.branches [(7, 0, 0, 1)] 8 / 8 lines; 6 / 6 branches ['skipped']
+.repair [(4, 1, 0, 1), (5, 0, 0, 1)] 4 / 4 lines; 2 / 2 branches ['skipped', 'test_error']
+...F01_REVISIONS {"project": 3, "rows": [{"id": 1, "revision": 1, "sha256": "84c097052cfbecef569b405c96b34f477373d3c7ce4037a245fb9934fc675490"}, {"id": 1, "revision": 1, "sha256": "84c097052cfbecef569b405c96b34f477373d3c7ce4037a245fb9934fc675490"}, {"id": 2, "revision": 2, "sha256": "c9226a6602e75159bfafe97149a755b5d276f2e05e1bf0e53b97fc4aa3795135"}], "bytes": [1268, 1351]}
+..F01_VIEW {"viewport": [1440, 900], "digestWidth": 409, "name": 53, "engine": "158.0.4370.33"}
+F01_VIEW {"viewport": [1024, 768], "digestWidth": 275, "name": 53, "engine": "158.0.4370.33"}
+F01_VIEW {"viewport": [768, 1024], "digestWidth": 688, "name": 53, "engine": "158.0.4370.33"}
+F01_VIEW {"viewport": [390, 844], "digestWidth": 354, "name": 53, "engine": "158.0.4370.33"}
+.F06_REPORT {"project": 2, "file": 1, "version": 1, "run": 1, "suite": 1, "status": "failed", "quality": {"passed": 3, "failed": 2, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 60.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u5b58\u5728\u65ad\u8a00\u5931\u8d25\u3002\u8bf7\u67e5\u770b\u5931\u8d25\u8282\u70b9\u548c\u8f93\u5165\u9884\u671f\uff0c\u518d\u51b3\u5b9a\u662f\u5426\u767b\u8bb0\u7f3a\u9677\u3002"}, "bugs": [{"id": 1, "status": "open", "regression_ids": []}]}
+F06_REPORT {"project": 2, "file": 1, "version": 1, "run": 1, "suite": 1, "status": "failed", "quality": {"passed": 3, "failed": 2, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 60.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u5b58\u5728\u65ad\u8a00\u5931\u8d25\u3002\u8bf7\u67e5\u770b\u5931\u8d25\u8282\u70b9\u548c\u8f93\u5165\u9884\u671f\uff0c\u518d\u51b3\u5b9a\u662f\u5426\u767b\u8bb0\u7f3a\u9677\u3002"}, "bugs": [{"id": 1, "status": "open", "regression_ids": []}]}
+F06_REPORT {"project": 2, "file": 1, "version": 1, "run": 1, "suite": 1, "status": "failed", "quality": {"passed": 3, "failed": 2, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 60.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u5b58\u5728\u65ad\u8a00\u5931\u8d25\u3002\u8bf7\u67e5\u770b\u5931\u8d25\u8282\u70b9\u548c\u8f93\u5165\u9884\u671f\uff0c\u518d\u51b3\u5b9a\u662f\u5426\u767b\u8bb0\u7f3a\u9677\u3002"}, "bugs": [{"id": 1, "status": "resolved", "regression_ids": [2]}]}
+F06_REPORT {"project": 2, "file": 2, "version": 2, "run": 2, "suite": 1, "status": "passed", "quality": {"passed": 5, "failed": 0, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 100.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u672c\u6b21\u5df2\u6267\u884c\u7684\u6d4b\u8bd5\u901a\u8fc7\u3002\u8bf7\u7ed3\u5408\u8df3\u8fc7\u9879\u4e0e\u672a\u8986\u76d6\u884c\u5224\u65ad\u5269\u4f59\u98ce\u9669\u3002"}, "bugs": [{"id": 1, "status": "resolved", "regression_ids": [2]}]}
+F06_REPORT {"project": 2, "file": 2, "version": 2, "run": 2, "suite": 1, "status": "passed", "quality": {"passed": 5, "failed": 0, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 100.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u672c\u6b21\u5df2\u6267\u884c\u7684\u6d4b\u8bd5\u901a\u8fc7\u3002\u8bf7\u7ed3\u5408\u8df3\u8fc7\u9879\u4e0e\u672a\u8986\u76d6\u884c\u5224\u65ad\u5269\u4f59\u98ce\u9669\u3002"}, "bugs": [{"id": 1, "status": "resolved", "regression_ids": [2]}]}
+F06_REPORT {"project": 2, "file": 2, "version": 2, "run": 2, "suite": 1, "status": "passed", "quality": {"passed": 5, "failed": 0, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 100.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u672c\u6b21\u5df2\u6267\u884c\u7684\u6d4b\u8bd5\u901a\u8fc7\u3002\u8bf7\u7ed3\u5408\u8df3\u8fc7\u9879\u4e0e\u672a\u8986\u76d6\u884c\u5224\u65ad\u5269\u4f59\u98ce\u9669\u3002"}, "bugs": [{"id": 1, "status": "resolved", "regression_ids": [2]}]}
+F06_REPORT {"project": 2, "file": 2, "version": 2, "run": 2, "suite": 1, "status": "passed", "quality": {"passed": 5, "failed": 0, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 100.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u672c\u6b21\u5df2\u6267\u884c\u7684\u6d4b\u8bd5\u901a\u8fc7\u3002\u8bf7\u7ed3\u5408\u8df3\u8fc7\u9879\u4e0e\u672a\u8986\u76d6\u884c\u5224\u65ad\u5269\u4f59\u98ce\u9669\u3002"}, "bugs": [{"id": 1, "status": "resolved", "regression_ids": [2]}]}
+F06_REPORT {"project": 2, "file": 2, "version": 2, "run": 2, "suite": 1, "status": "passed", "quality": {"passed": 5, "failed": 0, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 100.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u672c\u6b21\u5df2\u6267\u884c\u7684\u6d4b\u8bd5\u901a\u8fc7\u3002\u8bf7\u7ed3\u5408\u8df3\u8fc7\u9879\u4e0e\u672a\u8986\u76d6\u884c\u5224\u65ad\u5269\u4f59\u98ce\u9669\u3002"}, "bugs": [{"id": 1, "status": "resolved", "regression_ids": [2]}]}
+F06_VIEW {"width": 1440, "height": 900, "main": 849, "engine": "158.0.4370.33"}
+F06_VIEW {"width": 1024, "height": 768, "main": 562, "engine": "158.0.4370.33"}
+F06_VIEW {"width": 768, "height": 1024, "main": 724, "engine": "158.0.4370.33"}
+F06_VIEW {"width": 390, "height": 844, "main": 390, "engine": "158.0.4370.33"}
+.F06_REPORT {"project": 1, "file": 1, "version": 1, "run": 1, "suite": 1, "status": "error", "quality": {"passed": 1, "failed": 1, "errors": 1, "skipped": 1, "total": 4, "pass_rate_pct": 33.33, "covered_lines": 0, "total_lines": 2, "coverage_pct": 0.0, "assessment": "\u6267\u884c\u6216\u6536\u96c6\u51fa\u73b0\u9519\u8bef\u3002\u8bf7\u5148\u68c0\u67e5\u65e5\u5fd7\u548c\u73af\u5883\uff0c\u518d\u89e3\u91ca\u901a\u8fc7\u7387\u3002"}, "bugs": []}
+F06_REPORT {"project": 1, "file": 1, "version": 1, "run": 2, "suite": 2, "status": "failed", "quality": {"passed": 0, "failed": 1, "errors": 0, "skipped": 0, "total": 1, "pass_rate_pct": 0.0, "covered_lines": 0, "total_lines": 2, "coverage_pct": 0.0, "assessment": "\u5b58\u5728\u65ad\u8a00\u5931\u8d25\u3002\u8bf7\u67e5\u770b\u5931\u8d25\u8282\u70b9\u548c\u8f93\u5165\u9884\u671f\uff0c\u518d\u51b3\u5b9a\u662f\u5426\u767b\u8bb0\u7f3a\u9677\u3002"}, "bugs": []}
+F06_REPORT {"project": 1, "file": 2, "version": 1, "run": 3, "suite": 3, "status": "skipped", "quality": {"passed": 0, "failed": 0, "errors": 0, "skipped": 1, "total": 1, "pass_rate_pct": null, "covered_lines": 0, "total_lines": 0, "coverage_pct": null, "assessment": "\u6240\u6709\u7528\u4f8b\u88ab\u8df3\u8fc7\uff0c\u672c\u6b21\u6ca1\u6709\u53ef\u7528\u4e8e\u5224\u5b9a\u662f\u5426\u901a\u8fc7\u7684\u7528\u4f8b\u3002"}, "bugs": []}
+..FsWASI limits: [Errno 58] Not supported [Errno 58] wasi does not support processes. 300 MiB allocation denied
+.
+=================================== FAILURES ===================================
+______________________________ test_bad_contract _______________________________
+test_generated.py:14: in test_bad_contract
+    assert inc(1) == 99
+           ^^^^^^^^^^^^
+E   AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED test_generated.py::test_value
+PASSED test_generated.py::test_capabilities
+SKIPPED [1] test_generated.py:17: no contract
+FAILED test_generated.py::test_bad_contract - AssertionError
+1 failed, 2 passed, 1 skipped in 0.32s
+
+TESTPILOT_RESULT {"environment": {"platform": "wasi", "python": "3.15.2", "pytest": "9.2.0", "coverage": "7.17.5"}, "cases": [{"nodeid": "test_generated.py::test_value", "outcome": "passed"}, {"nodeid": "test_generated.py::test_bad_contract", "outcome": "failed"}, {"nodeid": "test_generated.py::test_omitted", "outcome": "skipped"}, {"nodeid": "test_generated.py::test_capabilities", "outcome": "passed"}], "covered_lines": 3, "total_lines": 4}
+.....GET /api/health {'status': 'ok', 'database': 'ok', 'mode': 'demo'}
+Second launch exit 1 ERROR testpilot 端口 59462 已被占用。请访问已有服务或停止占用进程后重新运行。
+POST /api/self-test {'status': 'passed', 'detail': '.                                                                        [100%]\n1 passed in 0.03s'}
+Graceful stop exit 0
+INFO testpilot 启动 demo 模式 http://127.0.0.1:59462
+INFO:     Started server process [35496]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:59468 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59473 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59478 - "POST /api/self-test HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [35496]
+
+GET /api/health {'status': 'ok', 'database': 'ok', 'mode': 'dev'}
+SQLite restart probe retained
+Graceful stop exit 0
+INFO testpilot 启动 dev 模式 http://127.0.0.1:59462
+INFO:     Started server process [35172]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:52154 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52160 - "GET / HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [35172]
+
+.Unwritable database path exit 3 INFO testpilot 启动 demo 模式 http://127.0.0.1:55211
+INFO:     Started server process [20176]
+INFO:     Waiting for application startup.
+ERROR:    Traceback (most recent call last):
+  File "D:\TestPilot AI\.runtime\course-final\acceptance-72a53b8\backend\app.py", line 33, in lifespan
+    database.initialize(path)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\TestPilot AI\.runtime\course-final\acceptance-72a53b8\backend\database.py", line 12, in initialize
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\89777\miniconda3\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\89777\\AppData\\Local\\Temp\\pytest-of-897772465\\pytest-101\\test_startup_failure0\\regular_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\TestPilot AI\.venv\Lib\site-packages\starlette\routing.py", line 661, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.runtime\course-final\acceptance-72a53b8\backend\app.py", line 36, in lifespan
+    raise RuntimeError(f"无法初始化 SQLite 数据库 {path}。请检查目录和写入权限。") from exc
+RuntimeError: 无法初始化 SQLite 数据库 C:\Users\89777\AppData\Local\Temp\pytest-of-897772465\pytest-101\test_startup_failure0\regular_file\testpilot.sqlite3。请检查目录和写入权限。
+
+ERROR:    Application startup failed. Exiting.
+
+.Incompatible database exit 3 RuntimeError: SQLite 数据库版本不兼容：C:\Users\89777\AppData\Local\Temp\pytest-of-897772465\pytest-101\test_incompatible_database_pre0\testpilot.sqlite3 的 schema_version=2，本版本要求 1。请使用匹配的数据库或新的数据目录。
+.WARNING  testpilot:main.py:26 健康检查等待超时 (<urlopen error timed out>)。请检查 SQLite 和运行日志，服务就绪后访问 http://127.0.0.1:54684
+
+...........
+163 passed in 1949.21s (0:32:29)
+exit=0 elapsed=1951.23s
+
+$ node --test tests/bug_diff.test.mjs
+✔ aligns insertions, removals, replacements, and original line endings (3.7766ms)
+✔ bounds highly dissimilar comparisons without speculative counts (3.5212ms)
+✔ uses a uniquely attributable real assertion block or stored structured evidence (2.871ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 135.641
+exit=0 elapsed=0.27s
+outcome=passed
