@@ -1,0 +1,7 @@
+Command: claude.cmd mcp get testpilot
+testpilot:
+  Scope: Project config (shared via .mcp.json)
+  Status: ⏸ Pending approval (run `claude` to approve)
+  Type: stdio
+  Command: python
+  Args: mcp-server/server.py

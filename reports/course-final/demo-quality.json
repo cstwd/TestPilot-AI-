@@ -1,0 +1,98 @@
+{
+  "schema": "testpilot.quality.v1",
+  "project": {
+    "id": 1,
+    "name": "课程演示 · 版本与回归"
+  },
+  "run": {
+    "id": 2,
+    "status": "passed",
+    "created_at": "2026-11-27T09:23:44.724Z",
+    "duration_ms": 5424,
+    "exit_code": 0
+  },
+  "source": {
+    "id": 2,
+    "filename": "magnitude.py",
+    "revision": 2,
+    "sha256": "712f4d404c329295faa38c0101e6bfc8566110b7507714f678e07c908cb561a2"
+  },
+  "suite": {
+    "id": 1,
+    "target": "magnitude",
+    "mode": "template",
+    "sha256": "cda88e03504074e928c5778ea583ae3ccd963f099a99d46abb2c6b9c80b98939",
+    "file_id": 1
+  },
+  "quality": {
+    "passed": 6,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 1,
+    "total": 7,
+    "pass_rate_pct": 100.0,
+    "covered_lines": 2,
+    "total_lines": 2,
+    "coverage_pct": 100.0,
+    "assessment": "本次已执行的测试通过。请结合跳过项与未覆盖行判断剩余风险。"
+  },
+  "metric_notes": "通过率 = 通过 / (通过 + 失败 + 错误)，跳过单列；行覆盖率按被测单文件实际覆盖行 / 可执行行计。无可用分母时为 null。缺陷状态取本次查看或导出时的记录，原运行的计数和日志保留。",
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_example_2",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_example_3",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_normal_return_contract",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_return_contract",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_invalid_keyword",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_property_return_contract",
+      "outcome": "skipped"
+    }
+  ],
+  "log": "......s\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_example_2\nPASSED test_generated.py::test_example_3\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:24: could not import 'hypothesis': No module named 'hypothesis'\n6 passed, 1 skipped in 0.07s\n\nTESTPILOT_RESULT {\"environment\": {\"platform\": \"wasi\", \"python\": \"3.15.2\", \"pytest\": \"9.2.0\", \"coverage\": \"7.17.5\"}, \"cases\": [{\"nodeid\": \"test_generated.py::test_example_1\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_example_2\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_example_3\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_normal_return_contract\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_boundary_return_contract\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_invalid_keyword\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_property_return_contract\", \"outcome\": \"skipped\"}], \"covered_lines\": 2, \"total_lines\": 2}",
+  "bugs": [
+    {
+      "id": 1,
+      "project_id": 1,
+      "run_id": 1,
+      "nodeid": "test_generated.py::test_example_3",
+      "title": "负输入违反绝对值契约",
+      "status": "resolved",
+      "file_id": 1,
+      "suite_id": 1,
+      "regressions": [
+        {
+          "id": 1,
+          "run_id": 2,
+          "status": "resolved",
+          "file_id": 2,
+          "revision": 2
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+Projects=10 seeds=(513, 727, 941) planned_per_seed=39
+A runs 30 planned 117 killed 0 overall_detection_pct 0.0
+B runs 30 planned 117 killed 81 overall_detection_pct 69.23
+C runs 30 planned 117 killed 104 overall_detection_pct 88.89
+D runs 30 planned 117 killed 105 overall_detection_pct 89.74

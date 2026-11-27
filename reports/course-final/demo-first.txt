@@ -1,0 +1,104 @@
+00-dashboard: http://127.0.0.1:60029/
+01-project: http://127.0.0.1:60029/workbench/projects?project=1&file=1
+02-ast: http://127.0.0.1:60029/workbench/analysis?project=1&file=1&node=file%3A1
+03-suite: http://127.0.0.1:60029/workbench/generation?project=1&file=1&symbol=magnitude&suite=1
+04-execution: http://127.0.0.1:60029/workbench/runs?project=1&file=1&suite=1&run=1
+F
+================================== FAILURES ===================================
+__________________________ test_capture_course_demo ___________________________
+
+app_url = 'http://127.0.0.1:60029'
+
+    def test_capture_course_demo(app_url):
+        output = ROOT / "presentation/screenshots"
+        output.mkdir(exist_ok=True)
+        evidence = ROOT / "reports/course-final"
+        evidence.mkdir(exist_ok=True)
+        with sync_playwright() as playwright:
+            browser = playwright.chromium.launch(channel=os.getenv("TESTPILOT_BROWSER_CHANNEL", "msedge"))
+            page = browser.new_page(base_url=app_url, viewport={"width": 1440, "height": 900})
+            page.set_default_timeout(25_000)
+            errors = []
+            page.on("pageerror", lambda error: errors.append(str(error)))
+    
+            def request(path, data=None):
+                result = (page.request.get(path, timeout=180_000) if data is None else
+                          page.request.post(path, data=data, timeout=180_000))
+                assert result.ok, result.text()
+                return result.json()
+    
+            def shot(name, path=None, marker=None, content=None):
+                if path:
+                    page.goto(path)
+                if marker:
+                    target = page.locator(marker)
+                    expect(target).to_be_visible()
+                    if content:
+                        expect(target).to_contain_text(content)
+                page.screenshot(path=output / f"{name}.png", animations="disabled")
+                print(f"{name}: {page.url}")
+    
+            shot("00-dashboard", "/", "#database-status", "已连接")
+            demo = request("/api/projects", {"name": "课程演示 · 版本与回归"})
+            project_id = demo["id"]
+            files = []
+            for variant in ("buggy", "fixed"):
+                source = (ROOT / "eval/phase02" / variant / "magnitude.py").read_text(encoding="utf-8")
+                files.append(request(f"/api/projects/{project_id}/files",
+                                     {"filename": "magnitude.py", "source": source})["id"])
+            first, fixed = files
+            context = f"project={project_id}&file={first}"
+            shot("01-project", f"/workbench/projects?{context}", "#source", "def magnitude")
+            shot("02-ast", f"/workbench/analysis?{context}", "#symbols", "magnitude")
+            page.goto(f"/workbench/generation?{context}&target=magnitude")
+            expect(page.get_by_label("目标函数")).to_have_value("magnitude")
+            with page.expect_response(lambda res: res.request.method == "POST" and
+                                      f"/api/files/{first}/suites" in res.url, timeout=120_000) as generation:
+                page.get_by_role("button", name="生成并验证").click()
+            suite = generation.value.json()
+            expect(page.locator("#initial-status")).to_contain_text("首次 Pytest 运行")
+            shot("03-suite", marker="#test-source", content="test_example_3")
+            failure = suite["initial_run"]
+            assert failure["status"] == "failed"
+            run_id = failure["id"]
+            shot("04-execution", f"/workbench/runs?{context}&suite={suite['id']}&run={run_id}",
+                 "#run-identity", f"运行 #{run_id}")
+            page.goto(f"/workbench/bugs?project={project_id}&file={fixed}&run={run_id}")
+            page.get_by_label("缺陷标题").fill("负输入违反绝对值契约")
+            page.get_by_role("button", name="登记缺陷").click()
+            expect(page.locator("#bug-state")).to_have_text("待修复")
+>           page.get_by_role("button", name="Diff", exact=True).click()
+
+presentation\capture_demo.py:73: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+.venv\Lib\site-packages\playwright\sync_api\_generated.py:11045: in click
+    self._sync(
+.venv\Lib\site-packages\playwright\_impl\locator.py:222: in click
+    return await self._frame.click(
+.venv\Lib\site-packages\playwright\_impl\frame.py:587: in click
+    return await self._channel.click(
+.venv\Lib\site-packages\playwright\_impl\channel_owner.py:387: in finish
+    raise e from None
+.venv\Lib\site-packages\playwright\_impl\channel_owner.py:352: in finish
+    result = await zone.run_async(lambda: awaitable)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <playwright._impl.utils.zones.Zone object at 0x000001CB046D8E60>
+func = <function ChannelOwner._wrap_api_call.<locals>.finish.<locals>.<lambda> at 0x000001CB04AE5300>
+
+    async def run_async(self, func: Callable[[], Awaitable[R]]) -> R:
+        # Python: run() of an async function. The coroutine runs when it is awaited,
+        # so the zone must be current while it is awaited, not while it is created.
+        token = _async_local_storage.set(self)
+        try:
+>           return await func()
+                   ^^^^^^^^^^^^
+E           playwright._impl._errors.TimeoutError: Locator.click: Timeout 25000ms exceeded.
+E           Call log:
+E             - waiting for get_by_role("button", name="Diff", exact=True)
+
+.venv\Lib\site-packages\playwright\_impl\utils\zones.py:58: TimeoutError
+=========================== short test summary info ===========================
+FAILED presentation/capture_demo.py::test_capture_course_demo - playwright._i...
+1 failed in 69.96s (0:01:09)

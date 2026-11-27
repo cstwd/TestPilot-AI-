@@ -1,0 +1,30 @@
+{
+  "http": 200,
+  "route": "/api/model/health",
+  "result": {
+    "state": "ready",
+    "model": "Qwen3.8-27B UD-IQ3_XXS",
+    "manifest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+    "backend_version": "0.40.18",
+    "at": 1795771991.891691,
+    "run_id": "c8aea82f-ee4d-41e2-a81f-5be2079e5d06",
+    "pid": 37736,
+    "port": 61295,
+    "vulkan": true,
+    "weight_sha256": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+    "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+    "context": 4096,
+    "size_vram": 10412978338,
+    "resources": {
+      "physical_total_gib": 31.420948028564453,
+      "physical_free_gib": 4.1746826171875,
+      "physical_used_gib": 27.246265411376953,
+      "commit_limit_gib": 49.57860565185547,
+      "commit_free_gib": 6.919727325439453,
+      "commit_used_gib": 42.658878326416016,
+      "gpu_used_mib": 9994.46875,
+      "gpu_free_mib": 6008.53125,
+      "cpu_pct": 31.768953068592054
+    }
+  }
+}

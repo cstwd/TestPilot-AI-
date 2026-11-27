@@ -1,0 +1,125 @@
+TestPilot WP05 verify | 2026-11-27T17:31:30.469177+08:00
+Windows-11-10.0.26200-SP0 | Python 3.13.11 | f06
+
+$ "D:\TestPilot AI\.venv\Scripts\python.exe" -X utf8 -m compileall -q main.py backend tests hooks mcp-server eval/phase05 eval/phase06
+exit=0 elapsed=0.32s
+
+$ "D:\TestPilot AI\.venv\Scripts\python.exe" -X utf8 -m pytest -q -s tests/test_f06.py tests/test_quality_intelligence.py tests/test_phase02_flow.py
+....F06_REPORT {"project": 2, "file": 1, "version": 1, "run": 1, "suite": 1, "status": "failed", "quality": {"passed": 3, "failed": 2, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 60.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u5b58\u5728\u65ad\u8a00\u5931\u8d25\u3002\u8bf7\u67e5\u770b\u5931\u8d25\u8282\u70b9\u548c\u8f93\u5165\u9884\u671f\uff0c\u518d\u51b3\u5b9a\u662f\u5426\u767b\u8bb0\u7f3a\u9677\u3002"}, "bugs": [{"id": 1, "status": "open", "regression_ids": []}]}
+F06_REPORT {"project": 2, "file": 1, "version": 1, "run": 1, "suite": 1, "status": "failed", "quality": {"passed": 3, "failed": 2, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 60.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u5b58\u5728\u65ad\u8a00\u5931\u8d25\u3002\u8bf7\u67e5\u770b\u5931\u8d25\u8282\u70b9\u548c\u8f93\u5165\u9884\u671f\uff0c\u518d\u51b3\u5b9a\u662f\u5426\u767b\u8bb0\u7f3a\u9677\u3002"}, "bugs": [{"id": 1, "status": "open", "regression_ids": []}]}
+F06_REPORT {"project": 2, "file": 1, "version": 1, "run": 1, "suite": 1, "status": "failed", "quality": {"passed": 3, "failed": 2, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 60.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u5b58\u5728\u65ad\u8a00\u5931\u8d25\u3002\u8bf7\u67e5\u770b\u5931\u8d25\u8282\u70b9\u548c\u8f93\u5165\u9884\u671f\uff0c\u518d\u51b3\u5b9a\u662f\u5426\u767b\u8bb0\u7f3a\u9677\u3002"}, "bugs": [{"id": 1, "status": "resolved", "regression_ids": [2]}]}
+F06_REPORT {"project": 2, "file": 2, "version": 2, "run": 2, "suite": 1, "status": "passed", "quality": {"passed": 5, "failed": 0, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 100.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u672c\u6b21\u5df2\u6267\u884c\u7684\u6d4b\u8bd5\u901a\u8fc7\u3002\u8bf7\u7ed3\u5408\u8df3\u8fc7\u9879\u4e0e\u672a\u8986\u76d6\u884c\u5224\u65ad\u5269\u4f59\u98ce\u9669\u3002"}, "bugs": [{"id": 1, "status": "resolved", "regression_ids": [2]}]}
+F06_REPORT {"project": 2, "file": 2, "version": 2, "run": 2, "suite": 1, "status": "passed", "quality": {"passed": 5, "failed": 0, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 100.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u672c\u6b21\u5df2\u6267\u884c\u7684\u6d4b\u8bd5\u901a\u8fc7\u3002\u8bf7\u7ed3\u5408\u8df3\u8fc7\u9879\u4e0e\u672a\u8986\u76d6\u884c\u5224\u65ad\u5269\u4f59\u98ce\u9669\u3002"}, "bugs": [{"id": 1, "status": "resolved", "regression_ids": [2]}]}
+F06_REPORT {"project": 2, "file": 2, "version": 2, "run": 2, "suite": 1, "status": "passed", "quality": {"passed": 5, "failed": 0, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 100.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u672c\u6b21\u5df2\u6267\u884c\u7684\u6d4b\u8bd5\u901a\u8fc7\u3002\u8bf7\u7ed3\u5408\u8df3\u8fc7\u9879\u4e0e\u672a\u8986\u76d6\u884c\u5224\u65ad\u5269\u4f59\u98ce\u9669\u3002"}, "bugs": [{"id": 1, "status": "resolved", "regression_ids": [2]}]}
+F06_REPORT {"project": 2, "file": 2, "version": 2, "run": 2, "suite": 1, "status": "passed", "quality": {"passed": 5, "failed": 0, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 100.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u672c\u6b21\u5df2\u6267\u884c\u7684\u6d4b\u8bd5\u901a\u8fc7\u3002\u8bf7\u7ed3\u5408\u8df3\u8fc7\u9879\u4e0e\u672a\u8986\u76d6\u884c\u5224\u65ad\u5269\u4f59\u98ce\u9669\u3002"}, "bugs": [{"id": 1, "status": "resolved", "regression_ids": [2]}]}
+F06_REPORT {"project": 2, "file": 2, "version": 2, "run": 2, "suite": 1, "status": "passed", "quality": {"passed": 5, "failed": 0, "errors": 0, "skipped": 0, "total": 5, "pass_rate_pct": 100.0, "covered_lines": 2, "total_lines": 2, "coverage_pct": 100.0, "assessment": "\u672c\u6b21\u5df2\u6267\u884c\u7684\u6d4b\u8bd5\u901a\u8fc7\u3002\u8bf7\u7ed3\u5408\u8df3\u8fc7\u9879\u4e0e\u672a\u8986\u76d6\u884c\u5224\u65ad\u5269\u4f59\u98ce\u9669\u3002"}, "bugs": [{"id": 1, "status": "resolved", "regression_ids": [2]}]}
+F06_VIEW {"width": 1440, "height": 900, "main": 849, "engine": "158.0.4370.33"}
+F06_VIEW {"width": 1024, "height": 768, "main": 562, "engine": "158.0.4370.33"}
+F06_VIEW {"width": 768, "height": 1024, "main": 724, "engine": "158.0.4370.33"}
+F06_VIEW {"width": 390, "height": 844, "main": 390, "engine": "158.0.4370.33"}
+.FErun=1 file_revision=1 suite=1 status=failed node=test_generated.py::test_example_3 metrics={'passed': 5, 'failed': 1, 'errors': 0, 'skipped': 1, 'pass_rate_pct': 83.33, 'coverage_pct': 100.0}
+run=2 file_revision=2 suite=1 status=passed node=test_generated.py::test_example_3 metrics={'passed': 6, 'failed': 0, 'errors': 0, 'skipped': 1, 'pass_rate_pct': 100.0, 'coverage_pct': 100.0}
+.
+=================================== ERRORS ====================================
+______ ERROR at teardown of test_zero_and_missing_metrics_from_real_wasi ______
+
+app_url = 'http://127.0.0.1:63192'
+
+    @pytest.fixture
+    def studio(app_url):
+        channel = os.environ.get("TESTPILOT_BROWSER_CHANNEL", "msedge" if sys.platform == "win32" else "chromium")
+        with sync_playwright() as driver:
+            browser = driver.chromium.launch(channel=channel)
+            errors = []
+            try:
+                page = browser.new_page(base_url=app_url, viewport={"width": 1440, "height": 900})
+                page.on("pageerror", lambda e: errors.append(str(e)))
+                yield page
+>               assert not errors, errors
+E               AssertionError: ["Cannot set properties of null (setting 'onkeydown')"]
+E               assert not ["Cannot set properties of null (setting 'onkeydown')"]
+
+tests\test_ast_studio.py:44: AssertionError
+================================== FAILURES ===================================
+________________ test_zero_and_missing_metrics_from_real_wasi _________________
+
+studio = <Page url='http://127.0.0.1:63192/workbench/reports?project=1&file=1&run=1'>
+tmp_path = WindowsPath('C:/Users/89777/AppData/Local/Temp/pytest-of-897772465/pytest-99/test_zero_and_missing_metrics_0')
+
+    def test_zero_and_missing_metrics_from_real_wasi(studio, tmp_path):
+        page = studio
+        project = post_json(page, "/api/projects", {"name": "质量口径验收"})
+        file = upload(page, project["id"], "worker.py", "def sample():\n    return 7\n")
+        mixed = run_sample(page, tmp_path, file, "sample", MIXED_TESTS)
+        q = mixed["quality"]
+        assert mixed["run"]["status"] == "error"
+        assert (q["passed"], q["failed"], q["errors"], q["skipped"], q["total"]) == (1, 1, 1, 1, 4)
+        assert (q["pass_rate_pct"], q["coverage_pct"], q["covered_lines"], q["total_lines"]) == (33.33, 0, 0, 2)
+        open_report(page, mixed)
+>       show_matches(page, mixed)
+
+tests\test_quality_intelligence.py:256: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+page = <Page url='http://127.0.0.1:63192/workbench/reports?project=1&file=1&run=1'>
+data = {'schema': 'testpilot.quality.v1', 'project': {'id': 1, 'name': '质量口径验收'}, 'run': {'id': 1, 'status': 'error', 'create...ename': 'worker.py', 'revision': 1, 'sha256': '8bf08b15b9dfed6251db88bf9eac4050ef39d21f58db9b4a8682a9bd7e3a8052'}, ...}
+
+    def show_matches(page, data):
+        project, run, source, suite, q = (data[key] for key in ("project", "run", "source", "suite", "quality"))
+        measured = q["passed"] + q["failed"] + q["errors"]
+        rate = f"{q['pass_rate_pct']:g}%" if q["pass_rate_pct"] is not None else "无可计算的用例"
+        coverage = f"{q['coverage_pct']:g}%" if q["coverage_pct"] is not None else "未采集"
+>       expect(page.locator("#report")).to_be_visible()
+E       AssertionError: Locator expected to be visible
+E       Actual value: hidden 
+E       Call log:
+E         - Expect "to_be_visible" locator("#report") with timeout 5000ms
+E         - waiting for locator("#report")
+E           14 × locator resolved to <div hidden="" id="report" class="quality-content">…</div>
+E              - unexpected value "hidden"
+E       
+E       Aria snapshot:
+E       - banner:
+E         - link "TestPilot AI 首页":
+E           - /url: /
+E           - text: TestPilot AI
+E         - text: 测试工作台 质量分析
+E       - navigation "测试工作台":
+E         - link "项目与文件":
+E           - /url: /workbench/projects?project=1&file=1
+E         - link "AST 分析":
+E           - /url: /workbench/analysis?project=1&file=1
+E         - link "测试生成":
+E           - /url: /workbench/generation?project=1&file=1
+E         - link "测试执行":
+E           - /url: /workbench/runs?project=1&file=1
+E         - link "缺陷与回归":
+E           - /url: /workbench/bugs?project=1&file=1
+E         - link "质量报告":
+E           - /url: /workbench/reports?project=1&file=1
+E       - main:
+E         - text: Quality Intelligence Center
+E         - heading "质量分析与报告" [level=1]
+E         - complementary "运行选择器":
+E           - heading "Run Explorer" [level=2]
+E           - text: 当前项目
+E           - combobox "当前项目":
+E             - option "质量口径验收" [selected]
+E           - text: 文件版本
+E           - combobox "筛选文件版本" [disabled]:
+E             - option "全部版本" [selected]
+E           - text: 运行状态
+E           - combobox "筛选运行状态" [disabled]:
+E             - option "全部状态" [selected]
+E           - paragraph: 正在读取运行历史…
+E         - heading "正在读取质量报告" [level=3]
+E         - paragraph: 从运行历史打开一份已保存的报告。
+E         - status: Cannot set properties of null (setting 'onkeydown')
+
+tests\test_quality_intelligence.py:82: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_quality_intelligence.py::test_zero_and_missing_metrics_from_real_wasi
+ERROR tests/test_quality_intelligence.py::test_zero_and_missing_metrics_from_real_wasi
+1 failed, 6 passed, 1 error in 112.20s (0:01:52)
+exit=1 elapsed=114.53s
+outcome=failed

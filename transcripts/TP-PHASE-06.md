@@ -2,7 +2,7 @@
 
 | 日期（UTC+8） | 会话 ID | 工作包 | 实现或归档提交 | 证据 |
 |---|---|---|---|---|
-| 2026-11-27T16:47:50+08:00 | `01a21af4-befa-78a1-8c50-f4960edbdac0` | WP01/WP03/WP04 | 98adf18, 0ddc083 | [验收与产物](../docs/phase06/DEPLOYMENT.md) |
+| 2026-11-27T16:47:50+08:00 | `01a21af4-befa-78a1-8c50-f4960edbdac0` | WP01/WP03/WP04 | 98adf18, 0ddc083, 74ba1b4 | [验收与产物](../docs/phase06/DEPLOYMENT.md) |
 
 ## 用户 Prompt 原文
 
@@ -200,3 +200,18 @@ BLOCKED
 ## 已取得的代理进度原文
 
 默认缓存配置曾触发 2 GiB 内存保护。关闭 prompt RAM cache 和上下文检查点后，服务继续运行。冻结的十个源码理解样例复测为 **67/70**，参数格式从 0/10 提高到 10/10。另有 86 项兼容性测试通过。连续请求中已捕获一次 Windows 状态文件读取冲突，已加上有限重试，并保留原始失败记录。
+
+## 原始最终答复
+
+**TP-PHASE-06 生产状态为 `READY_WITH_LIMITATIONS`。** F02 源码理解、F03/F09 测试生成、F12 修复和 F13 补测统一使用本机 Qwen3.8-27B UD-IQ3_XXS。统一 Provider 已实测校验权重身份、Ollama Vulkan 加载和真实推理。API 费用为零。主分支快照 `b0f488e` 的模型健康探针也已通过。[正式验收报告](<D:/TestPilot AI/.runtime/tp-phase-06/reports/phase06/TP_PHASE_06_ACCEPTANCE.md>)
+
+| 验收项 | 实测结果 |
+| --- | --- |
+| 功能与回归 | F01 → F02 → F03 → F04 → F13 真实链路通过。全量回归 **148 项通过**，后续变更的定向复测 **21 项通过** |
+| 源码理解 | **56/70 → 67/70**，参数格式 **0/10 → 10/10** |
+| 稳定性 | 连续请求 **100/100**，长运行探针 **36/36**，4K、8K、16K 压力测试各 **2/2**。同一 FastAPI 进程实测 Ollama 停机后恢复 |
+| 资源与速度 | 优化后 4K 运行期间，最低可用物理内存 **2.36 GiB**，最低 Commit 余量 **4.45 GiB**。连续短请求首 token 延迟中位数 **0.206 秒**，平均 **26.98 token/s** |
+
+**生产限制来自固定语料的测试质量。** 30 次生成中有 5 次未通过协议校验，涉及的 14 个变异位置仍计入分母。初始与补测后均检出 **93/117（79.49%）**，低于 PHASE-05 的 **104/117** 和 **105/117**。独立的正式 F13 接口用例则由 **4/9 提升至 7/9**。[变异对照](<D:/TestPilot AI/.runtime/tp-phase-06/reports/phase06/MUTATIONS.md>) · [端到端报告](<D:/TestPilot AI/.runtime/tp-phase-06/reports/phase06/E2E.md>) · [性能与内存报告](<D:/TestPilot AI/.runtime/tp-phase-06/reports/phase06/PERFORMANCE.md>)
+
+验收归档位于 `integration/tp-phase-06`，提交 `74ba1b4`。PHASE-05 原始实验和此前验收记录已核对保留。验收服务已关闭。[部署与模块迁移清单](<D:/TestPilot AI/.runtime/tp-phase-06/docs/phase06/DEPLOYMENT.md>)

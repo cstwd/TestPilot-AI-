@@ -7,7 +7,7 @@
 | PHASE-03 / F07–F12 | 智能引擎、结构化审计、七项目复验 | `978323d`, `7422857` · [阶段报告](../TP_PHASE_03_ACCEPTANCE.md) · [用例证据](../reports/phase03/E2E.md) · [会话](../transcripts/TP-PHASE-03.md) |
 | PHASE-04 / F13 | 六类算子、原版绿灯、固定分母与 F13 补测 | `5b757b9`, `6de6844`, `5be8d12`, `f6daaa1`, `8607ffa`, `38dd0bc`, `307d4bd` · [验收](../TP_PHASE_04_ACCEPTANCE.md) · [146 项历史回归](../reports/phase04/final-suite.txt) · [会话](../transcripts/TP-PHASE-04.md) |
 | PHASE-05 | 10/10 推理、120 次比较、117 个位置／组 | `8923f2c`，课程合并 `1acd2ff` · [验收](../reports/phase05/TP_PHASE_05_ACCEPTANCE.md) · [图](../reports/phase05/mutation-score.png) · [会话](../transcripts/TP-PHASE-05.md) |
-| PHASE-06 | Qwen3.8-27B 本机统一 Provider、Vulkan 监督与资源保护 | `98adf18`, `0ddc083`，课程合并 `646ef7d` · [部署](phase06/DEPLOYMENT.md) · [会话](../transcripts/TP-PHASE-06.md) |
+| PHASE-06 | Qwen3.8-27B 本机统一 Provider、Vulkan 监督与资源保护 | `98adf18`, `0ddc083`, `d4fbdf9`, `74ba1b4`，课程合并 `646ef7d`、`ae21701` · [阶段验收](../reports/phase06/TP_PHASE_06_ACCEPTANCE.md) · [部署](phase06/DEPLOYMENT.md) · [会话](../transcripts/TP-PHASE-06.md) |
 | 工作台升级 | 导入中心、AST 动画、生成 Studio、执行中心、缺陷中心 | `9f048d0`, `7f724d0`, `76bd9e0`, `7c796e7`, `9fdfa7e`, `c49dde2` · [F01](../reports/WP04-F01-001/F01_BROWSER_ACCEPTANCE.md) · [F02](../reports/WP03-AST-VISUAL-001/BROWSER_ACCEPTANCE.md) · [F03](../reports/WP05-F03-001/F03_BROWSER_ACCEPTANCE.md) · [F04](../reports/WP06-F04-001/F04_BROWSER_ACCEPTANCE.md) · [F05](../reports/WP07-F05-001/F05_BROWSER_ACCEPTANCE.md) |
 | F06 质量工作台升级 | 实测指标、运行对照和质量导出 | `b7a8b40` · [浏览器](../reports/WP08-F06-001/) |
 | 课程交付 | 验收、五人记录、工程工具、Bug 案例、截图、PPT 与视频 | [要求审计](COURSE_REQUIREMENTS_AUDIT.md) · [验收报告](COURSE_FINAL_REPORT.md) · [工作记录](../collab-log/LOG.md) · [会话索引](../transcripts/README.md) · [展示材料](../presentation/README.md) |

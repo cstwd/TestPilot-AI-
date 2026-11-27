@@ -1,0 +1,160 @@
+{
+  "model": {
+    "path": "/api/model/health",
+    "http": 200,
+    "payload": {
+      "state": "ready",
+      "model": "Qwen3.8-27B UD-IQ3_XXS",
+      "manifest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+      "backend_version": "0.40.18",
+      "at": 1795771120.468929,
+      "run_id": "d48deb7e-cb00-42d3-a287-2ccb61663d7e",
+      "vulkan": true,
+      "weight_sha256": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+      "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+      "context": 4096,
+      "size_vram": 10412978338,
+      "resources": {
+        "physical_total_gib": 31.420948028564453,
+        "physical_free_gib": 2.5922698974609375,
+        "physical_used_gib": 28.828678131103516,
+        "commit_limit_gib": 49.57860565185547,
+        "commit_free_gib": 4.642543792724609,
+        "commit_used_gib": 44.93606185913086,
+        "gpu_used_mib": 10048.34375,
+        "gpu_free_mib": 5954.65625,
+        "cpu_pct": 46.785714285714285
+      }
+    }
+  },
+  "F01/project": {
+    "path": "/api/projects",
+    "http": 201,
+    "fields": {
+      "id": 1
+    }
+  },
+  "F01/file": {
+    "path": "/api/projects/1/files",
+    "http": 200,
+    "fields": {
+      "id": 1
+    }
+  },
+  "F02/ast": {
+    "path": "/api/engine/files/1/analysis",
+    "http": 200,
+    "fields": {
+      "valid": true
+    }
+  },
+  "F02/ai": {
+    "path": "/api/engine/files/1/understanding",
+    "http": 200,
+    "fields": {
+      "run_id": "7ed9596d-c0d3-4a29-b3c1-3943843587aa"
+    }
+  },
+  "F03/suite": {
+    "path": "/api/files/1/suites",
+    "http": 200,
+    "fields": {
+      "id": 1,
+      "mode": "ai"
+    }
+  },
+  "F04/execution": {
+    "path": "/api/runs/1",
+    "http": 200,
+    "fields": {
+      "id": 1,
+      "status": "passed"
+    }
+  },
+  "F09/configured": {
+    "path": "/api/engine/files/1/tasks",
+    "http": 201,
+    "fields": {
+      "id": "ea3513a8-6fb5-49f5-8671-2324e1cc4408",
+      "status": "completed"
+    }
+  },
+  "F13/explicit-template": {
+    "path": "/api/engine/files/1/tasks",
+    "http": 201,
+    "fields": {
+      "id": "aa06edf5-8249-4bb7-be4e-424cc9cf5259",
+      "status": "completed"
+    }
+  },
+  "F13/plan": {
+    "path": "/api/engine/tasks/aa06edf5-8249-4bb7-be4e-424cc9cf5259/mutations",
+    "http": 201,
+    "fields": {
+      "id": "51a9b5d8-4b04-4b1a-a7a9-6868796585d1",
+      "status": "ready",
+      "before": null,
+      "after": null
+    }
+  },
+  "F13/run": {
+    "path": "/api/mutations/51a9b5d8-4b04-4b1a-a7a9-6868796585d1/run",
+    "http": 200,
+    "fields": {
+      "id": "51a9b5d8-4b04-4b1a-a7a9-6868796585d1",
+      "status": "completed",
+      "before": {
+        "killed": 4,
+        "survived": 3,
+        "timeout": 0,
+        "execution_error": 2,
+        "cancelled": 0,
+        "unrun": 0,
+        "total": 9,
+        "equivalent_candidates": 0,
+        "score_pct": 44.44
+      },
+      "after": {
+        "killed": 7,
+        "survived": 0,
+        "timeout": 0,
+        "execution_error": 2,
+        "cancelled": 0,
+        "unrun": 0,
+        "total": 9,
+        "equivalent_candidates": 0,
+        "score_pct": 77.78
+      }
+    }
+  },
+  "F13/evidence": {
+    "path": "/api/mutations/51a9b5d8-4b04-4b1a-a7a9-6868796585d1/report",
+    "http": 200,
+    "fields": {
+      "id": "51a9b5d8-4b04-4b1a-a7a9-6868796585d1",
+      "status": "completed",
+      "before": {
+        "killed": 4,
+        "survived": 3,
+        "timeout": 0,
+        "execution_error": 2,
+        "cancelled": 0,
+        "unrun": 0,
+        "total": 9,
+        "equivalent_candidates": 0,
+        "score_pct": 44.44
+      },
+      "after": {
+        "killed": 7,
+        "survived": 0,
+        "timeout": 0,
+        "execution_error": 2,
+        "cancelled": 0,
+        "unrun": 0,
+        "total": 9,
+        "equivalent_candidates": 0,
+        "score_pct": 77.78
+      }
+    }
+  }
+}

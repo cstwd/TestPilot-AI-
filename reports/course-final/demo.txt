@@ -1,0 +1,10 @@
+00-dashboard: http://127.0.0.1:58385/
+01-project: http://127.0.0.1:58385/workbench/projects?project=1&file=1
+02-ast: http://127.0.0.1:58385/workbench/analysis?project=1&file=1&node=file%3A1
+03-suite: http://127.0.0.1:58385/workbench/generation?project=1&file=1&symbol=magnitude&suite=1
+04-execution: http://127.0.0.1:58385/workbench/runs?project=1&file=1&suite=1&run=1
+05-regression: http://127.0.0.1:58385/workbench/bugs?project=1&file=2&bug=1&run=1&nodeid=test_generated.py%3A%3Atest_example_3&regression=2
+06-quality: http://127.0.0.1:58385/workbench/reports?project=1&file=2&run=2
+07-mutation: http://127.0.0.1:58385/mutations?task_id=d698d36c-f031-439f-8efe-1910daea881a
+.
+1 passed in 65.97s (0:01:05)

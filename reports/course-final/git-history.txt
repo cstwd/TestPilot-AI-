@@ -1,0 +1,70 @@
+*   ae21701 2026-11-27 Codex TP-COURSE-FINAL-001 WP01 integrate completed PHASE-06 evidence and deadline
+|\  
+| * 74ba1b4 2026-11-27 Codex Archive real 27B workload, end-to-end regression, and Phase 06 readiness decision
+| * d4fbdf9 2026-11-27 Codex Apply one campaign deadline to F13 and report measured quality and resource evidence
+* | b0f488e 2026-11-27 Codex TP-COURSE-FINAL-001 WP05 attach F06 transcript and editable chart workbook
+* | 72a53b8 2026-11-27 Codex TP-COURSE-FINAL-001 WP05 package editable presentation and demo evidence
+* | be2813f 2026-11-27 Codex TP-COURSE-FINAL-001 WP05 restore work packages specs bugs and original prompts
+* | 13a5d09 2026-11-27 Codex TP-COURSE-FINAL-001 WP05 preserve portable hook and F06 verification scope
+* | b7a8b40 2026-11-27 Codex WP08-F06-001 build quality intelligence center
+* | 4b1b574 2026-11-27 Codex TP-COURSE-FINAL-001 WP05 ship verified Skills MCP Hook and reviewer
+* | 7fdccc9 2026-11-27 Codex TP-COURSE-FINAL-001 WP01 revalidate model identity and GPU readiness
+* | 646ef7d 2026-11-27 Codex TP-COURSE-FINAL-001 WP01 integrate pinned local Qwen provider
+|\| 
+| * 0ddc083 2026-11-27 Codex Handle Windows attestation sharing and add reproducible resource and recovery measurements
+| * 98adf18 2026-11-27 Codex Unify inference on pinned local Qwen 27B and guard Ollama Vulkan resources
+* |   1acd2ff 2026-11-27 Codex TP-COURSE-FINAL-001 WP05 integrate frozen PHASE-05 evidence
+|\ \  
+| * | 8923f2c 2026-11-27 Codex Archive 120 local model comparison attempts and verified TP-PHASE-05 acceptance
+| * | 8bb8e13 2026-11-27 Codex Archive verified source understanding and add reproducible campaign metrics and reports
+| * | 8aab4d6 2026-11-27 Codex Audit local GGUF and freeze a reproducible ten-project comparison on the Phase 04 baseline
+* | | c49dde2 2026-11-27 Codex WP07-F05-001 build bug intelligence center
+* | | 9fdfa7e 2026-11-27 Codex WP06-F04-001 build test execution control center
+| |/  
+|/|   
+* | 7c796e7 2026-11-27 Codex WP05-F03-001 build AI test generation studio
+* | 9f048d0 2026-11-27 Codex WP04-F01-001 redesign project center and extract shared studio design system
+|/  
+* 307d4bd 2026-11-27 Codex Deliver Phase 04 mutation engine acceptance and PyCharm workbench instructions
+* 38dd0bc 2026-11-27 Codex Archive final 146 passing tests including live local mutation feedback and 89 legacy nodes
+* 765e95a 2026-11-27 Codex Preserve the intermediate integration run including concurrent cleanup-check failure
+* bfc05d7 2026-11-27 Codex Document operator results, fixed denominators and verified local AI feedback impact
+* 8607ffa 2026-11-27 Codex Recognize imported pytest.raises aliases using the executed suite and failure frame
+* eab8f4f 2026-11-27 Codex Archive independently replayable AI and template campaigns and all 89 original regression outcomes
+* 43c01c5 2026-11-27 Codex Verify installed local GGUF before compact F09 inference and preserve full contract coverage
+* f6daaa1 2026-11-27 Codex Integrate checkpointed mutation campaigns, baseline-validated feedback and report UI
+* d847cab 2026-11-27 Codex Expose an opt-in compact initial prompt for documented functions on local Ollama
+* 5be8d12 2026-11-27 Codex Generate traceable survivor tests with a verified loopback Ollama model
+* 6de6844 2026-11-27 Codex Classify real WASI outcomes and score complete manifests with cancellable execution
+* 5b757b9 2026-11-27 Codex Generate and replay six families of located first-order mutations with Cosmic Ray
+* b784715 2026-11-27 Codex Benchmark mutmut and Cosmic Ray on native Windows and compare actual WASI integration
+* 76bd9e0 2026-11-27 Codex WP03-AST-VISUAL-REFINE-001 refine graph motion and verify headed analysis workflow
+* 8eb13f9 2026-11-27 Codex Audit Phase 04 baseline, archived tests and sandbox interfaces before tool selection
+* c9737be 2026-11-27 Codex WP03-AST-VISUAL-001 archive browser and performance acceptance
+* 7f724d0 2026-11-27 Codex WP03-AST-VISUAL-001 implement interactive AST graph studio
+* 7422857 2026-11-27 Codex Archive Phase 03 audit, module acceptance, full regression, coverage and model availability evidence
+* 978323d 2026-11-27 Codex Integrate same-origin engine workbench and verify seven real projects through main.py
+* f4de268 2026-11-27 Codex F12 repair only independently verifiable generated tests and persist both sandbox executions
+* d937d4b 2026-11-27 Codex WP02 document GitNexus design evidence and F01-F06 upgrade proposals
+* 6bc372f 2026-11-27 Codex F11 preserve uncertainty for ambiguous imports and stateful test preconditions
+* ab954d0 2026-11-27 Codex Validate engine artifact schemas and incorporate cross-module contract review
+* eb931c8 2026-11-27 Codex F11 attribute actual failures to explicit contracts and preserve uncertain outcomes
+* d551a2d 2026-11-27 Codex F10 collect measured branches, separate streams and bounded failure tracebacks in WASI
+* c370d42 2026-11-27 Codex F09 integrate auditable Ollama and compatible chat model adapters with truthful fallback
+* 36a76f7 2026-11-27 Codex F08 derive typed test strategies and distinguish explicit oracles from hypotheses
+* 643b0ca 2026-11-27 Codex F07 analyze source contracts, control flow, callable entries and dependencies
+* 805ec36 2026-11-27 Codex Add transactional Phase 03 task and evidence chain without changing legacy tables
+* 9f107cb 2026-11-27 Codex Document Phase 03 baseline audit and engine contracts before implementation
+* da798a4 2026-11-27 Codex Archive PHASE-02 module reviews, PyCharm verification and measured regression evidence
+* f31a901 2026-11-27 Codex Integrate automatic sandbox validation and verify the full defect-to-report workflow
+* c874456 2026-11-27 Codex F06 assess measured quality and export the selected run and regression evidence
+* b6f4ef5 2026-11-27 Codex F05 track confirmed failures and regress the original case on newer source revisions
+* 894e7d4 2026-11-27 Codex WP05 record verified GitHub branch publication
+* d988ecc 2026-11-27 Codex F04 run real pytest under WASI with closed capabilities and persist execution evidence
+* 93f7a18 2026-11-27 Codex WP05 exclude local credentials and private inputs from Git
+* 2b2185c 2026-11-27 Codex F03 generate and validate versioned template suites from explicit examples and signatures
+* 743e24f 2026-11-27 Codex F02 analyze Python revisions and display signatures and diagnostics
+* 77e6177 2026-11-27 Codex F01 manage projects and import immutable source revisions
+* 097358b 2026-11-27 Codex Document phase 02 module acceptance rules
+* 88ebf23 2026-11-27 Codex Record phase 01 acceptance, work package results and native IDE evidence
+* 8038be2 2026-11-27 Codex Initialize TestPilot AI single-service project and verify the PyCharm entry point

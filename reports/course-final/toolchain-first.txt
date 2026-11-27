@@ -1,0 +1,85 @@
+TestPilot WP05 verify | 2026-11-27T17:15:23.962808+08:00
+Windows-11-10.0.26200-SP0 | Python 3.13.11 | toolchain
+
+$ "D:\TestPilot AI\.venv\Scripts\python.exe" -X utf8 -m compileall -q main.py backend tests hooks mcp-server eval/phase05 eval/phase06
+exit=0 elapsed=0.36s
+
+$ "D:\TestPilot AI\.venv\Scripts\python.exe" -X utf8 -m pytest -q -s tests/test_course_toolchain.py
+FHook rejected commit: TestPilot WP05: checking staged whitespace and conflict markers
+fixture.txt:1: trailing whitespace.
++example 
+Hook accepted commit: TestPilot WP05: checking staged whitespace and conflict markers 25252f4 clean staged whitespace
+.
+================================== FAILURES ===================================
+______________________ test_mcp_reads_real_testpilot_run ______________________
+
+sample_workspace = (namespace(app=namespace(state=namespace(db_path=WindowsPath('C:/Users/89777/AppData/Local/Temp/pytest-of-897772465/py...lename': 'magnitude.py', 'revision': 2, ...}], {'id': 1, 'file_id': 1, 'target': 'magnitude', 'mode': 'template', ...})
+
+    def test_mcp_reads_real_testpilot_run(sample_workspace):
+        request, project, files, suite = sample_workspace
+        path = request.app.state.db_path
+        run = runs.run_suite(path, suite["id"], files[1]["id"])
+        messages = [
+            ("initialize", {"protocolVersion": "2025-11-25", "capabilities": {},
+                            "clientInfo": {"name": "acceptance", "version": "1.0"}}),
+            ("notifications/initialized", {}),
+            ("tools/list", {}),
+            ("tools/call", {"name": "list_projects"}),
+            ("tools/call", {"name": "get_run", "arguments": {"run_id": run["id"]}}),
+            ("tools/call", {"name": "get_run", "arguments": {"run_id": "invalid"}}),
+        ]
+        requests = []
+        for index, (method, params) in enumerate(messages):
+            request = {"jsonrpc": "2.0", "method": method, "params": params}
+            if not method.startswith("notifications/"):
+                request["id"] = index
+            requests.append(json.dumps(request))
+        config = json.loads((ROOT / ".mcp.json").read_text(encoding="utf-8"))["mcpServers"]["testpilot"]
+        before = path.read_bytes()
+        process = subprocess.run(
+            [sys.executable, *config["args"]], cwd=ROOT, input="\n".join(requests) + "\n",
+            text=True, encoding="utf-8", capture_output=True, timeout=15, check=True,
+            env={**os.environ, "TESTPILOT_DATA_DIR": str(path.parent)},
+        )
+        assert not process.stderr
+        replies = {row["id"]: row["result"] for row in map(json.loads, process.stdout.splitlines())}
+        assert set(replies) == {0, 2, 3, 4, 5}
+        assert replies[0]["protocolVersion"] == "2025-11-25"
+        assert {tool["name"] for tool in replies[2]["tools"]} == {"get_run", "list_projects"}
+>       assert json.loads(replies[3]["content"][0]["text"]) == {"projects": [project]}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_course_toolchain.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\89777\miniconda3\Lib\json\__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\89777\miniconda3\Lib\json\decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <json.decoder.JSONDecoder object at 0x000002AC4C998980>
+s = 'TestPilot database is unavailable or incompatible', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+C:\Users\89777\miniconda3\Lib\json\decoder.py:363: JSONDecodeError
+=========================== short test summary info ===========================
+FAILED tests/test_course_toolchain.py::test_mcp_reads_real_testpilot_run - js...
+1 failed, 1 passed in 8.20s
+exit=1 elapsed=9.99s
+outcome=failed

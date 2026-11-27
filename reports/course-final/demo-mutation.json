@@ -1,0 +1,225 @@
+{
+  "id": "fd287f42-e303-4cdb-ab7c-64191204ce74",
+  "task_id": "d698d36c-f031-439f-8efe-1910daea881a",
+  "file_id": 3,
+  "suite_id": "e8ce1754-0741-4635-82ee-9f3a0ba81237",
+  "target": "unit",
+  "profile": "cosmic-ray-8.9.0/testpilot-first-order-v1",
+  "source_sha256": "11bb316d14ef2dd818b86d227857461d7d82319356b85a0d4f53f184e304441a",
+  "test_sha256": "cb3fdb3ea4c28d18429cf822af191e68f3f63310a5a7f2eef1790ee5d9da3ba6",
+  "feedback_enabled": false,
+  "timeout_s": 15,
+  "status": "completed",
+  "cancel_requested": false,
+  "created_at": "2026-11-27T09:23:51.107704+00:00",
+  "updated_at": "2026-11-27T09:24:03.121386+00:00",
+  "diagnostic": "未启用反馈",
+  "manifest": [
+    {
+      "id": "71229259-d91f-52de-9fa8-9c2fa86d8254",
+      "family": "return",
+      "operator": "testpilot/ReturnNone",
+      "line": 5,
+      "column": 5,
+      "before": "return x",
+      "after": "return None",
+      "edit": {
+        "start": 62,
+        "end": 70,
+        "old": "return x",
+        "new": "return None"
+      },
+      "mutated_sha256": "d2c9c8f5cdf54d515ef5ad63bef4c7db7e5c1dc9b3dfcec3a071b7dc569e2e52",
+      "equivalent_candidate": false
+    }
+  ],
+  "events": [
+    {
+      "id": "b6ce3401-806d-472b-a643-eeab52695725",
+      "phase": "before",
+      "kind": "baseline",
+      "mutant_id": "",
+      "created_at": "2026-11-27T09:23:57.013889+00:00",
+      "status": "passed",
+      "reason": "原始源码通过基线验证",
+      "payload": {
+        "status": "passed",
+        "passed": 4,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 1,
+        "cases": [
+          {
+            "nodeid": "test_generated.py::test_example_1",
+            "outcome": "passed"
+          },
+          {
+            "nodeid": "test_generated.py::test_normal_return_contract",
+            "outcome": "passed"
+          },
+          {
+            "nodeid": "test_generated.py::test_boundary_return_contract",
+            "outcome": "passed"
+          },
+          {
+            "nodeid": "test_generated.py::test_invalid_keyword",
+            "outcome": "passed"
+          },
+          {
+            "nodeid": "test_generated.py::test_property_return_contract",
+            "outcome": "skipped"
+          }
+        ],
+        "exit_code": 0,
+        "covered_lines": 2,
+        "total_lines": 2,
+        "coverage_pct": 100.0,
+        "log": "....s\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:18: could not import 'hypothesis': No module named 'hypothesis'\n4 passed, 1 skipped in 0.10s",
+        "duration_ms": 5879,
+        "stdout": "....s\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:18: could not import 'hypothesis': No module named 'hypothesis'\n4 passed, 1 skipped in 0.10s\n",
+        "stderr": "",
+        "diagnostic": "",
+        "result_complete": true,
+        "failures": [],
+        "failure_details_omitted": 0,
+        "covered_branches": 0,
+        "total_branches": 0,
+        "branch_pct": null,
+        "environment": {
+          "platform": "wasi",
+          "python": "3.15.2",
+          "pytest": "9.2.0",
+          "coverage": "7.17.5"
+        },
+        "source_sha256": "11bb316d14ef2dd818b86d227857461d7d82319356b85a0d4f53f184e304441a",
+        "test_sha256": "cb3fdb3ea4c28d18429cf822af191e68f3f63310a5a7f2eef1790ee5d9da3ba6"
+      }
+    },
+    {
+      "id": "26e155ce-f19a-4e62-b677-31fdb0b1e4e1",
+      "phase": "before",
+      "kind": "observation",
+      "mutant_id": "71229259-d91f-52de-9fa8-9c2fa86d8254",
+      "created_at": "2026-11-27T09:24:03.113018+00:00",
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "payload": {
+        "execution": {
+          "status": "failed",
+          "passed": 1,
+          "failed": 3,
+          "errors": 0,
+          "skipped": 1,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_example_1",
+              "outcome": "failed"
+            },
+            {
+              "nodeid": "test_generated.py::test_normal_return_contract",
+              "outcome": "failed"
+            },
+            {
+              "nodeid": "test_generated.py::test_boundary_return_contract",
+              "outcome": "failed"
+            },
+            {
+              "nodeid": "test_generated.py::test_invalid_keyword",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_property_return_contract",
+              "outcome": "skipped"
+            }
+          ],
+          "exit_code": 1,
+          "covered_lines": 2,
+          "total_lines": 2,
+          "coverage_pct": 100.0,
+          "log": "FFF.s\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(3) == 3\nE   assert None == 3\nE    +  where None = target(3)\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(x=2), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(x=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(x=0), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(x=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:18: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_example_1 - assert None == 3\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n3 failed, 1 passed, 1 skipped in 0.30s",
+          "duration_ms": 6091,
+          "stdout": "FFF.s\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(3) == 3\nE   assert None == 3\nE    +  where None = target(3)\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(x=2), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(x=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(x=0), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(x=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:18: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_example_1 - assert None == 3\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n3 failed, 1 passed, 1 skipped in 0.30s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [
+            {
+              "nodeid": "test_generated.py::test_example_1",
+              "phase": "call",
+              "exception_type": "AssertionError",
+              "message": "assert None == 3\n +  where None = target(3)",
+              "frames": [
+                {
+                  "path": "test_generated.py",
+                  "line": 5,
+                  "function": "test_example_1",
+                  "source": "assert target(3) == 3"
+                }
+              ],
+              "assertion_diff": "assert None == 3\n +  where None = target(3)"
+            },
+            {
+              "nodeid": "test_generated.py::test_normal_return_contract",
+              "phase": "call",
+              "exception_type": "AssertionError",
+              "message": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(x=2)",
+              "frames": [
+                {
+                  "path": "test_generated.py",
+                  "line": 8,
+                  "function": "test_normal_return_contract",
+                  "source": "assert isinstance(target(x=2), int)"
+                }
+              ],
+              "assertion_diff": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(x=2)"
+            },
+            {
+              "nodeid": "test_generated.py::test_boundary_return_contract",
+              "phase": "call",
+              "exception_type": "AssertionError",
+              "message": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(x=0)",
+              "frames": [
+                {
+                  "path": "test_generated.py",
+                  "line": 11,
+                  "function": "test_boundary_return_contract",
+                  "source": "assert isinstance(target(x=0), int)"
+                }
+              ],
+              "assertion_diff": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(x=0)"
+            }
+          ],
+          "failure_details_omitted": 0,
+          "covered_branches": 0,
+          "total_branches": 0,
+          "branch_pct": null,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "source_sha256": "d2c9c8f5cdf54d515ef5ad63bef4c7db7e5c1dc9b3dfcec3a071b7dc569e2e52",
+          "test_sha256": "cb3fdb3ea4c28d18429cf822af191e68f3f63310a5a7f2eef1790ee5d9da3ba6"
+        },
+        "nodeids": [
+          "test_generated.py::test_boundary_return_contract",
+          "test_generated.py::test_example_1",
+          "test_generated.py::test_normal_return_contract"
+        ]
+      }
+    }
+  ],
+  "before": {
+    "killed": 1,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 1,
+    "equivalent_candidates": 0,
+    "score_pct": 100.0
+  },
+  "after": null
+}

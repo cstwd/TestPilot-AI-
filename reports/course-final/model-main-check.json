@@ -1,0 +1,32 @@
+[
+  {
+    "http": 503,
+    "route": "/api/model/health",
+    "result": {
+      "state": "unavailable",
+      "model": "Qwen3.8-27B UD-IQ3_XXS",
+      "kind": "unavailable",
+      "reason": "缺少有效的本机 Ollama / Vulkan 身份和守护状态"
+    }
+  },
+  {
+    "http": 503,
+    "route": "/api/model/health",
+    "result": {
+      "state": "unavailable",
+      "model": "Qwen3.8-27B UD-IQ3_XXS",
+      "kind": "unavailable",
+      "reason": "缺少有效的本机 Ollama / Vulkan 身份和守护状态"
+    }
+  },
+  {
+    "http": 503,
+    "route": "/api/model/health",
+    "result": {
+      "state": "unavailable",
+      "model": "Qwen3.8-27B UD-IQ3_XXS",
+      "kind": "unavailable",
+      "reason": "缺少有效的本机 Ollama / Vulkan 身份和守护状态"
+    }
+  }
+]

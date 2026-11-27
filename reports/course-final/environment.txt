@@ -1,0 +1,5 @@
+Python 3.13.11
+No broken requirements found.
+v24.13.0
+git version 2.51.1.windows.1
+ffprobe version N-127900-ge2798d5cad-20261021 Copyright (c) 2007-2026 the FFmpeg developers

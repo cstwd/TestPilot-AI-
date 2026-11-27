@@ -1,0 +1,332 @@
+TestPilot WP05 verify | 2026-11-27T17:15:34.565763+08:00
+Windows-11-10.0.26200-SP0 | Python 3.13.11 | full
+
+$ "D:\TestPilot AI\.venv\Scripts\python.exe" -X utf8 -m compileall -q main.py backend tests hooks mcp-server eval/phase05 eval/phase06
+exit=0 elapsed=0.29s
+
+$ "D:\TestPilot AI\.venv\Scripts\python.exe" -X utf8 -m pytest -q -s tests eval/phase05/test_manifest.py
+REFINED_CAMERA_LABELS {"names": 16, "labelHits": 0, "glyphHits": 0, "rootX": -12, "offscreenLabel": false, "initialZoom": 300, "pausedZoom": 293, "stable": true, "finishedZoom": 100, "resizedZoom": 376, "reducedZoom": 100}
+.TERMINAL_LAYOUT {"classes": 27, "minTracks": 3, "maxTracks": 3}
+.CONSOLE_REGRESSION {"project": 1, "file": 1, "revision": 1, "delayInjectedMs": 220, "timerWithInjectionMs": 228, "requests": ["GET", "GET", "GET"]}
+..REPLAY_CAMERA {"zoomed": "195%", "paused": "194%", "complete": "100%"}
+.VIEWPORTS [[1920, 1080, {"width": 1236, "height": 762, "pageWidth": 1920}], [1440, 900, {"width": 836, "height": 589, "pageWidth": 1440}], [1280, 800, {"width": 686, "height": 493, "pageWidth": 1280}], [1024, 768, {"width": 750, "height": 461, "pageWidth": 1024}], [768, 1024, {"width": 724, "height": 688, "pageWidth": 768}], [390, 844, {"width": 390, "height": 471, "pageWidth": 390}]]
+WORKFLOW {"project": "1", "file": "1", "revision": 1, "sha256": "84c097052cfbecef569b405c96b34f477373d3c7ce4037a245fb9934fc675490", "symbols": 15, "contains": 15, "target": "mean_value", "engine": "158.0.4370.33"}
+.BOUNDARIES {"revision_ids": [1, 2], "revisions": [1, 2], "duplicate_parents": ["symbol:2:1:Sensor", "symbol:2:3:Sensor"], "empty_nodes": 1}
+..REAL_LARGE {"analysisHttpMs": 57.69999999925494, "endOfNavigationToReadoutMs": 3594, "frames": 164, "frameIntervalP50": 16.699999999254942, "frameIntervalP95": 16.899999998509884}
+.SYNTHETIC_RENDERER {"nodes": 1000, "edges": 2000, "constructMs": 6.5, "zoomFrameMedianMs": 16.600000001490116, "zoomFrameP95Ms": 17, "repaintsWhileIdle": 0, "motionStages": ["COMPLETE"]}
+.F05_REGRESSION {"issue": 1, "source_run": 1, "suite": 1, "regression_run": 2, "candidate": 4, "revision": 2, "nodeid": "test_generated.py::test_example_2", "run_status": "failed", "judgement": "open", "issue_status": "open"}
+F05_REGRESSION {"issue": 1, "source_run": 1, "suite": 1, "regression_run": 3, "candidate": 5, "revision": 3, "nodeid": "test_generated.py::test_example_2", "run_status": "passed", "judgement": "resolved", "issue_status": "resolved"}
+F05_REGRESSION {"issue": 1, "source_run": 1, "suite": 1, "regression_run": 4, "candidate": 4, "revision": 2, "nodeid": "test_generated.py::test_example_2", "run_status": "failed", "judgement": "open", "issue_status": "resolved"}
+F05_VIEW {"width": 1440, "height": 900, "engine": "158.0.4370.33"}
+F05_VIEW {"width": 1024, "height": 768, "engine": "158.0.4370.33"}
+F05_VIEW {"width": 768, "height": 1024, "engine": "158.0.4370.33"}
+F05_VIEW {"width": 390, "height": 844, "engine": "158.0.4370.33"}
+.FHook rejected commit: TestPilot WP05: checking staged whitespace and conflict markers
+fixture.txt:1: trailing whitespace.
++example 
+Hook accepted commit: TestPilot WP05: checking staged whitespace and conflict markers 26a25f6 clean staged whitespace
+.Browser: msedge 158.0.4370.33; self-test response: .                                                                        [100%]
+1 passed in 0.03s
+...F04_RUN {"id": 1, "project_id": 1, "file_id": 1, "suite_id": 1, "status": "passed", "passed": 5, "failed": 0, "errors": 0, "skipped": 0, "exit_code": 0}
+F04_RUN {"id": 2, "project_id": 1, "file_id": 2, "suite_id": 1, "status": "failed", "passed": 3, "failed": 2, "errors": 0, "skipped": 0, "exit_code": 1}
+F04_RUN {"id": 1, "project_id": 1, "file_id": 1, "suite_id": 1, "status": "passed", "passed": 5, "failed": 0, "errors": 0, "skipped": 0, "exit_code": 0}
+F04_RUN {"id": 2, "project_id": 1, "file_id": 2, "suite_id": 1, "status": "failed", "passed": 3, "failed": 2, "errors": 0, "skipped": 0, "exit_code": 1}
+F04_RUN {"id": 2, "project_id": 1, "file_id": 2, "suite_id": 1, "status": "failed", "passed": 3, "failed": 2, "errors": 0, "skipped": 0, "exit_code": 1}
+F04_VIEW {"width": 1440, "height": 900, "center": 832, "engine": "158.0.4370.33"}
+F04_VIEW {"width": 1024, "height": 768, "center": 538, "engine": "158.0.4370.33"}
+F04_VIEW {"width": 768, "height": 1024, "center": 724, "engine": "158.0.4370.33"}
+F04_VIEW {"width": 390, "height": 844, "center": 390, "engine": "158.0.4370.33"}
+.F04_RUN {"id": 2, "project_id": 1, "file_id": 2, "suite_id": 1, "status": "error", "passed": 0, "failed": 0, "errors": 1, "skipped": 0, "exit_code": 2}
+F04_RUN {"id": 3, "project_id": 1, "file_id": 3, "suite_id": 1, "status": "timeout", "passed": 0, "failed": 0, "errors": 0, "skipped": 0, "exit_code": null}
+F04_RUN {"id": 4, "project_id": 1, "file_id": 4, "suite_id": 1, "status": "error", "passed": 0, "failed": 0, "errors": 0, "skipped": 0, "exit_code": null}
+.F04_RUN {"id": 1, "project_id": 1, "file_id": 1, "suite_id": 1, "status": "error", "passed": 0, "failed": 0, "errors": 0, "skipped": 0, "exit_code": null}
+F04_RUN {"id": 2, "project_id": 1, "file_id": 1, "suite_id": 1, "status": "error", "passed": 0, "failed": 0, "errors": 0, "skipped": 0, "exit_code": null}
+............................................WASI {'platform': 'wasi', 'python': '3.15.2', 'pytest': '9.2.0', 'coverage': '7.17.5'} line 3/4 branch 1/2 {'nodeid': 'test_generated.py::test_compare', 'phase': 'call', 'exception_type': 'AssertionError', 'message': "assert 'positive' == 'other'\n  \n  - other\n  + positive", 'frames': [{'path': 'test_generated.py', 'line': 8, 'function': 'test_compare', 'source': 'assert classify(2) == "other"'}], 'assertion_diff': "assert 'positive' == 'other'\n  \n  - other\n  + positive"} {'nodeid': 'test_generated.py::test_type', 'phase': 'call', 'exception_type': 'TypeError', 'message': "'>' not supported between instances of 'NoneType' and 'int'", 'frames': [{'path': 'test_generated.py', 'line': 11, 'function': 'test_type', 'source': 'classify(None)'}, {'path': 'subject.py', 'line': 2, 'function': 'classify', 'source': 'if n > 0:'}], 'assertion_diff': None}
+.collection failure {'nodeid': 'test_generated.py', 'phase': 'collect', 'exception_type': 'ImportError', 'message': "cannot import name 'missing' from 'subject' (/work/subject.py)", 'frames': [{'path': 'test_generated.py', 'line': 1, 'function': '<module>', 'source': 'from subject import missing'}], 'assertion_diff': None}
+.deadline WASI 停止执行：deadline case counts and coverage unavailable
+.[('test_wrong_output', 'program_defect', 'AssertionError'), ('test_wrong_input_assumption', 'test_error', 'ValueError'), ('test_wrong_expected', 'test_error', 'AssertionError'), ('test_unexpected_exception', 'program_defect', 'LookupError'), ('test_missing_exception', 'program_defect', 'Failed'), ('test_unknown_contract', 'undetermined', 'AssertionError'), ('test_test_code', 'test_error', 'NameError'), ('test_skip', 'skipped', None)]
+real traceback [{'path': 'test_generated.py', 'line': 15, 'function': 'test_unexpected_exception', 'source': 'assert target(4) == 25'}, {'path': 'subject.py', 'line': 20, 'function': 'units', 'source': 'raise LookupError("bad")'}]
+assertion difference assert 2 == 50
+ +  where 2 = target(n=2)
+.timeout WASI 停止执行：deadline
+.stateful setup undetermined assert 2 == 1
+ +  where 2 = advance()
+.....actual executions [('6614a27e-2c5f-4055-8775-1e999b0d9998', 'failed', '6157dd2abfe707f3618c0edb42cbdeb98e79a6d45f5cfa8459cb828833c1b914'), ('f7f2577d-c908-4e7e-b12f-f5bc499eb01b', 'passed', 'd43dc8b67d8b1699070b516bc5b77ff586baa85432cc69bdf36180cf6c4592ea')]
+.....F03_RESULT {"id": 1, "project_id": 1, "file_id": 1, "suite_id": 1, "status": "passed", "passed": 4, "failed": 0, "errors": 0, "skipped": 1, "exit_code": 0}
+F03_RESULT {"id": 2, "project_id": 1, "file_id": 1, "suite_id": 2, "status": "failed", "passed": 3, "failed": 1, "errors": 0, "skipped": 1, "exit_code": 1}
+F03_VIEW {"width": 1440, "height": 900, "center": 838, "engine": "158.0.4370.33"}
+F03_VIEW {"width": 1024, "height": 768, "center": 520, "engine": "158.0.4370.33"}
+F03_VIEW {"width": 768, "height": 1024, "center": 724, "engine": "158.0.4370.33"}
+F03_VIEW {"width": 390, "height": 844, "center": 390, "engine": "158.0.4370.33"}
+..F03_BUSY_RECOVERY {"project_id": 1, "file_id": 1, "suite_id": 1, "run_id": 1}
+..........127.0.0.1 - - [27/Nov/2026 17:30:11] "GET /first HTTP/1.1" 307 -
+.WASI: 3 passed on original, 3 failed on mutant; {'status': 'killed', 'reason': '原始通过节点在变异副本上触发测试断言', 'nodeids': ['test_generated.py::test_direct_binding', 'test_generated.py::test_local_alias', 'test_generated.py::test_module_alias']}
+.WASI: 2 passed on original, 2 failed on mutant; {'status': 'execution_error', 'reason': '失败没有完整的测试断言证据', 'nodeids': ['test_generated.py::test_custom_binding', 'test_generated.py::test_rebound_alias']}
+...........baseline suite template d90aecfce2fb6cef5a077380253ef77dfa1ebfaf72775ac3a14537f119c430e1 before {'killed': 4, 'survived': 3, 'timeout': 0, 'execution_error': 2, 'cancelled': 0, 'unrun': 0, 'total': 9, 'equivalent_candidates': 0, 'score_pct': 44.44}
+.8 testpilot/NegateCondition 'n < 0' -> 'not (n < 0)'
+8 core/ReplaceComparisonOperator_Lt_LtE '<' -> '<='
+9 testpilot/SuppressRaise 'raise ValueError("negative")' -> 'pass'
+10 testpilot/NegateCondition 'enabled and n >= 2' -> 'not (enabled and n >= 2)'
+10 core/ReplaceAndWithOr 'and' -> 'or'
+10 core/ReplaceComparisonOperator_GtE_Gt '>=' -> '>'
+11 testpilot/ReturnNone 'return n + 1' -> 'return None'
+11 core/ReplaceBinaryOperator_Add_Sub '+' -> '-'
+12 testpilot/ReturnNone 'return n' -> 'return None'
+......GET /api/health {'status': 'ok', 'database': 'ok', 'mode': 'demo'}
+Graceful stop exit 0
+INFO testpilot 启动 demo 模式 http://127.0.0.1:63079
+INFO:     Started server process [35112]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:60957 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60958 - "GET /api/mutations/66b8dc75-7c47-4785-8aca-2ad0d766275c/report HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60961 - "POST /api/mutations/66b8dc75-7c47-4785-8aca-2ad0d766275c/run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58767 - "GET /api/mutations/66b8dc75-7c47-4785-8aca-2ad0d766275c/report HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63171 - "GET /api/files/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63172 - "POST /api/mutations/66b8dc75-7c47-4785-8aca-2ad0d766275c/run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63173 - "GET /api/mutations/66b8dc75-7c47-4785-8aca-2ad0d766275c/report HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [35112]
+
+original stopped: {'killed': 1, 'survived': 0, 'timeout': 0, 'execution_error': 0, 'cancelled': 1, 'unrun': 0, 'total': 2, 'equivalent_candidates': 0, 'score_pct': 50.0} checkpoint events: 2 recovered events: 3 final: {'killed': 2, 'survived': 0, 'timeout': 0, 'execution_error': 0, 'cancelled': 0, 'unrun': 0, 'total': 2, 'equivalent_candidates': 0, 'score_pct': 100.0}
+.red baseline: two planned, zero observations, score unavailable; exit 1
+.WASI 'return x + 1' passed 0 {'status': 'survived', 'reason': '相同测试节点运行通过', 'nodeids': []}
+.WASI 'return x + 2' failed 1 {'status': 'killed', 'reason': '原始通过节点在变异副本上触发测试断言', 'nodeids': ['test_generated.py::test_value']}
+.WASI "return int('invalid')" failed 1 {'status': 'execution_error', 'reason': '失败没有完整的测试断言证据', 'nodeids': ['test_generated.py::test_value']}
+.exception removed DID NOT RAISE ValueError {'status': 'killed', 'reason': '原始通过节点在变异副本上触发测试断言', 'nodeids': ['test_generated.py::test_negative']}
+..invalid or timed-out mutant 2 {'status': 'execution_error', 'reason': '执行不完整或前后测试节点集合不同', 'nodeids': []}
+.invalid or timed-out mutant None {'status': 'timeout', 'reason': 'WASI 停止执行：deadline', 'nodeids': []}
+..live guest cancelled; worker reaped; job cleaned; result_complete=False
+.queued slot timeout returns retryable resource_busy; queued cancellation stops before spawn
+....run=1 file_revision=1 suite=1 status=failed node=test_generated.py::test_example_3 metrics={'passed': 5, 'failed': 1, 'errors': 0, 'skipped': 1, 'pass_rate_pct': 83.33, 'coverage_pct': 100.0}
+run=2 file_revision=2 suite=1 status=passed node=test_generated.py::test_example_3 metrics={'passed': 6, 'failed': 0, 'errors': 0, 'skipped': 1, 'pass_rate_pct': 100.0, 'coverage_pct': 100.0}
+...quicksort [(6, 0, 0, 0)] 11 / 12 lines; 7 / 8 branches []
+.negative [(5, 1, 0, 1)] 2 / 2 lines; 0 / 0 branches ['program_defect', 'skipped']
+.empty [(3, 2, 0, 0)] 2 / 2 lines; 0 / 0 branches ['program_defect', 'undetermined']
+.boundary [(6, 1, 0, 0)] 2 / 2 lines; 0 / 0 branches ['program_defect']
+.exception [(4, 1, 0, 0)] 5 / 5 lines; 0 / 0 branches ['program_defect']
+.branches [(7, 0, 0, 1)] 8 / 8 lines; 6 / 6 branches ['skipped']
+.repair [(4, 1, 0, 1), (5, 0, 0, 1)] 4 / 4 lines; 2 / 2 branches ['skipped', 'test_error']
+...F01_REVISIONS {"project": 3, "rows": [{"id": 1, "revision": 1, "sha256": "84c097052cfbecef569b405c96b34f477373d3c7ce4037a245fb9934fc675490"}, {"id": 1, "revision": 1, "sha256": "84c097052cfbecef569b405c96b34f477373d3c7ce4037a245fb9934fc675490"}, {"id": 2, "revision": 2, "sha256": "c9226a6602e75159bfafe97149a755b5d276f2e05e1bf0e53b97fc4aa3795135"}], "bytes": [1268, 1351]}
+..F01_VIEW {"viewport": [1440, 900], "digestWidth": 409, "name": 53, "engine": "158.0.4370.33"}
+F01_VIEW {"viewport": [1024, 768], "digestWidth": 275, "name": 53, "engine": "158.0.4370.33"}
+F01_VIEW {"viewport": [768, 1024], "digestWidth": 688, "name": 53, "engine": "158.0.4370.33"}
+F01_VIEW {"viewport": [390, 844], "digestWidth": 354, "name": 53, "engine": "158.0.4370.33"}
+..FsWASI limits: [Errno 58] Not supported [Errno 58] wasi does not support processes. 300 MiB allocation denied
+.
+=================================== FAILURES ===================================
+______________________________ test_bad_contract _______________________________
+test_generated.py:14: in test_bad_contract
+    assert inc(1) == 99
+           ^^^^^^^^^^^^
+E   AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED test_generated.py::test_value
+PASSED test_generated.py::test_capabilities
+SKIPPED [1] test_generated.py:17: no contract
+FAILED test_generated.py::test_bad_contract - AssertionError
+1 failed, 2 passed, 1 skipped in 0.15s
+
+TESTPILOT_RESULT {"environment": {"platform": "wasi", "python": "3.15.2", "pytest": "9.2.0", "coverage": "7.17.5"}, "cases": [{"nodeid": "test_generated.py::test_value", "outcome": "passed"}, {"nodeid": "test_generated.py::test_bad_contract", "outcome": "failed"}, {"nodeid": "test_generated.py::test_omitted", "outcome": "skipped"}, {"nodeid": "test_generated.py::test_capabilities", "outcome": "passed"}], "covered_lines": 3, "total_lines": 4}
+.....GET /api/health {'status': 'ok', 'database': 'ok', 'mode': 'demo'}
+Second launch exit 1 ERROR testpilot 端口 56063 已被占用。请访问已有服务或停止占用进程后重新运行。
+POST /api/self-test {'status': 'passed', 'detail': '.                                                                        [100%]\n1 passed in 0.04s'}
+Graceful stop exit 0
+INFO testpilot 启动 demo 模式 http://127.0.0.1:56063
+INFO:     Started server process [43232]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:56075 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56079 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56107 - "POST /api/self-test HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [43232]
+
+GET /api/health {'status': 'ok', 'database': 'ok', 'mode': 'dev'}
+SQLite restart probe retained
+Graceful stop exit 0
+INFO testpilot 启动 dev 模式 http://127.0.0.1:56063
+INFO:     Started server process [36316]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:65056 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65057 - "GET / HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36316]
+
+.Unwritable database path exit 3 INFO testpilot 启动 demo 模式 http://127.0.0.1:65060
+INFO:     Started server process [47372]
+INFO:     Waiting for application startup.
+ERROR:    Traceback (most recent call last):
+  File "D:\TestPilot AI\backend\app.py", line 33, in lifespan
+    database.initialize(path)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\TestPilot AI\backend\database.py", line 12, in initialize
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\89777\miniconda3\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\89777\\AppData\\Local\\Temp\\pytest-of-897772465\\pytest-89\\test_startup_failure0\\regular_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\TestPilot AI\.venv\Lib\site-packages\starlette\routing.py", line 661, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\.venv\Lib\site-packages\fastapi\routing.py", line 257, in merged_lifespan
+    async with original_context(app) as maybe_original_state:
+               ~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\backend\app.py", line 36, in lifespan
+    raise RuntimeError(f"无法初始化 SQLite 数据库 {path}。请检查目录和写入权限。") from exc
+RuntimeError: 无法初始化 SQLite 数据库 C:\Users\89777\AppData\Local\Temp\pytest-of-897772465\pytest-89\test_startup_failure0\regular_file\testpilot.sqlite3。请检查目录和写入权限。
+
+ERROR:    Application startup failed. Exiting.
+
+.Incompatible database exit 3 RuntimeError: SQLite 数据库版本不兼容：C:\Users\89777\AppData\Local\Temp\pytest-of-897772465\pytest-89\test_incompatible_database_pre0\testpilot.sqlite3 的 schema_version=2，本版本要求 1。请使用匹配的数据库或新的数据目录。
+.WARNING  testpilot:main.py:26 健康检查等待超时 (<urlopen error timed out>)。请检查 SQLite 和运行日志，服务就绪后访问 http://127.0.0.1:65079
+
+...........
+================================== FAILURES ===================================
+______________________ test_mcp_reads_real_testpilot_run ______________________
+
+sample_workspace = (namespace(app=namespace(state=namespace(db_path=WindowsPath('C:/Users/89777/AppData/Local/Temp/pytest-of-897772465/py...lename': 'magnitude.py', 'revision': 2, ...}], {'id': 1, 'file_id': 1, 'target': 'magnitude', 'mode': 'template', ...})
+
+    def test_mcp_reads_real_testpilot_run(sample_workspace):
+        request, project, files, suite = sample_workspace
+        path = request.app.state.db_path
+        run = runs.run_suite(path, suite["id"], files[1]["id"])
+        path = path.rename(path.with_name("testpilot.sqlite3"))
+        messages = [
+            ("initialize", {"protocolVersion": "2025-11-25", "capabilities": {},
+                            "clientInfo": {"name": "acceptance", "version": "1.0"}}),
+            ("notifications/initialized", {}),
+            ("tools/list", {}),
+            ("tools/call", {"name": "list_projects"}),
+            ("tools/call", {"name": "get_run", "arguments": {"run_id": run["id"]}}),
+            ("tools/call", {"name": "get_run", "arguments": {"run_id": "invalid"}}),
+        ]
+        requests = []
+        for index, (method, params) in enumerate(messages):
+            request = {"jsonrpc": "2.0", "method": method, "params": params}
+            if not method.startswith("notifications/"):
+                request["id"] = index
+            requests.append(json.dumps(request))
+        config = json.loads((ROOT / ".mcp.json").read_text(encoding="utf-8"))["mcpServers"]["testpilot"]
+        before = path.read_bytes()
+        process = subprocess.run(
+            [sys.executable, *config["args"]], cwd=ROOT, input="\n".join(requests) + "\n",
+            text=True, encoding="utf-8", capture_output=True, timeout=15, check=True,
+            env={**os.environ, "TESTPILOT_DATA_DIR": str(path.parent)},
+        )
+        assert not process.stderr
+        replies = {row["id"]: row["result"] for row in map(json.loads, process.stdout.splitlines())}
+        assert set(replies) == {0, 2, 3, 4, 5}
+        assert replies[0]["protocolVersion"] == "2025-11-25"
+>       assert {tool["name"] for tool in replies[2]["tools"]} == {"get_run", "list_projects"}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_course_toolchain.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\89777\miniconda3\Lib\json\__init__.py:352: in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\89777\miniconda3\Lib\json\decoder.py:345: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <json.decoder.JSONDecoder object at 0x0000022CCB438980>
+s = 'TestPilot database is unavailable or incompatible', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+C:\Users\89777\miniconda3\Lib\json\decoder.py:363: JSONDecodeError
+=========================== short test summary info ===========================
+FAILED tests/test_course_toolchain.py::test_mcp_reads_real_testpilot_run - js...
+1 failed, 157 passed in 1756.54s (0:29:16)
+exit=1 elapsed=1758.40s
+
+$ node --test tests/bug_diff.test.mjs
+✔ aligns insertions, removals, replacements, and original line endings (3.8694ms)
+✔ bounds highly dissimilar comparisons without speculative counts (4.0678ms)
+✔ uses a uniquely attributable real assertion block or stored structured evidence (2.1641ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 142.9747
+exit=0 elapsed=0.25s
+outcome=failed
