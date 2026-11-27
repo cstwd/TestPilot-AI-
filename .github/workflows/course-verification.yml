@@ -1,0 +1,75 @@
+name: Course verification
+
+on:
+  push:
+    branches: [main, develop, 'codex/tp-course-remediation-001']
+    paths:
+      - '.github/workflows/course-verification.yml'
+      - 'backend/**'
+      - 'frontend/**'
+      - 'tests/**'
+      - 'hooks/**'
+      - 'mcp-server/**'
+      - '.mcp.json'
+      - 'main.py'
+      - 'pytest.ini'
+      - 'requirements.txt'
+      - 'eval/**'
+      - 'demo/TestPilot-Demo-Lab/**'
+      - 'reports/phase04/**'
+      - 'reports/phase05/**'
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-verification:
+    runs-on: windows-2025
+    timeout-minutes: 65
+    env:
+      PYTHONUTF8: '1'
+      TESTPILOT_BROWSER_CHANNEL: msedge
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.13.11'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24.13.0'
+      - name: Install pinned project dependencies
+        id: dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Record runner and revision
+        run: |
+          New-Item -ItemType Directory -Force reports/ci | Out-Null
+          "sha=$env:GITHUB_SHA ref=$env:GITHUB_REF run=$env:GITHUB_RUN_ID attempt=$env:GITHUB_RUN_ATTEMPT" |
+            Set-Content reports/ci/runner.txt
+          python --version | Add-Content reports/ci/runner.txt
+          node --version | Add-Content reports/ci/runner.txt
+          git --version | Add-Content reports/ci/runner.txt
+          Get-Content reports/ci/runner.txt
+      - name: Replay the frozen AI evaluation
+        run: python -m eval.phase05.verify_frozen --report reports/ci/offline-evaluation.json
+      - name: Verify independent Demo Lab scoring
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: python -m pytest -q demo/TestPilot-Demo-Lab/tests/regression/test_evaluator.py --junitxml=reports/ci/demo-scoring.xml
+      - name: Run Pytest, Edge, WASI and Node regression
+        if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
+        run: |
+          python hooks/verify.py --scope full --report reports/ci/verify-full.txt
+          $verifyStatus = $LASTEXITCODE
+          Get-Content reports/ci/verify-full.txt -Tail 24
+          exit $verifyStatus
+      - name: Archive test and evaluation receipts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: course-verification-${{ github.run_id }}-${{ github.run_attempt }}
+          path: reports/ci/
+          if-no-files-found: error
