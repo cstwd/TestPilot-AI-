@@ -15,7 +15,7 @@ MODULES = {
     "f03": ["tests/test_f03.py", "tests/test_generation_studio.py"],
     "f04": ["tests/test_f04.py", "tests/test_execution_center.py"],
     "f05": ["tests/test_f05.py", "tests/test_bug_intelligence.py"],
-    "f06": ["tests/test_f06.py", "tests/test_phase02_flow.py"],
+    "f06": ["tests/test_f06.py", "tests/test_quality_intelligence.py", "tests/test_phase02_flow.py"],
     "f13": ["tests/" + path.name for path in sorted((ROOT / "tests").glob("test_mutation_*.py"))],
     "phase05": ["tests/test_mutation_generator.py", "eval/phase05/test_manifest.py"],
     "toolchain": ["tests/test_course_toolchain.py"],
