@@ -1,0 +1,2 @@
+reports\phase04\original-89.xml: all 89 archived IDs passed; 0 further passed; total 89
+reports\phase04\final-junit.xml: all 89 archived IDs passed; 57 further passed; total 146
