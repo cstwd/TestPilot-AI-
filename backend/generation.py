@@ -31,9 +31,11 @@ class ModelAdapter(Protocol):
     def generate(self, source: str, target: str) -> tuple[str, list[str]]: ...
 
 
-def example_tests(fn):
+def example_tests(fn, *, respect_directives=False):
     result = []
     for example in doctest.DocTestParser().get_examples(ast.get_docstring(fn) or ""):
+        if respect_directives and example.options:
+            continue
         try:
             call = ast.parse(example.source.strip(), mode="eval").body
             if not isinstance(call, ast.Call) or not isinstance(call.func, ast.Name) or call.func.id != fn.name:
@@ -57,7 +59,7 @@ def example_tests(fn):
 
 
 class TemplateAdapter:
-    def generate(self, source, target):
+    def generate(self, source, target, *, respect_directives=False):
         analysis = analyze(source)
         if not analysis["valid"]:
             raise ValueError("请先修复语法错误")
@@ -65,7 +67,7 @@ class TemplateAdapter:
         if len(matches) != 1:
             raise ValueError("请选择唯一的模块顶层同步函数")
         fn = matches[0]
-        tests = example_tests(fn)
+        tests = example_tests(fn, respect_directives=respect_directives)
         signature = next(s for s in analysis["symbols"] if s["name"] == target)
         params = signature["parameters"]
         calls = [[], []]

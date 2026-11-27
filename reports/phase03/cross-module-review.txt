@@ -1,0 +1,45 @@
+...............................                                          [100%]
+31 passed in 3.19s
+.F                                                                       [100%]
+================================== FAILURES ===================================
+____________________ test_report_references_own_execution _____________________
+
+sample_workspace = (namespace(app=namespace(state=namespace(db_path=WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-100...lename': 'magnitude.py', 'revision': 2, ...}], {'id': 1, 'file_id': 1, 'target': 'magnitude', 'mode': 'template', ...})
+
+    def test_report_references_own_execution(sample_workspace):
+        req, _, files, _ = sample_workspace
+        path = req.app.state.db_path
+        with connect(path, write=True) as db:
+            for statement in history.SCHEMA:
+                db.execute(statement)
+        task, source = history.create_task(path, files[0]["id"], "magnitude", 1)
+        other, _ = history.create_task(path, source["id"], "magnitude", 1)
+>       execution = history.append_record(path, task, history.RecordKind.execution, "ready",
+                                          {"status": "error", "passed": 0, "failed": 0, "errors": 0, "skipped": 0,
+                                           "cases": [], "stdout": "", "stderr": "fixture", "exit_code": None})
+
+tests\test_engine_history.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76...fec92-c163-4ca1-9e0e-ea7f320da1c2}/Temp/pytest-of-897772465/pytest-0/test_report_references_own_exe0/workflow.sqlite3')
+task = 'e41d0a88-418a-42e9-9785-df0679f1eb4b'
+kind = <RecordKind.execution: 'TestExecution'>, status = 'ready'
+payload = {'status': 'error', 'passed': 0, 'failed': 0, 'errors': 0, ...}
+terminal = None
+
+    def append_record(path, task, kind: RecordKind, status, payload, *, terminal=None):
+        """Appending a terminal report and marking the task complete is a single write."""
+        key, created = str(uuid4()), stamp()
+        model = StageError if status == "unavailable" and "error" in payload else MODELS[kind.value]
+>       model.model_validate(payload)
+E       pydantic_core._pydantic_core.ValidationError: 1 validation error for TestExecution
+E       result_complete
+E         Field required [type=missing, input_value={'status': 'error', 'pass...ure', 'exit_code': None}, input_type=dict]
+E           For further information visit https://errors.pydantic.dev/2.14/v/missing
+
+backend\engine_history.py:54: ValidationError
+=========================== short test summary info ===========================
+FAILED tests/test_engine_history.py::test_report_references_own_execution - p...
+1 failed, 1 passed in 0.82s
+..                                                                       [100%]
+2 passed in 0.66s

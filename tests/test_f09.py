@@ -117,3 +117,24 @@ def test_explicit_template_overrides_environment(monkeypatch):
         result = run(cfg)
         assert result["mode"] == "template" and result["attempts"] == []
         assert result["fallback_reason"] and result["sha256"]
+
+
+def test_analysis_and_template_agree_on_directed_doctests():
+    from backend.engine_analyzer import analyze_source
+    from backend.engine_strategy import build_strategy
+
+    source = '''def double(x: int) -> int:
+    """
+    >>> double(4)  # doctest: +SKIP
+    999
+    >>> double(2)
+    4
+    """
+    return x * 2
+'''
+    analysis = analyze_source(source)
+    strategy = build_strategy(analysis, "double")
+    assert [c["call"] for c in strategy["contracts"]] == ["double(2)"]
+    suite = generate_tests(source, "double", analysis, strategy, config={"provider": "template"})
+    assert "assert target(2) == 4" in suite["code"]
+    assert "999" not in suite["code"]

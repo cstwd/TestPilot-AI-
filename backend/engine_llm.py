@@ -180,7 +180,7 @@ def generate_tests(source, target, analysis, strategy, *, feedback=None, previou
         except (ValueError, TypeError) as exc:
             reason = "模型配置或输入无效：" + str(exc)[:500]
     try:
-        code, _ = TemplateAdapter().generate(source, target)
+        code, _ = TemplateAdapter().generate(source, target, respect_directives=True)
         return artifact(checked(code), "template", "local-template", None, reason)
     except (ValueError, SyntaxError, RecursionError, OverflowError) as exc:
         raise GenerationFailure({"mode": "template", "provider": "local-template", "model": None,

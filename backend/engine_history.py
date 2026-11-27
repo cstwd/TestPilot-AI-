@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 from enum import StrEnum
 from uuid import uuid4
 
+from .engine_models import MODELS, StageError
 from .store import connect, one
 
 
@@ -49,10 +50,19 @@ def create_task(path, file_id, target, max_repairs):
 def append_record(path, task, kind: RecordKind, status, payload, *, terminal=None):
     """Appending a terminal report and marking the task complete is a single write."""
     key, created = str(uuid4()), stamp()
+    model = StageError if status == "unavailable" and "error" in payload else MODELS[kind.value]
+    model.model_validate(payload)
     encoded = json.dumps(payload, ensure_ascii=True, allow_nan=False, separators=(",", ":"))
     with connect(path, write=True) as db:
         if one(db, "SELECT status FROM engine_tasks WHERE id=?", (task,))["status"] != "running":
             raise ValueError("该任务已结束")
+        if kind == RecordKind.report:
+            execution_ids = {payload.get("initial_execution_id"), payload.get("final_execution_id")} - {None}
+            for execution_id in execution_ids:
+                match = db.execute("SELECT 1 FROM engine_records WHERE id=? AND task_id=? AND kind=?",
+                                   (execution_id, task, RecordKind.execution.value)).fetchone()
+                if match is None:
+                    raise ValueError("报告引用的执行记录必须属于本任务的 TestExecution")
         parent = db.execute("SELECT id FROM engine_records WHERE task_id=? ORDER BY seq DESC LIMIT 1",
                             (task,)).fetchone()
         db.execute("INSERT INTO engine_records(id,task_id,parent_id,kind,created_at,status,payload) "
