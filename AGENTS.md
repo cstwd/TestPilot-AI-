@@ -21,3 +21,16 @@
 ## PHASE-02 交付约定
 
 按 F01 至 F06 顺序开发、独立测试和审查。保存不可变的导入版本、测试源码及真实运行关联。生成计划、静态检查和真实 Pytest 结果分别标记；固定并记录生成模式。执行环境无法满足限制时拒绝业务执行。每个模块的独立验收文档附实际命令、结果、实现提交与未完成事项。工程规范变更单独提交。保留前一阶段证据，统一回归后等待项目负责人审核。
+
+## 当前架构与模型
+
+- Windows 11 使用项目 Python 3.13 与 `requirements.txt`，浏览器回归使用已安装 Edge。`backend/` 实现 API、持久化及受限执行，`frontend/` 实现同源工作台，`tests/` 放平台回归，`eval/` 放课程样本和冻结语料。
+- 保持 API Schema、SQLite 已有数据、会话证据与现有路由兼容。标记影响的 F01–F13 和归属 WP。检查错误路径、同 ID 的证据关联与重试状态。
+- Qwen3.8-27B UD-IQ3_XXS 是统一主模型。AI 路径经过 `backend/model_provider.py` 接入本机 Ollama/Vulkan，验证权重、回环运行状态及结构协议。模板模式由调用方显式选择。失败时保留生成来源和具体原因。[部署](docs/phase06/DEPLOYMENT.md)
+- 仅在明确的本机运行目录保存项目的模型提示与响应。课程演示与离线评测使用仓库合成样例。禁止提交凭据、用户数据、模型权重与运行时目录。
+
+## Git 与课程验收
+
+新增变更按职责分开提交。合并历史评测后核对冻结清单和原始数据的文件差异。Git 记录实际作者，证据记录操作者与复核人，人工签收独立登记。
+
+执行 `python hooks/verify.py --scope full --report reports/course-final/verify-full.txt`。调整入口、依赖、资源与模型协议后，运行相应的启动、错误和重试测试。由 `testpilot-reviewer` 独立复核关键变更，验收按 [SPEC](docs/SPEC.md) 与 [课程要求](docs/COURSE_REQUIREMENTS_AUDIT.md) 回填。
