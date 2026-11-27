@@ -1,0 +1,110 @@
+[
+  {
+    "file": "TP-PHASE-01-user.txt",
+    "session": "01a21af4-befa-78a1-8c50-f4960edbdac0",
+    "event_line": 13,
+    "timestamp": "2026-11-27T03:03:15.350Z",
+    "role": "user",
+    "sha256": "91d3abb5fb9fa23cecd22b6bde181d49d913107427f35c892218f95fc7fd9f89",
+    "bytes": 7325
+  },
+  {
+    "file": "TP-PHASE-01-assistant.txt",
+    "session": "01a21af4-befa-78a1-8c50-f4960edbdac0",
+    "event_line": 683,
+    "timestamp": "2026-11-27T03:21:28.162Z",
+    "role": "assistant",
+    "sha256": "f978d81d12594a3b7b486d5eb2f3a2f77350fb0c7804b5667fc290add018ac7d",
+    "bytes": 1407
+  },
+  {
+    "file": "TP-PHASE-02-user.txt",
+    "session": "01a21af4-befa-78a1-8c50-f4960edbdac0",
+    "event_line": 693,
+    "timestamp": "2026-11-27T03:25:05.085Z",
+    "role": "user",
+    "sha256": "63229ea478259fb8b73263e9bdd813f26f2e455af7ea3c352c3390f6c814687a",
+    "bytes": 3941
+  },
+  {
+    "file": "TP-PHASE-02-assistant.txt",
+    "session": "01a21af4-befa-78a1-8c50-f4960edbdac0",
+    "event_line": 1817,
+    "timestamp": "2026-11-27T04:02:31.482Z",
+    "role": "assistant",
+    "sha256": "54027e38afd50a238abbf8d997a8a3dd7b2e06e91694ac9c6e69df76e284d1fc",
+    "bytes": 1509
+  },
+  {
+    "file": "TP-PHASE-03-user.txt",
+    "session": "01a21af4-befa-78a1-8c50-f4960edbdac0",
+    "event_line": 1824,
+    "timestamp": "2026-11-27T04:13:51.308Z",
+    "role": "user",
+    "sha256": "9a3fbb5b407222057ed1c829250b2a9addd586de1394e2d63718695cbd416b27",
+    "bytes": 6099
+  },
+  {
+    "file": "TP-PHASE-03-assistant.txt",
+    "session": "01a21af4-befa-78a1-8c50-f4960edbdac0",
+    "event_line": 2726,
+    "timestamp": "2026-11-27T04:42:40.765Z",
+    "role": "assistant",
+    "sha256": "0d4490792d27d9b1b19c0f0cdf2ada910000a869816733b3619f9971b274e4db",
+    "bytes": 1743
+  },
+  {
+    "file": "TP-PHASE-04-user.txt",
+    "session": "01a21af4-befa-78a1-8c50-f4960edbdac0",
+    "event_line": 2733,
+    "timestamp": "2026-11-27T07:07:55.833Z",
+    "role": "user",
+    "sha256": "956dc35c77ac733ef7dbcf63c8d7624ab74008e2f06a22fa946effdf2eeb2fc0",
+    "bytes": 3203
+  },
+  {
+    "file": "TP-PHASE-04-assistant.txt",
+    "session": "01a21af4-befa-78a1-8c50-f4960edbdac0",
+    "event_line": 4167,
+    "timestamp": "2026-11-27T07:58:01.682Z",
+    "role": "assistant",
+    "sha256": "dcebc3a1e6b7c7624f47ecfa7db75b86262df89ebbd54df5656d8a16c4697040",
+    "bytes": 1746
+  },
+  {
+    "file": "TP-PHASE-05-user.txt",
+    "session": "01a21af4-befa-78a1-8c50-f4960edbdac0",
+    "event_line": 4180,
+    "timestamp": "2026-11-27T08:04:12.503Z",
+    "role": "user",
+    "sha256": "f60cc38d9ade02fcc8d9791012f6b6ff7645e1b0b1049135011c9e9ec9b33338",
+    "bytes": 4413
+  },
+  {
+    "file": "TP-PHASE-05-assistant.txt",
+    "session": "01a21af4-befa-78a1-8c50-f4960edbdac0",
+    "event_line": 5078,
+    "timestamp": "2026-11-27T08:43:51.916Z",
+    "role": "assistant",
+    "sha256": "5a7e4558f7f57ed68e52a1b674de321905524c650e694f9f47489450252b1b51",
+    "bytes": 2062
+  },
+  {
+    "file": "TP-PHASE-06-user.txt",
+    "session": "01a21af4-befa-78a1-8c50-f4960edbdac0",
+    "event_line": 5087,
+    "timestamp": "2026-11-27T08:47:50.139Z",
+    "role": "user",
+    "sha256": "9b7696f21d708fb26807008e024ca2e4a7e72734aa56ee538dd370fb961fb6ab",
+    "bytes": 4594
+  },
+  {
+    "file": "TP-PHASE-06-assistant.txt",
+    "session": "01a21af4-befa-78a1-8c50-f4960edbdac0",
+    "event_line": 6151,
+    "timestamp": "2026-11-27T09:41:59.082Z",
+    "role": "assistant",
+    "sha256": "cbda04bae40c851e9be715aa5320e056c207c132a11b021cb4304e80c68f9c11",
+    "bytes": 1909
+  }
+]

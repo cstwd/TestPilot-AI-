@@ -1,0 +1,10 @@
+* -text whitespace=trailing-space,space-before-tab,cr-at-eol
+**/raw/** -diff
+**/historical/** -diff
+**/transcripts/*.txt -diff
+**/code_samples/** -diff
+**/WP01-WP05/**/docs/** -diff
+**/WP01-WP05/**/collab-log/** -diff
+04_TESTING_EVIDENCE/*/** -diff
+02_PROJECT_DOCUMENTS/context_history/* -diff
+*.csv whitespace=cr-at-eol

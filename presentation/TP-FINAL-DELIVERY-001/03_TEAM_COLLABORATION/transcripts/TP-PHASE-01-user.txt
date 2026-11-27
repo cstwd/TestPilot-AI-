@@ -1,0 +1,358 @@
+# TP-PHASE-01：TestPilot AI 正式项目初始化
+
+你现在担任 TestPilot AI 项目的主开发 Agent。
+
+
+
+本项目由五人团队共同承担，陈帅廷担任项目组长。所有开发任务采用模块化工作包管理，Codex 负责辅助开发和工程执行。
+
+## 一、项目成员
+
+1. 陈帅廷：项目组长、总体架构与核心开发，贡献分配20%。
+2. 陈万策：产品设计、需求工程与前端开发，贡献分配20%。
+3. 赵君豪：测试工程、AI测试生成与评测，贡献分配20%。
+4. 马雪朋：质量工程、Bug管理与安全验证，贡献分配20%。
+5. 王选中：Agent工程、MCP、Skills、Hooks与交付管理，贡献分配20%。
+
+上述为项目任务责任和团队贡献分配。具体任务执行由项目组长统一协调和代理，日志必须区分任务责任人和实际操作人。
+
+## 二、项目定位
+
+项目名称：TestPilot AI
+
+
+
+项目中文名称：智能软件测试生成与缺陷检测平台。
+
+
+
+目标：构建一个由AI辅助的软件质量保障系统，实现代码分析、测试用例生成、自动化执行、缺陷检测、修复验证和质量报告的完整闭环。
+
+
+
+开发周期：三天。
+
+## 三、技术栈
+
+前端：
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+
+后端：
+
+- Python
+- FastAPI
+- SQLite
+
+分析与测试：
+
+- Python AST
+- Pytest
+- Hypothesis
+- Coverage.py
+- Playwright
+
+Agent工程：
+
+- Codex
+- 自定义 Skills
+- MCP Server
+- 确定性 Hook
+- Reviewer Subagent
+
+AI能力优先使用当前已经可用的工具和模型，避免新增付费依赖。
+
+## 四、项目功能
+
+F01：项目管理和文件导入。
+
+
+
+F02：Python AST代码分析。
+
+
+
+F03：AI测试用例生成。
+
+
+
+F04：自动化测试执行。
+
+
+
+F05：Bug管理和回归验证。
+
+
+
+F06：测试质量评估和报告导出。
+
+## 五、正式成员工作包
+
+建立五个独立工作包：
+
+
+
+WP01：陈帅廷，架构、后端核心、集成。
+
+
+
+WP02：陈万策，需求、前端和产品交互。
+
+
+
+WP03：赵君豪，测试生成、属性测试和离线评测。
+
+
+
+WP04：马雪朋，Bug管理、质量检查和安全验证。
+
+
+
+WP05：王选中，MCP、Skills、Hooks、Subagent和交付。
+
+
+
+每个工作包必须有：
+
+- 负责人
+- 任务说明
+- 输入和输出
+- 验收标准
+- 关联文件
+- Git记录
+- 验收结果
+
+## 六、初始化任务
+
+第一步：检查 Windows 环境、Python、Node.js、Git、Codex及现有技能。
+
+
+
+第二步：检查目标目录，保留已有文件，不覆盖任何无关项目。
+
+
+
+第三步：初始化 Git 仓库和分支。
+
+
+
+第四步：建立五人团队配置及贡献表。
+
+
+
+第五步：建立项目目录结构。
+
+
+
+第六步：通过正式需求访谈生成 SPEC.md。
+
+
+
+第七步：生成 AGENTS.md V1、ARCHITECTURE.md、FEATURE_MAP.md。
+
+
+
+第八步：建立 collab-log、bugs、transcripts 目录。
+
+
+
+第九步：建立前后端基础项目并进行启动检查。
+
+
+
+第十步：生成 PROJECT_ASSESSMENT.md、THREE_DAY_PLAN.md、RISK_REGISTER.md。
+
+## 七、目录结构
+
+TestPilot-AI/\
+├── AGENTS.md\
+├── README.md\
+├── docs/\
+├── frontend/\
+├── backend/\
+├── .agents/skills/\
+├── agents/\
+├── hooks/\
+├── mcp-server/\
+├── tests/\
+├── eval/\
+├── collab-log/\
+│   ├── LOG.md\
+│   ├── member_contributions.md\
+│   └── bugs/\
+├── transcripts/\
+├── reports/\
+└── presentation/
+
+## 八、工程规则
+
+1. 不覆盖已有项目。
+2. 不伪造测试结果。
+3. 不伪造Git历史。
+4. 不伪造Prompt或协作日志。
+5. AI生成代码必须经过实际测试。
+6. 被测代码必须在受限执行环境运行。
+7. 所有功能必须有验收标准。
+8. 优先完成端到端功能闭环。
+9. 每个阶段必须输出独立验收报告。
+10. 所有成员责任与实际操作记录保持清晰对应。
+
+## 九、本阶段完成标准
+
+- 项目目录创建成功。
+- Git初始化成功。
+- 五人工作包建立。
+- 贡献分配表建立。
+- SPEC.md完成初稿。
+- AGENTS.md V1完成。
+- 技术架构文档完成。
+- 前后端项目骨架建立。
+- 基础启动检查通过。
+- 阶段报告生成。
+
+本阶段先完成工程初始化、需求文档和基础项目骨架。核心业务功能在初始化验收后继续开发。
+
+
+
+完成后输出：\
+TP_PHASE_01_ACCEPTANCE.md
+
+
+
+报告必须逐项说明实际完成状态、测试证据、文件路径和待办事项。
+
+# TP-PHASE-01 补充要求：PyCharm 原生 Run 一键启动
+
+这是 TestPilot AI 的强制工程要求，优先级为 P0。
+
+## 1. 核心要求
+
+项目必须支持在 Windows 11 环境下通过 PyCharm 直接运行。
+
+
+
+用户操作流程必须是：
+
+1. 使用 PyCharm 打开 D:\TestPilot AI。
+2. 配置项目 Python Interpreter。
+3. 打开项目根目录 main.py。
+4. 点击绿色 Run 按钮。
+5. 自动启动完整应用。
+6. 自动打开默认浏览器。
+7. 访问 http\://127.0.0.1:8000。
+
+不要求用户手动执行 uvicorn、npm、npm run dev 或其他终端启动命令。
+
+## 2. 架构调整
+
+正式采用 Python 主导的单服务架构：
+
+- FastAPI：后端和路由
+- Jinja2：页面模板
+- HTML/CSS/JavaScript：前端交互
+- Python AST：代码分析
+- Pytest：测试执行
+- Hypothesis：属性测试
+- SQLite：数据存储
+
+不再强制依赖 React、Vite、Node.js 和 npm。
+
+
+
+使用模块化设计，确保每个业务模块都能在 PyCharm 中独立打开和修改。
+
+## 3. 入口文件
+
+必须在项目根目录创建 main.py。
+
+
+
+要求：
+
+- 支持直接运行。
+- 正确导入 FastAPI 应用。
+- 启动 Uvicorn。
+- 使用127.0.0.1作为默认监听地址。
+- 自动打开浏览器。
+- 端口冲突时提供清晰错误信息。
+- 启动失败时给出可读日志。
+- 正常退出时清理应用资源。
+- 不启动重复服务。
+- 不使用不必要的管理员权限。
+
+生产演示模式与开发调试模式需要明确区分。
+
+## 4. PyCharm 配置
+
+提供：
+
+- requirements.txt
+- .run/TestPilot_AI.run.xml
+- README.md 中的 PyCharm 启动教程
+- Python Interpreter 配置说明
+
+确保用户打开 main.py 后即可使用 Run 按钮。
+
+## 5. 模块化开发
+
+禁止将所有代码写在 main.py。
+
+
+
+main.py 只负责：
+
+- 初始化应用
+- 配置启动参数
+- 启动服务
+- 浏览器打开
+
+业务逻辑必须分别放在 backend、frontend、tests 等目录。
+
+
+
+每个核心模块应当能独立调试和测试。
+
+## 6. 启动验收
+
+必须完成以下测试：
+
+1. PyCharm Run 启动成功。
+2. 浏览器自动打开。
+3. Dashboard 正常显示。
+4. 前端与后端接口通信正常。
+5. SQLite 正常连接。
+6. 测试执行模块可调用。
+7. 停止服务后能够重新启动。
+8. 端口占用时能够正确提示。
+9. 通过 PyCharm Debug 模式可以设置断点。
+10. 不依赖独立前端服务即可使用核心功能。
+
+## 7. 交付要求
+
+创建：
+
+- main.py
+- requirements.txt
+- .run/TestPilot_AI.run.xml
+- README.md
+
+在 TP_PHASE_01_ACCEPTANCE.md 中增加：
+
+
+
+PYCHARM_RUN_ACCEPTANCE
+
+
+
+必须真实使用与 PyCharm Run 等效的 Python 入口启动应用，完成实际页面和接口验证。
+
+
+
+不得仅凭代码静态检查宣称通过。
+
+
+
+本要求作为整个 TestPilot AI 项目的长期开发规范，后续所有阶段必须遵守。

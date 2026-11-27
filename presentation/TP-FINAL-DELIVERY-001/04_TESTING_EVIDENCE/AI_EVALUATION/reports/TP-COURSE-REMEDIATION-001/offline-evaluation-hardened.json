@@ -1,0 +1,207 @@
+{
+  "outcome": "passed",
+  "method": "offline replay of archived model and WASI receipts",
+  "source_commit": "8923f2c37ce46afb79ef2c844e939d749d4c34be",
+  "inputs": {
+    "frozen.json": "fa35592d0f4d0b6dd0a8f03466a2f664d7ec0b70d32a4faa527c4559db495e86",
+    "summary.json": "7528e7614f28937d83ff34e4e684bf5bf6f26fb8b95cdf2aaed63c401aac93ff",
+    "audit.json": "a13b1e8b75337039665486b044a5516ab42b86a096a77819a76a2169e76671a3",
+    "small-identity.json": "4dab4df1b672279b7130c21dd7216a6f02a6696e2cfd344203e9e93f475ce537"
+  },
+  "models": {
+    "A": {
+      "name": "qwen2.5-coder:0.5b",
+      "ollama_digest": "4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09"
+    },
+    "B": {
+      "name": "Versioned template"
+    },
+    "C/D": {
+      "name": "Qwen3.8-27B UD-IQ3_XXS",
+      "weight_sha256": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+      "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294"
+    }
+  },
+  "seeds": [
+    513,
+    727,
+    941
+  ],
+  "project_count": 10,
+  "groups": {
+    "A": {
+      "label": "Qwen2.5-Coder 0.5B",
+      "planned": 117,
+      "killed": 0,
+      "survived": 0,
+      "timeout": 0,
+      "execution_error": 0,
+      "equivalent_candidates": 0,
+      "noscored": 117,
+      "executions": 5,
+      "complete_jobs": 5,
+      "proposal_count": 0,
+      "accepted_count": 0,
+      "baseline": 0,
+      "model_requests": 57,
+      "responses": 57,
+      "run_count": 30,
+      "scorable_mutants": 0,
+      "mutation_score": null,
+      "all_manifest_detection": 0.0,
+      "validated_candidate_pct": null,
+      "suite_modes": {
+        "ai": 5,
+        "template": 25
+      },
+      "generation_mean_s": 4.326416716666427,
+      "throughput_mean_tps": null,
+      "actual_job_completion_pct": 100.0,
+      "score_range": null,
+      "distinct_test_sha_per_project": {
+        "bonus": 0,
+        "freight": 0,
+        "clamp": 0,
+        "expiry": 0,
+        "tax": 0,
+        "prefix": 0,
+        "pages": 0,
+        "tier": 0,
+        "head": 0,
+        "invoice": 0
+      }
+    },
+    "B": {
+      "label": "\u6a21\u677f",
+      "planned": 117,
+      "killed": 81,
+      "survived": 27,
+      "timeout": 0,
+      "execution_error": 9,
+      "equivalent_candidates": 0,
+      "noscored": 0,
+      "executions": 147,
+      "complete_jobs": 147,
+      "proposal_count": 0,
+      "accepted_count": 0,
+      "baseline": 30,
+      "model_requests": 0,
+      "responses": 0,
+      "run_count": 30,
+      "scorable_mutants": 117,
+      "mutation_score": 69.23,
+      "all_manifest_detection": 69.23,
+      "validated_candidate_pct": null,
+      "suite_modes": {
+        "template": 30
+      },
+      "generation_mean_s": 0.0014219333326764172,
+      "throughput_mean_tps": null,
+      "actual_job_completion_pct": 100.0,
+      "score_range": [
+        42.86,
+        100.0
+      ],
+      "distinct_test_sha_per_project": {
+        "bonus": 1,
+        "freight": 1,
+        "clamp": 1,
+        "expiry": 1,
+        "tax": 1,
+        "prefix": 1,
+        "pages": 1,
+        "tier": 1,
+        "head": 1,
+        "invoice": 1
+      }
+    },
+    "C": {
+      "label": "Qwen3.8 \u521d\u59cb",
+      "planned": 117,
+      "killed": 104,
+      "survived": 4,
+      "timeout": 0,
+      "execution_error": 9,
+      "equivalent_candidates": 0,
+      "noscored": 0,
+      "executions": 155,
+      "complete_jobs": 155,
+      "proposal_count": 0,
+      "accepted_count": 0,
+      "baseline": 30,
+      "model_requests": 30,
+      "responses": 30,
+      "run_count": 30,
+      "scorable_mutants": 117,
+      "mutation_score": 88.89,
+      "all_manifest_detection": 88.89,
+      "validated_candidate_pct": null,
+      "suite_modes": {
+        "ai": 30
+      },
+      "generation_mean_s": 9.852329733333196,
+      "throughput_mean_tps": 23.943792570151825,
+      "actual_job_completion_pct": 100.0,
+      "score_range": [
+        66.67,
+        100.0
+      ],
+      "distinct_test_sha_per_project": {
+        "bonus": 3,
+        "freight": 1,
+        "clamp": 3,
+        "expiry": 3,
+        "tax": 2,
+        "prefix": 3,
+        "pages": 3,
+        "tier": 3,
+        "head": 3,
+        "invoice": 3
+      }
+    },
+    "D": {
+      "label": "Qwen3.8 \u8865\u6d4b\u540e",
+      "planned": 117,
+      "killed": 105,
+      "survived": 3,
+      "timeout": 0,
+      "execution_error": 9,
+      "equivalent_candidates": 0,
+      "noscored": 0,
+      "executions": 148,
+      "complete_jobs": 148,
+      "proposal_count": 1,
+      "accepted_count": 1,
+      "baseline": 30,
+      "model_requests": 4,
+      "responses": 4,
+      "run_count": 30,
+      "scorable_mutants": 117,
+      "mutation_score": 89.74,
+      "all_manifest_detection": 89.74,
+      "validated_candidate_pct": 100.0,
+      "suite_modes": {
+        "paired-feedback": 30
+      },
+      "generation_mean_s": 1.9410112733329394,
+      "throughput_mean_tps": 24.120064910309356,
+      "actual_job_completion_pct": 100.0,
+      "score_range": [
+        66.67,
+        100.0
+      ],
+      "distinct_test_sha_per_project": {
+        "bonus": 3,
+        "freight": 1,
+        "clamp": 3,
+        "expiry": 3,
+        "tax": 2,
+        "prefix": 3,
+        "pages": 3,
+        "tier": 3,
+        "head": 3,
+        "invoice": 3
+      }
+    }
+  }
+}

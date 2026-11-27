@@ -1,0 +1,4 @@
+sha=6a77ef207cce22c01e688068045beb88176b49fc ref=refs/heads/codex/tp-course-remediation-001 run=45990819569 attempt=1
+Python 3.13.11
+v24.13.0
+git version 2.56.1.windows.1

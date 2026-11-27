@@ -1,0 +1,20 @@
+TestPilot WP05 verify | 2026-11-27T17:20:49.088891+08:00
+Windows-11-10.0.26200-SP0 | Python 3.13.11 | toolchain
+
+$ "D:\TestPilot AI\.venv\Scripts\python.exe" -X utf8 -m compileall -q main.py backend tests hooks mcp-server eval/phase05 eval/phase06
+exit=0 elapsed=0.24s
+
+$ "D:\TestPilot AI\.venv\Scripts\python.exe" -X utf8 -m pytest -q -s tests/test_course_toolchain.py
+{"jsonrpc": "2.0", "id": 0, "result": {"protocolVersion": "2025-11-25", "capabilities": {"tools": {}}, "serverInfo": {"name": "testpilot", "version": "1.0.0"}}}
+{"jsonrpc": "2.0", "id": 2, "result": {"tools": [{"description": "List up to 50 recent TestPilot project IDs and names.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}, "name": "list_projects", "annotations": {"readOnlyHint": true, "openWorldHint": false}}, {"description": "Read the status and test counts for one TestPilot execution.", "inputSchema": {"type": "object", "properties": {"run_id": {"type": "integer", "minimum": 1, "maximum": 9223372036854775807}}, "required": ["run_id"], "additionalProperties": false}, "name": "get_run", "annotations": {"readOnlyHint": true, "openWorldHint": false}}]}}
+{"jsonrpc": "2.0", "id": 3, "result": {"content": [{"type": "text", "text": "{\"projects\": [{\"id\": 1, \"name\": \"Regression\"}]}"}]}}
+{"jsonrpc": "2.0", "id": 4, "result": {"content": [{"type": "text", "text": "{\"id\": 1, \"status\": \"passed\", \"passed\": 6, \"failed\": 0, \"errors\": 0, \"skipped\": 1}"}]}}
+{"jsonrpc": "2.0", "id": 5, "result": {"isError": true, "content": [{"type": "text", "text": "run_id must be a positive SQLite integer"}]}}
+.Hook rejected commit: TestPilot WP05: checking staged whitespace and conflict markers
+fixture.txt:1: trailing whitespace.
++example 
+Hook accepted commit: TestPilot WP05: checking staged whitespace and conflict markers 40ff33f clean staged whitespace
+.
+2 passed in 8.64s
+exit=0 elapsed=10.51s
+outcome=passed

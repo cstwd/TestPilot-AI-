@@ -1,0 +1,16 @@
+**TP-PHASE-05 评测完成，待人工签收。** Qwen3.8-27B UD-IQ3_XXS 在 RTX 5080 Laptop 的 Vulkan 后端完成真实本地推理，连续 10 次全部成功，API 费用为零。权重 SHA-256 与固定发布修订一致。CUDA 首次推理的 PTX JIT 内存分配错误已归档。[正式验收报告](<D:/TestPilot AI/.runtime/tp-phase-05/reports/phase05/TP_PHASE_05_ACCEPTANCE.md>)
+
+四组使用同一批 10 个项目，各做 3 轮，以全部 **117 个预登记变异位置**为统一分母。
+
+| 组别 | 变异检出率 |
+| --- | ---: |
+| A 原有 0.5B 模型 | 0/117。30 次尝试中没有套件通过原版校验 |
+| B 模板 | 81/117，69.23% |
+| C Qwen3.8 初始 | **104/117，88.89%** |
+| D Qwen3.8 补测后 | **105/117，89.74%** |
+
+27B 初始结果比模板高 **19.66 个百分点**，反馈再增加 **0.85 个百分点**。4 次反馈中，1 条进入原版校验并通过，实际检出了 `bonus.py` 中被删除的 `raise`。候选校验率为 **1/1**，全部反馈请求转化为有效补测的比例为 **1/4**。[四组对照](<D:/TestPilot AI/.runtime/tp-phase-05/reports/phase05/T04_COMPARISON.md>) · [得分图](<D:/TestPilot AI/.runtime/tp-phase-05/reports/phase05/mutation-score.png>) · [反馈证据](<D:/TestPilot AI/.runtime/tp-phase-05/reports/phase05/T05_MUTATION_FEEDBACK.md>)
+
+源码理解严格得分 **56/70**，其中参数答案的值正确，输出格式未满足冻结规则。模型就绪耗时 **35.25 秒**，后九次短请求首 token 延迟中位数 **0.553 秒**，平均 **19.21 token/s**。连续测试显存峰值约 **9.97 GiB**，整机物理内存峰值 **31.42 GiB**。[理解报告](<D:/TestPilot AI/.runtime/tp-phase-05/reports/phase05/T02_SOURCE_UNDERSTANDING.md>) · [性能与内存记录](<D:/TestPilot AI/.runtime/tp-phase-05/reports/phase05/T01_PERFORMANCE.md>)
+
+实验分支 `experiment/tp-phase-05` 的归档提交为 `8923f2c`。实验中修正了 F13 对 `is → is not` 的定位缺陷，8 项定向测试通过，并核对了 `307d4bd` 及前三阶段和 PHASE-04 的验收归档。

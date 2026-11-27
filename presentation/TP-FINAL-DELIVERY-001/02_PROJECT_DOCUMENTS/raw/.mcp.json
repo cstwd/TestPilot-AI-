@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "testpilot": {
+      "command": "python",
+      "args": [
+        "mcp-server/server.py"
+      ]
+    }
+  }
+}

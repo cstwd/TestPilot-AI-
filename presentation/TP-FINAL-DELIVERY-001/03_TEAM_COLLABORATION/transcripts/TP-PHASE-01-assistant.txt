@@ -1,0 +1,7 @@
+**TP-PHASE-01 工程初始化验收通过，PyCharm 原生 Run 的 10 项启动要求全部实测通过。** [查看完整验收报告](</D:/TestPilot AI/TP_PHASE_01_ACCEPTANCE.md>)
+
+在 Windows 11 的 PyCharm 中点击绿色 **Run** 后，Edge 自动打开 `http://127.0.0.1:8000/`。Dashboard 显示 FastAPI 和 SQLite 均已连接，点击“运行自检”得到真实 Pytest 结果。Debug 模式命中断点，停止后可在同一端口重启，重复启动会给出中文端口占用提示。最终自动化回归为 **5 项通过，耗时 42.12 秒**。[启动实测记录](</D:/TestPilot AI/reports/pycharm-run.md>) · [Dashboard 截图](</D:/TestPilot AI/reports/dashboard.png>) · [断点截图](</D:/TestPilot AI/reports/pycharm-breakpoint.jpg>)
+
+五个工作包、各 20% 的贡献分配表、访谈形成的 SPEC 初稿、架构文档和三天计划均已归档。协作日志分别记录任务责任人与实际操作人。Git 分支为 `main`，工程基线为 `8038be2`，验收归档为 `88ebf23`，工作区干净。
+
+本机解释器已配置，验收服务已停止。再次使用时，在 PyCharm 打开 [main.py](</D:/TestPilot AI/main.py>) 并点击 **Run** 即可。当前版本提供平台固定样例自检，F01–F06 核心业务按三天计划进入后续开发。[PyCharm 启动教程](</D:/TestPilot AI/README.md>) · [三天计划](</D:/TestPilot AI/docs/THREE_DAY_PLAN.md>)

@@ -1,0 +1,994 @@
+{
+  "schema": "testpilot.demo-lab.v1",
+  "id": "d564ee8f-841f-49f2-b204-0e323807bf3d",
+  "sample": "unit_scaling",
+  "mode": "template",
+  "status": "completed",
+  "created_at": "2026-11-27T11:31:55.444866+00:00",
+  "updated_at": "2026-11-27T11:32:29.331746+00:00",
+  "sample_info": {
+    "name": "unit_scaling",
+    "tier": "buggy",
+    "domain": "math",
+    "domain_label": "数学计算",
+    "targets": [
+      "metric_kilometers",
+      "fahrenheit"
+    ],
+    "target": "metric_kilometers",
+    "sha256": "b6aaf40f6e95707b097cd106ff0c92f8a8d1ffbc34eebfeda8aa42aaa8aa0c64",
+    "repair_sha256": "45965980ee1c082cafc5bcf5d147ce4e5a24e33ea05da1751cc306c9fe40ae99",
+    "classroom": true,
+    "contract_count": 4
+  },
+  "options": {
+    "mode": "template",
+    "mutation": true
+  },
+  "stages": {
+    "import": {
+      "status": "completed",
+      "started_at": "2026-11-27T11:31:55.455373+00:00",
+      "duration_ms": 16
+    },
+    "analysis": {
+      "status": "completed",
+      "started_at": "2026-11-27T11:31:55.483629+00:00",
+      "duration_ms": 3
+    },
+    "generation": {
+      "status": "completed",
+      "started_at": "2026-11-27T11:31:55.497697+00:00",
+      "duration_ms": 8
+    },
+    "execution": {
+      "status": "completed",
+      "started_at": "2026-11-27T11:31:55.517985+00:00",
+      "duration_ms": 5651
+    },
+    "repair": {
+      "status": "completed",
+      "started_at": "2026-11-27T11:32:01.181874+00:00",
+      "duration_ms": 13
+    },
+    "regression": {
+      "status": "completed",
+      "started_at": "2026-11-27T11:32:01.207842+00:00",
+      "duration_ms": 5482
+    },
+    "mutation": {
+      "status": "completed",
+      "started_at": "2026-11-27T11:32:06.700450+00:00",
+      "duration_ms": 22602
+    },
+    "report": {
+      "status": "completed",
+      "started_at": "2026-11-27T11:32:29.313928+00:00",
+      "duration_ms": 4
+    }
+  },
+  "duration_ms": 33876,
+  "project": {
+    "id": 1,
+    "name": "Demo Lab · unit_scaling · d564ee8f-841f-49f2-b204-0e323807bf3d"
+  },
+  "original": {
+    "id": 1,
+    "project_id": 1,
+    "filename": "unit_scaling.py",
+    "revision": 1,
+    "source": "def metric_kilometers(meters: int) -> float:\n    \"\"\"Convert meters to kilometers, retaining fractional kilometers.\"\"\"\n    return meters // 1000\n\ndef fahrenheit(celsius: float) -> float:\n    \"\"\"Convert Celsius to Fahrenheit.\"\"\"\n    return celsius * 9 / 5\n",
+    "sha256": "b6aaf40f6e95707b097cd106ff0c92f8a8d1ffbc34eebfeda8aa42aaa8aa0c64"
+  },
+  "analysis": {
+    "static": {
+      "file_id": 1,
+      "filename": "unit_scaling.py",
+      "revision": 1,
+      "sha256": "b6aaf40f6e95707b097cd106ff0c92f8a8d1ffbc34eebfeda8aa42aaa8aa0c64",
+      "valid": true,
+      "symbols": [
+        {
+          "name": "metric_kilometers",
+          "kind": "function",
+          "line": 1,
+          "end_line": 3,
+          "parameters": [
+            {
+              "name": "meters",
+              "kind": "positional_or_keyword",
+              "annotation": "int",
+              "default": null
+            }
+          ],
+          "returns": "float",
+          "docstring": "Convert meters to kilometers, retaining fractional kilometers."
+        },
+        {
+          "name": "fahrenheit",
+          "kind": "function",
+          "line": 5,
+          "end_line": 7,
+          "parameters": [
+            {
+              "name": "celsius",
+              "kind": "positional_or_keyword",
+              "annotation": "float",
+              "default": null
+            }
+          ],
+          "returns": "float",
+          "docstring": "Convert Celsius to Fahrenheit."
+        }
+      ],
+      "error": null
+    },
+    "ai": {
+      "status": "not_requested"
+    }
+  },
+  "suite": {
+    "id": 1,
+    "file_id": 1,
+    "target": "metric_kilometers",
+    "mode": "template",
+    "source": "from subject import metric_kilometers as target\n\ndef test_classroom_1():\n    assert target(1250) == 1.25\n",
+    "sha256": "b246194912913010286758d908aecc08fc30c395cd3b48b969fe4180767e1333",
+    "suggestions": [
+      "Demo Lab 公开课堂合同"
+    ],
+    "format_checked": true,
+    "provenance": "classroom"
+  },
+  "execution": {
+    "status": "failed",
+    "passed": 0,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_classroom_1",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 4,
+    "coverage_pct": 75.0,
+    "log": "F\n=================================== FAILURES ===================================\n_______________________________ test_classroom_1 _______________________________\ntest_generated.py:4: in test_classroom_1\n    assert target(1250) == 1.25\nE   assert 1 == 1.25\nE    +  where 1 = target(1250)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_classroom_1 - assert 1 == 1.25\n1 failed in 0.13s",
+    "duration_ms": 5644,
+    "stdout": "F\n=================================== FAILURES ===================================\n_______________________________ test_classroom_1 _______________________________\ntest_generated.py:4: in test_classroom_1\n    assert target(1250) == 1.25\nE   assert 1 == 1.25\nE    +  where 1 = target(1250)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_classroom_1 - assert 1 == 1.25\n1 failed in 0.13s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_classroom_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 1 == 1.25\n +  where 1 = target(1250)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 4,
+            "function": "test_classroom_1",
+            "source": "assert target(1250) == 1.25"
+          }
+        ],
+        "assertion_diff": "assert 1 == 1.25\n +  where 1 = target(1250)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "id": 1,
+    "project_id": 1,
+    "file_id": 1,
+    "suite_id": 1,
+    "created_at": "2026-11-27T11:32:01.170Z"
+  },
+  "corrected": {
+    "id": 2,
+    "project_id": 1,
+    "filename": "unit_scaling.py",
+    "revision": 2,
+    "source": "def metric_kilometers(meters: int) -> float:\n    \"\"\"Convert meters to kilometers, retaining fractional kilometers.\"\"\"\n    return meters / 1000\n\ndef fahrenheit(celsius: float) -> float:\n    \"\"\"Convert Celsius to Fahrenheit.\"\"\"\n    return celsius * 9 / 5 + 32\n",
+    "sha256": "45965980ee1c082cafc5bcf5d147ce4e5a24e33ea05da1751cc306c9fe40ae99"
+  },
+  "finding": {
+    "nodeid": "test_generated.py::test_classroom_1",
+    "phase": "call",
+    "exception_type": "AssertionError",
+    "message": "assert 1 == 1.25\n +  where 1 = target(1250)",
+    "frames": [
+      {
+        "path": "test_generated.py",
+        "line": 4,
+        "function": "test_classroom_1",
+        "source": "assert target(1250) == 1.25"
+      }
+    ],
+    "assertion_diff": "assert 1 == 1.25\n +  where 1 = target(1250)",
+    "verdict": "verified",
+    "source_location": {
+      "path": "subject.py",
+      "line": 1,
+      "function": "metric_kilometers",
+      "precision": "entry"
+    }
+  },
+  "bug": {
+    "id": 1,
+    "project_id": 1,
+    "run_id": 1,
+    "nodeid": "test_generated.py::test_classroom_1",
+    "title": "Demo Lab · metric_kilometers 的测试断言",
+    "status": "resolved",
+    "file_id": 1,
+    "suite_id": 1,
+    "regressions": [
+      {
+        "id": 1,
+        "run_id": 2,
+        "status": "resolved",
+        "file_id": 2,
+        "revision": 2
+      }
+    ]
+  },
+  "regression": {
+    "status": "passed",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_classroom_1",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 0,
+    "covered_lines": 3,
+    "total_lines": 4,
+    "coverage_pct": 75.0,
+    "log": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_classroom_1\n1 passed in 0.04s",
+    "duration_ms": 5468,
+    "stdout": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_classroom_1\n1 passed in 0.04s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "id": 2,
+    "project_id": 1,
+    "file_id": 2,
+    "suite_id": 1,
+    "created_at": "2026-11-27T11:32:06.686Z"
+  },
+  "engine_task": {
+    "id": "076f4275-f95c-4ed9-95d9-dba12b1e3114",
+    "file_id": 2,
+    "target": "metric_kilometers",
+    "created_at": "2026-11-27T11:32:06.708749+00:00",
+    "status": "completed",
+    "max_repairs": 0,
+    "records": [
+      {
+        "id": "105d8de4-a075-485f-9ad6-c142dd171857",
+        "task_id": "076f4275-f95c-4ed9-95d9-dba12b1e3114",
+        "parent_id": null,
+        "kind": "SourceAnalysis",
+        "created_at": "2026-11-27T11:32:06.713212+00:00",
+        "status": "ready",
+        "payload": {
+          "valid": true,
+          "symbols": [
+            {
+              "name": "metric_kilometers",
+              "kind": "function",
+              "line": 1,
+              "end_line": 3,
+              "parameters": [
+                {
+                  "name": "meters",
+                  "kind": "positional_or_keyword",
+                  "annotation": "int",
+                  "default": null
+                }
+              ],
+              "returns": "float",
+              "docstring": "Convert meters to kilometers, retaining fractional kilometers.",
+              "testable": true,
+              "decorators": [],
+              "examples": [],
+              "branches": [],
+              "loops": [],
+              "return_values": [
+                {
+                  "expression": "meters / 1000",
+                  "line": 3
+                }
+              ],
+              "raises": [],
+              "calls": [],
+              "dependencies": []
+            },
+            {
+              "name": "fahrenheit",
+              "kind": "function",
+              "line": 5,
+              "end_line": 7,
+              "parameters": [
+                {
+                  "name": "celsius",
+                  "kind": "positional_or_keyword",
+                  "annotation": "float",
+                  "default": null
+                }
+              ],
+              "returns": "float",
+              "docstring": "Convert Celsius to Fahrenheit.",
+              "testable": true,
+              "decorators": [],
+              "examples": [],
+              "branches": [],
+              "loops": [],
+              "return_values": [
+                {
+                  "expression": "celsius * 9 / 5 + 32",
+                  "line": 7
+                }
+              ],
+              "raises": [],
+              "calls": [],
+              "dependencies": []
+            }
+          ],
+          "dependencies": [],
+          "diagnostics": [],
+          "sha256": "45965980ee1c082cafc5bcf5d147ce4e5a24e33ea05da1751cc306c9fe40ae99",
+          "file_id": 2,
+          "filename": "unit_scaling.py",
+          "revision": 2
+        }
+      },
+      {
+        "id": "7b461673-603d-4714-9677-78eb1136fb4d",
+        "task_id": "076f4275-f95c-4ed9-95d9-dba12b1e3114",
+        "parent_id": "105d8de4-a075-485f-9ad6-c142dd171857",
+        "kind": "TestStrategy",
+        "created_at": "2026-11-27T11:32:06.719286+00:00",
+        "status": "ready",
+        "payload": {
+          "target": "metric_kilometers",
+          "source_sha256": "45965980ee1c082cafc5bcf5d147ce4e5a24e33ea05da1751cc306c9fe40ae99",
+          "cases": [
+            {
+              "id": "case_1",
+              "type": "normal",
+              "purpose": "以签名和类型标注选取常见输入。",
+              "inputs": [
+                "metric_kilometers(meters=2)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            },
+            {
+              "id": "case_2",
+              "type": "return_constraint",
+              "purpose": "核验声明的返回类型；检查调用是否满足业务前置条件。",
+              "inputs": [
+                "metric_kilometers(meters=2)"
+              ],
+              "expected": "float",
+              "oracle": "annotation"
+            },
+            {
+              "id": "case_3",
+              "type": "exception",
+              "purpose": "添加签名不接受的关键字参数。",
+              "inputs": [
+                "metric_kilometers(meters=2, _testpilot_unknown=None)"
+              ],
+              "expected": "raises TypeError",
+              "oracle": "signature"
+            },
+            {
+              "id": "case_4",
+              "type": "missing",
+              "purpose": "省略必需参数，覆盖 Python 调用绑定检查。",
+              "inputs": [
+                "metric_kilometers()"
+              ],
+              "expected": "raises TypeError",
+              "oracle": "signature"
+            },
+            {
+              "id": "case_5",
+              "type": "null",
+              "purpose": "核验 meters 为 None 时的行为。",
+              "inputs": [
+                "metric_kilometers(meters=None)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            },
+            {
+              "id": "case_6",
+              "type": "boundary",
+              "purpose": "核验 meters 的基础边界值。",
+              "inputs": [
+                "metric_kilometers(meters=0)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            },
+            {
+              "id": "case_7",
+              "type": "invalid_type",
+              "purpose": "传入与 meters 的标注不同的值，核对类型约束及错误处理。",
+              "inputs": [
+                "metric_kilometers(meters='invalid')"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            },
+            {
+              "id": "case_8",
+              "type": "special_numeric",
+              "purpose": "检查 meters 的特殊数值输入。",
+              "inputs": [
+                "metric_kilometers(meters=-1)",
+                "metric_kilometers(meters=0)",
+                "metric_kilometers(meters=1)",
+                "metric_kilometers(meters=2**63)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            }
+          ],
+          "contracts": []
+        }
+      },
+      {
+        "id": "07b4f9bf-309f-4080-aeca-6806874e6240",
+        "task_id": "076f4275-f95c-4ed9-95d9-dba12b1e3114",
+        "parent_id": "7b461673-603d-4714-9677-78eb1136fb4d",
+        "kind": "GeneratedTest",
+        "created_at": "2026-11-27T11:32:06.725587+00:00",
+        "status": "ready",
+        "payload": {
+          "code": "from subject import metric_kilometers as target\n\ndef test_classroom_1():\n    assert target(1250) == 1.25\n",
+          "sha256": "b246194912913010286758d908aecc08fc30c395cd3b48b969fe4180767e1333",
+          "mode": "template",
+          "attempts": [],
+          "workbench_suite_id": 1
+        }
+      },
+      {
+        "id": "3193de79-76b3-4323-8d49-aa5b1d299002",
+        "task_id": "076f4275-f95c-4ed9-95d9-dba12b1e3114",
+        "parent_id": "07b4f9bf-309f-4080-aeca-6806874e6240",
+        "kind": "TestExecution",
+        "created_at": "2026-11-27T11:32:12.275469+00:00",
+        "status": "passed",
+        "payload": {
+          "status": "passed",
+          "passed": 1,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_classroom_1",
+              "outcome": "passed"
+            }
+          ],
+          "exit_code": 0,
+          "covered_lines": 3,
+          "total_lines": 4,
+          "coverage_pct": 75.0,
+          "log": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_classroom_1\n1 passed in 0.04s",
+          "duration_ms": 5544,
+          "stdout": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_classroom_1\n1 passed in 0.04s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [],
+          "failure_details_omitted": 0,
+          "covered_branches": 0,
+          "total_branches": 0,
+          "branch_pct": null,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "generated_test_id": "07b4f9bf-309f-4080-aeca-6806874e6240",
+          "test_sha256": "b246194912913010286758d908aecc08fc30c395cd3b48b969fe4180767e1333",
+          "source_sha256": "45965980ee1c082cafc5bcf5d147ce4e5a24e33ea05da1751cc306c9fe40ae99"
+        }
+      },
+      {
+        "id": "f6541171-99be-4bcf-a1aa-de8ad7011bb4",
+        "task_id": "076f4275-f95c-4ed9-95d9-dba12b1e3114",
+        "parent_id": "3193de79-76b3-4323-8d49-aa5b1d299002",
+        "kind": "CoverageResult",
+        "created_at": "2026-11-27T11:32:12.281750+00:00",
+        "status": "measured",
+        "payload": {
+          "covered_lines": 3,
+          "total_lines": 4,
+          "coverage_pct": 75.0,
+          "covered_branches": 0,
+          "total_branches": 0,
+          "branch_pct": null,
+          "execution_id": "3193de79-76b3-4323-8d49-aa5b1d299002"
+        }
+      },
+      {
+        "id": "b27f66e3-acc5-423b-85ae-25075f3a9989",
+        "task_id": "076f4275-f95c-4ed9-95d9-dba12b1e3114",
+        "parent_id": "f6541171-99be-4bcf-a1aa-de8ad7011bb4",
+        "kind": "FailureAnalysis",
+        "created_at": "2026-11-27T11:32:12.292227+00:00",
+        "status": "analyzed",
+        "payload": {
+          "status": "passed",
+          "findings": [],
+          "execution_id": "3193de79-76b3-4323-8d49-aa5b1d299002"
+        }
+      },
+      {
+        "id": "4adb15f3-7fb6-46b7-9e45-2bd107ca9685",
+        "task_id": "076f4275-f95c-4ed9-95d9-dba12b1e3114",
+        "parent_id": "b27f66e3-acc5-423b-85ae-25075f3a9989",
+        "kind": "TestReport",
+        "created_at": "2026-11-27T11:32:12.300283+00:00",
+        "status": "completed",
+        "payload": {
+          "stop_reason": "已执行测试通过",
+          "initial_execution_id": "3193de79-76b3-4323-8d49-aa5b1d299002",
+          "final_execution_id": "3193de79-76b3-4323-8d49-aa5b1d299002",
+          "execution_count": 1,
+          "source_sha256": "45965980ee1c082cafc5bcf5d147ce4e5a24e33ea05da1751cc306c9fe40ae99",
+          "target": "metric_kilometers",
+          "generation_mode_requested": "template"
+        }
+      }
+    ]
+  },
+  "mutation_session_id": "55eff653-d284-497a-9550-d697878c5680",
+  "mutation": {
+    "result": {
+      "id": "55eff653-d284-497a-9550-d697878c5680",
+      "task_id": "076f4275-f95c-4ed9-95d9-dba12b1e3114",
+      "file_id": 2,
+      "suite_id": "07b4f9bf-309f-4080-aeca-6806874e6240",
+      "target": "metric_kilometers",
+      "profile": "cosmic-ray-8.9.0/testpilot-first-order-v1",
+      "source_sha256": "45965980ee1c082cafc5bcf5d147ce4e5a24e33ea05da1751cc306c9fe40ae99",
+      "test_sha256": "b246194912913010286758d908aecc08fc30c395cd3b48b969fe4180767e1333",
+      "feedback_enabled": false,
+      "timeout_s": 15,
+      "status": "completed",
+      "cancel_requested": false,
+      "created_at": "2026-11-27T11:32:12.343278+00:00",
+      "updated_at": "2026-11-27T11:32:29.300714+00:00",
+      "diagnostic": "未启用反馈",
+      "manifest": [
+        {
+          "id": "d39e77c0-1a34-569f-9ad0-55ae0f69b229",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 3,
+          "column": 5,
+          "before": "return meters / 1000",
+          "after": "return None",
+          "edit": {
+            "start": 122,
+            "end": 142,
+            "old": "return meters / 1000",
+            "new": "return None"
+          },
+          "mutated_sha256": "3f4a8d0625343b157212d85e2f9f6c2ede251e2e3ffd7e9562ed5996c5e7d3fc",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "e8c24325-53b3-5606-b89c-ee47b068de90",
+          "family": "arithmetic",
+          "operator": "core/ReplaceBinaryOperator_Div_Mul",
+          "line": 3,
+          "column": 19,
+          "before": "/",
+          "after": "*",
+          "edit": {
+            "start": 136,
+            "end": 137,
+            "old": "/",
+            "new": "*"
+          },
+          "mutated_sha256": "1e01f999e96397f28ddaf98d1fbe76714a4cdbef93e12e20aefbf8c0c95c7704",
+          "equivalent_candidate": false
+        }
+      ],
+      "events": [
+        {
+          "id": "92d0d1fc-e40d-460d-92a4-273a777efaa1",
+          "phase": "before",
+          "kind": "baseline",
+          "mutant_id": "",
+          "created_at": "2026-11-27T11:32:17.922303+00:00",
+          "status": "passed",
+          "reason": "原始源码通过基线验证",
+          "payload": {
+            "status": "passed",
+            "passed": 1,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 0,
+            "cases": [
+              {
+                "nodeid": "test_generated.py::test_classroom_1",
+                "outcome": "passed"
+              }
+            ],
+            "exit_code": 0,
+            "covered_lines": 3,
+            "total_lines": 4,
+            "coverage_pct": 75.0,
+            "log": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_classroom_1\n1 passed in 0.04s",
+            "duration_ms": 5550,
+            "stdout": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_classroom_1\n1 passed in 0.04s\n",
+            "stderr": "",
+            "diagnostic": "",
+            "result_complete": true,
+            "failures": [],
+            "failure_details_omitted": 0,
+            "covered_branches": 0,
+            "total_branches": 0,
+            "branch_pct": null,
+            "environment": {
+              "platform": "wasi",
+              "python": "3.15.2",
+              "pytest": "9.2.0",
+              "coverage": "7.17.5"
+            },
+            "source_sha256": "45965980ee1c082cafc5bcf5d147ce4e5a24e33ea05da1751cc306c9fe40ae99",
+            "test_sha256": "b246194912913010286758d908aecc08fc30c395cd3b48b969fe4180767e1333"
+          }
+        },
+        {
+          "id": "d8efd2ca-4606-4da5-bd5e-0dbd0c808740",
+          "phase": "before",
+          "kind": "observation",
+          "mutant_id": "d39e77c0-1a34-569f-9ad0-55ae0f69b229",
+          "created_at": "2026-11-27T11:32:23.503694+00:00",
+          "status": "killed",
+          "reason": "原始通过节点在变异副本上触发测试断言",
+          "payload": {
+            "execution": {
+              "status": "failed",
+              "passed": 0,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "cases": [
+                {
+                  "nodeid": "test_generated.py::test_classroom_1",
+                  "outcome": "failed"
+                }
+              ],
+              "exit_code": 1,
+              "covered_lines": 3,
+              "total_lines": 4,
+              "coverage_pct": 75.0,
+              "log": "F\n=================================== FAILURES ===================================\n_______________________________ test_classroom_1 _______________________________\ntest_generated.py:4: in test_classroom_1\n    assert target(1250) == 1.25\nE   assert None == 1.25\nE    +  where None = target(1250)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_classroom_1 - assert None == 1.25\n1 failed in 0.13s",
+              "duration_ms": 5574,
+              "stdout": "F\n=================================== FAILURES ===================================\n_______________________________ test_classroom_1 _______________________________\ntest_generated.py:4: in test_classroom_1\n    assert target(1250) == 1.25\nE   assert None == 1.25\nE    +  where None = target(1250)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_classroom_1 - assert None == 1.25\n1 failed in 0.13s\n",
+              "stderr": "",
+              "diagnostic": "",
+              "result_complete": true,
+              "failures": [
+                {
+                  "nodeid": "test_generated.py::test_classroom_1",
+                  "phase": "call",
+                  "exception_type": "AssertionError",
+                  "message": "assert None == 1.25\n +  where None = target(1250)",
+                  "frames": [
+                    {
+                      "path": "test_generated.py",
+                      "line": 4,
+                      "function": "test_classroom_1",
+                      "source": "assert target(1250) == 1.25"
+                    }
+                  ],
+                  "assertion_diff": "assert None == 1.25\n +  where None = target(1250)"
+                }
+              ],
+              "failure_details_omitted": 0,
+              "covered_branches": 0,
+              "total_branches": 0,
+              "branch_pct": null,
+              "environment": {
+                "platform": "wasi",
+                "python": "3.15.2",
+                "pytest": "9.2.0",
+                "coverage": "7.17.5"
+              },
+              "source_sha256": "3f4a8d0625343b157212d85e2f9f6c2ede251e2e3ffd7e9562ed5996c5e7d3fc",
+              "test_sha256": "b246194912913010286758d908aecc08fc30c395cd3b48b969fe4180767e1333"
+            },
+            "nodeids": [
+              "test_generated.py::test_classroom_1"
+            ]
+          }
+        },
+        {
+          "id": "638101ff-142e-475a-9ffc-fd47db318e91",
+          "phase": "before",
+          "kind": "observation",
+          "mutant_id": "e8c24325-53b3-5606-b89c-ee47b068de90",
+          "created_at": "2026-11-27T11:32:29.293301+00:00",
+          "status": "killed",
+          "reason": "原始通过节点在变异副本上触发测试断言",
+          "payload": {
+            "execution": {
+              "status": "failed",
+              "passed": 0,
+              "failed": 1,
+              "errors": 0,
+              "skipped": 0,
+              "cases": [
+                {
+                  "nodeid": "test_generated.py::test_classroom_1",
+                  "outcome": "failed"
+                }
+              ],
+              "exit_code": 1,
+              "covered_lines": 3,
+              "total_lines": 4,
+              "coverage_pct": 75.0,
+              "log": "F\n=================================== FAILURES ===================================\n_______________________________ test_classroom_1 _______________________________\ntest_generated.py:4: in test_classroom_1\n    assert target(1250) == 1.25\nE   assert 1250000 == 1.25\nE    +  where 1250000 = target(1250)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_classroom_1 - assert 1250000 == 1.25\n1 failed in 0.12s",
+              "duration_ms": 5781,
+              "stdout": "F\n=================================== FAILURES ===================================\n_______________________________ test_classroom_1 _______________________________\ntest_generated.py:4: in test_classroom_1\n    assert target(1250) == 1.25\nE   assert 1250000 == 1.25\nE    +  where 1250000 = target(1250)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_classroom_1 - assert 1250000 == 1.25\n1 failed in 0.12s\n",
+              "stderr": "",
+              "diagnostic": "",
+              "result_complete": true,
+              "failures": [
+                {
+                  "nodeid": "test_generated.py::test_classroom_1",
+                  "phase": "call",
+                  "exception_type": "AssertionError",
+                  "message": "assert 1250000 == 1.25\n +  where 1250000 = target(1250)",
+                  "frames": [
+                    {
+                      "path": "test_generated.py",
+                      "line": 4,
+                      "function": "test_classroom_1",
+                      "source": "assert target(1250) == 1.25"
+                    }
+                  ],
+                  "assertion_diff": "assert 1250000 == 1.25\n +  where 1250000 = target(1250)"
+                }
+              ],
+              "failure_details_omitted": 0,
+              "covered_branches": 0,
+              "total_branches": 0,
+              "branch_pct": null,
+              "environment": {
+                "platform": "wasi",
+                "python": "3.15.2",
+                "pytest": "9.2.0",
+                "coverage": "7.17.5"
+              },
+              "source_sha256": "1e01f999e96397f28ddaf98d1fbe76714a4cdbef93e12e20aefbf8c0c95c7704",
+              "test_sha256": "b246194912913010286758d908aecc08fc30c395cd3b48b969fe4180767e1333"
+            },
+            "nodeids": [
+              "test_generated.py::test_classroom_1"
+            ]
+          }
+        }
+      ],
+      "before": {
+        "killed": 2,
+        "survived": 0,
+        "timeout": 0,
+        "execution_error": 0,
+        "cancelled": 0,
+        "unrun": 0,
+        "total": 2,
+        "equivalent_candidates": 0,
+        "score_pct": 100.0
+      },
+      "after": null
+    },
+    "by_family": {
+      "return": {
+        "total": 1,
+        "killed": 1
+      },
+      "arithmetic": {
+        "total": 1,
+        "killed": 1
+      }
+    },
+    "survivors": [],
+    "all_score_pct": 100.0,
+    "effective": {
+      "killed": 2,
+      "denominator": 2,
+      "score_pct": 100.0
+    }
+  },
+  "quality": {
+    "execution": {
+      "schema": "testpilot.quality.v1",
+      "project": {
+        "id": 1,
+        "name": "Demo Lab · unit_scaling · d564ee8f-841f-49f2-b204-0e323807bf3d"
+      },
+      "run": {
+        "id": 1,
+        "status": "failed",
+        "created_at": "2026-11-27T11:32:01.170Z",
+        "duration_ms": 5644,
+        "exit_code": 1
+      },
+      "source": {
+        "id": 1,
+        "filename": "unit_scaling.py",
+        "revision": 1,
+        "sha256": "b6aaf40f6e95707b097cd106ff0c92f8a8d1ffbc34eebfeda8aa42aaa8aa0c64"
+      },
+      "suite": {
+        "id": 1,
+        "target": "metric_kilometers",
+        "mode": "template",
+        "sha256": "b246194912913010286758d908aecc08fc30c395cd3b48b969fe4180767e1333",
+        "file_id": 1
+      },
+      "quality": {
+        "passed": 0,
+        "failed": 1,
+        "errors": 0,
+        "skipped": 0,
+        "total": 1,
+        "pass_rate_pct": 0.0,
+        "covered_lines": 3,
+        "total_lines": 4,
+        "coverage_pct": 75.0,
+        "assessment": "存在断言失败。请查看失败节点和输入预期，再决定是否登记缺陷。"
+      },
+      "metric_notes": "通过率 = 通过 / (通过 + 失败 + 错误)，跳过单列；行覆盖率按被测单文件实际覆盖行 / 可执行行计。无可用分母时为 null。缺陷状态取本次查看或导出时的记录，原运行的计数和日志保留。",
+      "environment": {
+        "platform": "wasi",
+        "python": "3.15.2",
+        "pytest": "9.2.0",
+        "coverage": "7.17.5"
+      },
+      "cases": [
+        {
+          "nodeid": "test_generated.py::test_classroom_1",
+          "outcome": "failed"
+        }
+      ],
+      "log": "F\n=================================== FAILURES ===================================\n_______________________________ test_classroom_1 _______________________________\ntest_generated.py:4: in test_classroom_1\n    assert target(1250) == 1.25\nE   assert 1 == 1.25\nE    +  where 1 = target(1250)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_classroom_1 - assert 1 == 1.25\n1 failed in 0.13s",
+      "bugs": [
+        {
+          "id": 1,
+          "project_id": 1,
+          "run_id": 1,
+          "nodeid": "test_generated.py::test_classroom_1",
+          "title": "Demo Lab · metric_kilometers 的测试断言",
+          "status": "resolved",
+          "file_id": 1,
+          "suite_id": 1,
+          "regressions": [
+            {
+              "id": 1,
+              "run_id": 2,
+              "status": "resolved",
+              "file_id": 2,
+              "revision": 2
+            }
+          ]
+        }
+      ]
+    },
+    "regression": {
+      "schema": "testpilot.quality.v1",
+      "project": {
+        "id": 1,
+        "name": "Demo Lab · unit_scaling · d564ee8f-841f-49f2-b204-0e323807bf3d"
+      },
+      "run": {
+        "id": 2,
+        "status": "passed",
+        "created_at": "2026-11-27T11:32:06.686Z",
+        "duration_ms": 5468,
+        "exit_code": 0
+      },
+      "source": {
+        "id": 2,
+        "filename": "unit_scaling.py",
+        "revision": 2,
+        "sha256": "45965980ee1c082cafc5bcf5d147ce4e5a24e33ea05da1751cc306c9fe40ae99"
+      },
+      "suite": {
+        "id": 1,
+        "target": "metric_kilometers",
+        "mode": "template",
+        "sha256": "b246194912913010286758d908aecc08fc30c395cd3b48b969fe4180767e1333",
+        "file_id": 1
+      },
+      "quality": {
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "total": 1,
+        "pass_rate_pct": 100.0,
+        "covered_lines": 3,
+        "total_lines": 4,
+        "coverage_pct": 75.0,
+        "assessment": "本次已执行的测试通过。请结合跳过项与未覆盖行判断剩余风险。"
+      },
+      "metric_notes": "通过率 = 通过 / (通过 + 失败 + 错误)，跳过单列；行覆盖率按被测单文件实际覆盖行 / 可执行行计。无可用分母时为 null。缺陷状态取本次查看或导出时的记录，原运行的计数和日志保留。",
+      "environment": {
+        "platform": "wasi",
+        "python": "3.15.2",
+        "pytest": "9.2.0",
+        "coverage": "7.17.5"
+      },
+      "cases": [
+        {
+          "nodeid": "test_generated.py::test_classroom_1",
+          "outcome": "passed"
+        }
+      ],
+      "log": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_classroom_1\n1 passed in 0.04s",
+      "bugs": [
+        {
+          "id": 1,
+          "project_id": 1,
+          "run_id": 1,
+          "nodeid": "test_generated.py::test_classroom_1",
+          "title": "Demo Lab · metric_kilometers 的测试断言",
+          "status": "resolved",
+          "file_id": 1,
+          "suite_id": 1,
+          "regressions": [
+            {
+              "id": 1,
+              "run_id": 2,
+              "status": "resolved",
+              "file_id": 2,
+              "revision": 2
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

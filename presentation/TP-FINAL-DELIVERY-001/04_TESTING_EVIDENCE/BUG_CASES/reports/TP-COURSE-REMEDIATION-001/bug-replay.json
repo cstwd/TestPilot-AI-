@@ -1,0 +1,20 @@
+{
+  "probe": {
+    "input": "import json\nfrom pathlib import Path\nimport subprocess\n\nfrom backend.mutation_generator import apply_site, make_plan\n\nrecord = json.loads(Path(\"reports/phase05/raw/understanding/clamp.json\").read_bytes())\nraw = json.loads(record[\"raw\"][\"choices\"][0][\"message\"][\"content\"])\nexpected = json.loads(Path(\"eval/phase05/frozen.json\").read_bytes())[\"projects\"][\"clamp\"][\"rubric\"][\"parameters\"]\nprint(\"MODEL recorded shape:\", type(raw[\"parameters\"][0]).__name__, \"expected:\", type(expected[0]).__name__)\nprint(\"MODEL strict field match:\", raw[\"parameters\"] == expected)\nassert isinstance(raw[\"parameters\"][0], dict) and raw[\"parameters\"] != expected\n\nsource = \"def f(value):\\n    return value is None\\n\"\nhistorical = subprocess.check_output([\"git\", \"show\", \"5b757b9:backend/mutation_generator.py\"])\nnamespace = {\"__name__\": \"verified_historical_mutation_generator\"}\nexec(compile(historical, \"5b757b9:backend/mutation_generator.py\", \"exec\"), namespace)\ntry:\n    namespace[\"make_plan\"](source, \"f\")\nexcept ValueError as error:\n    print(\"F13 original:\", error)\n    assert \"位置与清单不一致\" in str(error)\nelse:\n    raise RuntimeError(\"Expected the historical position mismatch\")\nplan = make_plan(source, \"f\")\nidentity, = (entry for entry in plan if entry[\"operator\"].endswith(\"_Is_IsNot\"))\nprint(\"F13 fixed:\", identity[\"after\"], identity[\"edit\"], repr(apply_site(source, identity)))\nassert identity[\"edit\"][\"start\"] == source.index(\" is \") + len(\" is\")\nassert apply_site(source, identity) == source.replace(\" is \", \" is not \")",
+    "command": "project Python -X utf8 - (probe via stdin)",
+    "baseline": "617fe45, detached",
+    "chunk_id": "e162cb",
+    "wall_time_seconds": 1.6596785,
+    "exit_code": 0,
+    "original_token_count": 64,
+    "output": "MODEL recorded shape: dict expected: list\r\nMODEL strict field match: False\r\nF13 original: Cosmic Ray 的变异位置与清单不一致\r\nF13 fixed: is not {'start': 33, 'end': 33, 'old': '', 'new': ' not'} 'def f(value):\\n    return value is not None\\n'\r\n"
+  },
+  "regression": {
+    "command": "project Python -m pytest -q tests/test_model_provider.py::test_frozen_parameter_array tests/test_mutation_generator.py eval/phase05/test_manifest.py",
+    "chunk_id": "27c02d",
+    "wall_time_seconds": 3.5384705,
+    "exit_code": 0,
+    "original_token_count": 25,
+    "output": ".........                                                                [100%]\r\n9 passed in 0.38s\r\n"
+  }
+}

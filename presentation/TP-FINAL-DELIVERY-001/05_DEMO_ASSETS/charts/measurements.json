@@ -1,0 +1,89 @@
+{
+  "audit": {
+    "PASS": 44,
+    "PARTIAL": 17,
+    "UNVERIFIED": 2,
+    "MISSING": 1
+  },
+  "lab_id": "d564ee8f-841f-49f2-b204-0e323807bf3d",
+  "target": "metric_kilometers",
+  "v1": {
+    "id": 1,
+    "file_id": 1,
+    "suite_id": 1,
+    "status": "failed",
+    "passed": 0,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 0,
+    "duration_ms": 5644,
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 4
+  },
+  "v2": {
+    "id": 2,
+    "file_id": 2,
+    "suite_id": 1,
+    "status": "passed",
+    "passed": 1,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "duration_ms": 5468,
+    "exit_code": 0,
+    "covered_lines": 3,
+    "total_lines": 4
+  },
+  "geometry_lab_id": "ea0f211b-1e0f-4f7d-8dde-502f3833d56e",
+  "geometry_session": "f4d1de13-98b7-43c9-9b46-59e4cac39039",
+  "geometry": {
+    "killed": 2,
+    "effective_n": 3,
+    "effective_score": 66.67,
+    "all_score": 40.0,
+    "survived": 1,
+    "total": 5,
+    "execution_errors": 2
+  },
+  "offline": [
+    {
+      "group": "A",
+      "label": "Qwen2.5-Coder 0.5B",
+      "planned": 117,
+      "killed": 0,
+      "detect": 0.0,
+      "unscored": 117
+    },
+    {
+      "group": "B",
+      "label": "模板",
+      "planned": 117,
+      "killed": 81,
+      "detect": 69.23,
+      "unscored": 0
+    },
+    {
+      "group": "C",
+      "label": "Qwen3.8 初始",
+      "planned": 117,
+      "killed": 104,
+      "detect": 88.89,
+      "unscored": 0
+    },
+    {
+      "group": "D",
+      "label": "Qwen3.8 补测后",
+      "planned": 117,
+      "killed": 105,
+      "detect": 89.74,
+      "unscored": 0
+    }
+  ],
+  "ai": {
+    "model": "Qwen3.8-27B UD-IQ3_XXS",
+    "path": "/api/files/1/suites",
+    "http": 200,
+    "mode": "ai"
+  }
+}

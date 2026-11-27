@@ -1,0 +1,12 @@
+**TP-PHASE-03 已完成 F07–F12 实现与归档。离线端到端验收通过，真实模型成功生成和修正测试仍待验收。** 六份模块报告、开发前审计、独立审查和 Git 记录均已收录。[正式验收报告](</D:/TestPilot AI/TP_PHASE_03_ACCEPTANCE.md>)
+
+| 验收项 | 实测结果 |
+| --- | --- |
+| 完整回归 | 原有 35 项、新增 54 项，**89 项全部通过**，耗时 245.44 秒。[逐项测试记录](</D:/TestPilot AI/reports/phase03/full-suite.txt>) |
+| 缺陷发现 | 7 个项目完成 8 次隔离执行，检出负数、空输入、边界和异常处理四个预置缺陷。[端到端报告](</D:/TestPilot AI/reports/phase03/E2E.md>) |
+| 测试修正 | 引擎识别出零输入测试的预期与文档冲突，仅修正该断言。原失败节点重跑通过，用户源码摘要一致。[修正前后完整记录](</D:/TestPilot AI/reports/phase03/cases/repair.json>) |
+| 被测项目覆盖率 | 七个项目最终运行合计覆盖 **34/35 行、15/16 个分支出口**。[覆盖率报告](</D:/TestPilot AI/reports/phase03/COVERAGE.md>) |
+
+**模型验收边界**：本机 Ollama 模型清单为空，实际推理请求返回 HTTP 404。引擎记录了请求和降级原因，按 `template` 模式完成了真实 Pytest 执行。本次端到端结果来自模板生成和规则修正。[真实端点记录](</D:/TestPilot AI/reports/phase03/ollama-probe.json>) · [模型配置文档](</D:/TestPilot AI/docs/phase03/MODELS.md>)
+
+在 PyCharm 运行根目录 `main.py`，从仪表盘点击 **打开智能测试引擎** 即可使用。受测集成提交为 `978323d`，验收归档为 `7422857`。PHASE-01、PHASE-02 的验收记录及原有测试均已保留，阶段交付待陈帅廷审核。

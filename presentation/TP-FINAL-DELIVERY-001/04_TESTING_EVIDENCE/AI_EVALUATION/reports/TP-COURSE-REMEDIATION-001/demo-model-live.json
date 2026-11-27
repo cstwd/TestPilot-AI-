@@ -1,0 +1,84 @@
+{
+  "stage": "blind",
+  "date": "2026-11-27T11:35:03.707624+00:00",
+  "samples": [
+    {
+      "module": "calculator",
+      "target": "add",
+      "tier": "good",
+      "domain": "math",
+      "project": {
+        "id": 1,
+        "name": "Demo Lab · calculator"
+      },
+      "revision_id": 1,
+      "analysis": {
+        "file_id": 1,
+        "filename": "calculator.py",
+        "revision": 1,
+        "sha256": "6321439512e21bc7b5978049906891c6c52aeafa5d5cc29ff6af971febf5565a",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "add",
+            "kind": "function",
+            "line": 1,
+            "end_line": 7,
+            "parameters": [
+              {
+                "name": "a",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "b",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Add two signed integers.\n\n>>> add(2, 3)\n5"
+          },
+          {
+            "name": "quotient",
+            "kind": "function",
+            "line": 9,
+            "end_line": 11,
+            "parameters": [
+              {
+                "name": "a",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "b",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Return the floor quotient."
+          }
+        ],
+        "error": null
+      },
+      "error": "/api/files/1/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    }
+  ],
+  "health": {
+    "status": "ok",
+    "database": "ok",
+    "mode": "demo"
+  },
+  "model_health": {
+    "http": 503,
+    "state": "unavailable",
+    "model": "Qwen3.8-27B UD-IQ3_XXS",
+    "kind": "resource",
+    "reason": "Ollama 已触发 Windows 资源保护"
+  }
+}

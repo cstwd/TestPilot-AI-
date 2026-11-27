@@ -1,0 +1,22 @@
+{
+  "snapshot": "cf448f3",
+  "repository_snapshot_files": 2379,
+  "audit_commit": "0d9e893",
+  "git_blob_copies": 138,
+  "teacher_original_images": 5,
+  "course_checkpoints": {
+    "PASS": 44,
+    "PARTIAL": 17,
+    "UNVERIFIED": 2,
+    "MISSING": 1
+  },
+  "base_points": 100,
+  "bonus_cap": 5,
+  "work_packages": 5,
+  "archived_log_entries": 49,
+  "original_prompt_coverage_at_audit": "48/49",
+  "additional_original_messages": 12,
+  "outline_pages": 15,
+  "suggested_seconds": 775,
+  "local_navigation_links_checked": 248
+}

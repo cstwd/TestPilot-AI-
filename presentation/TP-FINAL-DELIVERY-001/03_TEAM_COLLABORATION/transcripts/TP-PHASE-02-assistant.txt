@@ -1,0 +1,9 @@
+**TP-PHASE-02 工程验收通过，待项目组长陈帅廷审核。** F01–F06 均已完成独立测试和审查，六份模块报告已归档。[阶段验收报告](</D:/TestPilot AI/TP_PHASE_02_ACCEPTANCE.md>)
+
+- **平台回归**：修正一处浏览器测试在页面跳转后读取旧响应的时序问题，完整重跑 **35 项全部通过**，耗时 153.33 秒。[最终测试输出](</D:/TestPilot AI/reports/phase02/full-suite.txt>)
+- **缺陷闭环**：生成的测试在隔离环境中实际发现了负数处理错误，首跑为 5 通过、1 失败、1 跳过。修复后复用原测试套件，结果为 6 通过、0 失败、1 跳过。原失败节点通过，缺陷记录更新为已解决。[缺陷版报告](</D:/TestPilot AI/reports/phase02/buggy-report.json>) · [修复版报告](</D:/TestPilot AI/reports/phase02/fixed-report.json>)
+- **PyCharm 启动**：实际点击绿色 Run 运行根目录 `main.py`，Edge 自动打开 `127.0.0.1:8000`，Dashboard 和 SQLite 连接正常，停止后退出码为 0。另用 PyCharm 调试器验证了断点命中和继续运行。[启动与调试记录](</D:/TestPilot AI/reports/phase02/PYCHARM.md>)
+
+当前生成引擎使用本地模板，保留模型适配接口。隔离环境支持普通 Pytest 和行覆盖率采集；Hypothesis 属性建议及源码已保存，对应测试因来宾依赖缺失而显式跳过。
+
+受测代码提交为 `f31a901`，验收归档提交为 `da798a4`。本地工作区干净，PHASE-01 验收记录已保留。

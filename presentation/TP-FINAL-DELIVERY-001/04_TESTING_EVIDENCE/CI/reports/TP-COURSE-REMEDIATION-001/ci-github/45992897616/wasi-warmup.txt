@@ -1,0 +1,1 @@
+WASI trusted warmup: exit=0 trapped=None stats={'compiled': 1, 'loaded': 0, 'written': 1, 'sessions_open': 0, 'snapshots_made': 0, 'snapshots_restored': 0, 'tool_threads_running': 0}

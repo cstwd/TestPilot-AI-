@@ -1,0 +1,156 @@
+{
+  "run": {
+    "id": 45990819569,
+    "name": "Course verification",
+    "head_sha": "6a77ef207cce22c01e688068045beb88176b49fc",
+    "event": "push",
+    "status": "completed",
+    "conclusion": "failure",
+    "html_url": "https://github.com/cstwd/TestPilot-AI-/actions/runs/45990819569",
+    "created_at": "2026-11-27T11:28:57Z",
+    "updated_at": "2026-11-27T11:46:21Z",
+    "run_attempt": 1
+  },
+  "jobs": [
+    {
+      "id": 140477903099,
+      "name": "windows-verification",
+      "status": "completed",
+      "conclusion": "failure",
+      "html_url": "https://github.com/cstwd/TestPilot-AI-/actions/runs/45990819569/job/140477903099",
+      "started_at": "2026-11-27T11:28:59Z",
+      "completed_at": "2026-11-27T11:46:20Z",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-27T11:29:01Z",
+          "completed_at": "2026-11-27T11:29:02Z"
+        },
+        {
+          "name": "Run actions/checkout@v7",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-27T11:29:02Z",
+          "completed_at": "2026-11-27T11:29:13Z"
+        },
+        {
+          "name": "Run actions/setup-python@v7",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-27T11:29:13Z",
+          "completed_at": "2026-11-27T11:30:04Z"
+        },
+        {
+          "name": "Run actions/setup-node@v6",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-27T11:30:04Z",
+          "completed_at": "2026-11-27T11:30:15Z"
+        },
+        {
+          "name": "Install pinned project dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-27T11:30:15Z",
+          "completed_at": "2026-11-27T11:31:00Z"
+        },
+        {
+          "name": "Record runner and revision",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-27T11:31:00Z",
+          "completed_at": "2026-11-27T11:31:01Z"
+        },
+        {
+          "name": "Replay the frozen AI evaluation",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-27T11:31:01Z",
+          "completed_at": "2026-11-27T11:31:02Z"
+        },
+        {
+          "name": "Confirm replay validation failure returns a nonzero exit",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-27T11:31:02Z",
+          "completed_at": "2026-11-27T11:31:04Z"
+        },
+        {
+          "name": "Verify independent Demo Lab scoring",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-27T11:31:04Z",
+          "completed_at": "2026-11-27T11:31:06Z"
+        },
+        {
+          "name": "Run Pytest, Edge, WASI and Node regression",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 10,
+          "started_at": "2026-11-27T11:31:06Z",
+          "completed_at": "2026-11-27T11:46:13Z"
+        },
+        {
+          "name": "Archive test and evaluation receipts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-27T11:46:13Z",
+          "completed_at": "2026-11-27T11:46:15Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v6",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 20,
+          "started_at": "2026-11-27T11:46:15Z",
+          "completed_at": "2026-11-27T11:46:15Z"
+        },
+        {
+          "name": "Post Run actions/setup-python@v7",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 21,
+          "started_at": "2026-11-27T11:46:15Z",
+          "completed_at": "2026-11-27T11:46:15Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v7",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-11-27T11:46:15Z",
+          "completed_at": "2026-11-27T11:46:18Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-11-27T11:46:18Z",
+          "completed_at": "2026-11-27T11:46:18Z"
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 15195250986,
+      "name": "course-verification-45990819569-1",
+      "size_in_bytes": 13010,
+      "digest": "sha256:f823b22e5b7e2825b980472dd5b7b334b9c700654ef678da55fa8d1585ce1f0d",
+      "expired": false
+    }
+  ]
+}

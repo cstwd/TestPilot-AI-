@@ -1,0 +1,14 @@
+**TP-PHASE-04 工程验收通过，待陈帅廷签收。** F13 已接入现有 `main.py` 工作台，验收归档提交为 `307d4bd`。[正式验收报告](<D:/TestPilot AI/TP_PHASE_04_ACCEPTANCE.md>)
+
+同一份 Python 源码生成了覆盖六类算子的 9 个变异。本机 `qwen2.5-coder:0.5b` 提出补测后，系统先在原版上校验断言，再对全部 9 个变异执行隔离 Pytest。两轮分母保持一致，推理 API 费用为零。
+
+| 初始测试来源 | 补测前 | 补测后 | 补测后剩余 |
+| --- | ---: | ---: | --- |
+| 本机 AI 生成 | 3/9，33.33% | **4/9，44.44%** | 4 个存活，1 个执行错误 |
+| 本地模板生成 | 4/9，44.44% | **5/9，55.56%** | 2 个存活，2 个执行错误 |
+
+两条路径均由新增断言检出了第 9 行被删除的 `raise`。AI 初始套件实验中，模型提出的 4 个候选只有 1 个通过原版校验，其余 3 个的错误预期和失败输出均已归档。[逐项得分](<D:/TestPilot AI/reports/phase04/MUTATION_SCORE.md>) · [AI 反馈与原始证据](<D:/TestPilot AI/reports/phase04/AI_FEEDBACK.md>)
+
+**最终回归 146 项全部通过**，包括原有 89 项、F13 新增 47 项和既有 AST 工作台 10 项。开发中曾有一次并行作业干扰临时目录清理检查，最终按原断言复测通过。前三阶段验收记录已核对保留。[最终 JUnit](<D:/TestPilot AI/reports/phase04/final-junit.xml>) · [Windows 工具选型实测](<D:/TestPilot AI/docs/phase04/TOOL_SELECTION.md>)
+
+在 PyCharm 运行根目录 `main.py`，打开一个已完成的智能测试任务，点击 **评估变异测试与补测** 即可使用。本阶段实测了等效 Python 入口和 Edge 页面，PyCharm 按钮与断点沿用此前的人工验收记录。
