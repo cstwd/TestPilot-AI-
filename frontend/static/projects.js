@@ -225,17 +225,7 @@ export function showProjectsError($, error) {
   $("project-retry").onclick = () => location.reload();
 }
 
-export function bindProjectPanels($) {
-  const navigation = $("mobile-navigation");
-  navigation.addEventListener("keydown", event => {
-    if (event.key === "Escape" && navigation.open) {
-      navigation.open = false;
-      navigation.querySelector("summary").focus();
-    }
-  });
-  document.addEventListener("pointerdown", event => {
-    if (navigation.open && !navigation.contains(event.target)) navigation.open = false;
-  });
+export function bindProjectPanels() {
   for (const tab of document.querySelectorAll("#project-panels button")) tab.onclick = () => setPanel(tab.dataset.panel);
 }
 

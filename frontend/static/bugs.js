@@ -22,13 +22,6 @@ function state(node, kind, title, detail) {
 }
 
 function bindPanels() {
-  const menu = document.querySelector(".bug-module-menu");
-  menu.onkeydown = event => {
-    if (event.key === "Escape" && menu.open) {
-      menu.open = false;
-      menu.querySelector("summary").focus();
-    }
-  };
   const buttons = document.querySelectorAll(".bug-panel-nav button");
   const select = panel => {
     document.body.dataset.bugPanel = panel;
@@ -90,7 +83,7 @@ function bindIssues($, issues, selectedId, href) {
   render();
 }
 
-export async function showBugs({$, api, link, params, files, projectId}) {
+export async function showBugs({$, api, link, syncModuleLinks, params, files, projectId}) {
   const selectPanel = bindPanels();
   if (!projectId) {
     selectPanel("explorer");
@@ -181,6 +174,7 @@ export async function showBugs({$, api, link, params, files, projectId}) {
   function paintOriginal() {
     $("original-evidence").hidden = !originalRun;
     if (!originalRun) return;
+    syncModuleLinks({file: original.id});
     $("original-run").href = link("runs", {file: original.id, suite: suite.id, run: originalRun.id});
     setStatus($("original-outcome"), runState(originalRun));
     $("failure-node").textContent = "运行 #" + originalRun.id + " · 套件 #" + suite.id + " · " + fileLabel(original) +
@@ -249,8 +243,10 @@ export async function showBugs({$, api, link, params, files, projectId}) {
     setStatus($("bug-state"), issueState(issue.status));
   }
   function syncRoute() {
+    const version = candidate?.id || original.id;
+    syncModuleLinks({file: version});
     history.replaceState(null, "", link("bugs", {
-      file: candidate?.id || original.id, bug: issue.id, run: originalRun.id,
+      file: version, bug: issue.id, run: originalRun.id,
       nodeid: selectedCase.nodeid, regression: selectedRegression,
     }));
   }

@@ -1,0 +1,16 @@
+WP09_NAV {"page": "projects", "targets": 6, "outsideClosed": true}
+WP09_NAV {"page": "analysis", "menu": "missing"}
+WP09_NAV {"page": "generation", "targets": 6, "outsideClosed": false}
+WP09_NAV {"page": "runs", "targets": 6, "outsideClosed": false}
+WP09_NAV {"page": "bugs", "targets": 6, "outsideClosed": false}
+WP09_NAV {"page": "reports", "targets": 6, "outsideClosed": false}
+F
+================================== FAILURES ===================================
+________________________ test_mobile_module_navigation ________________________
+tests\test_wp09_integration.py:72: in test_mobile_module_navigation
+    assert not missing, missing
+E   AssertionError: ['analysis', 'generation:outside', 'runs:outside', 'bugs:outside', 'reports:outside']
+E   assert not ['analysis', 'generation:outside', 'runs:outside', 'bugs:outside', 'reports:outside']
+=========================== short test summary info ===========================
+FAILED tests/test_wp09_integration.py::test_mobile_module_navigation - Assert...
+1 failed in 36.42s

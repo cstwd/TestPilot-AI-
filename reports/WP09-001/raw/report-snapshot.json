@@ -1,0 +1,90 @@
+{
+  "schema": "testpilot.quality.v1",
+  "project": {
+    "id": 2,
+    "name": "WP09 · 遥测质量验收"
+  },
+  "run": {
+    "id": 3,
+    "status": "passed",
+    "created_at": "2026-11-27T09:46:07.807Z",
+    "duration_ms": 5864,
+    "exit_code": 0
+  },
+  "source": {
+    "id": 2,
+    "filename": "telemetry.py",
+    "revision": 2,
+    "sha256": "959859bd7b77009ab8577718f79d466fbac8d00a61ead3ea21296ed894e1f37a"
+  },
+  "suite": {
+    "id": 1,
+    "target": "magnitude",
+    "mode": "template",
+    "sha256": "00cf237d2519dd2e59b7622aac9d85621c2e60a50c5b2b67b7280b6c79bec362",
+    "file_id": 1
+  },
+  "quality": {
+    "passed": 5,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "total": 5,
+    "pass_rate_pct": 100.0,
+    "covered_lines": 5,
+    "total_lines": 7,
+    "coverage_pct": 71.43,
+    "assessment": "本次已执行的测试通过。请结合跳过项与未覆盖行判断剩余风险。"
+  },
+  "metric_notes": "通过率 = 通过 / (通过 + 失败 + 错误)，跳过单列；行覆盖率按被测单文件实际覆盖行 / 可执行行计。无可用分母时为 null。缺陷状态取本次查看或导出时的记录，原运行的计数和日志保留。",
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_example_2",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_normal_return_contract",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_return_contract",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_invalid_keyword",
+      "outcome": "passed"
+    }
+  ],
+  "log": ".....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_example_2\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n5 passed in 0.06s\n\nTESTPILOT_RESULT {\"environment\": {\"platform\": \"wasi\", \"python\": \"3.15.2\", \"pytest\": \"9.2.0\", \"coverage\": \"7.17.5\"}, \"cases\": [{\"nodeid\": \"test_generated.py::test_example_1\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_example_2\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_normal_return_contract\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_boundary_return_contract\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_invalid_keyword\", \"outcome\": \"passed\"}], \"covered_lines\": 5, \"total_lines\": 7}",
+  "bugs": [
+    {
+      "id": 1,
+      "project_id": 2,
+      "run_id": 2,
+      "nodeid": "test_generated.py::test_example_2",
+      "title": "负数测量值未取绝对值",
+      "status": "resolved",
+      "file_id": 1,
+      "suite_id": 1,
+      "regressions": [
+        {
+          "id": 1,
+          "run_id": 3,
+          "status": "resolved",
+          "file_id": 2,
+          "revision": 2
+        }
+      ]
+    }
+  ]
+}

@@ -54,6 +54,14 @@ input,select {background:var(--input-bg);border:1px solid var(--border);border-r
 .graph-search input,.file-search input {display:block;flex:1;width:0;border:none;background:transparent;outline:0;font-size:12px}
 kbd {font:11px var(--mono);border:1px solid var(--border);border-radius:3px;padding:0 4px;color:var(--muted)}
 .utilities {display:flex;gap:5px}
+.studio-module-menu {display:none;position:relative}
+.topbar>.studio-module-menu {margin-left:auto}
+.studio-module-menu summary {display:grid;place-items:center;width:32px;height:32px;cursor:pointer;color:var(--muted);list-style:none}
+.studio-module-menu summary::-webkit-details-marker {display:none}
+.studio-module-menu nav {position:absolute;z-index:8;top:calc(100% + 3px);right:0;min-width:155px;padding:5px;background:var(--panel-top);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-float)}
+.studio-module-menu a {display:flex;align-items:center;gap:9px;padding:6px 9px;text-decoration:none;color:var(--ink);font-size:12px;border-radius:var(--radius-sm)}
+.studio-module-menu a span {font:11px var(--mono);color:var(--muted)}
+.studio-module-menu a[aria-current],.studio-module-menu a:hover {background:var(--tree-selected-bg);color:var(--ink-selected)}
 .tool {height:31px;width:31px;padding:0;color:var(--muted);background:transparent;border:1px solid transparent;border-radius:6px}
 .workspace-frame {display:flex;height:calc(100dvh - 61px);min-height:575px}
 .module-rail {width:54px;flex:none;border-right:1px solid var(--border);background:#10111a;display:flex;flex-direction:column;align-items:center;gap:7px;padding:20px 0}
@@ -112,6 +120,7 @@ dialog label input {accent-color:#9e7de6;margin-right:10px}
   .status-pill {margin:0 5px}
 }
 @media (max-width:650px) {
+  .studio-module-menu {display:block}
   .topbar {height:94px;display:grid;grid-template-columns:1fr minmax(100px,1fr) auto;grid-template-rows:48px 39px;gap:0 6px}
   .brand-mark {width:25px;height:25px}.brand {gap:3px}.graph-search {height:29px;width:100%}.utilities {gap:0}.utilities .tool {width:26px}
   .context-selectors {grid-column:1/-1;grid-row:2;border:0;padding:0;gap:9px}.context-selectors label {flex:1}.context-selectors select {width:100%;max-width:none}

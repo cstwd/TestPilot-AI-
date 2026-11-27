@@ -115,13 +115,6 @@ export function showGenerationError($, error, link) {
 }
 
 export async function showGeneration({$, api, link, params, projectId, file}) {
-  const nav = document.querySelector(".gen-mobile-nav");
-  nav.addEventListener("keydown", event => {
-    if (event.key === "Escape" && nav.open) {
-      nav.open = false;
-      nav.querySelector("summary").focus();
-    }
-  });
   $("gen-return-context").href = link("projects");
   if (!file) {
     const invalid = (params.get("project") && projectId !== params.get("project")) || params.get("file");

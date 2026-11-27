@@ -1,4 +1,4 @@
-{% from "studio_components.html" import icon, icons, topbar, context_selectors, rail, search, pane_heading, state %}
+{% from "studio_components.html" import icon, icons, topbar, context_selectors, rail, module_menu, search, pane_heading, state %}
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -14,12 +14,7 @@
 {{ icons() }}
 {% call topbar(show_context=false) %}
   <div class="gen-breadcrumb"><span>测试工作台</span>{{ icon('chevron-right') }}<span>AI 测试生成</span></div>
-  <details class="gen-mobile-nav">
-    <summary aria-label="工作台导航">{{ icon('menu') }}</summary>
-    <nav aria-label="工作台导航">{% for slug,(code,name) in modules.items() %}
-      <a data-dest="{{ slug }}" href="/workbench/{{ slug }}" {% if slug == 'generation' %}aria-current="page"{% endif %}><span>{{ code }}</span>{{ name }}</a>
-    {% endfor %}</nav>
-  </details>
+  {{ module_menu(modules, 'generation') }}
 {% endcall %}
 <div class="workspace-frame">
   {{ rail(modules, 'generation') }}

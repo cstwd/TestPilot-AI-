@@ -1,0 +1,32 @@
+{
+  "file": "data/testpilot.sqlite3",
+  "mode": "read-only",
+  "sqlite": "3.51.0",
+  "quick_check": "ok",
+  "tables": {
+    "projects": {
+      "rows": 2,
+      "ddl_sha256": "a2bc92b2c190798e3cb27b8823db10b2c969e68e873216ab9998089bbc3e791d"
+    },
+    "files": {
+      "rows": 2,
+      "ddl_sha256": "adb21dd98848b08ed57c0bcfdcdecd3c396313a26a1b37714893f630a53b07c3"
+    },
+    "suites": {
+      "rows": 2,
+      "ddl_sha256": "4699efb78423e5d1844e1d86ad8293796d19ad763c7135ce63110c0ed87c7992"
+    },
+    "runs": {
+      "rows": 2,
+      "ddl_sha256": "c7f6282790d74a6da4001d57f84e7070a45218d0c212ee6929e46b454613503d"
+    },
+    "bugs": {
+      "rows": 0,
+      "ddl_sha256": "a02ad2404c4d37cf2e884b902cf93260a76952cb6d7ebf63eac3fffdcd0f8382"
+    },
+    "regressions": {
+      "rows": 0,
+      "ddl_sha256": "ea62ec888702e7e9e5b9588488fc6f159f647a684be37cc0a04a30ccf51a41fe"
+    }
+  }
+}

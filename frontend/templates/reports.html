@@ -1,4 +1,4 @@
-{% from "studio_components.html" import icon, icons, topbar, context_selectors, rail, pane_heading, state %}
+{% from "studio_components.html" import icon, icons, topbar, context_selectors, rail, module_menu, pane_heading, state %}
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -14,12 +14,7 @@
 {{ icons() }}
 {% call topbar(show_context=false) %}
   <span class="quality-breadcrumb">测试工作台 {{ icon('chevron-right') }} <b>质量分析</b></span>
-  <details class="quality-mobile-nav">
-    <summary aria-label="工作台导航">{{ icon('menu') }}</summary>
-    <nav aria-label="工作台导航">{% for slug,(code,name) in modules.items() %}
-      <a data-dest="{{ slug }}" href="/workbench/{{ slug }}"{% if slug == 'reports' %} aria-current="page"{% endif %}><span>{{ code }}</span>{{ name }}</a>
-    {% endfor %}</nav>
-  </details>
+  {{ module_menu(modules, 'reports') }}
 {% endcall %}
 <div class="workspace-frame">
   {{ rail(modules, 'reports') }}
@@ -29,8 +24,10 @@
       <div class="quality-actions" id="quality-actions" hidden>
         <a class="quality-export" id="export-report" download>{{ icon('file') }}下载 JSON 报告</a>
         <button type="button" class="primary" id="html-report">{{ icon('code') }}HTML 报告</button>
+        <button type="button" id="export-html-report">{{ icon('code') }}下载 HTML 报告</button>
         <button type="button" id="back-to-quality">{{ icon('arrow') }}返回工作台</button>
         <button type="button" class="primary" id="print-report">{{ icon('file') }}打印 / PDF</button>
+        <span class="quality-muted" id="html-export-feedback" role="status" hidden></span>
       </div>
     </header>
     <nav class="quality-jumps" aria-label="质量页面区段"><a href="#quality-explorer">运行</a><a href="#quality-report-context">指标</a><a href="#quality-evidence">证据</a></nav>

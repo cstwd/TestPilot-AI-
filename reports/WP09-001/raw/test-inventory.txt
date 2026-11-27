@@ -1,0 +1,170 @@
+tests/test_ast_canvas_refinement.py::test_labels_and_replay_camera
+tests/test_ast_canvas_refinement.py::test_terminal_family_layout
+tests/test_ast_refinement.py::test_console_and_timing_source
+tests/test_ast_refinement.py::test_fit_and_focus_last_dense_symbol
+tests/test_ast_refinement.py::test_replay_camera_pauses_with_presentation
+tests/test_ast_studio.py::test_file_to_generation
+tests/test_ast_studio.py::test_revision_and_boundary_inputs
+tests/test_ast_studio.py::test_unavailable_context_and_retry
+tests/test_ast_studio.py::test_large_real_analysis
+tests/test_ast_studio.py::test_dense_renderer_and_pointer_gestures
+tests/test_bug_intelligence.py::test_issue_diff_and_real_regression_history
+tests/test_course_properties.py::test_ast_reports_exact_lines_and_parameter_defaults
+tests/test_course_toolchain.py::test_mcp_reads_real_testpilot_run
+tests/test_course_toolchain.py::test_pre_commit_rejects_and_accepts
+tests/test_dashboard.py::test_dashboard
+tests/test_engine_history.py::test_atomic_immutable_history
+tests/test_engine_history.py::test_report_references_own_execution
+tests/test_execution_center.py::test_execution_history_log_and_case_handoff
+tests/test_execution_center.py::test_real_worker_error_timeout_and_truncation
+tests/test_execution_center.py::test_real_busy_and_explicit_fault_injection
+tests/test_f01.py::test_project_versions
+tests/test_f01.py::test_bad_import[../bad.py]
+tests/test_f01.py::test_bad_import[C:bad.py]
+tests/test_f01.py::test_bad_import[CON.py]
+tests/test_f01.py::test_bad_import[file.txt]
+tests/test_f02.py::test_ast_without_execution
+tests/test_f02.py::test_invalid_and_empty
+tests/test_f02.py::test_conditional_definition
+tests/test_f03.py::test_templates_include_actual_spec
+tests/test_f03.py::test_reject_bad_output_and_targets
+tests/test_f04.py::test_real_execution_and_history
+tests/test_f04.py::test_wrong_file_refused
+tests/test_f05.py::test_bug_regression
+tests/test_f05.py::test_regression_uses_database_filename_identity
+tests/test_f06.py::test_report_matches_real_run
+tests/test_f06.py::test_missing_measures[timeout]
+tests/test_f06.py::test_missing_measures[error]
+tests/test_f06.py::test_missing_measures[skipped]
+tests/test_f07.py::test_scope_and_dependencies
+tests/test_f07.py::test_literal_examples_are_not_executed
+tests/test_f07.py::test_invalid_source[def bad(:-syntax]
+tests/test_f07.py::test_invalid_source[\xff-encoding]
+tests/test_f07.py::test_invalid_source[# coding: unknown_enc\n-encoding]
+tests/test_f07.py::test_invalid_source[return 1-syntax]
+tests/test_f07.py::test_invalid_source[source4-unsupported]
+tests/test_f07.py::test_invalid_source[source5-unsupported]
+tests/test_f07.py::test_encoding_and_entries
+tests/test_f08.py::test_oracles_and_thresholds
+tests/test_f08.py::test_decorators_and_defaults
+tests/test_f08.py::test_kwargs_and_positional_only_inputs
+tests/test_f08.py::test_no_strategy_for_invalid_target[if False:\n def f(): pass-f]
+tests/test_f08.py::test_no_strategy_for_invalid_target[def broken(:-f]
+tests/test_f08.py::test_no_strategy_for_invalid_target[class C:\n def f(self): pass-C.f]
+tests/test_f08.py::test_no_strategy_for_invalid_target[def f(): pass-g]
+tests/test_f09.py::test_provider_contract_and_provenance
+tests/test_f09.py::test_unavailable_ai_keeps_evidence_without_fallback
+tests/test_f09.py::test_reject_empty_or_unrelated_tests[]
+tests/test_f09.py::test_reject_empty_or_unrelated_tests[def test_empty(): pass]
+tests/test_f09.py::test_reject_empty_or_unrelated_tests[def test_constant(): assert True]
+tests/test_f09.py::test_reject_empty_or_unrelated_tests[def test_unrelated(): assert len([]) == 0]
+tests/test_f09.py::test_reject_empty_or_unrelated_tests[candidate4]
+tests/test_f09.py::test_explicit_template_overrides_environment
+tests/test_f09.py::test_analysis_and_template_agree_on_directed_doctests
+tests/test_f10.py::test_branch_evidence_and_runtime_failure_details
+tests/test_f10.py::test_collection_failure_is_structured
+tests/test_f10.py::test_timeout_preserves_incomplete_evidence
+tests/test_f11.py::test_real_failure_categories
+tests/test_f11.py::test_incomplete_execution
+tests/test_f11.py::test_stateful_setup_is_not_a_standalone_oracle
+tests/test_f11.py::test_ambiguous_target_binding[from subject import units as target\ndef test_f(target):\n    assert target(2) == 50]
+tests/test_f11.py::test_ambiguous_target_binding[from subject import units as target\ntarget = lambda n: 0\ndef test_f():\n    assert target(2) == 50]
+tests/test_f11.py::test_ambiguous_target_binding[from other import units as target\ndef test_f():\n    assert target(2) == 50]
+tests/test_f11.py::test_ambiguous_target_binding[source3]
+tests/test_f12.py::test_repair_runs_both_versions_without_changing_subject
+tests/test_f12.py::test_never_repair_program_or_unknown
+tests/test_f12.py::test_unknown_oracle_is_preserved
+tests/test_f12.py::test_feedback_bound_and_duplicate_are_audited
+tests/test_f12.py::test_unsafe_regeneration_keeps_unrelated_tests
+tests/test_generation_studio.py::test_template_static_and_real_first_runs
+tests/test_generation_studio.py::test_rejected_generation_and_unavailable_context
+tests/test_generation_studio.py::test_busy_saves_candidate_without_first_run
+tests/test_model_provider.py::test_retry_retains_raw_and_fixed_identity[]
+tests/test_model_provider.py::test_retry_retains_raw_and_fixed_identity[{garbage}]
+tests/test_model_provider.py::test_retry_retains_raw_and_fixed_identity[{"ok":false}]
+tests/test_model_provider.py::test_retry_retains_raw_and_fixed_identity[{"ok":true,"ok":true}]
+tests/test_model_provider.py::test_frozen_parameter_array
+tests/test_model_provider.py::test_timeout_and_recovery
+tests/test_model_provider.py::test_wrong_identity_stops_before_source
+tests/test_model_provider.py::test_retry_rechecks_changed_endpoint_before_sending_source
+tests/test_model_provider.py::test_failed_gpu_probe_does_not_report_recent_inference
+tests/test_model_provider.py::test_windows_snapshot_read_retries_without_trusting_stale_state
+tests/test_model_provider.py::test_queue_rejects_overflow_and_waiter_recovers
+tests/test_model_provider.py::test_transport_does_not_follow_redirect
+tests/test_mutation_assertion_alias.py::test_real_imported_aliases_kill_suppressed_raise
+tests/test_mutation_assertion_alias.py::test_real_custom_and_rebound_names_cannot_prove_a_kill
+tests/test_mutation_feedback.py::test_protocol_double_append_only_and_provenance
+tests/test_mutation_feedback.py::test_no_case_preserves_survivor
+tests/test_mutation_feedback.py::test_feedback_budget_leaves_complete_manifest_pending
+tests/test_mutation_feedback.py::test_cancel_between_model_calls
+tests/test_mutation_feedback.py::test_only_literal_test_cases[wrong(3)-6]
+tests/test_mutation_feedback.py::test_only_literal_test_cases[double(side_effect())-6]
+tests/test_mutation_feedback.py::test_only_literal_test_cases[double(2)-bad()]
+tests/test_mutation_feedback.py::test_only_literal_test_cases[double(1)-raises Unknown]
+tests/test_mutation_feedback.py::test_subject_names_do_not_shadow_raises[ValueError]
+tests/test_mutation_feedback.py::test_subject_names_do_not_shadow_raises[pytest]
+tests/test_mutation_feedback.py::test_simple_predicate_hint_has_no_expected_value
+tests/test_mutation_flow.py::test_mutation_experiment
+tests/test_mutation_generator.py::test_all_six_families_are_real_replayable_edits
+tests/test_mutation_generator.py::test_only_selected_function_unicode_line_offsets_and_candidates
+tests/test_mutation_generator.py::test_entire_manifest_rejected_when_oversize
+tests/test_mutation_generator.py::test_multiline_and_chained_comparisons
+tests/test_mutation_initial_profile.py::test_contracts_preserved[contracts0]
+tests/test_mutation_initial_profile.py::test_contracts_preserved[contracts1]
+tests/test_mutation_lifecycle.py::test_cancel_then_resume_a_real_checkpoint
+tests/test_mutation_lifecycle.py::test_red_original_does_not_score
+tests/test_mutation_results.py::test_real_outcomes[return x + 1-survived-None]
+tests/test_mutation_results.py::test_real_outcomes[return x + 2-killed-test_value]
+tests/test_mutation_results.py::test_real_outcomes[return int('invalid')-execution_error-test_value]
+tests/test_mutation_results.py::test_expected_exception_removed
+tests/test_mutation_results.py::test_changed_evidence_cannot_score
+tests/test_mutation_results.py::test_unusable_mutant_execution[if-15-execution_error]
+tests/test_mutation_results.py::test_unusable_mutant_execution[while True:\n        pass-4-timeout]
+tests/test_mutation_results.py::test_manifest_denominator
+tests/test_mutation_results.py::test_cancel_live_guest
+tests/test_mutation_results.py::test_bounded_slot_wait_and_queue_cancellation
+tests/test_mutation_selection.py::test_partial_local_suggestions_keep_only_green_appended_tests
+tests/test_mutation_ui.py::test_open_run_and_export_mutations
+tests/test_mutation_ui.py::test_feedback_summary_ui_and_export
+tests/test_phase02_flow.py::test_real_defect_to_regression_report
+tests/test_phase03_api.py::test_diagnostics_history_and_local_access
+tests/test_phase03_api.py::test_engine_browser
+tests/test_phase03_e2e.py::test_real_engine[quicksort-quicksort-False]
+tests/test_phase03_e2e.py::test_real_engine[negative-magnitude-True]
+tests/test_phase03_e2e.py::test_real_engine[empty-first_or_default-True]
+tests/test_phase03_e2e.py::test_real_engine[boundary-valid_index-True]
+tests/test_phase03_e2e.py::test_real_engine[exception-parse_count-True]
+tests/test_phase03_e2e.py::test_real_engine[branches-classify_temperature-False]
+tests/test_phase03_e2e.py::test_real_engine[repair-reciprocal_units-False]
+tests/test_project_source_preview.py::test_paged_source_and_case_group
+tests/test_project_startup.py::test_mobile_recovery_from_startup_errors
+tests/test_project_workspace.py::test_import_history_and_analysis
+tests/test_project_workspace.py::test_empty_invalid_network_and_membership
+tests/test_project_workspace.py::test_project_navigation_and_long_filename
+tests/test_quality_intelligence.py::test_real_report_comparison_and_export_snapshot
+tests/test_quality_intelligence.py::test_zero_and_missing_metrics_from_real_wasi
+tests/test_runner.py::test_results_coverage_and_isolation
+tests/test_runner.py::test_deadline_and_cleanup
+tests/test_runner.py::test_collection_error
+tests/test_runner.py::test_output_budget
+tests/test_runner.py::test_all_skipped_is_not_a_pass
+tests/test_startup.py::test_entry_conflict_database_shutdown_restart
+tests/test_startup.py::test_startup_failure
+tests/test_startup.py::test_incompatible_database_preserved
+tests/test_startup.py::test_browser_wait_timeout
+tests/test_wp09_integration.py::test_mobile_module_navigation
+tests/test_wp09_integration.py::test_six_page_business_loop
+tests/test_wp09_integration.py::test_graph_lifecycle
+tests/test_wp09_integration.py::test_real_long_log_mobile
+tests/ui_workbench.py::test_f01
+tests/ui_workbench.py::test_f02
+tests/ui_workbench.py::test_f03
+tests/ui_workbench.py::test_f04
+tests/ui_workbench.py::test_f05
+tests/ui_workbench.py::test_f06
+eval/phase05/test_manifest.py::test_identity_insertion[None]
+eval/phase05/test_manifest.py::test_identity_insertion[node]
+eval/phase05/test_manifest.py::test_identity_insertion[notary]
+eval/phase05/test_manifest.py::test_bonus_manifest_identical
+
+168 tests collected in 2.15s

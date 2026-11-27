@@ -64,6 +64,15 @@
   </nav>
 {%- endmacro %}
 
+{% macro module_menu(modules, active) -%}
+<details id="mobile-navigation" class="studio-module-menu">
+  <summary aria-label="工作台导航" title="工作台导航">{{ icon('menu') }}</summary>
+  <nav aria-label="工作台导航">{% for slug,(code,name) in modules.items() %}
+    <a data-dest="{{ slug }}" href="/workbench/{{ slug }}"{% if slug == active %} aria-current="page"{% endif %}><span>{{ code }}</span>{{ name }}</a>
+  {% endfor %}</nav>
+</details>
+{%- endmacro %}
+
 {% macro search(id, label, placeholder, disabled=false) -%}
 <label class="file-search">{{ icon('search') }}<input id="{{ id }}" type="search" aria-label="{{ label }}" placeholder="{{ placeholder }}"{% if disabled %} disabled{% endif %}></label>
 {%- endmacro %}

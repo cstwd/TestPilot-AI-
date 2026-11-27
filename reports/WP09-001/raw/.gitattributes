@@ -1,0 +1,2 @@
+*.txt text whitespace=-blank-at-eol
+report-download.html -text whitespace=-blank-at-eol

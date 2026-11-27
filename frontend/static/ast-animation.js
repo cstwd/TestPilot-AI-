@@ -55,6 +55,7 @@ export function createAnimation(onChange, invalidate, reducedMotion) {
     },
     get elapsed() { return time; },
     get active() { return !paused && time < end; },
+    resetClock() { lastTick = null; },
     pause() {
       if (time >= end || paused) return;
       paused = true;

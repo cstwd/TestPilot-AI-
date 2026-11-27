@@ -1,4 +1,4 @@
-{% from "studio_components.html" import icon, icons, topbar, rail, search, pane_heading, state %}
+{% from "studio_components.html" import icon, icons, topbar, rail, module_menu, search, pane_heading, state %}
 {% macro tool(id, name, label) -%}<button type="button" id="{{ id }}" class="tool" {% if id in ["ast-minus","ast-plus","ast-fit","ast-reset","ast-pause"] %}disabled{% endif %} title="{{ label }}" aria-label="{{ label }}">{{ icon(name) }}</button>{%- endmacro %}
 <!doctype html>
 <html lang="zh-CN"><head>
@@ -10,7 +10,7 @@
 {{ icons() }}
 {% call topbar() %}
   <div class="graph-search">{{ icon('search') }}<input id="ast-search" disabled type="search" aria-label="搜索图谱节点" autocomplete="off" placeholder="搜索图谱节点…" aria-controls="ast-matches"><kbd>/</kbd><div id="ast-matches" hidden></div></div>
-  <div class="utilities">{{ tool('ast-settings','settings','图谱设置') }}{{ tool('ast-help','help','操作帮助') }}</div>
+  <div class="utilities">{{ tool('ast-settings','settings','图谱设置') }}{{ tool('ast-help','help','操作帮助') }}{{ module_menu(modules, 'analysis') }}</div>
 {% endcall %}
 <div class="workspace-frame">
   {{ rail(modules, 'analysis') }}

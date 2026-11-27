@@ -1,0 +1,29 @@
+{
+  "project_id": 2,
+  "file_id": [
+    1,
+    2
+  ],
+  "version_id": [
+    1,
+    2
+  ],
+  "revision": [
+    1,
+    2
+  ],
+  "symbol": "magnitude",
+  "source_lines": [
+    6,
+    6
+  ],
+  "suite_id": 1,
+  "run_id": {
+    "initial": 1,
+    "failure": 2,
+    "regression": 3
+  },
+  "bug_id": 1,
+  "nodeid": "test_generated.py::test_example_2",
+  "report_snapshot": "fd12077321c476398b49cdda8de24c2ac76dac6fa28a16d5c2c81b0b7903d6c4"
+}

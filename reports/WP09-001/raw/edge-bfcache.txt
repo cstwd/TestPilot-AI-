@@ -1,0 +1,3 @@
+WP09_REAL_BFCACHE {"browser": "158.0.4370.33", "events": [{"instance": "0.8mz0gtle2hb", "name": "pageshow", "persisted": false}, {"instance": "0.8mz0gtle2hb", "name": "pagehide", "persisted": true}, {"instance": "0.8mz0gtle2hb", "name": "pageshow", "persisted": true}, {"instance": "0.8mz0gtle2hb", "name": "pagehide", "persisted": false}, {"instance": "0.0k209dfypgbf", "name": "pageshow", "persisted": false}], "notRestored": []}
+.
+1 passed in 43.01s

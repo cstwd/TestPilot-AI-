@@ -1,0 +1,28 @@
+{
+  "base": "ae21701fefe2d9a7d2282aa9d2494bcd4769e05a",
+  "overlaid": {
+    "frontend/static/analysis.js": "c47057dc1c356a7436f36e49166a9b9ff7476068d5e9855f08de158e14bc33f4",
+    "frontend/static/ast-animation.js": "e527dee9e4f9244558d701d47ea8c539cbf9f3d54604654abd439fa4232f99f1",
+    "frontend/static/ast-canvas.js": "799f326179dac36db83a4472dc370967e25ff7e8ac03099261ce96bccfd51cb8",
+    "frontend/static/bugs.css": "664927c0d97169764008c28e3657c3f7667bb6d2381b64d2eb292f799f772b64",
+    "frontend/static/bugs.js": "e6900e90d2b6c50095ca8e770535f598a3989a1ce75a2f32505584eeb9ff64ea",
+    "frontend/static/generation.css": "0977fe96da06a1f0f390ee671a462680c17d162992a68ca243c26c9014e8880f",
+    "frontend/static/generation.js": "9b4af64e831e5ae0494d6b1424121740522efa1b7735c71d36f0fcbab1a962c5",
+    "frontend/static/projects.css": "561b5bc234ec1b7d45cc509de3f7f29220724cb6f24435c6a25a4d9f11663821",
+    "frontend/static/projects.js": "aa085cf90cc989b5470eaf5cc43202eacb97d92bdde92ed23606089abd5d7c4f",
+    "frontend/static/reports.css": "fc0de16fd5c09bd384c1b74c0aae86687c2a457cdd4a7d972311be638e263368",
+    "frontend/static/reports.js": "c4c500800372de7ca2479f58e58df206214c9c920667f5715da2de76527bf12c",
+    "frontend/static/runs.css": "1b24fa499430ab6263ef1d5ede424d2120b5cd80826708ccaf6f7dd6f3eee4e0",
+    "frontend/static/runs.js": "39d8998787eda488bff4d460666d9af3520bf97255de6adf5058cb165f161113",
+    "frontend/static/studio-system.css": "cd76c9b8119dd27cde276ca8b0a1eba6d17c0d0d49ce97515a6cbe6c89ffee59",
+    "frontend/static/workbench.js": "dc25b3707eb02d54bc16f2d6781f856e928aa6d46d3132eaf4d1f2d85cc047f8",
+    "frontend/templates/analysis.html": "83887ef235d4a1fbdbb71724178a1f57a05535b946e8072e2cd0af8871680f6b",
+    "frontend/templates/bugs.html": "10d5764b63c886800158cc3d35c8ddfa4780688c4d99d286b65eb0b607ef8a6c",
+    "frontend/templates/generation.html": "4129082431e6922abb641a2c2a10b53f99f837a49dced8e19572e303ff872893",
+    "frontend/templates/projects.html": "b6537c778de5e6bfb056dc3f675713718be4022f321d379855cebf94a80b1608",
+    "frontend/templates/reports.html": "746d33e44dc7d5661a40e05e32471c3b07eab4cff674be298d586e1eeaea9170",
+    "frontend/templates/runs.html": "c48c687e16ba6de05bd004009fa26f412540374ec2c1a324fcd20e496209cb77",
+    "frontend/templates/studio_components.html": "50d3e9a22fd69164f201bca27c0a00de25e807b7821ce84056aa54ef0b164c2d",
+    "tests/test_wp09_integration.py": "ee6ae3c672e02b928083304e988a97a510ec954695eed962368de7b6a1604e71"
+  }
+}

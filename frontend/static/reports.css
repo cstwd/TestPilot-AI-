@@ -12,8 +12,9 @@
 .quality-export {display:inline-flex;align-items:center;gap:5px;padding:7px 9px;border:1px solid var(--border);border-radius:var(--radius-md);color:var(--quality-blue);background:var(--field);text-decoration:none}
 .quality-export:hover {border-color:var(--quality-blue);color:var(--ink)}
 .quality-export .ico,.quality-actions button .ico {width:14px;height:14px}
-#back-to-quality,#print-report {display:none}
-.quality-mobile-nav,.quality-jumps {display:none}
+#back-to-quality,#print-report,#export-html-report {display:none}
+
+.quality-jumps {display:none}
 .quality-grid {min-height:0;display:grid;grid-template-columns:235px minmax(0,1fr);flex:1}
 .quality-content {min-width:0;min-height:0;display:grid;grid-template-columns:minmax(0,1fr) clamp(244px,21vw,306px)}
 .quality-main {min-width:0;overflow:auto;scrollbar-width:thin;background:var(--field)}
@@ -131,7 +132,7 @@
 
 .quality-page[data-report-view=html] .workspace-frame {height:auto;min-height:calc(100dvh - 61px)}
 .quality-page[data-report-view=html] :is(.module-rail,.quality-explorer,.quality-jumps,#html-report,.quality-footer,.quality-compare) {display:none}
-.quality-page[data-report-view=html] :is(#back-to-quality,#print-report) {display:inline-flex}
+.quality-page[data-report-view=html] :is(#back-to-quality,#print-report,#export-html-report) {display:inline-flex}
 .quality-page[data-report-view=html] .quality-grid {display:block;width:min(1120px,100%);margin:0 auto}
 .quality-page[data-report-view=html] :is(.quality-main,.quality-inspector-scroll) {overflow:visible}
 .quality-page[data-report-view=html] .quality-content {border-inline:1px solid var(--border)}
@@ -164,12 +165,12 @@
   .quality-breadcrumb {font-size:0;padding-left:7px}
   .quality-breadcrumb>.ico {display:none}
   .quality-breadcrumb b {font-size:11px}
-  .quality-mobile-nav {display:block;margin-left:auto}
-  .quality-mobile-nav summary {display:grid;place-items:center;width:32px;height:32px;cursor:pointer;color:var(--muted)}
-  .quality-mobile-nav summary::-webkit-details-marker {display:none}
-  .quality-mobile-nav nav {position:absolute;z-index:5;right:12px;top:44px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-md);padding:5px;box-shadow:var(--shadow-float)}
-  .quality-mobile-nav a {display:flex;gap:7px;color:var(--ink);padding:6px 8px;text-decoration:none;font-size:13px}
-  .quality-mobile-nav a span,.quality-mobile-nav a[aria-current] {color:var(--violet)}
+
+
+
+
+
+
   .quality-head {align-items:flex-start;flex-wrap:wrap;gap:7px;padding-inline:var(--quality-gutter)}
   .quality-actions {width:100%;justify-content:flex-start;gap:6px}
   .quality-actions button,.quality-export {font-size:11px;padding:5px 6px}

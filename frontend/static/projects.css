@@ -1,5 +1,5 @@
 .project-top-tools {margin-left:auto;display:flex;align-items:center;gap:8px}
-#mobile-navigation {display:none}
+
 .project-head {display:flex;flex:none;align-items:center;justify-content:space-between;gap:16px;min-height:77px;padding:15px clamp(16px,2vw,30px);border-bottom:1px solid var(--border);background:linear-gradient(110deg,#1c192a,var(--panel) 65%)}
 #import-file {display:flex;align-items:center;gap:8px;min-width:0}
 .upload-picker {position:relative;display:flex;align-items:center;gap:8px;border:1px solid var(--border);background:var(--field);border-radius:var(--radius-md);padding:7px 12px;min-width:0;max-width:min(28vw,350px);color:var(--muted);cursor:pointer;font-size:13px}
@@ -111,12 +111,12 @@
 @media (max-width:650px) {
   .projects-page .topbar {grid-template-columns:1fr auto}
   .project-top-tools {grid-column:2;grid-row:1}.projects-page #connection-state {display:inline-flex}
-  #mobile-navigation {display:block;position:relative}
-  #mobile-navigation summary {list-style:none;cursor:pointer;width:32px;height:32px;display:grid;place-items:center;color:var(--muted)}
-  #mobile-navigation nav {position:absolute;z-index:8;top:36px;right:0;min-width:155px;padding:5px;background:var(--panel-top);border:1px solid var(--border);border-radius:var(--radius-md);box-shadow:var(--shadow-float)}
-  #mobile-navigation a {display:flex;gap:10px;align-items:center;padding:6px 9px;text-decoration:none;color:var(--ink);font-size:12px}
-  #mobile-navigation a span {font:11px var(--mono);color:var(--dim)}
-  #mobile-navigation a[aria-current],#mobile-navigation a:hover {background:var(--tree-selected-bg);border-radius:var(--radius-sm)}
+
+
+
+
+
+
   .project-head {min-height:62px;padding:10px 12px;gap:8px}.project-head h1 {font-size:20px}
   #import-file {gap:4px}.upload-picker,#import-button {padding:6px 8px;font-size:11px}
   .upload-picker {max-width:31vw}.upload-picker .ico,#import-button .ico {width:13px}

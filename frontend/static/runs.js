@@ -20,13 +20,6 @@ function emptyState(node, state, title, detail) {
 }
 
 function bindPanels($) {
-  const nav = document.querySelector(".exec-mobile-nav");
-  nav.onkeydown = event => {
-    if (event.key === "Escape" && nav.open) {
-      nav.open = false;
-      nav.querySelector("summary").focus();
-    }
-  };
   const titles = {history: "运行历史", inspector: "用例详情"};
   const setPanel = (key, open) => {
     const button = $("toggle-" + key);

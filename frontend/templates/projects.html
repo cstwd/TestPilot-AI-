@@ -1,4 +1,4 @@
-{% from "studio_components.html" import icon, icons, topbar, rail, search, pane_heading, state %}
+{% from "studio_components.html" import icon, icons, topbar, rail, module_menu, search, pane_heading, state %}
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -11,11 +11,7 @@
 {{ icons() }}
 {% call topbar() %}
   <div class="project-top-tools"><span id="connection-state" class="status-pill" data-state="loading">正在连接</span>
-    <details id="mobile-navigation"><summary aria-label="工作台导航" title="工作台导航">{{ icon('menu') }}</summary>
-      <nav aria-label="工作台导航">{% for slug,(code,name) in modules.items() %}
-        <a data-dest="{{ slug }}" href="/workbench/{{ slug }}" {% if slug == 'projects' %}aria-current="page"{% endif %}><span>{{ code }}</span>{{ name }}</a>
-      {% endfor %}</nav>
-    </details>
+    {{ module_menu(modules, 'projects') }}
   </div>
 {% endcall %}
 <div class="workspace-frame">

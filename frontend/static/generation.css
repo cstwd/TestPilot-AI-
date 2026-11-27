@@ -7,8 +7,9 @@
 .generation-page .workspace-frame {height:calc(100dvh - 61px);min-height:640px}
 .gen-breadcrumb {display:flex;align-items:center;gap:10px;border-left:1px solid var(--border);padding-left:19px;color:var(--muted);font-size:13px}
 .gen-breadcrumb .ico {width:12px;color:var(--dim)}
+.gen-jump {display:none}
 .gen-breadcrumb span:last-child {color:var(--ink)}
-.gen-mobile-nav,.gen-jump {display:none}
+
 .gen-grid {min-height:0;flex:1;display:grid;grid-template-columns:246px minmax(0,1fr) clamp(256px,21vw,315px)}
 .gen-explorer,.gen-inspector,.gen-center {min-width:0}
 .gen-center {background:var(--field);overflow:auto;scrollbar-width:thin;display:block}
@@ -152,15 +153,12 @@
   .gen-breadcrumb {padding-left:9px;font-size:11px;gap:3px}
   .gen-breadcrumb span:first-child,.gen-breadcrumb .ico {display:none}
   .generation-page .workspace-frame {min-height:calc(100dvh - 49px)}
-  .gen-mobile-nav {display:block;margin-left:auto}
-  .gen-mobile-nav summary {display:grid;place-items:center;width:34px;height:34px;cursor:pointer;border-radius:var(--radius-md);color:var(--muted)}
-  .gen-mobile-nav summary::-webkit-details-marker {display:none}
-  .gen-mobile-nav nav {
-    position:absolute;z-index:5;right:12px;top:44px;background:var(--panel);border:1px solid var(--border);
-    border-radius:var(--radius-md);padding:5px;box-shadow:var(--shadow-float);
-  }
-  .gen-mobile-nav a {display:flex;gap:8px;color:var(--ink);padding:6px 10px;text-decoration:none;font-size:13px}
-  .gen-mobile-nav a span,.gen-mobile-nav a[aria-current] {color:var(--violet)}
+
+
+
+
+
+
   .generation-page .workspace-head {align-items:flex-start;flex-wrap:wrap}
   .gen-jump {margin-top:5px}
   .gen-console {grid-template-columns:1fr auto;grid-template-areas:"heading link" "stages stages" "notice retry"}

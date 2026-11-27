@@ -169,7 +169,7 @@ function setupDialog($, options) {
   };
 }
 
-function setupSearch($, nodes, choose) {
+function setupSearch($, nodes, choose, eventOptions) {
   const input = $("ast-search"), menu = $("ast-matches");
   let position = 0, matches = [];
   const close = () => { menu.hidden = true; input.setAttribute("aria-expanded","false"); };
@@ -205,7 +205,7 @@ function setupSearch($, nodes, choose) {
     menu.children[position].classList.add("active");
     menu.children[position].scrollIntoView({block:"nearest"});
   };
-  document.addEventListener("pointerdown", e => { if (!input.parentElement.contains(e.target)) close(); });
+  document.addEventListener("pointerdown", e => { if (!input.parentElement.contains(e.target)) close(); }, eventOptions);
 }
 
 function setupTree($, graph, choose, allowed) {
@@ -288,6 +288,18 @@ function setupTree($, graph, choose, allowed) {
 
 export async function showAnalysis({$, api, link, files, params, fileId, projectId}) {
   let view = null, inspector = null, root = null;
+  const lifetime = new AbortController();
+  const eventOptions = {signal: lifetime.signal};
+  const syncVisibility = () => view?.setVisible(!document.hidden);
+  document.addEventListener("visibilitychange", syncVisibility, eventOptions);
+  window.addEventListener("pageshow", event => { if (event.persisted) syncVisibility(); }, eventOptions);
+  window.addEventListener("pagehide", event => {
+    if (event.persisted) view?.setVisible(false);
+    else {
+      view?.destroy();
+      lifetime.abort();
+    }
+  }, eventOptions);
   const counter = document.querySelector(".graph-counts");
   const toolbarWidth = matchMedia("(min-width: 1000px)");
   function placeCounts() {
@@ -295,7 +307,7 @@ export async function showAnalysis({$, api, link, files, params, fileId, project
     slot.before(counter);
   }
   placeCounts();
-  toolbarWidth.addEventListener("change", placeCounts);
+  toolbarWidth.addEventListener("change", placeCounts, eventOptions);
   const options = {labels:true, motion:!matchMedia("(prefers-reduced-motion: reduce)").matches, saved:false,
     update(key, value) {
       this[key] = value;
@@ -314,13 +326,13 @@ export async function showAnalysis({$, api, link, files, params, fileId, project
   $("ast-inspector-toggle").onclick = () => toggleInspector(mobile.matches || document.body.dataset.inspector === "closed");
   $("ast-inspector-close").onclick = () => toggleInspector(false);
   document.querySelectorAll("#ast-panel-nav button").forEach(b => b.onclick = () => panel(b.dataset.panel));
-  mobile.addEventListener("change", () => panel("graph"));
+  mobile.addEventListener("change", () => panel("graph"), eventOptions);
   document.addEventListener("keydown", e => {
     if (e.key === "/" && !e.ctrlKey && !e.metaKey && !$("ast-dialog").open &&
         !e.target.closest("input,select,textarea,[contenteditable]")) {
       e.preventDefault(); $("ast-search").focus();
     }
-  });
+  }, eventOptions);
   $("ast-refresh").onclick = requestFreshAnalysis;
   let focusFile = () => panel("graph");
   setupFiles($, files, fileId, link, () => focusFile());
@@ -344,6 +356,7 @@ export async function showAnalysis({$, api, link, files, params, fileId, project
   history.replaceState(null,"",url);
   const base = "/api/files/" + fileId;
   const file = await api(base);
+  if (lifetime.signal.aborted) return;
   if (String(file.project_id) !== projectId || String(file.id) !== fileId) throw new Error("文件与当前项目不匹配。");
   const identity = file.filename + " · v" + file.revision;
   $("analysis-meta").textContent = identity;
@@ -359,6 +372,7 @@ export async function showAnalysis({$, api, link, files, params, fileId, project
     showMessage($,"正在读取 AST 分析", identity + " · 等待分析接口返回。");
     const started = performance.now();
     data = await api(base + "/analysis");
+    if (lifetime.signal.aborted) return;
     const elapsedMs = Math.round(performance.now() - started);
     $("ast-timing").textContent = "分析请求（浏览器端） " + elapsedMs + " ms";
     $("ast-timing").title = "从发起分析 GET 到浏览器读取响应并解析 JSON";
@@ -435,8 +449,9 @@ export async function showAnalysis({$, api, link, files, params, fileId, project
       btn.setAttribute("aria-label",label); btn.title = label; btn.replaceChildren(icon(stopped ? "play":"pause"));
     },
   });
+  syncVisibility();
   select(byId.has(params.get("node")) ? params.get("node") : root.id);
-  setupSearch($,graph.nodes,locate);
+  setupSearch($,graph.nodes,locate,eventOptions);
   for (const box of $("ast-types").querySelectorAll("input")) box.onchange = () => {
     if (box.checked) allowed.add(box.value); else allowed.delete(box.value);
     if (selected && !allowed.has(byId.get(selected).type)) select(null);
@@ -450,5 +465,4 @@ export async function showAnalysis({$, api, link, files, params, fileId, project
   $("ast-reset").onclick = () => view.reset();
   $("ast-replay").onclick = () => view.replay();
   $("ast-pause").onclick = () => {if (paused) view.resume(); else view.pause();};
-  window.addEventListener("pagehide", e => {if (!e.persisted) view.destroy();},{once:true});
 }

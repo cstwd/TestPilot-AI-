@@ -11,7 +11,8 @@
 .bug-head {padding:var(--space-3) var(--space-5)}
 .bug-intake-link {display:inline-flex;align-items:center;gap:6px;border:1px solid var(--border);border-radius:var(--radius-md);padding:7px 10px;background:var(--field);color:var(--bug-link);text-decoration:none;font-size:12px;white-space:nowrap}
 .bug-intake-link:hover {border-color:var(--bug-link)}
-.bug-module-menu,.bug-panel-nav {display:none}
+
+.bug-panel-nav {display:none}
 .bug-grid {display:grid;grid-template-columns:240px minmax(0,1fr) clamp(242px,21vw,310px);flex:1;min-height:0}
 .bug-grid .pane {min-width:0}
 .bug-middle {overflow:auto;scrollbar-width:thin;display:block;background:var(--field)}
@@ -63,7 +64,7 @@
 }
 #original-assertion {border-left:2px solid var(--status-error);max-height:100px}
 .bug-log summary {cursor:pointer;color:var(--muted);font-size:11px;margin-top:7px}
-#original-log {max-height:225px}
+#original-log {max-height:225px;white-space:pre-wrap;overflow-wrap:anywhere}
 .bug-intake {background:var(--panel)}
 .bug-field {min-width:0;display:grid;gap:4px;color:var(--muted);font-size:11px}
 .bug-intake #create-bug {display:grid;grid-template-columns:minmax(0,1.26fr) minmax(0,1fr) auto;gap:8px;align-items:end;margin:8px 0}
@@ -170,12 +171,12 @@
   .bug-breadcrumb {font-size:0;padding-left:7px}
   .bug-breadcrumb>.ico {display:none}
   .bug-breadcrumb b {font-size:11px}
-  .bug-module-menu {display:block;margin-left:auto}
-  .bug-module-menu summary {display:grid;place-items:center;width:32px;height:32px;cursor:pointer;color:var(--muted)}
-  .bug-module-menu summary::-webkit-details-marker {display:none}
-  .bug-module-menu nav {position:absolute;z-index:5;right:12px;top:44px;background:var(--panel);border:1px solid var(--border);border-radius:var(--radius-md);padding:5px;box-shadow:var(--shadow-float)}
-  .bug-module-menu a {display:flex;gap:7px;color:var(--ink);padding:6px 8px;text-decoration:none;font-size:13px}
-  .bug-module-menu a span,.bug-module-menu a[aria-current] {color:var(--violet)}
+
+
+
+
+
+
   .bug-head {padding-inline:var(--bug-gutter)}
   .bug-head h1 {font-size:20px}
   .bug-intake #create-bug {grid-template-columns:minmax(0,1fr)}

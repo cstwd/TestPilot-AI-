@@ -124,13 +124,14 @@ export function createCanvas(canvas, graph, {
   let selected = null, hovered = null, highlightedAt = -1000, drag = null;
   let enabledTypes = new Set(Object.keys(STYLE));
   let labels = true, allowMotion = true, frame = null, closed = false;
+  let hiddenAt = null;
   let visible = points, visibleLines = lines;
   const overlays = canvas.closest(".plot")?.querySelectorAll(".plot-meta, .plot-controls") || [];
   let overlayBounds = [];
   const animation = createAnimation(onStage, invalidate, preference.matches);
 
   function invalidate() {
-    if (!closed && width && height && frame === null) frame = requestAnimationFrame(draw);
+    if (!closed && hiddenAt === null && width && height && frame === null) frame = requestAnimationFrame(draw);
   }
 
   function fitted(box) {
@@ -175,6 +176,7 @@ export function createCanvas(canvas, graph, {
   }
 
   function resize() {
+    if (closed || hiddenAt !== null) return;
     const rect = canvas.getBoundingClientRect();
     overlayBounds = Array.from(overlays, element => {
       const r = element.getBoundingClientRect();
@@ -419,7 +421,7 @@ export function createCanvas(canvas, graph, {
 
   function draw(now) {
     frame = null;
-    if (closed || !width || !height) return;
+    if (closed || hiddenAt !== null || !width || !height) return;
     animation.tick(now);
     if (cameraMove) {
       const {from, to, replay} = cameraMove;
@@ -525,6 +527,22 @@ export function createCanvas(canvas, graph, {
     pause: animation.pause, resume: animation.resume, replay,
     setMotion(value) { allowMotion = value; syncMotion(); },
     setLabels(value) { labels = value; invalidate(); },
+    setVisible(visible) {
+      if (closed || visible === (hiddenAt === null)) return;
+      const now = performance.now();
+      animation.resetClock();
+      if (!visible) {
+        hiddenAt = now;
+        if (frame !== null) cancelAnimationFrame(frame);
+        frame = null;
+        return;
+      }
+      const elapsed = now - hiddenAt;
+      hiddenAt = null;
+      if (cameraMove && !cameraMove.replay) cameraMove.start += elapsed;
+      highlightedAt += elapsed;
+      resize();
+    },
     destroy() {
       closed = true;
       observer.disconnect();

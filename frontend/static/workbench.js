@@ -32,6 +32,33 @@ function link(dest, extra = {}) {
   return "/workbench/" + dest + (query.size ? "?" + query : "");
 }
 
+function syncModuleLinks(extra) {
+  document.querySelectorAll("[data-dest]").forEach(anchor => { anchor.href = link(anchor.dataset.dest, extra); });
+}
+
+function bindModuleMenu() {
+  const menu = $("mobile-navigation");
+  if (!menu) return;
+  const lifetime = new AbortController();
+  const options = {signal: lifetime.signal};
+  menu.addEventListener("keydown", event => {
+    if (event.key === "Escape" && menu.open) {
+      menu.open = false;
+      menu.querySelector("summary").focus();
+    }
+  }, options);
+  menu.addEventListener("click", event => {
+    if (event.target.closest("[data-dest]")) menu.open = false;
+  }, options);
+  document.addEventListener("pointerdown", event => {
+    if (menu.open && !menu.contains(event.target)) menu.open = false;
+  }, options);
+  window.addEventListener("pagehide", event => {
+    menu.open = false;
+    if (!event.persisted) lifetime.abort();
+  }, options);
+}
+
 function populate(select, rows, label, preferred, empty) {
   select.replaceChildren(...rows.map(row => new Option(label(row), row.id)));
   if (!rows.length) select.add(new Option(empty, ""));
@@ -53,23 +80,24 @@ function form(id, action) {
 }
 
 async function start() {
+  bindModuleMenu();
   const projectWorkspace = page === "projects" ? await import("./projects.js") : null;
-  if (projectWorkspace) projectWorkspace.bindProjectPanels($);
+  if (projectWorkspace) projectWorkspace.bindProjectPanels();
   const changeProject = () => location.assign(link(page, {file: ""}));
   const projects = await api("/api/projects");
   const requireExplicitMatch = ["analysis", "projects", "generation", "runs", "bugs", "reports"].includes(page);
   populate(project, projects, row => row.name, params.get("project"), "请先创建项目");
   if (requireExplicitMatch && params.get("project") && project.value !== params.get("project")) project.selectedIndex = -1;
+  project.onchange = changeProject;
+  syncModuleLinks({file: ""});
   if (projectWorkspace) {
-    project.onchange = changeProject;
     projectWorkspace.showProjectList($, projects, project.value, link);
   }
   const files = project.value ? await api("/api/projects/" + project.value + "/files") : [];
   populate(file, files, row => row.filename + " · v" + row.revision, params.get("file"), "请先导入文件");
   if (requireExplicitMatch && params.get("file") && file.value !== params.get("file")) file.selectedIndex = -1;
-  if (!projectWorkspace) project.onchange = changeProject;
   file.onchange = () => location.assign(link(page));
-  document.querySelectorAll("[data-dest]").forEach(a => { a.href = link(a.dataset.dest); });
+  syncModuleLinks();
   if (projectWorkspace) {
     await projectWorkspace.showProjects({$, api, link, projects, files, projectId: project.value, fileId: file.value, params, form, message});
   }
@@ -87,7 +115,7 @@ async function start() {
   }
   if (page === "bugs") {
     const {showBugs} = await import("./bugs.js");
-    await showBugs({$, api, link, params, files, projectId: project.value});
+    await showBugs({$, api, link, syncModuleLinks, params, files, projectId: project.value});
   }
   if (page === "reports") {
     const {showReports} = await import("./reports.js");

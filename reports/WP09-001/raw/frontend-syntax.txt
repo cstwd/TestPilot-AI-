@@ -1,0 +1,9 @@
+syntax=ok frontend/static/analysis.js
+syntax=ok frontend/static/ast-animation.js
+syntax=ok frontend/static/ast-canvas.js
+syntax=ok frontend/static/bugs.js
+syntax=ok frontend/static/generation.js
+syntax=ok frontend/static/projects.js
+syntax=ok frontend/static/reports.js
+syntax=ok frontend/static/runs.js
+syntax=ok frontend/static/workbench.js

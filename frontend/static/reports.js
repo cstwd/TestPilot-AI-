@@ -30,18 +30,7 @@ function emptyState($, kind, title, detail, href) {
   }
 }
 
-function bindMobileMenu() {
-  const nav = document.querySelector(".quality-mobile-nav");
-  nav.onkeydown = event => {
-    if (event.key === "Escape" && nav.open) {
-      nav.open = false;
-      nav.querySelector("summary").focus();
-    }
-  };
-}
-
 export function showReportsError($, error) {
-  bindMobileMenu();
   if (!$("report-history").childElementCount) $("quality-history-empty").textContent = "没有可显示的运行历史。";
   emptyState($, "error", "无法读取质量报告", error.message);
   $("retry-report").hidden = false;
@@ -184,6 +173,39 @@ function bindComparison($, data, rows, files, loadReport) {
   };
 }
 
+async function downloadHtmlReport(report, runId) {
+  const sheets = await Promise.all(["/static/studio-system.css", "/static/reports.css"].map(async path => {
+    const response = await fetch(path);
+    if (!response.ok) throw new Error("无法读取报告样式。");
+    return response.text();
+  }));
+  const result = document.implementation.createHTMLDocument("运行 #" + runId + " · 质量报告 · TestPilot AI");
+  result.documentElement.lang = "zh-CN";
+  const encoding = result.createElement("meta");
+  encoding.setAttribute("charset", "utf-8");
+  const viewport = result.createElement("meta");
+  viewport.name = "viewport";
+  viewport.content = "width=device-width, initial-scale=1";
+  const style = result.createElement("style");
+  style.textContent = sheets.join("\n");
+  result.head.prepend(encoding, viewport, style);
+  result.body.className = "studio quality-page";
+  result.body.dataset.reportView = "html";
+  const snapshot = report.cloneNode(true);
+  snapshot.querySelectorAll("#quality-comparison, button").forEach(node => node.remove());
+  for (const anchor of snapshot.querySelectorAll("a[href]")) anchor.href = new URL(anchor.getAttribute("href"), location.href).href;
+  const page = result.createElement("main");
+  page.className = "quality-grid";
+  page.append(snapshot);
+  result.body.append(document.querySelector(".icon-defs").cloneNode(true), page);
+  const blob = URL.createObjectURL(new Blob(["<!doctype html>\n" + result.documentElement.outerHTML], {type: "text/html;charset=utf-8"}));
+  const download = element("a");
+  download.href = blob;
+  download.download = "testpilot-run-" + runId + ".html";
+  download.click();
+  setTimeout(() => URL.revokeObjectURL(blob), 1000);
+}
+
 function bindReportActions($, data, route, initialHtml) {
   const json = $("export-report");
   // Pin the download to this rendered read snapshot. The original public /export endpoint
@@ -205,6 +227,17 @@ function bindReportActions($, data, route, initialHtml) {
   $("html-report").onclick = () => navigate(true);
   $("back-to-quality").onclick = () => navigate(false);
   $("print-report").onclick = () => window.print();
+  const htmlDownload = $("export-html-report");
+  const feedback = $("html-export-feedback");
+  htmlDownload.onclick = async () => {
+    htmlDownload.disabled = true;
+    feedback.hidden = true;
+    try { await downloadHtmlReport($("report"), data.run.id); }
+    catch (error) {
+      feedback.textContent = "HTML 下载失败。" + error.message;
+      feedback.hidden = false;
+    } finally { htmlDownload.disabled = false; }
+  };
   window.addEventListener("popstate", () => setView(new URLSearchParams(location.search).get("view") === "html"));
   setView(initialHtml);
   history.replaceState(null, "", route(initialHtml));
@@ -212,7 +245,6 @@ function bindReportActions($, data, route, initialHtml) {
 }
 
 export async function showReports({$, api, link, params, projectId, files}) {
-  bindMobileMenu();
   if (!projectId) {
     $("quality-history-empty").textContent = "请选择项目。";
     emptyState($, "", "先选择项目", "选择包含已保存运行的项目，或先执行一次测试。");
