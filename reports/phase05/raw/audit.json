@@ -1,0 +1,90 @@
+{
+  "time": "2026-11-27T08:06:28.323592+00:00",
+  "file": "D:\\TestPilot AI\\.runtime\\tp-model-001\\Qwen3.8-27B-UD-IQ3_XXS-fixed.gguf",
+  "size": 10934860608,
+  "sha256": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+  "expected_sha256": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+  "pin": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+  "complete": true,
+  "windows": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.11",
+  "hardware": {
+    "ram_total_gib": 31.420948028564453,
+    "ram_available_gib": 7.648353576660156,
+    "ram_used_gib": 23.772594451904297,
+    "commit_available_gib": 7.411659240722656,
+    "vram_used_mib": 19.19140625,
+    "vram_free_mib": 15983.80859375
+  },
+  "gpu": "name, driver_version, memory.total [MiB], memory.free [MiB]\nNVIDIA GeForce RTX 5080 Laptop GPU, 592.27, 16303 MiB, 15984 MiB",
+  "backend": "D:\\生成式人工智能\\.runtime\\ollama\\lib\\ollama\\llama-server.exe",
+  "devices": "Available devices:\n  CUDA0: NVIDIA GeForce RTX 5080 Laptop GPU (16302 MiB, 15045 MiB free)",
+  "gguf": {
+    "format": "GGUF",
+    "version": 3,
+    "tensors": 866,
+    "metadata": {
+      "general.architecture": "qwen35",
+      "general.type": "model",
+      "general.sampling.top_k": 20,
+      "general.sampling.top_p": 0.949999988079071,
+      "general.sampling.temp": 1.0,
+      "general.name": "Qwen3.8-27B",
+      "general.basename": "Qwen3.8-27B",
+      "general.description": "Renewal of the beloved Qwen model, delivering unmatched intelligence density.",
+      "general.quantized_by": "Unsloth",
+      "general.size_label": "27B",
+      "general.license": "apache-2.0",
+      "general.repo_url": "https://huggingface.co/unsloth",
+      "general.base_model.count": 1,
+      "general.base_model.0.name": "Qwen3.8 27B",
+      "general.base_model.0.organization": "Qwen",
+      "general.base_model.0.repo_url": "https://huggingface.co/Qwen/Qwen3.8-27B",
+      "general.tags": {
+        "item_type": 8,
+        "count": 1
+      },
+      "qwen35.block_count": 65,
+      "qwen35.context_length": 262144,
+      "qwen35.embedding_length": 5120,
+      "qwen35.feed_forward_length": 17408,
+      "qwen35.attention.head_count": 24,
+      "qwen35.attention.head_count_kv": 4,
+      "qwen35.rope.dimension_sections": {
+        "item_type": 5,
+        "count": 4
+      },
+      "qwen35.rope.freq_base": 10000000.0,
+      "qwen35.attention.layer_norm_rms_epsilon": 9.999999974752427e-07,
+      "qwen35.attention.key_length": 256,
+      "qwen35.attention.value_length": 256,
+      "qwen35.nextn_predict_layers": 1,
+      "qwen35.ssm.conv_kernel": 4,
+      "qwen35.ssm.state_size": 128,
+      "qwen35.ssm.group_count": 16,
+      "qwen35.ssm.time_step_rank": 48,
+      "qwen35.ssm.inner_size": 6144,
+      "qwen35.full_attention_interval": 4,
+      "qwen35.rope.dimension_count": 64,
+      "tokenizer.ggml.model": "gpt2",
+      "tokenizer.ggml.pre": "qwen35",
+      "tokenizer.ggml.tokens": {
+        "item_type": 8,
+        "count": 248320
+      },
+      "tokenizer.ggml.token_type": {
+        "item_type": 5,
+        "count": 248320
+      },
+      "tokenizer.ggml.merges": {
+        "item_type": 8,
+        "count": 247587
+      },
+      "tokenizer.ggml.eos_token_id": 248046,
+      "tokenizer.ggml.padding_token_id": 248055,
+      "tokenizer.ggml.bos_token_id": 248044,
+      "general.quantization_version": 2,
+      "general.file_type": 23
+    }
+  }
+}

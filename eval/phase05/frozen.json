@@ -1,0 +1,958 @@
+{
+  "seeds": [
+    513,
+    727,
+    941
+  ],
+  "projects": {
+    "bonus": {
+      "files": {
+        "subject.py": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2"
+      },
+      "manifest": [
+        {
+          "id": "0dbe9494-ee8e-5026-89de-b6f42664f6ec",
+          "family": "condition",
+          "operator": "testpilot/NegateCondition",
+          "line": 8,
+          "column": 8,
+          "before": "n < 0",
+          "after": "not (n < 0)",
+          "edit": {
+            "start": 207,
+            "end": 212,
+            "old": "n < 0",
+            "new": "not (n < 0)"
+          },
+          "mutated_sha256": "c15882f8c182354a062662980b75b5fe8237b25119d608f5155321bf1c9975e6",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "edf2e78e-d1b2-56b8-8cd9-3b007401ffab",
+          "family": "comparison",
+          "operator": "core/ReplaceComparisonOperator_Lt_LtE",
+          "line": 8,
+          "column": 10,
+          "before": "<",
+          "after": "<=",
+          "edit": {
+            "start": 210,
+            "end": 210,
+            "old": "",
+            "new": "="
+          },
+          "mutated_sha256": "d03579d85a2f71cb2e947fa714f4597bc80297773b4b98477585077937b4a77a",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+          "family": "exception",
+          "operator": "testpilot/SuppressRaise",
+          "line": 9,
+          "column": 9,
+          "before": "raise ValueError(\"negative\")",
+          "after": "pass",
+          "edit": {
+            "start": 222,
+            "end": 250,
+            "old": "raise ValueError(\"negative\")",
+            "new": "pass"
+          },
+          "mutated_sha256": "04c0e2301f3901f176fa4538422aad7fe5b64ec009a81790a9e105946c9ddb39",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "f8daf5dd-2eaa-52d6-bf62-cce4fa89dd2e",
+          "family": "condition",
+          "operator": "testpilot/NegateCondition",
+          "line": 10,
+          "column": 8,
+          "before": "enabled and n >= 2",
+          "after": "not (enabled and n >= 2)",
+          "edit": {
+            "start": 258,
+            "end": 276,
+            "old": "enabled and n >= 2",
+            "new": "not (enabled and n >= 2)"
+          },
+          "mutated_sha256": "c6776223edd28f42d3831c65b22763e2e9d4080f888d8037799990f7de1a9564",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+          "family": "boolean",
+          "operator": "core/ReplaceAndWithOr",
+          "line": 10,
+          "column": 16,
+          "before": "and",
+          "after": "or",
+          "edit": {
+            "start": 266,
+            "end": 269,
+            "old": "and",
+            "new": "or"
+          },
+          "mutated_sha256": "fb03355a336b63592194fabb17842f19b66b429bd336a1311174b73de5f55878",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+          "family": "comparison",
+          "operator": "core/ReplaceComparisonOperator_GtE_Gt",
+          "line": 10,
+          "column": 22,
+          "before": ">=",
+          "after": ">",
+          "edit": {
+            "start": 273,
+            "end": 274,
+            "old": "=",
+            "new": ""
+          },
+          "mutated_sha256": "ba36e530baeb394fadf040a2957a25d9d02d246026ee53a9bc121bb749f396b1",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "0eabf785-01da-5cf7-bfdc-d0fae838ff39",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 11,
+          "column": 9,
+          "before": "return n + 1",
+          "after": "return None",
+          "edit": {
+            "start": 286,
+            "end": 298,
+            "old": "return n + 1",
+            "new": "return None"
+          },
+          "mutated_sha256": "185166b3a19937884a42ad122a0b48f351eb13f04fb4ae3af7aad3c89c09fdfe",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "bf1a369a-cd32-5a26-afa2-1c012d7269f8",
+          "family": "arithmetic",
+          "operator": "core/ReplaceBinaryOperator_Add_Sub",
+          "line": 11,
+          "column": 18,
+          "before": "+",
+          "after": "-",
+          "edit": {
+            "start": 295,
+            "end": 296,
+            "old": "+",
+            "new": "-"
+          },
+          "mutated_sha256": "d64a252244ba0ed98afbd29751ab3b6b683a8c28113a50247c3bcd085234d4db",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "4baa324f-ef75-5210-9216-6e11b5fee5bb",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 12,
+          "column": 5,
+          "before": "return n",
+          "after": "return None",
+          "edit": {
+            "start": 303,
+            "end": 311,
+            "old": "return n",
+            "new": "return None"
+          },
+          "mutated_sha256": "e3d216038c672b002f86f3558fe501b5a7f1528f177e3976eccd44ccdd56b41c",
+          "equivalent_candidate": false
+        }
+      ],
+      "rubric": {
+        "functions": [
+          "subject.py:bonus"
+        ],
+        "parameters": [
+          [
+            "n",
+            "int",
+            null
+          ],
+          [
+            "enabled",
+            "bool",
+            "True"
+          ]
+        ],
+        "return_value": 5,
+        "branch_lines": [
+          8,
+          10
+        ],
+        "boundary_value": 2,
+        "exception": "ValueError",
+        "defect_line": null
+      }
+    },
+    "freight": {
+      "files": {
+        "subject.py": "917c066df9bb1c369085a82a1076a1a08cda8af5aedd9f15fdf0046c6855c19a",
+        "tariff.py": "a4561e0556384b9e3cb0fb4353f0fe653525c93cddf20f8ceb7245034e7ae0e2"
+      },
+      "manifest": [
+        {
+          "id": "5f2627d6-c830-5a5c-84ac-6fc4c289ccee",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 9,
+          "column": 5,
+          "before": "return BASE + units",
+          "after": "return None",
+          "edit": {
+            "start": 143,
+            "end": 162,
+            "old": "return BASE + units",
+            "new": "return None"
+          },
+          "mutated_sha256": "1b0177b065209c2a76a000c635efac58727879ade4c31767217ae7a225ee5919",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "9baee908-8cb2-5cd4-a219-d6d45e176f96",
+          "family": "arithmetic",
+          "operator": "core/ReplaceBinaryOperator_Add_Sub",
+          "line": 9,
+          "column": 17,
+          "before": "+",
+          "after": "-",
+          "edit": {
+            "start": 155,
+            "end": 156,
+            "old": "+",
+            "new": "-"
+          },
+          "mutated_sha256": "015bdf237a987c017284f530644282cbf85cc8efbe1cfa2b059103ffccdb7fe6",
+          "equivalent_candidate": false
+        }
+      ],
+      "rubric": {
+        "functions": [
+          "subject.py:freight"
+        ],
+        "parameters": [
+          [
+            "units",
+            "int",
+            null
+          ]
+        ],
+        "return_value": 11,
+        "branch_lines": [],
+        "boundary_value": 5,
+        "exception": "TypeError",
+        "defect_line": null
+      }
+    },
+    "clamp": {
+      "files": {
+        "subject.py": "8f04a45d14075c72c4e30e2dca8fd21f35465fedfa67c299605b6c052efb76a8"
+      },
+      "manifest": [
+        {
+          "id": "aa7bca94-80c9-57b8-9ca1-7f72dd6fe5ed",
+          "family": "condition",
+          "operator": "testpilot/NegateCondition",
+          "line": 7,
+          "column": 8,
+          "before": "n > ceiling",
+          "after": "not (n > ceiling)",
+          "edit": {
+            "start": 130,
+            "end": 141,
+            "old": "n > ceiling",
+            "new": "not (n > ceiling)"
+          },
+          "mutated_sha256": "29fe20a83dfa858572d7fb7a05980d6d4315c8617cd4b6650d00920312a17bbc",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "bc12ab81-c58a-5136-a747-a462d1aab985",
+          "family": "comparison",
+          "operator": "core/ReplaceComparisonOperator_Gt_GtE",
+          "line": 7,
+          "column": 10,
+          "before": ">",
+          "after": ">=",
+          "edit": {
+            "start": 133,
+            "end": 133,
+            "old": "",
+            "new": "="
+          },
+          "mutated_sha256": "7a5b2659fe189e419d6a851ea1179d5e03b54e5a742bf6a4e811b6209bb52742",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "a371407c-4086-54d1-8642-dbf1a42297b9",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 8,
+          "column": 9,
+          "before": "return ceiling",
+          "after": "return None",
+          "edit": {
+            "start": 151,
+            "end": 165,
+            "old": "return ceiling",
+            "new": "return None"
+          },
+          "mutated_sha256": "3ea393bf5bd37c55b09e0ee4ae85fa058867cf15598d271fff8b56933e01dc1d",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "4bd7daa9-136d-5ec5-b80e-ba83e69f4245",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 9,
+          "column": 5,
+          "before": "return n",
+          "after": "return None",
+          "edit": {
+            "start": 170,
+            "end": 178,
+            "old": "return n",
+            "new": "return None"
+          },
+          "mutated_sha256": "3fc7cf12d387ab063a1a96950947246ac2158840880a9ef7d99e78d4760c4c8d",
+          "equivalent_candidate": false
+        }
+      ],
+      "rubric": {
+        "functions": [
+          "subject.py:cap"
+        ],
+        "parameters": [
+          [
+            "n",
+            "int",
+            null
+          ],
+          [
+            "ceiling",
+            "int",
+            "10"
+          ]
+        ],
+        "return_value": 7,
+        "branch_lines": [
+          7
+        ],
+        "boundary_value": 10,
+        "exception": "TypeError",
+        "defect_line": null
+      }
+    },
+    "expiry": {
+      "files": {
+        "subject.py": "fc3801b4ae2db4b3941f139593312f1125035aa39872a62f92d0b4caa0b86855"
+      },
+      "manifest": [
+        {
+          "id": "c41eb430-bacc-5a9f-aae8-69f74de31e5c",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 7,
+          "column": 5,
+          "before": "return age > limit",
+          "after": "return None",
+          "edit": {
+            "start": 144,
+            "end": 162,
+            "old": "return age > limit",
+            "new": "return None"
+          },
+          "mutated_sha256": "30716665ebe04118357ef96b80104f476f4615433f3f1289bab4b88248a472ad",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "b89aea64-2d6b-5176-abc3-e20a0a23a069",
+          "family": "comparison",
+          "operator": "core/ReplaceComparisonOperator_Gt_GtE",
+          "line": 7,
+          "column": 16,
+          "before": ">",
+          "after": ">=",
+          "edit": {
+            "start": 156,
+            "end": 156,
+            "old": "",
+            "new": "="
+          },
+          "mutated_sha256": "1d1f60266aefb64ea4f64bfa6f066143c1a53028fd8031d1f8f119bc22523b4e",
+          "equivalent_candidate": false
+        }
+      ],
+      "rubric": {
+        "functions": [
+          "subject.py:expired"
+        ],
+        "parameters": [
+          [
+            "age",
+            "int",
+            null
+          ],
+          [
+            "limit",
+            "int",
+            "30"
+          ]
+        ],
+        "return_value": true,
+        "branch_lines": [],
+        "boundary_value": false,
+        "exception": "TypeError",
+        "defect_line": 7
+      }
+    },
+    "tax": {
+      "files": {
+        "policy.py": "6e2f6becdb6edad12af1ae83ce97d3bb976770d2248812e0aa3c218cc0234293",
+        "subject.py": "6d8d2166906fa703c3159bddf8aec959d022e6acf0b7e873683cb8a7ca8e0582"
+      },
+      "manifest": [
+        {
+          "id": "3d51aef1-ab02-5604-87b9-232d8fd7b6b1",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 9,
+          "column": 5,
+          "before": "return cents * RATE // 100",
+          "after": "return None",
+          "edit": {
+            "start": 150,
+            "end": 176,
+            "old": "return cents * RATE // 100",
+            "new": "return None"
+          },
+          "mutated_sha256": "56e750262e409d0fe693836b113027936c9fd336fd00b41b51b776d88450e04c",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "25c2d628-9aec-5a60-bc97-40cd7bb9a6d8",
+          "family": "arithmetic",
+          "operator": "core/ReplaceBinaryOperator_Mul_Add",
+          "line": 9,
+          "column": 18,
+          "before": "*",
+          "after": "+",
+          "edit": {
+            "start": 163,
+            "end": 164,
+            "old": "*",
+            "new": "+"
+          },
+          "mutated_sha256": "d5576ecd075d818e303cbd8a83a204f654dbfeafa031045853d5f9525f80ed87",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "cab29147-226c-50c9-809f-46c88d79061f",
+          "family": "arithmetic",
+          "operator": "core/ReplaceBinaryOperator_FloorDiv_Mul",
+          "line": 9,
+          "column": 25,
+          "before": "//",
+          "after": "*",
+          "edit": {
+            "start": 170,
+            "end": 172,
+            "old": "//",
+            "new": "*"
+          },
+          "mutated_sha256": "b437cd725da66bfb3564e5e18821e097da4a3d2bfa2be190c91f3457cea7bada",
+          "equivalent_candidate": false
+        }
+      ],
+      "rubric": {
+        "functions": [
+          "subject.py:tax"
+        ],
+        "parameters": [
+          [
+            "cents",
+            "int",
+            null
+          ]
+        ],
+        "return_value": 10,
+        "branch_lines": [],
+        "boundary_value": 0,
+        "exception": "TypeError",
+        "defect_line": 9
+      }
+    },
+    "prefix": {
+      "files": {
+        "subject.py": "7da5ee86f43d7ca80d9ef31a156cd5e69bb6b8bb7ca414245cada6a86afa6808"
+      },
+      "manifest": [
+        {
+          "id": "f064e7c7-7bcb-5795-8f35-7e45279c8067",
+          "family": "condition",
+          "operator": "testpilot/NegateCondition",
+          "line": 9,
+          "column": 12,
+          "before": "value is None",
+          "after": "not (value is None)",
+          "edit": {
+            "start": 185,
+            "end": 198,
+            "old": "value is None",
+            "new": "not (value is None)"
+          },
+          "mutated_sha256": "e0c645b40c34045347c137d5b9bc9ac8408be00e2cba944ab9fd15e90307fce7",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "aa092bcd-9e42-5229-b396-c92582ba5fbc",
+          "family": "comparison",
+          "operator": "core/ReplaceComparisonOperator_Is_IsNot",
+          "line": 9,
+          "column": 18,
+          "before": "is",
+          "after": "is not",
+          "edit": {
+            "start": 193,
+            "end": 193,
+            "old": "",
+            "new": " not"
+          },
+          "mutated_sha256": "c2512472d760f308318a3926b9346848fdb077d349087ee20f19a6c7a2f1ff0a",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "f20bac4c-4b3c-5bfd-b98c-559f2f648289",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 12,
+          "column": 5,
+          "before": "return count",
+          "after": "return None",
+          "edit": {
+            "start": 241,
+            "end": 253,
+            "old": "return count",
+            "new": "return None"
+          },
+          "mutated_sha256": "e56012f4f8dd23b8354b517d36958d64c4396ac318bcc3d95fe495a5f07a43fc",
+          "equivalent_candidate": false
+        }
+      ],
+      "rubric": {
+        "functions": [
+          "subject.py:prefix_length"
+        ],
+        "parameters": [
+          [
+            "values",
+            "list",
+            null
+          ]
+        ],
+        "return_value": 2,
+        "branch_lines": [
+          8,
+          9
+        ],
+        "boundary_value": 0,
+        "exception": "TypeError",
+        "defect_line": null
+      }
+    },
+    "pages": {
+      "files": {
+        "limits.py": "eba84ce54d61cfebb933400ea22ec220b7a594909290e96c228c1142837bf390",
+        "subject.py": "1379dd26ef046cd5341c7e2a7fc476e7d64f25a5a56ab200fb2a7a024e32d0b5"
+      },
+      "manifest": [
+        {
+          "id": "9031e877-b1e2-5fab-af7d-c0bed44687c9",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 9,
+          "column": 5,
+          "before": "return items // PAGE_SIZE + 1",
+          "after": "return None",
+          "edit": {
+            "start": 185,
+            "end": 214,
+            "old": "return items // PAGE_SIZE + 1",
+            "new": "return None"
+          },
+          "mutated_sha256": "415b7bcfb8b46bc337dda732025d4b9ecf28fb58ef75be776bd2ff107e17a51f",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "be1ac70b-71c6-521b-91e0-11c7026f5e86",
+          "family": "arithmetic",
+          "operator": "core/ReplaceBinaryOperator_FloorDiv_Mul",
+          "line": 9,
+          "column": 18,
+          "before": "//",
+          "after": "*",
+          "edit": {
+            "start": 198,
+            "end": 200,
+            "old": "//",
+            "new": "*"
+          },
+          "mutated_sha256": "099617ca548f0bfe7f7bb2c445f5f7b04d7c7c8ce85e44bdd8029a50f49bdcf1",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "b0e1ccee-f187-5c66-a493-ddf932c98a05",
+          "family": "arithmetic",
+          "operator": "core/ReplaceBinaryOperator_Add_Sub",
+          "line": 9,
+          "column": 31,
+          "before": "+",
+          "after": "-",
+          "edit": {
+            "start": 211,
+            "end": 212,
+            "old": "+",
+            "new": "-"
+          },
+          "mutated_sha256": "a6da3f22c3ab4997801b62d266c8490e911659f376b0f1f93e85b0b48c1f3039",
+          "equivalent_candidate": false
+        }
+      ],
+      "rubric": {
+        "functions": [
+          "subject.py:page_count"
+        ],
+        "parameters": [
+          [
+            "items",
+            "int",
+            null
+          ]
+        ],
+        "return_value": 2,
+        "branch_lines": [],
+        "boundary_value": 2,
+        "exception": "TypeError",
+        "defect_line": 9
+      }
+    },
+    "tier": {
+      "files": {
+        "subject.py": "4920368152bc107b7e80143111b3f64de7fa42c9a3e230e04480afb51cd6d00c"
+      },
+      "manifest": [
+        {
+          "id": "2c991105-9bf9-5bf9-b052-0a5994a361f2",
+          "family": "condition",
+          "operator": "testpilot/NegateCondition",
+          "line": 7,
+          "column": 8,
+          "before": "points >= 100",
+          "after": "not (points >= 100)",
+          "edit": {
+            "start": 133,
+            "end": 146,
+            "old": "points >= 100",
+            "new": "not (points >= 100)"
+          },
+          "mutated_sha256": "b52cca384d8c02e3a2f91558a4493863e350209e683a59b5fe87e429a8fdeb62",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "56ae1227-e5a9-5808-b8b0-29a7b2ec1f5a",
+          "family": "comparison",
+          "operator": "core/ReplaceComparisonOperator_GtE_Gt",
+          "line": 7,
+          "column": 15,
+          "before": ">=",
+          "after": ">",
+          "edit": {
+            "start": 141,
+            "end": 142,
+            "old": "=",
+            "new": ""
+          },
+          "mutated_sha256": "e58480a6f57223096e63f755a4645ac6ffab6b76149ff65c9f1cb2faf78811f9",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "f95da074-ef89-5b7f-915a-8f0dd4190fc1",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 8,
+          "column": 9,
+          "before": "return \"gold\"",
+          "after": "return None",
+          "edit": {
+            "start": 156,
+            "end": 169,
+            "old": "return \"gold\"",
+            "new": "return None"
+          },
+          "mutated_sha256": "c390908f9ba38c44890a3581f08f149338211bf2048cf018fac1450907958ee8",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "cb877967-f48c-550f-b2ee-5e7371e81e4d",
+          "family": "condition",
+          "operator": "testpilot/NegateCondition",
+          "line": 9,
+          "column": 8,
+          "before": "points >= 50",
+          "after": "not (points >= 50)",
+          "edit": {
+            "start": 177,
+            "end": 189,
+            "old": "points >= 50",
+            "new": "not (points >= 50)"
+          },
+          "mutated_sha256": "2e608c924f77064a1f4609924607e036c8eb5b39c02986c5e43c2d84847455d3",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "8bc3b0f7-62da-58d6-931b-f71e205130af",
+          "family": "comparison",
+          "operator": "core/ReplaceComparisonOperator_GtE_Gt",
+          "line": 9,
+          "column": 15,
+          "before": ">=",
+          "after": ">",
+          "edit": {
+            "start": 185,
+            "end": 186,
+            "old": "=",
+            "new": ""
+          },
+          "mutated_sha256": "a3e3687b34c3c7b0e384fd6d7393eb630efe0751885fe50b3aec3b1efcae6ddf",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "ed3b7a56-c9d2-5fec-8b97-6a2683190e04",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 10,
+          "column": 9,
+          "before": "return \"silver\"",
+          "after": "return None",
+          "edit": {
+            "start": 199,
+            "end": 214,
+            "old": "return \"silver\"",
+            "new": "return None"
+          },
+          "mutated_sha256": "dc62eaf9f4a44b853b569fc9378ce7004c8571a0333af27afea5051518d53a13",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "7e0a5981-824f-5d8b-a633-c55f559ce5e8",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 11,
+          "column": 5,
+          "before": "return \"basic\"",
+          "after": "return None",
+          "edit": {
+            "start": 219,
+            "end": 233,
+            "old": "return \"basic\"",
+            "new": "return None"
+          },
+          "mutated_sha256": "1860a92251988a5e7f002f6c19ee0668984d048df10225874341b289a11f6e90",
+          "equivalent_candidate": false
+        }
+      ],
+      "rubric": {
+        "functions": [
+          "subject.py:tier"
+        ],
+        "parameters": [
+          [
+            "points",
+            "int",
+            null
+          ]
+        ],
+        "return_value": "silver",
+        "branch_lines": [
+          7,
+          9
+        ],
+        "boundary_value": "gold",
+        "exception": "TypeError",
+        "defect_line": null
+      }
+    },
+    "head": {
+      "files": {
+        "subject.py": "d05c9cc3c81b72421224a9692352d19e0de27f385f616e2b75f1b6d4580c5aff"
+      },
+      "manifest": [
+        {
+          "id": "319ad200-9c32-5c85-aaf1-5dacde6812a7",
+          "family": "condition",
+          "operator": "testpilot/NegateCondition",
+          "line": 7,
+          "column": 8,
+          "before": "not items",
+          "after": "not (not items)",
+          "edit": {
+            "start": 151,
+            "end": 160,
+            "old": "not items",
+            "new": "not (not items)"
+          },
+          "mutated_sha256": "eb9facd7826770c2b290be950a0923a55d38f249f61d5b7bb5f74001870d05a2",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "3d11762d-eb9c-566a-9f43-de29a10e5023",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 8,
+          "column": 9,
+          "before": "return 0",
+          "after": "return None",
+          "edit": {
+            "start": 170,
+            "end": 178,
+            "old": "return 0",
+            "new": "return None"
+          },
+          "mutated_sha256": "c1ccf45158bf8219e406df2f208a5a66f04185c5a499211ea6d20c5e9e834bcc",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "3c593539-fc34-5911-bce9-1484a34c344a",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 9,
+          "column": 5,
+          "before": "return items[0]",
+          "after": "return None",
+          "edit": {
+            "start": 183,
+            "end": 198,
+            "old": "return items[0]",
+            "new": "return None"
+          },
+          "mutated_sha256": "e5ee82f019839335aade5744a84affd556f6e4e25484bab6f7a66d44b484f334",
+          "equivalent_candidate": false
+        }
+      ],
+      "rubric": {
+        "functions": [
+          "subject.py:first"
+        ],
+        "parameters": [
+          [
+            "items",
+            "list",
+            null
+          ],
+          [
+            "fallback",
+            "int",
+            "-1"
+          ]
+        ],
+        "return_value": 6,
+        "branch_lines": [
+          7
+        ],
+        "boundary_value": 0,
+        "exception": null,
+        "defect_line": 8
+      }
+    },
+    "invoice": {
+      "files": {
+        "policy.py": "89da0ed0210bede54436033bdc498b2c3b8a8747eaca1e0c27fce8bf4c92ee62",
+        "subject.py": "f5ee842f2490510d65f5f38552a0e5fedcd0905e9ca0702c83a56102c945cd7e"
+      },
+      "manifest": [
+        {
+          "id": "d4eed0aa-0d39-5c8c-b47b-e177c8c7e39e",
+          "family": "condition",
+          "operator": "testpilot/NegateCondition",
+          "line": 11,
+          "column": 12,
+          "before": "allowable(value)",
+          "after": "not (allowable(value))",
+          "edit": {
+            "start": 257,
+            "end": 273,
+            "old": "allowable(value)",
+            "new": "not (allowable(value))"
+          },
+          "mutated_sha256": "9f6eb7ebd3571e360a53180426f3687b5a74e3b35440814d31a5c79f1074efff",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "384c3ff0-b6b3-5152-9c55-1bde40ce4aa3",
+          "family": "return",
+          "operator": "testpilot/ReturnNone",
+          "line": 13,
+          "column": 5,
+          "before": "return max(0, total - discount)",
+          "after": "return None",
+          "edit": {
+            "start": 306,
+            "end": 337,
+            "old": "return max(0, total - discount)",
+            "new": "return None"
+          },
+          "mutated_sha256": "9d82c61acf22c61d0211ddb937622f4c75e968e166739103ba3944e8dc4aa9cc",
+          "equivalent_candidate": false
+        },
+        {
+          "id": "27b05994-5db4-5539-a7d6-a4816565ee91",
+          "family": "arithmetic",
+          "operator": "core/ReplaceBinaryOperator_Sub_Add",
+          "line": 13,
+          "column": 25,
+          "before": "-",
+          "after": "+",
+          "edit": {
+            "start": 326,
+            "end": 327,
+            "old": "-",
+            "new": "+"
+          },
+          "mutated_sha256": "d72134f5b45bec08faba449c1b0fd0f33742843a2f913846760a0306a699c9d8",
+          "equivalent_candidate": false
+        }
+      ],
+      "rubric": {
+        "functions": [
+          "policy.py:allowable",
+          "subject.py:invoice"
+        ],
+        "parameters": [
+          [
+            "values",
+            "list",
+            null
+          ],
+          [
+            "discount",
+            "int",
+            "0"
+          ]
+        ],
+        "return_value": 5,
+        "branch_lines": [
+          10,
+          11
+        ],
+        "boundary_value": 0,
+        "exception": "TypeError",
+        "defect_line": null
+      }
+    }
+  }
+}
