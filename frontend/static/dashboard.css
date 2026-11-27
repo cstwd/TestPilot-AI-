@@ -59,6 +59,7 @@ button:disabled { cursor: wait; opacity: .7; }
 .runner .runner-detail { margin-top: 12px; white-space: pre-line; overflow-wrap: anywhere; }
 .scope { padding: 34px 0 48px; }
 .scope-heading span { font-size: 13px; color: var(--muted); }
+.scope-links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
 .scope ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 28px; margin-top: 12px; }
 .scope li { display: flex; align-items: baseline; gap: 12px; padding: 15px 0; border-top: 1px solid var(--line); font-size: 14px; }
 .notice { color: var(--error); margin-bottom: 20px; }

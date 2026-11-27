@@ -34,6 +34,15 @@ def create_app(mode: str = "demo", db_path: Path | None = None) -> FastAPI:
             workbench.initialize(path)
         except (OSError, sqlite3.Error) as exc:
             raise RuntimeError(f"无法初始化 SQLite 数据库 {path}。请检查目录和写入权限。") from exc
+        lab_path = app.state.demo_lab_db_path
+        app.state.demo_lab_available = False
+        try:
+            database.initialize(lab_path)
+            workbench.initialize(lab_path, lab=True)
+        except (OSError, sqlite3.Error, RuntimeError):
+            LOG.exception("无法初始化 Demo Lab 独立数据库 %s", lab_path)
+        else:
+            app.state.demo_lab_available = True
         Thread(target=provider.probe, daemon=True, name="testpilot-model-probe").start()
         yield
 

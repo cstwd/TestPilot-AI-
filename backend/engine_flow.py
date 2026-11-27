@@ -1,4 +1,5 @@
 """Coordinate the engine and commit each evidence record before advancing."""
+from hashlib import sha256
 import logging
 from threading import BoundedSemaphore
 
@@ -12,6 +13,7 @@ from .engine_history import RecordKind as Kind
 from .engine_llm import GenerationFailure, generate_tests
 from .engine_strategy import build_strategy
 from .runner import execute
+from .store import connect, one
 
 
 LOG = logging.getLogger("testpilot.engine")
@@ -45,7 +47,7 @@ class Workflow:
         history.append_record(self.path, self.task, Kind.report, status, summary, terminal=status)
         LOG.info("task=%s terminal=%s runs=%s", self.task, status, self.execution_count)
 
-    def prepare(self):
+    def prepare(self, saved_suite=None):
         self.stage = Kind.analysis
         analysis = analyze_source(self.file["source"])
         analysis.update(file_id=self.file["id"], filename=self.file["filename"], revision=self.file["revision"])
@@ -57,7 +59,8 @@ class Workflow:
         strategy = build_strategy(analysis, self.target)
         self.save(self.stage, "ready", strategy)
         self.stage = Kind.generated
-        suite = generate_tests(self.file["source"], self.target, analysis, strategy, config=self.config)
+        suite = saved_suite if saved_suite is not None else generate_tests(
+            self.file["source"], self.target, analysis, strategy, config=self.config)
         self.generated_id = self.save(self.stage, "ready", suite)
         return analysis, strategy, suite
 
@@ -119,14 +122,14 @@ class Workflow:
             seen.add(suite["sha256"])
 
 
-def run_task(path, file_id, target, max_repairs=1, generation_mode="configured"):
+def run_task(path, file_id, target, max_repairs=1, generation_mode="configured", *, saved_suite=None):
     if not SLOTS.acquire(blocking=False):
         raise HTTPException(409, "已有智能测试任务在运行，请稍后重试")
     try:
         task, file = history.create_task(path, file_id, target, max_repairs)
         flow = Workflow(path, task, file, target, max_repairs, generation_mode)
         try:
-            prepared = flow.prepare()
+            prepared = flow.prepare(saved_suite)
             if prepared is not None:
                 flow.evaluate(*prepared)
         except GenerationFailure as exc:
@@ -140,3 +143,18 @@ def run_task(path, file_id, target, max_repairs=1, generation_mode="configured")
         return history.read_task(path, task)
     finally:
         SLOTS.release()
+
+
+def run_saved_suite_task(path, file_id, suite_id):
+    """Start an engine task with the exact persisted suite already used by F04/F05."""
+    with connect(path) as db:
+        suite = one(db, "SELECT s.*,f.project_id,f.filename FROM suites s JOIN files f ON f.id=s.file_id "
+                        "WHERE s.id=?", (suite_id,))
+        file = one(db, "SELECT project_id,filename FROM files WHERE id=?", (file_id,))
+    if ((file["project_id"], file["filename"]) != (suite["project_id"], suite["filename"])
+            or suite["sha256"] != sha256(suite["source"].encode("utf-8")).hexdigest()):
+        raise HTTPException(422, "文件版本或已保存套件的摘要不匹配")
+    mode = "configured" if suite["mode"] == "ai" else "template"
+    evidence = {"code": suite["source"], "sha256": suite["sha256"], "mode": suite["mode"],
+                "attempts": [], "workbench_suite_id": suite_id}
+    return run_task(path, file_id, suite["target"], 0, mode, saved_suite=evidence)

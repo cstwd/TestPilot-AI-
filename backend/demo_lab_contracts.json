@@ -1,0 +1,10 @@
+
+{
+  "calculator": {"target": "add", "cases": [{"label": "有符号整数相加", "args": [-9, 14], "expected": 5}]},
+  "unit_scaling": {"target": "metric_kilometers", "cases": [{"label": "保留小数公里", "args": [1250], "expected": 1.25}]},
+  "binary_search": {"target": "locate", "cases": [{"label": "命中最后一个候选", "args": [[2, 4, 9, 12, 17], 17], "expected": 4}]},
+  "volume_discount": {"target": "discount", "cases": [{"label": "达到起始件数", "args": [890, 5], "expected": 89}]},
+  "booking_timezones": {"target": "utc_window", "cases": [{"label": "跨日固定偏移", "args": [100, 25, 120], "expected": [-20, 5]}]},
+  "member_checkout": {"target": "subtotal_after_discount", "cases": [{"label": "会员门槛与优惠券", "args": [2000, true, 250], "expected": 1550}]},
+  "filtered_pagination": {"target": "eligible", "cases": [{"label": "同时包含达到阈值的归档项", "args": [[["X", 8, true], ["Y", 7, false], ["Z", 9, false]], 8, true], "expected": ["X", "Z"]}]}
+}

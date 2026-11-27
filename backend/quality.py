@@ -11,7 +11,8 @@ router = APIRouter(prefix="/api")
 
 def metrics(run):
     counts = {name: run[name] for name in ("passed", "failed", "errors", "skipped")}
-    measured = sum(counts.values()) - counts["skipped"]
+    total = sum(counts.values()) if None not in counts.values() else None
+    measured = total - counts["skipped"] if total is not None else None
     observations = {
         "passed": "本次已执行的测试通过。请结合跳过项与未覆盖行判断剩余风险。",
         "failed": "存在断言失败。请查看失败节点和输入预期，再决定是否登记缺陷。",
@@ -19,7 +20,7 @@ def metrics(run):
         "timeout": "运行超时，未取得完整的测试结果。",
         "skipped": "所有用例被跳过，本次没有可用于判定是否通过的用例。",
     }
-    return {**counts, "total": sum(counts.values()),
+    return {**counts, "total": total,
             "pass_rate_pct": round(100 * counts["passed"] / measured, 2) if measured else None,
             "covered_lines": run["covered_lines"], "total_lines": run["total_lines"],
             "coverage_pct": run["coverage_pct"], "assessment": observations[run["status"]]}

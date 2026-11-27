@@ -27,7 +27,7 @@ def run_record(db, key):
     return {**result, **row}
 
 
-def run_suite(path, suite_id, file_id, *, on_saved=None, reuse_existing=False):
+def run_suite(path, suite_id, file_id, *, on_saved=None, reuse_existing=False, detailed=False):
     with connect(path) as db:
         suite = one(db, "SELECT s.source,s.sha256,f.project_id,f.filename FROM suites s JOIN files f "
                         "ON f.id=s.file_id WHERE s.id=?", (suite_id,))
@@ -45,7 +45,8 @@ def run_suite(path, suite_id, file_id, *, on_saved=None, reuse_existing=False):
                 if existing is not None:
                     return run_record(db, existing["id"])
         from .runner import execute
-        result = execute(file["source"], suite["source"])
+        result = execute(file["source"], suite["source"], detailed=True) if detailed else execute(
+            file["source"], suite["source"])
         with connect(path, write=True) as db:
             key = db.execute("INSERT INTO runs(project_id,file_id,suite_id,status,duration_ms,result) "
                              "VALUES (?,?,?,?,?,?)", (file["project_id"], file_id, suite_id, result["status"],

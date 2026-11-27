@@ -1,8 +1,6 @@
 """Run an immutable mutation manifest, checkpoint evidence and compare two real suites."""
-from contextlib import contextmanager
 from pathlib import Path
 import ast
-import os
 import time
 
 from fastapi import HTTPException
@@ -12,28 +10,12 @@ from .mutation_feedback import supplement
 from .mutation_generator import apply_site, digest
 from .mutation_results import baseline_ok, case_map, classify
 from .runner import execute
-from .store import connect
+from .store import connect, exclusive_file
 
 
-@contextmanager
 def run_lock(db_path):
     """One campaign per database, including across PyCharm instances. OS releases it on crash."""
-    lock = Path(str(db_path) + ".mutation.lock")
-    with lock.open("a+b") as handle:
-        if handle.tell() == 0:
-            handle.write(b"0")
-            handle.flush()
-        handle.seek(0)
-        try:
-            if os.name == "nt":
-                import msvcrt
-                msvcrt.locking(handle.fileno(), msvcrt.LK_NBLCK, 1)
-            else:
-                import fcntl
-                fcntl.flock(handle, fcntl.LOCK_EX | fcntl.LOCK_NB)
-        except OSError as exc:
-            raise HTTPException(409, "同一数据库已有变异会话在执行") from exc
-        yield
+    return exclusive_file(Path(str(db_path) + ".mutation.lock"), "同一数据库已有变异会话在执行")
 
 
 class Cancellation:

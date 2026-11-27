@@ -1,0 +1,82 @@
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo Lab · TestPilot AI</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/studio-system.css">
+  <link rel="stylesheet" href="/static/demo-lab.css">
+  <script src="/static/demo-lab.js" defer></script>
+</head>
+<body>
+  {% from "studio_components.html" import icon, icons %}
+  {{ icons() }}
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark">{{ icon('brand') }}</span>TestPilot <b>AI</b></a>
+    <nav class="lab-nav" aria-label="产品导航">
+      <a href="/workbench/projects">项目与文件</a>
+      <a href="/engine">智能测试引擎</a>
+      <button type="button" id="lab-reports-open">报告中心</button>
+    </nav>
+  </header>
+  <main class="lab">
+    <header class="lab-head">
+      <div>
+        <h1>Demo Lab</h1>
+        <p>选择冻结样本，通过 TestPilot 生成、执行并复核测试。</p>
+      </div>
+      <dl id="lab-totals" class="lab-totals" aria-label="样本库统计"></dl>
+    </header>
+    <section id="lab-report-center" class="lab-evidence lab-center" aria-labelledby="lab-reports-heading" hidden>
+      <header class="lab-panel-head">
+        <h2 id="lab-reports-heading" tabindex="-1">演示报告中心</h2>
+        <button type="button" id="lab-reports-close">返回样本库</button>
+      </header>
+      <section id="lab-reports-list" aria-label="全部演示报告"></section>
+    </section>
+    <div id="lab-layout" class="lab-layout">
+      <aside class="lab-library" aria-labelledby="library-heading">
+        <header class="lab-panel-head"><h2 id="library-heading">样本库</h2><span id="lab-count" aria-live="polite"></span></header>
+        <div class="lab-filters">
+          <label class="lab-search">搜索样本<input id="lab-search" type="search" placeholder="输入文件名或函数名"></label>
+          <label>类型<select id="lab-tier"><option value="">全部类型</option><option value="good">GOOD</option><option value="buggy">BUGGY</option><option value="challenge">CHALLENGE</option></select></label>
+          <label>领域<select id="lab-domain"><option value="">全部领域</option></select></label>
+        </div>
+        <ul id="lab-samples" class="lab-list" aria-label="样本"></ul>
+      </aside>
+      <div class="lab-workspace">
+        <p id="lab-message" role="status" class="lab-message">正在读取样本库…</p>
+        <section id="lab-detail" aria-labelledby="lab-name" hidden>
+          <header class="lab-sample-head">
+            <div><p id="lab-meta" class="lab-meta"></p><h2 id="lab-name" tabindex="-1"></h2><p id="lab-target" class="lab-target"></p></div>
+            <button type="button" id="lab-run" class="lab-primary">{{ icon('play') }}<span>运行演示</span></button>
+          </header>
+          <div class="lab-run-options">
+            <label>生成方式<select id="lab-mode"><option value="template">公开合同 / 本地模板</option><option value="ai">本机 AI</option></select></label>
+            <label class="lab-check"><input id="lab-mutation" type="checkbox" checked>通过后运行 F13</label>
+            <span id="lab-source-mode" class="lab-hint"></span>
+          </div>
+          <section class="lab-pipeline" aria-labelledby="pipeline-heading">
+            <header class="lab-panel-head"><h3 id="pipeline-heading">执行流程</h3><span id="lab-run-state"></span></header>
+            <ol id="lab-steps" aria-label="执行步骤"></ol>
+          </section>
+          <section class="lab-evidence" aria-label="样本和运行证据">
+            <nav class="lab-tabs" aria-label="证据视图">
+              <button type="button" data-tab="source" aria-pressed="true" aria-controls="lab-source">源码</button>
+              <button type="button" data-tab="contract" aria-pressed="false" aria-controls="lab-contract">公开合同</button>
+              <button type="button" data-tab="result" aria-pressed="false" aria-controls="lab-result">执行与报告</button>
+              <button type="button" data-tab="history" aria-pressed="false" aria-controls="lab-history">运行历史</button>
+            </nav>
+            <section id="lab-source"></section>
+            <section id="lab-contract" hidden></section>
+            <section id="lab-result" hidden></section>
+            <section id="lab-history" hidden></section>
+          </section>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

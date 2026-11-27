@@ -63,22 +63,31 @@ def read_bug(bug_id: int, request: Request):
 
 @router.post("/bugs/{bug_id}/regressions")
 def regress(bug_id: int, item: RunInput, request: Request):
-    path = request.app.state.db_path
+    return regress_run(request.app.state.db_path, bug_id, item.file_id)
+
+
+def regress_run(path, bug_id, file_id, *, detailed=False):
     with connect(path) as db:
         bug = bug_record(db, bug_id)
         old = one(db, "SELECT revision FROM files WHERE id=?", (bug["file_id"],))
-        new = one(db, "SELECT revision FROM files WHERE id=?", (item.file_id,))
+        new = one(db, "SELECT revision FROM files WHERE id=?", (file_id,))
         if new["revision"] <= old["revision"]:
             raise HTTPException(422, "请选择比缺陷版本更新的同名文件版本")
+        original = run_record(db, bug["run_id"]) if detailed else None
 
     def link_regression(db, run):
         passed = run["status"] == "passed" and any(
             c["nodeid"] == bug["nodeid"] and c["outcome"] == "passed" for c in run["cases"]
         )
+        if detailed:
+            expected = {case["nodeid"]: case["outcome"] == "skipped" for case in original["cases"]}
+            observed = {case["nodeid"]: case["outcome"] == "skipped" for case in run["cases"]}
+            passed = passed and original["result_complete"] and run["result_complete"] and expected == observed
         outcome = "resolved" if passed else "open"
         db.execute("INSERT INTO regressions(bug_id,run_id,status) VALUES (?,?,?)", (bug_id, run["id"], outcome))
         latest = bug_record(db, bug_id)["regressions"][0]
         db.execute("UPDATE bugs SET status=? WHERE id=?", (latest["status"], bug_id))
 
-    run_suite(path, bug["suite_id"], item.file_id, on_saved=link_regression)
-    return read_bug(bug_id, request)
+    run_suite(path, bug["suite_id"], file_id, on_saved=link_regression, detailed=detailed)
+    with connect(path) as db:
+        return bug_record(db, bug_id)

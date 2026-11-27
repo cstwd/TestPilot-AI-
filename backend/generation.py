@@ -140,6 +140,19 @@ def unpack(row):
     return {**row, "suggestions": json.loads(row["suggestions"]), "format_checked": True}
 
 
+def save_suite(path, file_id, target, mode, code, suggestions):
+    try:
+        code = checked(code)
+    except (ValueError, SyntaxError, RecursionError) as exc:
+        raise HTTPException(422, str(exc)) from exc
+    digest = hashlib.sha256(code.encode()).hexdigest()
+    with connect(path, write=True) as db:
+        db.execute("INSERT OR IGNORE INTO suites(file_id,target,mode,source,sha256,suggestions) VALUES (?,?,?,?,?,?)",
+                   (file_id, target, mode, code, digest, json.dumps(suggestions, ensure_ascii=False)))
+        return unpack(one(db, "SELECT * FROM suites WHERE file_id=? AND target=? AND mode=? AND sha256=?",
+                          (file_id, target, mode, digest)))
+
+
 def generate(file_id: int, item: GenerateInput, request: Request):
     path = request.app.state.db_path
     adapter = request.app.state.generators.get(item.mode)
@@ -149,15 +162,9 @@ def generate(file_id: int, item: GenerateInput, request: Request):
         source = one(db, "SELECT source FROM files WHERE id=?", (file_id,))["source"]
     try:
         code, suggestions = adapter.generate(source, item.target)
-        code = checked(code)
     except (ValueError, SyntaxError, RecursionError) as exc:
         raise HTTPException(422, str(exc)) from exc
-    digest = hashlib.sha256(code.encode()).hexdigest()
-    with connect(path, write=True) as db:
-        db.execute("INSERT OR IGNORE INTO suites(file_id,target,mode,source,sha256,suggestions) VALUES (?,?,?,?,?,?)",
-                   (file_id, item.target, item.mode, code, digest, json.dumps(suggestions, ensure_ascii=False)))
-        return unpack(one(db, "SELECT * FROM suites WHERE file_id=? AND target=? AND mode=? AND sha256=?",
-                          (file_id, item.target, item.mode, digest)))
+    return save_suite(path, file_id, item.target, item.mode, code, suggestions)
 
 
 @router.post("/files/{file_id}/suites")
