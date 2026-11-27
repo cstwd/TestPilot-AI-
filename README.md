@@ -33,6 +33,12 @@
 
 ## 模块与验收
 
+### PHASE-03 智能测试引擎
+
+按上述 PyCharm 步骤启动后，在仪表盘点击 **打开智能测试引擎**。选择已导入的文件版本及目标函数，选定生成方式和最多修正次数，点击 **生成并运行**。页面显示实际生成来源、Pytest 结果、行与分支覆盖，可下载测试文件和完整 JSON。历史记录保留首次运行和每次修正。没有已配置模型时，页面显示本地模板模式。使用模型的环境变量、实际传给供应商的数据和支持的接口见[模型配置](docs/phase03/MODELS.md)。
+
+可用[快速排序样例](eval/phase03/quicksort/subject.py)验证正确实现，或导入[零输入异常契约样例](eval/phase03/repair/subject.py)，选择本地模板并允许一次修正，查看生成测试自身的错误、修正依据和两次执行。样例的公开函数名会出现在目标列表。七个样例的实际运行、缺陷归因及发布边界见[PHASE-03 验收报告](TP_PHASE_03_ACCEPTANCE.md)。
+
 - [入口](main.py)和[共享运行配置](.run/TestPilot_AI.run.xml)控制本地启动。[后端](backend/)提供路由、数据库探测与固定自检，[前端](frontend/)由同一服务发布 Jinja2 模板、CSS 和 JavaScript。
 - [架构](docs/ARCHITECTURE.md)、[功能映射](docs/FEATURE_MAP.md)、[三天计划](docs/THREE_DAY_PLAN.md)描述三天范围。[工作包](docs/work-packages/)和[贡献表](collab-log/member_contributions.md)列出负责人、实际操作和验收归属。
 - [PHASE-02 验收报告](TP_PHASE_02_ACCEPTANCE.md)索引六个模块、真实回归记录及导出样本。[PHASE-01 历史报告](TP_PHASE_01_ACCEPTANCE.md)保留初始启动与环境验收证据。

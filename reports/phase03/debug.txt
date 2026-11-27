@@ -1,0 +1,17 @@
+INFO:     127.0.0.1:59487 - "GET /api/health HTTP/1.1" 200 OK
+{
+  "debugger": "E:\\PyCharm 2026.1.2\\plugins\\python-ce\\helpers\\pydev\\pydevd.py",
+  "entry": "main.py",
+  "pid": 43092,
+  "app_port": 59480,
+  "breakpoint": "backend\\app.py",
+  "function": "create_app",
+  "line": 24,
+  "stop_reason": "111",
+  "resumed_health": {
+    "status": "ok",
+    "database": "ok",
+    "mode": "dev"
+  },
+  "database_in_temp_dir": true
+}
