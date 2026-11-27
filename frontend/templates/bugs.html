@@ -1,25 +1,159 @@
-<section>
-  <h2>从失败用例登记缺陷</h2>
-  <label>来源运行<select id="bug-run"></select></label>
-  <form id="create-bug">
-    <label>失败用例<select id="nodeid"></select></label>
-    <label>缺陷标题<input id="bug-title" required maxlength="160"></label>
-    <button id="create-bug-button" disabled>登记缺陷</button>
+{% from "studio_components.html" import icon, icons, topbar, context_selectors, rail, search, pane_heading, state %}
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>缺陷管理 · TestPilot AI</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/studio-system.css">
+  <link rel="stylesheet" href="/static/bugs.css">
+  <script type="module" src="/static/workbench.js"></script>
+</head>
+<body class="studio bug-page" data-page="bugs" data-bug-panel="details">
+{{ icons() }}
+{% call topbar(show_context=false) %}
+  <span class="bug-breadcrumb">测试工作台 {{ icon('chevron-right') }} <b>缺陷管理</b></span>
+  <details class="bug-module-menu">
+    <summary aria-label="工作台导航">{{ icon('menu') }}</summary>
+    <nav aria-label="工作台导航">{% for slug,(code,name) in modules.items() %}
+      <a data-dest="{{ slug }}" href="/workbench/{{ slug }}"{% if slug == 'bugs' %} aria-current="page"{% endif %}><span>{{ code }}</span>{{ name }}</a>
+    {% endfor %}</nav>
+  </details>
+{% endcall %}
+<div class="workspace-frame">
+  {{ rail(modules, 'bugs') }}
+  <main class="workspace" id="content">
+    <header class="workspace-head bug-head">
+      <div><div class="studio-name">Bug Intelligence Center</div><h1>缺陷与修复回归</h1></div>
+      <a class="bug-intake-link" id="open-intake" href="/workbench/bugs?entry=1">{{ icon('plus') }}从运行登记</a>
+    </header>
+    <nav class="bug-panel-nav" aria-label="缺陷页面区段">
+      <button type="button" data-panel="explorer" aria-pressed="false">{{ icon('list') }}缺陷列表</button>
+      <button type="button" data-panel="details" aria-pressed="true">{{ icon('bug') }}详情</button>
+      <button type="button" data-panel="diff" aria-pressed="false">{{ icon('code') }}Diff</button>
+    </nav>
+    <div class="bug-grid">
+      <aside class="pane explorer bug-explorer" aria-label="Issue Explorer">
+        {{ pane_heading('list','Issue Explorer') }}
+        <div class="bug-filters">
+          {{ context_selectors(show_file=false) }}
+          <select id="file" hidden aria-label="当前关联版本" disabled></select>
+          {{ search('issue-search','搜索缺陷','搜索标题、运行或 nodeid…',disabled=true) }}
+          <label class="bug-filter-status">缺陷状态
+            <select id="issue-status" aria-label="缺陷状态" disabled><option value="">全部状态</option></select>
+          </label>
+        </div>
+        <div class="explorer-scroll bug-issue-list" id="issue-list"></div>
+        <p id="issue-list-empty" class="bug-muted">正在读取缺陷…</p>
+      </aside>
+
+      <div class="pane bug-middle">
+        <section class="bug-details" aria-label="缺陷详情">
+          {{ state('issues-empty','正在读取缺陷','选择已登记缺陷，或从真实失败用例开始。','loading','bug') }}
+          <section class="bug-intake" id="intake-panel" hidden aria-labelledby="intake-title">
+            <header class="bug-section-head"><div>{{ icon('terminal') }}<h2 id="intake-title">从失败用例登记缺陷</h2></div></header>
+            <label class="bug-field">来源运行<select id="bug-run" aria-label="来源运行"></select></label>
+            <form id="create-bug">
+              <label class="bug-field">失败用例<select id="nodeid" aria-label="失败用例"></select></label>
+              <label class="bug-field">缺陷标题<input id="bug-title" aria-label="缺陷标题" required maxlength="180" placeholder="描述可重现的失败"></label>
+              <button type="submit" id="create-bug-button" class="primary" disabled>{{ icon('plus') }}登记缺陷</button>
+            </form>
+            <p id="failure-hint" class="bug-muted"></p>
+          </section>
+          <article id="bug-detail" hidden>
+            <header class="bug-identity">
+              <div><span class="row-version" id="bug-key"></span><span class="bug-pill" id="bug-state"></span></div>
+              <h2 id="bug-name"></h2>
+            </header>
+          </article>
+          <section class="bug-original" id="original-evidence" hidden>
+            <header class="bug-section-head">
+              <div>{{ icon('bug') }}<h2>原始失败证据</h2></div>
+              <span class="bug-pill" id="original-outcome"></span>
+            </header>
+            <p id="failure-node"></p>
+            <pre id="original-assertion" hidden></pre>
+            <p class="bug-muted" id="assertion-status"></p>
+            <div class="bug-evidence-actions">
+              <a class="bug-link" id="original-run">{{ icon('terminal') }}打开原始失败运行</a>
+              <button type="button" class="bug-link-button" id="open-suite" disabled>{{ icon('code') }}查看原始测试套件</button>
+            </div>
+            <details id="original-log-box" class="bug-log" hidden>
+              <summary>原始运行日志</summary>
+              <pre id="original-log" tabindex="0" aria-label="原始运行日志"></pre>
+            </details>
+          </section>
+        </section>
+
+        <section class="bug-compare" aria-label="源码 Diff">
+          <header class="bug-section-head">
+            <div>{{ icon('code') }}<h2>修复候选与 Diff</h2></div>
+            <span id="diff-summary" class="bug-diff-summary" hidden></span>
+          </header>
+          <form id="regress" hidden>
+            <label class="bug-field">修复候选版本<select id="fix-file" aria-label="修复候选版本"></select></label>
+            <button type="submit" id="regress-button" class="primary" disabled>{{ icon('play') }}运行回归</button>
+          </form>
+          <p id="fix-hint" class="bug-muted"></p>
+          {{ state('diff-empty','等待选择缺陷','打开已登记缺陷后，可比较同名文件的更新版本。','empty','code') }}
+          <button type="button" id="retry-diff" hidden>{{ icon('repeat') }}重新读取版本</button>
+          <div id="diff-workspace" hidden>
+            <div class="bug-diff-meta">
+              <div><span>原始版本</span><strong id="diff-from"></strong><code id="diff-from-sha"></code></div>
+              <div><span>候选版本</span><strong id="diff-to"></strong><code id="diff-to-sha"></code></div>
+            </div>
+            <div class="bug-diff-body" id="diff-lines" tabindex="0" aria-label="只读源码差异"></div>
+            <div id="diff-pager" class="bug-diff-pager" hidden>
+              <button type="button" data-step="-1">上一页</button><span></span><button type="button" data-step="1">下一页</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="bug-history" id="history-panel" hidden>
+          <header class="bug-section-head"><div>{{ icon('history') }}<h2>回归记录</h2></div><span id="regression-count" class="row-version"></span></header>
+          <div id="regressions"></div>
+          <p id="regressions-empty" class="bug-muted">尚无回归记录。</p>
+        </section>
+      </div>
+
+      <aside class="pane inspector bug-inspector" aria-label="Evidence Inspector">
+        {{ pane_heading('panel','Evidence Inspector') }}
+        <div class="explorer-scroll">
+          <section class="bug-inspect-section">
+            <h3>{{ icon('hash') }}记录身份</h3>
+            <dl class="ai-facts" id="identity-facts"></dl>
+            <p class="bug-fact-label">失败 nodeid</p>
+            <code id="inspect-nodeid">—</code>
+          </section>
+          <section class="bug-inspect-section">
+            <h3>{{ icon('play') }}选中的回归</h3>
+            <p class="bug-muted" id="regression-evidence">暂无选中的回归记录。</p>
+            <dl class="ai-facts" id="regression-facts" hidden></dl>
+            <a id="regression-run" class="bug-link" hidden>{{ icon('arrow') }}查看完整运行记录</a>
+          </section>
+        </div>
+      </aside>
+    </div>
+    <footer class="bug-footer">
+      {{ icon('terminal') }}<p id="notice" role="status" aria-live="polite">正在读取项目与缺陷记录…</p>
+      <button type="button" id="retry-bugs" hidden>重新读取</button>
+    </footer>
+  </main>
+</div>
+
+<dialog class="bug-suite-drawer" id="suite-drawer" aria-labelledby="suite-drawer-title">
+  <header class="dialog-heading"><h2 id="suite-drawer-title">原始测试套件</h2><form method="dialog"><button value="cancel" aria-label="关闭套件">{{ icon('x') }}</button></form></header>
+  <p id="suite-drawer-meta"></p><code id="suite-drawer-sha"></code>
+  <pre id="suite-drawer-source" tabindex="0" aria-label="只读原始 Pytest 源码"></pre>
+</dialog>
+<dialog id="confirm-regression" aria-labelledby="confirm-regression-title">
+  <header class="dialog-heading"><h2 id="confirm-regression-title">确认执行回归</h2></header>
+  <p id="confirm-regression-detail"></p>
+  <form method="dialog" class="bug-dialog-actions">
+    <button value="cancel" autofocus>取消</button>
+    <button class="primary" id="confirm-run" value="run">{{ icon('play') }}确认运行</button>
   </form>
-  <p class="hint" id="failure-hint"></p>
-</section>
-<section>
-  <h2>缺陷与回归记录</h2>
-  <label>项目缺陷<select id="bug"></select></label>
-  <div id="bug-detail" hidden>
-    <p id="bug-state"></p>
-    <p id="failure-node" class="hint"></p>
-    <p><a id="original-run">打开原始失败运行</a></p>
-    <form id="regress">
-      <label>修复后的文件版本<select id="fix-file"></select></label>
-      <button id="regress-button" disabled>运行回归</button>
-    </form>
-    <p class="hint" id="fix-hint"></p>
-    <ul class="case-list" id="regressions"></ul>
-  </div>
-</section>
+</dialog>
+</body>
+</html>

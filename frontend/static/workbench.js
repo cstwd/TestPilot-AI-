@@ -68,7 +68,7 @@ async function start() {
   if (projectWorkspace) projectWorkspace.bindProjectPanels($);
   const changeProject = () => location.assign(link(page, {file: ""}));
   const projects = await api("/api/projects");
-  const requireExplicitMatch = ["analysis", "projects", "generation", "runs"].includes(page);
+  const requireExplicitMatch = ["analysis", "projects", "generation", "runs", "bugs"].includes(page);
   populate(project, projects, row => row.name, params.get("project"), "请先创建项目");
   if (requireExplicitMatch && params.get("project") && project.value !== params.get("project")) project.selectedIndex = -1;
   if (projectWorkspace) {
@@ -98,8 +98,7 @@ async function start() {
   }
   if (page === "bugs") {
     const {showBugs} = await import("./bugs.js");
-    if (!project.value) return showEmpty("先创建项目，并运行一组测试以获得缺陷证据。");
-    await showBugs({$, api, link, form, populate, params, files, projectId: project.value});
+    await showBugs({$, api, link, params, files, projectId: project.value});
   }
   if (page === "reports") {
     const {showReports} = await import("./reports.js");
@@ -125,5 +124,9 @@ start().catch(async error => {
   if (page === "runs") {
     const {showRunsError} = await import("./runs.js");
     showRunsError($, error);
+  }
+  if (page === "bugs") {
+    const {showBugsError} = await import("./bugs.js");
+    showBugsError($, error);
   }
 });
