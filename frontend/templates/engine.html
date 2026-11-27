@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>智能测试引擎 · TestPilot AI</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/dashboard.css">
+  <link rel="stylesheet" href="/static/workbench.css">
+  <script src="/static/engine.js" defer></script>
+</head>
+<body>
+  <header class="masthead"><div class="shell masthead-inner">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>TestPilot AI</a>
+    <a href="/workbench/projects">项目与文件</a>
+  </div></header>
+  <div class="shell bench">
+    <nav aria-label="引擎导航"><a href="/engine" aria-current="page">智能测试引擎</a><a href="/">仪表盘</a></nav>
+    <main><h1>智能测试引擎</h1>
+      <form method="get" action="/engine">
+        <label>项目 / 文件版本<select name="file_id" required>
+          {% for item in files %}<option value="{{ item.id }}" {% if item.id == file_id %}selected{% endif %}>{{ item.project }} · {{ item.filename }} · v{{ item.revision }}</option>{% endfor %}
+        </select></label>
+        <button {% if not files %}disabled{% endif %}>选择文件</button>
+      </form>
+      <p id="notice" role="status" aria-live="polite"></p>
+      <div class="bench-content">
+      {% if not files %}<section><p>尚无源码版本。请先到<a href="/workbench/projects">项目与文件</a>导入 Python 文件。</p></section>{% endif %}
+      {% if file_id %}
+      <section><h2>运行测试</h2><p>{{ configuration }}</p>
+        <form id="run-engine" data-file-id="{{ file_id }}">
+          <label>测试目标<select name="target" required>{% for symbol in analysis.symbols if symbol.testable %}<option>{{ symbol.name }}</option>{% endfor %}</select></label>
+          <label>生成方式<select name="generation_mode"><option value="configured">使用已配置模型，必要时降级</option><option value="template">仅本地模板</option></select></label>
+          <label>最多修正次数<select name="max_repairs"><option>0</option><option selected>1</option><option>2</option><option>3</option></select></label>
+          <button {% if not analysis.symbols|selectattr('testable')|list %}disabled{% endif %}>生成并运行</button>
+        </form>
+        {% for issue in analysis.diagnostics %}<p>{{ issue.message }}</p>{% endfor %}
+        <p class="hint">模型和生成方式随每次运行记录。只有证据指向测试代码错误时才尝试修正测试。</p>
+      </section>
+      {% endif %}
+      {% if task %}
+      <section id="task-result"><h2>运行结果</h2><p>{{ task.target }} · <strong>{{ task.status }}</strong></p>
+        {% if summary %}<p>{{ summary.stop_reason }}</p>{% endif %}
+        {% if generation %}<p>生成方式 <strong>{{ generation.mode }}</strong>{% if generation.model %} · {{ generation.model }}{% endif %}{% if generation.fallback_reason %} · {{ generation.fallback_reason }}{% endif %}</p>{% endif %}
+        {% if execution %}<dl class="readout">
+          {% for key, label in [('passed','通过'),('failed','失败'),('errors','错误'),('skipped','跳过')] %}<div><dt>{{ label }}</dt><dd>{{ execution[key] if execution[key] is number else '—' }}</dd></div>{% endfor %}
+          {% for left,right,label in [('covered_lines','total_lines','行覆盖'),('covered_branches','total_branches','分支覆盖')] %}<div><dt>{{ label }}</dt><dd>{{ execution[left] if execution[left] is number else '—' }} / {{ execution[right] if execution[right] is number else '—' }}</dd></div>{% endfor %}
+        </dl>{% endif %}
+        {% if findings %}<ul class="case-list">{% for issue in findings %}<li>{{ issue.nodeid }} · {{ issue.category }} · {{ issue.reason }}</li>{% endfor %}</ul>{% endif %}
+        <div class="inline-links"><a href="/api/engine/tasks/{{ task.id }}/report" download>下载完整 JSON</a>
+          {% if generation %}<a href="/api/engine/tasks/{{ task.id }}/tests" download>下载 Pytest 文件</a>{% endif %}</div>
+      </section>
+      <section><h2>证据链</h2>
+        {% for item in task.records %}<details><summary>{{ loop.index }}. {{ item.kind }} · {{ item.status }}</summary><pre>{{ item.payload | tojson(indent=2) }}</pre></details>{% endfor %}
+      </section>
+      {% endif %}
+      {% if history %}<section><h2>本版本历史</h2><div class="records">{% for item in history %}<article><a href="/engine?task_id={{ item.id }}">{{ item.target }} · {{ item.created_at }} · {{ item.status }}</a></article>{% endfor %}</div></section>{% endif %}
+      </div>
+    </main>
+  </div>
+</body>
+</html>
