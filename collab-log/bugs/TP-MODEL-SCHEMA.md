@@ -11,3 +11,9 @@
 | Git | 历史证据 `8923f2c`，统一 Schema `98adf18`，主线合并 `646ef7d` |
 | 结果 | 历史严格分数保留。[逐字段评分](../../reports/phase05/T02_SOURCE_UNDERSTANDING.md) |
 | 沉淀 | 将格式问题计入真实评估，并在后续运行通过结构化协议预防 |
+
+## TP-COURSE-REMEDIATION-001 复验
+
+- 原开发同期初步假设缺失。历史 Codex 会话可见通报记录了 56/70 和参数对象形状，在 PHASE-06 报告参数复测 10/10。两条是结果记录。
+- 本轮初步假设事先记录在 [复验前假设](../../reports/TP-COURSE-REMEDIATION-001/bug-precheck.md)。原请求、原模型输出与冻结评分一起重放时，参数第一项确为 dict，参考第一项为 list，严格比较失败。
+- 修复后用 `tests/test_model_provider.py::test_frozen_parameter_array` 走回环替身的拒绝与合规重试。证据和实际 9 项联合回归见 [执行回执](../../reports/TP-COURSE-REMEDIATION-001/bug-replay.json)。
