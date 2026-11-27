@@ -17,7 +17,7 @@ def initialize(path):
 
 def register(app, templates, path, mode):
     app.state.db_path = path
-    app.state.generators = {"template": generation.TemplateAdapter()}
+    app.state.generators = {"template": generation.TemplateAdapter(), "ai":generation.AIAdapter()}
     for module in MODULES:
         app.include_router(module.router)
     engine_web.register(app, templates)

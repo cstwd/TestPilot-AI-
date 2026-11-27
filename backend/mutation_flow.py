@@ -137,7 +137,10 @@ class Experiment:
         if previous:
             feedback = previous["payload"]
         else:
-            feedback = supplement(self.source, self.row["target"], self.original, survived, should_cancel=self.cancel.is_set)
+            measurements = {m["id"]:self.events[("before","observation",m["id"])]["payload"]["execution"]
+                            for m in survived}
+            feedback = supplement(self.source, self.row["target"], self.original, survived,
+                                  should_cancel=self.cancel.is_set, observations=measurements)
             self.save("after", "feedback", feedback["status"], feedback["reason"], feedback)
         if self.cancel.is_set():
             return "cancelled", "用户已终止"
@@ -176,7 +179,9 @@ class Experiment:
                     "nodeids": killers, "reason": observed["reason"],
                 })
             self.save("after", "impact", "measured", "逐个对照原测试未检出的变异与追加断言的实际结果",
-                      {"original_passed_nodes": [k for k, v in case_map(green).items() if v == "passed"],
+                      {"candidates":len(feedback["cases"]), "accepted":len(selection["accepted_names"]),
+                       "newly_killed":sum(f["after"]=="killed" for f in findings),
+                       "original_passed_nodes": [k for k, v in case_map(green).items() if v == "passed"],
                        "survivors": findings})
         return "completed", "原始测试与追加测试已在同一清单上执行"
 

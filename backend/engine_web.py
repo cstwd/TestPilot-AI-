@@ -1,5 +1,4 @@
 """Local HTML and JSON interfaces to the Phase 03 evidence history."""
-import os
 from typing import Literal
 
 from fastapi import APIRouter, HTTPException, Request
@@ -8,6 +7,9 @@ from pydantic import BaseModel, Field
 
 from . import engine_history as history
 from .engine_analyzer import analyze_source
+from .model_identity import DISPLAY_NAME
+from .model_provider import ModelError, provider
+from .model_understanding import understand
 from .store import connect, many, one
 
 
@@ -15,6 +17,13 @@ class TaskInput(BaseModel):
     target: str = Field(min_length=1, max_length=256)
     max_repairs: int = Field(default=1, ge=0, le=3)
     generation_mode: Literal["configured", "template"] = "configured"
+
+
+class UnderstandingInput(BaseModel):
+    target: str = Field(min_length=1, max_length=256)
+    normal: str | None = Field(default=None, max_length=300)
+    boundary: str | None = Field(default=None, max_length=300)
+    exception_probe: str | None = Field(default=None, max_length=300)
 
 
 def latest(task, kind):
@@ -30,6 +39,17 @@ def register(app, templates):
         with connect(request.app.state.db_path) as db:
             row = one(db, "SELECT source FROM files WHERE id=?", (file_id,))
         return analyze_source(row["source"])
+
+    @router.post("/api/engine/files/{file_id}/understanding")
+    def understand_file(file_id: int, item: UnderstandingInput, request: Request):
+        with connect(request.app.state.db_path) as db:
+            row = one(db, "SELECT filename,source FROM files WHERE id=?", (file_id,))
+        try:
+            response = understand({row["filename"]:row["source"]}, **item.model_dump())
+        except ModelError as exc:
+            return JSONResponse({"run_id":exc.run_id,"error":exc.kind,"detail":str(exc),
+                                 "attempts":exc.attempts},status_code=503)
+        return {"run_id":response.run_id,"result":response.value.model_dump(),"attempts":response.attempts}
 
     @router.post("/api/engine/files/{file_id}/tasks", status_code=201)
     def run(file_id: int, item: TaskInput, request: Request):
@@ -69,11 +89,7 @@ def register(app, templates):
             file_id = task["file_id"]
         elif file_id is None and files:
             file_id = files[0]["id"]
-        provider = os.environ.get("TESTPILOT_MODEL_PROVIDER", "").lower()
-        model = os.environ.get("TESTPILOT_MODEL_NAME", "")
-        configuration = (f"已配置 {provider} / {model}，可用性以实际调用为准"
-                         if model and provider in {"ollama", "openai", "openai-compatible"}
-                         else "当前使用本地模板")
+        configuration = DISPLAY_NAME + (" · 已验证真实推理" if provider.has_recent_inference() else " · 待验证")
         context = dict(task=task, files=files, file_id=file_id, analysis=None, history=[],
                        configuration=configuration)
         if file_id is not None:

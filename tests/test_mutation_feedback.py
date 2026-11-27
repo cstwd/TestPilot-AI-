@@ -1,58 +1,48 @@
 import json
-
 import pytest
-
 from backend import mutation_feedback as mf
+from backend.model_protocol import MutationCase
+from backend.model_provider import ModelError, Reply
 
 SOURCE = 'def double(x): return x * 2'
 PREVIOUS = 'from subject import double\ndef test_zero(): assert double(0) == 0'
-SURVIVORS = [{"id": "sample-id", "operator": "arithmetic", "line": 1, "before": "*", "after": "+"}]
-
-
-@pytest.mark.parametrize("base", ["https://example.test", "http://example.test:11434",
-                                  "http://token@127.0.0.1", "http://127.0.0.1:11434/v1",
-                                  "http://localhost:11434?model=foo"])
-def test_only_local_endpoints(base, monkeypatch):
-    monkeypatch.setattr(mf, "request_json", lambda *args: pytest.fail("unexpected network request"))
-    assert mf.supplement(SOURCE, "double", PREVIOUS, SURVIVORS, config={"base_url": base})["status"] == "unavailable"
-
-
-def test_remote_model_alias_rejected_before_source(monkeypatch):
-    paths = []
-    def fake_request(base, path, payload, timeout):
-        paths.append(path)
-        if path == "/api/tags":
-            return {"models": [{"name": "alias:latest", "digest": "fixture"}]}
-        return {"remote_model": "remote", "remote_host": "service.invalid", "details": {"format": "gguf"}}
-    monkeypatch.setattr(mf, "request_json", fake_request)
-    result = mf.supplement(SOURCE, "double", PREVIOUS, SURVIVORS, config={"model": "alias"})
-    assert result["status"] == "unavailable" and result["attempts"] == []
-    assert paths == ["/api/tags", "/api/show"]
-
+SURVIVORS = [{"id":"sample-id","operator":"arithmetic","line":1,"before":"*","after":"+"}]
 
 def test_protocol_double_append_only_and_provenance(monkeypatch):
-    # Isolate the protocol; the real local model result is archived separately.
-    record = {"call": "double(-2)", "expected": -4, "reason": "Zero alone cannot distinguish the operators."}
-    calls = []
-    def fake_request(base, path, payload, timeout):
-        calls.append(path)
-        if path == "/api/tags":
-            return {"models": [{"name": "local:latest", "digest": "fixture-digest"}]}
-        if path == "/api/show":
-            return {"details": {"format": "gguf"}, "model_info": {"general.architecture": "fixture"}}
-        prompt = payload["messages"][0]["content"]
-        assert "return x * 2" in prompt and "Existing suite: 1 tests" in prompt
-        assert "Line 1: * changed to +" in prompt
-        raw = json.dumps(record)
-        return {"message": {"content": raw}, "done": True}
-    monkeypatch.setattr(mf, "request_json", fake_request)
-    result = mf.supplement(SOURCE, "double", PREVIOUS, SURVIVORS, config={"model": "local"})
-    assert calls == ["/api/tags", "/api/show", "/api/chat"]
-    assert result["code"] == PREVIOUS + "\n\n" + result["added_code"]
-    assert "assert double(-2) == -4" in result["code"]
-    assert result["cases"][0]["mutant_id"] == "sample-id"
-    assert json.loads(result["attempts"][0]["raw"]) == record
+    model = MutationCase(disposition="test",call="double(-2)",expected=-4,reason="Zero alone cannot distinguish.")
+    def infer(operation,messages,schema,**kwargs):
+        assert operation=="mutation-feedback" and schema is MutationCase
+        context=json.loads(messages[1]["content"])
+        assert context["source"]==SOURCE and context["measured"]["exit_code"]==0
+        assert context["diff"]["before"]=="*"
+        return Reply("run-fixture",kwargs["validate"](model),[{"raw":model.model_dump_json()}])
+    monkeypatch.setattr(mf.provider,"infer",infer)
+    r=mf.supplement(SOURCE,"double",PREVIOUS,SURVIVORS,observations={"sample-id":{"exit_code":0}})
+    assert r["code"]==PREVIOUS+"\n\n"+r["added_code"]
+    assert "assert double(-2) == -4" in r["code"] and r["cases"][0]["mutant_id"]=="sample-id"
+    assert r["attempts"][0]["run_id"]=="run-fixture"
 
+def test_no_case_preserves_survivor(monkeypatch):
+    model=MutationCase(disposition="no_distinguishing_case",call=None,expected=None,reason="Equal on the domain.")
+    def infer(*args,**kwargs):
+        return Reply("no-case",kwargs["validate"](model),[])
+    monkeypatch.setattr(mf.provider,"infer",infer)
+    r=mf.supplement(SOURCE,"double",PREVIOUS,SURVIVORS)
+    assert r["status"]=="rejected" and not r["cases"]
+    assert r["attempts"][0]["status"]=="no_distinguishing_case"
+
+def test_cancel_between_model_calls(monkeypatch):
+    cancelled=False
+    def infer(*args,**kwargs):
+        nonlocal cancelled
+        cancelled=True
+        model=MutationCase(disposition="test",call="double(1)",expected=2,reason="Nonzero.")
+        return Reply("first",kwargs["validate"](model),[])
+    monkeypatch.setattr(mf.provider,"infer",infer)
+    r=mf.supplement(SOURCE,"double",PREVIOUS,[*SURVIVORS,{**SURVIVORS[0],"id":"other"}],
+                    should_cancel=lambda:cancelled)
+    assert r["status"]=="cancelled" and r["pending_ids"]==["other"]
+    assert r["attempts"][0]["run_id"]=="first" and r["code"] is None
 
 @pytest.mark.parametrize("call,expected", [("wrong(3)", "6"), ("double(side_effect())", "6"),
                                           ("double(2)", "bad()"), ("double(1)", "raises Unknown")])
@@ -69,23 +59,6 @@ def test_subject_names_do_not_shadow_raises(target):
     _, added, _ = mf.additions(raw, target, SURVIVORS, PREVIOUS)
     assert f"from subject import {target} as _testpilot_subject_function" in added
     assert "with pytest.raises(ValueError):\n        _testpilot_subject_function(-1)" in added
-
-
-def test_cancel_between_model_calls(monkeypatch):
-    cancelled = False
-    other = {**SURVIVORS[0], "id": "other"}
-    monkeypatch.setattr(mf, "choose_model", lambda *args: ("local", "fixture"))
-    def first_request(*args):
-        nonlocal cancelled
-        cancelled = True
-        return {"message": {"content": json.dumps({"call": "double(1)", "expected": 2, "reason": "test"})},
-                "done": True}
-    monkeypatch.setattr(mf, "request_json", first_request)
-    result = mf.supplement(SOURCE, "double", PREVIOUS, [*SURVIVORS, other], config={}, should_cancel=lambda: cancelled)
-    assert result["status"] == "cancelled" and result["pending_ids"] == ["other"]
-    assert len(result["attempts"]) == 1 and result["attempts"][0]["status"] == "accepted"
-    assert result["code"] is None
-
 
 def test_simple_predicate_hint_has_no_expected_value():
     from backend.mutation_generator import make_plan
