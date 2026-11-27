@@ -1,0 +1,991 @@
+{
+  "id": "738e2c7c-b6ca-485f-ac4b-df1165cff925",
+  "task_id": "5b4dad64-2c43-4843-9cf1-84e1da9d3274",
+  "file_id": 1,
+  "suite_id": "6e9cbff2-3698-43da-88bc-03f1f12345a4",
+  "target": "bonus",
+  "profile": "cosmic-ray-8.9.0/testpilot-first-order-v1",
+  "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+  "test_sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f",
+  "feedback_enabled": true,
+  "timeout_s": 15,
+  "status": "feedback_baseline_failed",
+  "cancel_requested": false,
+  "created_at": "2026-11-27T07:25:32.716287+00:00",
+  "updated_at": "2026-11-27T07:26:41.556765+00:00",
+  "diagnostic": "原始源码未通过补测验证，可查阅实际输出",
+  "manifest": [
+    {
+      "id": "0dbe9494-ee8e-5026-89de-b6f42664f6ec",
+      "family": "condition",
+      "operator": "testpilot/NegateCondition",
+      "line": 8,
+      "column": 8,
+      "before": "n < 0",
+      "after": "not (n < 0)",
+      "edit": {
+        "start": 207,
+        "end": 212,
+        "old": "n < 0",
+        "new": "not (n < 0)"
+      },
+      "mutated_sha256": "c15882f8c182354a062662980b75b5fe8237b25119d608f5155321bf1c9975e6",
+      "equivalent_candidate": false
+    },
+    {
+      "id": "edf2e78e-d1b2-56b8-8cd9-3b007401ffab",
+      "family": "comparison",
+      "operator": "core/ReplaceComparisonOperator_Lt_LtE",
+      "line": 8,
+      "column": 10,
+      "before": "<",
+      "after": "<=",
+      "edit": {
+        "start": 210,
+        "end": 210,
+        "old": "",
+        "new": "="
+      },
+      "mutated_sha256": "d03579d85a2f71cb2e947fa714f4597bc80297773b4b98477585077937b4a77a",
+      "equivalent_candidate": false
+    },
+    {
+      "id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+      "family": "exception",
+      "operator": "testpilot/SuppressRaise",
+      "line": 9,
+      "column": 9,
+      "before": "raise ValueError(\"negative\")",
+      "after": "pass",
+      "edit": {
+        "start": 222,
+        "end": 250,
+        "old": "raise ValueError(\"negative\")",
+        "new": "pass"
+      },
+      "mutated_sha256": "04c0e2301f3901f176fa4538422aad7fe5b64ec009a81790a9e105946c9ddb39",
+      "equivalent_candidate": false
+    },
+    {
+      "id": "f8daf5dd-2eaa-52d6-bf62-cce4fa89dd2e",
+      "family": "condition",
+      "operator": "testpilot/NegateCondition",
+      "line": 10,
+      "column": 8,
+      "before": "enabled and n >= 2",
+      "after": "not (enabled and n >= 2)",
+      "edit": {
+        "start": 258,
+        "end": 276,
+        "old": "enabled and n >= 2",
+        "new": "not (enabled and n >= 2)"
+      },
+      "mutated_sha256": "c6776223edd28f42d3831c65b22763e2e9d4080f888d8037799990f7de1a9564",
+      "equivalent_candidate": false
+    },
+    {
+      "id": "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+      "family": "boolean",
+      "operator": "core/ReplaceAndWithOr",
+      "line": 10,
+      "column": 16,
+      "before": "and",
+      "after": "or",
+      "edit": {
+        "start": 266,
+        "end": 269,
+        "old": "and",
+        "new": "or"
+      },
+      "mutated_sha256": "fb03355a336b63592194fabb17842f19b66b429bd336a1311174b73de5f55878",
+      "equivalent_candidate": false
+    },
+    {
+      "id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+      "family": "comparison",
+      "operator": "core/ReplaceComparisonOperator_GtE_Gt",
+      "line": 10,
+      "column": 22,
+      "before": ">=",
+      "after": ">",
+      "edit": {
+        "start": 273,
+        "end": 274,
+        "old": "=",
+        "new": ""
+      },
+      "mutated_sha256": "ba36e530baeb394fadf040a2957a25d9d02d246026ee53a9bc121bb749f396b1",
+      "equivalent_candidate": false
+    },
+    {
+      "id": "0eabf785-01da-5cf7-bfdc-d0fae838ff39",
+      "family": "return",
+      "operator": "testpilot/ReturnNone",
+      "line": 11,
+      "column": 9,
+      "before": "return n + 1",
+      "after": "return None",
+      "edit": {
+        "start": 286,
+        "end": 298,
+        "old": "return n + 1",
+        "new": "return None"
+      },
+      "mutated_sha256": "185166b3a19937884a42ad122a0b48f351eb13f04fb4ae3af7aad3c89c09fdfe",
+      "equivalent_candidate": false
+    },
+    {
+      "id": "bf1a369a-cd32-5a26-afa2-1c012d7269f8",
+      "family": "arithmetic",
+      "operator": "core/ReplaceBinaryOperator_Add_Sub",
+      "line": 11,
+      "column": 18,
+      "before": "+",
+      "after": "-",
+      "edit": {
+        "start": 295,
+        "end": 296,
+        "old": "+",
+        "new": "-"
+      },
+      "mutated_sha256": "d64a252244ba0ed98afbd29751ab3b6b683a8c28113a50247c3bcd085234d4db",
+      "equivalent_candidate": false
+    },
+    {
+      "id": "4baa324f-ef75-5210-9216-6e11b5fee5bb",
+      "family": "return",
+      "operator": "testpilot/ReturnNone",
+      "line": 12,
+      "column": 5,
+      "before": "return n",
+      "after": "return None",
+      "edit": {
+        "start": 303,
+        "end": 311,
+        "old": "return n",
+        "new": "return None"
+      },
+      "mutated_sha256": "e3d216038c672b002f86f3558fe501b5a7f1528f177e3976eccd44ccdd56b41c",
+      "equivalent_candidate": false
+    }
+  ],
+  "events": [
+    {
+      "id": "91d3402b-b930-4643-8a80-cbe9891c7b97",
+      "phase": "before",
+      "kind": "baseline",
+      "mutant_id": "",
+      "created_at": "2026-11-27T07:25:38.376308+00:00",
+      "status": "passed",
+      "reason": "原始源码通过基线验证",
+      "payload": {
+        "status": "passed",
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "skipped": 0,
+        "cases": [
+          {
+            "nodeid": "test_generated.py::test_bonus",
+            "outcome": "passed"
+          }
+        ],
+        "exit_code": 0,
+        "covered_lines": 4,
+        "total_lines": 6,
+        "coverage_pct": 66.67,
+        "log": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.06s",
+        "duration_ms": 5638,
+        "stdout": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.06s\n",
+        "stderr": "",
+        "diagnostic": "",
+        "result_complete": true,
+        "failures": [],
+        "failure_details_omitted": 0,
+        "covered_branches": 2,
+        "total_branches": 4,
+        "branch_pct": 50.0,
+        "environment": {
+          "platform": "wasi",
+          "python": "3.15.2",
+          "pytest": "9.2.0",
+          "coverage": "7.17.5"
+        },
+        "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+        "test_sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f"
+      }
+    },
+    {
+      "id": "24f4050d-223b-4864-88a3-9cce1b71af0e",
+      "phase": "before",
+      "kind": "observation",
+      "mutant_id": "0dbe9494-ee8e-5026-89de-b6f42664f6ec",
+      "created_at": "2026-11-27T07:25:43.930934+00:00",
+      "status": "execution_error",
+      "reason": "失败没有完整的测试断言证据",
+      "payload": {
+        "execution": {
+          "status": "failed",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "outcome": "failed"
+            }
+          ],
+          "exit_code": 1,
+          "covered_lines": 3,
+          "total_lines": 6,
+          "coverage_pct": 50.0,
+          "log": "F\n=================================== FAILURES ===================================\n__________________________________ test_bonus __________________________________\ntest_generated.py:4: in test_bonus\n    assert bonus(3) == 4\n           ^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n=========================== short test summary info ============================\nFAILED test_generated.py::test_bonus - ValueError: negative\n1 failed in 0.12s",
+          "duration_ms": 5535,
+          "stdout": "F\n=================================== FAILURES ===================================\n__________________________________ test_bonus __________________________________\ntest_generated.py:4: in test_bonus\n    assert bonus(3) == 4\n           ^^^^^^^^\nsubject.py:9: in bonus\n    raise ValueError(\"negative\")\nE   ValueError: negative\n=========================== short test summary info ============================\nFAILED test_generated.py::test_bonus - ValueError: negative\n1 failed in 0.12s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "phase": "call",
+              "exception_type": "ValueError",
+              "message": "negative",
+              "frames": [
+                {
+                  "path": "test_generated.py",
+                  "line": 4,
+                  "function": "test_bonus",
+                  "source": "assert bonus(3) == 4"
+                },
+                {
+                  "path": "subject.py",
+                  "line": 9,
+                  "function": "bonus",
+                  "source": "raise ValueError(\"negative\")"
+                }
+              ],
+              "assertion_diff": null
+            }
+          ],
+          "failure_details_omitted": 0,
+          "covered_branches": 1,
+          "total_branches": 4,
+          "branch_pct": 25.0,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "source_sha256": "c15882f8c182354a062662980b75b5fe8237b25119d608f5155321bf1c9975e6",
+          "test_sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f"
+        },
+        "nodeids": [
+          "test_generated.py::test_bonus"
+        ]
+      }
+    },
+    {
+      "id": "3dd3a574-b509-450b-821f-595bec6cf648",
+      "phase": "before",
+      "kind": "observation",
+      "mutant_id": "edf2e78e-d1b2-56b8-8cd9-3b007401ffab",
+      "created_at": "2026-11-27T07:25:49.534546+00:00",
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "payload": {
+        "execution": {
+          "status": "passed",
+          "passed": 1,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "outcome": "passed"
+            }
+          ],
+          "exit_code": 0,
+          "covered_lines": 4,
+          "total_lines": 6,
+          "coverage_pct": 66.67,
+          "log": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.04s",
+          "duration_ms": 5592,
+          "stdout": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.04s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [],
+          "failure_details_omitted": 0,
+          "covered_branches": 2,
+          "total_branches": 4,
+          "branch_pct": 50.0,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "source_sha256": "d03579d85a2f71cb2e947fa714f4597bc80297773b4b98477585077937b4a77a",
+          "test_sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f"
+        },
+        "nodeids": []
+      }
+    },
+    {
+      "id": "7329520f-97df-4089-98b1-fd36824e5ddb",
+      "phase": "before",
+      "kind": "observation",
+      "mutant_id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+      "created_at": "2026-11-27T07:25:55.234567+00:00",
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "payload": {
+        "execution": {
+          "status": "passed",
+          "passed": 1,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "outcome": "passed"
+            }
+          ],
+          "exit_code": 0,
+          "covered_lines": 4,
+          "total_lines": 6,
+          "coverage_pct": 66.67,
+          "log": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.04s",
+          "duration_ms": 5689,
+          "stdout": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.04s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [],
+          "failure_details_omitted": 0,
+          "covered_branches": 2,
+          "total_branches": 4,
+          "branch_pct": 50.0,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "source_sha256": "04c0e2301f3901f176fa4538422aad7fe5b64ec009a81790a9e105946c9ddb39",
+          "test_sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f"
+        },
+        "nodeids": []
+      }
+    },
+    {
+      "id": "8923ec13-83e6-4998-af0e-eb220c3b1f3c",
+      "phase": "before",
+      "kind": "observation",
+      "mutant_id": "f8daf5dd-2eaa-52d6-bf62-cce4fa89dd2e",
+      "created_at": "2026-11-27T07:26:01.829037+00:00",
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "payload": {
+        "execution": {
+          "status": "failed",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "outcome": "failed"
+            }
+          ],
+          "exit_code": 1,
+          "covered_lines": 4,
+          "total_lines": 6,
+          "coverage_pct": 66.67,
+          "log": "F\n=================================== FAILURES ===================================\n__________________________________ test_bonus __________________________________\ntest_generated.py:4: in test_bonus\n    assert bonus(3) == 4\nE   assert 3 == 4\nE    +  where 3 = bonus(3)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_bonus - assert 3 == 4\n1 failed in 0.12s",
+          "duration_ms": 6575,
+          "stdout": "F\n=================================== FAILURES ===================================\n__________________________________ test_bonus __________________________________\ntest_generated.py:4: in test_bonus\n    assert bonus(3) == 4\nE   assert 3 == 4\nE    +  where 3 = bonus(3)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_bonus - assert 3 == 4\n1 failed in 0.12s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "phase": "call",
+              "exception_type": "AssertionError",
+              "message": "assert 3 == 4\n +  where 3 = bonus(3)",
+              "frames": [
+                {
+                  "path": "test_generated.py",
+                  "line": 4,
+                  "function": "test_bonus",
+                  "source": "assert bonus(3) == 4"
+                }
+              ],
+              "assertion_diff": "assert 3 == 4\n +  where 3 = bonus(3)"
+            }
+          ],
+          "failure_details_omitted": 0,
+          "covered_branches": 2,
+          "total_branches": 4,
+          "branch_pct": 50.0,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "source_sha256": "c6776223edd28f42d3831c65b22763e2e9d4080f888d8037799990f7de1a9564",
+          "test_sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f"
+        },
+        "nodeids": [
+          "test_generated.py::test_bonus"
+        ]
+      }
+    },
+    {
+      "id": "544c6354-086f-44ff-97d5-5692b5fdaf45",
+      "phase": "before",
+      "kind": "observation",
+      "mutant_id": "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+      "created_at": "2026-11-27T07:26:07.323110+00:00",
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "payload": {
+        "execution": {
+          "status": "passed",
+          "passed": 1,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "outcome": "passed"
+            }
+          ],
+          "exit_code": 0,
+          "covered_lines": 4,
+          "total_lines": 6,
+          "coverage_pct": 66.67,
+          "log": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.04s",
+          "duration_ms": 5484,
+          "stdout": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.04s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [],
+          "failure_details_omitted": 0,
+          "covered_branches": 2,
+          "total_branches": 4,
+          "branch_pct": 50.0,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "source_sha256": "fb03355a336b63592194fabb17842f19b66b429bd336a1311174b73de5f55878",
+          "test_sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f"
+        },
+        "nodeids": []
+      }
+    },
+    {
+      "id": "58dab146-f9cc-455f-8ca4-90636215f704",
+      "phase": "before",
+      "kind": "observation",
+      "mutant_id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+      "created_at": "2026-11-27T07:26:12.925688+00:00",
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "payload": {
+        "execution": {
+          "status": "passed",
+          "passed": 1,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "outcome": "passed"
+            }
+          ],
+          "exit_code": 0,
+          "covered_lines": 4,
+          "total_lines": 6,
+          "coverage_pct": 66.67,
+          "log": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.04s",
+          "duration_ms": 5590,
+          "stdout": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.04s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [],
+          "failure_details_omitted": 0,
+          "covered_branches": 2,
+          "total_branches": 4,
+          "branch_pct": 50.0,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "source_sha256": "ba36e530baeb394fadf040a2957a25d9d02d246026ee53a9bc121bb749f396b1",
+          "test_sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f"
+        },
+        "nodeids": []
+      }
+    },
+    {
+      "id": "f567f8b4-3dfd-4e20-ae02-8361ea124090",
+      "phase": "before",
+      "kind": "observation",
+      "mutant_id": "0eabf785-01da-5cf7-bfdc-d0fae838ff39",
+      "created_at": "2026-11-27T07:26:18.632830+00:00",
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "payload": {
+        "execution": {
+          "status": "failed",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "outcome": "failed"
+            }
+          ],
+          "exit_code": 1,
+          "covered_lines": 4,
+          "total_lines": 6,
+          "coverage_pct": 66.67,
+          "log": "F\n=================================== FAILURES ===================================\n__________________________________ test_bonus __________________________________\ntest_generated.py:4: in test_bonus\n    assert bonus(3) == 4\nE   assert None == 4\nE    +  where None = bonus(3)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_bonus - assert None == 4\n1 failed in 0.12s",
+          "duration_ms": 5696,
+          "stdout": "F\n=================================== FAILURES ===================================\n__________________________________ test_bonus __________________________________\ntest_generated.py:4: in test_bonus\n    assert bonus(3) == 4\nE   assert None == 4\nE    +  where None = bonus(3)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_bonus - assert None == 4\n1 failed in 0.12s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "phase": "call",
+              "exception_type": "AssertionError",
+              "message": "assert None == 4\n +  where None = bonus(3)",
+              "frames": [
+                {
+                  "path": "test_generated.py",
+                  "line": 4,
+                  "function": "test_bonus",
+                  "source": "assert bonus(3) == 4"
+                }
+              ],
+              "assertion_diff": "assert None == 4\n +  where None = bonus(3)"
+            }
+          ],
+          "failure_details_omitted": 0,
+          "covered_branches": 2,
+          "total_branches": 4,
+          "branch_pct": 50.0,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "source_sha256": "185166b3a19937884a42ad122a0b48f351eb13f04fb4ae3af7aad3c89c09fdfe",
+          "test_sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f"
+        },
+        "nodeids": [
+          "test_generated.py::test_bonus"
+        ]
+      }
+    },
+    {
+      "id": "19608615-c37f-412e-ae11-6ba2f185657c",
+      "phase": "before",
+      "kind": "observation",
+      "mutant_id": "bf1a369a-cd32-5a26-afa2-1c012d7269f8",
+      "created_at": "2026-11-27T07:26:24.254156+00:00",
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "payload": {
+        "execution": {
+          "status": "failed",
+          "passed": 0,
+          "failed": 1,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "outcome": "failed"
+            }
+          ],
+          "exit_code": 1,
+          "covered_lines": 4,
+          "total_lines": 6,
+          "coverage_pct": 66.67,
+          "log": "F\n=================================== FAILURES ===================================\n__________________________________ test_bonus __________________________________\ntest_generated.py:4: in test_bonus\n    assert bonus(3) == 4\nE   assert 2 == 4\nE    +  where 2 = bonus(3)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_bonus - assert 2 == 4\n1 failed in 0.12s",
+          "duration_ms": 5609,
+          "stdout": "F\n=================================== FAILURES ===================================\n__________________________________ test_bonus __________________________________\ntest_generated.py:4: in test_bonus\n    assert bonus(3) == 4\nE   assert 2 == 4\nE    +  where 2 = bonus(3)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_bonus - assert 2 == 4\n1 failed in 0.12s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "phase": "call",
+              "exception_type": "AssertionError",
+              "message": "assert 2 == 4\n +  where 2 = bonus(3)",
+              "frames": [
+                {
+                  "path": "test_generated.py",
+                  "line": 4,
+                  "function": "test_bonus",
+                  "source": "assert bonus(3) == 4"
+                }
+              ],
+              "assertion_diff": "assert 2 == 4\n +  where 2 = bonus(3)"
+            }
+          ],
+          "failure_details_omitted": 0,
+          "covered_branches": 2,
+          "total_branches": 4,
+          "branch_pct": 50.0,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "source_sha256": "d64a252244ba0ed98afbd29751ab3b6b683a8c28113a50247c3bcd085234d4db",
+          "test_sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f"
+        },
+        "nodeids": [
+          "test_generated.py::test_bonus"
+        ]
+      }
+    },
+    {
+      "id": "5241b4db-6e3c-4d50-a3a8-2aba8df06d7e",
+      "phase": "before",
+      "kind": "observation",
+      "mutant_id": "4baa324f-ef75-5210-9216-6e11b5fee5bb",
+      "created_at": "2026-11-27T07:26:29.791299+00:00",
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "payload": {
+        "execution": {
+          "status": "passed",
+          "passed": 1,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "outcome": "passed"
+            }
+          ],
+          "exit_code": 0,
+          "covered_lines": 4,
+          "total_lines": 6,
+          "coverage_pct": 66.67,
+          "log": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.05s",
+          "duration_ms": 5527,
+          "stdout": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.05s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [],
+          "failure_details_omitted": 0,
+          "covered_branches": 2,
+          "total_branches": 4,
+          "branch_pct": 50.0,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "source_sha256": "e3d216038c672b002f86f3558fe501b5a7f1528f177e3976eccd44ccdd56b41c",
+          "test_sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f"
+        },
+        "nodeids": []
+      }
+    },
+    {
+      "id": "c6eb193d-716e-4f89-8617-0fe35e7f9453",
+      "phase": "after",
+      "kind": "feedback",
+      "mutant_id": "",
+      "created_at": "2026-11-27T07:26:35.876517+00:00",
+      "status": "generated",
+      "reason": "本机模型提出补测输入及预期；效果由隔离重跑判定",
+      "payload": {
+        "status": "generated",
+        "mode": "ai",
+        "provider": "ollama",
+        "model": "qwen2.5-coder:0.5b",
+        "reason": "本机模型提出补测输入及预期；效果由隔离重跑判定",
+        "code": "from subject import bonus\n\ndef test_bonus():\n    assert bonus(3) == 4\n\n\ndef test_mutation_4d0cb96467784e54():\n    from subject import bonus\n    assert bonus(1, True) == 2\n\ndef test_mutation_e9b93746ff8d0795():\n    from subject import bonus\n    assert bonus(10, True) == 11\n",
+        "added_code": "def test_mutation_4d0cb96467784e54():\n    from subject import bonus\n    assert bonus(1, True) == 2\n\ndef test_mutation_e9b93746ff8d0795():\n    from subject import bonus\n    assert bonus(10, True) == 11\n",
+        "cases": [
+          {
+            "site": 1,
+            "reason": "The original function body does not handle negative n with ValueError. The mutation survived.",
+            "call": "bonus(1, True)",
+            "expected": "2",
+            "mutant_id": "edf2e78e-d1b2-56b8-8cd9-3b007401ffab",
+            "test_name": "test_mutation_4d0cb96467784e54"
+          },
+          {
+            "site": 4,
+            "reason": "The original function body does not raise an exception for n < 0, but the new function body raises an exception for n < 0 and enabled and n >= 2.",
+            "call": "bonus(10, True)",
+            "expected": "11",
+            "mutant_id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+            "test_name": "test_mutation_e9b93746ff8d0795"
+          }
+        ],
+        "attempts": [
+          {
+            "number": 1,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Original Python bonus(n: int, enabled: bool=True). Reject negative n with ValueError. For nonnegative n return n + 1 if\nenabled and n >= 2; otherwise return n.\nOriginal function body:\nif n < 0:\n    raise ValueError('negative')\nif enabled and n >= 2:\n    return n + 1\nreturn n\nExisting suite: 1 tests, 0 with type checks. The mutation survived. Line 8: < changed to <=. What single call to bonus and ORIGINAL expected result distinguishes the two versions? For a comparison boundary, try equality. For AND/OR, choose operands with different truth values. For a removed raise, try the input triggering the exception. Give one concise JSON object with call, expected, reason. Use JSON types for expected values or the string 'raises ExceptionName' for an exception. Keep reason under ten words."
+              }
+            ],
+            "options": {
+              "temperature": 0,
+              "seed": 23,
+              "num_predict": 160,
+              "num_ctx": 4096,
+              "num_batch": 128,
+              "num_gpu": 0
+            },
+            "mutant_ids": [
+              "edf2e78e-d1b2-56b8-8cd9-3b007401ffab"
+            ],
+            "focus_id": "edf2e78e-d1b2-56b8-8cd9-3b007401ffab",
+            "raw": "{\n  \"call\": \"bonus(1, True)\",\n  \"expected\": 2,\n  \"reason\": \"The original function body does not handle negative n with ValueError. The mutation survived.\"\n}",
+            "elapsed_ms": 2208,
+            "response_model": "qwen2.5-coder:0.5b",
+            "prompt_eval_count": 211,
+            "eval_count": 42,
+            "done_reason": "stop",
+            "status": "accepted"
+          },
+          {
+            "number": 2,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Original Python bonus(n: int, enabled: bool=True). Reject negative n with ValueError. For nonnegative n return n + 1 if\nenabled and n >= 2; otherwise return n.\nOriginal function body:\nif n < 0:\n    raise ValueError('negative')\nif enabled and n >= 2:\n    return n + 1\nreturn n\nExisting suite: 1 tests, 0 with type checks. The mutation survived. Line 9: raise ValueError(\"negative\") changed to pass. What single call to bonus and ORIGINAL expected result distinguishes the two versions? For a comparison boundary, try equality. For AND/OR, choose operands with different truth values. For a removed raise, try the input triggering the exception. Give one concise JSON object with call, expected, reason. Use JSON types for expected values or the string 'raises ExceptionName' for an exception. Keep reason under ten words."
+              }
+            ],
+            "options": {
+              "temperature": 0,
+              "seed": 23,
+              "num_predict": 160,
+              "num_ctx": 4096,
+              "num_batch": 128,
+              "num_gpu": 0
+            },
+            "mutant_ids": [
+              "bad0575f-acc5-58a6-a467-7a1cb312a19b"
+            ],
+            "focus_id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+            "raw": "{\n  \"call\": \"bonus(1, True)\",\n  \"expected\": 2,\n  \"reason\": \"Original function body: if n < 0: raise ValueError('negative') if enabled and n >= 2: return n + 1 else return n\"\n}",
+            "elapsed_ms": 943,
+            "response_model": "qwen2.5-coder:0.5b",
+            "prompt_eval_count": 215,
+            "eval_count": 58,
+            "done_reason": "stop",
+            "status": "accepted"
+          },
+          {
+            "number": 3,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Original Python bonus(n: int, enabled: bool=True). Reject negative n with ValueError. For nonnegative n return n + 1 if\nenabled and n >= 2; otherwise return n.\nOriginal function body:\nif n < 0:\n    raise ValueError('negative')\nif enabled and n >= 2:\n    return n + 1\nreturn n\nExisting suite: 1 tests, 0 with type checks. The mutation survived. Line 10: and changed to or. What single call to bonus and ORIGINAL expected result distinguishes the two versions? For a comparison boundary, try equality. For AND/OR, choose operands with different truth values. For a removed raise, try the input triggering the exception. Give one concise JSON object with call, expected, reason. Use JSON types for expected values or the string 'raises ExceptionName' for an exception. Keep reason under ten words."
+              }
+            ],
+            "options": {
+              "temperature": 0,
+              "seed": 23,
+              "num_predict": 160,
+              "num_ctx": 4096,
+              "num_batch": 128,
+              "num_gpu": 0
+            },
+            "mutant_ids": [
+              "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb"
+            ],
+            "focus_id": "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+            "raw": "{\n  \"call\": \"bonus(1, True)\",\n  \"expected\": 2,\n  \"reason\": \"The original function body does not raise an exception.\"\n}",
+            "elapsed_ms": 869,
+            "response_model": "qwen2.5-coder:0.5b",
+            "prompt_eval_count": 212,
+            "eval_count": 36,
+            "done_reason": "stop",
+            "status": "accepted"
+          },
+          {
+            "number": 4,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Original Python bonus(n: int, enabled: bool=True). Reject negative n with ValueError. For nonnegative n return n + 1 if\nenabled and n >= 2; otherwise return n.\nOriginal function body:\nif n < 0:\n    raise ValueError('negative')\nif enabled and n >= 2:\n    return n + 1\nreturn n\nExisting suite: 1 tests, 0 with type checks. The mutation survived. Line 10: >= changed to >. What single call to bonus and ORIGINAL expected result distinguishes the two versions? For a comparison boundary, try equality. For AND/OR, choose operands with different truth values. For a removed raise, try the input triggering the exception. Give one concise JSON object with call, expected, reason. Use JSON types for expected values or the string 'raises ExceptionName' for an exception. Keep reason under ten words."
+              }
+            ],
+            "options": {
+              "temperature": 0,
+              "seed": 23,
+              "num_predict": 160,
+              "num_ctx": 4096,
+              "num_batch": 128,
+              "num_gpu": 0
+            },
+            "mutant_ids": [
+              "cba8892f-b4a9-5e37-8c64-c14034ca30b9"
+            ],
+            "focus_id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+            "raw": "{\n  \"call\": \"bonus(10, True)\",\n  \"expected\": 11,\n  \"reason\": \"The original function body does not raise an exception for n < 0, but the new function body raises an exception for n < 0 and enabled and n >= 2.\"\n}",
+            "elapsed_ms": 1140,
+            "response_model": "qwen2.5-coder:0.5b",
+            "prompt_eval_count": 212,
+            "eval_count": 64,
+            "done_reason": "stop",
+            "status": "accepted"
+          },
+          {
+            "number": 5,
+            "messages": [
+              {
+                "role": "user",
+                "content": "Original Python bonus(n: int, enabled: bool=True). Reject negative n with ValueError. For nonnegative n return n + 1 if\nenabled and n >= 2; otherwise return n.\nOriginal function body:\nif n < 0:\n    raise ValueError('negative')\nif enabled and n >= 2:\n    return n + 1\nreturn n\nExisting suite: 1 tests, 0 with type checks. The mutation survived. Line 12: return n changed to return None. What single call to bonus and ORIGINAL expected result distinguishes the two versions? For a comparison boundary, try equality. For AND/OR, choose operands with different truth values. For a removed raise, try the input triggering the exception. Give one concise JSON object with call, expected, reason. Use JSON types for expected values or the string 'raises ExceptionName' for an exception. Keep reason under ten words."
+              }
+            ],
+            "options": {
+              "temperature": 0,
+              "seed": 23,
+              "num_predict": 160,
+              "num_ctx": 4096,
+              "num_batch": 128,
+              "num_gpu": 0
+            },
+            "mutant_ids": [
+              "4baa324f-ef75-5210-9216-6e11b5fee5bb"
+            ],
+            "focus_id": "4baa324f-ef75-5210-9216-6e11b5fee5bb",
+            "raw": "{\n  \"call\": \"bonus(1, True)\",\n  \"expected\": 2,\n  \"reason\": \"The function returns None when n is negative, which is not allowed.\"\n}",
+            "elapsed_ms": 787,
+            "response_model": "qwen2.5-coder:0.5b",
+            "prompt_eval_count": 214,
+            "eval_count": 40,
+            "done_reason": "stop",
+            "status": "accepted"
+          }
+        ],
+        "endpoint": "http://127.0.0.1:11434",
+        "requested_model": "qwen2.5-coder:0.5b",
+        "model_digest": "4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09"
+      }
+    },
+    {
+      "id": "f410407f-e810-4562-9b39-117b2e75951f",
+      "phase": "after",
+      "kind": "baseline",
+      "mutant_id": "",
+      "created_at": "2026-11-27T07:26:41.545064+00:00",
+      "status": "invalid",
+      "reason": "原版测试未通过，或新增测试没有产生有效通过节点",
+      "payload": {
+        "status": "failed",
+        "passed": 2,
+        "failed": 1,
+        "errors": 0,
+        "skipped": 0,
+        "cases": [
+          {
+            "nodeid": "test_generated.py::test_bonus",
+            "outcome": "passed"
+          },
+          {
+            "nodeid": "test_generated.py::test_mutation_4d0cb96467784e54",
+            "outcome": "failed"
+          },
+          {
+            "nodeid": "test_generated.py::test_mutation_e9b93746ff8d0795",
+            "outcome": "passed"
+          }
+        ],
+        "exit_code": 1,
+        "covered_lines": 5,
+        "total_lines": 6,
+        "coverage_pct": 83.33,
+        "log": ".F.\n=================================== FAILURES ===================================\n________________________ test_mutation_4d0cb96467784e54 ________________________\ntest_generated.py:9: in test_mutation_4d0cb96467784e54\n    assert bonus(1, True) == 2\nE   assert 1 == 2\nE    +  where 1 = <function bonus at 0x3339668>(1, True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\nPASSED test_generated.py::test_mutation_e9b93746ff8d0795\nFAILED test_generated.py::test_mutation_4d0cb96467784e54 - assert 1 == 2\n1 failed, 2 passed in 0.16s",
+        "duration_ms": 5656,
+        "stdout": ".F.\n=================================== FAILURES ===================================\n________________________ test_mutation_4d0cb96467784e54 ________________________\ntest_generated.py:9: in test_mutation_4d0cb96467784e54\n    assert bonus(1, True) == 2\nE   assert 1 == 2\nE    +  where 1 = <function bonus at 0x3339668>(1, True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\nPASSED test_generated.py::test_mutation_e9b93746ff8d0795\nFAILED test_generated.py::test_mutation_4d0cb96467784e54 - assert 1 == 2\n1 failed, 2 passed in 0.16s\n",
+        "stderr": "",
+        "diagnostic": "",
+        "result_complete": true,
+        "failures": [
+          {
+            "nodeid": "test_generated.py::test_mutation_4d0cb96467784e54",
+            "phase": "call",
+            "exception_type": "AssertionError",
+            "message": "assert 1 == 2\n +  where 1 = <function bonus at 0x3339668>(1, True)",
+            "frames": [
+              {
+                "path": "test_generated.py",
+                "line": 9,
+                "function": "test_mutation_4d0cb96467784e54",
+                "source": "assert bonus(1, True) == 2"
+              }
+            ],
+            "assertion_diff": "assert 1 == 2\n +  where 1 = <function bonus at 0x3339668>(1, True)"
+          }
+        ],
+        "failure_details_omitted": 0,
+        "covered_branches": 3,
+        "total_branches": 4,
+        "branch_pct": 75.0,
+        "environment": {
+          "platform": "wasi",
+          "python": "3.15.2",
+          "pytest": "9.2.0",
+          "coverage": "7.17.5"
+        },
+        "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+        "test_sha256": "d173893c65aa4433307655899dcefff40fbd5b9faf11b0271c0cce58f60a7c4a"
+      }
+    }
+  ],
+  "before": {
+    "killed": 3,
+    "survived": 5,
+    "timeout": 0,
+    "execution_error": 1,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 9,
+    "equivalent_candidates": 0,
+    "score_pct": 33.33
+  },
+  "after": null
+}

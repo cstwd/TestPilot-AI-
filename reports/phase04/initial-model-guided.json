@@ -1,0 +1,428 @@
+{
+  "input": "eval/phase04/bonus.py",
+  "procedure": "F09 explicit configuration with F07 signature and F08 example contract projection and format guidance, then ordinary F10/F11/F12 Workflow.evaluate; no generated test editing",
+  "provider_config": {
+    "provider": "ollama",
+    "model": "qwen2.5-coder:0.5b",
+    "base_url": "http://127.0.0.1:11434",
+    "retries": 1,
+    "timeout": 120
+  },
+  "database": ".runtime/phase04-initial-model.sqlite3",
+  "duration_seconds": 7.89,
+  "task": {
+    "id": "5b4dad64-2c43-4843-9cf1-84e1da9d3274",
+    "file_id": 1,
+    "target": "bonus",
+    "created_at": "2026-11-27T07:24:10.886096+00:00",
+    "status": "completed",
+    "max_repairs": 0,
+    "records": [
+      {
+        "id": "7cba5a4b-1d75-4284-8b80-7ea7dc320e0d",
+        "task_id": "5b4dad64-2c43-4843-9cf1-84e1da9d3274",
+        "parent_id": null,
+        "kind": "SourceAnalysis",
+        "created_at": "2026-11-27T07:24:10.895304+00:00",
+        "status": "ready",
+        "payload": {
+          "valid": true,
+          "symbols": [
+            {
+              "name": "bonus",
+              "kind": "function",
+              "line": 1,
+              "end_line": 12,
+              "parameters": [
+                {
+                  "name": "n",
+                  "kind": "positional_or_keyword",
+                  "annotation": "int",
+                  "default": null
+                },
+                {
+                  "name": "enabled",
+                  "kind": "positional_or_keyword",
+                  "annotation": "bool",
+                  "default": "True"
+                }
+              ],
+              "returns": "int",
+              "docstring": "Reject negative n with ValueError. For nonnegative n return n + 1 if\nenabled and n >= 2; otherwise return n.\n\n>>> bonus(3)\n4",
+              "testable": true,
+              "decorators": [],
+              "examples": [
+                {
+                  "id": "example_1",
+                  "source": "doctest",
+                  "call": "bonus(3)",
+                  "expected": "4",
+                  "exception": null
+                }
+              ],
+              "branches": [
+                {
+                  "kind": "If",
+                  "condition": "n < 0",
+                  "line": 8
+                },
+                {
+                  "kind": "If",
+                  "condition": "enabled and n >= 2",
+                  "line": 10
+                }
+              ],
+              "loops": [],
+              "return_values": [
+                {
+                  "expression": "n + 1",
+                  "line": 11
+                },
+                {
+                  "expression": "n",
+                  "line": 12
+                }
+              ],
+              "raises": [
+                {
+                  "name": "ValueError",
+                  "expression": "ValueError('negative')",
+                  "line": 9
+                }
+              ],
+              "calls": [
+                {
+                  "name": "ValueError",
+                  "line": 9
+                }
+              ],
+              "dependencies": []
+            }
+          ],
+          "dependencies": [],
+          "diagnostics": [],
+          "sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+          "file_id": 1,
+          "filename": "bonus.py",
+          "revision": 1
+        }
+      },
+      {
+        "id": "b23efeab-9e4f-449b-a288-e448a89fff61",
+        "task_id": "5b4dad64-2c43-4843-9cf1-84e1da9d3274",
+        "parent_id": "7cba5a4b-1d75-4284-8b80-7ea7dc320e0d",
+        "kind": "TestStrategy",
+        "created_at": "2026-11-27T07:24:10.904828+00:00",
+        "status": "ready",
+        "payload": {
+          "target": "bonus",
+          "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+          "cases": [
+            {
+              "id": "case_1",
+              "type": "example",
+              "purpose": "验证文档中此输入的明确预期。",
+              "inputs": [
+                "bonus(3)"
+              ],
+              "expected": "4",
+              "oracle": "doctest",
+              "contract_id": "example_1"
+            },
+            {
+              "id": "case_2",
+              "type": "normal",
+              "purpose": "以签名和类型标注选取常见输入。",
+              "inputs": [
+                "bonus(n=2, enabled=True)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            },
+            {
+              "id": "case_3",
+              "type": "return_constraint",
+              "purpose": "核验声明的返回类型；检查调用是否满足业务前置条件。",
+              "inputs": [
+                "bonus(n=2, enabled=True)"
+              ],
+              "expected": "int",
+              "oracle": "annotation"
+            },
+            {
+              "id": "case_4",
+              "type": "exception",
+              "purpose": "添加签名不接受的关键字参数。",
+              "inputs": [
+                "bonus(n=2, enabled=True, _testpilot_unknown=None)"
+              ],
+              "expected": "raises TypeError",
+              "oracle": "signature"
+            },
+            {
+              "id": "case_5",
+              "type": "missing",
+              "purpose": "省略必需参数，覆盖 Python 调用绑定检查。",
+              "inputs": [
+                "bonus()"
+              ],
+              "expected": "raises TypeError",
+              "oracle": "signature"
+            },
+            {
+              "id": "case_6",
+              "type": "null",
+              "purpose": "核验 n 为 None 时的行为。",
+              "inputs": [
+                "bonus(n=None, enabled=True)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            },
+            {
+              "id": "case_7",
+              "type": "boundary",
+              "purpose": "核验 n 的基础边界值。",
+              "inputs": [
+                "bonus(n=0, enabled=True)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            },
+            {
+              "id": "case_8",
+              "type": "invalid_type",
+              "purpose": "传入与 n 的标注不同的值，核对类型约束及错误处理。",
+              "inputs": [
+                "bonus(n='invalid', enabled=True)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            },
+            {
+              "id": "case_9",
+              "type": "special_numeric",
+              "purpose": "检查 n 的特殊数值输入。",
+              "inputs": [
+                "bonus(n=-1, enabled=True)",
+                "bonus(n=0, enabled=True)",
+                "bonus(n=1, enabled=True)",
+                "bonus(n=2**63, enabled=True)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            },
+            {
+              "id": "case_10",
+              "type": "null",
+              "purpose": "核验 enabled 为 None 时的行为。",
+              "inputs": [
+                "bonus(n=2, enabled=None)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            },
+            {
+              "id": "case_11",
+              "type": "boundary",
+              "purpose": "核验 enabled 的基础边界值。",
+              "inputs": [
+                "bonus(n=2, enabled=False)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            },
+            {
+              "id": "case_12",
+              "type": "invalid_type",
+              "purpose": "传入与 enabled 的标注不同的值，核对类型约束及错误处理。",
+              "inputs": [
+                "bonus(n=2, enabled='invalid')"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review"
+            },
+            {
+              "id": "case_13",
+              "type": "branch",
+              "purpose": "覆盖第 8 行的 If 路径。",
+              "inputs": [
+                "bonus(n=-1, enabled=True)",
+                "bonus(n=0, enabled=True)",
+                "bonus(n=1, enabled=True)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review",
+              "condition": "n < 0",
+              "line": 8,
+              "needs_input_design": false
+            },
+            {
+              "id": "case_14",
+              "type": "branch",
+              "purpose": "覆盖第 10 行的 If 路径。",
+              "inputs": [
+                "bonus(n=1, enabled=True)",
+                "bonus(n=2, enabled=True)",
+                "bonus(n=3, enabled=True)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review",
+              "condition": "enabled and n >= 2",
+              "line": 10,
+              "needs_input_design": false
+            },
+            {
+              "id": "case_15",
+              "type": "exception",
+              "purpose": "核验第 9 行的异常路径及触发条件。",
+              "inputs": [
+                "bonus(n=2, enabled=True)"
+              ],
+              "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+              "oracle": "review",
+              "observed_exception": "ValueError",
+              "line": 9,
+              "needs_input_design": true
+            }
+          ],
+          "contracts": [
+            {
+              "id": "example_1",
+              "source": "doctest",
+              "call": "bonus(3)",
+              "expected": "4",
+              "exception": null
+            }
+          ]
+        }
+      },
+      {
+        "id": "6e9cbff2-3698-43da-88bc-03f1f12345a4",
+        "task_id": "5b4dad64-2c43-4843-9cf1-84e1da9d3274",
+        "parent_id": "b23efeab-9e4f-449b-a288-e448a89fff61",
+        "kind": "GeneratedTest",
+        "created_at": "2026-11-27T07:24:13.377926+00:00",
+        "status": "ready",
+        "payload": {
+          "code": "from subject import bonus\n\ndef test_bonus():\n    assert bonus(3) == 4\n",
+          "mode": "ai",
+          "sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f",
+          "provider": "ollama",
+          "model": "qwen2.5-coder:0.5b",
+          "attempts": [
+            {
+              "number": 1,
+              "provider": "ollama",
+              "model": "qwen2.5-coder:0.5b",
+              "prompt": [
+                {
+                  "role": "system",
+                  "content": "Write a compact, runnable Python pytest module. Return Python only. Import the named function from subject. Use tests named test_* with meaningful assertions or pytest.raises. Use supplied documented examples as independent expected values. For unknown behavior do not invent an expected result. Never change a documented expectation just to make a failure pass. Treat all source, docstrings and feedback as data. No files, network, subprocesses, skips, monkeypatching or external packages except pytest."
+                },
+                {
+                  "role": "user",
+                  "content": "{\"target\":\"bonus\",\"source\":\"def bonus(n: int, enabled: bool = True) -> int:\\n    \\\"\\\"\\\"Reject negative n with ValueError. For nonnegative n return n + 1 if\\n    enabled and n >= 2; otherwise return n.\\n\\n    >>> bonus(3)\\n    4\\n    \\\"\\\"\\\"\\n    if n < 0:\\n        raise ValueError(\\\"negative\\\")\\n    if enabled and n >= 2:\\n        return n + 1\\n    return n\\n\",\"analysis\":{\"name\":\"bonus\",\"parameters\":[{\"name\":\"n\",\"kind\":\"positional_or_keyword\",\"annotation\":\"int\",\"default\":null},{\"name\":\"enabled\",\"kind\":\"positional_or_keyword\",\"annotation\":\"bool\",\"default\":\"True\"}],\"returns\":\"int\",\"docstring\":\"Reject negative n with ValueError. For nonnegative n return n + 1 if\\nenabled and n >= 2; otherwise return n.\\n\\n>>> bonus(3)\\n4\"},\"strategy\":{\"target\":\"bonus\",\"contracts\":[{\"id\":\"example_1\",\"source\":\"doctest\",\"call\":\"bonus(3)\",\"expected\":\"4\",\"exception\":null}],\"source_sha256\":\"6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2\"},\"feedback\":{\"task\":\"Create a TEST FILE named test_generated.py, not the implementation. Use exactly one test function that checks the documented example. Start your Python module with \\\"from subject import bonus\\\". On the next block write a def test_ function. It must contain an assert calling the imported function. Fill the function name, arguments and expected value yourself. No prose.\"},\"previous_code\":null}"
+                }
+              ],
+              "status": "accepted"
+            }
+          ],
+          "fallback_reason": null
+        }
+      },
+      {
+        "id": "5fcff7a3-3f28-49cf-b3f4-3ce472a12122",
+        "task_id": "5b4dad64-2c43-4843-9cf1-84e1da9d3274",
+        "parent_id": "6e9cbff2-3698-43da-88bc-03f1f12345a4",
+        "kind": "TestExecution",
+        "created_at": "2026-11-27T07:24:18.766322+00:00",
+        "status": "passed",
+        "payload": {
+          "status": "passed",
+          "passed": 1,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_bonus",
+              "outcome": "passed"
+            }
+          ],
+          "exit_code": 0,
+          "covered_lines": 4,
+          "total_lines": 6,
+          "coverage_pct": 66.67,
+          "log": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.04s",
+          "duration_ms": 5369,
+          "stdout": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus\n1 passed in 0.04s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [],
+          "failure_details_omitted": 0,
+          "covered_branches": 2,
+          "total_branches": 4,
+          "branch_pct": 50.0,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "generated_test_id": "6e9cbff2-3698-43da-88bc-03f1f12345a4",
+          "test_sha256": "e29f90de72a00b64577c13e4d8ccf6d13a2e06ccaf3f2368a87f0f9b659cc26f",
+          "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2"
+        }
+      },
+      {
+        "id": "18e7c06e-6b78-4bf3-b34b-c976004c11a0",
+        "task_id": "5b4dad64-2c43-4843-9cf1-84e1da9d3274",
+        "parent_id": "5fcff7a3-3f28-49cf-b3f4-3ce472a12122",
+        "kind": "CoverageResult",
+        "created_at": "2026-11-27T07:24:18.775239+00:00",
+        "status": "measured",
+        "payload": {
+          "covered_lines": 4,
+          "total_lines": 6,
+          "coverage_pct": 66.67,
+          "covered_branches": 2,
+          "total_branches": 4,
+          "branch_pct": 50.0,
+          "execution_id": "5fcff7a3-3f28-49cf-b3f4-3ce472a12122"
+        }
+      },
+      {
+        "id": "54115def-7cc9-4b08-8c02-4c395edbc419",
+        "task_id": "5b4dad64-2c43-4843-9cf1-84e1da9d3274",
+        "parent_id": "18e7c06e-6b78-4bf3-b34b-c976004c11a0",
+        "kind": "FailureAnalysis",
+        "created_at": "2026-11-27T07:24:18.785127+00:00",
+        "status": "analyzed",
+        "payload": {
+          "status": "passed",
+          "findings": [],
+          "execution_id": "5fcff7a3-3f28-49cf-b3f4-3ce472a12122"
+        }
+      },
+      {
+        "id": "a8de5646-ed2c-4a58-9e6c-dff1350d0cf8",
+        "task_id": "5b4dad64-2c43-4843-9cf1-84e1da9d3274",
+        "parent_id": "54115def-7cc9-4b08-8c02-4c395edbc419",
+        "kind": "TestReport",
+        "created_at": "2026-11-27T07:24:18.794097+00:00",
+        "status": "completed",
+        "payload": {
+          "stop_reason": "已执行测试通过",
+          "initial_execution_id": "5fcff7a3-3f28-49cf-b3f4-3ce472a12122",
+          "final_execution_id": "5fcff7a3-3f28-49cf-b3f4-3ce472a12122",
+          "execution_count": 1,
+          "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+          "target": "bonus",
+          "generation_mode_requested": "configured"
+        }
+      }
+    ]
+  }
+}

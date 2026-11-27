@@ -1,0 +1,4 @@
+baseline suite template d90aecfce2fb6cef5a077380253ef77dfa1ebfaf72775ac3a14537f119c430e1 before {'killed': 4, 'survived': 3, 'timeout': 0, 'execution_error': 2, 'cancelled': 0, 'unrun': 0, 'total': 9, 'equivalent_candidates': 0, 'score_pct': 44.44}
+local feedback completed generated qwen2.5-coder:0.5b 本机模型提出补测输入及预期；效果由隔离重跑判定 after {'killed': 5, 'survived': 2, 'timeout': 0, 'execution_error': 2, 'cancelled': 0, 'unrun': 0, 'total': 9, 'equivalent_candidates': 0, 'score_pct': 55.56}
+.
+1 passed in 130.02s (0:02:10)

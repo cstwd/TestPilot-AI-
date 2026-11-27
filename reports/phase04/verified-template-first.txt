@@ -1,0 +1,15 @@
+Session 596884a8-df7f-48e3-ae7e-9d7beb6b1301 feedback_rejected task e9034690-6967-4f4d-83d9-c8ebcde71a34 initial template
+Feedback rejected qwen2.5-coder:0.5b 4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09
+Accepted by original baseline: None rejected: None
+before baseline passed: 4
+  L8:8 n < 0 -> not (n < 0): execution_error test_generated.py::test_boundary_return_contract, test_generated.py::test_example_1, test_generated.py::test_normal_return_contract
+  L8:10 < -> <=: execution_error test_generated.py::test_boundary_return_contract
+  L9:9 raise ValueError("negative") -> pass: survived 
+  L10:8 enabled and n >= 2 -> not (enabled and n >= 2): killed test_generated.py::test_example_1
+  L10:16 and -> or: survived 
+  L10:22 >= -> >: survived 
+  L11:9 return n + 1 -> return None: killed test_generated.py::test_example_1, test_generated.py::test_normal_return_contract
+  L11:18 + -> -: killed test_generated.py::test_example_1
+  L12:5 return n -> return None: killed test_generated.py::test_boundary_return_contract
+  full denominator 9 score 44.44 verified
+after no valid original baseline

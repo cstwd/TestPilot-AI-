@@ -1,0 +1,2 @@
+campaign 738e2c7c-b6ca-485f-ac4b-df1165cff925
+complete feedback_baseline_failed 原始源码未通过补测验证，可查阅实际输出 before {'killed': 3, 'survived': 5, 'timeout': 0, 'execution_error': 1, 'cancelled': 0, 'unrun': 0, 'total': 9, 'equivalent_candidates': 0, 'score_pct': 33.33} after None seconds 68.84

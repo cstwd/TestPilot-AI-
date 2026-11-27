@@ -1,0 +1,15 @@
+Session 738e2c7c-b6ca-485f-ac4b-df1165cff925 feedback_baseline_failed task 5b4dad64-2c43-4843-9cf1-84e1da9d3274 initial ai
+Feedback generated qwen2.5-coder:0.5b 4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09
+Accepted by original baseline: None rejected: None
+before baseline passed: 1
+  L8:8 n < 0 -> not (n < 0): execution_error test_generated.py::test_bonus
+  L8:10 < -> <=: survived 
+  L9:9 raise ValueError("negative") -> pass: survived 
+  L10:8 enabled and n >= 2 -> not (enabled and n >= 2): killed test_generated.py::test_bonus
+  L10:16 and -> or: survived 
+  L10:22 >= -> >: survived 
+  L11:9 return n + 1 -> return None: killed test_generated.py::test_bonus
+  L11:18 + -> -: killed test_generated.py::test_bonus
+  L12:5 return n -> return None: survived 
+  full denominator 9 score 33.33 verified
+after no valid original baseline

@@ -1,0 +1,3 @@
+F09 1d4cabe3-74dc-437e-96a8-3656aad75cd6 ai qwen2.5-coder:0.5b passed 1
+F13 27ac7d81-cc78-4ce5-9759-49d4db310213
+completed {'killed': 3, 'survived': 5, 'timeout': 0, 'execution_error': 1, 'cancelled': 0, 'unrun': 0, 'total': 9, 'equivalent_candidates': 0, 'score_pct': 33.33} {'killed': 4, 'survived': 4, 'timeout': 0, 'execution_error': 1, 'cancelled': 0, 'unrun': 0, 'total': 9, 'equivalent_candidates': 0, 'score_pct': 44.44}
