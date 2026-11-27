@@ -1,0 +1,16 @@
+<section>
+  <h2>选择质量报告</h2>
+  <label>项目运行<select id="report-history"></select></label>
+</section>
+<section id="report" hidden>
+  <div class="panel-title"><h2>运行评估</h2><a id="export-report" download>下载 JSON 报告</a></div>
+  <p id="report-origin" class="hint"></p>
+  <dl id="report-quality" class="readout"></dl>
+  <p id="assessment"></p>
+  <p id="report-coverage" class="hint"></p>
+  <p id="metric-notes" class="hint"></p>
+  <p><a id="report-run">查看执行日志与用例</a></p>
+  <details><summary>来源与版本摘要</summary><pre id="report-hashes"></pre></details>
+  <h3>关联缺陷</h3>
+  <div class="records" id="report-bugs"></div>
+</section>

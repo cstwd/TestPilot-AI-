@@ -42,6 +42,7 @@ def read_cases(payload, report):
     ):
         raise ValueError("覆盖率计数异常")
     report.update(cases=cases, covered_lines=covered, total_lines=total,
+                  environment=payload.get("environment"),
                   coverage_pct=round(100 * covered / total, 2) if total else None, **counts)
 
 

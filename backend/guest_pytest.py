@@ -44,6 +44,8 @@ def main():
     except (coverage.exceptions.CoverageException, SyntaxError) as exc:
         print(f"Coverage unavailable: {exc}", file=sys.stderr)
     print("\nTESTPILOT_RESULT " + json.dumps({
+        "environment": {"platform": sys.platform, "python": sys.version.split()[0],
+                        "pytest": pytest.__version__, "coverage": coverage.__version__},
         "cases": [{"nodeid": name, "outcome": outcome} for name, outcome in cases.outcomes.items()],
         "covered_lines": covered, "total_lines": total,
     }), flush=True)

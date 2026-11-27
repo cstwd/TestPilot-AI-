@@ -1,6 +1,7 @@
 """Browser checks for the actual workbench, started through main.py."""
 import os
 import sys
+import json
 
 import pytest
 from playwright.sync_api import expect, sync_playwright
@@ -105,3 +106,19 @@ def test_f05(page):
     page.locator("#original-run").click()
     expect(page.locator("#run-identity")).to_contain_text(f"运行 #{failed['id']} · 套件 #{suite} · {filename} v1")
     expect(page.locator("#run-summary")).to_contain_text("失败")
+
+
+def test_f06(page):
+    project, file, suite = prepare_suite(page, "报告验收")
+    run = page.request.post(f"/api/suites/{suite}/runs", data={"file_id": file}, timeout=120_000).json()
+    assert run["status"] == "passed", run
+    page.goto(f"/workbench/reports?project={project}&file={file}&run={run['id']}")
+    expect(page.locator("#report-origin")).to_contain_text("sample.py v1")
+    data = page.request.get(f"/api/runs/{run['id']}/report").json()
+    expect(page.locator("#report-hashes")).to_contain_text(data["source"]["sha256"])
+    expect(page.locator("#report-quality")).to_contain_text(str(data["quality"]["passed"]))
+    with page.expect_download() as downloading:
+        page.get_by_role("link", name="下载 JSON 报告").click()
+    download = downloading.value
+    assert download.suggested_filename.endswith(".json")
+    assert json.loads(download.path().read_text(encoding="utf-8-sig")) == data
