@@ -11,7 +11,9 @@
 | 自动化、属性、E2E、差分与 AI 评测 | [测试原件入口](../04_TESTING_EVIDENCE/README.md) · [CI 验收](../07_FINAL_REPORT/historical/reports/TP_COURSE_CI_ACCEPTANCE.md) | 同时保留真实失败、复验和冻结评测协议。 |
 | 两份工程 Bug，至少一份 AI 引入 | [模型参数形状](../04_TESTING_EVIDENCE/BUG_CASES/collab-log/bugs/TP-MODEL-SCHEMA.md) · [F13 定位](../04_TESTING_EVIDENCE/BUG_CASES/collab-log/bugs/TP-F13-IS-NOT.md) · [八步复验](../07_FINAL_REPORT/historical/reports/TP_COURSE_BUG_ARCHIVE_AUDIT.md) | 原现象、假设时点、复现、根因、修复、回归逐项可查。 |
 | 五人日志、五岗分工与本人核证 | [协作总日志](../03_TEAM_COLLABORATION/raw/collab-log/LOG.md) · [五个工作包与个人原日志](../03_TEAM_COLLABORATION/WP01-WP05/) · [本人确认单](../03_TEAM_COLLABORATION/MEMBER_CONFIRMATION/) | 按本人、岗位与 Codex 实际执行三类身份核对。 |
-| 汇报与最终提交 | [15 页大纲](../06_PRESENTATION/PPT_OUTLINE.md) · [备用演示视频](../06_PRESENTATION/assets/presentation/TestPilot_AI_备用演示.mp4) · [演示手册](../06_PRESENTATION/DEMO_RUNBOOK.md) | 教师图 5 最终提交三类为仓库、日志、幻灯片。原有 8 页幻灯片位于仓库快照 presentation/，本次新增汇报材料为大纲。 |
+| 汇报与最终提交 | [15 页大纲](../06_PRESENTATION/PPT_OUTLINE.md) · [备用演示视频](../06_PRESENTATION/assets/presentation/TestPilot_AI_备用演示.mp4) · [演示手册](../06_PRESENTATION/DEMO_RUNBOOK.md) | 教师图 5 最终提交三类为仓库、日志、幻灯片。原有 8 页幻灯片位于仓库快照 presentation/，本次提交[正式 PPTX](../06_PRESENTATION/TestPilot_AI_正式汇报.pptx)、[PDF](../06_PRESENTATION/TestPilot_AI_正式汇报.pdf)、[逐页讲稿](../06_PRESENTATION/SPEAKER_NOTES.md)及[视觉设计](../06_PRESENTATION/VISUAL_DESIGN_SPEC.md)。 |
 | 评分与待确认 | [评分矩阵](SCORING_MATRIX.xlsx) · [64 项明细](../07_FINAL_REPORT/FINAL_ACCEPTANCE_MATRIX.xlsx) · [A–D 缺口](../07_FINAL_REPORT/GAP_REGISTER.md) | 基础满分 100，另加 5；教师核定答辩系数及实际成绩。 |
 
 **归档截止补充**　产品快照固定至 cf448f3。F05 专项 d8226c3（实现 b40b54e）有两次真实 Qwen 修复推理，原套件 #8 从 1 通过、2 失败、1 跳过变为 3 通过、0 失败、1 跳过。该专项独立于 Demo Lab 的课堂模板套件 #1 和 F03 冷启动试跑。cf448f3 五份周报的编排日期与实际证据时间分别保留。[F05 专项](../04_TESTING_EVIDENCE/F05_AI_REPAIR/reports/TP-F05-AI-REPAIR-001/TP_F05_AI_REPAIR_001_ACCEPTANCE.md) · [周报版日志](../03_TEAM_COLLABORATION/weekly/collab-log/members/)
+
+[本次材料制作任务书原文](TP-FINAL-DELIVERY-001_任务书原文.txt)由用户提供。教师课程原件为 originals 目录中的五张图片。

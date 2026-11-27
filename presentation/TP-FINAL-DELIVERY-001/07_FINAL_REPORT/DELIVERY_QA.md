@@ -1,11 +1,16 @@
-# 归档验收
+# 交付验收记录
 
-**材料范围**　按用户最后确认，PPT 交付物为 15 页大纲。本次综合整理保留教师原图、课程工程证据及历史原件。用户确认五张图已构成全部教师原件。
+WP02 / WP05；实际操作者 Codex。教师来源为用户确认的五张原图。材料核查保留历史二轮列及当前材料列。H01、H02、H04 补齐幻灯片与讲稿展示，H05 的现场环节仍待五人联排。
 
-**验收方法**　从课程终验提交逐行读取 64 项原判，重算四类数量。使用 openpyxl 重开两个工作簿，逐行检查历史与当前状态一致，并核对教师七个维度合计 100、额外 5 分。读取 ZIP 中产品快照的提交说明和全部条目，按 Git 树逐文件比对。按副本清单、教师图片回执、会话摘要和最终文件清单验证字节，对外层 ZIP 再次读取和校验 CRC 与 SHA-256。
+| 检查对象 | 验证方法 |
+|---|---|
+| 评分与证据 | 从 0d9e893 读取八份原件，重算 64 行历史分布；重开两份 XLSX，核对每项编号、变更的三行、七维满分及加分上限。 |
+| 放映与可编辑性 | 用本机 Microsoft PowerPoint 16.0 打开 PPTX，导出 PDF 与 15 张逐页 PNG；核对页面数量、宽高比、原生文本、演讲备注和图表内嵌工作簿。检查全页缩略图及六张技术重点页。 |
+| 数值和来源 | P07、P12 使用 Demo Lab 套件 #1；P08 使用专项套件 #8。P09 单独使用 geometry 的五个变异。P10 的四个检出计数与冻结 CSV、独立图表及原始评测相互核对。 |
+| 原件与归档 | 对 Git 副本、五张原图和十二条恢复消息验 SHA-256；逐个核对仓库快照中的 Git blob。在本机 Edge 逐一打开 19 份独立 SVG，检查每段文字的包围盒均位于 1280 × 720 画布内；解析 PNG、JSON 与导航链接，对最终 ZIP 再读 CRC、文件名、字节及摘要。 |
 
-**独立复核**　testpilot_reviewer 按仓库只读角色核对了三条版本线、教师五图、原始 109 份副本、模型成功与失败范围、模板来源和 unit_scaling 的同套件身份。此次范围更新后的原始文件总数及打包实测值由最终校验脚本记录。历史原件内保留原始仓库相对链接；顶层阅读入口与教师逐项索引指向包内材料。
+独立 Reviewer 查验了演示内容、备注和运行证据，指出 P07 的模板与 P08 的模型修复需要分开操作。本版已单列手册入口与版本，注明归档编号只适用于历史数据库副本。现场操作与签收保留在[缺口记录](GAP_REGISTER.md)。
 
-**执行范围**　操作者 Codex，Windows。既有产品测试沿用原报告，不重复运行已通过的测试。现场模型成功、异机冷启动、成员本人核证及交接均保留待办。详细实际机器校验输出见 [验收回执](verification.json)。
+[PowerPoint 边界测量](powerpoint-qa.json) · [逐页预览](previews/) · [机器校验回执](verification.json) · [文件指纹](FILE_MANIFEST.csv) · [原始副本来源](COPIED_EVIDENCE.csv)
 
-**重查**　在仓库根执行 `python -X utf8 presentation/TP-FINAL-DELIVERY-001/source/verify_package.py`，使用带 openpyxl 的 Python。查阅 [文件清单](FILE_MANIFEST.csv)、[副本与提交对应](COPIED_EVIDENCE.csv)。
+复查命令为 `python -X utf8 presentation/TP-FINAL-DELIVERY-001/source/verify_package.py`。Python 环境使用 python-pptx、Pillow、pypdf 与 openpyxl。

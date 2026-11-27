@@ -15,7 +15,7 @@ from openpyxl import load_workbook
 
 pack=Path(__file__).resolve().parents[1]
 repo=pack.parents[1]
-distribution=pack.with_suffix(".zip")
+distribution=pack.with_name(pack.name+"_完整汇报包.zip")
 manifest=pack/"07_FINAL_REPORT/FILE_MANIFEST.csv"
 report=pack/"07_FINAL_REPORT/verification.json"
 def sha(b):
@@ -45,6 +45,60 @@ def tracked_snapshot():
             assert blob_sha(archive.read(item))==expected[item.filename], item.filename
     return len(expected)
 
+def check_slides():
+    from io import BytesIO
+    from pptx import Presentation
+    from pypdf import PdfReader
+
+    folder=pack/"06_PRESENTATION"
+    ppt=folder/"TestPilot_AI_正式汇报.pptx"
+    deck=Presentation(ppt)
+    pdf=PdfReader(folder/"TestPilot_AI_正式汇报.pdf")
+    seeds=json.loads(read("source/slides.json"))
+    cues=json.loads(read("source/stage-cues.json"))
+    qa=json.loads(read("07_FINAL_REPORT/powerpoint-qa.json"))
+    assert qa["slides"]==len(deck.slides)==len(pdf.pages)==len(seeds)==len(cues)==15
+    assert qa["renderer"]=="Microsoft PowerPoint" and qa["overflow_candidates"]==[]
+    assert abs(deck.slide_width/deck.slide_height-16/9)<0.001
+    notes=read("06_PRESENTATION/SPEAKER_NOTES.md").decode()
+    design=read("06_PRESENTATION/VISUAL_DESIGN_SPEC.md").decode()
+    texts=[]
+    for index,(slide,page,seed,cue) in enumerate(zip(deck.slides,pdf.pages,seeds,cues),1):
+        raw=" ".join(shape.text for shape in slide.shapes if shape.has_text_frame)
+        texts.append(raw)
+        assert seed[0] in raw and seed[0] in design and seed[0] in notes, index
+        assert cue["action"] in slide.notes_slide.notes_text_frame.text and cue["action"] in notes,index
+        assert (folder/cue["evidence"]).is_file(),cue
+        assert abs(float(page.mediabox.width)/float(page.mediabox.height)-16/9)<0.001
+        flattened=lambda value: "".join(value.split())
+        assert flattened(seed[0]) in flattened(page.extract_text()),index
+        with Image.open(pack/f"07_FINAL_REPORT/previews/P{index:02}.png") as preview:
+            assert preview.size==(1280,720)
+    raw_dir=pack/"04_TESTING_EVIDENCE/F05_AI_REPAIR/reports/TP-F05-AI-REPAIR-001"
+    original=json.loads((raw_dir/"original.json").read_bytes())
+    repair=json.loads((raw_dir/"repair.json").read_bytes())
+    fixed=json.loads((raw_dir/"run.json").read_bytes())
+    assert original["run"]["suite_id"]==repair["suite_id"]==8
+    assert original["run"]["id"]==repair["original_run_id"]==12 and repair["applied_file_id"]==17
+    for result in (original["run"]["result"],fixed):
+        assert f"{result['passed']} 通过     {result['failed']} 失败     {result['skipped']} 跳过" in texts[7]
+    chart=next(shape.chart for shape in deck.slides[9].shapes if shape.has_chart)
+    values=[int(row[3]) for row in rows("05_DEMO_ASSETS/charts/frozen-evaluation.csv")[1:]]
+    assert list(chart.series[0].values)==values==[0,81,104,105]
+    with ZipFile(ppt) as archive:
+        embedded=next(n for n in archive.namelist() if n.startswith("ppt/embeddings/") and n.endswith(".xlsx"))
+        book=load_workbook(BytesIO(archive.read(embedded)),read_only=True)
+        assert [r[1] for r in list(book.active.values)[1:]]==values
+        book.close()
+    for suffix in (".pptx",".pdf"):
+        old="presentation/TestPilot_AI_课程汇报"+suffix
+        assert git("show","039b14d:"+old)==(repo/old).read_bytes()
+    return dict(pptx_slides=15,pdf_pages=15,notes_and_stage_cues=15,editable_chart_values=values,
+                office_renderer=qa["renderer"],text_overflow=len(qa["overflow_candidates"]),
+                independent_svg_assets=len(list((pack/"05_DEMO_ASSETS").rglob("*.svg"))),
+                original_deck_and_pdf_preserved=True)
+
+
 def check():
     copied=rows("07_FINAL_REPORT/COPIED_EVIDENCE.csv")[1:]
     gitrefs=[f"{rev}:{path}" for dest,rev,path,digest in copied]
@@ -53,6 +107,7 @@ def check():
     for (dest,_,_,digest),obj in zip(copied,batch):
         b=read(dest)
         assert sha(b)==digest and blob_sha(b)==obj.decode(),dest
+    assert sha(read("01_TEACHER_REQUIREMENTS/TP-FINAL-DELIVERY-001_任务书原文.txt"))=="48be991eba76cf7fbc2f75eae8fb3596b77fbd774dd4b0057466424ca143a771"
     teacher=json.loads(read("01_TEACHER_REQUIREMENTS/originals/SHA256.json"))["images"]
     assert len(teacher)==5
     for i,item in enumerate(teacher,1):
@@ -65,9 +120,12 @@ def check():
     w=load_workbook(pack/"07_FINAL_REPORT/FINAL_ACCEPTANCE_MATRIX.xlsx",read_only=True)
     data=list(w.worksheets[0].values)[1:]
     assert len(data)==len({row[0] for row in data})==64
-    assert all(row[4]==row[5] for row in data)
+    historical=dict(Counter(row[4] for row in data))
+    assert historical=={"PASS":44,"PARTIAL":17,"MISSING":1,"UNVERIFIED":2}
+    assert {r[0] for r in data if r[4]!=r[5]}=={"H01","H02","H04"}
+    assert all(r[4:6]==("PARTIAL","PASS") for r in data if r[4]!=r[5])
     tally=dict(Counter(row[5] for row in data))
-    assert tally=={"PASS":44,"PARTIAL":17,"MISSING":1,"UNVERIFIED":2}
+    assert tally=={"PASS":47,"PARTIAL":14,"MISSING":1,"UNVERIFIED":2}
     w.close()
     w=load_workbook(pack/"01_TEACHER_REQUIREMENTS/SCORING_MATRIX.xlsx",read_only=True)
     scores=[w.worksheets[0].cell(i,4).value for i in range(2,10)]
@@ -76,7 +134,7 @@ def check():
     outline=read("06_PRESENTATION/PPT_OUTLINE.md").decode()
     assert len(re.findall(r"^## P\d\d",outline,re.M))==15
     assert sum(map(int,re.findall(r"· (\d+) 秒\*\*",outline)))==775
-    assert not any(pack.rglob("*.pptx")) and not any(pack.rglob("*.pdf"))
+    slide_checks=check_slides()
     for f in pack.rglob("*.png"):
         with Image.open(f) as img:
             img.verify()
@@ -94,7 +152,7 @@ def check():
             file=t.split("#")[0]
             assert (f.parent/file).exists(),f"{f.name} => {file}"
             links+=1
-    return dict(snapshot="cf448f3",repository_snapshot_files=tracked_snapshot(),audit_commit="0d9e893",git_blob_copies=len(copied),teacher_original_images=5,course_checkpoints=tally,base_points=sum(scores[:7]),bonus_cap=scores[7],work_packages=5,archived_log_entries=49,original_prompt_coverage_at_audit="48/49",additional_original_messages=len(msgs),outline_pages=15,suggested_seconds=775,local_navigation_links_checked=links)
+    return dict(snapshot="cf448f3",repository_snapshot_files=tracked_snapshot(),audit_commit="0d9e893",git_blob_copies=len(copied),teacher_original_images=5,historical_course_checkpoints=historical,current_material_checkpoints=tally,presentation=slide_checks,base_points=sum(scores[:7]),bonus_cap=scores[7],work_packages=5,archived_log_entries=49,original_prompt_coverage_at_audit="48/49",additional_original_messages=len(msgs),outline_pages=15,suggested_seconds=775,local_navigation_links_checked=links)
 
 def paths():
     return sorted((f for f in pack.rglob("*") if f.is_file()),key=lambda f:f.relative_to(pack).as_posix())

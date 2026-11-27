@@ -12,3 +12,16 @@
 | 项目成果与分工 | [历史 64 项统计](charts/15-outcomes.svg) | [五个工作包](architecture/14-team.svg) |
 
 图片中的视口、样本和运行 ID 按各自原始证据解读。F04 独立截图与 unit_scaling 浏览器回执对应不同运行。公开合同流程与 AI 历史路径见[操作手册](../06_PRESENTATION/DEMO_RUNBOOK.md)。
+
+## 十二项核心图表
+
+| 任务书素材 | 可单独打开的图 |
+|---|---|
+| 1 系统架构、2 功能模块 | [技术分层](architecture/04-system.svg) · [七项功能](architecture/03-feature-map.svg) |
+| 3 智能测试流程、4 AST 与图谱 | [业务交接与证据](workflow/02-manual-and-workbench.svg) · [源码与图谱关系](architecture/05-ast-relations.svg) |
+| 5 AI 生成、6 执行与结果分析 | [生成和静态检查](workflow/06-ai-generation.svg) · [失败记录的形成](workflow/07-execution-flow.svg) |
+| 7 修复前后、8 变异原理 | [真实 Qwen 修复与原套件回归](workflow/08-regression.svg) · [原版与变异如何比较](workflow/09-mutation-principle.svg) |
+| 9 自动化 CI、10 五岗协作 | [托管 CI](workflow/10-ci.svg) · [WP01–WP05](architecture/14-team.svg) |
+| 11 成果统计、12 完整闭环 | [按同一清单比较四组检出](charts/10-offline.svg) · [从导入到质量报告](workflow/12-closed-loop.svg) |
+
+统计输入为归档 JSON 和 CSV。[幻灯片与截图排版源码](../source/build_deck.py)与[独立 SVG 绘图源码](../source/build_figures.py)随包保留。P08 的原始证据包括[模型修复预览](../04_TESTING_EVIDENCE/F05_AI_REPAIR/reports/TP-F05-AI-REPAIR-001/preview.png)与[原套件回归截图](../04_TESTING_EVIDENCE/F05_AI_REPAIR/reports/TP-F05-AI-REPAIR-001/regression.png)。

@@ -4,11 +4,32 @@
   "audit_commit": "0d9e893",
   "git_blob_copies": 138,
   "teacher_original_images": 5,
-  "course_checkpoints": {
+  "historical_course_checkpoints": {
     "PASS": 44,
     "PARTIAL": 17,
     "UNVERIFIED": 2,
     "MISSING": 1
+  },
+  "current_material_checkpoints": {
+    "PASS": 47,
+    "PARTIAL": 14,
+    "UNVERIFIED": 2,
+    "MISSING": 1
+  },
+  "presentation": {
+    "pptx_slides": 15,
+    "pdf_pages": 15,
+    "notes_and_stage_cues": 15,
+    "editable_chart_values": [
+      0,
+      81,
+      104,
+      105
+    ],
+    "office_renderer": "Microsoft PowerPoint",
+    "text_overflow": 0,
+    "independent_svg_assets": 19,
+    "original_deck_and_pdf_preserved": true
   },
   "base_points": 100,
   "bonus_cap": 5,
@@ -18,5 +39,5 @@
   "additional_original_messages": 12,
   "outline_pages": 15,
   "suggested_seconds": 775,
-  "local_navigation_links_checked": 248
+  "local_navigation_links_checked": 327
 }

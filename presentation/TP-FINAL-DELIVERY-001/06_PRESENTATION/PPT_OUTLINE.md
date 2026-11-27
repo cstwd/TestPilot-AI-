@@ -46,11 +46,9 @@
 
 ## P08　用同一套件验证 unit_scaling 修复
 
-**马雪朋 · 65 秒**　公开合同要求 1250 米等于 1.25 千米。v1 整除给出 1。Demo Lab 导入已归档的修复参考版，v2 改用真除法。两个运行仍指向 suite #1，原失败节点通过并关闭缺陷。AI 建议是产品的另一种能力，这条现场路径使用参考修复。
+**马雪朋 · 65 秒**　这次我们打开项目 7 的单位换算缺陷。原套件有两项失败。Qwen 根据失败信息提出把整除改为真除法。操作者在浏览器核对差异并点击应用，系统创建文件 17。继续选原套件 8 运行回归，三项通过，零失败；同一项属性测试因 WASI 缺少 Hypothesis 继续跳过。原套件主要检查返回类型，另有四个独立数值用例验证换算结果。
 
-材料　[PHASE-07 Edge d564ee8f · execution #1 / regression #2](../04_TESTING_EVIDENCE/MUTATION_TESTING/reports/phase07/edge-run.json)
-
-补充案例　[独立 F05 真实 Qwen 修复](../04_TESTING_EVIDENCE/F05_AI_REPAIR/reports/TP-F05-AI-REPAIR-001/TP_F05_AI_REPAIR_001_ACCEPTANCE.md)。选择缺陷，点击「AI 分析并生成修复」，审阅并应用候选，再运行原套件 #8。归档回归 #14 为 3 通过、1 跳过，和 Demo Lab 模板套件 #1 分开讲解。
+材料　[F05 专项 d8226c3 · 原套件 #8 · 原始 #12 / 回归 #14](../04_TESTING_EVIDENCE/F05_AI_REPAIR/reports/TP-F05-AI-REPAIR-001/TP_F05_AI_REPAIR_001_ACCEPTANCE.md)
 
 ## P09　5 个变异中有 1 个存活
 
@@ -76,9 +74,9 @@
 
 材料　[PHASE-07 Edge d564ee8f · 报告中心与 F06 导出](../04_TESTING_EVIDENCE/MUTATION_TESTING/reports/phase07/edge-run.json)
 
-## P13　把关键工程约束做成可复验工具
+## P13　六项技术如何让测试结果可以复核
 
-**王选中 · 55 秒**　verify 和 testpilot-workflow 两项 Skill 固定验证步骤；MCP 两个只读工具服务结构化查证；pre-commit 确定性检查暂存差异；Reviewer 独立发现评测来源缺口。原生 Goal 根据一次失败改用冻结数据漂移检查，最后完成。
+**王选中 · 55 秒**　图谱把方法定位回源码，套件保存生成来源，WASI 留下运行日志。同一套件能比较修复效果，存活变异揭示测试盲区，质量报告可以按运行编号重读。开发时，两项 Skill 固定工作步骤，只读 MCP 查询证据，Hook 检查提交。独立 Reviewer 指出评测校验缺口，Goal 接受失败反馈后改用种子漂移检查，修正后完成。
 
 材料　[course-final/TOOLCHAIN.md · CI 独立复核 · Goal 原回执](../07_FINAL_REPORT/historical/reports/TP_COURSE_LOOP_EVIDENCE.md)
 

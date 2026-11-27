@@ -53,12 +53,12 @@ area = {
 }
 updates = {
     "A01":("PASS","原图 1 已按原始字节恢复并复核。",""),
-    "H01":("PARTIAL","大纲 P01–P04、P12、P14 已列选题、用户、架构与验收。","仅验收到大纲，讲解待联排。"),
-    "H02":("PARTIAL","大纲 P13 列出两项 Skills、MCP、Hook、Reviewer 和实际 Goal。","按大纲实际讲解待核。"),
-    "H04":("PARTIAL","大纲 P11、P14、P15 已关联两案、五岗与日志。","实际答辩及个人反思讲解待核。"),
+    "H01":("PASS","正式幻灯片与讲稿 P01–P04、P12、P14 交代用户、问题、架构和可观测验收。","课堂实际讲解见 H05。"),
+    "H02":("PASS","P13 及演讲备注覆盖两项 Skills、MCP、Hook、Reviewer 和有失败反馈的 Goal；对应回执入包。","实际讲解待联排。"),
+    "H04":("PASS","P11 双案与 P14 五岗各有证据，逐页讲稿和五份岗位日志提供复盘材料。","个人答辩、本人反思与签收待核。"),
     "H05":("PARTIAL","本轮附五人建议分段、现场操作和备份视频。","全员联排、答辩及现场模型通过待核。"),
     "R01":("PASS","用户确认五张图即完整教师原件。五份 SHA-256 全部匹配，重新核对 100 分、+5 和选做项。",""),
-    "R03":("PASS","已打包仓库快照、个人日志及新大纲，仓库快照保留既有课程汇报。","组长按教师提交渠道递交。"),
+    "R03":("PASS","已打包仓库快照、个人日志及可编辑正式幻灯片，仓库快照保留既有课程汇报。","组长按教师提交渠道递交。"),
     "G03":("PARTIAL","历史 PHASE-06 AI HTTP 200；PHASE-07 单样本触发 2 GiB 资源保护。","在满足资源条件的答辩机上单样本复验。"),
     "G08":("PARTIAL","PHASE-07 最近展示验证仍无 AI 套件或 WASI 执行，保留失败报告。","在答辩机上用原守卫复验。"),
 }
@@ -247,7 +247,7 @@ totals_by_status=[(x,Counter(r[3] for r in previous)[x],current[x]) for x in ("P
 summ=[("0d9e893 历史课程终验","64 项课程核查","历史课程报告 NOT_READY"),
  ("039b14d 本机产品证据","PHASE-07 真实 Edge 和本机回归","独立于托管 CI"),
  ("000a19c 托管 CI",CI_RUN,"168 Pytest、3 Node、8 Demo Lab 评分；成功"),
- ("本轮课程材料复核","新增逐页汇报大纲；维持历史课程核查状态","本人核证、关键历史 /export、异机与联排仍待办")]
+ ("本轮课程材料复核","新增正式汇报与讲稿，H01、H02、H04 的材料覆盖更新为 PASS","本人核证、关键历史 /export、异机与联排仍待办")]
 workbook("01_TEACHER_REQUIREMENTS/SCORING_MATRIX.xlsx",[("教师评分",overview_headers,scoring+totals,width),
  ("使用说明",["项目","判读"],[("来源","教师原图 3 满分，原图 4 红蓝标注确定必做与可选。"),
    ("状态","证据覆盖状态。无自评得分。"),("个人系数","教师根据答辩个人讲解核定，范围 0.8–1.2。")],[25,76])])
@@ -269,7 +269,7 @@ def local_evidence_links(match):
 md_rows=["| "+" | ".join(map(cell,(ident,cat,std,hist,now," ".join((old_obs,new_obs,evidence)),remain)))+" |"
          for ident,cat,std,_,hist,now,old_obs,new_obs,evidence,remain in detail]
 save("01_TEACHER_REQUIREMENTS/REQUIREMENT_EVIDENCE_MAP.md","# 教师要求、产品与证据对照\n\n"
-     "64 个核查点沿用整改矩阵，第 H 组对应本包逐页大纲与历史幻灯片。E 编号由证据索引定位；历史报告链接以原提交路径解释。\n\n"
+     "64 个核查点沿用整改矩阵，第 H 组对应本包正式幻灯片、逐页讲稿及现场演示手册。E 编号由证据索引定位；历史报告链接以原提交路径解释。\n\n"
      "[历史矩阵](../07_FINAL_REPORT/historical/reports/TP_COURSE_REMEDIATION_MATRIX.md) · "
      "[E 证据与功能索引](../04_TESTING_EVIDENCE/README.md) · [本轮验收表](../07_FINAL_REPORT/FINAL_ACCEPTANCE_MATRIX.xlsx)\n\n"+
      head+"\n"+re.sub(r"\[([^\]]+)\]\(([^)]+)\)",local_evidence_links,"\n".join(md_rows))+"\n")

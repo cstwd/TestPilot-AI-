@@ -1,6 +1,6 @@
 # 教师要求、产品与证据对照
 
-64 个核查点沿用整改矩阵，第 H 组对应本包逐页大纲与历史幻灯片。E 编号由证据索引定位；历史报告链接以原提交路径解释。
+64 个核查点沿用整改矩阵，第 H 组对应本包正式幻灯片、逐页讲稿及现场演示手册。E 编号由证据索引定位；历史报告链接以原提交路径解释。
 
 [历史矩阵](../07_FINAL_REPORT/historical/reports/TP_COURSE_REMEDIATION_MATRIX.md) · [E 证据与功能索引](../04_TESTING_EVIDENCE/README.md) · [本轮验收表](../07_FINAL_REPORT/FINAL_ACCEPTANCE_MATRIX.xlsx)
 
@@ -56,17 +56,17 @@
 | G07 | 产品结果 | F13 确实运行变异、评分和导出 | PASS | PASS | 本轮短场景真实 WASI 两个变异杀死 2/2；历史模型补测 4/9→7/9 仍可作为原回执。  [现场](../07_FINAL_REPORT/historical/reports/TP_COURSE_DEMO_ACCEPTANCE.md) · E17 |  |
 | G08 | 产品结果 | 本地模型能调用并可独立部署和现场演示 | PARTIAL | PARTIAL | 真实守卫在物理内存 0.685 GiB 时停止独立模型。退出后资源恢复，12 个 Provider 替身测试通过。当前成功加载待核。 PHASE-07 最近展示验证仍无 AI 套件或 WASI 执行，保留失败报告。 [现场](../07_FINAL_REPORT/historical/reports/TP_COURSE_DEMO_ACCEPTANCE.md) | 在答辩机上用原守卫复验。 |
 | G09 | 产品结果 | 区分实际功能、模板及模拟数据 | PASS | PASS | 核心 API 真实联通，Dashboard 固定自检和错误注入有标记，常规生成入口的 AI 标题与模板模式需讲清  E12 E13 E25 |  |
-| H01 | 汇报与答辩 | 汇报选题、需求功能、验收和架构 | PARTIAL | PARTIAL | PPT 第 1–4 页覆盖标题、业务架构和一个验收；用户、访谈和判据未成节 大纲 P01–P04、P12、P14 已列选题、用户、架构与验收。 E02 E22 | 仅验收到大纲，讲解待联排。 |
-| H02 | 汇报与答辩 | 汇报 Skills、MCP、Hook、Subagent、Loop | PARTIAL | PARTIAL | 工具可引用，PPT 无逐项展示，指定 Loop 案缺回执 大纲 P13 列出两项 Skills、MCP、Hook、Reviewer 和实际 Goal。 E08–E10 E22 E23 | 按大纲实际讲解待核。 |
+| H01 | 汇报与答辩 | 汇报选题、需求功能、验收和架构 | PARTIAL | PASS | PPT 第 1–4 页覆盖标题、业务架构和一个验收；用户、访谈和判据未成节 正式幻灯片与讲稿 P01–P04、P12、P14 交代用户、问题、架构和可观测验收。 E02 E22 | 课堂实际讲解见 H05。 |
+| H02 | 汇报与答辩 | 汇报 Skills、MCP、Hook、Subagent、Loop | PARTIAL | PASS | 工具可引用，PPT 无逐项展示，指定 Loop 案缺回执 P13 及演讲备注覆盖两项 Skills、MCP、Hook、Reviewer 和有失败反馈的 Goal；对应回执入包。 E08–E10 E22 E23 | 实际讲解待联排。 |
 | H03 | 汇报与答辩 | 汇报自动化、AI 离线评测与 Mutation Testing | PASS | PASS | 第 5–8 页有阶段对照、模型分数、变异和回归概览  E11 E15 E17 E22 |  |
-| H04 | 汇报与答辩 | 汇报两 Bug、五人协作、总结反思 | PARTIAL | PARTIAL | PPT 有业务样本和五人分配，两工程 Bug、贡献凭据和反思未成节 大纲 P11、P14、P15 已关联两案、五岗与日志。 E18 E19 E22 | 实际答辩及个人反思讲解待核。 |
+| H04 | 汇报与答辩 | 汇报两 Bug、五人协作、总结反思 | PARTIAL | PASS | PPT 有业务样本和五人分配，两工程 Bug、贡献凭据和反思未成节 P11 双案与 P14 五岗各有证据，逐页讲稿和五份岗位日志提供复盘材料。 E18 E19 E22 | 个人答辩、本人反思与签收待核。 |
 | H05 | 汇报与答辩 | 现场流程、备份及每人可讲真实内容 | PARTIAL | PARTIAL | 实际模板缺陷回归及 F13 可以现场，五人讲解主题可追溯。现场 27B 和全员联排未完成。 本轮附五人建议分段、现场操作和备份视频。 [现场](../07_FINAL_REPORT/historical/reports/TP_COURSE_DEMO_ACCEPTANCE.md) · [协作](../07_FINAL_REPORT/historical/reports/TP_COURSE_COLLAB_ACCEPTANCE.md) | 全员联排、答辩及现场模型通过待核。 |
 | I01 | 可选加分 | Skills 独立打包供他人复用 | PARTIAL | PARTIAL | 仓库定义可复用；未找到发布包与外部安装证明  E06 E08 | 见历史观察及待确认清单 |
 | I02 | 可选加分 | 交叉红队交换代码并植入 3 Bug | MISSING | MISSING | 图 5 明确交叉红队为选做加分，需两组交换、三处植入及漏检记录。暂无真实跨组回执。  教师图 5 · E06 | 见历史观察及待确认清单 |
 | I03 | 可选加分 | 自建 MCP Server | PASS | PASS | 自建 stdio Server、协议成功交易及只读证据齐  E09 E10 |  |
 | R01 | 课程来源及专项复核 | 按教师图逐项确定课程分值、项目选题及可选项 | PASS | PASS | 七项共 100 分，加分 +5；扩展/测试/Loop 蓝框标为可选。自拟题满足范围。 用户确认五张图即完整教师原件。五份 SHA-256 全部匹配，重新核对 100 分、+5 和选做项。 [来源](../07_FINAL_REPORT/historical/reports/TP_COURSE_REMEDIATION_REPORT.md) |  |
 | R02 | 课程来源及专项复核 | 定义阶段红框四项 | PASS | PASS | 选题与五岗、AI 访谈/SPEC、AGENTS 初版演化、技术选型及单服务均可核对。  E02/E03/E04/E12 |  |
-| R03 | 课程来源及专项复核 | 仓库、日志、幻灯片三类最终交付材料 | PASS | PASS | 私有仓库有隔离整改分支，工作包日志可读，正式已有 PPTX 继续作为交付材料。教师收件另由课程方处理。 已打包仓库快照、个人日志及新大纲，仓库快照保留既有课程汇报。 [最终验收](../07_FINAL_REPORT/historical/reports/TP_COURSE_FINAL_ACCEPTANCE.md) · E19/E22 | 组长按教师提交渠道递交。 |
+| R03 | 课程来源及专项复核 | 仓库、日志、幻灯片三类最终交付材料 | PASS | PASS | 私有仓库有隔离整改分支，工作包日志可读，正式已有 PPTX 继续作为交付材料。教师收件另由课程方处理。 已打包仓库快照、个人日志及可编辑正式幻灯片，仓库快照保留既有课程汇报。 [最终验收](../07_FINAL_REPORT/historical/reports/TP_COURSE_FINAL_ACCEPTANCE.md) · E19/E22 | 组长按教师提交渠道递交。 |
 | R04 | 课程来源及专项复核 | 教师按个人答辩讲解核定贡献系数 0.8–1.2 | UNVERIFIED | UNVERIFIED | 五岗各 20% 是课程分工，答辩实际系数尚未发生。  教师图 3 · [协作验收](../07_FINAL_REPORT/historical/reports/TP_COURSE_COLLAB_ACCEPTANCE.md) | 见历史观察及待确认清单 |
 | R05 | 课程来源及专项复核 | 冻结数据与正式业务源码的完整性 | PASS | PASS | 原始 Phase 05 清单、源码和报告与历史 SHA 无差异。产品和原测试未纳入并行 Phase 07，冻结身份和指标变更拒绝已实测。  [CI 验收](../07_FINAL_REPORT/historical/reports/TP_COURSE_CI_ACCEPTANCE.md) |  |
 | R06 | 课程来源及专项复核 | 资源守卫和模板备份的受控小规模实测 | PASS | PASS | 本机真实触发既有守卫、专用进程退出，执行了同版本模板修复回归和短 F13。真实模型通过另见 G08。  [现场](../07_FINAL_REPORT/historical/reports/TP_COURSE_DEMO_ACCEPTANCE.md) |  |

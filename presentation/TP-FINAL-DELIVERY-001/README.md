@@ -1,13 +1,15 @@
 # TestPilot AI 课程最终汇报包
 
-**课程材料归档完成。** 教师五张原图、评分与证据对照、可提取的产品仓库快照、成员日志、真实测试回执和汇报大纲均在本包。
+**课堂放映**　[正式 PPTX，可编辑](06_PRESENTATION/TestPilot_AI_正式汇报.pptx) · [同版 PDF](06_PRESENTATION/TestPilot_AI_正式汇报.pdf) · [逐页讲稿](06_PRESENTATION/SPEAKER_NOTES.md)
+
+教师五张原图、评分与证据对照、产品仓库快照、五人日志、测试回执和两段备用视频均已归档。
 
 **按教师要求逐项查找**　[提交材料索引](01_TEACHER_REQUIREMENTS/SUBMISSION_INDEX.md)
 
 | 课堂任务 | 打开的材料 |
 |---|---|
 | 检查产品仓库 | [cf448f3 仓库快照 ZIP](02_PROJECT_DOCUMENTS/repository/TestPilot-AI_cf448f3.zip) · [提交与版本说明](07_FINAL_REPORT/BASELINES.md) |
-| 讲解及联排 | [15 页 PPT 大纲与时长](06_PRESENTATION/PPT_OUTLINE.md) · [现场操作手册](06_PRESENTATION/DEMO_RUNBOOK.md) · [技术问答](06_PRESENTATION/TECHNICAL_QA.md) |
+| 讲解及联排 | [15 页 PPT 大纲与时长](06_PRESENTATION/PPT_OUTLINE.md) · [逐页视觉设计](06_PRESENTATION/VISUAL_DESIGN_SPEC.md) · [现场操作手册](06_PRESENTATION/DEMO_RUNBOOK.md) · [技术问答](06_PRESENTATION/TECHNICAL_QA.md) |
 | 备用演示 | [真实工作台 MP4](06_PRESENTATION/assets/presentation/TestPilot_AI_备用演示.mp4) · [AST 动画实录](06_PRESENTATION/assets/reports/WP03-AST-VISUAL-REFINE-001/video/analysis-session.mp4) |
 | 核对课程要求 | [教师要求与五张原图](01_TEACHER_REQUIREMENTS/TEACHER_REQUIREMENTS.md) · [评分矩阵](01_TEACHER_REQUIREMENTS/SCORING_MATRIX.xlsx) · [逐项证据](01_TEACHER_REQUIREMENTS/REQUIREMENT_EVIDENCE_MAP.md) |
 | 核对技术成果 | [规格](02_PROJECT_DOCUMENTS/FUNCTIONAL_SPECIFICATION.md) · [真实架构](02_PROJECT_DOCUMENTS/SYSTEM_ARCHITECTURE.md) · [原始测试、AI 和 CI](04_TESTING_EVIDENCE/README.md) |
