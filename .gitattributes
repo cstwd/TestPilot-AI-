@@ -1,4 +1,5 @@
 * text=auto
 transcripts/original-main.py.txt -text whitespace=cr-at-eol
+reports/TP-COURSE-REMEDIATION-001/ci-github/** -text -diff
 hooks/pre-commit text eol=lf
 reports/course-final/*.txt text whitespace=-blank-at-eol

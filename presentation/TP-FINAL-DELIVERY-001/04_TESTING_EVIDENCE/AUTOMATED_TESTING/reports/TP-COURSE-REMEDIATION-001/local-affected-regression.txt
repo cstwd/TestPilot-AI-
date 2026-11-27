@@ -1,4 +1,0 @@
-$ python -m pytest -q tests/test_bug_intelligence.py::test_issue_diff_and_real_regression_history tests/test_course_toolchain.py::test_mcp_reads_real_testpilot_run tests/test_execution_center.py::test_execution_history_log_and_case_handoff
-...                                                                      [100%]
-3 passed in 67.96s (0:01:07)
-exit=0

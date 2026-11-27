@@ -1,0 +1,2 @@
+# Keep verbatim source material and its provenance index byte-identical.
+raw/** -text -diff whitespace=cr-at-eol

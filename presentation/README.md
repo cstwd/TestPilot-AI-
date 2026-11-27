@@ -1,17 +1,7 @@
-# TestPilot AI 课程展示
+# TestPilot AI 正式汇报
 
-[可编辑 PPTX](TestPilot_AI_课程汇报.pptx) · [PDF 预览](TestPilot_AI_课程汇报.pdf) · [备用演示 MP4](TestPilot_AI_备用演示.mp4) · [变异检出率图](../reports/phase05/mutation-score.png)
+[正式可编辑 PPTX](TestPilot_AI_正式汇报.pptx) · [PDF](TestPilot_AI_正式汇报.pdf) · [逐页讲稿](SPEAKER_NOTES.md) · [演示手册](DEMO_RUNBOOK.md) · [备用演示 MP4](TestPilot_AI_备用演示.mp4)
 
-现场演示用 PyCharm Run 启动根入口，依次导入 `eval/phase02/buggy/magnitude.py` 和 `eval/phase02/fixed/magnitude.py`。在缺陷版分析函数并生成套件，从失败节点登记缺陷，然后在修复版运行原套件，查看 F06 报告并导出。F13 点击智能引擎任务的“评估变异测试与补测”。备用视频将同一流程的实测页面配字幕串联，最后回放真实本机模型健康响应。
+15 页汇报覆盖需求、产品闭环、两份实际缺陷、工程工具、评测及五人分工。现场建议演示 Demo Lab 的 `unit_scaling`，再用已归档的同套件回归说明 F05 与 F13。59 秒备用视频演示 `magnitude` 的同套件回归流程。[讲解大纲](PPT_OUTLINE.md) · [技术问答](TECHNICAL_QA.md) · [历史 PowerPoint 验证](POWERPOINT_QA.json)
 
-| 步骤 | 截图 |
-|---|---|
-| 首页 | [启动仪表盘](screenshots/00-dashboard.png) |
-| F01 / F02 | [文件版本](screenshots/01-project.png) · [AST](screenshots/02-ast.png) |
-| F03 / F04 | [生成套件](screenshots/03-suite.png) · [实际失败](screenshots/04-execution.png) |
-| F05 / F06 | [缺陷回归](screenshots/05-regression.png) · [质量报告](screenshots/06-quality.png) |
-| F13 与模型 | [变异执行](screenshots/07-mutation.png) · [27B 健康响应](screenshots/08-model.png) |
-
-复建截图执行 `python -m pytest -q -s presentation/capture_demo.py`。PPT 源码为 [build_deck.mjs](build_deck.mjs)。设 `TESTPILOT_ARTIFACT_RUNTIME` 为含 `@oai/artifact-tool` 的 Codex 运行时 dependencies 目录，设 `TESTPILOT_PRESENTATIONS_SKILL` 为 Presentations 技能目录，用 Node 执行。列图数据取自冻结评测摘要并嵌入可编辑工作簿。MP4 复建用带 Pillow 的 Python 与 FFmpeg 执行 [build_demo_video.py](build_demo_video.py)。
-
-[当前 Edge 实测](../reports/course-final/demo.txt) · [导出 JSON](../reports/course-final/demo-quality.json) · [变异 JSON](../reports/course-final/demo-mutation.json) · [PHASE-06 本机接口返回](../reports/course-final/model-health.json) · [PPTX 结构](../reports/course-final/pptx-integrity.json) · [视频信息](../reports/course-final/video-probe.json)
+本版 PPTX、PDF 和视频沿用已交付成品的字节。正式汇报按历史版本讲解时以页内标注的提交和运行 ID 为准。现场新运行会产生自己的 ID。制作脚本、工作图、历史课件和两个交付压缩包可从 Git 提交 `0633984` 或本机归档查找。[归档及恢复方式](../docs/GIT_CLEANUP_REPORT.md)

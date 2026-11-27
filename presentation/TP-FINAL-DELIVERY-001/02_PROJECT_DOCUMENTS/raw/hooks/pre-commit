@@ -1,4 +1,0 @@
-#!/bin/sh
-set -eu
-echo "TestPilot WP05: checking staged whitespace and conflict markers" >&2
-git diff --cached --check

@@ -8,4 +8,6 @@
 | Hook | 以 `git -c core.hooksPath=hooks` 启用单条命令，或由维护人选择在本仓库设置 `git config core.hooksPath hooks`。只检查暂存差异，失败阻止提交。在临时 Git 仓库实际触发坏文件拒绝与修正后的成功。[脚本](../../hooks/pre-commit) · [输出](toolchain.txt) |
 | Reviewer | Codex 独立子代理按 [角色定义](../../.claude/agents/testpilot-reviewer.md) 阅读、复现、结构化报告，无写入操作。[独立审查](REVIEWER.md) |
 
+MCP 让客户端通过 `tools/list` 发现结构化工具和参数契约，通过同一 stdio 会话调用并读取机器可判读的结果。教学演示可直接验证工具发现、参数拒绝和只读证据查询。单独包装 CLI 需要调用方自行维护这些发现与结果约定。
+
 本次两个 Skill 由 Codex 显式读入并执行。MCP 测试使用协议客户端真实启动本机 Server，读一条 WASI 通过记录并确认数据库字节未改变。Claude CLI 已识别项目 MCP 配置，客户端首次信任仍待确认。[定义校验](skill-definitions.txt) · [Claude 项目发现](claude-mcp-discovery.txt)

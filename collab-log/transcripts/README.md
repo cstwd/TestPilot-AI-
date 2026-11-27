@@ -10,6 +10,8 @@
 
 ## 现有历史证据与待补范围
 
+[Codex 原文总索引](../../transcripts/README.md)包含六组阶段原始 Prompt 与关键输出、两份单独恢复的 Prompt，并保留各文件的来源。
+
 | 阶段 | 历史材料 | Git / Bug | /export 状态 |
 |---|---|---|---|
 | 需求分析 | [三问访谈](../../transcripts/requirements-interview.md) | `be2813f`，规格 | Codex 摘录，缺对应 /export。 |

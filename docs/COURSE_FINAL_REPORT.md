@@ -28,7 +28,7 @@ PHASE-06 独立阶段报告记录了 148 项回归通过、源码理解 67/70，
 - PHASE-04 历史 146 项整体回归，F13 模块 47 项通过。PHASE-05 的变异定向 8 项通过，文件逐项保留。课程轮在主线使用 Edge、FastAPI 与 WASI 复验 F01–F06、真实缺陷回归、质量 JSON 导出和 F13 完整报告。
 - 最新的模型、属性、变异和冻结清单定向测试 39 项通过。Hypothesis 生成 40 个宿主 AST 参数及行号示例，同时检查序列化。工程工具 2 项通过，MCP 实际返回项目和 WASI 运行，Git Hook 实际拒绝错误提交并通过修正提交。
 - 最终 PHASE-06 合并后，F13 真实 WASI 和 Edge 端到端定向回归 3 项通过。[合并后 F13](../reports/course-final/phase06-merge-f13.txt)
-- 初次整套测试发现 MCP 测试库命名与标准配置不符，157 项通过、1 项失败。测试库按真实入口命名后，MCP 和 Hook 定向复验通过。[首轮输出](../reports/course-final/verify-full.txt) · [修复复验](../reports/course-final/toolchain.txt)
+- 初次整套测试发现 MCP 测试库命名与标准配置不符，157 项通过、1 项失败。测试库按真实入口命名后，MCP 和 Hook 定向复验通过。首轮输出见 `git show 0633984:reports/course-final/verify-full.txt` · [修复复验](../reports/course-final/toolchain.txt)
 - 15 份历史任务及阶段摘录、20 条分类协作记录、3 份重点 Bug 档案、工程工具及复核记录已纳入课程索引。可编辑 PPTX 提供 8 页，另有 PDF 预览、9 张真实页面／记录截图和 59 秒备用视频。
 
 主线模型健康复验先跟随独立阶段工作树的守护进程，实际返回 503。稍后在隔离目录启动专用 Ollama 和根入口，使用同一份已校验权重。在当前模型 Provider 上实际收到 HTTP 200、Vulkan 为 true、GPU 分配约 9.70 GiB。结束后用该实例的 STOP 文件关闭守护，应用进程与临时库随测试释放。[初次响应](../reports/course-final/model-main-check.json) · [主线成功响应](../reports/course-final/model-main-live.json)

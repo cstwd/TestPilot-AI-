@@ -1,0 +1,33 @@
+# Git 仓库精简与归档报告
+
+2026-11-27 · TP-COURSE-REPOSITORY-001 · WP05。负责人王选中，实际操作者 Codex，组长陈帅廷协调签收。
+
+## 基线与历史
+
+| 版本 | 确认结论 |
+|---|---|
+| `0633984` | 开工 HEAD，当前课程分支的完整交付节点。 |
+| `e4e1fe9` | 当前历史包含的旧最终验收提交。运行范围固定在当时的工程基线。 |
+| `6480e27` | 当前历史包含的五份个人日志恢复。后续 `cf448f3` 整理为 49 条。 |
+| `8038be2 → 097358b → 4b1b574` | AGENTS 从初始化单服务约定，演进到模块验收和课程工程规则。运行 `git log --oneline -- AGENTS.md` 和 `git show <提交>:AGENTS.md` 可逐版核对。 |
+| `3a5d597` | 开工本地 main，比 origin/main 多 63 个提交，为课程候选的祖先。 |
+| `0d9e893` | 开工远程同名整改分支。与 `0633984` 各有 9 个独有提交。历史 CI 回执与两份 Prompt 来自这条支线。 |
+| `894e7d4`、`93f7a18` | 只读远程查询确认 origin/main、origin/develop 当时的头部。远程与本地均未列出标签。 |
+
+Git 继续保留 PHASE-05/06/07、F05 与 CRUD 的分支及工作树。当前课程工作在 `codex/tp-course-remediation-001`。工程 CI 独立提交 `71bfd9a`，将配置恢复到成功回执的等字节版本。详情见[最终审计](COURSE_REPOSITORY_AUDIT.md)。
+
+## 仓库外原件
+
+归档目录为 `D:\TestPilot AI Course Archive\2026-11-27-0633984`。复制阶段按相对路径保存 333 个文件，共 108,138,134 字节。[筛选矩阵](COURSE_REPOSITORY_FILE_MATRIX.md)说明处理范围。归档根目录的 `manifest.json` 记录每个文件的路径、大小和 SHA-256。三个历史 ZIP 均通过 CRC 全量读取。
+
+本轮撤下的旧交付与旧汇报选择涵盖 263 个工作树路径，共 103,639,453 字节。正式成品、原图和必要证据另移至教师入口对应目录。Office 锁仍可能由编辑器占用，原件在本机保留并从 Git 排除。对 263 项的撤下操作基于归档哈希。历史提交保留相同的版本化材料，因而历史 Git 对象仍含旧压缩包。
+
+在仓库根目录执行以下只读命令，可以定位历史文件：
+
+```powershell
+git ls-tree -r --name-only 0633984 -- presentation
+git log --oneline --all -- docs/SPEC.md AGENTS.md
+git show 0633984:reports/course-final/verify-full.txt
+```
+
+需要精确恢复旧版成套材料时，可在另一目录使用归档内的 `presentation/TP-FINAL-DELIVERY-001/` 或两个 ZIP。旧交付中的 64 项矩阵、构建源码、完整历史 CI 三轮及原报告仍在归档。该目录包含原历史锁和本机实验细项，教师通过当前仓库入口查看整理后的材料。

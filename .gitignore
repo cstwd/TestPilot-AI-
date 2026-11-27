@@ -8,6 +8,8 @@ __pycache__/
 htmlcov/
 data/
 .runtime/
+*.gguf
+*.safetensors
 *.sqlite3*
 *.db
 *.db-journal
@@ -47,3 +49,14 @@ private_data/
 *.sqlite-*
 .vscode/
 *.iml
+
+# Local reports and historical delivery copies kept outside the course tree.
+/reports/model/
+/reports/ci/
+/reports/TP-COURSE-REMEDIATION-001/member-verification.txt
+/presentation/TP-FINAL-DELIVERY-001/
+/presentation/TP-FINAL-DELIVERY-001*.zip
+/presentation/TestPilot_AI_课程汇报.*
+/presentation/screenshots/
+.~lock.*#
+~$*.pptx

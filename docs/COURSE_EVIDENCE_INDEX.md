@@ -1,5 +1,7 @@
 # TestPilot AI 课程成果索引
 
+[教师要求入口](COURSE_REQUIREMENTS_MAPPING.md) · [最新仓库审计](COURSE_REPOSITORY_AUDIT.md)
+
 | 交付 | 主要成果 | 实现及证据 |
 |---|---|---|
 | PHASE-01 | PyCharm Run/Debug、单服务、Dashboard 与固定自检 | `8038be2`, `88ebf23` · [阶段报告](../TP_PHASE_01_ACCEPTANCE.md) · [截图](../reports/dashboard.png) · [会话](../transcripts/TP-PHASE-01.md) |
@@ -37,5 +39,5 @@
 | `docs/`、`reports/` | 规格、工作包、历史验收、原始报告与课程验证 |
 | `collab-log/`、`transcripts/` | 工作记录、Bug 及原始会话摘录 |
 | `.claude/`、`.mcp.json`、`hooks/`、`mcp-server/` | Skills、Reviewer、MCP stdio、Git Hook 与校验入口 |
-| `presentation/` | 课程 PPT、备份视频和重建入口 |
+| `presentation/` | 正式课件、演示手册和备份视频 |
 | `.git/`、`.idea/`、`.venv/`、`.runtime/`、`data/` | Git 元数据、用户 IDE、本地解释器、模型／WASI 缓存和数据库。交付包按 Git 跟踪清单打包。 |
