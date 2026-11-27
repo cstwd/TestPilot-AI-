@@ -11,3 +11,9 @@
 | Git | `8aab4d6` 至 `8923f2c`，通过 `1acd2ff` 进入主线 |
 | 回归 | `python -m pytest tests/test_mutation_generator.py eval/phase05/test_manifest.py -q`，历史 8 项通过。旧 bonus 清单逐项相同。[原始记录](../../reports/phase05/raw/manifest-tests.txt) |
 | 沉淀 | 定位证据要同时复核运算符类型、文本回放和持久化 ID |
+
+## TP-COURSE-REMEDIATION-001 复验
+
+- 原开发同期初步假设缺失。阶段五会话摘录保留了修复和复验的通报。[阶段五 Prompt 与结果](../../transcripts/TP-PHASE-05.md)
+- 本轮在执行前写下 [复验假设](../../reports/TP-COURSE-REMEDIATION-001/bug-precheck.md)。对同一合成输入 `return value is None`，从 Git 读取并执行原受信工程实现 `5b757b9`，确实返回定位不一致错误；现行实现返回 start=end=33，插入 ` not` 后严格重放。
+- [执行回执](../../reports/TP-COURSE-REMEDIATION-001/bug-replay.json) 保存相同输入、观察和联合回归。当前 9 项中 8 项是变异及冻结清单相关，1 项是模型格式协议。
