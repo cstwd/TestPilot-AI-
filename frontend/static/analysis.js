@@ -151,6 +151,7 @@ function setupDialog($, options) {
       el("p", "", "点击节点查看定义。双击聚焦局部结构，点击画布空白处取消选择。拖动画布平移，使用滚轮或工具栏缩放。"),
       el("p", "", "按 / 搜索限定名；使用方向键选择，Enter 定位，Esc 关闭。Source 中点击行号可返回最内层定义。"),
       el("p", "", "图谱只展示包含关系。暂停、重播用于重看已返回的数据。"),
+      el("p", "", "控制台的“分析请求（浏览器端）”从发起分析 GET 计至浏览器读完响应并解析 JSON。服务端未单独返回 AST 解析耗时。"),
       links,
     ]);
   };
@@ -278,6 +279,7 @@ function setupTree($, graph, choose, allowed) {
         offset = Math.floor(index / pageSize) * pageSize;
         render(rows);
         row = $("symbols").querySelector(query);
+        row?.scrollIntoView({block:"nearest", inline:"nearest", container:"nearest"});
       }
       row?.setAttribute("aria-pressed","true");
     },
@@ -297,7 +299,11 @@ export async function showAnalysis({$, api, link, files, params, fileId, project
   const options = {labels:true, motion:!matchMedia("(prefers-reduced-motion: reduce)").matches, saved:false,
     update(key, value) {
       this[key] = value;
-      if (key === "labels") view?.setLabels(value); else view?.setMotion(value);
+      if (key === "labels") view?.setLabels(value);
+      else {
+        document.body.dataset.motion = value ? "on" : "off";
+        view?.setMotion(value);
+      }
     }};
   setupDialog($, options);
   function toggleInspector(open) {
@@ -339,6 +345,8 @@ export async function showAnalysis({$, api, link, files, params, fileId, project
   const base = "/api/files/" + fileId;
   const file = await api(base);
   if (String(file.project_id) !== projectId || String(file.id) !== fileId) throw new Error("文件与当前项目不匹配。");
+  const identity = file.filename + " · v" + file.revision;
+  $("analysis-meta").textContent = identity;
   const key = [projectId,fileId,file.revision,file.filename,file.sha256].join("/");
   let data = !force && snapshots().find(row => row?.key === key)?.data;
   let graph;
@@ -346,19 +354,18 @@ export async function showAnalysis({$, api, link, files, params, fileId, project
     try { graph = buildGraph(data, file); } catch { /* Rebuild from the authoritative endpoint. */ }
   }
   const cached = Boolean(graph);
-  let timing = "";
   if (!cached) {
-    status($,"分析请求中","loading","正在请求 " + file.filename + " · v" + file.revision + " 的 AST 分析…");
+    status($,"分析请求中","loading","正在请求 " + identity + " 的 AST 分析…");
+    showMessage($,"正在读取 AST 分析", identity + " · 等待分析接口返回。");
     const started = performance.now();
     data = await api(base + "/analysis");
-    timing = "分析请求往返 " + Math.round(performance.now() - started) + " ms";
+    const elapsedMs = Math.round(performance.now() - started);
+    $("ast-timing").textContent = "分析请求（浏览器端） " + elapsedMs + " ms";
+    $("ast-timing").title = "从发起分析 GET 到浏览器读取响应并解析 JSON";
     graph = buildGraph(data, file);
-  }
+  } else $("ast-timing").textContent = "已读取本机分析快照";
   options.saved = cached || saveSnapshot(key, data);
-  const identity = file.filename + " · v" + file.revision;
-  $("analysis-meta").textContent = identity;
   $("ast-refresh").disabled = false;
-  $("ast-timing").textContent = cached ? "已读取本机分析快照" : timing;
   $("symbol-count").textContent = data.symbols.length + " 个符号";
   if (!data.valid) {
     const error = data.error || {};

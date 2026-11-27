@@ -128,6 +128,10 @@ export function createInspector(container, graph, file, {onSelect}) {
   const tabBar = element("div", "ai-tabs");
   tabBar.setAttribute("role", "tablist");
   tabBar.setAttribute("aria-label", "节点检查器");
+  const identity = element("div", "ai-identity");
+  identity.hidden = true;
+  identity.setAttribute("aria-live", "polite");
+  identity.setAttribute("aria-atomic", "true");
   const panel = element("div", "ai-inspect-panel");
   panel.id = "ast-inspector-panel";
   panel.setAttribute("role", "tabpanel");
@@ -151,7 +155,7 @@ export function createInspector(container, graph, file, {onSelect}) {
     showTab(keys[next]);
     tabs.get(tab).focus();
   };
-  container.replaceChildren(tabBar, panel);
+  container.replaceChildren(tabBar, identity, panel);
 
   function heading(label, trailing = "") {
     const h = element("h3", "ai-section-heading", label);
@@ -166,12 +170,6 @@ export function createInspector(container, graph, file, {onSelect}) {
   function overview() {
     const node = current;
     const group = element("div", "ai-overview");
-    const identity = element("div", "ai-identity");
-    const summary = element("div");
-    summary.append(element("span", "ai-kind", TYPE_NAMES[node.type] + (node.kind === "async_function" ? " · async" : "")),
-      element("h3", "ai-node-name", node.name));
-    identity.append(typeMark(node), summary);
-    group.append(identity);
     if (node.signature) {
       const sig = element("pre", "ai-signature", node.signature);
       group.append(heading(node.type === "class" ? "类定义" : "函数签名"), sig);
@@ -325,7 +323,20 @@ export function createInspector(container, graph, file, {onSelect}) {
   }
 
   function select(id) {
-    current = byId.get(id) || null;
+    const next = byId.get(id) || null;
+    if (next !== current) {
+      identity.hidden = !next;
+      identity.toggleAttribute("data-switch", Boolean(current && next));
+      if (next) {
+        const summary = element("div");
+        const title = element("h3", "ai-node-name", next.qualified_name);
+        title.title = next.qualified_name;
+        summary.append(element("span", "ai-kind", TYPE_NAMES[next.type] + (next.kind === "async_function" ? " · async" : "")), title);
+        identity.replaceChildren(typeMark(next), summary);
+      } else identity.replaceChildren();
+      panel.scrollTop = 0;
+    }
+    current = next;
     focusedLine = current?.start_line || 1;
     pageStart = Math.floor((focusedLine - 1) / SOURCE_PAGE) * SOURCE_PAGE;
     render();

@@ -91,11 +91,15 @@
         <div class="pane-heading">{{ icon('panel') }}<h2>Inspector</h2>{{ tool('ast-inspector-close','x','收起 Inspector') }}</div><div id="inspector-body">选择节点以查看详情。</div>
       </aside>
     </div>
-    <section id="ast-console" class="console" aria-label="Analysis Console">
-      <div class="console-head">{{ icon('terminal') }}<h2>Analysis Console</h2><span id="ast-stage">SCANNING</span></div>
-      <p id="notice" role="status" aria-live="polite">正在读取项目与文件版本…</p>
-      <div class="console-strip"><span id="ast-stats">等待分析结果</span><span id="ast-timing"></span></div>
-    </section>
+    <details id="ast-console" class="console" open>
+      <summary id="ast-console-toggle" class="console-head" aria-controls="ast-console-body" title="展开或收起分析控制台">
+        {{ icon('terminal') }}<span class="console-title">Analysis Console</span><span id="ast-stage">SCANNING</span>{{ icon('down') }}
+      </summary>
+      <div id="ast-console-body">
+        <p id="notice" role="status" aria-live="polite">正在读取项目与文件版本…</p>
+        <div class="console-strip"><span id="ast-stats">等待分析结果</span><span id="ast-timing"></span></div>
+      </div>
+    </details>
   </main>
 </div>
 <noscript>请启用 JavaScript 查看 AST 图谱。</noscript>

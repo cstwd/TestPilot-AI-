@@ -42,15 +42,18 @@ export function createAnimation(onChange, invalidate, reducedMotion) {
       publish();
     },
     nodeFraction(order) {
-      return clamp((time - order * nodeSweep) / nodeFade);
+      const t = clamp((time - order * nodeSweep) / nodeFade);
+      return t * t * (3 - 2 * t);
     },
     edgeFraction(order) {
-      return clamp((time - edgeStart - order * edgeSweep) / edgeDraw);
+      const t = clamp((time - edgeStart - order * edgeSweep) / edgeDraw);
+      return t * t * (3 - 2 * t);
     },
     get inspectionPulse() {
       return time > inspectionStart && time < end
         ? Math.sin(Math.PI * (time - inspectionStart) / (end - inspectionStart)) : 0;
     },
+    get elapsed() { return time; },
     get active() { return !paused && time < end; },
     pause() {
       if (time >= end || paused) return;
