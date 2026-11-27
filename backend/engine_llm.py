@@ -8,8 +8,9 @@ import re
 from http.client import HTTPException
 from urllib.error import HTTPError, URLError
 from urllib.parse import urlsplit
-from urllib.request import HTTPRedirectHandler, ProxyHandler, Request, build_opener
+from urllib.request import ProxyHandler, Request, build_opener
 
+from . import local_ollama
 from .generation import TemplateAdapter, checked
 
 
@@ -25,19 +26,15 @@ PREFIX = "TESTPILOT_MODEL_"
 MAX_REPLY = 256 * 1024
 
 
-def prompt_context(url, provider, config, source, target, analysis, strategy, feedback, previous_code):
+def prompt_context(compact, source, target, analysis, strategy, feedback, previous_code):
     context = {"target": target, "source": source, "analysis": analysis, "strategy": strategy,
                "feedback": feedback, "previous_code": previous_code}
-    if (config.get("prompt_profile") != "local-compact" or provider != "ollama"
-            or feedback is not None or previous_code is not None or not strategy.get("contracts")):
+    contracts = strategy.get("contracts", [])
+    if (not compact or feedback is not None or previous_code is not None or len(contracts) != 1
+            or contracts[0].get("exception")):
         return context, "default"
-    host = urlsplit(url).hostname
-    try:
-        loopback = ipaddress.ip_address(host).is_loopback
-    except ValueError:
-        loopback = host == "localhost"
     symbol = next((s for s in analysis.get("symbols", []) if s.get("name") == target), None)
-    if not loopback or symbol is None:
+    if symbol is None:
         return context, "default"
     context.update(analysis={key: symbol[key] for key in ("name", "parameters", "returns", "docstring")},
                    strategy={key: strategy[key] for key in ("target", "contracts", "source_sha256")},
@@ -48,11 +45,6 @@ def prompt_context(url, provider, config, source, target, analysis, strategy, fe
                              'imported function. Fill the function name, arguments and expected value '
                              'yourself. No prose.'})
     return context, "local-compact"
-
-
-class NoRedirect(HTTPRedirectHandler):
-    def redirect_request(self, req, fp, code, msg, headers, newurl):
-        return None
 
 
 class GenerationFailure(ValueError):
@@ -92,7 +84,7 @@ def fetch_code(url, provider, model, key, timeout, messages):
         payload["options"] = {"temperature": 0, "num_predict": 2048}
     body = json.dumps(payload, ensure_ascii=False).encode("utf-8")
     request = Request(url, data=body, headers=headers)
-    client = build_opener(ProxyHandler({}), NoRedirect())
+    client = build_opener(ProxyHandler({}), local_ollama.NoRedirect())
     try:
         with client.open(request, timeout=timeout) as response:
             data = response.read(MAX_REPLY + 1)
@@ -169,7 +161,18 @@ def generate_tests(source, target, analysis, strategy, *, feedback=None, previou
         reason = "任务明确选择本地模板"
     elif provider and model:
         try:
-            url = endpoint(provider, config.get("base_url") or ("http://127.0.0.1:11434" if provider == "ollama" else ""))
+            base = config.get("base_url") or ("http://127.0.0.1:11434" if provider == "ollama" else "")
+            compact = config.get("prompt_profile") == "local-compact"
+            model_digest = None
+            if compact:
+                if provider != "ollama":
+                    raise ValueError("local-compact 需要经验证的本机 Ollama 模型")
+                base = local_ollama.local_base(base)
+                try:
+                    model, model_digest = local_ollama.choose_model(base, model)
+                except (OSError, HTTPException, KeyError, TypeError, AttributeError) as exc:
+                    raise ValueError("无法核验本机 Ollama 模型清单和 GGUF 元数据") from exc
+            url = endpoint(provider, base)
             try:
                 timeout = int(config["timeout"]) if config.get("timeout") is not None else 30
                 retries = int(config["retries"]) if config.get("retries") is not None else 1
@@ -177,8 +180,7 @@ def generate_tests(source, target, analysis, strategy, *, feedback=None, previou
                 raise ValueError("超时与重试须为整数") from exc
             if not 1 <= timeout <= 120 or not 0 <= retries <= 2:
                 raise ValueError("超时须为 1–120 秒，重试须为 0–2 次")
-            context, profile = prompt_context(url, provider, config, source, target, analysis, strategy,
-                                              feedback, previous_code)
+            context, profile = prompt_context(compact, source, target, analysis, strategy, feedback, previous_code)
             user = json.dumps(context, ensure_ascii=False, separators=(",", ":"))
             if len(user.encode("utf-8")) > 512 * 1024:
                 raise ValueError("模型输入超过 512 KiB")
@@ -188,6 +190,8 @@ def generate_tests(source, target, analysis, strategy, *, feedback=None, previou
             for index in range(1, retries + 2):
                 attempt = {"number": index, "provider": provider, "model": model, "prompt": list(messages),
                            "prompt_profile": profile}
+                if model_digest:
+                    attempt["local_model_digest"] = model_digest
                 attempts.append(attempt)
                 raw = ""
                 try:
