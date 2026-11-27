@@ -10,8 +10,8 @@
 | 马雪朋 | WP04 | 9 | d988ecc WASI、b6f4ef5 缺陷回归、5b757b9 变异。 | 当前档案待登记。 |
 | 王选中 | WP05 | 10 | 4b1b574 Agent 工具链、72a53b8 课程包、6480e27 日志归档。 | 当前档案待登记。 |
 
-`python hooks/verify_member_logs.py` 实际退出 0。证据、Git 引用和测试/验收各 49/49，原始 Prompt 46/49，本地链接共 617。三项不可定位为 WP02 第 10 条 WP09、WP03 第 11 条 Demo Lab、WP05 第 3 条首次 GitHub 发布。历史报告和上游 Prompt 仍可查。关键模型回复原文见阶段五和六原始工件，部分工程会话只有摘录；当前 /export 的范围见 [会话索引](../collab-log/transcripts/README.md)。
+`python hooks/verify_member_logs.py` 初次实测退出 0。证据、Git 引用和测试/验收各 49/49，原始 Prompt 从 46/49 提高到 48/49，恢复后复验退出 0、621 个本地链接。恢复的是 WP02 第 10 条 WP09 和 WP03 第 11 条 Demo Lab 的历史用户输入。WP05 第 3 条首次 GitHub 发布仍有历史报告和上游 Prompt，独立原始指令未定位。关键模型回复原文见阶段五和六原始工件，部分工程会话只有摘录。当前 /export 的范围见 [会话索引](../collab-log/transcripts/README.md)。
 
 按岗位记账，五人各有一条以上、全组达到八条。人工亲自操作、逐人签收和工作包课程责任分别登记。此次核对保持原 49 条的作者、责任和贡献比例，社交/签收没有代表成员办理。
 
-[原始校验输出](TP-COURSE-REMEDIATION-001/member-verification.txt) · [五人原日志](../collab-log/members/) · [贡献分配](../collab-log/member_contributions.md)
+[原始校验输出](TP-COURSE-REMEDIATION-001/member-verification.txt) · [原文恢复后复验](TP-COURSE-REMEDIATION-001/member-verification-recovered.txt) · [五人原日志](../collab-log/members/) · [贡献分配](../collab-log/member_contributions.md)

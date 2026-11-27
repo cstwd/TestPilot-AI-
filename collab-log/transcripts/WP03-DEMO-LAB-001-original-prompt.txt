@@ -1,0 +1,574 @@
+# TestPilot AI 大规模测试代码实验室建设任务
+
+## 一、任务目标
+
+请在现有 TestPilot AI 项目中，独立建设一个规模化、专业化、可持续扩展的 Python 测试代码库，作为 TestPilot AI 的官方演示数据集、功能验收数据集和 AI 测试能力评估数据集。
+
+项目位置：
+
+`D:\TestPilot AI`
+
+代码库位置：
+
+`D:\TestPilot AI\demo\TestPilot-Demo-Lab`
+
+本任务不是编写几个简单的教学例程，而是建设一套具有真实软件工程特点的测试样本库。
+
+核心目标：
+
+1. 提供大量正确实现的 Python 源码。
+2. 提供大量故意植入 Bug 的 Python 源码。
+3. 提供具有复杂边界条件和隐蔽逻辑错误的挑战样本。
+4. 让 TestPilot AI 自己分析源码、生成测试、执行测试和发现缺陷。
+5. 建立独立的标准答案库，用于验证 AI 是否真正发现了问题。
+6. 支持 F01、F02、F03、F04、F05、F06 和 F13 完整演示。
+7. 能够批量扩展样本，形成长期测试基准。
+
+直接执行建设，不要只提交计划或等待人工编写代码。
+
+---
+
+## 二、总体规模
+
+第一版目标建设 100 个独立 Python 源码模块。
+
+| 类型 | 数量 | 用途 |
+|---|---:|---|
+| 正常代码 GOOD | 25 | 验证正常代码的测试生成能力 |
+| 缺陷代码 BUGGY | 50 | 验证 AI 缺陷发现能力 |
+| 综合挑战 CHALLENGE | 25 | 验证复杂逻辑和边界测试能力 |
+| 合计 | 100 | 完整测试代码库 |
+
+数量是建设目标，不允许通过复制粘贴、简单改名或重复逻辑凑数。
+
+每个模块应具有独立功能、清晰接口和真实测试价值。
+
+建议建设：
+- 至少 150 个独立可识别的缺陷实例。
+- 至少 300 个独立验证测试用例。
+- 至少 50 个边界条件测试场景。
+- 至少 30 个异常处理测试场景。
+- 至少 20 个多条件组合逻辑测试场景。
+
+每个模块保持适合单文件导入的规模，优先控制在 128 KiB 以内。
+
+---
+
+## 三、业务领域设计
+
+必须覆盖以下领域，每个领域都同时包含正确实现和错误实现。
+
+### 1. 数学与计算模块
+
+建议文件：
+- calculator.py
+- scientific_calculator.py
+- statistics_tool.py
+- matrix_operations.py
+- number_converter.py
+- percentage_calculator.py
+- financial_rounding.py
+- geometry_calculator.py
+- prime_checker.py
+- expression_evaluator.py
+
+缺陷类型：
+- 运算符错误
+- 除零处理
+- 精度丢失
+- 浮点数比较错误
+- 整数溢出相关逻辑
+- 空集合处理
+- 数组越界
+- 特殊数值处理
+
+### 2. 用户管理与权限系统
+
+建议文件：
+- user_validator.py
+- user_registration.py
+- user_authentication.py
+- password_validator.py
+- permission_manager.py
+- role_manager.py
+- session_manager.py
+- token_manager.py
+- account_lock.py
+- user_profile.py
+
+缺陷类型：
+- 空用户名验证遗漏
+- 密码长度边界错误
+- 权限判断反转
+- 重复用户注册
+- 会话过期判断错误
+- Token 过期时间计算错误
+- 用户状态判断错误
+- 大小写处理不一致
+
+### 3. 电商与订单系统
+
+建议文件：
+- shopping_cart.py
+- order_processor.py
+- buggy_discount.py
+- inventory_manager.py
+- shipping_calculator.py
+- coupon_validator.py
+- refund_processor.py
+- payment_calculator.py
+- product_pricing.py
+- order_status.py
+
+缺陷类型：
+- 折扣率计算错误
+- 库存不足仍允许购买
+- 优惠券重复使用
+- 退款金额计算错误
+- 运费边界错误
+- 订单状态转换错误
+- 重复扣款风险的业务逻辑模拟
+- 金额舍入错误
+
+所有支付和订单功能仅使用本地模拟数据，不连接真实支付平台。
+
+### 4. 数据处理与文件系统
+
+建议文件：
+- csv_processor.py
+- json_processor.py
+- data_cleaner.py
+- log_parser.py
+- text_analyzer.py
+- file_validator.py
+- data_transformer.py
+- duplicate_detector.py
+- date_parser.py
+- encoding_converter.py
+
+缺陷类型：
+- 空文件处理错误
+- 编码转换错误
+- 重复数据识别错误
+- 日期解析错误
+- 缺失字段处理错误
+- 类型转换错误
+- 数据截断
+- 空值处理不完整
+
+不得访问用户真实文件，不得执行危险文件操作。
+
+### 5. 算法与数据结构
+
+建议文件：
+- binary_search.py
+- sorting_algorithms.py
+- linked_list.py
+- stack.py
+- queue.py
+- tree_traversal.py
+- graph_search.py
+- shortest_path.py
+- cache_manager.py
+- pagination.py
+
+缺陷类型：
+- 二分查找边界错误
+- 排序稳定性错误
+- 空链表处理错误
+- 栈溢出边界
+- 队列指针更新错误
+- 树节点遗漏
+- 图遍历重复访问
+- 最短路径更新错误
+- 缓存淘汰错误
+- 分页总页数计算错误
+
+### 6. 日期、物流与业务规则
+
+建议文件：
+- date_calculator.py
+- working_days.py
+- booking_validator.py
+- delivery_scheduler.py
+- timezone_converter.py
+- subscription_manager.py
+- billing_cycle.py
+- task_scheduler.py
+- rate_limiter.py
+- retry_policy.py
+
+缺陷类型：
+- 闰年判断错误
+- 月末日期计算错误
+- 时区偏移错误
+- 预约时间冲突
+- 工作日统计错误
+- 订阅过期判断错误
+- 重试次数计算错误
+- 限流窗口边界错误
+
+### 7. 综合业务挑战
+
+额外建设 25 个 CHALLENGE 模块。
+
+每个模块包含至少两个相互关联的业务判断或边界条件。
+
+例如：
+- 订单优惠与会员等级联合计算
+- 多条件库存分配
+- 用户权限与资源归属联合校验
+- 多时区预约冲突
+- 分页与过滤组合
+- 多阶段订单状态机
+- 缓存过期与并发更新的简化模拟
+- 多条件退款规则
+
+挑战模块必须包含可以通过确定性输入复现的错误，不得把随机结果或环境依赖当成 Bug。
+
+---
+
+## 四、代码编写规范
+
+所有源码必须遵循以下要求：
+
+1. Python 3.10+ 兼容，优先兼容项目实际 Python 3.13 环境。
+2. 使用标准库优先，不依赖付费 API。
+3. 每个文件可以独立导入。
+4. 每个文件至少提供 2 个有实际意义的顶层同步函数，优先满足 F03 当前的函数选择能力。
+5. 函数必须有清晰的名称、参数、返回值和 Docstring。
+6. 输入输出尽可能确定，避免随机行为。
+7. 不允许通过故意语法错误来制造 Bug。
+8. 不允许用简单的固定异常代替真实逻辑缺陷。
+9. 不允许在源码中暴露缺陷答案。
+10. 不允许将正确实现和错误实现混在同一演示文件中。
+
+BUGGY 文件必须保持 Python 语法有效、可以导入、能够执行。
+
+每个缺陷必须能够通过特定输入触发，并产生可观察的错误结果。
+
+---
+
+## 五、标准答案与隐藏评测数据
+
+建立独立参考答案库：
+
+`reference/`
+
+至少包含：
+
+- 正确版本源码。
+- 缺陷版本对应的正确实现。
+- 缺陷编号。
+- 缺陷类别。
+- 正确输入。
+- 正确输出。
+- 实际错误输出。
+- 预期异常。
+- 触发缺陷的测试输入。
+- 修复前后的行为差异。
+
+建立：
+
+`reference/ground_truth.json`
+
+作为独立评测标准。
+
+重要要求：
+
+ground_truth.json 不得被导入 TestPilot AI 的源码分析、测试生成、执行和缺陷检测流程。
+
+实际 AI 测试过程中，只允许导入 source/ 下的待测代码。
+
+标准答案只能由独立评测程序读取，用于测试完成后的结果核对。
+
+不得通过文件名、函数注释、Docstring 或接口参数直接向 AI 暴露缺陷答案。
+
+---
+
+## 六、独立测试体系
+
+建立独立验证测试集。
+
+目录：
+
+`tests/`
+
+每个源码模块必须有对应的独立验证测试。
+
+测试内容包括：
+
+1. 正常输入。
+2. 最小输入。
+3. 最大输入。
+4. 空值。
+5. 非法类型。
+6. 边界值。
+7. 特殊数值。
+8. 异常处理。
+9. 多条件组合。
+10. 回归测试。
+
+GOOD 模块的验证测试应全部通过。
+
+BUGGY 模块的验证测试应能够稳定复现对应缺陷。
+
+CHALLENGE 模块必须包含针对组合逻辑的测试。
+
+要求：
+- 使用 pytest。
+- 每个测试具有明确断言。
+- 不依赖网络。
+- 不依赖真实数据库。
+- 不依赖随机测试结果。
+- 不允许为了通过测试而修改预期结果。
+- 不允许跳过失败用例来制造全绿结果。
+
+验证测试与 AI 实际生成的测试套件必须物理隔离。
+
+---
+
+## 七、Mutation Testing 专项设计
+
+充分利用 TestPilot AI 的 F13 模块。
+
+挑选至少 15 个适合变异测试的正确源码函数。
+
+重点考察：
+
+- 比较运算符变异。
+- 算术运算符变异。
+- 布尔逻辑变异。
+- 返回值变异。
+- 条件分支变异。
+- 边界常量变异。
+
+每个样本都必须先有有效的原版测试基线。
+
+之后使用 F13 生成并执行变异，观察测试能否杀死变异。
+
+记录：
+- 变异总数。
+- 已杀死数量。
+- 存活数量。
+- 错误数量。
+- 超时数量。
+- 等价候选数量。
+- 最终 Mutation Score。
+
+不得人为修改 Mutation Score。
+
+---
+
+## 八、建议目录结构
+
+建立以下目录：
+
+demo/TestPilot-Demo-Lab/
+│
+├── README.md
+├── DATASET_CATALOG.md
+├── DEMO_SCENARIO.md
+├── requirements.txt
+│
+├── source/
+│   ├── good/
+│   ├── buggy/
+│   └── challenge/
+│
+├── reference/
+│   ├── corrected/
+│   ├── ground_truth.json
+│   └── answer_index.json
+│
+├── tests/
+│   ├── verification/
+│   ├── regression/
+│   ├── boundary/
+│   └── mutation/
+│
+├── evaluation/
+│   ├── evaluator.py
+│   ├── metrics.py
+│   └── evaluation_schema.json
+│
+├── scenarios/
+│   ├── basic_demo.json
+│   ├── bug_hunting.json
+│   ├── regression_demo.json
+│   └── mutation_demo.json
+│
+├── scripts/
+│   ├── validate_dataset.py
+│   ├── list_modules.py
+│   └── generate_catalog.py
+│
+└── reports/
+    ├── dataset_validation.json
+    └── dataset_validation.md
+
+实际目录可根据工程情况优化，但必须保持 source、reference、tests 的隔离。
+
+---
+
+## 九、TestPilot AI 集成与操作兼容性
+
+这是本任务的重点。
+
+请先检查现有 TestPilot AI 实际接口和导入规则，再建设代码库。
+
+当前已知：
+- F01 支持单个 Python 文件导入。
+- F02 提供 Python 静态结构分析。
+- F03 当前主要支持顶层同步函数测试生成。
+- F04 执行实际 Pytest 测试。
+- F05 管理缺陷和回归记录。
+- F06 展示单次运行质量报告。
+- F13 提供变异测试能力。
+
+必须实际检查当前代码，确认这些能力是否有变化。
+
+为代码库生成：
+
+`DEMO_SCENARIO.md`
+
+提供逐步操作说明：
+
+1. 如何启动 TestPilot AI。
+2. 如何导入一个 GOOD 文件。
+3. 如何运行 AI 源码分析。
+4. 如何生成测试。
+5. 如何执行测试。
+6. 如何导入 BUGGY 文件。
+7. 如何让 AI 自己发现问题。
+8. 如何登记缺陷。
+9. 如何修复并重新导入新版本。
+10. 如何执行回归。
+11. 如何生成 F06 质量报告。
+12. 如何使用 F13 做变异测试。
+
+必须提供实际文件路径和推荐演示顺序。
+
+不要假设产品已经支持尚未实现的功能。
+
+---
+
+## 十、独立评估指标
+
+实现独立评测程序，至少计算：
+
+1. Bug Detection Rate：已知缺陷检出率。
+2. Test Pass Rate：正常代码测试通过率。
+3. False Positive Rate：正常代码误报率。
+4. Boundary Test Coverage：边界测试场景覆盖率。
+5. Regression Pass Rate：修复后回归通过率。
+6. Mutation Score：变异测试得分。
+
+所有指标必须有明确分子、分母和统计口径。
+
+注意区分：
+- AI 生成了测试。
+- 测试成功执行。
+- 测试真正发现了缺陷。
+- 缺陷经过正确修复。
+- 回归测试验证修复有效。
+
+不能把测试代码生成数量当成缺陷检出数量。
+
+不能把代码行覆盖率当成逻辑正确率。
+
+---
+
+## 十一、质量验收要求
+
+完成后必须实际执行以下检查：
+
+### A. 文件完整性
+- 100 个目标模块全部存在。
+- 所有文件均符合命名规范。
+- 不存在空文件和重复文件。
+- 每个文件都有对应元数据。
+
+### B. Python 质量
+- 全部源码通过语法编译。
+- 全部源码能够独立导入。
+- 无意外外部依赖。
+- GOOD 模块通过全部对应测试。
+- BUGGY 模块能够稳定复现预期缺陷。
+- CHALLENGE 模块能够复现对应组合缺陷。
+
+### C. 测试质量
+- 所有验证测试均实际执行。
+- 不允许将失败测试隐藏。
+- 检查重复测试和无效断言。
+- 检查错误结果是否与标准答案一致。
+
+### D. AI 盲测
+选取至少 10 个不同领域的样本，实际通过 TestPilot AI 运行：
+- F01 导入。
+- F02 分析。
+- F03 生成。
+- F04 执行。
+
+记录真实输出。
+
+如果发现当前产品接口或功能限制，明确记录对应样本和原因，不得伪造 AI 已经发现缺陷的结果。
+
+### E. F13 测试
+选取适合的正常代码样本，实际执行变异测试并保存结果。
+
+### F. 交付验收
+生成：
+- 完整数据集目录。
+- 模块索引。
+- 缺陷索引。
+- 标准答案。
+- 测试验证报告。
+- AI 盲测报告。
+- 演示操作手册。
+- SHA-256 文件清单。
+
+---
+
+## 十二、工程执行纪律
+
+1. 不修改 TestPilot AI 现有核心业务逻辑。
+2. 不修改现有正式实验数据。
+3. 不覆盖原有测试样本。
+4. 不将演示数据导入生产数据库。
+5. 所有演示项目使用独立项目名称和独立数据记录。
+6. 不进行不必要的模型升级。
+7. 不购买任何 API 或云服务。
+8. 优先使用现有本地模型和现有测试引擎。
+9. 发现产品缺陷时单独记录，不要擅自扩大修改范围。
+10. 所有验收必须以实际执行结果为依据。
+
+---
+
+## 十三、最终交付
+
+完成后提交：
+
+1. `TestPilot-Demo-Lab/` 完整代码库。
+2. `DATASET_CATALOG.md` 数据集总目录。
+3. `ground_truth.json` 隐藏标准答案。
+4. `dataset_validation.md` 数据集验收报告。
+5. `AI_BLIND_EVALUATION.md` AI 盲测报告。
+6. `DEMO_SCENARIO.md` 产品实际操作手册。
+7. `DEMO_PRESENTATION.md` 课程展示讲解方案。
+8. `SHA256SUMS.txt` 完整文件校验清单。
+
+最终报告必须明确说明：
+- 实际创建了多少个文件。
+- GOOD、BUGGY、CHALLENGE 各有多少个。
+- 实际包含多少个独立缺陷。
+- 实际包含多少个验证用例。
+- 有多少项测试通过。
+- 有多少项测试失败。
+- 有多少个样本完成真实 AI 盲测。
+- F13 实际完成了多少组变异测试。
+- 哪些功能已完成真实验收。
+
+不要只给我一个文件数量统计。必须确保代码、测试、标准答案和评测报告能够互相对应。
+
+**现在开始执行。优先完成完整代码库，再执行自动验证和产品集成验收。不要停留在规划阶段。**
