@@ -1,6 +1,7 @@
 """Run a fixed Pytest command inside an offline, read-only WASI guest."""
 import json
 import os
+from concurrent.futures import CancelledError
 from pathlib import Path
 import subprocess
 import sys
@@ -13,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKER = Path(__file__).with_name("wasi_worker.py")
 ACTIVE = threading.BoundedSemaphore(1)
 MARKER = "\nTESTPILOT_RESULT "
+SLOT_WAIT_SECONDS = 110
 
 
 def empty_result(detailed=False):
@@ -79,14 +81,62 @@ def read_cases(payload, report, detailed=False):
                   coverage_pct=round(100 * covered / total, 2) if total else None, **counts)
 
 
-def execute(source: str, test_code: str, *, timeout_s: int = 15, detailed: bool = False) -> dict:
+def run_worker(command, directory, env, timeout, cancel_event):
+    options = dict(cwd=directory, env=env, stdin=subprocess.DEVNULL, encoding="utf-8", errors="replace")
+    if cancel_event is None:
+        return subprocess.run(command, capture_output=True, timeout=timeout, **options)
+    if cancel_event.is_set():
+        raise CancelledError
+    deadline = time.monotonic() + timeout
+    with subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, **options) as process:
+        try:
+            while True:
+                if cancel_event.is_set():
+                    raise CancelledError
+                remaining = deadline - time.monotonic()
+                if remaining <= 0:
+                    raise subprocess.TimeoutExpired(command, timeout)
+                try:
+                    stdout, stderr = process.communicate(timeout=min(0.2, remaining))
+                    return subprocess.CompletedProcess(command, process.returncode, stdout, stderr)
+                except subprocess.TimeoutExpired:
+                    continue
+        except BaseException:
+            # The guest cannot create children. Reap our one worker before removing its job.
+            if process.poll() is None:
+                process.kill()
+            process.communicate()
+            raise
+
+
+def acquire_slot(cancel_event):
+    if cancel_event is None:
+        return "acquired" if ACTIVE.acquire(blocking=False) else "busy"
+    deadline = time.monotonic() + SLOT_WAIT_SECONDS
+    while not cancel_event.is_set():
+        remaining = deadline - time.monotonic()
+        if remaining <= 0:
+            return "busy"
+        if ACTIVE.acquire(timeout=min(remaining, 0.2)):
+            return "acquired"
+    return "cancelled"
+
+
+def execute(source: str, test_code: str, *, timeout_s: int = 15, detailed: bool = False,
+            cancel_event: threading.Event | None = None) -> dict:
     """Run a versioned subject and test suite. Imported text never enters host Python."""
     started = time.monotonic()
     report = empty_result(detailed)
     if type(timeout_s) is not int or not 1 <= timeout_s <= 60:
         raise ValueError("执行超时必须在 1–60 秒之间")
-    if not ACTIVE.acquire(blocking=False):
-        report["log"] = "隔离执行器忙，请稍后重试。"
+    slot = acquire_slot(cancel_event)
+    if slot != "acquired":
+        report["log"] = "隔离执行器忙，请稍后重试。" if slot == "busy" else "等待执行槽时已取消。"
+        if slot == "cancelled":
+            report["status"] = "cancelled"
+        if cancel_event is not None:
+            report["resource_busy"] = slot == "busy"
+            report["duration_ms"] = round((time.monotonic() - started) * 1000)
         if detailed:
             report["diagnostic"] = report["log"]
         return report
@@ -106,12 +156,7 @@ def execute(source: str, test_code: str, *, timeout_s: int = 15, detailed: bool 
             if detailed:
                 command.append("detailed")
             try:
-                # The guest cannot spawn children. On timeout run() kills and waits for the sole worker.
-                process = subprocess.run(
-                    command,
-                    cwd=temp, env=env, stdin=subprocess.DEVNULL, capture_output=True,
-                    timeout=45 + timeout_s, encoding="utf-8", errors="replace",
-                )
+                process = run_worker(command, temp, env, 45 + timeout_s, cancel_event)
                 diagnostic = process.stderr
                 if process.returncode:
                     diagnostic += f"\n隔离执行进程退出 {process.returncode}。"
@@ -134,6 +179,9 @@ def execute(source: str, test_code: str, *, timeout_s: int = 15, detailed: bool 
                             report["status"] = "passed" if report["passed"] else "skipped"
                         elif state["exit_code"] == 1 and report["failed"] and not report["errors"]:
                             report["status"] = "failed"
+            except CancelledError:
+                report["status"] = "cancelled"
+                diagnostic += "\n已取消隔离执行。"
             except subprocess.TimeoutExpired:
                 report["status"] = "timeout"
                 diagnostic += "\n启动及执行总时限已到，工作进程已结束。"

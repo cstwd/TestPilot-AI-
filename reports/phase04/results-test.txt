@@ -1,0 +1,10 @@
+WASI 'return x + 1' passed 0 {'status': 'survived', 'reason': '相同测试节点运行通过', 'nodeids': []}
+.WASI 'return x + 2' failed 1 {'status': 'killed', 'reason': '原始通过节点在变异副本上触发测试断言', 'nodeids': ['test_generated.py::test_value']}
+.WASI "return int('invalid')" failed 1 {'status': 'execution_error', 'reason': '失败没有完整的测试断言证据', 'nodeids': ['test_generated.py::test_value']}
+.exception removed DID NOT RAISE ValueError {'status': 'killed', 'reason': '原始通过节点在变异副本上触发测试断言', 'nodeids': ['test_generated.py::test_negative']}
+..invalid or timed-out mutant 2 {'status': 'execution_error', 'reason': '执行不完整或前后测试节点集合不同', 'nodeids': []}
+.invalid or timed-out mutant None {'status': 'timeout', 'reason': 'WASI 停止执行：deadline', 'nodeids': []}
+..live guest cancelled; worker reaped; job cleaned; result_complete=False
+.queued slot timeout returns retryable resource_busy; queued cancellation stops before spawn
+.
+10 passed in 54.39s
