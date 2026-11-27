@@ -1,0 +1,108 @@
+{
+  "request": {
+    "model": "qwen38-27b-iq3xxs",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect the numbered Python files. Return a single JSON object with exactly these fields: functions (all top-level definitions in all files, sorted 'filename.py:name'), parameters (target function in declaration order: arrays of name, annotated type as string, Python source default as STRING, JSON null if required), return_value (actual value of normal call), branch_lines (sorted line numbers of explicit if, for, while, ternary statements in target only; omit comparisons without such a statement), boundary_value (actual value of boundary call), exception (actual exception class name for exception_probe or null), defect_line (line in subject.py with the implementation that conflicts with its docstring, or null if no conflict). Evaluate behavior as written."
+      },
+      {
+        "role": "user",
+        "content": "{\"files\": {\"subject.py\": \"1: def tier(points: int) -> str:\\n2:     \\\"\\\"\\\"Gold starts at 100, silver at 50, otherwise basic.\\n3: \\n4:     >>> tier(120)\\n5:     'gold'\\n6:     \\\"\\\"\\\"\\n7:     if points >= 100:\\n8:         return \\\"gold\\\"\\n9:     if points >= 50:\\n10:         return \\\"silver\\\"\\n11:     return \\\"basic\\\"\"}, \"target\": \"tier\", \"normal\": \"tier(51)\", \"boundary\": \"tier(100)\", \"exception_probe\": \"tier(None)\"}"
+      }
+    ],
+    "temperature": 0.2,
+    "seed": 513,
+    "max_tokens": 350,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "name": "tier",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"functions\": [\n    \"subject.py:tier\"\n  ],\n  \"parameters\": [\n    {\n      \"name\": \"points\",\n      \"annotated_type\": \"int\",\n      \"default\": null\n    }\n  ],\n  \"return_value\": \"silver\",\n  \"branch_lines\": [\n    7,\n    9\n  ],\n  \"boundary_value\": \"gold\",\n  \"exception\": \"TypeError\",\n  \"defect_line\": null\n}"
+        }
+      }
+    ],
+    "created": 1795767376,
+    "model": "qwen38-27b-iq3xxs",
+    "system_fingerprint": "b1-f5e6915c2",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 113,
+      "prompt_tokens": 319,
+      "total_tokens": 432,
+      "prompt_tokens_details": {
+        "cached_tokens": 151
+      }
+    },
+    "id": "chatcmpl-Y7ZM0AmhYqk4KSEqXjSnvtcG08fyX3Ey",
+    "timings": {
+      "cache_n": 151,
+      "prompt_n": 168,
+      "prompt_ms": 915.144,
+      "prompt_per_token_ms": 5.447285714285714,
+      "prompt_per_second": 183.5776664656054,
+      "predicted_n": 113,
+      "predicted_ms": 4606.937,
+      "predicted_per_token_ms": 41.13336607142857,
+      "predicted_per_second": 24.311163794946623
+    }
+  },
+  "expected": {
+    "functions": [
+      "subject.py:tier"
+    ],
+    "parameters": [
+      [
+        "points",
+        "int",
+        null
+      ]
+    ],
+    "return_value": "silver",
+    "branch_lines": [
+      7,
+      9
+    ],
+    "boundary_value": "gold",
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "predicted": {
+    "functions": [
+      "subject.py:tier"
+    ],
+    "parameters": [
+      {
+        "name": "points",
+        "annotated_type": "int",
+        "default": null
+      }
+    ],
+    "return_value": "silver",
+    "branch_lines": [
+      7,
+      9
+    ],
+    "boundary_value": "gold",
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 0,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "seconds": 12.798951200002193
+}

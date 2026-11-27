@@ -1,0 +1,118 @@
+{
+  "request": {
+    "model": "qwen38-27b-iq3xxs",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect the numbered Python files. Return a single JSON object with exactly these fields: functions (all top-level definitions in all files, sorted 'filename.py:name'), parameters (target function in declaration order: arrays of name, annotated type as string, Python source default as STRING, JSON null if required), return_value (actual value of normal call), branch_lines (sorted line numbers of explicit if, for, while, ternary statements in target only; omit comparisons without such a statement), boundary_value (actual value of boundary call), exception (actual exception class name for exception_probe or null), defect_line (line in subject.py with the implementation that conflicts with its docstring, or null if no conflict). Evaluate behavior as written."
+      },
+      {
+        "role": "user",
+        "content": "{\"files\": {\"subject.py\": \"1: def bonus(n: int, enabled: bool = True) -> int:\\n2:     \\\"\\\"\\\"Reject negative n with ValueError. For nonnegative n return n + 1 if\\n3:     enabled and n >= 2; otherwise return n.\\n4: \\n5:     >>> bonus(3)\\n6:     4\\n7:     \\\"\\\"\\\"\\n8:     if n < 0:\\n9:         raise ValueError(\\\"negative\\\")\\n10:     if enabled and n >= 2:\\n11:         return n + 1\\n12:     return n\"}, \"target\": \"bonus\", \"normal\": \"bonus(4)\", \"boundary\": \"bonus(2, False)\", \"exception_probe\": \"bonus(-1)\"}"
+      }
+    ],
+    "temperature": 0.2,
+    "seed": 513,
+    "max_tokens": 350,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "name": "bonus",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"functions\": [\n    \"subject.py:bonus\"\n  ],\n  \"parameters\": [\n    {\n      \"name\": \"n\",\n      \"annotated_type\": \"int\",\n      \"default\": null\n    },\n    {\n      \"name\": \"enabled\",\n      \"annotated_type\": \"bool\",\n      \"default\": \"True\"\n    }\n  ],\n  \"return_value\": 5,\n  \"branch_lines\": [\n    8,\n    10\n  ],\n  \"boundary_value\": 2,\n  \"exception\": \"ValueError\",\n  \"defect_line\": null\n}"
+        }
+      }
+    ],
+    "created": 1795767259,
+    "model": "qwen38-27b-iq3xxs",
+    "system_fingerprint": "b1-f5e6915c2",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 147,
+      "prompt_tokens": 337,
+      "total_tokens": 484,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-WSwS891FN7T9kCFAfI62doLozGaiVGdn",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 337,
+      "prompt_ms": 22504.379,
+      "prompt_per_token_ms": 66.77857270029673,
+      "prompt_per_second": 14.974863336597735,
+      "predicted_n": 147,
+      "predicted_ms": 6054.368,
+      "predicted_per_token_ms": 41.468273972602745,
+      "predicted_per_second": 24.11482090285889
+    }
+  },
+  "expected": {
+    "functions": [
+      "subject.py:bonus"
+    ],
+    "parameters": [
+      [
+        "n",
+        "int",
+        null
+      ],
+      [
+        "enabled",
+        "bool",
+        "True"
+      ]
+    ],
+    "return_value": 5,
+    "branch_lines": [
+      8,
+      10
+    ],
+    "boundary_value": 2,
+    "exception": "ValueError",
+    "defect_line": null
+  },
+  "predicted": {
+    "functions": [
+      "subject.py:bonus"
+    ],
+    "parameters": [
+      {
+        "name": "n",
+        "annotated_type": "int",
+        "default": null
+      },
+      {
+        "name": "enabled",
+        "annotated_type": "bool",
+        "default": "True"
+      }
+    ],
+    "return_value": 5,
+    "branch_lines": [
+      8,
+      10
+    ],
+    "boundary_value": 2,
+    "exception": "ValueError",
+    "defect_line": null
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 0,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "seconds": 28.759023999999044
+}

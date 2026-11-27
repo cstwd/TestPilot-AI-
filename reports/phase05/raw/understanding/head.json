@@ -1,0 +1,116 @@
+{
+  "request": {
+    "model": "qwen38-27b-iq3xxs",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect the numbered Python files. Return a single JSON object with exactly these fields: functions (all top-level definitions in all files, sorted 'filename.py:name'), parameters (target function in declaration order: arrays of name, annotated type as string, Python source default as STRING, JSON null if required), return_value (actual value of normal call), branch_lines (sorted line numbers of explicit if, for, while, ternary statements in target only; omit comparisons without such a statement), boundary_value (actual value of boundary call), exception (actual exception class name for exception_probe or null), defect_line (line in subject.py with the implementation that conflicts with its docstring, or null if no conflict). Evaluate behavior as written."
+      },
+      {
+        "role": "user",
+        "content": "{\"files\": {\"subject.py\": \"1: def first(items: list, fallback: int = -1) -> int:\\n2:     \\\"\\\"\\\"Return the first item, or fallback for empty input.\\n3: \\n4:     >>> first([8])\\n5:     8\\n6:     \\\"\\\"\\\"\\n7:     if not items:\\n8:         return 0\\n9:     return items[0]\"}, \"target\": \"first\", \"normal\": \"first([6], 7)\", \"boundary\": \"first([], 7)\", \"exception_probe\": \"first(None, 7)\"}"
+      }
+    ],
+    "temperature": 0.2,
+    "seed": 513,
+    "max_tokens": 350,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "name": "head",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"functions\": [\n    \"subject.py:first\"\n  ],\n  \"parameters\": [\n    {\n      \"name\": \"items\",\n      \"annotated_type\": \"list\",\n      \"default\": null\n    },\n    {\n      \"name\": \"fallback\",\n      \"annotated_type\": \"int\",\n      \"default\": \"-1\"\n    }\n  ],\n  \"return_value\": 6,\n  \"branch_lines\": [\n    7\n  ],\n  \"boundary_value\": 0,\n  \"exception\": \"TypeError\",\n  \"defect_line\": 8\n}"
+        }
+      }
+    ],
+    "created": 1795767386,
+    "model": "qwen38-27b-iq3xxs",
+    "system_fingerprint": "b1-f5e6915c2",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 140,
+      "prompt_tokens": 297,
+      "total_tokens": 437,
+      "prompt_tokens_details": {
+        "cached_tokens": 151
+      }
+    },
+    "id": "chatcmpl-mC1oX51V2l0xQgjaJyPsmyKTMi3e1cdk",
+    "timings": {
+      "cache_n": 151,
+      "prompt_n": 146,
+      "prompt_ms": 835.361,
+      "prompt_per_token_ms": 5.7216506849315065,
+      "prompt_per_second": 174.77473810723748,
+      "predicted_n": 140,
+      "predicted_ms": 5745.785,
+      "predicted_per_token_ms": 41.336582733812946,
+      "predicted_per_second": 24.19164657222642
+    }
+  },
+  "expected": {
+    "functions": [
+      "subject.py:first"
+    ],
+    "parameters": [
+      [
+        "items",
+        "list",
+        null
+      ],
+      [
+        "fallback",
+        "int",
+        "-1"
+      ]
+    ],
+    "return_value": 6,
+    "branch_lines": [
+      7
+    ],
+    "boundary_value": 0,
+    "exception": null,
+    "defect_line": 8
+  },
+  "predicted": {
+    "functions": [
+      "subject.py:first"
+    ],
+    "parameters": [
+      {
+        "name": "items",
+        "annotated_type": "list",
+        "default": null
+      },
+      {
+        "name": "fallback",
+        "annotated_type": "int",
+        "default": "-1"
+      }
+    ],
+    "return_value": 6,
+    "branch_lines": [
+      7
+    ],
+    "boundary_value": 0,
+    "exception": "TypeError",
+    "defect_line": 8
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 0,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 0,
+    "defect_line": 1
+  },
+  "seconds": 10.371283000000403
+}

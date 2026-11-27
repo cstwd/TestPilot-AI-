@@ -1,0 +1,120 @@
+{
+  "request": {
+    "model": "qwen38-27b-iq3xxs",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect the numbered Python files. Return a single JSON object with exactly these fields: functions (all top-level definitions in all files, sorted 'filename.py:name'), parameters (target function in declaration order: arrays of name, annotated type as string, Python source default as STRING, JSON null if required), return_value (actual value of normal call), branch_lines (sorted line numbers of explicit if, for, while, ternary statements in target only; omit comparisons without such a statement), boundary_value (actual value of boundary call), exception (actual exception class name for exception_probe or null), defect_line (line in subject.py with the implementation that conflicts with its docstring, or null if no conflict). Evaluate behavior as written."
+      },
+      {
+        "role": "user",
+        "content": "{\"files\": {\"policy.py\": \"1: def allowable(value):\\n2:     return value >= 0\", \"subject.py\": \"1: from policy import allowable\\n2: \\n3: def invoice(values: list, discount: int = 0) -> int:\\n4:     \\\"\\\"\\\"Sum allowable nonnegative entries and subtract discount, down to zero.\\n5: \\n6:     >>> invoice([4, -2, 3], 2)\\n7:     5\\n8:     \\\"\\\"\\\"\\n9:     total = 0\\n10:     for value in values:\\n11:         if allowable(value):\\n12:             total += value\\n13:     return max(0, total - discount)\"}, \"target\": \"invoice\", \"normal\": \"invoice([3,-1,4],2)\", \"boundary\": \"invoice([2],3)\", \"exception_probe\": \"invoice([None])\"}"
+      }
+    ],
+    "temperature": 0.2,
+    "seed": 513,
+    "max_tokens": 350,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "name": "invoice",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"functions\": [\n    \"policy.py:allowable\",\n    \"subject.py:invoice\"\n  ],\n  \"parameters\": [\n    {\n      \"name\": \"values\",\n      \"type\": \"list\",\n      \"default\": null\n    },\n    {\n      \"name\": \"discount\",\n      \"type\": \"int\",\n      \"default\": \"0\"\n    }\n  ],\n  \"return_value\": 5,\n  \"branch_lines\": [\n    10,\n    11\n  ],\n  \"boundary_value\": 0,\n  \"exception\": \"TypeError\",\n  \"defect_line\": null\n}"
+        }
+      }
+    ],
+    "created": 1795767402,
+    "model": "qwen38-27b-iq3xxs",
+    "system_fingerprint": "b1-f5e6915c2",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 152,
+      "prompt_tokens": 366,
+      "total_tokens": 518,
+      "prompt_tokens_details": {
+        "cached_tokens": 151
+      }
+    },
+    "id": "chatcmpl-0kckOoJZGegU1n6TgVrn7rZYfmEytgLU",
+    "timings": {
+      "cache_n": 151,
+      "prompt_n": 215,
+      "prompt_ms": 1053.595,
+      "prompt_per_token_ms": 4.900441860465117,
+      "prompt_per_second": 204.06323112771034,
+      "predicted_n": 152,
+      "predicted_ms": 6250.131,
+      "predicted_per_token_ms": 41.39159602649007,
+      "predicted_per_second": 24.159493617013784
+    }
+  },
+  "expected": {
+    "functions": [
+      "policy.py:allowable",
+      "subject.py:invoice"
+    ],
+    "parameters": [
+      [
+        "values",
+        "list",
+        null
+      ],
+      [
+        "discount",
+        "int",
+        "0"
+      ]
+    ],
+    "return_value": 5,
+    "branch_lines": [
+      10,
+      11
+    ],
+    "boundary_value": 0,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "predicted": {
+    "functions": [
+      "policy.py:allowable",
+      "subject.py:invoice"
+    ],
+    "parameters": [
+      {
+        "name": "values",
+        "type": "list",
+        "default": null
+      },
+      {
+        "name": "discount",
+        "type": "int",
+        "default": "0"
+      }
+    ],
+    "return_value": 5,
+    "branch_lines": [
+      10,
+      11
+    ],
+    "boundary_value": 0,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 0,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "seconds": 16.206337100000383
+}

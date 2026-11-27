@@ -11,9 +11,10 @@ import time
 from urllib.error import URLError
 from urllib.request import ProxyHandler, Request, build_opener
 
+from backend.local_ollama import NoRedirect
 from .audit import ALIAS, BACKEND, BASE, EXPECTED, Monitor, OLLAMA, RAW, SMALL, WEIGHT, gpu_env, record, save, stamp
 
-CLIENT = build_opener(ProxyHandler({}))
+CLIENT = build_opener(ProxyHandler({}), NoRedirect())
 
 
 def open_local(base, path, payload=None, timeout=180):
@@ -85,6 +86,7 @@ def main():
     parser.add_argument("--mode",choices=("mmap","dio","none"),default="mmap")
     parser.add_argument("--small-only",action="store_true")
     parser.add_argument("--vulkan", action="store_true")
+    parser.add_argument("--skip-stability", action="store_true", help="Resume after a completed T01 run")
     ns=parser.parse_args()
     audit=json.loads((RAW/"audit.json").read_bytes())
     if not audit["complete"] or audit["sha256"]!=EXPECTED:
@@ -129,7 +131,7 @@ def main():
             else:
                 raise RuntimeError(f"Load failed or readiness timeout, exit={proc.poll()}")
             save(out/"ready.json",{"load_wall_s":time.perf_counter()-start,"response":payload,"at":stamp()})
-            if not ns.small_only:
+            if not ns.small_only and not ns.skip_stability:
                 stability(out)
             print("ready",out,flush=True)
             while not (out/"STOP").exists() and proc.poll() is None:

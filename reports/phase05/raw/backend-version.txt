@@ -1,0 +1,2 @@
+version: 1.0.0-dev (build 1, commit f5e6915c2)
+built with Clang 18.1.8 for Windows AMD64
