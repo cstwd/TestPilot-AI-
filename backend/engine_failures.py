@@ -35,52 +35,63 @@ def argument_key(call, sig):
 
 
 def imports(tree, target):
+    # Resolve only persistent, unambiguous file-level bindings. A model may reuse an alias.
     names = set()
+    bindings = {}
     for node in tree.body:
-        if isinstance(node, ast.ImportFrom) and node.module == "subject" and not node.level:
-            names.update(a.asname or a.name for a in node.names if a.name == target)
-        elif isinstance(node, ast.Import):
-            names.update(f"{a.asname or a.name}.{target}" for a in node.names if a.name == "subject")
-    return names
+        if isinstance(node, (ast.ImportFrom, ast.Import)):
+            for alias in node.names:
+                if alias.name == "*":
+                    return set()
+                name = alias.asname or alias.name.split(".")[0]
+                bindings[name] = bindings.get(name, 0) + 1
+                if isinstance(node, ast.ImportFrom):
+                    if node.module == "subject" and not node.level and alias.name == target:
+                        names.add(name)
+                elif alias.name == "subject":
+                    names.add(f"{name}.{target}")
+        elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            bindings[node.name] = bindings.get(node.name, 0) + 1
+        elif not isinstance(node, ast.Expr) or not isinstance(node.value, ast.Constant):
+            # A module-level assignment or control structure may rebind imported names.
+            return set()
+    return {name for name in names if bindings[name.split(".")[0]] == 1}
 
 
-def tested_expression(tree, frame, target, names):
+def tested_expression(tree, frame, names):
     """Recognize direct assertions on a subject import at the observed traceback line."""
     tests = [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name == frame["function"]]
     if len(tests) != 1:
         return None
     fn = tests[0]
-    if fn.decorator_list or any(not isinstance(n, (ast.Assert, ast.With, ast.Expr)) for n in fn.body):
+    body = fn.body[1:] if ast.get_docstring(fn) is not None else fn.body
+    # Prior calls or fixture setup can change the state assumed by a standalone example.
+    if len(body) != 1 or fn.decorator_list or any(isinstance(p, ast.arg) for p in ast.walk(fn.args)):
         return None
-    shadowed = {n.id for n in ast.walk(fn) if isinstance(n, ast.Name) and isinstance(n.ctx, ast.Store)}
-    shadowed.update(p.arg for p in ast.walk(fn.args) if isinstance(p, ast.arg))
-    shadowed.update(n.id for top in tree.body if isinstance(top, (ast.Assign, ast.AnnAssign))
-                    for n in ast.walk(top) if isinstance(n, ast.Name) and isinstance(n.ctx, ast.Store))
-    names = {name for name in names if name.split(".")[0] not in shadowed}
-    for stmt in fn.body:
-        if not stmt.lineno <= frame["line"] <= stmt.end_lineno:
-            continue
-        call = None
-        if isinstance(stmt, ast.Assert):
-            expr = stmt.test
-            if isinstance(expr, ast.Compare) and len(expr.ops) == 1 and isinstance(expr.ops[0], ast.Eq):
-                a, b = expr.left, expr.comparators[0]
-                call, rhs = (a, b) if isinstance(a, ast.Call) else (b, a)
-                try:
-                    kind, expected = "equals", literal(rhs)
-                except (ValueError, TypeError, RecursionError, OverflowError):
-                    continue
-            elif (isinstance(expr, ast.Call) and ast.unparse(expr.func) == "isinstance" and "isinstance" not in shadowed
-                  and len(expr.args) == 2 and isinstance(expr.args[1], ast.Name)):
-                call, kind, expected = expr.args[0], "type", expr.args[1].id
-        elif isinstance(stmt, ast.With) and len(stmt.items) == len(stmt.body) == 1:
-            context = stmt.items[0].context_expr
-            if (isinstance(context, ast.Call) and ast.unparse(context.func) == "pytest.raises"
-                    and len(context.args) == 1 and isinstance(context.args[0], ast.Name)
-                    and not context.keywords and isinstance(stmt.body[0], ast.Expr)):
-                call, kind, expected = stmt.body[0].value, "raises", context.args[0].id
-        if isinstance(call, ast.Call) and ast.unparse(call.func) in names:
-            return call, kind, expected
+    stmt = body[0]
+    if not stmt.lineno <= frame["line"] <= stmt.end_lineno:
+        return None
+    call = None
+    if isinstance(stmt, ast.Assert):
+        expr = stmt.test
+        if isinstance(expr, ast.Compare) and len(expr.ops) == 1 and isinstance(expr.ops[0], ast.Eq):
+            a, b = expr.left, expr.comparators[0]
+            call, rhs = (a, b) if isinstance(a, ast.Call) else (b, a)
+            try:
+                kind, expected = "equals", literal(rhs)
+            except (ValueError, TypeError, RecursionError, OverflowError):
+                return None
+        elif (isinstance(expr, ast.Call) and ast.unparse(expr.func) == "isinstance"
+              and len(expr.args) == 2 and isinstance(expr.args[1], ast.Name)):
+            call, kind, expected = expr.args[0], "type", expr.args[1].id
+    elif isinstance(stmt, ast.With) and len(stmt.items) == len(stmt.body) == 1:
+        context = stmt.items[0].context_expr
+        if (isinstance(context, ast.Call) and ast.unparse(context.func) == "pytest.raises"
+                and len(context.args) == 1 and isinstance(context.args[0], ast.Name)
+                and not context.keywords and isinstance(stmt.body[0], ast.Expr)):
+            call, kind, expected = stmt.body[0].value, "raises", context.args[0].id
+    if isinstance(call, ast.Call) and ast.unparse(call.func) in names:
+        return call, kind, expected
     return None
 
 
@@ -99,8 +110,12 @@ def contract_verdict(kind, expected, contract, finding, subject_frame):
         if no_raise or (subject_frame and not catches(documented, exc)):
             return "program_defect", "同一输入违反了文档指定的异常契约。"
     else:
-        if kind == "raises" or (kind == "equals" and expected != contract["expected"]
-                                and ast.literal_eval(expected) != ast.literal_eval(contract["expected"])):
+        try:
+            doc_value = ast.literal_eval(contract["expected"])
+            differs = kind == "equals" and ast.literal_eval(expected) != doc_value
+        except (SyntaxError, ValueError, TypeError, RecursionError, OverflowError):
+            return "undetermined", "示例返回值无法可靠地还原为字面量。"
+        if kind == "raises" or differs:
             return "test_error", "生成测试的预期与该输入的文档返回值冲突。"
         if subject_frame:
             return "program_defect", "文档要求返回明确值，实测目标代码在该输入上抛出异常。"
@@ -109,7 +124,7 @@ def contract_verdict(kind, expected, contract, finding, subject_frame):
         if exc == "AssertionError" and kind == "type":
             cls = vars(builtins).get(expected)
             if isinstance(cls, type):
-                if not isinstance(ast.literal_eval(contract["expected"]), cls):
+                if not isinstance(doc_value, cls):
                     return "test_error", "类型断言与文档中该输入的返回值类型冲突。"
                 return "program_defect", "实际返回类型与文档示例不兼容。"
     return "undetermined", "已定位相关契约，本次失败证据不足以确定归属。"
@@ -152,7 +167,7 @@ def analyze_failures(execution, strategy, generated_code, analysis):
         elif test and not subject and exc == "ImportError" and "from 'subject'" in item["message"]:
             category, reason = "test_error", "测试导入了目标模块未提供的名称。"
         elif test and symbol and detail.get("phase") == "call":
-            observed = tested_expression(tree, test, target, names)
+            observed = tested_expression(tree, test, names)
             if observed:
                 call, kind, expected = observed
                 candidates = contracts.get(argument_key(call, sig), [])

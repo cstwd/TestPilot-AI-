@@ -2,6 +2,6 @@
 real traceback [{'path': 'test_generated.py', 'line': 14, 'function': 'test_unexpected_exception', 'source': 'assert target(4) == 25'}, {'path': 'subject.py', 'line': 20, 'function': 'units', 'source': 'raise LookupError("bad")'}]
 assertion difference assert 2 == 50
  +  where 2 = target(n=2)
-.timeout WASI ִֹͣ�У�deadline
-....
-5 passed in 13.69s
+.timeout WASI 停止执行：deadline
+.....
+6 passed in 13.77s

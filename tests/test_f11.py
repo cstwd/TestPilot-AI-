@@ -34,6 +34,7 @@ SUITE = '''import pytest
 from subject import units as target
 
 def test_wrong_output():
+    """Check the documented result."""
     assert target(n=2) == 50
 
 def test_wrong_input_assumption():
@@ -94,10 +95,37 @@ def test_incomplete_execution():
     print("timeout", findings[0]["message"])
 
 
+def test_stateful_setup_is_not_a_standalone_oracle():
+    source = '''counter = 0
+def advance():
+    """First call on a fresh counter.
+
+    >>> advance()
+    1
+    """
+    global counter
+    counter += 1
+    return counter
+'''
+    suite = '''from subject import advance
+def test_two_steps():
+    advance()
+    assert advance() == 1
+'''
+    analysis = analyze_source(source)
+    run = execute(source, suite, detailed=True)
+    assert run["result_complete"] and run["failed"] == 1, run["log"]
+    finding, = analyze_failures(run, build_strategy(analysis, "advance"), suite, analysis)["findings"]
+    assert finding["category"] == "undetermined" and finding["contract"] is None
+    assert "2 == 1" in finding["assertion_diff"]
+    print("stateful setup", finding["category"], finding["assertion_diff"])
+
+
 @pytest.mark.parametrize("source", [
     "from subject import units as target\ndef test_f(target):\n    assert target(2) == 50",
     "from subject import units as target\ntarget = lambda n: 0\ndef test_f():\n    assert target(2) == 50",
     "from other import units as target\ndef test_f():\n    assert target(2) == 50",
+    "from subject import units as target\nfrom other import step as target\ndef test_f():\n    assert target(2) == 50",
 ])
 def test_ambiguous_target_binding(source):
     # Narrow unit inputs for ambiguous bindings, separate from real guest checks above.
