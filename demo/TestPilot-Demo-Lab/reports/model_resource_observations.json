@@ -1,0 +1,26 @@
+[
+  {
+    "attempt": "initial",
+    "state": "resource_guard",
+    "vulkan": true,
+    "physical_free_gib": 1.8714447021484375,
+    "commit_free_gib": 6.894321441650391,
+    "gpu_free_mib": 15969.84375
+  },
+  {
+    "attempt": "recheck",
+    "state": "resource_guard",
+    "vulkan": true,
+    "physical_free_gib": 1.6589813232421875,
+    "commit_free_gib": 5.688930511474609,
+    "gpu_free_mib": 15969.84375
+  },
+  {
+    "attempt": "serial",
+    "state": "resource_guard",
+    "vulkan": true,
+    "physical_free_gib": 1.7420921325683594,
+    "commit_free_gib": 5.224193572998047,
+    "gpu_free_mib": 15969.84375
+  }
+]

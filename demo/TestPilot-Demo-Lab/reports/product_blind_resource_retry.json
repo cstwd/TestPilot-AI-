@@ -1,0 +1,678 @@
+{
+  "stage": "blind",
+  "date": "2026-11-27T10:28:24.504673+00:00",
+  "samples": [
+    {
+      "module": "binary_search",
+      "target": "locate",
+      "tier": "buggy",
+      "domain": "algorithms",
+      "project": {
+        "id": 1,
+        "name": "Demo Lab · binary_search"
+      },
+      "revision_id": 1,
+      "analysis": {
+        "file_id": 1,
+        "filename": "binary_search.py",
+        "revision": 1,
+        "sha256": "b140e97507c00669b559649f28633676ca1114b13300d813867660e1e736f90e",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "locate",
+            "kind": "function",
+            "line": 1,
+            "end_line": 12,
+            "parameters": [
+              {
+                "name": "values",
+                "kind": "positional_or_keyword",
+                "annotation": "list[int]",
+                "default": null
+              },
+              {
+                "name": "target",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Find a target in a sorted sequence of distinct integers."
+          },
+          {
+            "name": "insertion_point",
+            "kind": "function",
+            "line": 14,
+            "end_line": 18,
+            "parameters": [
+              {
+                "name": "values",
+                "kind": "positional_or_keyword",
+                "annotation": "list[int]",
+                "default": null
+              },
+              {
+                "name": "target",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Return the index before any existing equal elements."
+          }
+        ],
+        "error": null
+      },
+      "error": "/api/files/1/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "booking_timezones",
+      "target": "utc_window",
+      "tier": "challenge",
+      "domain": "time",
+      "project": {
+        "id": 2,
+        "name": "Demo Lab · booking_timezones"
+      },
+      "revision_id": 2,
+      "analysis": {
+        "file_id": 2,
+        "filename": "booking_timezones.py",
+        "revision": 1,
+        "sha256": "fb852066abe63216ab97fe6704c6596a03e6dbc064461a8af30f305f68db5f8b",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "utc_window",
+            "kind": "function",
+            "line": 1,
+            "end_line": 4,
+            "parameters": [
+              {
+                "name": "start",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "minutes",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "offset",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "list[int]",
+            "docstring": "Convert a local start and duration into absolute UTC minutes."
+          },
+          {
+            "name": "conflict",
+            "kind": "function",
+            "line": 6,
+            "end_line": 10,
+            "parameters": [
+              {
+                "name": "a",
+                "kind": "positional_or_keyword",
+                "annotation": "list[int]",
+                "default": null
+              },
+              {
+                "name": "b",
+                "kind": "positional_or_keyword",
+                "annotation": "list[int]",
+                "default": null
+              },
+              {
+                "name": "cleanup",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "bool",
+            "docstring": "Detect overlap after adding cleanup time to both UTC appointments."
+          }
+        ],
+        "error": null
+      },
+      "error": "/api/files/2/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "calculator",
+      "target": "add",
+      "tier": "good",
+      "domain": "math",
+      "project": {
+        "id": 3,
+        "name": "Demo Lab · calculator"
+      },
+      "revision_id": 3,
+      "analysis": {
+        "file_id": 3,
+        "filename": "calculator.py",
+        "revision": 1,
+        "sha256": "6321439512e21bc7b5978049906891c6c52aeafa5d5cc29ff6af971febf5565a",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "add",
+            "kind": "function",
+            "line": 1,
+            "end_line": 7,
+            "parameters": [
+              {
+                "name": "a",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "b",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Add two signed integers.\n\n>>> add(2, 3)\n5"
+          },
+          {
+            "name": "quotient",
+            "kind": "function",
+            "line": 9,
+            "end_line": 11,
+            "parameters": [
+              {
+                "name": "a",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "b",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Return the floor quotient."
+          }
+        ],
+        "error": null
+      },
+      "error": "/api/files/3/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "csv_processor",
+      "target": "rows",
+      "tier": "good",
+      "domain": "data",
+      "project": {
+        "id": 4,
+        "name": "Demo Lab · csv_processor"
+      },
+      "revision_id": 4,
+      "analysis": {
+        "file_id": 4,
+        "filename": "csv_processor.py",
+        "revision": 1,
+        "sha256": "8454ff284b27e022896692902908fe1b3fef1877f95aaecd618e300a1f625a2e",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "rows",
+            "kind": "function",
+            "line": 1,
+            "end_line": 6,
+            "parameters": [
+              {
+                "name": "text",
+                "kind": "positional_or_keyword",
+                "annotation": "str",
+                "default": null
+              }
+            ],
+            "returns": "list[list[str]]",
+            "docstring": "Read CSV from literal text, including quoted fields."
+          },
+          {
+            "name": "header_width",
+            "kind": "function",
+            "line": 8,
+            "end_line": 11,
+            "parameters": [
+              {
+                "name": "text",
+                "kind": "positional_or_keyword",
+                "annotation": "str",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Return first-record width, or zero for empty text."
+          }
+        ],
+        "error": null
+      },
+      "error": "/api/files/4/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "log_parser",
+      "target": "message",
+      "tier": "buggy",
+      "domain": "data",
+      "project": {
+        "id": 5,
+        "name": "Demo Lab · log_parser"
+      },
+      "revision_id": 5,
+      "analysis": {
+        "file_id": 5,
+        "filename": "log_parser.py",
+        "revision": 1,
+        "sha256": "23495a6111de98063a63a31cb9cf3540b8e815aeb1416deedd5f315d3457d4ee",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "message",
+            "kind": "function",
+            "line": 1,
+            "end_line": 3,
+            "parameters": [
+              {
+                "name": "line",
+                "kind": "positional_or_keyword",
+                "annotation": "str",
+                "default": null
+              }
+            ],
+            "returns": "str",
+            "docstring": "Extract everything after the first pipe."
+          },
+          {
+            "name": "error_lines",
+            "kind": "function",
+            "line": 5,
+            "end_line": 7,
+            "parameters": [
+              {
+                "name": "lines",
+                "kind": "positional_or_keyword",
+                "annotation": "list[str]",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Count lines whose level field is exactly ERROR."
+          }
+        ],
+        "error": null
+      },
+      "error": "/api/files/5/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "scientific_calculator",
+      "target": "slope",
+      "tier": "buggy",
+      "domain": "math",
+      "project": {
+        "id": 6,
+        "name": "Demo Lab · scientific_calculator"
+      },
+      "revision_id": 6,
+      "analysis": {
+        "file_id": 6,
+        "filename": "scientific_calculator.py",
+        "revision": 1,
+        "sha256": "ffbbab971d88789e025b124fcdf16ac6104835907fc475f1a83f265bb9b232ed",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "slope",
+            "kind": "function",
+            "line": 1,
+            "end_line": 3,
+            "parameters": [
+              {
+                "name": "y0",
+                "kind": "positional_or_keyword",
+                "annotation": "float",
+                "default": null
+              },
+              {
+                "name": "y1",
+                "kind": "positional_or_keyword",
+                "annotation": "float",
+                "default": null
+              },
+              {
+                "name": "x0",
+                "kind": "positional_or_keyword",
+                "annotation": "float",
+                "default": null
+              },
+              {
+                "name": "x1",
+                "kind": "positional_or_keyword",
+                "annotation": "float",
+                "default": null
+              }
+            ],
+            "returns": "float",
+            "docstring": "Return signed rise over signed run."
+          },
+          {
+            "name": "interpolate",
+            "kind": "function",
+            "line": 5,
+            "end_line": 7,
+            "parameters": [
+              {
+                "name": "a",
+                "kind": "positional_or_keyword",
+                "annotation": "float",
+                "default": null
+              },
+              {
+                "name": "b",
+                "kind": "positional_or_keyword",
+                "annotation": "float",
+                "default": null
+              },
+              {
+                "name": "fraction",
+                "kind": "positional_or_keyword",
+                "annotation": "float",
+                "default": null
+              }
+            ],
+            "returns": "float",
+            "docstring": "Interpolate linearly between a and b."
+          }
+        ],
+        "error": null
+      },
+      "error": "/api/files/6/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "shipping_calculator",
+      "target": "shipping_fee",
+      "tier": "good",
+      "domain": "commerce",
+      "project": {
+        "id": 7,
+        "name": "Demo Lab · shipping_calculator"
+      },
+      "revision_id": 7,
+      "analysis": {
+        "file_id": 7,
+        "filename": "shipping_calculator.py",
+        "revision": 1,
+        "sha256": "974a7e4c77c9f9f717fa283b7e9418584b37c9014b4b7f3e2125d5b5fe0c6194",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "shipping_fee",
+            "kind": "function",
+            "line": 1,
+            "end_line": 7,
+            "parameters": [
+              {
+                "name": "cents",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "remote",
+                "kind": "positional_or_keyword",
+                "annotation": "bool",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Charge 500 below 5000 cents and add 200 to every remote shipment.\n\n>>> shipping_fee(1000, True)\n700"
+          },
+          {
+            "name": "grand_total",
+            "kind": "function",
+            "line": 9,
+            "end_line": 11,
+            "parameters": [
+              {
+                "name": "cents",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "remote",
+                "kind": "positional_or_keyword",
+                "annotation": "bool",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Add shipping to the subtotal."
+          }
+        ],
+        "error": null
+      },
+      "error": "/api/files/7/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "team_roster",
+      "target": "surname_key",
+      "tier": "buggy",
+      "domain": "people",
+      "project": {
+        "id": 8,
+        "name": "Demo Lab · team_roster"
+      },
+      "revision_id": 8,
+      "analysis": {
+        "file_id": 8,
+        "filename": "team_roster.py",
+        "revision": 1,
+        "sha256": "1aa6566f9c9ce67644483f93637e0306cd9f616739d34a8a413d96f9547f9731",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "surname_key",
+            "kind": "function",
+            "line": 1,
+            "end_line": 3,
+            "parameters": [
+              {
+                "name": "name",
+                "kind": "positional_or_keyword",
+                "annotation": "str",
+                "default": null
+              }
+            ],
+            "returns": "str",
+            "docstring": "Return the case-insensitive final component of a person's name."
+          },
+          {
+            "name": "team_capacity",
+            "kind": "function",
+            "line": 5,
+            "end_line": 7,
+            "parameters": [
+              {
+                "name": "members",
+                "kind": "positional_or_keyword",
+                "annotation": "list[str]",
+                "default": null
+              },
+              {
+                "name": "limit",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "bool",
+            "docstring": "Check whether a team can register another member."
+          }
+        ],
+        "error": null
+      },
+      "error": "/api/files/8/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "user_validator",
+      "target": "normalize_username",
+      "tier": "good",
+      "domain": "people",
+      "project": {
+        "id": 9,
+        "name": "Demo Lab · user_validator"
+      },
+      "revision_id": 9,
+      "analysis": {
+        "file_id": 9,
+        "filename": "user_validator.py",
+        "revision": 1,
+        "sha256": "685ab6d79b7ae26f0f6abe23c28272aed4226fffdb1359a2fcfe5c16b46b6849",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "normalize_username",
+            "kind": "function",
+            "line": 1,
+            "end_line": 6,
+            "parameters": [
+              {
+                "name": "value",
+                "kind": "positional_or_keyword",
+                "annotation": "str",
+                "default": null
+              }
+            ],
+            "returns": "str",
+            "docstring": "Trim and case-fold a nonempty display handle."
+          },
+          {
+            "name": "handles_match",
+            "kind": "function",
+            "line": 8,
+            "end_line": 10,
+            "parameters": [
+              {
+                "name": "left",
+                "kind": "positional_or_keyword",
+                "annotation": "str",
+                "default": null
+              },
+              {
+                "name": "right",
+                "kind": "positional_or_keyword",
+                "annotation": "str",
+                "default": null
+              }
+            ],
+            "returns": "bool",
+            "docstring": "Compare canonical display handles."
+          }
+        ],
+        "error": null
+      },
+      "error": "/api/files/9/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "volume_discount",
+      "target": "discount",
+      "tier": "buggy",
+      "domain": "commerce",
+      "project": {
+        "id": 10,
+        "name": "Demo Lab · volume_discount"
+      },
+      "revision_id": 10,
+      "analysis": {
+        "file_id": 10,
+        "filename": "volume_discount.py",
+        "revision": 1,
+        "sha256": "9b97c33329446af2185008c338422202186eedeeabc67b262373e2f0d5877c80",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "discount",
+            "kind": "function",
+            "line": 1,
+            "end_line": 3,
+            "parameters": [
+              {
+                "name": "cents",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "quantity",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Award 10 percent at five units or more, rounded down to cents."
+          },
+          {
+            "name": "net_total",
+            "kind": "function",
+            "line": 5,
+            "end_line": 7,
+            "parameters": [
+              {
+                "name": "cents",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "quantity",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "fee",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Subtract the discount then add the handling fee."
+          }
+        ],
+        "error": null
+      },
+      "error": "/api/files/10/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    }
+  ],
+  "health": {
+    "status": "ok",
+    "database": "ok",
+    "mode": "demo"
+  },
+  "model_health": {
+    "http": 503,
+    "state": "unavailable",
+    "model": "Qwen3.8-27B UD-IQ3_XXS",
+    "kind": "resource",
+    "reason": "Ollama 已触发 Windows 资源保护"
+  }
+}

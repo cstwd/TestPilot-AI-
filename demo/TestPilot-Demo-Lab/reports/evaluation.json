@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-27T10:32:37.721710+00:00",
+  "metrics": {
+    "bug_detection_rate": {
+      "numerator": 0,
+      "denominator": 0,
+      "percentage": null
+    },
+    "test_pass_rate": {
+      "numerator": 0,
+      "denominator": 0,
+      "percentage": null
+    },
+    "false_positive_rate": {
+      "numerator": 0,
+      "denominator": 0,
+      "percentage": null
+    },
+    "boundary_test_coverage": {
+      "numerator": 0,
+      "denominator": 0,
+      "percentage": null
+    },
+    "regression_pass_rate": {
+      "numerator": 1,
+      "denominator": 1,
+      "percentage": 100.0
+    },
+    "mutation_score": {
+      "numerator": 34,
+      "denominator": 48,
+      "percentage": 70.83
+    }
+  },
+  "samples": [
+    {
+      "module": "binary_search",
+      "tier": "buggy",
+      "target": "locate",
+      "defects": [
+        "DL-binary_search-01"
+      ],
+      "boundaries": [
+        "binary_search_01",
+        "binary_search_03"
+      ],
+      "evaluated": false,
+      "detected": {},
+      "covered_boundaries": [],
+      "false_alarm_nodes": [],
+      "reason": "/api/files/1/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "booking_timezones",
+      "tier": "challenge",
+      "target": "utc_window",
+      "defects": [
+        "DL-booking_timezones-01"
+      ],
+      "boundaries": [
+        "booking_timezones_04"
+      ],
+      "evaluated": false,
+      "detected": {},
+      "covered_boundaries": [],
+      "false_alarm_nodes": [],
+      "reason": "/api/files/2/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "calculator",
+      "tier": "good",
+      "target": "add",
+      "defects": [],
+      "boundaries": [
+        "calculator_02"
+      ],
+      "evaluated": false,
+      "detected": {},
+      "covered_boundaries": [],
+      "false_alarm_nodes": [],
+      "reason": "/api/files/3/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "csv_processor",
+      "tier": "good",
+      "target": "rows",
+      "defects": [],
+      "boundaries": [],
+      "evaluated": false,
+      "detected": {},
+      "covered_boundaries": [],
+      "false_alarm_nodes": [],
+      "reason": "/api/files/4/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "log_parser",
+      "tier": "buggy",
+      "target": "message",
+      "defects": [
+        "DL-log_parser-01"
+      ],
+      "boundaries": [
+        "log_parser_03"
+      ],
+      "evaluated": false,
+      "detected": {},
+      "covered_boundaries": [],
+      "false_alarm_nodes": [],
+      "reason": "/api/files/5/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "scientific_calculator",
+      "tier": "buggy",
+      "target": "slope",
+      "defects": [
+        "DL-scientific_calculator-01"
+      ],
+      "boundaries": [],
+      "evaluated": false,
+      "detected": {},
+      "covered_boundaries": [],
+      "false_alarm_nodes": [],
+      "reason": "/api/files/6/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "shipping_calculator",
+      "tier": "good",
+      "target": "shipping_fee",
+      "defects": [],
+      "boundaries": [
+        "shipping_calculator_01"
+      ],
+      "evaluated": false,
+      "detected": {},
+      "covered_boundaries": [],
+      "false_alarm_nodes": [],
+      "reason": "/api/files/7/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "team_roster",
+      "tier": "buggy",
+      "target": "surname_key",
+      "defects": [
+        "DL-team_roster-01"
+      ],
+      "boundaries": [],
+      "evaluated": false,
+      "detected": {},
+      "covered_boundaries": [],
+      "false_alarm_nodes": [],
+      "reason": "/api/files/8/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "user_validator",
+      "tier": "good",
+      "target": "normalize_username",
+      "defects": [],
+      "boundaries": [
+        "user_validator_02"
+      ],
+      "evaluated": false,
+      "detected": {},
+      "covered_boundaries": [],
+      "false_alarm_nodes": [],
+      "reason": "/api/files/9/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    },
+    {
+      "module": "volume_discount",
+      "tier": "buggy",
+      "target": "discount",
+      "defects": [
+        "DL-volume_discount-01"
+      ],
+      "boundaries": [
+        "volume_discount_01",
+        "volume_discount_03"
+      ],
+      "evaluated": false,
+      "detected": {},
+      "covered_boundaries": [],
+      "false_alarm_nodes": [],
+      "reason": "/api/files/10/suites HTTP 422: {'detail': 'Ollama 已触发 Windows 资源保护'}"
+    }
+  ],
+  "selection": {
+    "planned_defects": 6,
+    "planned_boundaries": 9,
+    "captured_samples": 10,
+    "evaluable_samples": 0
+  }
+}
