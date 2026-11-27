@@ -27,6 +27,14 @@
 .records article a { display: inline-block; margin-top: 8px; font-size: 14px; }
 #suite-panel > * { margin-block: 12px; }
 #suggestions { padding-left: 20px; line-height: 1.65; }
+.readout { display: flex; flex-wrap: wrap; border-block: 1px solid var(--line); }
+.readout > div { padding: 10px 18px 10px 0; }
+.readout dt { color: var(--muted); font-size: 12px; }
+.readout dd { font-weight: 650; margin-top: 4px; }
+#run-result > *, .case-list { margin-top: 12px; }
+.case-list { overflow-wrap: anywhere; padding-left: 20px; }
+.inline-links { display: flex; gap: 18px; flex-wrap: wrap; }
+summary { cursor: pointer; }
 #notice { min-height: 32px; padding: 6px 0; font-size: 14px; color: var(--success); overflow-wrap: anywhere; }
 #notice[data-error] { color: var(--error); }
 @media(max-width: 720px) {

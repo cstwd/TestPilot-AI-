@@ -1,10 +1,10 @@
 """Register the phase 02 business modules on the existing application."""
 from fastapi import HTTPException, Request
 
-from . import analysis, generation, projects
+from . import analysis, generation, projects, runs
 from .store import connect
 
-MODULES = (projects, analysis, generation)
+MODULES = (projects, analysis, generation, runs)
 PAGES = {"projects", "analysis", "generation", "runs", "bugs", "reports"}
 
 

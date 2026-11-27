@@ -1,0 +1,19 @@
+.FsWASI limits: [Errno 58] Not supported [Errno 58] wasi does not support processes. 300 MiB allocation denied
+.
+=================================== FAILURES ===================================
+______________________________ test_bad_contract _______________________________
+test_generated.py:14: in test_bad_contract
+    assert inc(1) == 99
+           ^^^^^^^^^^^^
+E   AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED test_generated.py::test_value
+PASSED test_generated.py::test_capabilities
+SKIPPED [1] test_generated.py:17: no contract
+FAILED test_generated.py::test_bad_contract - AssertionError
+1 failed, 2 passed, 1 skipped in 0.34s
+
+TESTPILOT_RESULT {"cases": [{"nodeid": "test_generated.py::test_value", "outcome": "passed"}, {"nodeid": "test_generated.py::test_bad_contract", "outcome": "failed"}, {"nodeid": "test_generated.py::test_omitted", "outcome": "skipped"}, {"nodeid": "test_generated.py::test_capabilities", "outcome": "passed"}], "covered_lines": 3, "total_lines": 4}
+.....
+5 passed in 45.12s

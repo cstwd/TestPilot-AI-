@@ -1,0 +1,19 @@
+<section>
+  <h2>运行 Pytest</h2>
+  <p class="hint">从同名文件的已保存版本中选择测试套件，对当前选中的文件版本执行。</p>
+  <form id="start-run"><label>测试套件<select id="run-suite"></select></label>
+    <button id="execute" disabled>执行测试</button></form>
+  <p class="hint"><a data-dest="generation" href="/workbench/generation">查看或生成测试</a></p>
+</section>
+<section>
+  <h2>项目执行记录</h2>
+  <label>选择运行<select id="run-history"></select></label>
+  <div id="run-result" hidden>
+    <p class="hint" id="run-identity"></p>
+    <dl id="run-summary" class="readout"></dl>
+    <p id="coverage" class="hint"></p>
+    <details><summary>用例明细</summary><ul id="run-cases" class="case-list"></ul></details>
+    <details open><summary>执行日志</summary><pre id="run-log" tabindex="0"></pre></details>
+    <div class="inline-links"><a id="to-bugs">查看缺陷与回归</a><a id="to-report">查看质量报告</a></div>
+  </div>
+</section>

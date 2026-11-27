@@ -68,3 +68,20 @@ def test_f03(page):
     expect(page.get_by_role("link", name="前往执行此测试")).to_have_attribute("href", f"/workbench/runs?project={project}&file={file}&suite=1")
     page.reload()
     expect(page.locator("#suite-detail")).to_contain_text("语法检查通过")
+
+
+def prepare_suite(page, name):
+    project = page.request.post("/api/projects", data={"name": name}).json()["id"]
+    file = import_source(page, project, "def add(x: int) -> int:\n    return x + 1\n")
+    result = page.request.post(f"/api/files/{file}/suites", data={"target": "add", "mode": "template"})
+    assert result.ok, result.text()
+    return project, file, result.json()["id"]
+
+
+def test_f04(page):
+    project, file, suite = prepare_suite(page, "执行验收")
+    page.goto(f"/workbench/runs?project={project}&file={file}&suite={suite}")
+    page.get_by_role("button", name="执行测试").click()
+    expect(page.locator("#run-identity")).to_contain_text("运行 #1", timeout=120_000)
+    expect(page.locator("#run-log")).to_contain_text("passed")
+    expect(page.locator("#to-bugs")).to_have_attribute("href", f"/workbench/bugs?project={project}&file={file}&run=1")

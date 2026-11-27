@@ -103,6 +103,11 @@ async function start() {
     if (!file.value) return showEmpty("请先选择项目并导入需要生成测试的文件。");
     await showGeneration({$, api, link, form, populate, params, fileId: file.value});
   }
+  if (page === "runs") {
+    const {showRuns} = await import("./runs.js");
+    if (!file.value) return showEmpty("请先导入源码并生成测试，再启动执行。");
+    await showRuns({$, api, link, form, populate, params, files, projectId: project.value, fileId: file.value});
+  }
 }
 
 start().catch(error => message(error.message, true));
