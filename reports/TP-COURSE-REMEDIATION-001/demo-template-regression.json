@@ -1,0 +1,513 @@
+{
+  "stage": "regression",
+  "date": "2026-11-27T11:35:11.618302+00:00",
+  "samples": [
+    {
+      "module": "unit_scaling",
+      "target": "metric_kilometers",
+      "tier": "buggy",
+      "domain": "math",
+      "project": {
+        "id": 1,
+        "name": "Demo Lab · unit_scaling"
+      },
+      "revision_id": 1,
+      "analysis": {
+        "file_id": 1,
+        "filename": "unit_scaling.py",
+        "revision": 1,
+        "sha256": "b6aaf40f6e95707b097cd106ff0c92f8a8d1ffbc34eebfeda8aa42aaa8aa0c64",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "metric_kilometers",
+            "kind": "function",
+            "line": 1,
+            "end_line": 3,
+            "parameters": [
+              {
+                "name": "meters",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "float",
+            "docstring": "Convert meters to kilometers, retaining fractional kilometers."
+          },
+          {
+            "name": "fahrenheit",
+            "kind": "function",
+            "line": 5,
+            "end_line": 7,
+            "parameters": [
+              {
+                "name": "celsius",
+                "kind": "positional_or_keyword",
+                "annotation": "float",
+                "default": null
+              }
+            ],
+            "returns": "float",
+            "docstring": "Convert Celsius to Fahrenheit."
+          }
+        ],
+        "error": null
+      },
+      "suite": {
+        "id": 1,
+        "file_id": 1,
+        "target": "metric_kilometers",
+        "mode": "template",
+        "source": "import pytest\nfrom subject import metric_kilometers as target\n\ndef test_normal_return_contract():\n    assert isinstance(target(meters=2), float)\n\ndef test_boundary_return_contract():\n    assert isinstance(target(meters=0), float)\n\ndef test_invalid_keyword():\n    with pytest.raises(TypeError):\n        target(_testpilot_unexpected=None)\n\ndef test_property_return_contract():\n    hypothesis = pytest.importorskip('hypothesis')\n    from hypothesis import strategies as st\n\n    @hypothesis.settings(max_examples=12, database=None, deadline=None)\n    @hypothesis.given(st.integers(min_value=-100, max_value=100))\n    def check(x):\n        assert isinstance(target(meters=x), float)\n    check()\n",
+        "sha256": "2659580af9bc26da1f2bbafa25e8810a2fb59e71c2a5d58b9424ea822a4b30ed",
+        "suggestions": [
+          "用 Hypothesis 的 integers(min_value=-100, max_value=100) 检查返回类型契约。若函数有输入前置条件，请先核对生成的取值范围。"
+        ],
+        "format_checked": true,
+        "initial_run": {
+          "id": 1,
+          "status": "failed"
+        }
+      },
+      "run": {
+        "status": "failed",
+        "passed": 1,
+        "failed": 2,
+        "errors": 0,
+        "skipped": 1,
+        "cases": [
+          {
+            "nodeid": "test_generated.py::test_normal_return_contract",
+            "outcome": "failed"
+          },
+          {
+            "nodeid": "test_generated.py::test_boundary_return_contract",
+            "outcome": "failed"
+          },
+          {
+            "nodeid": "test_generated.py::test_invalid_keyword",
+            "outcome": "passed"
+          },
+          {
+            "nodeid": "test_generated.py::test_property_return_contract",
+            "outcome": "skipped"
+          }
+        ],
+        "exit_code": 1,
+        "covered_lines": 3,
+        "total_lines": 4,
+        "coverage_pct": 75.0,
+        "log": "FF.s\n=================================== FAILURES ===================================\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:5: in test_normal_return_contract\n    assert isinstance(target(meters=2), float)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:8: in test_boundary_return_contract\n    assert isinstance(target(meters=0), float)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:15: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_normal_return_contract - AssertionError\nFAILED test_generated.py::test_boundary_return_contract - AssertionError\n2 failed, 1 passed, 1 skipped in 0.16s\n\nTESTPILOT_RESULT {\"environment\": {\"platform\": \"wasi\", \"python\": \"3.15.2\", \"pytest\": \"9.2.0\", \"coverage\": \"7.17.5\"}, \"cases\": [{\"nodeid\": \"test_generated.py::test_normal_return_contract\", \"outcome\": \"failed\"}, {\"nodeid\": \"test_generated.py::test_boundary_return_contract\", \"outcome\": \"failed\"}, {\"nodeid\": \"test_generated.py::test_invalid_keyword\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_property_return_contract\", \"outcome\": \"skipped\"}], \"covered_lines\": 3, \"total_lines\": 4}",
+        "duration_ms": 26941,
+        "environment": {
+          "platform": "wasi",
+          "python": "3.15.2",
+          "pytest": "9.2.0",
+          "coverage": "7.17.5"
+        },
+        "id": 1,
+        "project_id": 1,
+        "file_id": 1,
+        "suite_id": 1,
+        "created_at": "2026-11-27T11:35:40.338Z"
+      },
+      "quality": {
+        "schema": "testpilot.quality.v1",
+        "project": {
+          "id": 1,
+          "name": "Demo Lab · unit_scaling"
+        },
+        "run": {
+          "id": 1,
+          "status": "failed",
+          "created_at": "2026-11-27T11:35:40.338Z",
+          "duration_ms": 26941,
+          "exit_code": 1
+        },
+        "source": {
+          "id": 1,
+          "filename": "unit_scaling.py",
+          "revision": 1,
+          "sha256": "b6aaf40f6e95707b097cd106ff0c92f8a8d1ffbc34eebfeda8aa42aaa8aa0c64"
+        },
+        "suite": {
+          "id": 1,
+          "target": "metric_kilometers",
+          "mode": "template",
+          "sha256": "2659580af9bc26da1f2bbafa25e8810a2fb59e71c2a5d58b9424ea822a4b30ed",
+          "file_id": 1
+        },
+        "quality": {
+          "passed": 1,
+          "failed": 2,
+          "errors": 0,
+          "skipped": 1,
+          "total": 4,
+          "pass_rate_pct": 33.33,
+          "covered_lines": 3,
+          "total_lines": 4,
+          "coverage_pct": 75.0,
+          "assessment": "存在断言失败。请查看失败节点和输入预期，再决定是否登记缺陷。"
+        },
+        "metric_notes": "通过率 = 通过 / (通过 + 失败 + 错误)，跳过单列；行覆盖率按被测单文件实际覆盖行 / 可执行行计。无可用分母时为 null。缺陷状态取本次查看或导出时的记录，原运行的计数和日志保留。",
+        "environment": {
+          "platform": "wasi",
+          "python": "3.15.2",
+          "pytest": "9.2.0",
+          "coverage": "7.17.5"
+        },
+        "cases": [
+          {
+            "nodeid": "test_generated.py::test_normal_return_contract",
+            "outcome": "failed"
+          },
+          {
+            "nodeid": "test_generated.py::test_boundary_return_contract",
+            "outcome": "failed"
+          },
+          {
+            "nodeid": "test_generated.py::test_invalid_keyword",
+            "outcome": "passed"
+          },
+          {
+            "nodeid": "test_generated.py::test_property_return_contract",
+            "outcome": "skipped"
+          }
+        ],
+        "log": "FF.s\n=================================== FAILURES ===================================\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:5: in test_normal_return_contract\n    assert isinstance(target(meters=2), float)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:8: in test_boundary_return_contract\n    assert isinstance(target(meters=0), float)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:15: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_normal_return_contract - AssertionError\nFAILED test_generated.py::test_boundary_return_contract - AssertionError\n2 failed, 1 passed, 1 skipped in 0.16s\n\nTESTPILOT_RESULT {\"environment\": {\"platform\": \"wasi\", \"python\": \"3.15.2\", \"pytest\": \"9.2.0\", \"coverage\": \"7.17.5\"}, \"cases\": [{\"nodeid\": \"test_generated.py::test_normal_return_contract\", \"outcome\": \"failed\"}, {\"nodeid\": \"test_generated.py::test_boundary_return_contract\", \"outcome\": \"failed\"}, {\"nodeid\": \"test_generated.py::test_invalid_keyword\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_property_return_contract\", \"outcome\": \"skipped\"}], \"covered_lines\": 3, \"total_lines\": 4}",
+        "bugs": []
+      },
+      "workflow": {
+        "original_run": {
+          "status": "failed",
+          "passed": 1,
+          "failed": 2,
+          "errors": 0,
+          "skipped": 1,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_normal_return_contract",
+              "outcome": "failed"
+            },
+            {
+              "nodeid": "test_generated.py::test_boundary_return_contract",
+              "outcome": "failed"
+            },
+            {
+              "nodeid": "test_generated.py::test_invalid_keyword",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_property_return_contract",
+              "outcome": "skipped"
+            }
+          ],
+          "exit_code": 1,
+          "covered_lines": 3,
+          "total_lines": 4,
+          "coverage_pct": 75.0,
+          "log": "FF.s\n=================================== FAILURES ===================================\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:5: in test_normal_return_contract\n    assert isinstance(target(meters=2), float)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:8: in test_boundary_return_contract\n    assert isinstance(target(meters=0), float)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE   AssertionError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:15: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_normal_return_contract - AssertionError\nFAILED test_generated.py::test_boundary_return_contract - AssertionError\n2 failed, 1 passed, 1 skipped in 0.16s\n\nTESTPILOT_RESULT {\"environment\": {\"platform\": \"wasi\", \"python\": \"3.15.2\", \"pytest\": \"9.2.0\", \"coverage\": \"7.17.5\"}, \"cases\": [{\"nodeid\": \"test_generated.py::test_normal_return_contract\", \"outcome\": \"failed\"}, {\"nodeid\": \"test_generated.py::test_boundary_return_contract\", \"outcome\": \"failed\"}, {\"nodeid\": \"test_generated.py::test_invalid_keyword\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_property_return_contract\", \"outcome\": \"skipped\"}], \"covered_lines\": 3, \"total_lines\": 4}",
+          "duration_ms": 26941,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "id": 1,
+          "project_id": 1,
+          "file_id": 1,
+          "suite_id": 1,
+          "created_at": "2026-11-27T11:35:40.338Z"
+        },
+        "detailed_original": {
+          "status": "failed",
+          "passed": 1,
+          "failed": 2,
+          "errors": 0,
+          "skipped": 1,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_normal_return_contract",
+              "outcome": "failed"
+            },
+            {
+              "nodeid": "test_generated.py::test_boundary_return_contract",
+              "outcome": "failed"
+            },
+            {
+              "nodeid": "test_generated.py::test_invalid_keyword",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_property_return_contract",
+              "outcome": "skipped"
+            }
+          ],
+          "exit_code": 1,
+          "covered_lines": 3,
+          "total_lines": 4,
+          "coverage_pct": 75.0,
+          "log": "FF.s\n=================================== FAILURES ===================================\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:5: in test_normal_return_contract\n    assert isinstance(target(meters=2), float)\nE   assert False\nE    +  where False = isinstance(0, float)\nE    +    where 0 = target(meters=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:8: in test_boundary_return_contract\n    assert isinstance(target(meters=0), float)\nE   assert False\nE    +  where False = isinstance(0, float)\nE    +    where 0 = target(meters=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:15: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n2 failed, 1 passed, 1 skipped in 0.17s",
+          "duration_ms": 5926,
+          "stdout": "FF.s\n=================================== FAILURES ===================================\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:5: in test_normal_return_contract\n    assert isinstance(target(meters=2), float)\nE   assert False\nE    +  where False = isinstance(0, float)\nE    +    where 0 = target(meters=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:8: in test_boundary_return_contract\n    assert isinstance(target(meters=0), float)\nE   assert False\nE    +  where False = isinstance(0, float)\nE    +    where 0 = target(meters=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:15: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n2 failed, 1 passed, 1 skipped in 0.17s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [
+            {
+              "nodeid": "test_generated.py::test_normal_return_contract",
+              "phase": "call",
+              "exception_type": "AssertionError",
+              "message": "assert False\n +  where False = isinstance(0, float)\n +    where 0 = target(meters=2)",
+              "frames": [
+                {
+                  "path": "test_generated.py",
+                  "line": 5,
+                  "function": "test_normal_return_contract",
+                  "source": "assert isinstance(target(meters=2), float)"
+                }
+              ],
+              "assertion_diff": "assert False\n +  where False = isinstance(0, float)\n +    where 0 = target(meters=2)"
+            },
+            {
+              "nodeid": "test_generated.py::test_boundary_return_contract",
+              "phase": "call",
+              "exception_type": "AssertionError",
+              "message": "assert False\n +  where False = isinstance(0, float)\n +    where 0 = target(meters=0)",
+              "frames": [
+                {
+                  "path": "test_generated.py",
+                  "line": 8,
+                  "function": "test_boundary_return_contract",
+                  "source": "assert isinstance(target(meters=0), float)"
+                }
+              ],
+              "assertion_diff": "assert False\n +  where False = isinstance(0, float)\n +    where 0 = target(meters=0)"
+            }
+          ],
+          "failure_details_omitted": 0,
+          "covered_branches": 0,
+          "total_branches": 0,
+          "branch_pct": null,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          }
+        },
+        "reference_replay": {
+          "status": "passed",
+          "passed": 3,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 1,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_normal_return_contract",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_boundary_return_contract",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_invalid_keyword",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_property_return_contract",
+              "outcome": "skipped"
+            }
+          ],
+          "exit_code": 0,
+          "covered_lines": 3,
+          "total_lines": 4,
+          "coverage_pct": 75.0,
+          "log": "...s\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:15: could not import 'hypothesis': No module named 'hypothesis'\n3 passed, 1 skipped in 0.08s",
+          "duration_ms": 5617,
+          "stdout": "...s\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:15: could not import 'hypothesis': No module named 'hypothesis'\n3 passed, 1 skipped in 0.08s\n",
+          "stderr": "",
+          "diagnostic": "",
+          "result_complete": true,
+          "failures": [],
+          "failure_details_omitted": 0,
+          "covered_branches": 0,
+          "total_branches": 0,
+          "branch_pct": null,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          }
+        },
+        "bug": {
+          "id": 1,
+          "project_id": 1,
+          "run_id": 1,
+          "nodeid": "test_generated.py::test_normal_return_contract",
+          "title": "Demo Lab assertion regression",
+          "status": "open",
+          "file_id": 1,
+          "suite_id": 1,
+          "regressions": []
+        },
+        "updated_bug": {
+          "id": 1,
+          "project_id": 1,
+          "run_id": 1,
+          "nodeid": "test_generated.py::test_normal_return_contract",
+          "title": "Demo Lab assertion regression",
+          "status": "resolved",
+          "file_id": 1,
+          "suite_id": 1,
+          "regressions": [
+            {
+              "id": 1,
+              "run_id": 2,
+              "status": "resolved",
+              "file_id": 2,
+              "revision": 2
+            }
+          ]
+        },
+        "regression": {
+          "status": "passed",
+          "passed": 3,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 1,
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_normal_return_contract",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_boundary_return_contract",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_invalid_keyword",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_property_return_contract",
+              "outcome": "skipped"
+            }
+          ],
+          "exit_code": 0,
+          "covered_lines": 3,
+          "total_lines": 4,
+          "coverage_pct": 75.0,
+          "log": "...s\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:15: could not import 'hypothesis': No module named 'hypothesis'\n3 passed, 1 skipped in 0.06s\n\nTESTPILOT_RESULT {\"environment\": {\"platform\": \"wasi\", \"python\": \"3.15.2\", \"pytest\": \"9.2.0\", \"coverage\": \"7.17.5\"}, \"cases\": [{\"nodeid\": \"test_generated.py::test_normal_return_contract\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_boundary_return_contract\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_invalid_keyword\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_property_return_contract\", \"outcome\": \"skipped\"}], \"covered_lines\": 3, \"total_lines\": 4}",
+          "duration_ms": 5786,
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "id": 2,
+          "project_id": 1,
+          "file_id": 2,
+          "suite_id": 1,
+          "created_at": "2026-11-27T11:35:57.780Z"
+        },
+        "quality": {
+          "schema": "testpilot.quality.v1",
+          "project": {
+            "id": 1,
+            "name": "Demo Lab · unit_scaling"
+          },
+          "run": {
+            "id": 2,
+            "status": "passed",
+            "created_at": "2026-11-27T11:35:57.780Z",
+            "duration_ms": 5786,
+            "exit_code": 0
+          },
+          "source": {
+            "id": 2,
+            "filename": "unit_scaling.py",
+            "revision": 2,
+            "sha256": "45965980ee1c082cafc5bcf5d147ce4e5a24e33ea05da1751cc306c9fe40ae99"
+          },
+          "suite": {
+            "id": 1,
+            "target": "metric_kilometers",
+            "mode": "template",
+            "sha256": "2659580af9bc26da1f2bbafa25e8810a2fb59e71c2a5d58b9424ea822a4b30ed",
+            "file_id": 1
+          },
+          "quality": {
+            "passed": 3,
+            "failed": 0,
+            "errors": 0,
+            "skipped": 1,
+            "total": 4,
+            "pass_rate_pct": 100.0,
+            "covered_lines": 3,
+            "total_lines": 4,
+            "coverage_pct": 75.0,
+            "assessment": "本次已执行的测试通过。请结合跳过项与未覆盖行判断剩余风险。"
+          },
+          "metric_notes": "通过率 = 通过 / (通过 + 失败 + 错误)，跳过单列；行覆盖率按被测单文件实际覆盖行 / 可执行行计。无可用分母时为 null。缺陷状态取本次查看或导出时的记录，原运行的计数和日志保留。",
+          "environment": {
+            "platform": "wasi",
+            "python": "3.15.2",
+            "pytest": "9.2.0",
+            "coverage": "7.17.5"
+          },
+          "cases": [
+            {
+              "nodeid": "test_generated.py::test_normal_return_contract",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_boundary_return_contract",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_invalid_keyword",
+              "outcome": "passed"
+            },
+            {
+              "nodeid": "test_generated.py::test_property_return_contract",
+              "outcome": "skipped"
+            }
+          ],
+          "log": "...s\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:15: could not import 'hypothesis': No module named 'hypothesis'\n3 passed, 1 skipped in 0.06s\n\nTESTPILOT_RESULT {\"environment\": {\"platform\": \"wasi\", \"python\": \"3.15.2\", \"pytest\": \"9.2.0\", \"coverage\": \"7.17.5\"}, \"cases\": [{\"nodeid\": \"test_generated.py::test_normal_return_contract\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_boundary_return_contract\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_invalid_keyword\", \"outcome\": \"passed\"}, {\"nodeid\": \"test_generated.py::test_property_return_contract\", \"outcome\": \"skipped\"}], \"covered_lines\": 3, \"total_lines\": 4}",
+          "bugs": [
+            {
+              "id": 1,
+              "project_id": 1,
+              "run_id": 1,
+              "nodeid": "test_generated.py::test_normal_return_contract",
+              "title": "Demo Lab assertion regression",
+              "status": "resolved",
+              "file_id": 1,
+              "suite_id": 1,
+              "regressions": [
+                {
+                  "id": 1,
+                  "run_id": 2,
+                  "status": "resolved",
+                  "file_id": 2,
+                  "revision": 2
+                }
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "health": {
+    "status": "ok",
+    "database": "ok",
+    "mode": "demo"
+  }
+}

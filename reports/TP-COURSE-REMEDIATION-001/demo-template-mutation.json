@@ -1,0 +1,721 @@
+{
+  "stage": "mutation",
+  "date": "2026-11-27T11:35:58.760545+00:00",
+  "samples": [
+    {
+      "module": "calculator",
+      "target": "add",
+      "tier": "good",
+      "domain": "math",
+      "task": {
+        "id": "e327ac0b-a619-4246-914f-1bba87de4d30",
+        "file_id": 1,
+        "target": "add",
+        "created_at": "2026-11-27T11:36:00.542376+00:00",
+        "status": "completed",
+        "max_repairs": 0,
+        "records": [
+          {
+            "id": "02d3064c-4c2c-4361-b06f-5e09fd40ac17",
+            "task_id": "e327ac0b-a619-4246-914f-1bba87de4d30",
+            "parent_id": null,
+            "kind": "SourceAnalysis",
+            "created_at": "2026-11-27T11:36:00.550700+00:00",
+            "status": "ready",
+            "payload": {
+              "valid": true,
+              "symbols": [
+                {
+                  "name": "add",
+                  "kind": "function",
+                  "line": 1,
+                  "end_line": 7,
+                  "parameters": [
+                    {
+                      "name": "a",
+                      "kind": "positional_or_keyword",
+                      "annotation": "int",
+                      "default": null
+                    },
+                    {
+                      "name": "b",
+                      "kind": "positional_or_keyword",
+                      "annotation": "int",
+                      "default": null
+                    }
+                  ],
+                  "returns": "int",
+                  "docstring": "Add two signed integers.\n\n>>> add(2, 3)\n5",
+                  "testable": true,
+                  "decorators": [],
+                  "examples": [
+                    {
+                      "id": "example_1",
+                      "source": "doctest",
+                      "call": "add(2, 3)",
+                      "expected": "5",
+                      "exception": null
+                    }
+                  ],
+                  "branches": [],
+                  "loops": [],
+                  "return_values": [
+                    {
+                      "expression": "a + b",
+                      "line": 7
+                    }
+                  ],
+                  "raises": [],
+                  "calls": [],
+                  "dependencies": []
+                },
+                {
+                  "name": "quotient",
+                  "kind": "function",
+                  "line": 9,
+                  "end_line": 11,
+                  "parameters": [
+                    {
+                      "name": "a",
+                      "kind": "positional_or_keyword",
+                      "annotation": "int",
+                      "default": null
+                    },
+                    {
+                      "name": "b",
+                      "kind": "positional_or_keyword",
+                      "annotation": "int",
+                      "default": null
+                    }
+                  ],
+                  "returns": "int",
+                  "docstring": "Return the floor quotient.",
+                  "testable": true,
+                  "decorators": [],
+                  "examples": [],
+                  "branches": [],
+                  "loops": [],
+                  "return_values": [
+                    {
+                      "expression": "a // b",
+                      "line": 11
+                    }
+                  ],
+                  "raises": [],
+                  "calls": [],
+                  "dependencies": []
+                }
+              ],
+              "dependencies": [],
+              "diagnostics": [],
+              "sha256": "6321439512e21bc7b5978049906891c6c52aeafa5d5cc29ff6af971febf5565a",
+              "file_id": 1,
+              "filename": "calculator.py",
+              "revision": 1
+            }
+          },
+          {
+            "id": "9c449747-912a-4cf7-85c9-f49b575ee500",
+            "task_id": "e327ac0b-a619-4246-914f-1bba87de4d30",
+            "parent_id": "02d3064c-4c2c-4361-b06f-5e09fd40ac17",
+            "kind": "TestStrategy",
+            "created_at": "2026-11-27T11:36:00.560330+00:00",
+            "status": "ready",
+            "payload": {
+              "target": "add",
+              "source_sha256": "6321439512e21bc7b5978049906891c6c52aeafa5d5cc29ff6af971febf5565a",
+              "cases": [
+                {
+                  "id": "case_1",
+                  "type": "example",
+                  "purpose": "验证文档中此输入的明确预期。",
+                  "inputs": [
+                    "add(2, 3)"
+                  ],
+                  "expected": "5",
+                  "oracle": "doctest",
+                  "contract_id": "example_1"
+                },
+                {
+                  "id": "case_2",
+                  "type": "normal",
+                  "purpose": "以签名和类型标注选取常见输入。",
+                  "inputs": [
+                    "add(a=2, b=2)"
+                  ],
+                  "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+                  "oracle": "review"
+                },
+                {
+                  "id": "case_3",
+                  "type": "return_constraint",
+                  "purpose": "核验声明的返回类型；检查调用是否满足业务前置条件。",
+                  "inputs": [
+                    "add(a=2, b=2)"
+                  ],
+                  "expected": "int",
+                  "oracle": "annotation"
+                },
+                {
+                  "id": "case_4",
+                  "type": "exception",
+                  "purpose": "添加签名不接受的关键字参数。",
+                  "inputs": [
+                    "add(a=2, b=2, _testpilot_unknown=None)"
+                  ],
+                  "expected": "raises TypeError",
+                  "oracle": "signature"
+                },
+                {
+                  "id": "case_5",
+                  "type": "missing",
+                  "purpose": "省略必需参数，覆盖 Python 调用绑定检查。",
+                  "inputs": [
+                    "add()"
+                  ],
+                  "expected": "raises TypeError",
+                  "oracle": "signature"
+                },
+                {
+                  "id": "case_6",
+                  "type": "null",
+                  "purpose": "核验 a 为 None 时的行为。",
+                  "inputs": [
+                    "add(a=None, b=2)"
+                  ],
+                  "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+                  "oracle": "review"
+                },
+                {
+                  "id": "case_7",
+                  "type": "boundary",
+                  "purpose": "核验 a 的基础边界值。",
+                  "inputs": [
+                    "add(a=0, b=2)"
+                  ],
+                  "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+                  "oracle": "review"
+                },
+                {
+                  "id": "case_8",
+                  "type": "invalid_type",
+                  "purpose": "传入与 a 的标注不同的值，核对类型约束及错误处理。",
+                  "inputs": [
+                    "add(a='invalid', b=2)"
+                  ],
+                  "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+                  "oracle": "review"
+                },
+                {
+                  "id": "case_9",
+                  "type": "special_numeric",
+                  "purpose": "检查 a 的特殊数值输入。",
+                  "inputs": [
+                    "add(a=-1, b=2)",
+                    "add(a=0, b=2)",
+                    "add(a=1, b=2)",
+                    "add(a=2**63, b=2)"
+                  ],
+                  "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+                  "oracle": "review"
+                },
+                {
+                  "id": "case_10",
+                  "type": "null",
+                  "purpose": "核验 b 为 None 时的行为。",
+                  "inputs": [
+                    "add(a=2, b=None)"
+                  ],
+                  "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+                  "oracle": "review"
+                },
+                {
+                  "id": "case_11",
+                  "type": "boundary",
+                  "purpose": "核验 b 的基础边界值。",
+                  "inputs": [
+                    "add(a=2, b=0)"
+                  ],
+                  "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+                  "oracle": "review"
+                },
+                {
+                  "id": "case_12",
+                  "type": "invalid_type",
+                  "purpose": "传入与 b 的标注不同的值，核对类型约束及错误处理。",
+                  "inputs": [
+                    "add(a=2, b='invalid')"
+                  ],
+                  "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+                  "oracle": "review"
+                },
+                {
+                  "id": "case_13",
+                  "type": "special_numeric",
+                  "purpose": "检查 b 的特殊数值输入。",
+                  "inputs": [
+                    "add(a=2, b=-1)",
+                    "add(a=2, b=0)",
+                    "add(a=2, b=1)",
+                    "add(a=2, b=2**63)"
+                  ],
+                  "expected": "预期业务结果待核对，请从规格或独立契约补充。",
+                  "oracle": "review"
+                }
+              ],
+              "contracts": [
+                {
+                  "id": "example_1",
+                  "source": "doctest",
+                  "call": "add(2, 3)",
+                  "expected": "5",
+                  "exception": null
+                }
+              ]
+            }
+          },
+          {
+            "id": "970afc12-c39b-40c5-a486-e21fea7df3bb",
+            "task_id": "e327ac0b-a619-4246-914f-1bba87de4d30",
+            "parent_id": "9c449747-912a-4cf7-85c9-f49b575ee500",
+            "kind": "GeneratedTest",
+            "created_at": "2026-11-27T11:36:00.571619+00:00",
+            "status": "ready",
+            "payload": {
+              "code": "import pytest\nfrom subject import add as target\n\ndef test_example_1():\n    assert target(2, 3) == 5\n\ndef test_normal_return_contract():\n    assert isinstance(target(a=2, b=2), int)\n\ndef test_boundary_return_contract():\n    assert isinstance(target(a=0, b=0), int)\n\ndef test_invalid_keyword():\n    with pytest.raises(TypeError):\n        target(_testpilot_unexpected=None)\n",
+              "mode": "template",
+              "sha256": "d261a5d2a0e80515694b7dfae340dd34594b993c8c3210d3d01993747b13cfd4",
+              "provider": "local-template",
+              "model": null,
+              "attempts": [],
+              "fallback_reason": "用户显式选择模板",
+              "run_id": null
+            }
+          },
+          {
+            "id": "cf832926-2337-4e28-ad56-4f42355d4973",
+            "task_id": "e327ac0b-a619-4246-914f-1bba87de4d30",
+            "parent_id": "970afc12-c39b-40c5-a486-e21fea7df3bb",
+            "kind": "TestExecution",
+            "created_at": "2026-11-27T11:36:06.197986+00:00",
+            "status": "passed",
+            "payload": {
+              "status": "passed",
+              "passed": 4,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "cases": [
+                {
+                  "nodeid": "test_generated.py::test_example_1",
+                  "outcome": "passed"
+                },
+                {
+                  "nodeid": "test_generated.py::test_normal_return_contract",
+                  "outcome": "passed"
+                },
+                {
+                  "nodeid": "test_generated.py::test_boundary_return_contract",
+                  "outcome": "passed"
+                },
+                {
+                  "nodeid": "test_generated.py::test_invalid_keyword",
+                  "outcome": "passed"
+                }
+              ],
+              "exit_code": 0,
+              "covered_lines": 3,
+              "total_lines": 4,
+              "coverage_pct": 75.0,
+              "log": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.08s",
+              "duration_ms": 5617,
+              "stdout": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.08s\n",
+              "stderr": "",
+              "diagnostic": "",
+              "result_complete": true,
+              "failures": [],
+              "failure_details_omitted": 0,
+              "covered_branches": 0,
+              "total_branches": 0,
+              "branch_pct": null,
+              "environment": {
+                "platform": "wasi",
+                "python": "3.15.2",
+                "pytest": "9.2.0",
+                "coverage": "7.17.5"
+              },
+              "generated_test_id": "970afc12-c39b-40c5-a486-e21fea7df3bb",
+              "test_sha256": "d261a5d2a0e80515694b7dfae340dd34594b993c8c3210d3d01993747b13cfd4",
+              "source_sha256": "6321439512e21bc7b5978049906891c6c52aeafa5d5cc29ff6af971febf5565a"
+            }
+          },
+          {
+            "id": "ee910d8d-cc5c-4460-9217-da76856305eb",
+            "task_id": "e327ac0b-a619-4246-914f-1bba87de4d30",
+            "parent_id": "cf832926-2337-4e28-ad56-4f42355d4973",
+            "kind": "CoverageResult",
+            "created_at": "2026-11-27T11:36:06.207895+00:00",
+            "status": "measured",
+            "payload": {
+              "covered_lines": 3,
+              "total_lines": 4,
+              "coverage_pct": 75.0,
+              "covered_branches": 0,
+              "total_branches": 0,
+              "branch_pct": null,
+              "execution_id": "cf832926-2337-4e28-ad56-4f42355d4973"
+            }
+          },
+          {
+            "id": "4d1b65fb-eba7-4754-be96-deca1f598a45",
+            "task_id": "e327ac0b-a619-4246-914f-1bba87de4d30",
+            "parent_id": "ee910d8d-cc5c-4460-9217-da76856305eb",
+            "kind": "FailureAnalysis",
+            "created_at": "2026-11-27T11:36:06.217515+00:00",
+            "status": "analyzed",
+            "payload": {
+              "status": "passed",
+              "findings": [],
+              "execution_id": "cf832926-2337-4e28-ad56-4f42355d4973"
+            }
+          },
+          {
+            "id": "f2851692-fef8-4f5d-947a-8c9113088985",
+            "task_id": "e327ac0b-a619-4246-914f-1bba87de4d30",
+            "parent_id": "4d1b65fb-eba7-4754-be96-deca1f598a45",
+            "kind": "TestReport",
+            "created_at": "2026-11-27T11:36:06.227572+00:00",
+            "status": "completed",
+            "payload": {
+              "stop_reason": "已执行测试通过",
+              "initial_execution_id": "cf832926-2337-4e28-ad56-4f42355d4973",
+              "final_execution_id": "cf832926-2337-4e28-ad56-4f42355d4973",
+              "execution_count": 1,
+              "source_sha256": "6321439512e21bc7b5978049906891c6c52aeafa5d5cc29ff6af971febf5565a",
+              "target": "add",
+              "generation_mode_requested": "template"
+            }
+          }
+        ]
+      },
+      "session_id": "abcfe981-45d9-4e12-a295-0ba7fb29b5b9",
+      "report": {
+        "id": "abcfe981-45d9-4e12-a295-0ba7fb29b5b9",
+        "task_id": "e327ac0b-a619-4246-914f-1bba87de4d30",
+        "file_id": 1,
+        "suite_id": "970afc12-c39b-40c5-a486-e21fea7df3bb",
+        "target": "add",
+        "profile": "cosmic-ray-8.9.0/testpilot-first-order-v1",
+        "source_sha256": "6321439512e21bc7b5978049906891c6c52aeafa5d5cc29ff6af971febf5565a",
+        "test_sha256": "d261a5d2a0e80515694b7dfae340dd34594b993c8c3210d3d01993747b13cfd4",
+        "feedback_enabled": false,
+        "timeout_s": 15,
+        "status": "completed",
+        "cancel_requested": false,
+        "created_at": "2026-11-27T11:36:06.279559+00:00",
+        "updated_at": "2026-11-27T11:36:23.591405+00:00",
+        "diagnostic": "未启用反馈",
+        "manifest": [
+          {
+            "id": "89429579-2d7d-52f1-afce-32f6840282cc",
+            "family": "return",
+            "operator": "testpilot/ReturnNone",
+            "line": 7,
+            "column": 5,
+            "before": "return a + b",
+            "after": "return None",
+            "edit": {
+              "start": 101,
+              "end": 113,
+              "old": "return a + b",
+              "new": "return None"
+            },
+            "mutated_sha256": "9d243cecf61e82dfcbabb2f02038cebef4d0f35121632ee2ac1b3464633b6208",
+            "equivalent_candidate": false
+          },
+          {
+            "id": "0edcaa06-68a8-5e25-864d-b0b4a4a6c27e",
+            "family": "arithmetic",
+            "operator": "core/ReplaceBinaryOperator_Add_Sub",
+            "line": 7,
+            "column": 14,
+            "before": "+",
+            "after": "-",
+            "edit": {
+              "start": 110,
+              "end": 111,
+              "old": "+",
+              "new": "-"
+            },
+            "mutated_sha256": "37905377129c5221dcaf1435097fb24d54ce5f8f6b89eb417b2a9d19f7f1663a",
+            "equivalent_candidate": false
+          }
+        ],
+        "events": [
+          {
+            "id": "848b3cfa-5d8f-4887-98fd-6442281d68ba",
+            "phase": "before",
+            "kind": "baseline",
+            "mutant_id": "",
+            "created_at": "2026-11-27T11:36:11.990274+00:00",
+            "status": "passed",
+            "reason": "原始源码通过基线验证",
+            "payload": {
+              "status": "passed",
+              "passed": 4,
+              "failed": 0,
+              "errors": 0,
+              "skipped": 0,
+              "cases": [
+                {
+                  "nodeid": "test_generated.py::test_example_1",
+                  "outcome": "passed"
+                },
+                {
+                  "nodeid": "test_generated.py::test_normal_return_contract",
+                  "outcome": "passed"
+                },
+                {
+                  "nodeid": "test_generated.py::test_boundary_return_contract",
+                  "outcome": "passed"
+                },
+                {
+                  "nodeid": "test_generated.py::test_invalid_keyword",
+                  "outcome": "passed"
+                }
+              ],
+              "exit_code": 0,
+              "covered_lines": 3,
+              "total_lines": 4,
+              "coverage_pct": 75.0,
+              "log": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.08s",
+              "duration_ms": 5662,
+              "stdout": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.08s\n",
+              "stderr": "",
+              "diagnostic": "",
+              "result_complete": true,
+              "failures": [],
+              "failure_details_omitted": 0,
+              "covered_branches": 0,
+              "total_branches": 0,
+              "branch_pct": null,
+              "environment": {
+                "platform": "wasi",
+                "python": "3.15.2",
+                "pytest": "9.2.0",
+                "coverage": "7.17.5"
+              },
+              "source_sha256": "6321439512e21bc7b5978049906891c6c52aeafa5d5cc29ff6af971febf5565a",
+              "test_sha256": "d261a5d2a0e80515694b7dfae340dd34594b993c8c3210d3d01993747b13cfd4"
+            }
+          },
+          {
+            "id": "e57778b6-2586-4d00-80ee-e89da37b4dc9",
+            "phase": "before",
+            "kind": "observation",
+            "mutant_id": "89429579-2d7d-52f1-afce-32f6840282cc",
+            "created_at": "2026-11-27T11:36:17.741266+00:00",
+            "status": "killed",
+            "reason": "原始通过节点在变异副本上触发测试断言",
+            "payload": {
+              "execution": {
+                "status": "failed",
+                "passed": 1,
+                "failed": 3,
+                "errors": 0,
+                "skipped": 0,
+                "cases": [
+                  {
+                    "nodeid": "test_generated.py::test_example_1",
+                    "outcome": "failed"
+                  },
+                  {
+                    "nodeid": "test_generated.py::test_normal_return_contract",
+                    "outcome": "failed"
+                  },
+                  {
+                    "nodeid": "test_generated.py::test_boundary_return_contract",
+                    "outcome": "failed"
+                  },
+                  {
+                    "nodeid": "test_generated.py::test_invalid_keyword",
+                    "outcome": "passed"
+                  }
+                ],
+                "exit_code": 1,
+                "covered_lines": 3,
+                "total_lines": 4,
+                "coverage_pct": 75.0,
+                "log": "FFF.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(2, 3) == 5\nE   assert None == 5\nE    +  where None = target(2, 3)\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(a=2, b=2), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(a=2, b=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(a=0, b=0), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(a=0, b=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert None == 5\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n3 failed, 1 passed in 0.21s",
+                "duration_ms": 5738,
+                "stdout": "FFF.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(2, 3) == 5\nE   assert None == 5\nE    +  where None = target(2, 3)\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(a=2, b=2), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(a=2, b=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(a=0, b=0), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(a=0, b=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert None == 5\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n3 failed, 1 passed in 0.21s\n",
+                "stderr": "",
+                "diagnostic": "",
+                "result_complete": true,
+                "failures": [
+                  {
+                    "nodeid": "test_generated.py::test_example_1",
+                    "phase": "call",
+                    "exception_type": "AssertionError",
+                    "message": "assert None == 5\n +  where None = target(2, 3)",
+                    "frames": [
+                      {
+                        "path": "test_generated.py",
+                        "line": 5,
+                        "function": "test_example_1",
+                        "source": "assert target(2, 3) == 5"
+                      }
+                    ],
+                    "assertion_diff": "assert None == 5\n +  where None = target(2, 3)"
+                  },
+                  {
+                    "nodeid": "test_generated.py::test_normal_return_contract",
+                    "phase": "call",
+                    "exception_type": "AssertionError",
+                    "message": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(a=2, b=2)",
+                    "frames": [
+                      {
+                        "path": "test_generated.py",
+                        "line": 8,
+                        "function": "test_normal_return_contract",
+                        "source": "assert isinstance(target(a=2, b=2), int)"
+                      }
+                    ],
+                    "assertion_diff": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(a=2, b=2)"
+                  },
+                  {
+                    "nodeid": "test_generated.py::test_boundary_return_contract",
+                    "phase": "call",
+                    "exception_type": "AssertionError",
+                    "message": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(a=0, b=0)",
+                    "frames": [
+                      {
+                        "path": "test_generated.py",
+                        "line": 11,
+                        "function": "test_boundary_return_contract",
+                        "source": "assert isinstance(target(a=0, b=0), int)"
+                      }
+                    ],
+                    "assertion_diff": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(a=0, b=0)"
+                  }
+                ],
+                "failure_details_omitted": 0,
+                "covered_branches": 0,
+                "total_branches": 0,
+                "branch_pct": null,
+                "environment": {
+                  "platform": "wasi",
+                  "python": "3.15.2",
+                  "pytest": "9.2.0",
+                  "coverage": "7.17.5"
+                },
+                "source_sha256": "9d243cecf61e82dfcbabb2f02038cebef4d0f35121632ee2ac1b3464633b6208",
+                "test_sha256": "d261a5d2a0e80515694b7dfae340dd34594b993c8c3210d3d01993747b13cfd4"
+              },
+              "nodeids": [
+                "test_generated.py::test_boundary_return_contract",
+                "test_generated.py::test_example_1",
+                "test_generated.py::test_normal_return_contract"
+              ]
+            }
+          },
+          {
+            "id": "6c26cc8e-3ad5-42fc-9022-b7e881ff0826",
+            "phase": "before",
+            "kind": "observation",
+            "mutant_id": "0edcaa06-68a8-5e25-864d-b0b4a4a6c27e",
+            "created_at": "2026-11-27T11:36:23.577872+00:00",
+            "status": "killed",
+            "reason": "原始通过节点在变异副本上触发测试断言",
+            "payload": {
+              "execution": {
+                "status": "failed",
+                "passed": 3,
+                "failed": 1,
+                "errors": 0,
+                "skipped": 0,
+                "cases": [
+                  {
+                    "nodeid": "test_generated.py::test_example_1",
+                    "outcome": "failed"
+                  },
+                  {
+                    "nodeid": "test_generated.py::test_normal_return_contract",
+                    "outcome": "passed"
+                  },
+                  {
+                    "nodeid": "test_generated.py::test_boundary_return_contract",
+                    "outcome": "passed"
+                  },
+                  {
+                    "nodeid": "test_generated.py::test_invalid_keyword",
+                    "outcome": "passed"
+                  }
+                ],
+                "exit_code": 1,
+                "covered_lines": 3,
+                "total_lines": 4,
+                "coverage_pct": 75.0,
+                "log": "F...\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(2, 3) == 5\nE   assert -1 == 5\nE    +  where -1 = target(2, 3)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert -1 == 5\n1 failed, 3 passed in 0.17s",
+                "duration_ms": 5821,
+                "stdout": "F...\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(2, 3) == 5\nE   assert -1 == 5\nE    +  where -1 = target(2, 3)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert -1 == 5\n1 failed, 3 passed in 0.17s\n",
+                "stderr": "",
+                "diagnostic": "",
+                "result_complete": true,
+                "failures": [
+                  {
+                    "nodeid": "test_generated.py::test_example_1",
+                    "phase": "call",
+                    "exception_type": "AssertionError",
+                    "message": "assert -1 == 5\n +  where -1 = target(2, 3)",
+                    "frames": [
+                      {
+                        "path": "test_generated.py",
+                        "line": 5,
+                        "function": "test_example_1",
+                        "source": "assert target(2, 3) == 5"
+                      }
+                    ],
+                    "assertion_diff": "assert -1 == 5\n +  where -1 = target(2, 3)"
+                  }
+                ],
+                "failure_details_omitted": 0,
+                "covered_branches": 0,
+                "total_branches": 0,
+                "branch_pct": null,
+                "environment": {
+                  "platform": "wasi",
+                  "python": "3.15.2",
+                  "pytest": "9.2.0",
+                  "coverage": "7.17.5"
+                },
+                "source_sha256": "37905377129c5221dcaf1435097fb24d54ce5f8f6b89eb417b2a9d19f7f1663a",
+                "test_sha256": "d261a5d2a0e80515694b7dfae340dd34594b993c8c3210d3d01993747b13cfd4"
+              },
+              "nodeids": [
+                "test_generated.py::test_example_1"
+              ]
+            }
+          }
+        ],
+        "before": {
+          "killed": 2,
+          "survived": 0,
+          "timeout": 0,
+          "execution_error": 0,
+          "cancelled": 0,
+          "unrun": 0,
+          "total": 2,
+          "equivalent_candidates": 0,
+          "score_pct": 100.0
+        },
+        "after": null
+      }
+    }
+  ],
+  "health": {
+    "status": "ok",
+    "database": "ok",
+    "mode": "demo"
+  }
+}
