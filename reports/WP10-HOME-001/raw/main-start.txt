@@ -1,0 +1,28 @@
+WP10_MAIN_START "D:\TestPilot AI\.venv\Scripts\python.exe" "D:\TestPilot AI\main.py" --port 55711
+WP10_MAIN_ROOT {"path": "/", "status": 200, "browser": "158.0.4370.33", "automatic_get_root_before_test_edge": true}
+INFO testpilot 启动 demo 模式 http://127.0.0.1:55711
+INFO:     Started server process [39624]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:55725 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55722 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55728 - "GET /api/health HTTP/1.1" 200 OK
+INFO testpilot 已向默认浏览器发送打开请求 http://127.0.0.1:55711
+INFO:     127.0.0.1:60988 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60988 - "GET /static/studio-system.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50817 - "GET /static/home.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54271 - "GET /static/dashboard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54272 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54271 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50817 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54341 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54341 - "GET /static/studio-system.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54342 - "GET /static/home.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54343 - "GET /static/dashboard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54342 - "GET /api/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54343 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [39624]
+

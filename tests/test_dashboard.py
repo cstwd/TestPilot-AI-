@@ -69,7 +69,7 @@ def test_dashboard(app_url):
             errors = []
             page.on("pageerror", lambda error: errors.append(str(error)))
             page.goto(app_url, wait_until="load")
-            expect(page.get_by_role("heading", name="启动仪表盘")).to_be_visible()
+            expect(page.get_by_role("heading", name="智能测试控制中心")).to_be_visible()
             expect(page.locator("#api-status")).to_have_text("已连接")
             expect(page.locator("#database-status")).to_have_text("已连接")
             expect(page.locator(".module-id")).to_have_count(6)

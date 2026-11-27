@@ -1,0 +1,10 @@
+{
+  "base": "039b14d2af6a1eef52f15978225d231cef1d2236",
+  "overlaid": {
+    "frontend/templates/dashboard.html": "c98e72215e5bd953c756202b60526850057967c3d82143952e7c02fd6448804a",
+    "frontend/static/dashboard.js": "663920d51538183054236689fd4bae441f14b5c144ca0b47a139810b3cf94cb1",
+    "frontend/static/home.css": "8b4758d435312e4cc94d33980b1aa5ac13c6cc0054d3549ca544c3427a25085d",
+    "tests/test_dashboard.py": "2c817e1714bc52fdefe6af24819258823f92e8be6e47764ac343ab17d8e60073",
+    "tests/test_home_command.py": "cbf24e27c48c2cc630cf4d2bae578adfdc93f0f6901ac32e032dceb5116ce8ca"
+  }
+}

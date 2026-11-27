@@ -1,64 +1,183 @@
+{% from "modules.html" import modules %}
+{% from "studio_components.html" import icon, icons, topbar, pane_heading %}
+{% set cards = {
+  'projects': ('folder', 'Project Explorer', '创建项目、导入源码并管理不可变版本。'),
+  'analysis': ('graph', 'Visual Intelligence Studio', '浏览 AST 图谱，定位符号与源码。'),
+  'generation': ('spark', 'AI Test Generation', '为目标函数生成并验证 Pytest 套件。'),
+  'runs': ('terminal', 'Test Execution', '执行套件，查看历史结果与原始日志。'),
+  'bugs': ('bug', 'Bug Intelligence', '追踪失败证据、比较修复并执行回归。'),
+  'reports': ('quality', 'Quality Analytics', '核对覆盖率、关联缺陷并导出报告。')
+} %}
 <!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light">
-  <title>Dashboard · TestPilot AI</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23123f61'/%3E%3Cpath d='m8 16 5 5 11-12' stroke='%2393e3f1' fill='none' stroke-width='4'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="/static/dashboard.css">
+  <title>Command Center · TestPilot AI</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/studio-system.css">
+  <link rel="stylesheet" href="/static/home.css">
   <script src="/static/dashboard.js" defer></script>
 </head>
-<body>
-  <header class="masthead">
-    <div class="shell masthead-inner">
-      <div class="brand"><span class="brand-mark" aria-hidden="true"></span>TestPilot AI</div>
-      <span class="workspace">{{ '开发调试模式' if mode == 'dev' else '本地演示模式' }}</span>
+<body class="studio home-page">
+  {{ icons() }}
+  {% call topbar(show_context=false) %}
+    <span class="home-breadcrumb">Command Center</span>
+    <div class="home-tools">
+      <span id="home-mode" class="row-version">{{ '开发调试模式' if mode == 'dev' else '本地演示模式' }}</span>
+      <span id="service-indicator" class="status-pill" data-state="loading">待检查</span>
+      <button class="tool" type="button" data-dialog="home-settings" aria-label="系统设置" title="系统设置">{{ icon('settings') }}</button>
+      <button class="tool" type="button" data-dialog="home-help" aria-label="帮助" title="帮助">{{ icon('help') }}</button>
     </div>
-  </header>
-  <main class="shell">
-    <div class="intro">
-      <h1>启动仪表盘</h1>
-      <p>智能软件测试生成与缺陷检测平台</p>
-    </div>
-    <div class="checks">
-      <section class="connections" aria-labelledby="connection-title">
-        <div class="panel-title">
-          <h2 id="connection-title">服务连接</h2>
-          <button type="button" id="refresh-button" class="secondary">重新检查</button>
+  {% endcall %}
+  <main class="home-shell">
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="home-hero-content">
+        <p class="home-kicker">COMMAND CENTER <span>/</span> OVERVIEW</p>
+        <h1 id="home-title">智能测试控制中心</h1>
+        <p>统一管理项目、分析代码、生成测试与追踪软件质量。</p>
+        <div class="home-actions">
+          <button class="home-action primary" type="button" data-dialog="home-create">{{ icon('plus') }}创建项目</button>
+          <a class="home-action" id="quick-import" href="/workbench/projects#project-name">{{ icon('upload') }}导入代码</a>
+          <a class="home-action home-resume" id="quick-resume" href="/workbench/projects">{{ icon('history') }}打开最近工作区</a>
         </div>
-        <dl class="signals" aria-live="polite">
-          <div><dt>后端接口<small>FastAPI</small></dt><dd id="api-status" class="signal">待检查</dd></div>
-          <div><dt>项目数据库<small>SQLite</small></dt><dd id="database-status" class="signal">待检查</dd></div>
-        </dl>
-        <p id="connection-detail" class="footnote" aria-live="polite">页面加载后自动检查服务连接。</p>
-      </section>
-      <section class="runner" aria-labelledby="runner-title">
-        <div class="panel-title">
-          <h2 id="runner-title">测试执行自检</h2>
-          <span class="runner-tech">pytest</span>
-        </div>
-        <p>运行平台自带的测试样例，验证本地测试执行器能否正常工作。</p>
-        <div class="actions">
-          <button type="button" id="self-test-button" class="primary">运行自检</button>
-          <span id="self-test-status" class="runner-result" role="status">尚未运行</span>
-        </div>
-        <p id="self-test-detail" class="runner-detail" aria-live="polite"></p>
-      </section>
-    </div>
-    <section class="scope" aria-labelledby="scope-title">
-      <div class="scope-heading">
-        <h2 id="scope-title">测试工作台</h2>
-        <div class="scope-links"><a href="/workbench/demo-lab">打开 Demo Lab</a><a href="/engine">打开智能测试引擎</a></div>
       </div>
-      <ul>
-        {% from "modules.html" import modules %}
-        {% for slug, (code, name) in modules.items() %}
-        <li><span class="module-id">{{ code }}</span><a href="/workbench/{{ slug }}">{{ name }}</a></li>
-        {% endfor %}
-      </ul>
+      <div class="home-hero-art" aria-hidden="true">
+        <span class="art-orbit art-orbit-outer"></span><span class="art-orbit art-orbit-inner"></span>
+        <span class="art-branch art-branch-file"></span><span class="art-branch art-branch-code"></span><span class="art-branch art-branch-report"></span>
+        <span class="art-node art-file">{{ icon('file') }}</span>
+        <span class="art-node art-center">{{ icon('graph') }}</span>
+        <span class="art-node art-code">{{ icon('code') }}</span>
+        <span class="art-node art-report">{{ icon('quality') }}</span>
+      </div>
     </section>
-    <noscript><p class="notice">请启用浏览器的 JavaScript 以检查连接或运行测试自检。</p></noscript>
+
+    <div class="home-board">
+      <div class="home-main">
+        <div class="home-checks">
+          <section class="home-panel" aria-label="系统状态">
+            {% call pane_heading('layers', '系统状态') %}
+              <span class="home-section-tag">SYSTEM HEALTH</span>
+            {% endcall %}
+            <div class="home-panel-body" aria-live="polite">
+              <dl class="home-signals">
+                <div><dt>FastAPI 服务</dt><dd id="api-status" class="home-badge" data-state="loading">待检查</dd></div>
+                <div><dt>SQLite 数据库</dt><dd id="database-status" class="home-badge" data-state="loading">待检查</dd></div>
+              </dl>
+              <div class="home-check-footer">
+                <button type="button" id="refresh-button">{{ icon('repeat') }}重新检查</button>
+                <span>最近检查 <time id="health-checked">—</time></span>
+              </div>
+              <p id="connection-detail" class="home-detail" hidden></p>
+            </div>
+          </section>
+
+          <section class="home-panel" aria-label="测试执行自检">
+            {% call pane_heading('terminal', '测试执行自检') %}
+              <span class="home-section-tag">PYTEST</span>
+            {% endcall %}
+            <div class="home-panel-body">
+              <p class="home-detail">运行内置 Pytest 样例，验证本机自检执行器。</p>
+              <div class="home-runner-controls">
+                <button type="button" class="primary" id="self-test-button">{{ icon('play') }}运行自检</button>
+                <span id="self-test-status" class="home-badge" role="status">尚未运行</span>
+              </div>
+              <p class="home-check-footer">最近自检 <time id="self-test-checked">—</time></p>
+              <details id="self-test-output" class="home-output" hidden>
+                <summary>查看自检输出</summary>
+                <pre id="self-test-detail" tabindex="0" aria-label="原始自检输出"></pre>
+              </details>
+            </div>
+          </section>
+        </div>
+
+        <section class="home-modules" aria-labelledby="modules-title">
+          <div class="home-section-heading"><h2 id="modules-title">测试工作台</h2></div>
+          <ul class="home-module-grid">
+            {% for slug, (code, label) in modules.items() %}
+              {% set symbol, title, detail = cards[slug] %}
+              <li>
+                <a class="home-module" data-module="{{ slug }}" href="/workbench/{{ slug }}" aria-label="{{ title }}（{{ label }}）">
+                  <span class="home-module-top"><span class="home-icon">{{ icon(symbol) }}</span><span class="module-id row-version">{{ code }}</span></span>
+                  <strong>{{ title }}</strong><span class="home-module-copy">{{ detail }}</span>
+                  <span class="home-enter">进入模块 {{ icon('arrow') }}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+      </div>
+
+      <aside class="home-panel home-activity" aria-label="最近活动">
+        {% call pane_heading('history', '最近活动') %}
+          <button class="tool" id="refresh-activity" type="button" aria-label="刷新最近活动" title="刷新最近活动">{{ icon('repeat') }}</button>
+        {% endcall %}
+        <div class="home-activity-body" id="activity" aria-busy="true">
+          <div class="home-latest-project" data-kind="project">
+            <span class="home-icon">{{ icon('folder') }}</span>
+            <div class="home-activity-copy">
+              <span class="home-activity-label">最近创建项目</span><a hidden></a><p data-note>等待读取</p>
+            </div>
+          </div>
+          <label class="home-activity-filter" for="activity-project">按项目查看活动
+            <select id="activity-project" disabled><option>正在读取…</option></select>
+          </label>
+          <p id="activity-message" class="home-detail" role="status">正在读取真实项目记录…</p>
+          <ul class="home-activity-list">
+            {% for kind, symbol, label in [('file', 'file', '最近导入'), ('run', 'play', '最近执行'), ('bug', 'bug', '最近缺陷'), ('report', 'quality', '最近质量报告')] %}
+              <li data-kind="{{ kind }}">
+                <span class="home-icon">{{ icon(symbol) }}</span>
+                <div class="home-activity-copy">
+                  <span class="home-activity-label">{{ label }}</span>
+                  <a hidden></a>
+                  <p data-note>等待读取</p>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <section class="home-external" aria-labelledby="external-title">
+      <div class="home-section-heading"><h2 id="external-title">外部工具</h2></div>
+      <div class="home-external-grid">
+        <a class="home-external-link" href="/workbench/demo-lab" aria-label="打开 Demo Lab · TestPilot Demo Lab">
+          <span class="home-icon">{{ icon('layers') }}</span>
+          <span><strong>TestPilot Demo Lab</strong><small>打开仓库样例和演示流程</small></span>{{ icon('arrow') }}
+        </a>
+        <a class="home-external-link" href="/engine" aria-label="打开智能测试引擎">
+          <span class="home-icon">{{ icon('spark') }}</span>
+          <span><strong>智能测试引擎</strong><small>查看独立的测试任务和运行证据</small></span>{{ icon('arrow') }}
+        </a>
+      </div>
+    </section>
+    <noscript><p class="home-detail">启用 JavaScript 后可查看健康状态、最近活动并运行自检。</p></noscript>
   </main>
+
+  <dialog id="home-create" aria-labelledby="home-create-title">
+    <div class="dialog-heading"><h2 id="home-create-title">创建项目</h2><form method="dialog"><button class="tool" aria-label="关闭">{{ icon('x') }}</button></form></div>
+    <form id="home-create-form">
+      <label for="home-project-name">项目名称</label>
+      <input id="home-project-name" required maxlength="100" autocomplete="off" autofocus>
+      <p id="home-create-error" class="home-detail" role="alert" data-state="error" hidden></p>
+      <button id="home-create-submit" class="primary" type="submit">创建并打开</button>
+    </form>
+  </dialog>
+  <dialog id="home-settings" aria-labelledby="home-settings-title">
+    <form method="dialog">
+      <div class="dialog-heading"><h2 id="home-settings-title">系统设置</h2><button class="tool" aria-label="关闭">{{ icon('x') }}</button></div>
+      <p>当前为{{ '开发调试模式' if mode == 'dev' else '本地演示模式' }}。运行模式由服务启动参数决定。</p>
+      <label><input id="expand-self-test" type="checkbox" checked>自检完成后展开原始输出</label>
+    </form>
+  </dialog>
+  <dialog id="home-help" aria-labelledby="home-help-title">
+    <form method="dialog">
+      <div class="dialog-heading"><h2 id="home-help-title">使用帮助</h2><button class="tool" aria-label="关闭">{{ icon('x') }}</button></div>
+      <p>从项目中心创建项目并导入一个 UTF-8 Python 文件，然后进入 AST 分析、测试生成或执行工作台。</p>
+      <p>首页自检运行内置样例。要执行项目测试套件，请打开 F04。</p>
+      <a href="/workbench/demo-lab">在 Demo Lab 查看样例流程</a>
+    </form>
+  </dialog>
 </body>
 </html>

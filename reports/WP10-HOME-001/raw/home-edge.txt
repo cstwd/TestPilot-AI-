@@ -1,0 +1,15 @@
+Browser: msedge 158.0.4370.33; self-test response: .                                                                        [100%]
+1 passed in 0.03s
+.WP10_SELF_TEST {"status": "passed", "detail": ".                                                                        [100%]\n1 passed in 0.03s"}
+WP10_ACTIVITY {"project": 2, "versions": [1, 2], "failed_run": 1, "run": 2, "bug": 1, "suite": 1, "links": {"project": "/workbench/projects?project=2", "file": "/workbench/projects?project=2&file=2", "run": "/workbench/runs?project=2&file=2&suite=1&run=2", "bug": "/workbench/bugs?project=2&file=1&bug=1&run=1", "report": "/workbench/reports?project=2&file=2&run=2"}}
+WP10_VIEW {"viewport": [1920, 1080], "pageWidth": 1920, "columns": 3, "colorScheme": "dark", "panel": "rgb(20, 22, 32)"}
+WP10_VIEW {"viewport": [1440, 900], "pageWidth": 1440, "columns": 3, "colorScheme": "dark", "panel": "rgb(20, 22, 32)"}
+WP10_VIEW {"viewport": [1280, 800], "pageWidth": 1280, "columns": 3, "colorScheme": "dark", "panel": "rgb(20, 22, 32)"}
+WP10_VIEW {"viewport": [1024, 768], "pageWidth": 1024, "columns": 2, "colorScheme": "dark", "panel": "rgb(20, 22, 32)"}
+WP10_VIEW {"viewport": [768, 1024], "pageWidth": 768, "columns": 3, "colorScheme": "dark", "panel": "rgb(20, 22, 32)"}
+WP10_VIEW {"viewport": [390, 844], "pageWidth": 390, "columns": 1, "colorScheme": "dark", "panel": "rgb(20, 22, 32)"}
+WP10_DESTINATIONS {"modules": ["projects", "analysis", "generation", "runs", "bugs", "reports"], "tools": ["/workbench/demo-lab", "/engine"]}
+.WP10_ERROR_PROBES {"real_empty": true, "real_duplicate": 409, "injected_database": 503, "injected_runner": [409, 503], "injected_files": 502, "offline_recovery": true}
+.PHASE07_EDGE 158.0.4370.33 1550da1f-077f-478b-8348-c1a083fb75dc
+..
+5 passed in 82.95s (0:01:22)

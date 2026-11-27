@@ -1,0 +1,22 @@
+base=039b14d2af6a1eef52f15978225d231cef1d2236
+node --check frontend/static/dashboard.js
+syntax=ok
+protected-entries=unchanged
+main.py
+backend
+hooks
+frontend/static/dashboard.css
+frontend/static/studio-system.css
+frontend/templates/studio_components.html
+frontend/static/workbench.js
+frontend/templates/projects.html
+frontend/templates/analysis.html
+frontend/templates/generation.html
+frontend/templates/runs.html
+frontend/templates/bugs.html
+frontend/templates/reports.html
+frontend/templates/demo_lab.html
+frontend/templates/engine.html
+reports/WP09-001/screenshots
+WP09 screenshot comparison from its final commit:
+wp09-screenshots=unchanged
