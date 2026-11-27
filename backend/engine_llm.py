@@ -25,6 +25,31 @@ PREFIX = "TESTPILOT_MODEL_"
 MAX_REPLY = 256 * 1024
 
 
+def prompt_context(url, provider, config, source, target, analysis, strategy, feedback, previous_code):
+    context = {"target": target, "source": source, "analysis": analysis, "strategy": strategy,
+               "feedback": feedback, "previous_code": previous_code}
+    if (config.get("prompt_profile") != "local-compact" or provider != "ollama"
+            or feedback is not None or previous_code is not None or not strategy.get("contracts")):
+        return context, "default"
+    host = urlsplit(url).hostname
+    try:
+        loopback = ipaddress.ip_address(host).is_loopback
+    except ValueError:
+        loopback = host == "localhost"
+    symbol = next((s for s in analysis.get("symbols", []) if s.get("name") == target), None)
+    if not loopback or symbol is None:
+        return context, "default"
+    context.update(analysis={key: symbol[key] for key in ("name", "parameters", "returns", "docstring")},
+                   strategy={key: strategy[key] for key in ("target", "contracts", "source_sha256")},
+                   feedback={"task": 'Create a TEST FILE named test_generated.py, not the implementation. '
+                             'Use exactly one test function that checks the documented example. '
+                             f'Start your Python module with "from subject import {target}". On the next '
+                             'block write a def test_ function. It must contain an assert calling the '
+                             'imported function. Fill the function name, arguments and expected value '
+                             'yourself. No prose.'})
+    return context, "local-compact"
+
+
 class NoRedirect(HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         return None
@@ -126,7 +151,8 @@ def validate_model_output(raw, target):
 def generate_tests(source, target, analysis, strategy, *, feedback=None, previous_code=None, config=None):
     config = ({k: os.environ.get(PREFIX + suffix) for k, suffix in
                {"provider": "PROVIDER", "model": "NAME", "base_url": "BASE_URL", "api_key": "API_KEY",
-                "timeout": "TIMEOUT", "retries": "RETRIES"}.items()} if config is None else config)
+                "timeout": "TIMEOUT", "retries": "RETRIES", "prompt_profile": "PROMPT_PROFILE"}.items()}
+              if config is None else config)
     provider = str(config.get("provider") or "").lower()
     if provider == "openai":
         provider = "openai-compatible"
@@ -151,8 +177,8 @@ def generate_tests(source, target, analysis, strategy, *, feedback=None, previou
                 raise ValueError("超时与重试须为整数") from exc
             if not 1 <= timeout <= 120 or not 0 <= retries <= 2:
                 raise ValueError("超时须为 1–120 秒，重试须为 0–2 次")
-            context = {"target": target, "source": source, "analysis": analysis, "strategy": strategy,
-                       "feedback": feedback, "previous_code": previous_code}
+            context, profile = prompt_context(url, provider, config, source, target, analysis, strategy,
+                                              feedback, previous_code)
             user = json.dumps(context, ensure_ascii=False, separators=(",", ":"))
             if len(user.encode("utf-8")) > 512 * 1024:
                 raise ValueError("模型输入超过 512 KiB")
@@ -160,7 +186,8 @@ def generate_tests(source, target, analysis, strategy, *, feedback=None, previou
                 raise ValueError("输入包含配置的凭据，已停止发送")
             messages = [{"role": "system", "content": SYSTEM}, {"role": "user", "content": user}]
             for index in range(1, retries + 2):
-                attempt = {"number": index, "provider": provider, "model": model, "prompt": list(messages)}
+                attempt = {"number": index, "provider": provider, "model": model, "prompt": list(messages),
+                           "prompt_profile": profile}
                 attempts.append(attempt)
                 raw = ""
                 try:
