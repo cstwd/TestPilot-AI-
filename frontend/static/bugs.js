@@ -11,7 +11,8 @@ export async function showBugs({$, api, link, form, populate, params, files, pro
   runSelect.onchange = () => location.assign(link("bugs", {run: runSelect.value, bug: params.get("bug")}));
   const run = runSelect.value ? await api("/api/runs/" + runSelect.value) : null;
   const nodes = (run?.cases || []).filter(item => item.nodeid.includes("::") && ["failed", "error"].includes(item.outcome));
-  populate($("nodeid"), nodes.map(item => ({id: item.nodeid})), item => item.id, "", "无失败用例");
+  const preferredNode = String(run?.id) === params.get("run") ? params.get("nodeid") : "";
+  populate($("nodeid"), nodes.map(item => ({id: item.nodeid})), item => item.id, preferredNode, "无失败用例");
   $("create-bug-button").disabled = !nodes.length;
   if (!nodes.length) $("failure-hint").textContent = "请选择包含失败用例的运行。收集阶段的错误可在执行日志中查看。";
   form("create-bug", async () => {

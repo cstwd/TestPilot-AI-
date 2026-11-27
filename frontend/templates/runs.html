@@ -1,19 +1,133 @@
-<section>
-  <h2>运行 Pytest</h2>
-  <p class="hint">从同名文件的已保存版本中选择测试套件，对当前选中的文件版本执行。</p>
-  <form id="start-run"><label>测试套件<select id="run-suite"></select></label>
-    <button id="execute" disabled>执行测试</button></form>
-  <p class="hint"><a data-dest="generation" href="/workbench/generation">查看或生成测试</a></p>
-</section>
-<section>
-  <h2>项目执行记录</h2>
-  <label>选择运行<select id="run-history"></select></label>
-  <div id="run-result" hidden>
-    <p class="hint" id="run-identity"></p>
-    <dl id="run-summary" class="readout"></dl>
-    <p id="coverage" class="hint"></p>
-    <details><summary>用例明细</summary><ul id="run-cases" class="case-list"></ul></details>
-    <details open><summary>执行日志</summary><pre id="run-log" tabindex="0"></pre></details>
-    <div class="inline-links"><a id="to-bugs">查看缺陷与回归</a><a id="to-report">查看质量报告</a></div>
-  </div>
-</section>
+{% from "studio_components.html" import icon, icons, topbar, context_selectors, rail, search, pane_heading, state %}
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>测试执行控制中心 · TestPilot AI</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/studio-system.css">
+  <link rel="stylesheet" href="/static/runs.css">
+  <script type="module" src="/static/workbench.js"></script>
+</head>
+<body class="studio execution-page" data-page="runs">
+{{ icons() }}
+{% call topbar(show_context=false) %}
+  {{ context_selectors(show_file=false) }}
+  <details class="exec-mobile-nav">
+    <summary aria-label="工作台导航">{{ icon('menu') }}</summary>
+    <nav aria-label="工作台导航">{% for slug,(code,name) in modules.items() %}
+      <a data-dest="{{ slug }}" href="/workbench/{{ slug }}"{% if slug == 'runs' %} aria-current="page"{% endif %}><span>{{ code }}</span>{{ name }}</a>
+    {% endfor %}</nav>
+  </details>
+{% endcall %}
+<div class="workspace-frame">
+  {{ rail(modules, 'runs') }}
+  <main class="workspace" id="content">
+    <header class="workspace-head exec-head">
+      <div><div class="studio-name">Test Execution Control Center</div><h1>测试执行控制中心</h1></div>
+      <div class="exec-run-badge"><code id="exec-run-id">—</code><span id="exec-run-state" class="exec-status" data-tone="pending">正在读取</span></div>
+    </header>
+    <dl class="exec-context" aria-label="当前执行上下文">
+      <div><dt>{{ icon('folder') }}项目</dt><dd id="exec-project">—</dd></div>
+      <div><dt>{{ icon('file') }}被测文件</dt><dd id="exec-filename">—</dd></div>
+      <div><dt>{{ icon('layers') }}被测版本</dt><dd id="exec-revision">—</dd></div>
+      <div><dt>{{ icon('code') }}测试套件</dt><dd id="exec-suite">—</dd></div>
+      <div><dt>{{ icon('history') }}套件来源版本</dt><dd id="exec-suite-origin">—</dd></div>
+    </dl>
+    <nav class="exec-jumps" aria-label="执行页面区段"><a href="#exec-history">历史</a><a href="#start-run">执行</a><a href="#run-result">结果</a><a href="#exec-console">日志</a></nav>
+    <div class="exec-grid">
+      <aside class="pane explorer exec-history" id="exec-history" aria-label="运行历史">
+        {% call pane_heading('history','运行历史') %}
+          <button type="button" id="toggle-history" class="tool exec-panel-toggle" data-panel="history" aria-expanded="true" aria-controls="exec-history-content" aria-label="折叠运行历史" title="折叠运行历史">{{ icon('panel') }}</button>
+        {% endcall %}
+        <div class="exec-history-content" id="exec-history-content">
+          <div class="exec-history-filter">
+            {{ search('history-search','搜索运行记录','搜索运行 ID 或文件…',disabled=true) }}
+            <label class="exec-filter-label">运行状态
+              <select id="history-status" aria-label="运行状态" disabled><option value="">全部状态</option><option value="passed">通过</option><option value="failed">用例失败</option><option value="error">执行错误</option><option value="timeout">超时</option><option value="unavailable">执行器不可用</option><option value="skipped">全部跳过</option></select>
+            </label>
+          </div>
+          <div class="explorer-scroll exec-history-list" id="run-history" aria-label="已保存运行"></div>
+          <p class="exec-muted exec-history-empty" id="history-empty">正在读取历史…</p>
+          <div class="exec-pager" id="history-pager" hidden><button type="button" data-step="-1" aria-label="上一页运行">上一页</button><span></span><button type="button" data-step="1" aria-label="下一页运行">下一页</button></div>
+        </div>
+      </aside>
+
+      <div class="pane exec-center" aria-label="执行与结果">
+        <form class="exec-form" id="start-run">
+          <header class="exec-section-head"><div>{{ icon('play') }}<h2>执行配置</h2></div><a class="exec-link" data-dest="generation" href="/workbench/generation">查看或生成测试</a></header>
+          <div class="exec-form-fields">
+            <label>被测版本<select id="file" aria-label="被测版本" disabled></select></label>
+            <label>套件来源版本<select id="suite-file" aria-label="套件来源版本" disabled></select></label>
+            <label>测试套件<select id="run-suite" aria-label="测试套件" disabled></select></label>
+            <button type="submit" id="execute" class="primary" disabled>{{ icon('play') }}执行测试</button>
+          </div>
+          <p class="exec-muted" id="exec-config-note">正在核对文件和套件。</p>
+        </form>
+        <div class="exec-result-body">
+          {{ state('run-empty','正在读取执行记录','选择一个套件运行，或打开历史记录。','loading','terminal') }}
+          <div id="run-result" hidden>
+            <header class="exec-section-head exec-result-head"><div>{{ icon('list') }}<h2>执行结果</h2></div><p id="run-identity"></p></header>
+            <dl id="run-summary" class="exec-summary"></dl>
+            <div class="exec-evidence"><p id="coverage"></p><a id="to-report" class="exec-link">质量报告</a><a id="to-bugs" class="exec-link">缺陷管理</a></div>
+            <div class="exec-case-controls">
+              <div><h3>测试用例</h3><span id="case-count"></span></div>
+              {{ search('case-search','搜索测试用例','搜索测试名称或 nodeid…',disabled=true) }}
+            </div>
+            <div class="exec-table-wrap" id="case-table" hidden>
+              <table class="exec-case-table">
+                <thead><tr><th scope="col">用例 / nodeid</th><th scope="col">状态</th><th scope="col">耗时</th><th scope="col">错误摘要</th><th scope="col">缺陷</th></tr></thead>
+                <tbody id="run-cases"></tbody>
+              </table>
+            </div>
+            <p class="exec-muted exec-case-empty" id="case-empty" hidden></p>
+            <div class="exec-pager" id="case-pager" hidden><button type="button" data-step="-1" aria-label="上一页用例">上一页</button><span></span><button type="button" data-step="1" aria-label="下一页用例">下一页</button></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="pane inspector exec-inspector" id="exec-inspector" aria-label="用例详情">
+        {% call pane_heading('panel','Inspector') %}
+          <button type="button" id="toggle-inspector" class="tool exec-panel-toggle" data-panel="inspector" aria-expanded="true" aria-controls="exec-inspector-content" aria-label="折叠用例详情" title="折叠用例详情">{{ icon('panel') }}</button>
+        {% endcall %}
+        <div id="exec-inspector-content" class="explorer-scroll">
+          {{ state('case-inspector-empty','选择用例','从用例表打开一个用例。','empty','code') }}
+          <div id="case-inspector" hidden>
+            <div class="ai-identity exec-case-identity"><span class="empty-mark">{{ icon('code') }}</span><div><span id="case-status" class="exec-status"></span><h3 id="case-name"></h3></div></div>
+            <div class="exec-case-detail">
+              <p class="exec-fact-label">nodeid</p><code id="case-nodeid"></code>
+              <dl id="case-facts" class="ai-facts"></dl>
+            </div>
+            <section class="exec-case-detail"><h3>失败断言与堆栈</h3>
+              <p id="case-evidence" class="exec-muted"></p><pre id="case-assertion" hidden></pre>
+              <pre id="case-stack" hidden></pre>
+              <a id="case-log-link" class="exec-link" href="#exec-console" hidden>{{ icon('terminal') }}查看本次运行日志</a>
+            </section>
+            <div class="exec-case-detail" id="case-bug-section" hidden>
+              <a class="exec-link" id="case-bug">{{ icon('bug') }}在 F05 查看或登记缺陷{{ icon('arrow') }}</a>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <details class="exec-console" id="exec-console" open>
+      <summary><span class="exec-console-heading">{{ icon('terminal') }}<span>Execution Console</span><code id="console-run"></code></span><span class="exec-console-indicator" id="console-indicator">等待选择运行</span>{{ icon('down') }}</summary>
+      <div class="exec-console-body">
+        <div class="exec-console-tools">
+          {{ search('log-search','搜索执行日志','在日志中搜索…',disabled=true) }}
+          <span id="log-match" role="status"></span>
+          <button type="button" id="copy-log" disabled>{{ icon('copy') }}复制日志</button>
+        </div>
+        <p class="exec-log-warning" id="log-truncation" hidden>{{ icon('alert') }}服务端已截断日志，执行结果不完整。</p>
+        <p class="exec-muted exec-log-empty" id="log-empty">选择运行后可读取保存的日志。</p>
+        <pre id="run-log" tabindex="0" aria-label="原始执行日志" hidden></pre>
+      </div>
+    </details>
+    <div class="exec-notice"><span id="request-state" class="exec-status" data-tone="pending">正在读取</span><p id="notice" role="status" aria-live="polite">正在读取执行上下文。</p><button type="button" id="exec-retry" hidden>重新读取</button></div>
+    <noscript>请启用 JavaScript 以使用测试执行工作台。</noscript>
+  </main>
+</div>
+</body>
+</html>

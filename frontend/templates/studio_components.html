@@ -39,11 +39,13 @@
 </defs></svg>
 {%- endmacro %}
 
-{% macro context_selectors() -%}
+{% macro context_selectors(show_file=true) -%}
   <div class="context-selectors">
     <label title="当前项目">{{ icon('folder') }}<span class="sr">当前项目</span><select id="project" disabled></select></label>
+    {% if show_file %}
     <span class="slash" aria-hidden="true">/</span>
     <label title="文件版本">{{ icon('file') }}<span class="sr">文件版本</span><select id="file" disabled></select></label>
+    {% endif %}
   </div>
 {%- endmacro %}
 
