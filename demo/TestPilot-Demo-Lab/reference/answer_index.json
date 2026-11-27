@@ -1,0 +1,902 @@
+{
+  "DL-backorder_queue-01": {
+    "module": "backorder_queue",
+    "case": "backorder_queue_01",
+    "category": "dispatch_order",
+    "corrected_path": "reference/corrected/backorder_queue.py"
+  },
+  "DL-backorder_queue-02": {
+    "module": "backorder_queue",
+    "case": "backorder_queue_02",
+    "category": "queue_order",
+    "corrected_path": "reference/corrected/backorder_queue.py"
+  },
+  "DL-batched_queue-01": {
+    "module": "batched_queue",
+    "case": "batched_queue_01",
+    "category": "priority_tie",
+    "corrected_path": "reference/corrected/batched_queue.py"
+  },
+  "DL-batched_queue-02": {
+    "module": "batched_queue",
+    "case": "batched_queue_02",
+    "category": "reserved_capacity",
+    "corrected_path": "reference/corrected/batched_queue.py"
+  },
+  "DL-billing_cycle-01": {
+    "module": "billing_cycle",
+    "case": "billing_cycle_01",
+    "category": "cycle_boundary",
+    "corrected_path": "reference/corrected/billing_cycle.py"
+  },
+  "DL-billing_cycle-02": {
+    "module": "billing_cycle",
+    "case": "billing_cycle_02",
+    "category": "modulo",
+    "corrected_path": "reference/corrected/billing_cycle.py"
+  },
+  "DL-binary_search-01": {
+    "module": "binary_search",
+    "case": "binary_search_01",
+    "category": "last_candidate",
+    "corrected_path": "reference/corrected/binary_search.py"
+  },
+  "DL-binary_search-02": {
+    "module": "binary_search",
+    "case": "binary_search_02",
+    "category": "duplicate_position",
+    "corrected_path": "reference/corrected/binary_search.py"
+  },
+  "DL-booking_timezones-01": {
+    "module": "booking_timezones",
+    "case": "booking_timezones_01",
+    "category": "offset_direction",
+    "corrected_path": "reference/corrected/booking_timezones.py"
+  },
+  "DL-booking_timezones-02": {
+    "module": "booking_timezones",
+    "case": "booking_timezones_02",
+    "category": "cleanup_boundary",
+    "corrected_path": "reference/corrected/booking_timezones.py"
+  },
+  "DL-budget_split-01": {
+    "module": "budget_split",
+    "case": "budget_split_01",
+    "category": "minimum_allocation",
+    "corrected_path": "reference/corrected/budget_split.py"
+  },
+  "DL-budget_split-02": {
+    "module": "budget_split",
+    "case": "budget_split_02",
+    "category": "commitment_floor",
+    "corrected_path": "reference/corrected/budget_split.py"
+  },
+  "DL-cache_manager-01": {
+    "module": "cache_manager",
+    "case": "cache_manager_01",
+    "category": "expiry_floor",
+    "corrected_path": "reference/corrected/cache_manager.py"
+  },
+  "DL-cache_manager-02": {
+    "module": "cache_manager",
+    "case": "cache_manager_02",
+    "category": "tie_breaking",
+    "corrected_path": "reference/corrected/cache_manager.py"
+  },
+  "DL-cache_versioning-01": {
+    "module": "cache_versioning",
+    "case": "cache_versioning_01",
+    "category": "same_version",
+    "corrected_path": "reference/corrected/cache_versioning.py"
+  },
+  "DL-cache_versioning-02": {
+    "module": "cache_versioning",
+    "case": "cache_versioning_02",
+    "category": "expiry_boundary",
+    "corrected_path": "reference/corrected/cache_versioning.py"
+  },
+  "DL-calendar_months-01": {
+    "module": "calendar_months",
+    "case": "calendar_months_01",
+    "category": "month_origin",
+    "corrected_path": "reference/corrected/calendar_months.py"
+  },
+  "DL-calendar_months-02": {
+    "module": "calendar_months",
+    "case": "calendar_months_02",
+    "category": "decoded_origin",
+    "corrected_path": "reference/corrected/calendar_months.py"
+  },
+  "DL-conditional_dedup-01": {
+    "module": "conditional_dedup",
+    "case": "conditional_dedup_01",
+    "category": "dedup_policy",
+    "corrected_path": "reference/corrected/conditional_dedup.py"
+  },
+  "DL-conditional_dedup-02": {
+    "module": "conditional_dedup",
+    "case": "conditional_dedup_02",
+    "category": "export_threshold",
+    "corrected_path": "reference/corrected/conditional_dedup.py"
+  },
+  "DL-conference_roster-01": {
+    "module": "conference_roster",
+    "case": "conference_roster_01",
+    "category": "room_capacity",
+    "corrected_path": "reference/corrected/conference_roster.py"
+  },
+  "DL-conference_roster-02": {
+    "module": "conference_roster",
+    "case": "conference_roster_02",
+    "category": "hybrid_demand",
+    "corrected_path": "reference/corrected/conference_roster.py"
+  },
+  "DL-contact_cards-01": {
+    "module": "contact_cards",
+    "case": "contact_cards_01",
+    "category": "optional_field",
+    "corrected_path": "reference/corrected/contact_cards.py"
+  },
+  "DL-contact_cards-02": {
+    "module": "contact_cards",
+    "case": "contact_cards_02",
+    "category": "whitespace",
+    "corrected_path": "reference/corrected/contact_cards.py"
+  },
+  "DL-coupon_validator-01": {
+    "module": "coupon_validator",
+    "case": "coupon_validator_01",
+    "category": "expiry_boundary",
+    "corrected_path": "reference/corrected/coupon_validator.py"
+  },
+  "DL-coupon_validator-02": {
+    "module": "coupon_validator",
+    "case": "coupon_validator_02",
+    "category": "cap",
+    "corrected_path": "reference/corrected/coupon_validator.py"
+  },
+  "DL-csv_projection-01": {
+    "module": "csv_projection",
+    "case": "csv_projection_01",
+    "category": "blank_policy",
+    "corrected_path": "reference/corrected/csv_projection.py"
+  },
+  "DL-csv_projection-02": {
+    "module": "csv_projection",
+    "case": "csv_projection_02",
+    "category": "missing_classification",
+    "corrected_path": "reference/corrected/csv_projection.py"
+  },
+  "DL-data_cleaner-01": {
+    "module": "data_cleaner",
+    "case": "data_cleaner_01",
+    "category": "whitespace_filter",
+    "corrected_path": "reference/corrected/data_cleaner.py"
+  },
+  "DL-data_cleaner-02": {
+    "module": "data_cleaner",
+    "case": "data_cleaner_02",
+    "category": "null_handling",
+    "corrected_path": "reference/corrected/data_cleaner.py"
+  },
+  "DL-data_transformer-01": {
+    "module": "data_transformer",
+    "case": "data_transformer_01",
+    "category": "ragged_truncation",
+    "corrected_path": "reference/corrected/data_transformer.py"
+  },
+  "DL-data_transformer-02": {
+    "module": "data_transformer",
+    "case": "data_transformer_02",
+    "category": "stale_field",
+    "corrected_path": "reference/corrected/data_transformer.py"
+  },
+  "DL-date_parser-01": {
+    "module": "date_parser",
+    "case": "date_parser_01",
+    "category": "date_truncation",
+    "corrected_path": "reference/corrected/date_parser.py"
+  },
+  "DL-date_parser-02": {
+    "module": "date_parser",
+    "case": "date_parser_02",
+    "category": "key_width",
+    "corrected_path": "reference/corrected/date_parser.py"
+  },
+  "DL-delivery_scheduler-01": {
+    "module": "delivery_scheduler",
+    "case": "delivery_scheduler_01",
+    "category": "cutoff",
+    "corrected_path": "reference/corrected/delivery_scheduler.py"
+  },
+  "DL-delivery_scheduler-02": {
+    "module": "delivery_scheduler",
+    "case": "delivery_scheduler_02",
+    "category": "latest_date",
+    "corrected_path": "reference/corrected/delivery_scheduler.py"
+  },
+  "DL-duplicate_detector-01": {
+    "module": "duplicate_detector",
+    "case": "duplicate_detector_01",
+    "category": "duplicate_count",
+    "corrected_path": "reference/corrected/duplicate_detector.py"
+  },
+  "DL-duplicate_detector-02": {
+    "module": "duplicate_detector",
+    "case": "duplicate_detector_02",
+    "category": "first_vs_last",
+    "corrected_path": "reference/corrected/duplicate_detector.py"
+  },
+  "DL-event_windows-01": {
+    "module": "event_windows",
+    "case": "event_windows_01",
+    "category": "negative_alignment",
+    "corrected_path": "reference/corrected/event_windows.py"
+  },
+  "DL-event_windows-02": {
+    "module": "event_windows",
+    "case": "event_windows_02",
+    "category": "window_end",
+    "corrected_path": "reference/corrected/event_windows.py"
+  },
+  "DL-expression_evaluator-01": {
+    "module": "expression_evaluator",
+    "case": "expression_evaluator_01",
+    "category": "operand_order",
+    "corrected_path": "reference/corrected/expression_evaluator.py"
+  },
+  "DL-expression_evaluator-02": {
+    "module": "expression_evaluator",
+    "case": "expression_evaluator_02",
+    "category": "evaluation_order",
+    "corrected_path": "reference/corrected/expression_evaluator.py"
+  },
+  "DL-file_validator-01": {
+    "module": "file_validator",
+    "case": "file_validator_01",
+    "category": "case_normalization",
+    "corrected_path": "reference/corrected/file_validator.py"
+  },
+  "DL-file_validator-02": {
+    "module": "file_validator",
+    "case": "file_validator_02",
+    "category": "size_limit",
+    "corrected_path": "reference/corrected/file_validator.py"
+  },
+  "DL-filtered_pagination-01": {
+    "module": "filtered_pagination",
+    "case": "filtered_pagination_01",
+    "category": "archival_filter",
+    "corrected_path": "reference/corrected/filtered_pagination.py"
+  },
+  "DL-filtered_pagination-02": {
+    "module": "filtered_pagination",
+    "case": "filtered_pagination_02",
+    "category": "filtered_offset",
+    "corrected_path": "reference/corrected/filtered_pagination.py"
+  },
+  "DL-financial_rounding-01": {
+    "module": "financial_rounding",
+    "case": "financial_rounding_01",
+    "category": "rounding_mode",
+    "corrected_path": "reference/corrected/financial_rounding.py"
+  },
+  "DL-financial_rounding-02": {
+    "module": "financial_rounding",
+    "case": "financial_rounding_02",
+    "category": "rounding_threshold",
+    "corrected_path": "reference/corrected/financial_rounding.py"
+  },
+  "DL-fixed_width_records-01": {
+    "module": "fixed_width_records",
+    "case": "fixed_width_records_01",
+    "category": "trailing_field",
+    "corrected_path": "reference/corrected/fixed_width_records.py"
+  },
+  "DL-fixed_width_records-02": {
+    "module": "fixed_width_records",
+    "case": "fixed_width_records_02",
+    "category": "padding_side",
+    "corrected_path": "reference/corrected/fixed_width_records.py"
+  },
+  "DL-graph_search-01": {
+    "module": "graph_search",
+    "case": "graph_search_01",
+    "category": "transitive_edges",
+    "corrected_path": "reference/corrected/graph_search.py"
+  },
+  "DL-graph_search-02": {
+    "module": "graph_search",
+    "case": "graph_search_02",
+    "category": "parallel_edges",
+    "corrected_path": "reference/corrected/graph_search.py"
+  },
+  "DL-histogram_binning-01": {
+    "module": "histogram_binning",
+    "case": "histogram_binning_01",
+    "category": "negative_rounding",
+    "corrected_path": "reference/corrected/histogram_binning.py"
+  },
+  "DL-histogram_binning-02": {
+    "module": "histogram_binning",
+    "case": "histogram_binning_02",
+    "category": "accumulator",
+    "corrected_path": "reference/corrected/histogram_binning.py"
+  },
+  "DL-holiday_dispatch-01": {
+    "module": "holiday_dispatch",
+    "case": "holiday_dispatch_01",
+    "category": "holiday_rollover",
+    "corrected_path": "reference/corrected/holiday_dispatch.py"
+  },
+  "DL-holiday_dispatch-02": {
+    "module": "holiday_dispatch",
+    "case": "holiday_dispatch_02",
+    "category": "dispatch_dependency",
+    "corrected_path": "reference/corrected/holiday_dispatch.py"
+  },
+  "DL-import_reconciliation-01": {
+    "module": "import_reconciliation",
+    "case": "import_reconciliation_01",
+    "category": "active_flag",
+    "corrected_path": "reference/corrected/import_reconciliation.py"
+  },
+  "DL-import_reconciliation-02": {
+    "module": "import_reconciliation",
+    "case": "import_reconciliation_02",
+    "category": "join_priority",
+    "corrected_path": "reference/corrected/import_reconciliation.py"
+  },
+  "DL-invoice_adjustment-01": {
+    "module": "invoice_adjustment",
+    "case": "invoice_adjustment_01",
+    "category": "discounted_base",
+    "corrected_path": "reference/corrected/invoice_adjustment.py"
+  },
+  "DL-invoice_adjustment-02": {
+    "module": "invoice_adjustment",
+    "case": "invoice_adjustment_02",
+    "category": "shipping_tax",
+    "corrected_path": "reference/corrected/invoice_adjustment.py"
+  },
+  "DL-json_processor-01": {
+    "module": "json_processor",
+    "case": "json_processor_01",
+    "category": "shape_validation",
+    "corrected_path": "reference/corrected/json_processor.py"
+  },
+  "DL-json_processor-02": {
+    "module": "json_processor",
+    "case": "json_processor_02",
+    "category": "falsy_data",
+    "corrected_path": "reference/corrected/json_processor.py"
+  },
+  "DL-log_parser-01": {
+    "module": "log_parser",
+    "case": "log_parser_01",
+    "category": "delimiter_limit",
+    "corrected_path": "reference/corrected/log_parser.py"
+  },
+  "DL-log_parser-02": {
+    "module": "log_parser",
+    "case": "log_parser_02",
+    "category": "field_scope",
+    "corrected_path": "reference/corrected/log_parser.py"
+  },
+  "DL-loyalty_points-01": {
+    "module": "loyalty_points",
+    "case": "loyalty_points_01",
+    "category": "rounding_order",
+    "corrected_path": "reference/corrected/loyalty_points.py"
+  },
+  "DL-loyalty_points-02": {
+    "module": "loyalty_points",
+    "case": "loyalty_points_02",
+    "category": "exact_redemption",
+    "corrected_path": "reference/corrected/loyalty_points.py"
+  },
+  "DL-maintenance_calendar-01": {
+    "module": "maintenance_calendar",
+    "case": "maintenance_calendar_01",
+    "category": "heavy_limit",
+    "corrected_path": "reference/corrected/maintenance_calendar.py"
+  },
+  "DL-maintenance_calendar-02": {
+    "module": "maintenance_calendar",
+    "case": "maintenance_calendar_02",
+    "category": "slot_minimum",
+    "corrected_path": "reference/corrected/maintenance_calendar.py"
+  },
+  "DL-matrix_operations-01": {
+    "module": "matrix_operations",
+    "case": "matrix_operations_01",
+    "category": "axis",
+    "corrected_path": "reference/corrected/matrix_operations.py"
+  },
+  "DL-matrix_operations-02": {
+    "module": "matrix_operations",
+    "case": "matrix_operations_02",
+    "category": "index_order",
+    "corrected_path": "reference/corrected/matrix_operations.py"
+  },
+  "DL-member_checkout-01": {
+    "module": "member_checkout",
+    "case": "member_checkout_01",
+    "category": "member_threshold",
+    "corrected_path": "reference/corrected/member_checkout.py"
+  },
+  "DL-member_checkout-02": {
+    "module": "member_checkout",
+    "case": "member_checkout_02",
+    "category": "shipping_basis",
+    "corrected_path": "reference/corrected/member_checkout.py"
+  },
+  "DL-membership_display-01": {
+    "module": "membership_display",
+    "case": "membership_display_01",
+    "category": "term_end",
+    "corrected_path": "reference/corrected/membership_display.py"
+  },
+  "DL-membership_display-02": {
+    "module": "membership_display",
+    "case": "membership_display_02",
+    "category": "inclusive_threshold",
+    "corrected_path": "reference/corrected/membership_display.py"
+  },
+  "DL-merchant_settlement-01": {
+    "module": "merchant_settlement",
+    "case": "merchant_settlement_01",
+    "category": "rate_scale",
+    "corrected_path": "reference/corrected/merchant_settlement.py"
+  },
+  "DL-merchant_settlement-02": {
+    "module": "merchant_settlement",
+    "case": "merchant_settlement_02",
+    "category": "status_filter",
+    "corrected_path": "reference/corrected/merchant_settlement.py"
+  },
+  "DL-name_badges-01": {
+    "module": "name_badges",
+    "case": "name_badges_01",
+    "category": "operation_order",
+    "corrected_path": "reference/corrected/name_badges.py"
+  },
+  "DL-name_badges-02": {
+    "module": "name_badges",
+    "case": "name_badges_02",
+    "category": "ceiling",
+    "corrected_path": "reference/corrected/name_badges.py"
+  },
+  "DL-number_converter-01": {
+    "module": "number_converter",
+    "case": "number_converter_01",
+    "category": "sign_bit",
+    "corrected_path": "reference/corrected/number_converter.py"
+  },
+  "DL-number_converter-02": {
+    "module": "number_converter",
+    "case": "number_converter_02",
+    "category": "range",
+    "corrected_path": "reference/corrected/number_converter.py"
+  },
+  "DL-order_processor-01": {
+    "module": "order_processor",
+    "case": "order_processor_01",
+    "category": "empty_line",
+    "corrected_path": "reference/corrected/order_processor.py"
+  },
+  "DL-order_processor-02": {
+    "module": "order_processor",
+    "case": "order_processor_02",
+    "category": "partial_parcel",
+    "corrected_path": "reference/corrected/order_processor.py"
+  },
+  "DL-order_transitions-01": {
+    "module": "order_transitions",
+    "case": "order_transitions_01",
+    "category": "dispatch_condition",
+    "corrected_path": "reference/corrected/order_transitions.py"
+  },
+  "DL-order_transitions-02": {
+    "module": "order_transitions",
+    "case": "order_transitions_02",
+    "category": "cancel_precedence",
+    "corrected_path": "reference/corrected/order_transitions.py"
+  },
+  "DL-pagination-01": {
+    "module": "pagination",
+    "case": "pagination_01",
+    "category": "partial_page",
+    "corrected_path": "reference/corrected/pagination.py"
+  },
+  "DL-pagination-02": {
+    "module": "pagination",
+    "case": "pagination_02",
+    "category": "page_origin",
+    "corrected_path": "reference/corrected/pagination.py"
+  },
+  "DL-payment_calculator-01": {
+    "module": "payment_calculator",
+    "case": "payment_calculator_01",
+    "category": "remainder_allocation",
+    "corrected_path": "reference/corrected/payment_calculator.py"
+  },
+  "DL-payment_calculator-02": {
+    "module": "payment_calculator",
+    "case": "payment_calculator_02",
+    "category": "receipt_aggregation",
+    "corrected_path": "reference/corrected/payment_calculator.py"
+  },
+  "DL-product_pricing-01": {
+    "module": "product_pricing",
+    "case": "product_pricing_01",
+    "category": "sale_branch",
+    "corrected_path": "reference/corrected/product_pricing.py"
+  },
+  "DL-product_pricing-02": {
+    "module": "product_pricing",
+    "case": "product_pricing_02",
+    "category": "tax_basis",
+    "corrected_path": "reference/corrected/product_pricing.py"
+  },
+  "DL-profile_preferences-01": {
+    "module": "profile_preferences",
+    "case": "profile_preferences_01",
+    "category": "precedence",
+    "corrected_path": "reference/corrected/profile_preferences.py"
+  },
+  "DL-profile_preferences-02": {
+    "module": "profile_preferences",
+    "case": "profile_preferences_02",
+    "category": "empty_handling",
+    "corrected_path": "reference/corrected/profile_preferences.py"
+  },
+  "DL-queue-01": {
+    "module": "queue",
+    "case": "queue_01",
+    "category": "fifo_removal",
+    "corrected_path": "reference/corrected/queue.py"
+  },
+  "DL-queue-02": {
+    "module": "queue",
+    "case": "queue_02",
+    "category": "index_origin",
+    "corrected_path": "reference/corrected/queue.py"
+  },
+  "DL-refund_processor-01": {
+    "module": "refund_processor",
+    "case": "refund_processor_01",
+    "category": "fee_application",
+    "corrected_path": "reference/corrected/refund_processor.py"
+  },
+  "DL-refund_processor-02": {
+    "module": "refund_processor",
+    "case": "refund_processor_02",
+    "category": "quantity_floor",
+    "corrected_path": "reference/corrected/refund_processor.py"
+  },
+  "DL-scholarship_awards-01": {
+    "module": "scholarship_awards",
+    "case": "scholarship_awards_01",
+    "category": "renewal_threshold",
+    "corrected_path": "reference/corrected/scholarship_awards.py"
+  },
+  "DL-scholarship_awards-02": {
+    "module": "scholarship_awards",
+    "case": "scholarship_awards_02",
+    "category": "withheld_installment",
+    "corrected_path": "reference/corrected/scholarship_awards.py"
+  },
+  "DL-scientific_calculator-01": {
+    "module": "scientific_calculator",
+    "case": "scientific_calculator_01",
+    "category": "denominator",
+    "corrected_path": "reference/corrected/scientific_calculator.py"
+  },
+  "DL-scientific_calculator-02": {
+    "module": "scientific_calculator",
+    "case": "scientific_calculator_02",
+    "category": "weighting",
+    "corrected_path": "reference/corrected/scientific_calculator.py"
+  },
+  "DL-sensor_calibration-01": {
+    "module": "sensor_calibration",
+    "case": "sensor_calibration_01",
+    "category": "calibration_order",
+    "corrected_path": "reference/corrected/sensor_calibration.py"
+  },
+  "DL-sensor_calibration-02": {
+    "module": "sensor_calibration",
+    "case": "sensor_calibration_02",
+    "category": "band_policy",
+    "corrected_path": "reference/corrected/sensor_calibration.py"
+  },
+  "DL-service_level-01": {
+    "module": "service_level",
+    "case": "service_level_01",
+    "category": "early_delivery",
+    "corrected_path": "reference/corrected/service_level.py"
+  },
+  "DL-service_level-02": {
+    "module": "service_level",
+    "case": "service_level_02",
+    "category": "grace_period",
+    "corrected_path": "reference/corrected/service_level.py"
+  },
+  "DL-session_summary-01": {
+    "module": "session_summary",
+    "case": "session_summary_01",
+    "category": "clamping",
+    "corrected_path": "reference/corrected/session_summary.py"
+  },
+  "DL-session_summary-02": {
+    "module": "session_summary",
+    "case": "session_summary_02",
+    "category": "bucket_rounding",
+    "corrected_path": "reference/corrected/session_summary.py"
+  },
+  "DL-shift_assignment-01": {
+    "module": "shift_assignment",
+    "case": "shift_assignment_01",
+    "category": "weekly_limit",
+    "corrected_path": "reference/corrected/shift_assignment.py"
+  },
+  "DL-shift_assignment-02": {
+    "module": "shift_assignment",
+    "case": "shift_assignment_02",
+    "category": "training_rate",
+    "corrected_path": "reference/corrected/shift_assignment.py"
+  },
+  "DL-sliding_extrema-01": {
+    "module": "sliding_extrema",
+    "case": "sliding_extrema_01",
+    "category": "last_window",
+    "corrected_path": "reference/corrected/sliding_extrema.py"
+  },
+  "DL-sliding_extrema-02": {
+    "module": "sliding_extrema",
+    "case": "sliding_extrema_02",
+    "category": "plateau_count",
+    "corrected_path": "reference/corrected/sliding_extrema.py"
+  },
+  "DL-sorting_algorithms-01": {
+    "module": "sorting_algorithms",
+    "case": "sorting_algorithms_01",
+    "category": "tie_stability",
+    "corrected_path": "reference/corrected/sorting_algorithms.py"
+  },
+  "DL-sorting_algorithms-02": {
+    "module": "sorting_algorithms",
+    "case": "sorting_algorithms_02",
+    "category": "wrong_tail",
+    "corrected_path": "reference/corrected/sorting_algorithms.py"
+  },
+  "DL-split_delivery-01": {
+    "module": "split_delivery",
+    "case": "split_delivery_01",
+    "category": "air_weight_limit",
+    "corrected_path": "reference/corrected/split_delivery.py"
+  },
+  "DL-split_delivery-02": {
+    "module": "split_delivery",
+    "case": "split_delivery_02",
+    "category": "surcharge_gate",
+    "corrected_path": "reference/corrected/split_delivery.py"
+  },
+  "DL-staff_directory-01": {
+    "module": "staff_directory",
+    "case": "staff_directory_01",
+    "category": "matching",
+    "corrected_path": "reference/corrected/staff_directory.py"
+  },
+  "DL-staff_directory-02": {
+    "module": "staff_directory",
+    "case": "staff_directory_02",
+    "category": "aggregation",
+    "corrected_path": "reference/corrected/staff_directory.py"
+  },
+  "DL-statistics_tool-01": {
+    "module": "statistics_tool",
+    "case": "statistics_tool_01",
+    "category": "slice",
+    "corrected_path": "reference/corrected/statistics_tool.py"
+  },
+  "DL-statistics_tool-02": {
+    "module": "statistics_tool",
+    "case": "statistics_tool_02",
+    "category": "normalization",
+    "corrected_path": "reference/corrected/statistics_tool.py"
+  },
+  "DL-stock_allocation-01": {
+    "module": "stock_allocation",
+    "case": "stock_allocation_01",
+    "category": "reservation_omission",
+    "corrected_path": "reference/corrected/stock_allocation.py"
+  },
+  "DL-stock_allocation-02": {
+    "module": "stock_allocation",
+    "case": "stock_allocation_02",
+    "category": "reorder_threshold",
+    "corrected_path": "reference/corrected/stock_allocation.py"
+  },
+  "DL-subscription_credit-01": {
+    "module": "subscription_credit",
+    "case": "subscription_credit_01",
+    "category": "credit_cap",
+    "corrected_path": "reference/corrected/subscription_credit.py"
+  },
+  "DL-subscription_credit-02": {
+    "module": "subscription_credit",
+    "case": "subscription_credit_02",
+    "category": "rebill_floor",
+    "corrected_path": "reference/corrected/subscription_credit.py"
+  },
+  "DL-subscription_manager-01": {
+    "module": "subscription_manager",
+    "case": "subscription_manager_01",
+    "category": "lapse_floor",
+    "corrected_path": "reference/corrected/subscription_manager.py"
+  },
+  "DL-subscription_manager-02": {
+    "module": "subscription_manager",
+    "case": "subscription_manager_02",
+    "category": "renewal_base",
+    "corrected_path": "reference/corrected/subscription_manager.py"
+  },
+  "DL-task_scheduler-01": {
+    "module": "task_scheduler",
+    "case": "task_scheduler_01",
+    "category": "strict_next",
+    "corrected_path": "reference/corrected/task_scheduler.py"
+  },
+  "DL-task_scheduler-02": {
+    "module": "task_scheduler",
+    "case": "task_scheduler_02",
+    "category": "due_boundary",
+    "corrected_path": "reference/corrected/task_scheduler.py"
+  },
+  "DL-team_roster-01": {
+    "module": "team_roster",
+    "case": "team_roster_01",
+    "category": "component_selection",
+    "corrected_path": "reference/corrected/team_roster.py"
+  },
+  "DL-team_roster-02": {
+    "module": "team_roster",
+    "case": "team_roster_02",
+    "category": "capacity",
+    "corrected_path": "reference/corrected/team_roster.py"
+  },
+  "DL-telemetry_rollup-01": {
+    "module": "telemetry_rollup",
+    "case": "telemetry_rollup_01",
+    "category": "calibration_filter",
+    "corrected_path": "reference/corrected/telemetry_rollup.py"
+  },
+  "DL-telemetry_rollup-02": {
+    "module": "telemetry_rollup",
+    "case": "telemetry_rollup_02",
+    "category": "alarm_boundary",
+    "corrected_path": "reference/corrected/telemetry_rollup.py"
+  },
+  "DL-temperature_ingest-01": {
+    "module": "temperature_ingest",
+    "case": "temperature_ingest_01",
+    "category": "fraction_truncation",
+    "corrected_path": "reference/corrected/temperature_ingest.py"
+  },
+  "DL-temperature_ingest-02": {
+    "module": "temperature_ingest",
+    "case": "temperature_ingest_02",
+    "category": "zero_filter",
+    "corrected_path": "reference/corrected/temperature_ingest.py"
+  },
+  "DL-tiered_returns-01": {
+    "module": "tiered_returns",
+    "case": "tiered_returns_01",
+    "category": "member_fee",
+    "corrected_path": "reference/corrected/tiered_returns.py"
+  },
+  "DL-tiered_returns-02": {
+    "module": "tiered_returns",
+    "case": "tiered_returns_02",
+    "category": "member_deadline",
+    "corrected_path": "reference/corrected/tiered_returns.py"
+  },
+  "DL-training_enrollment-01": {
+    "module": "training_enrollment",
+    "case": "training_enrollment_01",
+    "category": "sponsor_alternative",
+    "corrected_path": "reference/corrected/training_enrollment.py"
+  },
+  "DL-training_enrollment-02": {
+    "module": "training_enrollment",
+    "case": "training_enrollment_02",
+    "category": "stipend_cap",
+    "corrected_path": "reference/corrected/training_enrollment.py"
+  },
+  "DL-tree_traversal-01": {
+    "module": "tree_traversal",
+    "case": "tree_traversal_01",
+    "category": "traversal_order",
+    "corrected_path": "reference/corrected/tree_traversal.py"
+  },
+  "DL-tree_traversal-02": {
+    "module": "tree_traversal",
+    "case": "tree_traversal_02",
+    "category": "subtree_aggregation",
+    "corrected_path": "reference/corrected/tree_traversal.py"
+  },
+  "DL-unit_scaling-01": {
+    "module": "unit_scaling",
+    "case": "unit_scaling_01",
+    "category": "precision",
+    "corrected_path": "reference/corrected/unit_scaling.py"
+  },
+  "DL-unit_scaling-02": {
+    "module": "unit_scaling",
+    "case": "unit_scaling_02",
+    "category": "offset",
+    "corrected_path": "reference/corrected/unit_scaling.py"
+  },
+  "DL-user_registration-01": {
+    "module": "user_registration",
+    "case": "user_registration_01",
+    "category": "deduplication",
+    "corrected_path": "reference/corrected/user_registration.py"
+  },
+  "DL-user_registration-02": {
+    "module": "user_registration",
+    "case": "user_registration_02",
+    "category": "clamping",
+    "corrected_path": "reference/corrected/user_registration.py"
+  },
+  "DL-volume_discount-01": {
+    "module": "volume_discount",
+    "case": "volume_discount_01",
+    "category": "tier_threshold",
+    "corrected_path": "reference/corrected/volume_discount.py"
+  },
+  "DL-volume_discount-02": {
+    "module": "volume_discount",
+    "case": "volume_discount_02",
+    "category": "fee_sign",
+    "corrected_path": "reference/corrected/volume_discount.py"
+  },
+  "DL-weighted_grade-01": {
+    "module": "weighted_grade",
+    "case": "weighted_grade_01",
+    "category": "grade_weights",
+    "corrected_path": "reference/corrected/weighted_grade.py"
+  },
+  "DL-weighted_grade-02": {
+    "module": "weighted_grade",
+    "case": "weighted_grade_02",
+    "category": "pass_threshold",
+    "corrected_path": "reference/corrected/weighted_grade.py"
+  },
+  "DL-weighted_routes-01": {
+    "module": "weighted_routes",
+    "case": "weighted_routes_01",
+    "category": "deadline_filter",
+    "corrected_path": "reference/corrected/weighted_routes.py"
+  },
+  "DL-weighted_routes-02": {
+    "module": "weighted_routes",
+    "case": "weighted_routes_02",
+    "category": "toll_exemption",
+    "corrected_path": "reference/corrected/weighted_routes.py"
+  },
+  "DL-working_days-01": {
+    "module": "working_days",
+    "case": "working_days_01",
+    "category": "weekday_threshold",
+    "corrected_path": "reference/corrected/working_days.py"
+  },
+  "DL-working_days-02": {
+    "module": "working_days",
+    "case": "working_days_02",
+    "category": "end_inclusion",
+    "corrected_path": "reference/corrected/working_days.py"
+  }
+}

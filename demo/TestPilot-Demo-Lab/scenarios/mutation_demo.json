@@ -1,0 +1,62 @@
+[
+  {
+    "module": "calculator",
+    "target": "add"
+  },
+  {
+    "module": "prime_checker",
+    "target": "is_prime"
+  },
+  {
+    "module": "percentage_calculator",
+    "target": "basis_points"
+  },
+  {
+    "module": "geometry_calculator",
+    "target": "area"
+  },
+  {
+    "module": "role_manager",
+    "target": "active_labels"
+  },
+  {
+    "module": "account_lock",
+    "target": "remaining_wait"
+  },
+  {
+    "module": "record_projection",
+    "target": "complete"
+  },
+  {
+    "module": "inventory_manager",
+    "target": "available"
+  },
+  {
+    "module": "shipping_calculator",
+    "target": "shipping_fee"
+  },
+  {
+    "module": "stack",
+    "target": "push"
+  },
+  {
+    "module": "interval_overlap",
+    "target": "overlaps"
+  },
+  {
+    "module": "date_calculator",
+    "target": "leap"
+  },
+  {
+    "module": "booking_validator",
+    "target": "valid_slot"
+  },
+  {
+    "module": "timezone_converter",
+    "target": "local_minute"
+  },
+  {
+    "module": "text_analyzer",
+    "target": "word_count"
+  }
+]

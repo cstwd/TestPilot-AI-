@@ -1,0 +1,30 @@
+
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TestPilot Demo Lab offline evaluation",
+  "type": "object",
+  "required": ["schema_version", "recorded_at", "metrics", "samples", "selection"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "metrics": {
+      "type": "object",
+      "required": ["bug_detection_rate", "test_pass_rate", "false_positive_rate", "boundary_test_coverage", "regression_pass_rate", "mutation_score"],
+      "additionalProperties": {"$ref": "#/$defs/ratio"}
+    },
+    "samples": {"type": "array", "items": {"type": "object", "required": ["module", "target", "tier", "evaluated", "detected", "covered_boundaries"]}},
+    "selection": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}}
+  },
+  "$defs": {
+    "ratio": {
+      "type": "object",
+      "required": ["numerator", "denominator", "percentage"],
+      "properties": {
+        "numerator": {"type": "integer", "minimum": 0},
+        "denominator": {"type": "integer", "minimum": 0},
+        "percentage": {"type": ["number", "null"], "minimum": 0, "maximum": 100}
+      },
+      "additionalProperties": false
+    }
+  }
+}

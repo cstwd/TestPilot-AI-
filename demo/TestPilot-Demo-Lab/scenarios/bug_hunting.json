@@ -1,0 +1,42 @@
+[
+  {
+    "module": "binary_search",
+    "target": "locate"
+  },
+  {
+    "module": "booking_timezones",
+    "target": "utc_window"
+  },
+  {
+    "module": "calculator",
+    "target": "add"
+  },
+  {
+    "module": "csv_processor",
+    "target": "rows"
+  },
+  {
+    "module": "log_parser",
+    "target": "message"
+  },
+  {
+    "module": "scientific_calculator",
+    "target": "slope"
+  },
+  {
+    "module": "shipping_calculator",
+    "target": "shipping_fee"
+  },
+  {
+    "module": "team_roster",
+    "target": "surname_key"
+  },
+  {
+    "module": "user_validator",
+    "target": "normalize_username"
+  },
+  {
+    "module": "volume_discount",
+    "target": "discount"
+  }
+]

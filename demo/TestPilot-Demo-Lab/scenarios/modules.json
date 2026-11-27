@@ -1,0 +1,1202 @@
+[
+  {
+    "name": "account_lock",
+    "tier": "good",
+    "domain": "people",
+    "path": "source/good/account_lock.py",
+    "targets": [
+      "remaining_wait",
+      "lock_notice"
+    ],
+    "sha256": "38ce49ca35edb0ad2fb148cc00a7570647cc7d1075069051536ee87c1addb008",
+    "cases": 4
+  },
+  {
+    "name": "backorder_queue",
+    "tier": "buggy",
+    "domain": "commerce",
+    "path": "source/buggy/backorder_queue.py",
+    "targets": [
+      "take_orders",
+      "waiting_after"
+    ],
+    "sha256": "449f8cb10af5f9440c957b2a480220cc4ab4120f3b98bbf652748285939f732e",
+    "cases": 4
+  },
+  {
+    "name": "batched_queue",
+    "tier": "challenge",
+    "domain": "algorithms",
+    "path": "source/challenge/batched_queue.py",
+    "targets": [
+      "drain",
+      "spill"
+    ],
+    "sha256": "e710f3b45d4293f1d63e2586a2cc27435c0908a8df60fedf2081c3a8ede62146",
+    "cases": 4
+  },
+  {
+    "name": "billing_cycle",
+    "tier": "buggy",
+    "domain": "time",
+    "path": "source/buggy/billing_cycle.py",
+    "targets": [
+      "cycle_number",
+      "cycle_offset"
+    ],
+    "sha256": "254503970c439e900ae04b3d7f610e778bc8a97f0f345a2b6cf85655cb90c81b",
+    "cases": 4
+  },
+  {
+    "name": "binary_search",
+    "tier": "buggy",
+    "domain": "algorithms",
+    "path": "source/buggy/binary_search.py",
+    "targets": [
+      "locate",
+      "insertion_point"
+    ],
+    "sha256": "b140e97507c00669b559649f28633676ca1114b13300d813867660e1e736f90e",
+    "cases": 4
+  },
+  {
+    "name": "booking_timezones",
+    "tier": "challenge",
+    "domain": "time",
+    "path": "source/challenge/booking_timezones.py",
+    "targets": [
+      "utc_window",
+      "conflict"
+    ],
+    "sha256": "fb852066abe63216ab97fe6704c6596a03e6dbc064461a8af30f305f68db5f8b",
+    "cases": 4
+  },
+  {
+    "name": "booking_validator",
+    "tier": "good",
+    "domain": "time",
+    "path": "source/good/booking_validator.py",
+    "targets": [
+      "valid_slot",
+      "booking_length"
+    ],
+    "sha256": "558403a8beae5283a11c44a74cc6e9f33a9442d68d5f99dc546e6925eaa6e498",
+    "cases": 4
+  },
+  {
+    "name": "budget_split",
+    "tier": "challenge",
+    "domain": "math",
+    "path": "source/challenge/budget_split.py",
+    "targets": [
+      "allocation",
+      "reserve"
+    ],
+    "sha256": "3430ac864f4b42071ca7c0c3dfebeaa74c4962266751035f88741a2c8c54beb3",
+    "cases": 4
+  },
+  {
+    "name": "cache_manager",
+    "tier": "buggy",
+    "domain": "algorithms",
+    "path": "source/buggy/cache_manager.py",
+    "targets": [
+      "remaining_ttl",
+      "eviction_order"
+    ],
+    "sha256": "c60742b941625868d58720a4c20f82f26196a03ac2d143647a31a4ebdaff02b8",
+    "cases": 4
+  },
+  {
+    "name": "cache_versioning",
+    "tier": "challenge",
+    "domain": "algorithms",
+    "path": "source/challenge/cache_versioning.py",
+    "targets": [
+      "accepted_write",
+      "serve"
+    ],
+    "sha256": "064ce2df44832a3614c2bff062e0e36c7b3965c04f6057c7f5a7f9ee006cd344",
+    "cases": 4
+  },
+  {
+    "name": "calculator",
+    "tier": "good",
+    "domain": "math",
+    "path": "source/good/calculator.py",
+    "targets": [
+      "add",
+      "quotient"
+    ],
+    "sha256": "6321439512e21bc7b5978049906891c6c52aeafa5d5cc29ff6af971febf5565a",
+    "cases": 4
+  },
+  {
+    "name": "calendar_months",
+    "tier": "buggy",
+    "domain": "time",
+    "path": "source/buggy/calendar_months.py",
+    "targets": [
+      "month_index",
+      "decode_month"
+    ],
+    "sha256": "3a33bb4f4bfe9f1a93e3888e5842015618494fa5ce1ae6919d72ef7de158c9b9",
+    "cases": 4
+  },
+  {
+    "name": "conditional_dedup",
+    "tier": "challenge",
+    "domain": "data",
+    "path": "source/challenge/conditional_dedup.py",
+    "targets": [
+      "deduplicate",
+      "export_keys"
+    ],
+    "sha256": "5ec1cea0be8ec0ebef96aec28e106a8f24c2ee08414dace33241adaa265b3d45",
+    "cases": 4
+  },
+  {
+    "name": "conference_roster",
+    "tier": "challenge",
+    "domain": "people",
+    "path": "source/challenge/conference_roster.py",
+    "targets": [
+      "assign_track",
+      "room_count"
+    ],
+    "sha256": "61e079a075e561208e9e99babf93a950803657fbcc330990aec3b1faff37485a",
+    "cases": 4
+  },
+  {
+    "name": "contact_cards",
+    "tier": "buggy",
+    "domain": "people",
+    "path": "source/buggy/contact_cards.py",
+    "targets": [
+      "extension_label",
+      "initial_badge"
+    ],
+    "sha256": "f0bf9dd9b25b1ddeb942f863d67bd04ab06fc3057455bdc95b5351181bb26596",
+    "cases": 4
+  },
+  {
+    "name": "coupon_validator",
+    "tier": "buggy",
+    "domain": "commerce",
+    "path": "source/buggy/coupon_validator.py",
+    "targets": [
+      "valid_on",
+      "offer_discount"
+    ],
+    "sha256": "c3ab7d215cfd3bc07d5feeba6344f0d2094632b34a886b58e8a9c84b750b4164",
+    "cases": 4
+  },
+  {
+    "name": "csv_processor",
+    "tier": "good",
+    "domain": "data",
+    "path": "source/good/csv_processor.py",
+    "targets": [
+      "rows",
+      "header_width"
+    ],
+    "sha256": "8454ff284b27e022896692902908fe1b3fef1877f95aaecd618e300a1f625a2e",
+    "cases": 4
+  },
+  {
+    "name": "csv_projection",
+    "tier": "challenge",
+    "domain": "data",
+    "path": "source/challenge/csv_projection.py",
+    "targets": [
+      "select",
+      "missing_count"
+    ],
+    "sha256": "d8f22d0a2bcf9f743bb86f58dbb4a763bb75913c27d7513eaa39631a56ccd7f8",
+    "cases": 4
+  },
+  {
+    "name": "data_cleaner",
+    "tier": "buggy",
+    "domain": "data",
+    "path": "source/buggy/data_cleaner.py",
+    "targets": [
+      "clean_tags",
+      "coalesce"
+    ],
+    "sha256": "37c538a03dad6bf555ad378acc1c814599c815be2d8bbaf49e8a12e2c7824058",
+    "cases": 4
+  },
+  {
+    "name": "data_transformer",
+    "tier": "buggy",
+    "domain": "data",
+    "path": "source/buggy/data_transformer.py",
+    "targets": [
+      "columns",
+      "rename_field"
+    ],
+    "sha256": "55dae555a4014bef8c65c727b653be014e0c3d20206aa02dc72603ac5928f12a",
+    "cases": 4
+  },
+  {
+    "name": "date_calculator",
+    "tier": "good",
+    "domain": "time",
+    "path": "source/good/date_calculator.py",
+    "targets": [
+      "leap",
+      "days_in_year"
+    ],
+    "sha256": "e2def20d55b24372d3248f857d5b9b3775544709c72ea719b0f1c7374e742ee0",
+    "cases": 4
+  },
+  {
+    "name": "date_parser",
+    "tier": "buggy",
+    "domain": "data",
+    "path": "source/buggy/date_parser.py",
+    "targets": [
+      "iso_date",
+      "month_key"
+    ],
+    "sha256": "23365fd0795a286e58740fbe152d9927183ac9a7431c83b06e9cbe010386e2f2",
+    "cases": 4
+  },
+  {
+    "name": "delivery_scheduler",
+    "tier": "buggy",
+    "domain": "time",
+    "path": "source/buggy/delivery_scheduler.py",
+    "targets": [
+      "delivery_day",
+      "delivery_range"
+    ],
+    "sha256": "542faa82e0854a41313b863655317f6fe0abbf932c34c1dbf1374a7a81943181",
+    "cases": 4
+  },
+  {
+    "name": "duplicate_detector",
+    "tier": "buggy",
+    "domain": "data",
+    "path": "source/buggy/duplicate_detector.py",
+    "targets": [
+      "repeat_ids",
+      "first_position"
+    ],
+    "sha256": "3b9ca922bc4439cd1b2672d38ce2ed46ff4f22dc50c0d679b043a883c6a4d256",
+    "cases": 4
+  },
+  {
+    "name": "encoding_converter",
+    "tier": "good",
+    "domain": "data",
+    "path": "source/good/encoding_converter.py",
+    "targets": [
+      "as_hex",
+      "from_hex"
+    ],
+    "sha256": "5c7e40d1da65f0f93b7e5dc9a046d8356341357d6b44f14c9002f7435e6ab01c",
+    "cases": 4
+  },
+  {
+    "name": "event_windows",
+    "tier": "buggy",
+    "domain": "time",
+    "path": "source/buggy/event_windows.py",
+    "targets": [
+      "window_start",
+      "events_in_window"
+    ],
+    "sha256": "2168de38d1bb506bef0565ee8fdc748778827a75289a29ba195013d031e01108",
+    "cases": 4
+  },
+  {
+    "name": "expression_evaluator",
+    "tier": "buggy",
+    "domain": "math",
+    "path": "source/buggy/expression_evaluator.py",
+    "targets": [
+      "evaluate",
+      "fold_expression"
+    ],
+    "sha256": "805d5f80e15854e5483821757f384894a1fbff3ead291b37f6470799b8bbf980",
+    "cases": 4
+  },
+  {
+    "name": "file_validator",
+    "tier": "buggy",
+    "domain": "data",
+    "path": "source/buggy/file_validator.py",
+    "targets": [
+      "suffix_allowed",
+      "fits_budget"
+    ],
+    "sha256": "ceb37b4ffd6ca1c946430e1610170036a1692cfea6ac7caef1a662ea15488271",
+    "cases": 4
+  },
+  {
+    "name": "filtered_pagination",
+    "tier": "challenge",
+    "domain": "algorithms",
+    "path": "source/challenge/filtered_pagination.py",
+    "targets": [
+      "eligible",
+      "result_page"
+    ],
+    "sha256": "61f17adff0d537032babe53989975a8c2660da1ec5cdc3c3c8c10b9a430f4c24",
+    "cases": 4
+  },
+  {
+    "name": "financial_rounding",
+    "tier": "buggy",
+    "domain": "math",
+    "path": "source/buggy/financial_rounding.py",
+    "targets": [
+      "cents",
+      "cash_round"
+    ],
+    "sha256": "335bb9d0c7799d7727aa5644370e813530be466163e1006a56cb7e34d80a25fe",
+    "cases": 4
+  },
+  {
+    "name": "fixed_width_records",
+    "tier": "buggy",
+    "domain": "data",
+    "path": "source/buggy/fixed_width_records.py",
+    "targets": [
+      "split_fields",
+      "pad_field"
+    ],
+    "sha256": "53e586dad896b201be1efcdb48facf3b610f488586bac4088760be412c20ea36",
+    "cases": 4
+  },
+  {
+    "name": "geometry_calculator",
+    "tier": "good",
+    "domain": "math",
+    "path": "source/good/geometry_calculator.py",
+    "targets": [
+      "area",
+      "perimeter"
+    ],
+    "sha256": "5808bfc94f0ee329c8a44914cd671689b4a54e96309e5e475c0acfa41eacf58a",
+    "cases": 4
+  },
+  {
+    "name": "graph_search",
+    "tier": "buggy",
+    "domain": "algorithms",
+    "path": "source/buggy/graph_search.py",
+    "targets": [
+      "reachable",
+      "incoming"
+    ],
+    "sha256": "193debf0e73d03b82dc3e0a20ab49e139307ab5ffa43b5cae6a4aa8ad5c39c43",
+    "cases": 4
+  },
+  {
+    "name": "histogram_binning",
+    "tier": "buggy",
+    "domain": "math",
+    "path": "source/buggy/histogram_binning.py",
+    "targets": [
+      "bin_number",
+      "frequency"
+    ],
+    "sha256": "70b367f8ec1bba82ee8a9075947073f988b2c9784df321ad5f1657131cd9550b",
+    "cases": 4
+  },
+  {
+    "name": "holiday_dispatch",
+    "tier": "challenge",
+    "domain": "time",
+    "path": "source/challenge/holiday_dispatch.py",
+    "targets": [
+      "dispatch_day",
+      "delivery_day"
+    ],
+    "sha256": "add8bf875ddc6ecefccc15abf241600333339f43b0b83b054282651addc92bff",
+    "cases": 4
+  },
+  {
+    "name": "import_reconciliation",
+    "tier": "challenge",
+    "domain": "data",
+    "path": "source/challenge/import_reconciliation.py",
+    "targets": [
+      "eligible_id",
+      "join_name"
+    ],
+    "sha256": "d4ce18fda7cc87381964d5a0f8b595b61a44f7db9408f4cdd1ee98fe3266411a",
+    "cases": 4
+  },
+  {
+    "name": "interval_overlap",
+    "tier": "good",
+    "domain": "algorithms",
+    "path": "source/good/interval_overlap.py",
+    "targets": [
+      "overlaps",
+      "overlap_width"
+    ],
+    "sha256": "26c0df4a33fd4404484fc5fbfa1fc59e8bbe9026d2c77be79acb0039659632d7",
+    "cases": 4
+  },
+  {
+    "name": "inventory_manager",
+    "tier": "good",
+    "domain": "commerce",
+    "path": "source/good/inventory_manager.py",
+    "targets": [
+      "available",
+      "shortfall"
+    ],
+    "sha256": "9b30e1399adcd05f32d391d0f98b84b37097736093c069a3045593fb6ab2234b",
+    "cases": 4
+  },
+  {
+    "name": "invoice_adjustment",
+    "tier": "challenge",
+    "domain": "commerce",
+    "path": "source/challenge/invoice_adjustment.py",
+    "targets": [
+      "taxable_subtotal",
+      "invoice_total"
+    ],
+    "sha256": "02f871cb6ecb09407f14122a381b623a2f3a7f79ec2e282679884586852aae30",
+    "cases": 4
+  },
+  {
+    "name": "json_processor",
+    "tier": "buggy",
+    "domain": "data",
+    "path": "source/buggy/json_processor.py",
+    "targets": [
+      "parse_record",
+      "field_or"
+    ],
+    "sha256": "f1ed1c5a6583ba532b61e5a5f4e4f3a63ce72bd2ef0dbbac3111f8954cefbd51",
+    "cases": 4
+  },
+  {
+    "name": "log_parser",
+    "tier": "buggy",
+    "domain": "data",
+    "path": "source/buggy/log_parser.py",
+    "targets": [
+      "message",
+      "error_lines"
+    ],
+    "sha256": "23495a6111de98063a63a31cb9cf3540b8e815aeb1416deedd5f315d3457d4ee",
+    "cases": 4
+  },
+  {
+    "name": "loyalty_points",
+    "tier": "buggy",
+    "domain": "commerce",
+    "path": "source/buggy/loyalty_points.py",
+    "targets": [
+      "earn",
+      "spend"
+    ],
+    "sha256": "f62f586a61fb3e304989db47245d3eaf9f1378959133d41cfe10aa885caba53d",
+    "cases": 4
+  },
+  {
+    "name": "maintenance_calendar",
+    "tier": "challenge",
+    "domain": "time",
+    "path": "source/challenge/maintenance_calendar.py",
+    "targets": [
+      "service_due",
+      "service_slot"
+    ],
+    "sha256": "abc858e5f0667e3826b45959e79a4b2db19ef8732ec30fb30e83a2cb91e1b2f0",
+    "cases": 4
+  },
+  {
+    "name": "matrix_operations",
+    "tier": "buggy",
+    "domain": "math",
+    "path": "source/buggy/matrix_operations.py",
+    "targets": [
+      "diagonal_sum",
+      "multiply_vector"
+    ],
+    "sha256": "cd83ca7a6a82b5c3d5564475027a68d6ba299726ac97ba4e2b2b870320cc6c4a",
+    "cases": 4
+  },
+  {
+    "name": "member_checkout",
+    "tier": "challenge",
+    "domain": "commerce",
+    "path": "source/challenge/member_checkout.py",
+    "targets": [
+      "subtotal_after_discount",
+      "checkout"
+    ],
+    "sha256": "b352dbde7db929acb07587f68ab1b6f6a7db0356e6beb3454020d9da27b2d256",
+    "cases": 4
+  },
+  {
+    "name": "membership_display",
+    "tier": "buggy",
+    "domain": "people",
+    "path": "source/buggy/membership_display.py",
+    "targets": [
+      "renewal_year",
+      "tier_label"
+    ],
+    "sha256": "cc3224a6b3d660de7efc853707099bd8ff8d1d8748f6f48bd63651be4b658beb",
+    "cases": 4
+  },
+  {
+    "name": "merchant_settlement",
+    "tier": "buggy",
+    "domain": "commerce",
+    "path": "source/buggy/merchant_settlement.py",
+    "targets": [
+      "settlement",
+      "unsettled"
+    ],
+    "sha256": "5c01406fcb91274a40844eb1e0f0d454834a454e2d525fe3058404da99f19573",
+    "cases": 4
+  },
+  {
+    "name": "name_badges",
+    "tier": "buggy",
+    "domain": "people",
+    "path": "source/buggy/name_badges.py",
+    "targets": [
+      "badge_label",
+      "badge_rows"
+    ],
+    "sha256": "f566a2348273894ad3eebe3ed0a0321c5dd7e85527c8bf5c39454e9c533d047e",
+    "cases": 4
+  },
+  {
+    "name": "number_converter",
+    "tier": "buggy",
+    "domain": "math",
+    "path": "source/buggy/number_converter.py",
+    "targets": [
+      "decode_word",
+      "encode_word"
+    ],
+    "sha256": "027343a7327c37ec880fa0a734b59f9223af0dd7f6ad063c8eaa6f08dfe11e77",
+    "cases": 4
+  },
+  {
+    "name": "order_processor",
+    "tier": "buggy",
+    "domain": "commerce",
+    "path": "source/buggy/order_processor.py",
+    "targets": [
+      "packing_slip",
+      "parcel_count"
+    ],
+    "sha256": "4da143125de4b7f0db9e45796a7f6be13233c6a26e397983af4cadae8e7a467e",
+    "cases": 4
+  },
+  {
+    "name": "order_status",
+    "tier": "good",
+    "domain": "commerce",
+    "path": "source/good/order_status.py",
+    "targets": [
+      "advance",
+      "replay"
+    ],
+    "sha256": "3623186a52051a1f95c47d5fa2373bd4fc7966f7e7e4e42d643671d4f596895c",
+    "cases": 4
+  },
+  {
+    "name": "order_transitions",
+    "tier": "challenge",
+    "domain": "commerce",
+    "path": "source/challenge/order_transitions.py",
+    "targets": [
+      "next_state",
+      "can_cancel"
+    ],
+    "sha256": "224951e391cc413b383cd9fe2887f2dbe8b3de8f50c73157e4dbcec42c6121b9",
+    "cases": 4
+  },
+  {
+    "name": "pagination",
+    "tier": "buggy",
+    "domain": "algorithms",
+    "path": "source/buggy/pagination.py",
+    "targets": [
+      "page_count",
+      "page_items"
+    ],
+    "sha256": "129feaff726da8969ead899bbb2209bed347bb9ff52c0e96f136eea7fb08db74",
+    "cases": 4
+  },
+  {
+    "name": "payment_calculator",
+    "tier": "buggy",
+    "domain": "commerce",
+    "path": "source/buggy/payment_calculator.py",
+    "targets": [
+      "installment_schedule",
+      "outstanding"
+    ],
+    "sha256": "0f7f6ca75efa1d7e59faa34bc8132d51498c122912d9a23b95df2e646401a364",
+    "cases": 4
+  },
+  {
+    "name": "percentage_calculator",
+    "tier": "good",
+    "domain": "math",
+    "path": "source/good/percentage_calculator.py",
+    "targets": [
+      "percent_of",
+      "basis_points"
+    ],
+    "sha256": "8b827a8ade4d7de2739c2d21e594dc051dc99a7f236966f87ad26b53de11689a",
+    "cases": 4
+  },
+  {
+    "name": "prime_checker",
+    "tier": "good",
+    "domain": "math",
+    "path": "source/good/prime_checker.py",
+    "targets": [
+      "is_prime",
+      "primes_through"
+    ],
+    "sha256": "de3b2e9583ade3ede9c9ca940c069c58752558050484943835e68a76fded5bbb",
+    "cases": 4
+  },
+  {
+    "name": "product_pricing",
+    "tier": "buggy",
+    "domain": "commerce",
+    "path": "source/buggy/product_pricing.py",
+    "targets": [
+      "unit_price",
+      "tax_included"
+    ],
+    "sha256": "1c559bd0f47898eaf6964f96fc694ebf80e36fd9a7e07a47c2ec2c929b2513ef",
+    "cases": 4
+  },
+  {
+    "name": "profile_preferences",
+    "tier": "buggy",
+    "domain": "people",
+    "path": "source/buggy/profile_preferences.py",
+    "targets": [
+      "merged",
+      "visible_keys"
+    ],
+    "sha256": "155cc48c9dc55764aa368228b9ac318d6aa2ad6731b68b9ed075e817535a9af6",
+    "cases": 4
+  },
+  {
+    "name": "queue",
+    "tier": "buggy",
+    "domain": "algorithms",
+    "path": "source/buggy/queue.py",
+    "targets": [
+      "pop_next",
+      "queue_item"
+    ],
+    "sha256": "d2c6e5c637f0a8b6a3414b4a39b3da9123ad31cb1713c80e73340b617b21c139",
+    "cases": 4
+  },
+  {
+    "name": "record_projection",
+    "tier": "good",
+    "domain": "data",
+    "path": "source/good/record_projection.py",
+    "targets": [
+      "project",
+      "complete"
+    ],
+    "sha256": "15071513125ad3522b544f47289aa6ffc9577fd1a742b7893e3c96d3ef422030",
+    "cases": 4
+  },
+  {
+    "name": "refund_processor",
+    "tier": "buggy",
+    "domain": "commerce",
+    "path": "source/buggy/refund_processor.py",
+    "targets": [
+      "refund_amount",
+      "return_units"
+    ],
+    "sha256": "d8ea0c97971c5775d9f412e51bdae168397f85f5d4698e8ca7d958d28f2c0e16",
+    "cases": 4
+  },
+  {
+    "name": "retry_policy",
+    "tier": "good",
+    "domain": "time",
+    "path": "source/good/retry_policy.py",
+    "targets": [
+      "retry_delay",
+      "retry_budget"
+    ],
+    "sha256": "75f6e71f17cd0c6c45c706ed689590f4b5d09981939aa21de30614f044139290",
+    "cases": 4
+  },
+  {
+    "name": "role_manager",
+    "tier": "good",
+    "domain": "people",
+    "path": "source/good/role_manager.py",
+    "targets": [
+      "active_labels",
+      "label_summary"
+    ],
+    "sha256": "382575891d4dbc398ab08bb73034029c3e238dbe8f3e7a69bb44f5d1b06c8f50",
+    "cases": 4
+  },
+  {
+    "name": "run_length",
+    "tier": "good",
+    "domain": "algorithms",
+    "path": "source/good/run_length.py",
+    "targets": [
+      "pack",
+      "unpack"
+    ],
+    "sha256": "a599ec26f8429b3375dc9adcdda69442228e02b23f52ac4402737bce45ae2400",
+    "cases": 4
+  },
+  {
+    "name": "scholarship_awards",
+    "tier": "challenge",
+    "domain": "people",
+    "path": "source/challenge/scholarship_awards.py",
+    "targets": [
+      "award",
+      "disbursement"
+    ],
+    "sha256": "3e0280ae586ec1602d09d9b608c564766efafce385a48d13400aa4fd469c26ff",
+    "cases": 4
+  },
+  {
+    "name": "scientific_calculator",
+    "tier": "buggy",
+    "domain": "math",
+    "path": "source/buggy/scientific_calculator.py",
+    "targets": [
+      "slope",
+      "interpolate"
+    ],
+    "sha256": "ffbbab971d88789e025b124fcdf16ac6104835907fc475f1a83f265bb9b232ed",
+    "cases": 4
+  },
+  {
+    "name": "sensor_calibration",
+    "tier": "challenge",
+    "domain": "math",
+    "path": "source/challenge/sensor_calibration.py",
+    "targets": [
+      "calibrated",
+      "within_band"
+    ],
+    "sha256": "1add10b12d3de1eb7f128bb7587f574abc475f58fda49cd14f8a885d481a2297",
+    "cases": 4
+  },
+  {
+    "name": "service_level",
+    "tier": "buggy",
+    "domain": "time",
+    "path": "source/buggy/service_level.py",
+    "targets": [
+      "delay",
+      "penalty"
+    ],
+    "sha256": "45bf01840a9cc58abfab28fd9a017806117cd1e0774801d0ce6b81bc5a20dca6",
+    "cases": 4
+  },
+  {
+    "name": "session_summary",
+    "tier": "buggy",
+    "domain": "people",
+    "path": "source/buggy/session_summary.py",
+    "targets": [
+      "elapsed",
+      "minute_bucket"
+    ],
+    "sha256": "e2fe73ff352552ec5b08b41c7c147ef92d94b071c5206c6a882ebd75f8bcf373",
+    "cases": 4
+  },
+  {
+    "name": "shift_assignment",
+    "tier": "challenge",
+    "domain": "people",
+    "path": "source/challenge/shift_assignment.py",
+    "targets": [
+      "assignment",
+      "shift_credit"
+    ],
+    "sha256": "ea45e1761487e6f0a4333cee1be0ad5fb0343e65ff7b8c72e6d4c9ce5a57c0a7",
+    "cases": 4
+  },
+  {
+    "name": "shipping_calculator",
+    "tier": "good",
+    "domain": "commerce",
+    "path": "source/good/shipping_calculator.py",
+    "targets": [
+      "shipping_fee",
+      "grand_total"
+    ],
+    "sha256": "974a7e4c77c9f9f717fa283b7e9418584b37c9014b4b7f3e2125d5b5fe0c6194",
+    "cases": 4
+  },
+  {
+    "name": "shopping_cart",
+    "tier": "good",
+    "domain": "commerce",
+    "path": "source/good/shopping_cart.py",
+    "targets": [
+      "cart_total",
+      "item_count"
+    ],
+    "sha256": "d39a3fa46cc3f6196607b461084a1883941388ce15196d8cea39cba5ff7a4b67",
+    "cases": 4
+  },
+  {
+    "name": "significant_digits",
+    "tier": "good",
+    "domain": "math",
+    "path": "source/good/significant_digits.py",
+    "targets": [
+      "round_significant",
+      "approximation_error"
+    ],
+    "sha256": "b851513ad352a3a57d6638b1d81fd7559cc09737ce4e490b9cd256d3922da3b0",
+    "cases": 4
+  },
+  {
+    "name": "sliding_extrema",
+    "tier": "buggy",
+    "domain": "algorithms",
+    "path": "source/buggy/sliding_extrema.py",
+    "targets": [
+      "window_peaks",
+      "rise_count"
+    ],
+    "sha256": "fdffdcfffb78cce3c6777f7b83f5ddc3fa34b7b2bfa9cc64e8b2fbb5a4f813e9",
+    "cases": 4
+  },
+  {
+    "name": "sorting_algorithms",
+    "tier": "buggy",
+    "domain": "algorithms",
+    "path": "source/buggy/sorting_algorithms.py",
+    "targets": [
+      "ranked",
+      "lowest"
+    ],
+    "sha256": "4391804437751c94d916a8026dd908bbd130e58a97b38b625206c340693104b4",
+    "cases": 4
+  },
+  {
+    "name": "split_delivery",
+    "tier": "challenge",
+    "domain": "commerce",
+    "path": "source/challenge/split_delivery.py",
+    "targets": [
+      "choose_service",
+      "route_fee"
+    ],
+    "sha256": "7c763251a344dcc39ca0073775487e612498b49ba190236cd932e1f367d8693d",
+    "cases": 4
+  },
+  {
+    "name": "stable_priority",
+    "tier": "good",
+    "domain": "algorithms",
+    "path": "source/good/stable_priority.py",
+    "targets": [
+      "ordered",
+      "next_task"
+    ],
+    "sha256": "118b8cf4dbc0e15a049f4820af74ca2cb9e0494766542be99ed8981b9b84fe47",
+    "cases": 4
+  },
+  {
+    "name": "stack",
+    "tier": "good",
+    "domain": "algorithms",
+    "path": "source/good/stack.py",
+    "targets": [
+      "push",
+      "top"
+    ],
+    "sha256": "de14a7a8f6a4881c5d67595463cb95e773d6dc23a71f392d0dcf18797ef6875c",
+    "cases": 4
+  },
+  {
+    "name": "staff_directory",
+    "tier": "buggy",
+    "domain": "people",
+    "path": "source/buggy/staff_directory.py",
+    "targets": [
+      "find_department",
+      "directory_counts"
+    ],
+    "sha256": "3ba3e4a0535c143537791fdc1e6631678761bce02fc7b5aafdddc225201758e6",
+    "cases": 4
+  },
+  {
+    "name": "statistics_tool",
+    "tier": "buggy",
+    "domain": "math",
+    "path": "source/buggy/statistics_tool.py",
+    "targets": [
+      "trimmed_mean",
+      "population_variance"
+    ],
+    "sha256": "ee8b277b079a74cc5e6a1a63b3592f0aeb5d1f74d041cef01aafd6bd3baa5f0e",
+    "cases": 4
+  },
+  {
+    "name": "stock_allocation",
+    "tier": "challenge",
+    "domain": "commerce",
+    "path": "source/challenge/stock_allocation.py",
+    "targets": [
+      "allocate",
+      "reorder"
+    ],
+    "sha256": "6ca0b5eb14f76d5eef24fe66acdd0e0b5a65dc62c1639d995dd13709e9cf486f",
+    "cases": 4
+  },
+  {
+    "name": "subscription_credit",
+    "tier": "challenge",
+    "domain": "time",
+    "path": "source/challenge/subscription_credit.py",
+    "targets": [
+      "credit",
+      "rebill"
+    ],
+    "sha256": "fe02adb69c455885af91815ef7102b497abc0fc40392bde7149dae52997ddbb3",
+    "cases": 4
+  },
+  {
+    "name": "subscription_manager",
+    "tier": "buggy",
+    "domain": "time",
+    "path": "source/buggy/subscription_manager.py",
+    "targets": [
+      "remaining_days",
+      "renewed_end"
+    ],
+    "sha256": "68e3020780208b23b3bcf1c7465b1326f9b88a0c8f202c4f80aba8edc97e1047",
+    "cases": 4
+  },
+  {
+    "name": "task_scheduler",
+    "tier": "buggy",
+    "domain": "time",
+    "path": "source/buggy/task_scheduler.py",
+    "targets": [
+      "next_tick",
+      "delayed_tasks"
+    ],
+    "sha256": "649c5d072dddff4189d27cf3e95cf13951fdd721b8a38b891d95c729b5b6036d",
+    "cases": 4
+  },
+  {
+    "name": "team_roster",
+    "tier": "buggy",
+    "domain": "people",
+    "path": "source/buggy/team_roster.py",
+    "targets": [
+      "surname_key",
+      "team_capacity"
+    ],
+    "sha256": "1aa6566f9c9ce67644483f93637e0306cd9f616739d34a8a413d96f9547f9731",
+    "cases": 4
+  },
+  {
+    "name": "telemetry_rollup",
+    "tier": "challenge",
+    "domain": "data",
+    "path": "source/challenge/telemetry_rollup.py",
+    "targets": [
+      "accepted",
+      "alert_count"
+    ],
+    "sha256": "ea1928305e3c64749c70cb39cf81e2041e963d0325b7f5d7db75cf8fd2e80936",
+    "cases": 4
+  },
+  {
+    "name": "temperature_ingest",
+    "tier": "buggy",
+    "domain": "data",
+    "path": "source/buggy/temperature_ingest.py",
+    "targets": [
+      "reading",
+      "valid_readings"
+    ],
+    "sha256": "4e9a12934de5ef2919152c4af9053557595d6429100ef8394a6b479069d2de91",
+    "cases": 4
+  },
+  {
+    "name": "text_analyzer",
+    "tier": "good",
+    "domain": "data",
+    "path": "source/good/text_analyzer.py",
+    "targets": [
+      "word_count",
+      "longest_token"
+    ],
+    "sha256": "674116495d534351866d5ed325befe94184804008fb5dc58358368195d22116d",
+    "cases": 4
+  },
+  {
+    "name": "tiered_returns",
+    "tier": "challenge",
+    "domain": "commerce",
+    "path": "source/challenge/tiered_returns.py",
+    "targets": [
+      "refund",
+      "return_window"
+    ],
+    "sha256": "8196ffef060c73118818eeb1ecd5e79a13ca9f117ff7faf3f456e1f47a5e7044",
+    "cases": 4
+  },
+  {
+    "name": "timezone_converter",
+    "tier": "good",
+    "domain": "time",
+    "path": "source/good/timezone_converter.py",
+    "targets": [
+      "local_minute",
+      "day_shift"
+    ],
+    "sha256": "a11a0e42cd54f09f0c90ab374b54fc8982cf3eb812d1a376182dc1f7e6270f86",
+    "cases": 4
+  },
+  {
+    "name": "training_enrollment",
+    "tier": "challenge",
+    "domain": "people",
+    "path": "source/challenge/training_enrollment.py",
+    "targets": [
+      "placement",
+      "stipend"
+    ],
+    "sha256": "f4efdb126b8de9c72f40eb3a5d366ab9de29e0d135ba2a87037231b7eb80b912",
+    "cases": 4
+  },
+  {
+    "name": "tree_traversal",
+    "tier": "buggy",
+    "domain": "algorithms",
+    "path": "source/buggy/tree_traversal.py",
+    "targets": [
+      "preorder",
+      "leaf_count"
+    ],
+    "sha256": "c7d9da67a67bf32a22e5e857e6b2fb0079ff1fba0152b34aab43c882c20ab259",
+    "cases": 4
+  },
+  {
+    "name": "unit_scaling",
+    "tier": "buggy",
+    "domain": "math",
+    "path": "source/buggy/unit_scaling.py",
+    "targets": [
+      "metric_kilometers",
+      "fahrenheit"
+    ],
+    "sha256": "b6aaf40f6e95707b097cd106ff0c92f8a8d1ffbc34eebfeda8aa42aaa8aa0c64",
+    "cases": 4
+  },
+  {
+    "name": "user_profile",
+    "tier": "good",
+    "domain": "people",
+    "path": "source/good/user_profile.py",
+    "targets": [
+      "display_name",
+      "initials"
+    ],
+    "sha256": "e9e1b109ec59043797c77eb71cff593cc1e588230069b5cb4e335b22ea17af11",
+    "cases": 4
+  },
+  {
+    "name": "user_registration",
+    "tier": "buggy",
+    "domain": "people",
+    "path": "source/buggy/user_registration.py",
+    "targets": [
+      "pending_labels",
+      "invitation_slots"
+    ],
+    "sha256": "034b8b57b5bbbcf660ac3122ea6a7371a541303a0c183e19108bfd2140b887cd",
+    "cases": 4
+  },
+  {
+    "name": "user_validator",
+    "tier": "good",
+    "domain": "people",
+    "path": "source/good/user_validator.py",
+    "targets": [
+      "normalize_username",
+      "handles_match"
+    ],
+    "sha256": "685ab6d79b7ae26f0f6abe23c28272aed4226fffdb1359a2fcfe5c16b46b6849",
+    "cases": 4
+  },
+  {
+    "name": "volume_discount",
+    "tier": "buggy",
+    "domain": "commerce",
+    "path": "source/buggy/volume_discount.py",
+    "targets": [
+      "discount",
+      "net_total"
+    ],
+    "sha256": "9b97c33329446af2185008c338422202186eedeeabc67b262373e2f0d5877c80",
+    "cases": 4
+  },
+  {
+    "name": "weighted_grade",
+    "tier": "challenge",
+    "domain": "math",
+    "path": "source/challenge/weighted_grade.py",
+    "targets": [
+      "grade",
+      "passed"
+    ],
+    "sha256": "1f13dcbc2355677ded8b444c05fe721819beadcefad9d5925a4aec62378fa94d",
+    "cases": 4
+  },
+  {
+    "name": "weighted_routes",
+    "tier": "challenge",
+    "domain": "algorithms",
+    "path": "source/challenge/weighted_routes.py",
+    "targets": [
+      "cheapest",
+      "cost_with_toll"
+    ],
+    "sha256": "5ce83dc48fa0dfb1f431de7fc3082cbc271c067d845fff4ff2b8d22226ac2c1a",
+    "cases": 4
+  },
+  {
+    "name": "working_days",
+    "tier": "buggy",
+    "domain": "time",
+    "path": "source/buggy/working_days.py",
+    "targets": [
+      "is_workday",
+      "business_days"
+    ],
+    "sha256": "72a53588befe9b7c737b565798f3558120c8f0d987866959ed180e0ed64fd738",
+    "cases": 4
+  }
+]

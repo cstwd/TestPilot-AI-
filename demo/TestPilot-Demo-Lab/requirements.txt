@@ -1,0 +1,3 @@
+
+# Install from this repository using Python 3.13 and its tested WASI dependencies.
+-r ../../requirements.txt
