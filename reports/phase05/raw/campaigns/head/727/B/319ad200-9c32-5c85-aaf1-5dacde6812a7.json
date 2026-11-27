@@ -1,0 +1,99 @@
+{
+  "id": "319ad200-9c32-5c85-aaf1-5dacde6812a7",
+  "verdict": {
+    "status": "execution_error",
+    "reason": "失败没有完整的测试断言证据",
+    "nodeids": [
+      "test_generated.py::test_boundary_return_contract",
+      "test_generated.py::test_example_1"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 2,
+    "failed": 2,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 4,
+    "total_lines": 4,
+    "coverage_pct": 100.0,
+    "log": "F.F.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target([8]) == 8\nE   assert 0 == 8\nE    +  where 0 = target([8])\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(items=[], fallback=0), int)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in first\n    return items[0]\n           ^^^^^^^^\nE   IndexError: list index out of range\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert 0 == 8\nFAILED test_generated.py::test_boundary_return_contract - IndexError: list in...\n2 failed, 2 passed in 0.18s",
+    "duration_ms": 6075,
+    "stdout": "F.F.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target([8]) == 8\nE   assert 0 == 8\nE    +  where 0 = target([8])\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(items=[], fallback=0), int)\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsubject.py:9: in first\n    return items[0]\n           ^^^^^^^^\nE   IndexError: list index out of range\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert 0 == 8\nFAILED test_generated.py::test_boundary_return_contract - IndexError: list in...\n2 failed, 2 passed in 0.18s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 0 == 8\n +  where 0 = target([8])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 5,
+            "function": "test_example_1",
+            "source": "assert target([8]) == 8"
+          }
+        ],
+        "assertion_diff": "assert 0 == 8\n +  where 0 = target([8])"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "phase": "call",
+        "exception_type": "IndexError",
+        "message": "list index out of range",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_boundary_return_contract",
+            "source": "assert isinstance(target(items=[], fallback=0), int)"
+          },
+          {
+            "path": "subject.py",
+            "line": 9,
+            "function": "first",
+            "source": "return items[0]"
+          }
+        ],
+        "assertion_diff": null
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 2,
+    "total_branches": 2,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "60660c7a-366c-41e0-8fe0-9959ffe375fc",
+    "started": "2026-11-27T08:19:04.372457+00:00",
+    "ended": "2026-11-27T08:19:10.447456+00:00",
+    "source_sha256": "eb9facd7826770c2b290be950a0923a55d38f249f61d5b7bb5f74001870d05a2",
+    "test_sha256": "4100bf896f96237cec631bc0628fcf75750e384d40c750d9aba18f6f0a8589da"
+  }
+}

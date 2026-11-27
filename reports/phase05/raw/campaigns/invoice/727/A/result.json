@@ -1,0 +1,13 @@
+{
+  "name": "invoice",
+  "seed": 727,
+  "arm": "A",
+  "planned": 3,
+  "baseline": false,
+  "score": null,
+  "reason": "no validated suite from assigned generator",
+  "outcomes": {},
+  "id": "501b9800-cf7b-438d-852b-f94f4f7b620c",
+  "generated": "4aa4b43d-33ad-46b4-a441-03b29d769cc3",
+  "finished": "2026-11-27T08:22:21.203097+00:00"
+}

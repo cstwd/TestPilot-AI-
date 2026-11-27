@@ -1,0 +1,116 @@
+{
+  "request": {
+    "model": "qwen38-27b-iq3xxs",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect the numbered Python files. Return a single JSON object with exactly these fields: functions (all top-level definitions in all files, sorted 'filename.py:name'), parameters (target function in declaration order: arrays of name, annotated type as string, Python source default as STRING, JSON null if required), return_value (actual value of normal call), branch_lines (sorted line numbers of explicit if, for, while, ternary statements in target only; omit comparisons without such a statement), boundary_value (actual value of boundary call), exception (actual exception class name for exception_probe or null), defect_line (line in subject.py with the implementation that conflicts with its docstring, or null if no conflict). Evaluate behavior as written."
+      },
+      {
+        "role": "user",
+        "content": "{\"files\": {\"subject.py\": \"1: def cap(n: int, ceiling: int = 10) -> int:\\n2:     \\\"\\\"\\\"Return the smaller of n and the ceiling.\\n3: \\n4:     >>> cap(12)\\n5:     10\\n6:     \\\"\\\"\\\"\\n7:     if n > ceiling:\\n8:         return ceiling\\n9:     return n\"}, \"target\": \"cap\", \"normal\": \"cap(12, 7)\", \"boundary\": \"cap(10)\", \"exception_probe\": \"cap(None)\"}"
+      }
+    ],
+    "temperature": 0.2,
+    "seed": 513,
+    "max_tokens": 350,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "name": "clamp",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"functions\": [\n    \"subject.py:cap\"\n  ],\n  \"parameters\": [\n    {\n      \"name\": \"n\",\n      \"annotated_type\": \"int\",\n      \"default\": null\n    },\n    {\n      \"name\": \"ceiling\",\n      \"annotated_type\": \"int\",\n      \"default\": \"10\"\n    }\n  ],\n  \"return_value\": 7,\n  \"branch_lines\": [\n    7\n  ],\n  \"boundary_value\": 10,\n  \"exception\": \"TypeError\",\n  \"defect_line\": null\n}"
+        }
+      }
+    ],
+    "created": 1795767312,
+    "model": "qwen38-27b-iq3xxs",
+    "system_fingerprint": "b1-f5e6915c2",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 143,
+      "prompt_tokens": 292,
+      "total_tokens": 435,
+      "prompt_tokens_details": {
+        "cached_tokens": 151
+      }
+    },
+    "id": "chatcmpl-9FkB3PD7NwJjZKq0qClIxdZYvn9lUN2I",
+    "timings": {
+      "cache_n": 151,
+      "prompt_n": 141,
+      "prompt_ms": 8765.606,
+      "prompt_per_token_ms": 62.16741843971631,
+      "prompt_per_second": 16.0855963637882,
+      "predicted_n": 143,
+      "predicted_ms": 5999.567,
+      "predicted_per_token_ms": 42.250471830985916,
+      "predicted_per_second": 23.668374734376666
+    }
+  },
+  "expected": {
+    "functions": [
+      "subject.py:cap"
+    ],
+    "parameters": [
+      [
+        "n",
+        "int",
+        null
+      ],
+      [
+        "ceiling",
+        "int",
+        "10"
+      ]
+    ],
+    "return_value": 7,
+    "branch_lines": [
+      7
+    ],
+    "boundary_value": 10,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "predicted": {
+    "functions": [
+      "subject.py:cap"
+    ],
+    "parameters": [
+      {
+        "name": "n",
+        "annotated_type": "int",
+        "default": null
+      },
+      {
+        "name": "ceiling",
+        "annotated_type": "int",
+        "default": "10"
+      }
+    ],
+    "return_value": 7,
+    "branch_lines": [
+      7
+    ],
+    "boundary_value": 10,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 0,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "seconds": 38.72834539999894
+}

@@ -1,0 +1,77 @@
+{
+  "id": "f8daf5dd-2eaa-52d6-bf62-cce4fa89dd2e",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_example_1"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 3,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 5,
+    "total_lines": 6,
+    "coverage_pct": 83.33,
+    "log": "F...\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(3) == 4\nE   assert 3 == 4\nE    +  where 3 = target(3)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert 3 == 4\n1 failed, 3 passed in 0.17s",
+    "duration_ms": 5719,
+    "stdout": "F...\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(3) == 4\nE   assert 3 == 4\nE    +  where 3 = target(3)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert 3 == 4\n1 failed, 3 passed in 0.17s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 3 == 4\n +  where 3 = target(3)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 5,
+            "function": "test_example_1",
+            "source": "assert target(3) == 4"
+          }
+        ],
+        "assertion_diff": "assert 3 == 4\n +  where 3 = target(3)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 3,
+    "total_branches": 4,
+    "branch_pct": 75.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "19475ab4-9a01-48ad-a164-f54506d0a63b",
+    "started": "2026-11-27T08:17:32.527719+00:00",
+    "ended": "2026-11-27T08:17:38.246354+00:00",
+    "source_sha256": "c6776223edd28f42d3831c65b22763e2e9d4080f888d8037799990f7de1a9564",
+    "test_sha256": "d90aecfce2fb6cef5a077380253ef77dfa1ebfaf72775ac3a14537f119c430e1"
+  }
+}

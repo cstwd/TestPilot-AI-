@@ -1,0 +1,112 @@
+{
+  "request": {
+    "model": "qwen38-27b-iq3xxs",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect the numbered Python files. Return a single JSON object with exactly these fields: functions (all top-level definitions in all files, sorted 'filename.py:name'), parameters (target function in declaration order: arrays of name, annotated type as string, Python source default as STRING, JSON null if required), return_value (actual value of normal call), branch_lines (sorted line numbers of explicit if, for, while, ternary statements in target only; omit comparisons without such a statement), boundary_value (actual value of boundary call), exception (actual exception class name for exception_probe or null), defect_line (line in subject.py with the implementation that conflicts with its docstring, or null if no conflict). Evaluate behavior as written."
+      },
+      {
+        "role": "user",
+        "content": "{\"files\": {\"subject.py\": \"1: def expired(age: int, limit: int = 30) -> bool:\\n2:     \\\"\\\"\\\"An item is expired at or beyond its age limit.\\n3: \\n4:     >>> expired(31)\\n5:     True\\n6:     \\\"\\\"\\\"\\n7:     return age > limit\"}, \"target\": \"expired\", \"normal\": \"expired(31)\", \"boundary\": \"expired(30)\", \"exception_probe\": \"expired(None)\"}"
+      }
+    ],
+    "temperature": 0.2,
+    "seed": 513,
+    "max_tokens": 350,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "name": "expiry",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"functions\": [\n    \"subject.py:expired\"\n  ],\n  \"parameters\": [\n    {\n      \"name\": \"age\",\n      \"annotated_type\": \"int\",\n      \"default\": null\n    },\n    {\n      \"name\": \"limit\",\n      \"annotated_type\": \"int\",\n      \"default\": \"30\"\n    }\n  ],\n  \"return_value\": true,\n  \"branch_lines\": [],\n  \"boundary_value\": false,\n  \"exception\": \"TypeError\",\n  \"defect_line\": 7\n}"
+        }
+      }
+    ],
+    "created": 1795767322,
+    "model": "qwen38-27b-iq3xxs",
+    "system_fingerprint": "b1-f5e6915c2",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 133,
+      "prompt_tokens": 276,
+      "total_tokens": 409,
+      "prompt_tokens_details": {
+        "cached_tokens": 151
+      }
+    },
+    "id": "chatcmpl-dg5FkhYA2HAeeP0t1oIw1UTgCr7E6RQf",
+    "timings": {
+      "cache_n": 151,
+      "prompt_n": 125,
+      "prompt_ms": 775.431,
+      "prompt_per_token_ms": 6.203448000000001,
+      "prompt_per_second": 161.20067420569978,
+      "predicted_n": 133,
+      "predicted_ms": 5494.549,
+      "predicted_per_token_ms": 41.62537121212121,
+      "predicted_per_second": 24.023809779474163
+    }
+  },
+  "expected": {
+    "functions": [
+      "subject.py:expired"
+    ],
+    "parameters": [
+      [
+        "age",
+        "int",
+        null
+      ],
+      [
+        "limit",
+        "int",
+        "30"
+      ]
+    ],
+    "return_value": true,
+    "branch_lines": [],
+    "boundary_value": false,
+    "exception": "TypeError",
+    "defect_line": 7
+  },
+  "predicted": {
+    "functions": [
+      "subject.py:expired"
+    ],
+    "parameters": [
+      {
+        "name": "age",
+        "annotated_type": "int",
+        "default": null
+      },
+      {
+        "name": "limit",
+        "annotated_type": "int",
+        "default": "30"
+      }
+    ],
+    "return_value": true,
+    "branch_lines": [],
+    "boundary_value": false,
+    "exception": "TypeError",
+    "defect_line": 7
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 0,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "seconds": 10.41709020000053
+}

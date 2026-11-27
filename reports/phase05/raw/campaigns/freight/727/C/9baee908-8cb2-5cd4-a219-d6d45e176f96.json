@@ -1,0 +1,89 @@
+{
+  "id": "9baee908-8cb2-5cd4-a219-d6d45e176f96",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_units_two"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 1,
+    "failed": 2,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_zero",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_units_two",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "F.F\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:10: in test_example_1\n    assert freight(3) == 8\nE   assert 2 == 8\nE    +  where 2 = freight(3)\n________________________________ test_units_two ________________________________\ntest_generated.py:16: in test_units_two\n    assert freight(2) == 7\nE   assert 3 == 7\nE    +  where 3 = freight(2)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_boundary_zero\nFAILED test_generated.py::test_example_1 - assert 2 == 8\nFAILED test_generated.py::test_units_two - assert 3 == 7\n2 failed, 1 passed in 0.29s",
+    "duration_ms": 7586,
+    "stdout": "F.F\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:10: in test_example_1\n    assert freight(3) == 8\nE   assert 2 == 8\nE    +  where 2 = freight(3)\n________________________________ test_units_two ________________________________\ntest_generated.py:16: in test_units_two\n    assert freight(2) == 7\nE   assert 3 == 7\nE    +  where 3 = freight(2)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_boundary_zero\nFAILED test_generated.py::test_example_1 - assert 2 == 8\nFAILED test_generated.py::test_units_two - assert 3 == 7\n2 failed, 1 passed in 0.29s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 2 == 8\n +  where 2 = freight(3)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_example_1",
+            "source": "assert freight(3) == 8"
+          }
+        ],
+        "assertion_diff": "assert 2 == 8\n +  where 2 = freight(3)"
+      },
+      {
+        "nodeid": "test_generated.py::test_units_two",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 3 == 7\n +  where 3 = freight(2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 16,
+            "function": "test_units_two",
+            "source": "assert freight(2) == 7"
+          }
+        ],
+        "assertion_diff": "assert 3 == 7\n +  where 3 = freight(2)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "93f5dd18-43e3-485b-8d21-6882726ffc75",
+    "started": "2026-11-27T08:29:18.628134+00:00",
+    "ended": "2026-11-27T08:29:26.214053+00:00",
+    "source_sha256": "015bdf237a987c017284f530644282cbf85cc8efbe1cfa2b059103ffccdb7fe6",
+    "test_sha256": "de4c6f06be1090d3d4fe8ff57e5c04a2e92cabebe17eb7875b261bd6b0d7902f"
+  }
+}

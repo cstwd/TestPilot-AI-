@@ -1,0 +1,13 @@
+{
+  "name": "bonus",
+  "seed": 941,
+  "arm": "A",
+  "planned": 9,
+  "baseline": false,
+  "score": null,
+  "reason": "no validated suite from assigned generator",
+  "outcomes": {},
+  "id": "a5c6ceb8-42b8-4c3f-830e-582ed3c7fcad",
+  "generated": "7c304de4-0481-4b6b-aadf-9a886f64a189",
+  "finished": "2026-11-27T08:22:21.705298+00:00"
+}

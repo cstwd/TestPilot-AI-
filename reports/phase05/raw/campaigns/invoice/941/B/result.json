@@ -1,0 +1,49 @@
+{
+  "name": "invoice",
+  "seed": 941,
+  "arm": "B",
+  "planned": 3,
+  "baseline": true,
+  "score": {
+    "killed": 3,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 3,
+    "equivalent_candidates": 0,
+    "score_pct": 100.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "d4eed0aa-0d39-5c8c-b47b-e177c8c7e39e": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    },
+    "384c3ff0-b6b3-5152-9c55-1bde40ce4aa3": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_return_contract",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_normal_return_contract"
+      ]
+    },
+    "27b05994-5db4-5539-a7d6-a4816565ee91": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    }
+  },
+  "id": "07b2f9e0-10a3-4958-b1a7-67bcbe83f0df",
+  "generated": "63ebec9c-96fc-4d61-8cc7-b6c48f4651fa",
+  "test_sha256": "3666ae13f018fbcf3331947e1f9bd6e9b38a8728c24e70ed6113b3aa91fc8fb2",
+  "green_job": "2541b157-ee50-454c-8dad-a4c274d2a996",
+  "finished": "2026-11-27T08:22:12.724718+00:00"
+}

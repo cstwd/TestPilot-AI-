@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:24:18.490114+00:00",
+  "id": "52d9d5bd-fd2e-4add-96e5-f1a216a2f106",
+  "parent": "6e037dc8-2a83-4183-9411-aa6edfff8304",
+  "seconds": 0.0005792999982077163,
+  "artifact": {
+    "code": "from subject import expired\n\ndef test_expired_example():\n    assert expired(31) is True\n\ndef test_expired_at_limit():\n    assert expired(30) is False\n\ndef test_expired_just_above_limit():\n    assert expired(31) is True\n\ndef test_expired_just_below_limit():\n    assert expired(29) is False\n\ndef test_expired_zero_age():\n    assert expired(0) is False\n\ndef test_expired_custom_limit():\n    assert expired(5, 3) is True\n\ndef test_expired_custom_limit_equal():\n    assert expired(3, 3) is False\n\ndef test_expired_custom_limit_below():\n    assert expired(2, 3) is False\n\ndef test_expired_negative_age():\n    assert expired(-1) is False\n\ndef test_expired_negative_limit():\n    assert expired(0, -1) is True\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "no surviving mutant; replay the complete manifest"
+}

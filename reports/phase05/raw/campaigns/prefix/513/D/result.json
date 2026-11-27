@@ -1,0 +1,60 @@
+{
+  "name": "prefix",
+  "seed": 513,
+  "arm": "D",
+  "planned": 3,
+  "baseline": true,
+  "score": {
+    "killed": 3,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 3,
+    "equivalent_candidates": 0,
+    "score_pct": 100.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "f064e7c7-7bcb-5795-8f35-7e45279c8067": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_all_none",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_multiple_nones",
+        "test_generated.py::test_no_none",
+        "test_generated.py::test_none_at_end"
+      ]
+    },
+    "aa092bcd-9e42-5229-b396-c92582ba5fbc": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_all_none",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_multiple_nones",
+        "test_generated.py::test_no_none",
+        "test_generated.py::test_none_at_end"
+      ]
+    },
+    "f20bac4c-4b3c-5bfd-b98c-559f2f648289": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_all_none",
+        "test_generated.py::test_empty_list",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_multiple_nones",
+        "test_generated.py::test_no_none",
+        "test_generated.py::test_none_at_end"
+      ]
+    }
+  },
+  "id": "8557375a-e018-4650-8962-24cd7e732a66",
+  "generated": "f8852afd-8df8-46a1-9378-e9c39baf179a",
+  "test_sha256": "e430979fe8b4abc5161ea05f5031fbb5d4fff91a50033e4fd237a327fdfdbd9d",
+  "green_job": "f217d480-a50b-486d-952d-d2c6fb23dd71",
+  "finished": "2026-11-27T08:30:02.526719+00:00"
+}

@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "passed": 8,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_n_less_than_ceiling",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_n_equal_to_ceiling",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_n_greater_than_ceiling",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_ceiling_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_n_zero_ceiling_positive",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_negative_n",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_negative_ceiling",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 4,
+  "total_lines": 4,
+  "coverage_pct": 100.0,
+  "log": "........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_n_less_than_ceiling\nPASSED test_generated.py::test_n_equal_to_ceiling\nPASSED test_generated.py::test_n_greater_than_ceiling\nPASSED test_generated.py::test_ceiling_zero\nPASSED test_generated.py::test_n_zero_ceiling_positive\nPASSED test_generated.py::test_negative_n\nPASSED test_generated.py::test_negative_ceiling\n8 passed in 0.12s",
+  "duration_ms": 5718,
+  "stdout": "........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_n_less_than_ceiling\nPASSED test_generated.py::test_n_equal_to_ceiling\nPASSED test_generated.py::test_n_greater_than_ceiling\nPASSED test_generated.py::test_ceiling_zero\nPASSED test_generated.py::test_n_zero_ceiling_positive\nPASSED test_generated.py::test_negative_n\nPASSED test_generated.py::test_negative_ceiling\n8 passed in 0.12s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 2,
+  "total_branches": 2,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "0bc2be35-d412-47be-a7c6-fbf7e05e78a4",
+  "started": "2026-11-27T08:28:05.402810+00:00",
+  "ended": "2026-11-27T08:28:11.120901+00:00",
+  "source_sha256": "8f04a45d14075c72c4e30e2dca8fd21f35465fedfa67c299605b6c052efb76a8",
+  "test_sha256": "d71972bf89ff58f54debc5d626cf751a4d977cb271fe9f4cdd9a201076c84a42"
+}

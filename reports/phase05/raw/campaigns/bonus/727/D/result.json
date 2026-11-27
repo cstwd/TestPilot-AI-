@@ -1,0 +1,104 @@
+{
+  "name": "bonus",
+  "seed": 727,
+  "arm": "D",
+  "planned": 9,
+  "baseline": true,
+  "score": {
+    "killed": 7,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 2,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 9,
+    "equivalent_candidates": 0,
+    "score_pct": 77.78
+  },
+  "reason": "complete",
+  "outcomes": {
+    "0dbe9494-ee8e-5026-89de-b6f42664f6ec": {
+      "status": "execution_error",
+      "reason": "失败没有完整的测试断言证据",
+      "nodeids": [
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_mutation_0473d9a7eced8496",
+        "test_generated.py::test_one_enabled_true",
+        "test_generated.py::test_two_enabled_false",
+        "test_generated.py::test_two_enabled_true",
+        "test_generated.py::test_zero_enabled_true"
+      ]
+    },
+    "edf2e78e-d1b2-56b8-8cd9-3b007401ffab": {
+      "status": "execution_error",
+      "reason": "失败没有完整的测试断言证据",
+      "nodeids": [
+        "test_generated.py::test_zero_enabled_true"
+      ]
+    },
+    "bad0575f-acc5-58a6-a467-7a1cb312a19b": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_mutation_0473d9a7eced8496"
+      ]
+    },
+    "f8daf5dd-2eaa-52d6-bf62-cce4fa89dd2e": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_one_enabled_true",
+        "test_generated.py::test_two_enabled_false",
+        "test_generated.py::test_two_enabled_true",
+        "test_generated.py::test_zero_enabled_true"
+      ]
+    },
+    "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_one_enabled_true",
+        "test_generated.py::test_two_enabled_false",
+        "test_generated.py::test_zero_enabled_true"
+      ]
+    },
+    "cba8892f-b4a9-5e37-8c64-c14034ca30b9": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_two_enabled_true"
+      ]
+    },
+    "0eabf785-01da-5cf7-bfdc-d0fae838ff39": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_two_enabled_true"
+      ]
+    },
+    "bf1a369a-cd32-5a26-afa2-1c012d7269f8": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_two_enabled_true"
+      ]
+    },
+    "4baa324f-ef75-5210-9216-6e11b5fee5bb": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_one_enabled_true",
+        "test_generated.py::test_two_enabled_false",
+        "test_generated.py::test_zero_enabled_true"
+      ]
+    }
+  },
+  "id": "a87da146-9346-40fc-9e64-ef3084858ff2",
+  "generated": "e4de8a18-b833-4ef0-bd1f-a6c34c6d1430",
+  "test_sha256": "4cb269005d3772862a8ec8b82f278c0d905b307131055d160b68880b0ec6e421",
+  "green_job": "727f5668-da2c-4430-a1a6-7cb25b7b6916",
+  "finished": "2026-11-27T08:33:49.375674+00:00"
+}

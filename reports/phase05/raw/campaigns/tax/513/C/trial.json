@@ -1,0 +1,63 @@
+{
+  "status": "failed",
+  "passed": 2,
+  "failed": 1,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_missing_argument",
+      "outcome": "failed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "..F\n=================================== FAILURES ===================================\n____________________________ test_missing_argument _____________________________\ntest_generated.py:16: in test_missing_argument\n    with pytest.raises(TypeError):\n         ^^^^^^\nE   NameError: name 'pytest' is not defined\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_zero\nFAILED test_generated.py::test_missing_argument - NameError: name 'pytest' is...\n1 failed, 2 passed in 0.14s",
+  "duration_ms": 5545,
+  "stdout": "..F\n=================================== FAILURES ===================================\n____________________________ test_missing_argument _____________________________\ntest_generated.py:16: in test_missing_argument\n    with pytest.raises(TypeError):\n         ^^^^^^\nE   NameError: name 'pytest' is not defined\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_zero\nFAILED test_generated.py::test_missing_argument - NameError: name 'pytest' is...\n1 failed, 2 passed in 0.14s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_missing_argument",
+      "phase": "call",
+      "exception_type": "NameError",
+      "message": "name 'pytest' is not defined",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 16,
+          "function": "test_missing_argument",
+          "source": "with pytest.raises(TypeError):"
+        }
+      ],
+      "assertion_diff": null
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "ed16050c-5e12-42f5-b745-83fd5182d824",
+  "started": "2026-11-27T08:24:18.563703+00:00",
+  "ended": "2026-11-27T08:24:24.108689+00:00",
+  "source_sha256": "6d8d2166906fa703c3159bddf8aec959d022e6acf0b7e873683cb8a7ca8e0582",
+  "test_sha256": "a984c374766935b0cf8e7a52dcf1841348ee0ba0ae3952d71ea089267e640904"
+}

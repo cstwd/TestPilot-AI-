@@ -1,0 +1,93 @@
+{
+  "id": "4bd7daa9-136d-5ec5-b80e-ba83e69f4245",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_boundary_return_contract",
+      "test_generated.py::test_normal_return_contract"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 2,
+    "failed": 2,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 4,
+    "total_lines": 4,
+    "coverage_pct": 100.0,
+    "log": ".FF.\n=================================== FAILURES ===================================\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(n=2, ceiling=2), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(n=2, ceiling=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(n=0, ceiling=0), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(n=0, ceiling=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n2 failed, 2 passed in 0.35s",
+    "duration_ms": 7770,
+    "stdout": ".FF.\n=================================== FAILURES ===================================\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(n=2, ceiling=2), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(n=2, ceiling=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(n=0, ceiling=0), int)\nE   assert False\nE    +  where False = isinstance(None, int)\nE    +    where None = target(n=0, ceiling=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n2 failed, 2 passed in 0.35s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(n=2, ceiling=2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 8,
+            "function": "test_normal_return_contract",
+            "source": "assert isinstance(target(n=2, ceiling=2), int)"
+          }
+        ],
+        "assertion_diff": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(n=2, ceiling=2)"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(n=0, ceiling=0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_boundary_return_contract",
+            "source": "assert isinstance(target(n=0, ceiling=0), int)"
+          }
+        ],
+        "assertion_diff": "assert False\n +  where False = isinstance(None, int)\n +    where None = target(n=0, ceiling=0)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 2,
+    "total_branches": 2,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "61cddcae-28fb-48b1-b702-4b65edfb3af6",
+    "started": "2026-11-27T08:15:04.987743+00:00",
+    "ended": "2026-11-27T08:15:12.757507+00:00",
+    "source_sha256": "3fc7cf12d387ab063a1a96950947246ac2158840880a9ef7d99e78d4760c4c8d",
+    "test_sha256": "29dbf6a2fd18b95a02c2bb1847004719f5792376a96488fb39d52576925532e5"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "clamp",
+  "seed": 513,
+  "arm": "B",
+  "planned": 4,
+  "baseline": true,
+  "score": {
+    "killed": 3,
+    "survived": 1,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 4,
+    "equivalent_candidates": 0,
+    "score_pct": 75.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "aa7bca94-80c9-57b8-9ca1-7f72dd6fe5ed": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    },
+    "bc12ab81-c58a-5136-a747-a462d1aab985": {
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "nodeids": []
+    },
+    "a371407c-4086-54d1-8642-dbf1a42297b9": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    },
+    "4bd7daa9-136d-5ec5-b80e-ba83e69f4245": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_return_contract",
+        "test_generated.py::test_normal_return_contract"
+      ]
+    }
+  },
+  "id": "a13809bc-2ab1-4a64-8143-f02dcccdefba",
+  "generated": "f618af2a-ca60-4b40-a8e5-0532594d4058",
+  "test_sha256": "29dbf6a2fd18b95a02c2bb1847004719f5792376a96488fb39d52576925532e5",
+  "green_job": "b1247553-cc92-4d69-9ec4-c56cdc631e19",
+  "finished": "2026-11-27T08:15:12.771621+00:00"
+}

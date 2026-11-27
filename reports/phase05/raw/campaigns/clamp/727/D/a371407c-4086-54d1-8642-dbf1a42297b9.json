@@ -1,0 +1,165 @@
+{
+  "id": "a371407c-4086-54d1-8642-dbf1a42297b9",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_boundary_n_positive_ceiling_zero",
+      "test_generated.py::test_custom_ceiling",
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_n_greater_than_ceiling",
+      "test_generated.py::test_negative_ceiling"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 5,
+    "failed": 5,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_n_less_than_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_n_equal_to_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_n_greater_than_ceiling",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_n_zero_ceiling_positive",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_n_positive_ceiling_zero",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_n_zero_ceiling_zero",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_custom_ceiling",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_n",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_ceiling",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 4,
+    "total_lines": 4,
+    "coverage_pct": 100.0,
+    "log": "F..F.F.F.F\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:4: in test_example_1\n    assert cap(12) == 10\nE   assert None == 10\nE    +  where None = cap(12)\n_________________________ test_n_greater_than_ceiling __________________________\ntest_generated.py:13: in test_n_greater_than_ceiling\n    assert cap(15, 10) == 10\nE   assert None == 10\nE    +  where None = cap(15, 10)\n____________________ test_boundary_n_positive_ceiling_zero _____________________\ntest_generated.py:19: in test_boundary_n_positive_ceiling_zero\n    assert cap(2, 0) == 0\nE   assert None == 0\nE    +  where None = cap(2, 0)\n_____________________________ test_custom_ceiling ______________________________\ntest_generated.py:25: in test_custom_ceiling\n    assert cap(7, 5) == 5\nE   assert None == 5\nE    +  where None = cap(7, 5)\n____________________________ test_negative_ceiling _____________________________\ntest_generated.py:31: in test_negative_ceiling\n    assert cap(5, -1) == -1\nE   assert None == -1\nE    +  where None = cap(5, -1)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_n_less_than_ceiling\nPASSED test_generated.py::test_n_equal_to_ceiling\nPASSED test_generated.py::test_boundary_n_zero_ceiling_positive\nPASSED test_generated.py::test_boundary_n_zero_ceiling_zero\nPASSED test_generated.py::test_negative_n\nFAILED test_generated.py::test_example_1 - assert None == 10\nFAILED test_generated.py::test_n_greater_than_ceiling - assert None == 10\nFAILED test_generated.py::test_boundary_n_positive_ceiling_zero - assert None...\nFAILED test_generated.py::test_custom_ceiling - assert None == 5\nFAILED test_generated.py::test_negative_ceiling - assert None == -1\n5 failed, 5 passed in 0.32s",
+    "duration_ms": 6608,
+    "stdout": "F..F.F.F.F\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:4: in test_example_1\n    assert cap(12) == 10\nE   assert None == 10\nE    +  where None = cap(12)\n_________________________ test_n_greater_than_ceiling __________________________\ntest_generated.py:13: in test_n_greater_than_ceiling\n    assert cap(15, 10) == 10\nE   assert None == 10\nE    +  where None = cap(15, 10)\n____________________ test_boundary_n_positive_ceiling_zero _____________________\ntest_generated.py:19: in test_boundary_n_positive_ceiling_zero\n    assert cap(2, 0) == 0\nE   assert None == 0\nE    +  where None = cap(2, 0)\n_____________________________ test_custom_ceiling ______________________________\ntest_generated.py:25: in test_custom_ceiling\n    assert cap(7, 5) == 5\nE   assert None == 5\nE    +  where None = cap(7, 5)\n____________________________ test_negative_ceiling _____________________________\ntest_generated.py:31: in test_negative_ceiling\n    assert cap(5, -1) == -1\nE   assert None == -1\nE    +  where None = cap(5, -1)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_n_less_than_ceiling\nPASSED test_generated.py::test_n_equal_to_ceiling\nPASSED test_generated.py::test_boundary_n_zero_ceiling_positive\nPASSED test_generated.py::test_boundary_n_zero_ceiling_zero\nPASSED test_generated.py::test_negative_n\nFAILED test_generated.py::test_example_1 - assert None == 10\nFAILED test_generated.py::test_n_greater_than_ceiling - assert None == 10\nFAILED test_generated.py::test_boundary_n_positive_ceiling_zero - assert None...\nFAILED test_generated.py::test_custom_ceiling - assert None == 5\nFAILED test_generated.py::test_negative_ceiling - assert None == -1\n5 failed, 5 passed in 0.32s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 10\n +  where None = cap(12)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 4,
+            "function": "test_example_1",
+            "source": "assert cap(12) == 10"
+          }
+        ],
+        "assertion_diff": "assert None == 10\n +  where None = cap(12)"
+      },
+      {
+        "nodeid": "test_generated.py::test_n_greater_than_ceiling",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 10\n +  where None = cap(15, 10)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 13,
+            "function": "test_n_greater_than_ceiling",
+            "source": "assert cap(15, 10) == 10"
+          }
+        ],
+        "assertion_diff": "assert None == 10\n +  where None = cap(15, 10)"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_n_positive_ceiling_zero",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 0\n +  where None = cap(2, 0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 19,
+            "function": "test_boundary_n_positive_ceiling_zero",
+            "source": "assert cap(2, 0) == 0"
+          }
+        ],
+        "assertion_diff": "assert None == 0\n +  where None = cap(2, 0)"
+      },
+      {
+        "nodeid": "test_generated.py::test_custom_ceiling",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 5\n +  where None = cap(7, 5)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 25,
+            "function": "test_custom_ceiling",
+            "source": "assert cap(7, 5) == 5"
+          }
+        ],
+        "assertion_diff": "assert None == 5\n +  where None = cap(7, 5)"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_ceiling",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == -1\n +  where None = cap(5, -1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 31,
+            "function": "test_negative_ceiling",
+            "source": "assert cap(5, -1) == -1"
+          }
+        ],
+        "assertion_diff": "assert None == -1\n +  where None = cap(5, -1)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 2,
+    "total_branches": 2,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "7a9812f1-e3ee-4a47-b15f-8941110079c5",
+    "started": "2026-11-27T08:34:34.246677+00:00",
+    "ended": "2026-11-27T08:34:40.854628+00:00",
+    "source_sha256": "3ea393bf5bd37c55b09e0ee4ae85fa058867cf15598d271fff8b56933e01dc1d",
+    "test_sha256": "900a3e4d11a3303f98dfec92608d1bd9feedd44c250b1d69bdc45021f10a097b"
+  }
+}

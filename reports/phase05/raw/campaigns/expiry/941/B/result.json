@@ -1,0 +1,40 @@
+{
+  "name": "expiry",
+  "seed": 941,
+  "arm": "B",
+  "planned": 2,
+  "baseline": true,
+  "score": {
+    "killed": 1,
+    "survived": 1,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 2,
+    "equivalent_candidates": 0,
+    "score_pct": 50.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "c41eb430-bacc-5a9f-aae8-69f74de31e5c": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_return_contract",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_normal_return_contract"
+      ]
+    },
+    "b89aea64-2d6b-5176-abc3-e20a0a23a069": {
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "nodeids": []
+    }
+  },
+  "id": "0e5f5a89-3f4e-4b47-a487-aa05b92f4126",
+  "generated": "5f8c5a2a-9bb3-443d-91ab-60060a41e648",
+  "test_sha256": "b013e2a6f3b3b5555ef65f84e256ea1817c1d0bbd0cb06aaccf93ba347928729",
+  "green_job": "98c0d259-fff0-48e2-9709-95baae3712d8",
+  "finished": "2026-11-27T08:20:50.561551+00:00"
+}

@@ -1,0 +1,85 @@
+{
+  "id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_mutation_0473d9a7eced8496"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 5,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_enabled_true",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_one_enabled_true",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_true",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_false",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_mutation_0473d9a7eced8496",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 6,
+    "total_lines": 6,
+    "coverage_pct": 100.0,
+    "log": ".....F\n=================================== FAILURES ===================================\n________________________ test_mutation_0473d9a7eced8496 ________________________\ntest_generated.py:26: in test_mutation_0473d9a7eced8496\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_zero_enabled_true\nPASSED test_generated.py::test_one_enabled_true\nPASSED test_generated.py::test_two_enabled_true\nPASSED test_generated.py::test_two_enabled_false\nFAILED test_generated.py::test_mutation_0473d9a7eced8496 - Failed: DID NOT RA...\n1 failed, 5 passed in 0.25s",
+    "duration_ms": 5958,
+    "stdout": ".....F\n=================================== FAILURES ===================================\n________________________ test_mutation_0473d9a7eced8496 ________________________\ntest_generated.py:26: in test_mutation_0473d9a7eced8496\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_zero_enabled_true\nPASSED test_generated.py::test_one_enabled_true\nPASSED test_generated.py::test_two_enabled_true\nPASSED test_generated.py::test_two_enabled_false\nFAILED test_generated.py::test_mutation_0473d9a7eced8496 - Failed: DID NOT RA...\n1 failed, 5 passed in 0.25s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_mutation_0473d9a7eced8496",
+        "phase": "call",
+        "exception_type": "Failed",
+        "message": "DID NOT RAISE ValueError",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 26,
+            "function": "test_mutation_0473d9a7eced8496",
+            "source": "with pytest.raises(ValueError):"
+          }
+        ],
+        "assertion_diff": null
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "6a39ccaf-5587-4d25-a3c8-72693fea6a3e",
+    "started": "2026-11-27T08:33:01.729187+00:00",
+    "ended": "2026-11-27T08:33:07.686800+00:00",
+    "source_sha256": "04c0e2301f3901f176fa4538422aad7fe5b64ec009a81790a9e105946c9ddb39",
+    "test_sha256": "4cb269005d3772862a8ec8b82f278c0d905b307131055d160b68880b0ec6e421"
+  }
+}

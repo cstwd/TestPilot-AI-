@@ -1,0 +1,85 @@
+{
+  "id": "3d51aef1-ab02-5604-87b9-232d8fd7b6b1",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_boundary_zero",
+      "test_generated.py::test_example_1"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 0,
+    "failed": 2,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_zero",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "FF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:10: in test_example_1\n    assert tax(100) == 5\nE   assert None == 5\nE    +  where None = tax(100)\n______________________________ test_boundary_zero ______________________________\ntest_generated.py:13: in test_boundary_zero\n    assert tax(0) == 0\nE   assert None == 0\nE    +  where None = tax(0)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert None == 5\nFAILED test_generated.py::test_boundary_zero - assert None == 0\n2 failed in 0.39s",
+    "duration_ms": 8210,
+    "stdout": "FF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:10: in test_example_1\n    assert tax(100) == 5\nE   assert None == 5\nE    +  where None = tax(100)\n______________________________ test_boundary_zero ______________________________\ntest_generated.py:13: in test_boundary_zero\n    assert tax(0) == 0\nE   assert None == 0\nE    +  where None = tax(0)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert None == 5\nFAILED test_generated.py::test_boundary_zero - assert None == 0\n2 failed in 0.39s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 5\n +  where None = tax(100)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_example_1",
+            "source": "assert tax(100) == 5"
+          }
+        ],
+        "assertion_diff": "assert None == 5\n +  where None = tax(100)"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_zero",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 0\n +  where None = tax(0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 13,
+            "function": "test_boundary_zero",
+            "source": "assert tax(0) == 0"
+          }
+        ],
+        "assertion_diff": "assert None == 0\n +  where None = tax(0)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "a377bf12-6ec7-4f08-9bba-7f4492af7227",
+    "started": "2026-11-27T08:29:11.000840+00:00",
+    "ended": "2026-11-27T08:29:19.211141+00:00",
+    "source_sha256": "56e750262e409d0fe693836b113027936c9fd336fd00b41b51b776d88450e04c",
+    "test_sha256": "cb943876eee6f9d24d8c2bb8e8c3c63a754d1c10f5a6b83dd68895087c0028a6"
+  }
+}

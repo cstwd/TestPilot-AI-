@@ -1,0 +1,103 @@
+{
+  "request": {
+    "model": "qwen38-27b-iq3xxs",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect the numbered Python files. Return a single JSON object with exactly these fields: functions (all top-level definitions in all files, sorted 'filename.py:name'), parameters (target function in declaration order: arrays of name, annotated type as string, Python source default as STRING, JSON null if required), return_value (actual value of normal call), branch_lines (sorted line numbers of explicit if, for, while, ternary statements in target only; omit comparisons without such a statement), boundary_value (actual value of boundary call), exception (actual exception class name for exception_probe or null), defect_line (line in subject.py with the implementation that conflicts with its docstring, or null if no conflict). Evaluate behavior as written."
+      },
+      {
+        "role": "user",
+        "content": "{\"files\": {\"policy.py\": \"1: RATE = 5\", \"subject.py\": \"1: from policy import RATE\\n2: \\n3: def tax(cents: int) -> int:\\n4:     \\\"\\\"\\\"Compute a percentage in whole cents, rounded upwards.\\n5: \\n6:     >>> tax(100)\\n7:     5\\n8:     \\\"\\\"\\\"\\n9:     return cents * RATE // 100\"}, \"target\": \"tax\", \"normal\": \"tax(200)\", \"boundary\": \"tax(1)\", \"exception_probe\": \"tax(None)\"}"
+      }
+    ],
+    "temperature": 0.2,
+    "seed": 513,
+    "max_tokens": 350,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "name": "tax",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"functions\": [\n    \"policy.py:RATE\",\n    \"subject.py:tax\"\n  ],\n  \"parameters\": [\n    {\n      \"name\": \"cents\",\n      \"annotated_type\": \"int\",\n      \"default\": null\n    }\n  ],\n  \"return_value\": 10,\n  \"branch_lines\": [],\n  \"boundary_value\": 0,\n  \"exception\": \"TypeError\",\n  \"defect_line\": 9\n}"
+        }
+      }
+    ],
+    "created": 1795767337,
+    "model": "qwen38-27b-iq3xxs",
+    "system_fingerprint": "b1-f5e6915c2",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 111,
+      "prompt_tokens": 298,
+      "total_tokens": 409,
+      "prompt_tokens_details": {
+        "cached_tokens": 151
+      }
+    },
+    "id": "chatcmpl-1jjRt2hfMdp4361lLraPjxeiVdq7kuIB",
+    "timings": {
+      "cache_n": 151,
+      "prompt_n": 147,
+      "prompt_ms": 875.445,
+      "prompt_per_token_ms": 5.955408163265306,
+      "prompt_per_second": 167.91460343025545,
+      "predicted_n": 111,
+      "predicted_ms": 4564.091,
+      "predicted_per_token_ms": 41.49173636363637,
+      "predicted_per_second": 24.101184660866753
+    }
+  },
+  "expected": {
+    "functions": [
+      "subject.py:tax"
+    ],
+    "parameters": [
+      [
+        "cents",
+        "int",
+        null
+      ]
+    ],
+    "return_value": 10,
+    "branch_lines": [],
+    "boundary_value": 0,
+    "exception": "TypeError",
+    "defect_line": 9
+  },
+  "predicted": {
+    "functions": [
+      "policy.py:RATE",
+      "subject.py:tax"
+    ],
+    "parameters": [
+      {
+        "name": "cents",
+        "annotated_type": "int",
+        "default": null
+      }
+    ],
+    "return_value": 10,
+    "branch_lines": [],
+    "boundary_value": 0,
+    "exception": "TypeError",
+    "defect_line": 9
+  },
+  "scores": {
+    "functions": 0,
+    "parameters": 0,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "seconds": 15.34673069999917
+}

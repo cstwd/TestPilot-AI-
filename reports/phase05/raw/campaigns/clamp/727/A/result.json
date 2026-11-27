@@ -1,0 +1,13 @@
+{
+  "name": "clamp",
+  "seed": 727,
+  "arm": "A",
+  "planned": 4,
+  "baseline": false,
+  "score": null,
+  "reason": "original rejected candidate suite",
+  "outcomes": {},
+  "id": "eb846f70-5cbe-4d2a-a2f0-b2d438989acf",
+  "generated": "ab2d69bf-3f62-4811-886c-55bf35798629",
+  "finished": "2026-11-27T08:22:06.814618+00:00"
+}

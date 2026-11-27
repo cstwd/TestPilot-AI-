@@ -1,0 +1,108 @@
+{
+  "request": {
+    "model": "qwen38-27b-iq3xxs",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect the numbered Python files. Return a single JSON object with exactly these fields: functions (all top-level definitions in all files, sorted 'filename.py:name'), parameters (target function in declaration order: arrays of name, annotated type as string, Python source default as STRING, JSON null if required), return_value (actual value of normal call), branch_lines (sorted line numbers of explicit if, for, while, ternary statements in target only; omit comparisons without such a statement), boundary_value (actual value of boundary call), exception (actual exception class name for exception_probe or null), defect_line (line in subject.py with the implementation that conflicts with its docstring, or null if no conflict). Evaluate behavior as written."
+      },
+      {
+        "role": "user",
+        "content": "{\"files\": {\"subject.py\": \"1: def prefix_length(values: list) -> int:\\n2:     \\\"\\\"\\\"Count entries before the first None.\\n3: \\n4:     >>> prefix_length([4, None, 2])\\n5:     1\\n6:     \\\"\\\"\\\"\\n7:     count = 0\\n8:     for value in values:\\n9:         if value is None:\\n10:             break\\n11:         count += 1\\n12:     return count\"}, \"target\": \"prefix_length\", \"normal\": \"prefix_length([0, 1, None])\", \"boundary\": \"prefix_length([])\", \"exception_probe\": \"prefix_length(None)\"}"
+      }
+    ],
+    "temperature": 0.2,
+    "seed": 513,
+    "max_tokens": 350,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "name": "prefix",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"functions\": [\n    \"subject.py:prefix_length\"\n  ],\n  \"parameters\": [\n    {\n      \"name\": \"values\",\n      \"annotated_type\": \"list\",\n      \"default\": null\n    }\n  ],\n  \"return_value\": 2,\n  \"branch_lines\": [\n    8,\n    9\n  ],\n  \"boundary_value\": 0,\n  \"exception\": \"TypeError\",\n  \"defect_line\": null\n}"
+        }
+      }
+    ],
+    "created": 1795767353,
+    "model": "qwen38-27b-iq3xxs",
+    "system_fingerprint": "b1-f5e6915c2",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 114,
+      "prompt_tokens": 319,
+      "total_tokens": 433,
+      "prompt_tokens_details": {
+        "cached_tokens": 151
+      }
+    },
+    "id": "chatcmpl-mNPxpKMtGosUNy6oRRRBw6ehfnfj5PBN",
+    "timings": {
+      "cache_n": 151,
+      "prompt_n": 168,
+      "prompt_ms": 995.888,
+      "prompt_per_token_ms": 5.927904761904762,
+      "prompt_per_second": 168.69366836431405,
+      "predicted_n": 114,
+      "predicted_ms": 4686.349,
+      "predicted_per_token_ms": 41.472115044247786,
+      "predicted_per_second": 24.112587432135335
+    }
+  },
+  "expected": {
+    "functions": [
+      "subject.py:prefix_length"
+    ],
+    "parameters": [
+      [
+        "values",
+        "list",
+        null
+      ]
+    ],
+    "return_value": 2,
+    "branch_lines": [
+      8,
+      9
+    ],
+    "boundary_value": 0,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "predicted": {
+    "functions": [
+      "subject.py:prefix_length"
+    ],
+    "parameters": [
+      {
+        "name": "values",
+        "annotated_type": "list",
+        "default": null
+      }
+    ],
+    "return_value": 2,
+    "branch_lines": [
+      8,
+      9
+    ],
+    "boundary_value": 0,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 0,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "seconds": 15.640028599998914
+}

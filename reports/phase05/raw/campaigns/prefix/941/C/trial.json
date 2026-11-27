@@ -1,0 +1,67 @@
+{
+  "status": "passed",
+  "passed": 8,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_empty_list",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_no_none",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_all_none",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_none_at_start",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_none_at_end",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_multiple_values_before_none",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_no_none_multiple_values",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 7,
+  "total_lines": 7,
+  "coverage_pct": 100.0,
+  "log": "........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_empty_list\nPASSED test_generated.py::test_no_none\nPASSED test_generated.py::test_all_none\nPASSED test_generated.py::test_none_at_start\nPASSED test_generated.py::test_none_at_end\nPASSED test_generated.py::test_multiple_values_before_none\nPASSED test_generated.py::test_no_none_multiple_values\n8 passed in 0.11s",
+  "duration_ms": 5479,
+  "stdout": "........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_empty_list\nPASSED test_generated.py::test_no_none\nPASSED test_generated.py::test_all_none\nPASSED test_generated.py::test_none_at_start\nPASSED test_generated.py::test_none_at_end\nPASSED test_generated.py::test_multiple_values_before_none\nPASSED test_generated.py::test_no_none_multiple_values\n8 passed in 0.11s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "744de42f-0a8b-4f09-a0b9-415298018ab9",
+  "started": "2026-11-27T08:36:55.805853+00:00",
+  "ended": "2026-11-27T08:37:01.284652+00:00",
+  "source_sha256": "7da5ee86f43d7ca80d9ef31a156cd5e69bb6b8bb7ca414245cada6a86afa6808",
+  "test_sha256": "b02ed577c48dc939ca6bfa7ba3ca7bebb48bad212aa3b1a83922b6b1253519f5"
+}

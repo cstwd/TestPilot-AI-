@@ -1,0 +1,59 @@
+{
+  "status": "failed",
+  "passed": 1,
+  "failed": 1,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_boundary_zero_items",
+      "outcome": "failed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": ".F\n=================================== FAILURES ===================================\n___________________________ test_boundary_zero_items ___________________________\ntest_generated.py:13: in test_boundary_zero_items\n    assert page_count(0) == 0\nE   assert 1 == 0\nE    +  where 1 = page_count(0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nFAILED test_generated.py::test_boundary_zero_items - assert 1 == 0\n1 failed, 1 passed in 0.19s",
+  "duration_ms": 5583,
+  "stdout": ".F\n=================================== FAILURES ===================================\n___________________________ test_boundary_zero_items ___________________________\ntest_generated.py:13: in test_boundary_zero_items\n    assert page_count(0) == 0\nE   assert 1 == 0\nE    +  where 1 = page_count(0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nFAILED test_generated.py::test_boundary_zero_items - assert 1 == 0\n1 failed, 1 passed in 0.19s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_boundary_zero_items",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 1 == 0\n +  where 1 = page_count(0)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 13,
+          "function": "test_boundary_zero_items",
+          "source": "assert page_count(0) == 0"
+        }
+      ],
+      "assertion_diff": "assert 1 == 0\n +  where 1 = page_count(0)"
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "3cdd8f34-b671-494c-b3ca-66529a908ea2",
+  "started": "2026-11-27T08:25:09.611968+00:00",
+  "ended": "2026-11-27T08:25:15.195497+00:00",
+  "source_sha256": "1379dd26ef046cd5341c7e2a7fc476e7d64f25a5a56ab200fb2a7a024e32d0b5",
+  "test_sha256": "8328234f10701bdc2c8291d8173fb7e01dae6877b73b72dbdfc93861b246d448"
+}

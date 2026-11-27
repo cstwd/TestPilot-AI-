@@ -1,0 +1,65 @@
+{
+  "id": "9031e877-b1e2-5fab-af7d-c0bed44687c9",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_example_1"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 0,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "F\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:10: in test_example_1\n    assert page_count(9) == 1\nE   assert None == 1\nE    +  where None = page_count(9)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert None == 1\n1 failed in 0.32s",
+    "duration_ms": 8067,
+    "stdout": "F\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:10: in test_example_1\n    assert page_count(9) == 1\nE   assert None == 1\nE    +  where None = page_count(9)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert None == 1\n1 failed in 0.32s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 1\n +  where None = page_count(9)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_example_1",
+            "source": "assert page_count(9) == 1"
+          }
+        ],
+        "assertion_diff": "assert None == 1\n +  where None = page_count(9)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "fc55138b-fb98-46a2-ac9d-74dfd3242e37",
+    "started": "2026-11-27T08:25:22.792586+00:00",
+    "ended": "2026-11-27T08:25:30.859192+00:00",
+    "source_sha256": "415b7bcfb8b46bc337dda732025d4b9ecf28fb58ef75be776bd2ff107e17a51f",
+    "test_sha256": "4edc9dbf2df00bd28127f7cd6fb910f2485068e9bd8e0400bed7273cae67e899"
+  }
+}

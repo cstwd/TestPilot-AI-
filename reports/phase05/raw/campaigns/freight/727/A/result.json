@@ -1,0 +1,13 @@
+{
+  "name": "freight",
+  "seed": 727,
+  "arm": "A",
+  "planned": 2,
+  "baseline": false,
+  "score": null,
+  "reason": "no validated suite from assigned generator",
+  "outcomes": {},
+  "id": "e1111747-c35e-449f-969e-73357e19e697",
+  "generated": "d05eecfd-d261-449b-8a87-5b4e0960c686",
+  "finished": "2026-11-27T08:22:00.664371+00:00"
+}

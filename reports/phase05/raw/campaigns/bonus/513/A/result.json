@@ -1,0 +1,13 @@
+{
+  "name": "bonus",
+  "seed": 513,
+  "arm": "A",
+  "planned": 9,
+  "baseline": false,
+  "score": null,
+  "reason": "original rejected candidate suite",
+  "outcomes": {},
+  "id": "aade3d79-12a4-4e52-9f82-fd4bfe9c4403",
+  "generated": "2877e3af-92ce-478c-b233-7c044a7d437b",
+  "finished": "2026-11-27T08:21:49.176565+00:00"
+}

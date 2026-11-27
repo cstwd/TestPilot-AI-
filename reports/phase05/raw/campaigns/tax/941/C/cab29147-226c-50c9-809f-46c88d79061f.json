@@ -1,0 +1,69 @@
+{
+  "id": "cab29147-226c-50c9-809f-46c88d79061f",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_example_1"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 1,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_zero",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "F.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:10: in test_example_1\n    assert tax(100) == 5\nE   assert 50000 == 5\nE    +  where 50000 = tax(100)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_boundary_zero\nFAILED test_generated.py::test_example_1 - assert 50000 == 5\n1 failed, 1 passed in 0.13s",
+    "duration_ms": 5267,
+    "stdout": "F.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:10: in test_example_1\n    assert tax(100) == 5\nE   assert 50000 == 5\nE    +  where 50000 = tax(100)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_boundary_zero\nFAILED test_generated.py::test_example_1 - assert 50000 == 5\n1 failed, 1 passed in 0.13s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 50000 == 5\n +  where 50000 = tax(100)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_example_1",
+            "source": "assert tax(100) == 5"
+          }
+        ],
+        "assertion_diff": "assert 50000 == 5\n +  where 50000 = tax(100)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "035ce042-67a0-4f9f-802a-eca2620ab7ec",
+    "started": "2026-11-27T08:36:50.388767+00:00",
+    "ended": "2026-11-27T08:36:55.656223+00:00",
+    "source_sha256": "b437cd725da66bfb3564e5e18821e097da4a3d2bfa2be190c91f3457cea7bada",
+    "test_sha256": "2057dbbb1ca94768f66274d0cfcf9d3ad9fd5f0f702250a708c4178461f98126"
+  }
+}

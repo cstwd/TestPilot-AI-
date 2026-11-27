@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:32:16.117870+00:00",
+  "id": "dbcc2e51-7379-4e85-8d2c-e443f4ccccb3",
+  "parent": "0439eabf-116f-404c-8698-9fa39a197148",
+  "seconds": 0.0012042000016663224,
+  "artifact": {
+    "code": "import sys as _tp_sys, types as _tp_types\n_tp_m = _tp_types.ModuleType('limits')\n_tp_m.__file__ = 'limits.py'\n_tp_sys.modules['limits'] = _tp_m\nexec(compile('PAGE_SIZE = 10\\n', _tp_m.__file__, 'exec'), _tp_m.__dict__)\n\nfrom subject import page_count\nimport pytest\n\ndef test_example_1():\n    assert page_count(9) == 1\n\n\n\n\ndef test_boundary_one_item():\n    assert page_count(1) == 1\n\n\n\n\ndef test_boundary_page_size_plus_one():\n    assert page_count(11) == 2\n\n\n\n\ndef test_two_full_pages_plus_one():\n    assert page_count(21) == 3\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "no surviving mutant; replay the complete manifest"
+}

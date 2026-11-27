@@ -1,0 +1,59 @@
+{
+  "id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+  "verdict": {
+    "status": "survived",
+    "reason": "相同测试节点运行通过",
+    "nodeids": []
+  },
+  "run": {
+    "status": "passed",
+    "passed": 4,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 0,
+    "covered_lines": 5,
+    "total_lines": 6,
+    "coverage_pct": 83.33,
+    "log": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.13s",
+    "duration_ms": 7702,
+    "stdout": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.13s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [],
+    "failure_details_omitted": 0,
+    "covered_branches": 3,
+    "total_branches": 4,
+    "branch_pct": 75.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "003c4044-4b42-4ae3-93ce-14fb56d7d268",
+    "started": "2026-11-27T08:14:57.039104+00:00",
+    "ended": "2026-11-27T08:15:04.741507+00:00",
+    "source_sha256": "ba36e530baeb394fadf040a2957a25d9d02d246026ee53a9bc121bb749f396b1",
+    "test_sha256": "d90aecfce2fb6cef5a077380253ef77dfa1ebfaf72775ac3a14537f119c430e1"
+  }
+}

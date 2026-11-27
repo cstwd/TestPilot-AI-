@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:23:15.843275+00:00",
+  "id": "5de7ab0c-c43f-4671-aa89-a1fa46de9e83",
+  "parent": "ba77b03b-95fa-42ad-9f10-a148d6200b38",
+  "seconds": 0.0005391999984567519,
+  "artifact": {
+    "code": "from subject import bonus\nimport pytest\n\ndef test_bonus_doctest_example():\n    assert bonus(3) == 4\n\ndef test_bonus_negative_raises_valueerror():\n    with pytest.raises(ValueError):\n        bonus(-1)\n\ndef test_bonus_zero_enabled_true():\n    assert bonus(n=0, enabled=True) == 0\n\ndef test_bonus_zero_enabled_false():\n    assert bonus(n=0, enabled=False) == 0\n\ndef test_bonus_one_enabled_true():\n    assert bonus(n=1, enabled=True) == 1\n\ndef test_bonus_one_enabled_false():\n    assert bonus(n=1, enabled=False) == 1\n\ndef test_bonus_two_enabled_true():\n    assert bonus(n=2, enabled=True) == 3\n\ndef test_bonus_two_enabled_false():\n    assert bonus(n=2, enabled=False) == 2\n\ndef test_bonus_three_enabled_true():\n    assert bonus(n=3, enabled=True) == 4\n\ndef test_bonus_three_enabled_false():\n    assert bonus(n=3, enabled=False) == 3\n\ndef test_bonus_negative_one_raises_valueerror():\n    with pytest.raises(ValueError):\n        bonus(n=-1, enabled=True)\n\ndef test_bonus_negative_one_enabled_false_raises_valueerror():\n    with pytest.raises(ValueError):\n        bonus(n=-1, enabled=False)\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "no surviving mutant; replay the complete manifest"
+}

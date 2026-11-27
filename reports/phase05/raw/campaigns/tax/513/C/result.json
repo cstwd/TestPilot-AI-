@@ -1,0 +1,48 @@
+{
+  "name": "tax",
+  "seed": 513,
+  "arm": "C",
+  "planned": 3,
+  "baseline": true,
+  "score": {
+    "killed": 3,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 3,
+    "equivalent_candidates": 0,
+    "score_pct": 100.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "3d51aef1-ab02-5604-87b9-232d8fd7b6b1": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_zero",
+        "test_generated.py::test_example_1"
+      ]
+    },
+    "25c2d628-9aec-5a60-bc97-40cd7bb9a6d8": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    },
+    "cab29147-226c-50c9-809f-46c88d79061f": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    }
+  },
+  "id": "fcc5f61d-f36a-4d4b-97f5-eee9bf1e9c2e",
+  "generated": "48b4e00b-a10d-4fb8-a2f3-8ce9a11df8d0",
+  "test_sha256": "cb943876eee6f9d24d8c2bb8e8c3c63a754d1c10f5a6b83dd68895087c0028a6",
+  "green_job": "d0492da5-fa2a-4d40-bd8e-bd69791618a2",
+  "finished": "2026-11-27T08:24:46.299466+00:00"
+}

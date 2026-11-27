@@ -1,0 +1,189 @@
+{
+  "id": "aa092bcd-9e42-5229-b396-c92582ba5fbc",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_all_none",
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_multiple_values_before_none",
+      "test_generated.py::test_no_none",
+      "test_generated.py::test_no_none_multiple_values",
+      "test_generated.py::test_none_at_end",
+      "test_generated.py::test_none_at_start"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 1,
+    "failed": 7,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_empty_list",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_no_none",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_all_none",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_none_at_start",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_none_at_end",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_multiple_values_before_none",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_no_none_multiple_values",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 7,
+    "total_lines": 7,
+    "coverage_pct": 100.0,
+    "log": "F.FFFFFF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:4: in test_example_1\n    assert prefix_length([4, None, 2]) == 1\nE   assert 0 == 1\nE    +  where 0 = prefix_length([4, None, 2])\n_________________________________ test_no_none _________________________________\ntest_generated.py:10: in test_no_none\n    assert prefix_length([1]) == 1\nE   assert 0 == 1\nE    +  where 0 = prefix_length([1])\n________________________________ test_all_none _________________________________\ntest_generated.py:13: in test_all_none\n    assert prefix_length([None]) == 0\nE   assert 1 == 0\nE    +  where 1 = prefix_length([None])\n______________________________ test_none_at_start ______________________________\ntest_generated.py:16: in test_none_at_start\n    assert prefix_length([None, 1, 2]) == 0\nE   assert 1 == 0\nE    +  where 1 = prefix_length([None, 1, 2])\n_______________________________ test_none_at_end _______________________________\ntest_generated.py:19: in test_none_at_end\n    assert prefix_length([1, 2, None]) == 2\nE   assert 0 == 2\nE    +  where 0 = prefix_length([1, 2, None])\n_______________________ test_multiple_values_before_none _______________________\ntest_generated.py:22: in test_multiple_values_before_none\n    assert prefix_length([1, 2, 3, None, 4]) == 3\nE   assert 0 == 3\nE    +  where 0 = prefix_length([1, 2, 3, None, 4])\n_________________________ test_no_none_multiple_values _________________________\ntest_generated.py:25: in test_no_none_multiple_values\n    assert prefix_length([1, 2, 3]) == 3\nE   assert 0 == 3\nE    +  where 0 = prefix_length([1, 2, 3])\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_empty_list\nFAILED test_generated.py::test_example_1 - assert 0 == 1\nFAILED test_generated.py::test_no_none - assert 0 == 1\nFAILED test_generated.py::test_all_none - assert 1 == 0\nFAILED test_generated.py::test_none_at_start - assert 1 == 0\nFAILED test_generated.py::test_none_at_end - assert 0 == 2\nFAILED test_generated.py::test_multiple_values_before_none - assert 0 == 3\nFAILED test_generated.py::test_no_none_multiple_values - assert 0 == 3\n7 failed, 1 passed in 0.65s",
+    "duration_ms": 7665,
+    "stdout": "F.FFFFFF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:4: in test_example_1\n    assert prefix_length([4, None, 2]) == 1\nE   assert 0 == 1\nE    +  where 0 = prefix_length([4, None, 2])\n_________________________________ test_no_none _________________________________\ntest_generated.py:10: in test_no_none\n    assert prefix_length([1]) == 1\nE   assert 0 == 1\nE    +  where 0 = prefix_length([1])\n________________________________ test_all_none _________________________________\ntest_generated.py:13: in test_all_none\n    assert prefix_length([None]) == 0\nE   assert 1 == 0\nE    +  where 1 = prefix_length([None])\n______________________________ test_none_at_start ______________________________\ntest_generated.py:16: in test_none_at_start\n    assert prefix_length([None, 1, 2]) == 0\nE   assert 1 == 0\nE    +  where 1 = prefix_length([None, 1, 2])\n_______________________________ test_none_at_end _______________________________\ntest_generated.py:19: in test_none_at_end\n    assert prefix_length([1, 2, None]) == 2\nE   assert 0 == 2\nE    +  where 0 = prefix_length([1, 2, None])\n_______________________ test_multiple_values_before_none _______________________\ntest_generated.py:22: in test_multiple_values_before_none\n    assert prefix_length([1, 2, 3, None, 4]) == 3\nE   assert 0 == 3\nE    +  where 0 = prefix_length([1, 2, 3, None, 4])\n_________________________ test_no_none_multiple_values _________________________\ntest_generated.py:25: in test_no_none_multiple_values\n    assert prefix_length([1, 2, 3]) == 3\nE   assert 0 == 3\nE    +  where 0 = prefix_length([1, 2, 3])\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_empty_list\nFAILED test_generated.py::test_example_1 - assert 0 == 1\nFAILED test_generated.py::test_no_none - assert 0 == 1\nFAILED test_generated.py::test_all_none - assert 1 == 0\nFAILED test_generated.py::test_none_at_start - assert 1 == 0\nFAILED test_generated.py::test_none_at_end - assert 0 == 2\nFAILED test_generated.py::test_multiple_values_before_none - assert 0 == 3\nFAILED test_generated.py::test_no_none_multiple_values - assert 0 == 3\n7 failed, 1 passed in 0.65s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 0 == 1\n +  where 0 = prefix_length([4, None, 2])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 4,
+            "function": "test_example_1",
+            "source": "assert prefix_length([4, None, 2]) == 1"
+          }
+        ],
+        "assertion_diff": "assert 0 == 1\n +  where 0 = prefix_length([4, None, 2])"
+      },
+      {
+        "nodeid": "test_generated.py::test_no_none",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 0 == 1\n +  where 0 = prefix_length([1])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_no_none",
+            "source": "assert prefix_length([1]) == 1"
+          }
+        ],
+        "assertion_diff": "assert 0 == 1\n +  where 0 = prefix_length([1])"
+      },
+      {
+        "nodeid": "test_generated.py::test_all_none",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 1 == 0\n +  where 1 = prefix_length([None])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 13,
+            "function": "test_all_none",
+            "source": "assert prefix_length([None]) == 0"
+          }
+        ],
+        "assertion_diff": "assert 1 == 0\n +  where 1 = prefix_length([None])"
+      },
+      {
+        "nodeid": "test_generated.py::test_none_at_start",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 1 == 0\n +  where 1 = prefix_length([None, 1, 2])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 16,
+            "function": "test_none_at_start",
+            "source": "assert prefix_length([None, 1, 2]) == 0"
+          }
+        ],
+        "assertion_diff": "assert 1 == 0\n +  where 1 = prefix_length([None, 1, 2])"
+      },
+      {
+        "nodeid": "test_generated.py::test_none_at_end",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 0 == 2\n +  where 0 = prefix_length([1, 2, None])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 19,
+            "function": "test_none_at_end",
+            "source": "assert prefix_length([1, 2, None]) == 2"
+          }
+        ],
+        "assertion_diff": "assert 0 == 2\n +  where 0 = prefix_length([1, 2, None])"
+      },
+      {
+        "nodeid": "test_generated.py::test_multiple_values_before_none",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 0 == 3\n +  where 0 = prefix_length([1, 2, 3, None, 4])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 22,
+            "function": "test_multiple_values_before_none",
+            "source": "assert prefix_length([1, 2, 3, None, 4]) == 3"
+          }
+        ],
+        "assertion_diff": "assert 0 == 3\n +  where 0 = prefix_length([1, 2, 3, None, 4])"
+      },
+      {
+        "nodeid": "test_generated.py::test_no_none_multiple_values",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 0 == 3\n +  where 0 = prefix_length([1, 2, 3])",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 25,
+            "function": "test_no_none_multiple_values",
+            "source": "assert prefix_length([1, 2, 3]) == 3"
+          }
+        ],
+        "assertion_diff": "assert 0 == 3\n +  where 0 = prefix_length([1, 2, 3])"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "5f0ea919-1445-4a0e-9e30-8b3265085fa4",
+    "started": "2026-11-27T08:40:22.093902+00:00",
+    "ended": "2026-11-27T08:40:29.758893+00:00",
+    "source_sha256": "c2512472d760f308318a3926b9346848fdb077d349087ee20f19a6c7a2f1ff0a",
+    "test_sha256": "b02ed577c48dc939ca6bfa7ba3ca7bebb48bad212aa3b1a83922b6b1253519f5"
+  }
+}

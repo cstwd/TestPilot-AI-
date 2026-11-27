@@ -1,0 +1,157 @@
+{
+  "id": "cb877967-f48c-550f-b2ee-5e7371e81e4d",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_below_silver",
+      "test_generated.py::test_boundary_silver",
+      "test_generated.py::test_just_above_silver",
+      "test_generated.py::test_negative_points",
+      "test_generated.py::test_zero_points"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 3,
+    "failed": 5,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_gold",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_silver",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_below_silver",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_points",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_points",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_just_above_gold",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_just_above_silver",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 6,
+    "total_lines": 6,
+    "coverage_pct": 100.0,
+    "log": "..FFFF.F\n=================================== FAILURES ===================================\n_____________________________ test_boundary_silver _____________________________\ntest_generated.py:10: in test_boundary_silver\n    assert tier(50) == 'silver'\nE   AssertionError: assert 'basic' == 'silver'\nE     \nE     - silver\nE     + basic\n______________________________ test_below_silver _______________________________\ntest_generated.py:13: in test_below_silver\n    assert tier(49) == 'basic'\nE   AssertionError: assert 'silver' == 'basic'\nE     \nE     - basic\nE     + silver\n_______________________________ test_zero_points _______________________________\ntest_generated.py:16: in test_zero_points\n    assert tier(0) == 'basic'\nE   AssertionError: assert 'silver' == 'basic'\nE     \nE     - basic\nE     + silver\n_____________________________ test_negative_points _____________________________\ntest_generated.py:19: in test_negative_points\n    assert tier(-1) == 'basic'\nE   AssertionError: assert 'silver' == 'basic'\nE     \nE     - basic\nE     + silver\n____________________________ test_just_above_silver ____________________________\ntest_generated.py:28: in test_just_above_silver\n    assert tier(51) == 'silver'\nE   AssertionError: assert 'basic' == 'silver'\nE     \nE     - silver\nE     + basic\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_gold\nPASSED test_generated.py::test_just_above_gold\nFAILED test_generated.py::test_boundary_silver - AssertionError: assert 'basi...\nFAILED test_generated.py::test_below_silver - AssertionError: assert 'silver'...\nFAILED test_generated.py::test_zero_points - AssertionError: assert 'silver' ...\nFAILED test_generated.py::test_negative_points - AssertionError: assert 'silv...\nFAILED test_generated.py::test_just_above_silver - AssertionError: assert 'ba...\n5 failed, 3 passed in 0.57s",
+    "duration_ms": 7976,
+    "stdout": "..FFFF.F\n=================================== FAILURES ===================================\n_____________________________ test_boundary_silver _____________________________\ntest_generated.py:10: in test_boundary_silver\n    assert tier(50) == 'silver'\nE   AssertionError: assert 'basic' == 'silver'\nE     \nE     - silver\nE     + basic\n______________________________ test_below_silver _______________________________\ntest_generated.py:13: in test_below_silver\n    assert tier(49) == 'basic'\nE   AssertionError: assert 'silver' == 'basic'\nE     \nE     - basic\nE     + silver\n_______________________________ test_zero_points _______________________________\ntest_generated.py:16: in test_zero_points\n    assert tier(0) == 'basic'\nE   AssertionError: assert 'silver' == 'basic'\nE     \nE     - basic\nE     + silver\n_____________________________ test_negative_points _____________________________\ntest_generated.py:19: in test_negative_points\n    assert tier(-1) == 'basic'\nE   AssertionError: assert 'silver' == 'basic'\nE     \nE     - basic\nE     + silver\n____________________________ test_just_above_silver ____________________________\ntest_generated.py:28: in test_just_above_silver\n    assert tier(51) == 'silver'\nE   AssertionError: assert 'basic' == 'silver'\nE     \nE     - silver\nE     + basic\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_gold\nPASSED test_generated.py::test_just_above_gold\nFAILED test_generated.py::test_boundary_silver - AssertionError: assert 'basi...\nFAILED test_generated.py::test_below_silver - AssertionError: assert 'silver'...\nFAILED test_generated.py::test_zero_points - AssertionError: assert 'silver' ...\nFAILED test_generated.py::test_negative_points - AssertionError: assert 'silv...\nFAILED test_generated.py::test_just_above_silver - AssertionError: assert 'ba...\n5 failed, 3 passed in 0.57s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_boundary_silver",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'basic' == 'silver'\n  \n  - silver\n  + basic",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_boundary_silver",
+            "source": "assert tier(50) == 'silver'"
+          }
+        ],
+        "assertion_diff": "assert 'basic' == 'silver'\n  \n  - silver\n  + basic"
+      },
+      {
+        "nodeid": "test_generated.py::test_below_silver",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'silver' == 'basic'\n  \n  - basic\n  + silver",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 13,
+            "function": "test_below_silver",
+            "source": "assert tier(49) == 'basic'"
+          }
+        ],
+        "assertion_diff": "assert 'silver' == 'basic'\n  \n  - basic\n  + silver"
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_points",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'silver' == 'basic'\n  \n  - basic\n  + silver",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 16,
+            "function": "test_zero_points",
+            "source": "assert tier(0) == 'basic'"
+          }
+        ],
+        "assertion_diff": "assert 'silver' == 'basic'\n  \n  - basic\n  + silver"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_points",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'silver' == 'basic'\n  \n  - basic\n  + silver",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 19,
+            "function": "test_negative_points",
+            "source": "assert tier(-1) == 'basic'"
+          }
+        ],
+        "assertion_diff": "assert 'silver' == 'basic'\n  \n  - basic\n  + silver"
+      },
+      {
+        "nodeid": "test_generated.py::test_just_above_silver",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'basic' == 'silver'\n  \n  - silver\n  + basic",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 28,
+            "function": "test_just_above_silver",
+            "source": "assert tier(51) == 'silver'"
+          }
+        ],
+        "assertion_diff": "assert 'basic' == 'silver'\n  \n  - silver\n  + basic"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "84f9053f-b163-43bb-8930-c2be46b2cb04",
+    "started": "2026-11-27T08:32:53.505214+00:00",
+    "ended": "2026-11-27T08:33:01.480894+00:00",
+    "source_sha256": "2e608c924f77064a1f4609924607e036c8eb5b39c02986c5e43c2d84847455d3",
+    "test_sha256": "f0151d3bd6305b5a61d19230321cc2bdd52be9ce3792d9f3a6f6e461277d6ffd"
+  }
+}

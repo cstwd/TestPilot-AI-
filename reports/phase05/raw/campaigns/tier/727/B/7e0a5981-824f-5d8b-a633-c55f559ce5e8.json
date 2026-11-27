@@ -1,0 +1,97 @@
+{
+  "id": "7e0a5981-824f-5d8b-a633-c55f559ce5e8",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_boundary_return_contract",
+      "test_generated.py::test_normal_return_contract"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 2,
+    "failed": 2,
+    "errors": 0,
+    "skipped": 1,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_property_return_contract",
+        "outcome": "skipped"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 5,
+    "total_lines": 6,
+    "coverage_pct": 83.33,
+    "log": ".FF.s\n=================================== FAILURES ===================================\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(points=2), str)\nE   assert False\nE    +  where False = isinstance(None, str)\nE    +    where None = target(points=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(points=0), str)\nE   assert False\nE    +  where False = isinstance(None, str)\nE    +    where None = target(points=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:18: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n2 failed, 2 passed, 1 skipped in 0.19s",
+    "duration_ms": 5853,
+    "stdout": ".FF.s\n=================================== FAILURES ===================================\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(points=2), str)\nE   assert False\nE    +  where False = isinstance(None, str)\nE    +    where None = target(points=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(points=0), str)\nE   assert False\nE    +  where False = isinstance(None, str)\nE    +    where None = target(points=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:18: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n2 failed, 2 passed, 1 skipped in 0.19s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert False\n +  where False = isinstance(None, str)\n +    where None = target(points=2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 8,
+            "function": "test_normal_return_contract",
+            "source": "assert isinstance(target(points=2), str)"
+          }
+        ],
+        "assertion_diff": "assert False\n +  where False = isinstance(None, str)\n +    where None = target(points=2)"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert False\n +  where False = isinstance(None, str)\n +    where None = target(points=0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_boundary_return_contract",
+            "source": "assert isinstance(target(points=0), str)"
+          }
+        ],
+        "assertion_diff": "assert False\n +  where False = isinstance(None, str)\n +    where None = target(points=0)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 3,
+    "total_branches": 4,
+    "branch_pct": 75.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "351e071b-95bf-4918-a4f5-16566c2303f8",
+    "started": "2026-11-27T08:19:26.480744+00:00",
+    "ended": "2026-11-27T08:19:32.333896+00:00",
+    "source_sha256": "1860a92251988a5e7f002f6c19ee0668984d048df10225874341b289a11f6e90",
+    "test_sha256": "bb66f6df1f6f453ec235115d8175b449146146bc3e4f0e5d2fcbd0f41f16acb5"
+  }
+}

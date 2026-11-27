@@ -1,0 +1,13 @@
+{
+  "name": "tax",
+  "seed": 941,
+  "arm": "A",
+  "planned": 3,
+  "baseline": false,
+  "score": null,
+  "reason": "no validated suite from assigned generator",
+  "outcomes": {},
+  "id": "4b58f1d3-721e-48d6-a778-57d3332447b8",
+  "generated": "3678d754-dadb-4115-a189-7ab914f9679b",
+  "finished": "2026-11-27T08:22:23.696523+00:00"
+}

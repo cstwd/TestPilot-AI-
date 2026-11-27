@@ -1,0 +1,62 @@
+{
+  "name": "invoice",
+  "seed": 513,
+  "arm": "D",
+  "planned": 3,
+  "baseline": true,
+  "score": {
+    "killed": 3,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 3,
+    "equivalent_candidates": 0,
+    "score_pct": 100.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "d4eed0aa-0d39-5c8c-b47b-e177c8c7e39e": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_discount_less_than_total",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_mixed_values_no_discount",
+        "test_generated.py::test_single_value_no_discount"
+      ]
+    },
+    "384c3ff0-b6b3-5152-9c55-1bde40ce4aa3": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_all_negative_values",
+        "test_generated.py::test_discount_equals_total",
+        "test_generated.py::test_discount_less_than_total",
+        "test_generated.py::test_empty_values_with_discount",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_mixed_values_no_discount",
+        "test_generated.py::test_single_value_no_discount",
+        "test_generated.py::test_single_value_with_discount_exceeding_total",
+        "test_generated.py::test_zero_values"
+      ]
+    },
+    "27b05994-5db4-5539-a7d6-a4816565ee91": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_discount_equals_total",
+        "test_generated.py::test_discount_less_than_total",
+        "test_generated.py::test_empty_values_with_discount",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_single_value_with_discount_exceeding_total"
+      ]
+    }
+  },
+  "id": "d008b368-d1bb-41dd-be54-31426c79b555",
+  "generated": "6e933303-abc6-44b4-bb36-f2c9425896a1",
+  "test_sha256": "d7cfa60b328beec8975f4d4b0e03d02bda620b1b8633eeac9b87b2df3393d2bc",
+  "green_job": "16d3a362-cc88-4064-92fb-f9156a04b3ab",
+  "finished": "2026-11-27T08:32:37.240264+00:00"
+}

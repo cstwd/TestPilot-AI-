@@ -1,0 +1,53 @@
+{
+  "name": "invoice",
+  "seed": 941,
+  "arm": "C",
+  "planned": 3,
+  "baseline": true,
+  "score": {
+    "killed": 3,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 3,
+    "equivalent_candidates": 0,
+    "score_pct": 100.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "d4eed0aa-0d39-5c8c-b47b-e177c8c7e39e": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_single_value_no_discount"
+      ]
+    },
+    "384c3ff0-b6b3-5152-9c55-1bde40ce4aa3": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_empty_values_with_discount",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_single_value_discount_exceeds_total",
+        "test_generated.py::test_single_value_no_discount"
+      ]
+    },
+    "27b05994-5db4-5539-a7d6-a4816565ee91": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_empty_values_with_discount",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_single_value_discount_exceeds_total"
+      ]
+    }
+  },
+  "id": "b7965217-8988-4784-95ae-f83efbea67fb",
+  "generated": "4b9711d1-6ce4-4f9d-b694-706778983658",
+  "test_sha256": "2b8bd93d20234daf2afdfddb8cfe587dd70b18dfc638a6ea2a650a568fc41404",
+  "green_job": "db89a52c-6348-4f8c-9841-62dc5511023f",
+  "finished": "2026-11-27T08:39:50.586289+00:00"
+}

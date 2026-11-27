@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:33:20.331481+00:00",
+  "id": "ad2bb076-0972-444d-a41b-5769394196aa",
+  "parent": "eb6b4725-d295-4a33-997a-af1c5bd95ec9",
+  "seconds": 0.010630000000674045,
+  "artifact": {
+    "code": "from subject import tier\n\ndef test_example_1():\n    assert tier(120) == 'gold'\n\ndef test_boundary_gold():\n    assert tier(100) == 'gold'\n\ndef test_boundary_silver():\n    assert tier(50) == 'silver'\n\ndef test_below_silver():\n    assert tier(49) == 'basic'\n\ndef test_zero_points():\n    assert tier(0) == 'basic'\n\ndef test_negative_points():\n    assert tier(-1) == 'basic'\n\n\n\n\ndef test_just_above_gold():\n    assert tier(101) == 'gold'\n\ndef test_just_above_silver():\n    assert tier(51) == 'silver'\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "no surviving mutant; replay the complete manifest"
+}

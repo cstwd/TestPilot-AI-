@@ -1,0 +1,102 @@
+{
+  "request": {
+    "model": "qwen38-27b-iq3xxs",
+    "messages": [
+      {
+        "role": "system",
+        "content": "Inspect the numbered Python files. Return a single JSON object with exactly these fields: functions (all top-level definitions in all files, sorted 'filename.py:name'), parameters (target function in declaration order: arrays of name, annotated type as string, Python source default as STRING, JSON null if required), return_value (actual value of normal call), branch_lines (sorted line numbers of explicit if, for, while, ternary statements in target only; omit comparisons without such a statement), boundary_value (actual value of boundary call), exception (actual exception class name for exception_probe or null), defect_line (line in subject.py with the implementation that conflicts with its docstring, or null if no conflict). Evaluate behavior as written."
+      },
+      {
+        "role": "user",
+        "content": "{\"files\": {\"subject.py\": \"1: from tariff import BASE\\n2: \\n3: def freight(units: int) -> int:\\n4:     \\\"\\\"\\\"Return base freight plus the unit count.\\n5: \\n6:     >>> freight(3)\\n7:     8\\n8:     \\\"\\\"\\\"\\n9:     return BASE + units\", \"tariff.py\": \"1: BASE = 5\"}, \"target\": \"freight\", \"normal\": \"freight(6)\", \"boundary\": \"freight(0)\", \"exception_probe\": \"freight(None)\"}"
+      }
+    ],
+    "temperature": 0.2,
+    "seed": 513,
+    "max_tokens": 350,
+    "response_format": {
+      "type": "json_object"
+    }
+  },
+  "name": "freight",
+  "raw": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "{\n  \"functions\": [\n    \"subject.py:freight\"\n  ],\n  \"parameters\": [\n    {\n      \"name\": \"units\",\n      \"annotated_type\": \"int\",\n      \"default\": null\n    }\n  ],\n  \"return_value\": 11,\n  \"branch_lines\": [],\n  \"boundary_value\": 5,\n  \"exception\": \"TypeError\",\n  \"defect_line\": null\n}"
+        }
+      }
+    ],
+    "created": 1795767273,
+    "model": "qwen38-27b-iq3xxs",
+    "system_fingerprint": "b1-f5e6915c2",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 103,
+      "prompt_tokens": 291,
+      "total_tokens": 394,
+      "prompt_tokens_details": {
+        "cached_tokens": 151
+      }
+    },
+    "id": "chatcmpl-R1XYXHr4CbDGYaMjndxkhGLS2Phifg2w",
+    "timings": {
+      "cache_n": 151,
+      "prompt_n": 140,
+      "prompt_ms": 9044.038,
+      "prompt_per_token_ms": 64.60027142857143,
+      "prompt_per_second": 15.47981111976752,
+      "predicted_n": 103,
+      "predicted_ms": 4230.982,
+      "predicted_per_token_ms": 41.48021568627451,
+      "predicted_per_second": 24.10787850196479
+    }
+  },
+  "expected": {
+    "functions": [
+      "subject.py:freight"
+    ],
+    "parameters": [
+      [
+        "units",
+        "int",
+        null
+      ]
+    ],
+    "return_value": 11,
+    "branch_lines": [],
+    "boundary_value": 5,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "predicted": {
+    "functions": [
+      "subject.py:freight"
+    ],
+    "parameters": [
+      {
+        "name": "units",
+        "annotated_type": "int",
+        "default": null
+      }
+    ],
+    "return_value": 11,
+    "branch_lines": [],
+    "boundary_value": 5,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 0,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "seconds": 13.46730000000025
+}

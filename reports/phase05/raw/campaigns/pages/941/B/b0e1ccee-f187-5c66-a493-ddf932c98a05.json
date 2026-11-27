@@ -1,0 +1,81 @@
+{
+  "id": "b0e1ccee-f187-5c66-a493-ddf932c98a05",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_example_1"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 3,
+    "failed": 1,
+    "errors": 0,
+    "skipped": 1,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_property_return_contract",
+        "outcome": "skipped"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "F...s\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:11: in test_example_1\n    assert target(9) == 1\nE   assert -1 == 1\nE    +  where -1 = target(9)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:24: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_example_1 - assert -1 == 1\n1 failed, 3 passed, 1 skipped in 0.17s",
+    "duration_ms": 5778,
+    "stdout": "F...s\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:11: in test_example_1\n    assert target(9) == 1\nE   assert -1 == 1\nE    +  where -1 = target(9)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\nSKIPPED [1] test_generated.py:24: could not import 'hypothesis': No module named 'hypothesis'\nFAILED test_generated.py::test_example_1 - assert -1 == 1\n1 failed, 3 passed, 1 skipped in 0.17s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert -1 == 1\n +  where -1 = target(9)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_example_1",
+            "source": "assert target(9) == 1"
+          }
+        ],
+        "assertion_diff": "assert -1 == 1\n +  where -1 = target(9)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "e5a04a94-cbcb-4d94-af3a-23b0cbf57661",
+    "started": "2026-11-27T08:21:15.893992+00:00",
+    "ended": "2026-11-27T08:21:21.672349+00:00",
+    "source_sha256": "a6da3f22c3ab4997801b62d266c8490e911659f376b0f1f93e85b0b48c1f3039",
+    "test_sha256": "1eda5033af52bd976e1c0c87d066358d99560f131ab6fa11ef9e26c036a761a6"
+  }
+}

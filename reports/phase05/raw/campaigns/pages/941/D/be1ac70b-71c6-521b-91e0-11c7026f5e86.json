@@ -1,0 +1,125 @@
+{
+  "id": "be1ac70b-71c6-521b-91e0-11c7026f5e86",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_eleven_items",
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_one_item",
+      "test_generated.py::test_twenty_one_items"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 0,
+    "failed": 4,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_one_item",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_eleven_items",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_twenty_one_items",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "FFFF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:11: in test_example_1\n    assert page_count(9) == 1\nE   assert 91 == 1\nE    +  where 91 = page_count(9)\n________________________________ test_one_item _________________________________\ntest_generated.py:17: in test_one_item\n    assert page_count(1) == 1\nE   assert 11 == 1\nE    +  where 11 = page_count(1)\n______________________________ test_eleven_items _______________________________\ntest_generated.py:23: in test_eleven_items\n    assert page_count(11) == 2\nE   assert 111 == 2\nE    +  where 111 = page_count(11)\n____________________________ test_twenty_one_items _____________________________\ntest_generated.py:29: in test_twenty_one_items\n    assert page_count(21) == 3\nE   assert 211 == 3\nE    +  where 211 = page_count(21)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert 91 == 1\nFAILED test_generated.py::test_one_item - assert 11 == 1\nFAILED test_generated.py::test_eleven_items - assert 111 == 2\nFAILED test_generated.py::test_twenty_one_items - assert 211 == 3\n4 failed in 0.44s",
+    "duration_ms": 7736,
+    "stdout": "FFFF\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:11: in test_example_1\n    assert page_count(9) == 1\nE   assert 91 == 1\nE    +  where 91 = page_count(9)\n________________________________ test_one_item _________________________________\ntest_generated.py:17: in test_one_item\n    assert page_count(1) == 1\nE   assert 11 == 1\nE    +  where 11 = page_count(1)\n______________________________ test_eleven_items _______________________________\ntest_generated.py:23: in test_eleven_items\n    assert page_count(11) == 2\nE   assert 111 == 2\nE    +  where 111 = page_count(11)\n____________________________ test_twenty_one_items _____________________________\ntest_generated.py:29: in test_twenty_one_items\n    assert page_count(21) == 3\nE   assert 211 == 3\nE    +  where 211 = page_count(21)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_example_1 - assert 91 == 1\nFAILED test_generated.py::test_one_item - assert 11 == 1\nFAILED test_generated.py::test_eleven_items - assert 111 == 2\nFAILED test_generated.py::test_twenty_one_items - assert 211 == 3\n4 failed in 0.44s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 91 == 1\n +  where 91 = page_count(9)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_example_1",
+            "source": "assert page_count(9) == 1"
+          }
+        ],
+        "assertion_diff": "assert 91 == 1\n +  where 91 = page_count(9)"
+      },
+      {
+        "nodeid": "test_generated.py::test_one_item",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 11 == 1\n +  where 11 = page_count(1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 17,
+            "function": "test_one_item",
+            "source": "assert page_count(1) == 1"
+          }
+        ],
+        "assertion_diff": "assert 11 == 1\n +  where 11 = page_count(1)"
+      },
+      {
+        "nodeid": "test_generated.py::test_eleven_items",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 111 == 2\n +  where 111 = page_count(11)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 23,
+            "function": "test_eleven_items",
+            "source": "assert page_count(11) == 2"
+          }
+        ],
+        "assertion_diff": "assert 111 == 2\n +  where 111 = page_count(11)"
+      },
+      {
+        "nodeid": "test_generated.py::test_twenty_one_items",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 211 == 3\n +  where 211 = page_count(21)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 29,
+            "function": "test_twenty_one_items",
+            "source": "assert page_count(21) == 3"
+          }
+        ],
+        "assertion_diff": "assert 211 == 3\n +  where 211 = page_count(21)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "aa66b962-0d41-4675-a333-0a00122b9a64",
+    "started": "2026-11-27T08:40:36.328253+00:00",
+    "ended": "2026-11-27T08:40:44.063881+00:00",
+    "source_sha256": "099617ca548f0bfe7f7bb2c445f5f7b04d7c7c8ce85e44bdd8029a50f49bdcf1",
+    "test_sha256": "cdb64889e317442d8563c7543a61cec84fc8e95cbd2f9af4829eee8a8ca7370e"
+  }
+}

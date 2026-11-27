@@ -1,0 +1,109 @@
+{
+  "status": "failed",
+  "passed": 4,
+  "failed": 3,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_zero_items",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_one_item",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_ten_items",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_eleven_items",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_twenty_items",
+      "outcome": "failed"
+    },
+    {
+      "nodeid": "test_generated.py::test_twenty_one_items",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": ".F.F.F.\n=================================== FAILURES ===================================\n_______________________________ test_zero_items ________________________________\ntest_generated.py:14: in test_zero_items\n    assert page_count(0) == 0\nE   assert 1 == 0\nE    +  where 1 = page_count(0)\n________________________________ test_ten_items ________________________________\ntest_generated.py:20: in test_ten_items\n    assert page_count(10) == 1\nE   assert 2 == 1\nE    +  where 2 = page_count(10)\n______________________________ test_twenty_items _______________________________\ntest_generated.py:26: in test_twenty_items\n    assert page_count(20) == 2\nE   assert 3 == 2\nE    +  where 3 = page_count(20)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_one_item\nPASSED test_generated.py::test_eleven_items\nPASSED test_generated.py::test_twenty_one_items\nFAILED test_generated.py::test_zero_items - assert 1 == 0\nFAILED test_generated.py::test_ten_items - assert 2 == 1\nFAILED test_generated.py::test_twenty_items - assert 3 == 2\n3 failed, 4 passed in 0.25s",
+  "duration_ms": 5650,
+  "stdout": ".F.F.F.\n=================================== FAILURES ===================================\n_______________________________ test_zero_items ________________________________\ntest_generated.py:14: in test_zero_items\n    assert page_count(0) == 0\nE   assert 1 == 0\nE    +  where 1 = page_count(0)\n________________________________ test_ten_items ________________________________\ntest_generated.py:20: in test_ten_items\n    assert page_count(10) == 1\nE   assert 2 == 1\nE    +  where 2 = page_count(10)\n______________________________ test_twenty_items _______________________________\ntest_generated.py:26: in test_twenty_items\n    assert page_count(20) == 2\nE   assert 3 == 2\nE    +  where 3 = page_count(20)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_one_item\nPASSED test_generated.py::test_eleven_items\nPASSED test_generated.py::test_twenty_one_items\nFAILED test_generated.py::test_zero_items - assert 1 == 0\nFAILED test_generated.py::test_ten_items - assert 2 == 1\nFAILED test_generated.py::test_twenty_items - assert 3 == 2\n3 failed, 4 passed in 0.25s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_zero_items",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 1 == 0\n +  where 1 = page_count(0)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 14,
+          "function": "test_zero_items",
+          "source": "assert page_count(0) == 0"
+        }
+      ],
+      "assertion_diff": "assert 1 == 0\n +  where 1 = page_count(0)"
+    },
+    {
+      "nodeid": "test_generated.py::test_ten_items",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 2 == 1\n +  where 2 = page_count(10)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 20,
+          "function": "test_ten_items",
+          "source": "assert page_count(10) == 1"
+        }
+      ],
+      "assertion_diff": "assert 2 == 1\n +  where 2 = page_count(10)"
+    },
+    {
+      "nodeid": "test_generated.py::test_twenty_items",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 3 == 2\n +  where 3 = page_count(20)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 26,
+          "function": "test_twenty_items",
+          "source": "assert page_count(20) == 2"
+        }
+      ],
+      "assertion_diff": "assert 3 == 2\n +  where 3 = page_count(20)"
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "b5d44b8c-a93f-4fe5-bebe-e6e7a26e22a3",
+  "started": "2026-11-27T08:37:18.332131+00:00",
+  "ended": "2026-11-27T08:37:23.981809+00:00",
+  "source_sha256": "1379dd26ef046cd5341c7e2a7fc476e7d64f25a5a56ab200fb2a7a024e32d0b5",
+  "test_sha256": "45d0a196e2de594fd4c65db2be8f3b9f5057c37b64f4d74548cdee3ea36b842e"
+}

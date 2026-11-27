@@ -1,0 +1,108 @@
+{
+  "load_wall_s": 5.195799900000566,
+  "response": {
+    "models": [
+      {
+        "name": "qwen2.5-coder:0.5b",
+        "model": "qwen2.5-coder:0.5b",
+        "modified_at": "2026-11-27T15:20:20.7708259+08:00",
+        "size": 397821516,
+        "digest": "4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen2",
+          "families": [
+            "qwen2"
+          ],
+          "parameter_size": "494.03M",
+          "quantization_level": "Q4_K_M",
+          "context_length": 32768,
+          "embedding_length": 896,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "completion",
+          "tools",
+          "insert"
+        ]
+      },
+      {
+        "name": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:UD-IQ3_XXS",
+        "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:UD-IQ3_XXS",
+        "modified_at": "2026-11-27T15:13:06.1380218+08:00",
+        "size": 10934861640,
+        "digest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "27.3B",
+          "quantization_level": "IQ3_XXS",
+          "context_length": 262144,
+          "embedding_length": 5120,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "tools",
+          "thinking",
+          "completion"
+        ]
+      },
+      {
+        "name": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+        "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+        "modified_at": "2026-11-27T15:12:33.4122795+08:00",
+        "size": 10934861640,
+        "digest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+        "details": {
+          "parent_model": "",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "27.3B",
+          "quantization_level": "IQ3_XXS",
+          "context_length": 262144,
+          "embedding_length": 5120,
+          "runner": "ggml"
+        },
+        "capabilities": [
+          "tools",
+          "thinking",
+          "completion"
+        ]
+      },
+      {
+        "name": "testpilot-f13-local:latest",
+        "model": "testpilot-f13-local:latest",
+        "modified_at": "2026-11-27T15:11:11.1491141+08:00",
+        "size": 10934860727,
+        "digest": "869d3ccc64d8cc762756e6d61876c2c4e6e23a3643ecc3692e98513d00608b80",
+        "details": {
+          "parent_model": "weights.gguf",
+          "format": "gguf",
+          "family": "qwen35",
+          "families": [
+            "qwen35"
+          ],
+          "parameter_size": "27.3B",
+          "quantization_level": "IQ3_XXS",
+          "context_length": 262144,
+          "embedding_length": 5120,
+          "runner": "llamacpp"
+        },
+        "capabilities": [
+          "tools",
+          "thinking",
+          "completion"
+        ]
+      }
+    ]
+  },
+  "at": "2026-11-27T08:15:41.830521+00:00"
+}

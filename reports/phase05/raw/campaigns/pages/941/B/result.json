@@ -1,0 +1,49 @@
+{
+  "name": "pages",
+  "seed": 941,
+  "arm": "B",
+  "planned": 3,
+  "baseline": true,
+  "score": {
+    "killed": 3,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 3,
+    "equivalent_candidates": 0,
+    "score_pct": 100.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "9031e877-b1e2-5fab-af7d-c0bed44687c9": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_boundary_return_contract",
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_normal_return_contract"
+      ]
+    },
+    "be1ac70b-71c6-521b-91e0-11c7026f5e86": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    },
+    "b0e1ccee-f187-5c66-a493-ddf932c98a05": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1"
+      ]
+    }
+  },
+  "id": "7ca83217-f284-4298-9630-12bd3c487147",
+  "generated": "a2628556-a81a-43dc-b168-d2f2793e432b",
+  "test_sha256": "1eda5033af52bd976e1c0c87d066358d99560f131ab6fa11ef9e26c036a761a6",
+  "green_job": "a93d40a2-182f-47d3-9844-094f74be7281",
+  "finished": "2026-11-27T08:21:21.687988+00:00"
+}

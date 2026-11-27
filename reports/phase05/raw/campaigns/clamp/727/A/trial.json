@@ -1,0 +1,55 @@
+{
+  "status": "failed",
+  "passed": 0,
+  "failed": 1,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_cap",
+      "outcome": "failed"
+    }
+  ],
+  "exit_code": 1,
+  "covered_lines": 4,
+  "total_lines": 4,
+  "coverage_pct": 100.0,
+  "log": "F\n=================================== FAILURES ===================================\n___________________________________ test_cap ___________________________________\ntest_generated.py:6: in test_cap\n    assert cap(15) == 15\nE   assert 10 == 15\nE    +  where 10 = cap(15)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_cap - assert 10 == 15\n1 failed in 0.18s",
+  "duration_ms": 5632,
+  "stdout": "F\n=================================== FAILURES ===================================\n___________________________________ test_cap ___________________________________\ntest_generated.py:6: in test_cap\n    assert cap(15) == 15\nE   assert 10 == 15\nE    +  where 10 = cap(15)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_cap - assert 10 == 15\n1 failed in 0.18s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [
+    {
+      "nodeid": "test_generated.py::test_cap",
+      "phase": "call",
+      "exception_type": "AssertionError",
+      "message": "assert 10 == 15\n +  where 10 = cap(15)",
+      "frames": [
+        {
+          "path": "test_generated.py",
+          "line": 6,
+          "function": "test_cap",
+          "source": "assert cap(15) == 15"
+        }
+      ],
+      "assertion_diff": "assert 10 == 15\n +  where 10 = cap(15)"
+    }
+  ],
+  "failure_details_omitted": 0,
+  "covered_branches": 2,
+  "total_branches": 2,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "4bb595ab-4086-48ed-85b6-e4d06c933d17",
+  "started": "2026-11-27T08:22:01.165772+00:00",
+  "ended": "2026-11-27T08:22:06.797905+00:00",
+  "source_sha256": "8f04a45d14075c72c4e30e2dca8fd21f35465fedfa67c299605b6c052efb76a8",
+  "test_sha256": "e3e349c24eac2d37a4a191da61328cd8176f124a41e74a2614c21684e74b1ef6"
+}

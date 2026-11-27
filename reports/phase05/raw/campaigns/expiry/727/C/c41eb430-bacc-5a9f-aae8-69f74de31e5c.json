@@ -1,0 +1,245 @@
+{
+  "id": "c41eb430-bacc-5a9f-aae8-69f74de31e5c",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_expired_at_limit",
+      "test_generated.py::test_expired_below_limit",
+      "test_generated.py::test_expired_custom_limit",
+      "test_generated.py::test_expired_custom_limit_not_expired",
+      "test_generated.py::test_expired_example_1",
+      "test_generated.py::test_expired_just_above_limit",
+      "test_generated.py::test_expired_negative_age",
+      "test_generated.py::test_expired_negative_limit",
+      "test_generated.py::test_expired_zero_age",
+      "test_generated.py::test_expired_zero_limit"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 0,
+    "failed": 10,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_expired_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_at_limit",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_just_above_limit",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_below_limit",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_custom_limit",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_custom_limit_not_expired",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_zero_age",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_zero_limit",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_negative_age",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_negative_limit",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 2,
+    "total_lines": 2,
+    "coverage_pct": 100.0,
+    "log": "FFFFFFFFFF\n=================================== FAILURES ===================================\n____________________________ test_expired_example_1 ____________________________\ntest_generated.py:4: in test_expired_example_1\n    assert expired(31) is True\nE   assert None is True\nE    +  where None = expired(31)\n____________________________ test_expired_at_limit _____________________________\ntest_generated.py:7: in test_expired_at_limit\n    assert expired(30) is False\nE   assert None is False\nE    +  where None = expired(30)\n________________________ test_expired_just_above_limit _________________________\ntest_generated.py:10: in test_expired_just_above_limit\n    assert expired(31, 30) is True\nE   assert None is True\nE    +  where None = expired(31, 30)\n___________________________ test_expired_below_limit ___________________________\ntest_generated.py:13: in test_expired_below_limit\n    assert expired(29, 30) is False\nE   assert None is False\nE    +  where None = expired(29, 30)\n__________________________ test_expired_custom_limit ___________________________\ntest_generated.py:16: in test_expired_custom_limit\n    assert expired(10, 5) is True\nE   assert None is True\nE    +  where None = expired(10, 5)\n____________________ test_expired_custom_limit_not_expired _____________________\ntest_generated.py:19: in test_expired_custom_limit_not_expired\n    assert expired(4, 5) is False\nE   assert None is False\nE    +  where None = expired(4, 5)\n____________________________ test_expired_zero_age _____________________________\ntest_generated.py:22: in test_expired_zero_age\n    assert expired(0) is False\nE   assert None is False\nE    +  where None = expired(0)\n___________________________ test_expired_zero_limit ____________________________\ntest_generated.py:25: in test_expired_zero_limit\n    assert expired(1, 0) is True\nE   assert None is True\nE    +  where None = expired(1, 0)\n__________________________ test_expired_negative_age ___________________________\ntest_generated.py:28: in test_expired_negative_age\n    assert expired(-1) is False\nE   assert None is False\nE    +  where None = expired(-1)\n_________________________ test_expired_negative_limit __________________________\ntest_generated.py:31: in test_expired_negative_limit\n    assert expired(0, -1) is True\nE   assert None is True\nE    +  where None = expired(0, -1)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_expired_example_1 - assert None is True\nFAILED test_generated.py::test_expired_at_limit - assert None is False\nFAILED test_generated.py::test_expired_just_above_limit - assert None is True\nFAILED test_generated.py::test_expired_below_limit - assert None is False\nFAILED test_generated.py::test_expired_custom_limit - assert None is True\nFAILED test_generated.py::test_expired_custom_limit_not_expired - assert None...\nFAILED test_generated.py::test_expired_zero_age - assert None is False\nFAILED test_generated.py::test_expired_zero_limit - assert None is True\nFAILED test_generated.py::test_expired_negative_age - assert None is False\nFAILED test_generated.py::test_expired_negative_limit - assert None is True\n10 failed in 0.78s",
+    "duration_ms": 7691,
+    "stdout": "FFFFFFFFFF\n=================================== FAILURES ===================================\n____________________________ test_expired_example_1 ____________________________\ntest_generated.py:4: in test_expired_example_1\n    assert expired(31) is True\nE   assert None is True\nE    +  where None = expired(31)\n____________________________ test_expired_at_limit _____________________________\ntest_generated.py:7: in test_expired_at_limit\n    assert expired(30) is False\nE   assert None is False\nE    +  where None = expired(30)\n________________________ test_expired_just_above_limit _________________________\ntest_generated.py:10: in test_expired_just_above_limit\n    assert expired(31, 30) is True\nE   assert None is True\nE    +  where None = expired(31, 30)\n___________________________ test_expired_below_limit ___________________________\ntest_generated.py:13: in test_expired_below_limit\n    assert expired(29, 30) is False\nE   assert None is False\nE    +  where None = expired(29, 30)\n__________________________ test_expired_custom_limit ___________________________\ntest_generated.py:16: in test_expired_custom_limit\n    assert expired(10, 5) is True\nE   assert None is True\nE    +  where None = expired(10, 5)\n____________________ test_expired_custom_limit_not_expired _____________________\ntest_generated.py:19: in test_expired_custom_limit_not_expired\n    assert expired(4, 5) is False\nE   assert None is False\nE    +  where None = expired(4, 5)\n____________________________ test_expired_zero_age _____________________________\ntest_generated.py:22: in test_expired_zero_age\n    assert expired(0) is False\nE   assert None is False\nE    +  where None = expired(0)\n___________________________ test_expired_zero_limit ____________________________\ntest_generated.py:25: in test_expired_zero_limit\n    assert expired(1, 0) is True\nE   assert None is True\nE    +  where None = expired(1, 0)\n__________________________ test_expired_negative_age ___________________________\ntest_generated.py:28: in test_expired_negative_age\n    assert expired(-1) is False\nE   assert None is False\nE    +  where None = expired(-1)\n_________________________ test_expired_negative_limit __________________________\ntest_generated.py:31: in test_expired_negative_limit\n    assert expired(0, -1) is True\nE   assert None is True\nE    +  where None = expired(0, -1)\n=========================== short test summary info ============================\nFAILED test_generated.py::test_expired_example_1 - assert None is True\nFAILED test_generated.py::test_expired_at_limit - assert None is False\nFAILED test_generated.py::test_expired_just_above_limit - assert None is True\nFAILED test_generated.py::test_expired_below_limit - assert None is False\nFAILED test_generated.py::test_expired_custom_limit - assert None is True\nFAILED test_generated.py::test_expired_custom_limit_not_expired - assert None...\nFAILED test_generated.py::test_expired_zero_age - assert None is False\nFAILED test_generated.py::test_expired_zero_limit - assert None is True\nFAILED test_generated.py::test_expired_negative_age - assert None is False\nFAILED test_generated.py::test_expired_negative_limit - assert None is True\n10 failed in 0.78s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_expired_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None is True\n +  where None = expired(31)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 4,
+            "function": "test_expired_example_1",
+            "source": "assert expired(31) is True"
+          }
+        ],
+        "assertion_diff": "assert None is True\n +  where None = expired(31)"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_at_limit",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None is False\n +  where None = expired(30)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 7,
+            "function": "test_expired_at_limit",
+            "source": "assert expired(30) is False"
+          }
+        ],
+        "assertion_diff": "assert None is False\n +  where None = expired(30)"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_just_above_limit",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None is True\n +  where None = expired(31, 30)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_expired_just_above_limit",
+            "source": "assert expired(31, 30) is True"
+          }
+        ],
+        "assertion_diff": "assert None is True\n +  where None = expired(31, 30)"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_below_limit",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None is False\n +  where None = expired(29, 30)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 13,
+            "function": "test_expired_below_limit",
+            "source": "assert expired(29, 30) is False"
+          }
+        ],
+        "assertion_diff": "assert None is False\n +  where None = expired(29, 30)"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_custom_limit",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None is True\n +  where None = expired(10, 5)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 16,
+            "function": "test_expired_custom_limit",
+            "source": "assert expired(10, 5) is True"
+          }
+        ],
+        "assertion_diff": "assert None is True\n +  where None = expired(10, 5)"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_custom_limit_not_expired",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None is False\n +  where None = expired(4, 5)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 19,
+            "function": "test_expired_custom_limit_not_expired",
+            "source": "assert expired(4, 5) is False"
+          }
+        ],
+        "assertion_diff": "assert None is False\n +  where None = expired(4, 5)"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_zero_age",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None is False\n +  where None = expired(0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 22,
+            "function": "test_expired_zero_age",
+            "source": "assert expired(0) is False"
+          }
+        ],
+        "assertion_diff": "assert None is False\n +  where None = expired(0)"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_zero_limit",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None is True\n +  where None = expired(1, 0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 25,
+            "function": "test_expired_zero_limit",
+            "source": "assert expired(1, 0) is True"
+          }
+        ],
+        "assertion_diff": "assert None is True\n +  where None = expired(1, 0)"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_negative_age",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None is False\n +  where None = expired(-1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 28,
+            "function": "test_expired_negative_age",
+            "source": "assert expired(-1) is False"
+          }
+        ],
+        "assertion_diff": "assert None is False\n +  where None = expired(-1)"
+      },
+      {
+        "nodeid": "test_generated.py::test_expired_negative_limit",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None is True\n +  where None = expired(0, -1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 31,
+            "function": "test_expired_negative_limit",
+            "source": "assert expired(0, -1) is True"
+          }
+        ],
+        "assertion_diff": "assert None is True\n +  where None = expired(0, -1)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "7daeca72-8c72-4cb7-bc71-4876c61ee42d",
+    "started": "2026-11-27T08:30:10.180858+00:00",
+    "ended": "2026-11-27T08:30:17.872276+00:00",
+    "source_sha256": "30716665ebe04118357ef96b80104f476f4615433f3f1289bab4b88248a472ad",
+    "test_sha256": "e6c596c14acb8a46a228f5572232ccc6277e84f8f3322052d0541a560c68aec7"
+  }
+}

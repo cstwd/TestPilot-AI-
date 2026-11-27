@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "passed": 1,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_behavior_reference",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 2,
+  "total_lines": 2,
+  "coverage_pct": 100.0,
+  "log": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_behavior_reference\n1 passed in 0.05s",
+  "duration_ms": 5466,
+  "stdout": ".\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_behavior_reference\n1 passed in 0.05s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "04f57051-9742-4961-a5fa-77c779820ce9",
+  "started": "2026-11-27T08:13:37.413772+00:00",
+  "ended": "2026-11-27T08:13:42.880345+00:00",
+  "source_sha256": "fc3801b4ae2db4b3941f139593312f1125035aa39872a62f92d0b4caa0b86855",
+  "test_sha256": "5a1bc1ab3bd5584a646791c4f0aa0d0f06ae03f43879789c9bb5c5987dbb544d"
+}

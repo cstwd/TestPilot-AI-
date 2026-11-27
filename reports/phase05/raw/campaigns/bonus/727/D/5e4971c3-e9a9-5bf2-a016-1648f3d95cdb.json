@@ -1,0 +1,117 @@
+{
+  "id": "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_one_enabled_true",
+      "test_generated.py::test_two_enabled_false",
+      "test_generated.py::test_zero_enabled_true"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 3,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_enabled_true",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_one_enabled_true",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_true",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_false",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_mutation_0473d9a7eced8496",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 5,
+    "total_lines": 6,
+    "coverage_pct": 83.33,
+    "log": ".FF.F.\n=================================== FAILURES ===================================\n____________________________ test_zero_enabled_true ____________________________\ntest_generated.py:11: in test_zero_enabled_true\n    assert bonus(n=0, enabled=True) == 0\nE   assert 1 == 0\nE    +  where 1 = bonus(n=0, enabled=True)\n____________________________ test_one_enabled_true _____________________________\ntest_generated.py:14: in test_one_enabled_true\n    assert bonus(n=1, enabled=True) == 1\nE   assert 2 == 1\nE    +  where 2 = bonus(n=1, enabled=True)\n____________________________ test_two_enabled_false ____________________________\ntest_generated.py:20: in test_two_enabled_false\n    assert bonus(n=2, enabled=False) == 2\nE   assert 3 == 2\nE    +  where 3 = bonus(n=2, enabled=False)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_two_enabled_true\nPASSED test_generated.py::test_mutation_0473d9a7eced8496\nFAILED test_generated.py::test_zero_enabled_true - assert 1 == 0\nFAILED test_generated.py::test_one_enabled_true - assert 2 == 1\nFAILED test_generated.py::test_two_enabled_false - assert 3 == 2\n3 failed, 3 passed in 0.21s",
+    "duration_ms": 5698,
+    "stdout": ".FF.F.\n=================================== FAILURES ===================================\n____________________________ test_zero_enabled_true ____________________________\ntest_generated.py:11: in test_zero_enabled_true\n    assert bonus(n=0, enabled=True) == 0\nE   assert 1 == 0\nE    +  where 1 = bonus(n=0, enabled=True)\n____________________________ test_one_enabled_true _____________________________\ntest_generated.py:14: in test_one_enabled_true\n    assert bonus(n=1, enabled=True) == 1\nE   assert 2 == 1\nE    +  where 2 = bonus(n=1, enabled=True)\n____________________________ test_two_enabled_false ____________________________\ntest_generated.py:20: in test_two_enabled_false\n    assert bonus(n=2, enabled=False) == 2\nE   assert 3 == 2\nE    +  where 3 = bonus(n=2, enabled=False)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_two_enabled_true\nPASSED test_generated.py::test_mutation_0473d9a7eced8496\nFAILED test_generated.py::test_zero_enabled_true - assert 1 == 0\nFAILED test_generated.py::test_one_enabled_true - assert 2 == 1\nFAILED test_generated.py::test_two_enabled_false - assert 3 == 2\n3 failed, 3 passed in 0.21s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_zero_enabled_true",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 1 == 0\n +  where 1 = bonus(n=0, enabled=True)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_zero_enabled_true",
+            "source": "assert bonus(n=0, enabled=True) == 0"
+          }
+        ],
+        "assertion_diff": "assert 1 == 0\n +  where 1 = bonus(n=0, enabled=True)"
+      },
+      {
+        "nodeid": "test_generated.py::test_one_enabled_true",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 2 == 1\n +  where 2 = bonus(n=1, enabled=True)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 14,
+            "function": "test_one_enabled_true",
+            "source": "assert bonus(n=1, enabled=True) == 1"
+          }
+        ],
+        "assertion_diff": "assert 2 == 1\n +  where 2 = bonus(n=1, enabled=True)"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_false",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 3 == 2\n +  where 3 = bonus(n=2, enabled=False)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 20,
+            "function": "test_two_enabled_false",
+            "source": "assert bonus(n=2, enabled=False) == 2"
+          }
+        ],
+        "assertion_diff": "assert 3 == 2\n +  where 3 = bonus(n=2, enabled=False)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 3,
+    "total_branches": 4,
+    "branch_pct": 75.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "8e4ae12e-e6fc-4978-8953-c5a11dc60b16",
+    "started": "2026-11-27T08:33:13.556183+00:00",
+    "ended": "2026-11-27T08:33:19.254035+00:00",
+    "source_sha256": "fb03355a336b63592194fabb17842f19b66b429bd336a1311174b73de5f55878",
+    "test_sha256": "4cb269005d3772862a8ec8b82f278c0d905b307131055d160b68880b0ec6e421"
+  }
+}

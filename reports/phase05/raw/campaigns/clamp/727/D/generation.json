@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:30:15.616705+00:00",
+  "id": "05a24da7-e7a7-4c63-a707-a178bba2285e",
+  "parent": "d1126f1f-ea56-4110-b704-79f113285804",
+  "seconds": 12.609029299997928,
+  "artifact": {
+    "code": "from subject import cap\n\ndef test_example_1():\n    assert cap(12) == 10\n\ndef test_n_less_than_ceiling():\n    assert cap(5, 10) == 5\n\ndef test_n_equal_to_ceiling():\n    assert cap(10, 10) == 10\n\ndef test_n_greater_than_ceiling():\n    assert cap(15, 10) == 10\n\ndef test_boundary_n_zero_ceiling_positive():\n    assert cap(0, 2) == 0\n\ndef test_boundary_n_positive_ceiling_zero():\n    assert cap(2, 0) == 0\n\ndef test_boundary_n_zero_ceiling_zero():\n    assert cap(0, 0) == 0\n\ndef test_custom_ceiling():\n    assert cap(7, 5) == 5\n\ndef test_negative_n():\n    assert cap(-3, 10) == -3\n\ndef test_negative_ceiling():\n    assert cap(5, -1) == -1\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "no valid model candidates; replay initial suite"
+}

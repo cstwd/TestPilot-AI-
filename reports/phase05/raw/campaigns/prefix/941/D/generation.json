@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:37:19.078050+00:00",
+  "id": "22032b72-d963-44bd-a939-e51605c4263c",
+  "parent": "0f3393cc-a407-4fab-a642-8578071f0aaf",
+  "seconds": 0.0005831000016769394,
+  "artifact": {
+    "code": "from subject import prefix_length\n\ndef test_example_1():\n    assert prefix_length([4, None, 2]) == 1\n\ndef test_empty_list():\n    assert prefix_length([]) == 0\n\ndef test_no_none():\n    assert prefix_length([1]) == 1\n\ndef test_all_none():\n    assert prefix_length([None]) == 0\n\ndef test_none_at_start():\n    assert prefix_length([None, 1, 2]) == 0\n\ndef test_none_at_end():\n    assert prefix_length([1, 2, None]) == 2\n\ndef test_multiple_values_before_none():\n    assert prefix_length([1, 2, 3, None, 4]) == 3\n\ndef test_no_none_multiple_values():\n    assert prefix_length([1, 2, 3]) == 3\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "no surviving mutant; replay the complete manifest"
+}

@@ -1,0 +1,63 @@
+{
+  "id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+  "verdict": {
+    "status": "survived",
+    "reason": "相同测试节点运行通过",
+    "nodeids": []
+  },
+  "run": {
+    "status": "passed",
+    "passed": 5,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_enabled_true",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_one_enabled_true",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_true",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_enabled_false",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 0,
+    "covered_lines": 5,
+    "total_lines": 6,
+    "coverage_pct": 83.33,
+    "log": ".....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_zero_enabled_true\nPASSED test_generated.py::test_one_enabled_true\nPASSED test_generated.py::test_two_enabled_true\nPASSED test_generated.py::test_two_enabled_false\n5 passed in 0.10s",
+    "duration_ms": 6210,
+    "stdout": ".....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_zero_enabled_true\nPASSED test_generated.py::test_one_enabled_true\nPASSED test_generated.py::test_two_enabled_true\nPASSED test_generated.py::test_two_enabled_false\n5 passed in 0.10s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [],
+    "failure_details_omitted": 0,
+    "covered_branches": 3,
+    "total_branches": 4,
+    "branch_pct": 75.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "0dea0d7f-98eb-4432-a18a-5f28134880b0",
+    "started": "2026-11-27T08:28:11.273405+00:00",
+    "ended": "2026-11-27T08:28:17.483631+00:00",
+    "source_sha256": "04c0e2301f3901f176fa4538422aad7fe5b64ec009a81790a9e105946c9ddb39",
+    "test_sha256": "b61e0295f63c9ce06565ccb8ae377b01bbdba91adccfda75eada3c6a48d7adfb"
+  }
+}

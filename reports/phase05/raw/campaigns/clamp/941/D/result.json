@@ -1,0 +1,61 @@
+{
+  "name": "clamp",
+  "seed": 941,
+  "arm": "D",
+  "planned": 4,
+  "baseline": true,
+  "score": {
+    "killed": 3,
+    "survived": 1,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 4,
+    "equivalent_candidates": 0,
+    "score_pct": 75.0
+  },
+  "reason": "complete",
+  "outcomes": {
+    "aa7bca94-80c9-57b8-9ca1-7f72dd6fe5ed": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_n_less_than_ceiling",
+        "test_generated.py::test_n_positive_ceiling_zero",
+        "test_generated.py::test_n_zero_ceiling_positive",
+        "test_generated.py::test_negative_n"
+      ]
+    },
+    "bc12ab81-c58a-5136-a747-a462d1aab985": {
+      "status": "survived",
+      "reason": "相同测试节点运行通过",
+      "nodeids": []
+    },
+    "a371407c-4086-54d1-8642-dbf1a42297b9": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_example_1",
+        "test_generated.py::test_n_positive_ceiling_zero"
+      ]
+    },
+    "4bd7daa9-136d-5ec5-b80e-ba83e69f4245": {
+      "status": "killed",
+      "reason": "原始通过节点在变异副本上触发测试断言",
+      "nodeids": [
+        "test_generated.py::test_n_equal_ceiling_equal",
+        "test_generated.py::test_n_equal_to_ceiling",
+        "test_generated.py::test_n_less_than_ceiling",
+        "test_generated.py::test_n_zero_ceiling_positive",
+        "test_generated.py::test_negative_n"
+      ]
+    }
+  },
+  "id": "bd862716-9815-407b-9b9f-097ca0fd000a",
+  "generated": "c636d364-5086-4bb3-b611-2e8b68116aaf",
+  "test_sha256": "a602d02346a569361dc99e682b65339625a114173d47594e9f0a23647fa666b0",
+  "green_job": "cc7fd87c-f8cc-4ec8-8b55-6a28a7d4ac26",
+  "finished": "2026-11-27T08:40:05.615870+00:00"
+}

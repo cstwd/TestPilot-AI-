@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "passed": 4,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_one_item",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_eleven_items",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_twenty_one_items",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_one_item\nPASSED test_generated.py::test_eleven_items\nPASSED test_generated.py::test_twenty_one_items\n4 passed in 0.13s",
+  "duration_ms": 7022,
+  "stdout": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_one_item\nPASSED test_generated.py::test_eleven_items\nPASSED test_generated.py::test_twenty_one_items\n4 passed in 0.13s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "121a15d0-b20f-4635-a5ed-c468514635e5",
+  "started": "2026-11-27T08:40:22.194624+00:00",
+  "ended": "2026-11-27T08:40:29.217161+00:00",
+  "source_sha256": "1379dd26ef046cd5341c7e2a7fc476e7d64f25a5a56ab200fb2a7a024e32d0b5",
+  "test_sha256": "cdb64889e317442d8563c7543a61cec84fc8e95cbd2f9af4829eee8a8ca7370e"
+}

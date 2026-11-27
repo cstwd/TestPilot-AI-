@@ -1,0 +1,7 @@
+{
+  "code": "from subject import bonus\n\ndef test_example_1():\n    assert bonus(3) == 4\n\n\n\n\n\ndef test_zero_enabled_true():\n    assert bonus(n=0, enabled=True) == 0\n\ndef test_one_enabled_true():\n    assert bonus(n=1, enabled=True) == 1\n\ndef test_two_enabled_true():\n    assert bonus(n=2, enabled=True) == 3\n\ndef test_two_enabled_false():\n    assert bonus(n=2, enabled=False) == 2\n\n\ndef test_mutation_0473d9a7eced8496():\n    from subject import bonus\n    import pytest\n    with pytest.raises(ValueError):\n        bonus(-1, True)\n",
+  "accepted_names": [
+    "test_mutation_0473d9a7eced8496"
+  ],
+  "rejected_names": []
+}

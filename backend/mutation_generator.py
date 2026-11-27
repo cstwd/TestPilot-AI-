@@ -95,6 +95,10 @@ def make_plan(source, target):
                 while right_old > left and right_new > left and source[right_old-1] == mutated[right_new-1]:
                     right_old -= 1
                     right_new -= 1
+                if (name == "core/ReplaceComparisonOperator_Is_IsNot" and left > end
+                        and mutated == source[:end] + " not" + source[end:]):
+                    # The first space and even the start of the next name can match.
+                    left, right_old, right_new = end, end, end + len(" not")
                 if left > end or right_old < start:
                     raise ValueError("Cosmic Ray 的变异位置与清单不一致")
                 add(family, name, line, col+1, left, right_old, mutated[left:right_new],

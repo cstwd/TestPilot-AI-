@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-27T08:15:36.642376+00:00",
+  "pid": 43460,
+  "command": [
+    "D:\\生成式人工智能\\.runtime\\ollama\\ollama.EXE",
+    "serve"
+  ],
+  "cuda_backend": null
+}

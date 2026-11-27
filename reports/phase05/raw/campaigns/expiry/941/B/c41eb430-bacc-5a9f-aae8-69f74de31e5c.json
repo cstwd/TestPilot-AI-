@@ -1,0 +1,109 @@
+{
+  "id": "c41eb430-bacc-5a9f-aae8-69f74de31e5c",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_boundary_return_contract",
+      "test_generated.py::test_example_1",
+      "test_generated.py::test_normal_return_contract"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 1,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_invalid_keyword",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 2,
+    "total_lines": 2,
+    "coverage_pct": 100.0,
+    "log": "FFF.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(31) == True\nE   assert None == True\nE    +  where None = target(31)\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(age=2, limit=2), bool)\nE   assert False\nE    +  where False = isinstance(None, bool)\nE    +    where None = target(age=2, limit=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(age=0, limit=0), bool)\nE   assert False\nE    +  where False = isinstance(None, bool)\nE    +    where None = target(age=0, limit=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert None == True\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n3 failed, 1 passed in 0.20s",
+    "duration_ms": 5980,
+    "stdout": "FFF.\n=================================== FAILURES ===================================\n________________________________ test_example_1 ________________________________\ntest_generated.py:5: in test_example_1\n    assert target(31) == True\nE   assert None == True\nE    +  where None = target(31)\n_________________________ test_normal_return_contract __________________________\ntest_generated.py:8: in test_normal_return_contract\n    assert isinstance(target(age=2, limit=2), bool)\nE   assert False\nE    +  where False = isinstance(None, bool)\nE    +    where None = target(age=2, limit=2)\n________________________ test_boundary_return_contract _________________________\ntest_generated.py:11: in test_boundary_return_contract\n    assert isinstance(target(age=0, limit=0), bool)\nE   assert False\nE    +  where False = isinstance(None, bool)\nE    +    where None = target(age=0, limit=0)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_invalid_keyword\nFAILED test_generated.py::test_example_1 - assert None == True\nFAILED test_generated.py::test_normal_return_contract - assert False\nFAILED test_generated.py::test_boundary_return_contract - assert False\n3 failed, 1 passed in 0.20s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == True\n +  where None = target(31)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 5,
+            "function": "test_example_1",
+            "source": "assert target(31) == True"
+          }
+        ],
+        "assertion_diff": "assert None == True\n +  where None = target(31)"
+      },
+      {
+        "nodeid": "test_generated.py::test_normal_return_contract",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert False\n +  where False = isinstance(None, bool)\n +    where None = target(age=2, limit=2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 8,
+            "function": "test_normal_return_contract",
+            "source": "assert isinstance(target(age=2, limit=2), bool)"
+          }
+        ],
+        "assertion_diff": "assert False\n +  where False = isinstance(None, bool)\n +    where None = target(age=2, limit=2)"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_return_contract",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert False\n +  where False = isinstance(None, bool)\n +    where None = target(age=0, limit=0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 11,
+            "function": "test_boundary_return_contract",
+            "source": "assert isinstance(target(age=0, limit=0), bool)"
+          }
+        ],
+        "assertion_diff": "assert False\n +  where False = isinstance(None, bool)\n +    where None = target(age=0, limit=0)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "dc756b2a-e415-4d9d-b293-8d968d7e9960",
+    "started": "2026-11-27T08:20:38.818779+00:00",
+    "ended": "2026-11-27T08:20:44.799019+00:00",
+    "source_sha256": "30716665ebe04118357ef96b80104f476f4615433f3f1289bab4b88248a472ad",
+    "test_sha256": "b013e2a6f3b3b5555ef65f84e256ea1817c1d0bbd0cb06aaccf93ba347928729"
+  }
+}

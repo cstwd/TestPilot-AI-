@@ -1,0 +1,13 @@
+{
+  "name": "expiry",
+  "seed": 727,
+  "arm": "A",
+  "planned": 2,
+  "baseline": false,
+  "score": null,
+  "reason": "no validated suite from assigned generator",
+  "outcomes": {},
+  "id": "9ea653bf-8a71-4ae7-be47-a78f1e5827d4",
+  "generated": "88dcfa41-868a-4e94-ae5d-be80cbbffbfe",
+  "finished": "2026-11-27T08:22:07.169303+00:00"
+}

@@ -1,0 +1,11 @@
+{
+  "at": "2026-11-27T08:25:10.696267+00:00",
+  "id": "f8852afd-8df8-46a1-9378-e9c39baf179a",
+  "parent": "d19edbba-7159-4fba-9619-19bc9d4d6437",
+  "seconds": 0.0006098000012570992,
+  "artifact": {
+    "code": "from subject import prefix_length\n\ndef test_example_1():\n    assert prefix_length([4, None, 2]) == 1\n\ndef test_empty_list():\n    assert prefix_length([]) == 0\n\ndef test_no_none():\n    assert prefix_length([1]) == 1\n\ndef test_all_none():\n    assert prefix_length([None]) == 0\n\ndef test_none_at_end():\n    assert prefix_length([1, 2, None]) == 2\n\ndef test_multiple_nones():\n    assert prefix_length([1, None, None, 2]) == 1\n",
+    "mode": "paired-feedback"
+  },
+  "reason": "no surviving mutant; replay the complete manifest"
+}

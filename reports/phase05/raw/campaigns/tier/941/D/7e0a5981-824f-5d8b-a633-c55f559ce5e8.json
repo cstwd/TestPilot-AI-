@@ -1,0 +1,129 @@
+{
+  "id": "7e0a5981-824f-5d8b-a633-c55f559ce5e8",
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_boundary_basic_upper",
+      "test_generated.py::test_boundary_zero",
+      "test_generated.py::test_negative_points"
+    ]
+  },
+  "run": {
+    "status": "failed",
+    "passed": 6,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_example_1",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_gold_lower",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_gold_above",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_silver_upper",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_silver_lower",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_silver_above",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_basic_upper",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_zero",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_points",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 6,
+    "total_lines": 6,
+    "coverage_pct": 100.0,
+    "log": "......FFF\n=================================== FAILURES ===================================\n__________________________ test_boundary_basic_upper ___________________________\ntest_generated.py:22: in test_boundary_basic_upper\n    assert tier(49) == 'basic'\nE   AssertionError: assert None == 'basic'\nE    +  where None = tier(49)\n______________________________ test_boundary_zero ______________________________\ntest_generated.py:25: in test_boundary_zero\n    assert tier(0) == 'basic'\nE   AssertionError: assert None == 'basic'\nE    +  where None = tier(0)\n_____________________________ test_negative_points _____________________________\ntest_generated.py:28: in test_negative_points\n    assert tier(-1) == 'basic'\nE   AssertionError: assert None == 'basic'\nE    +  where None = tier(-1)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_gold_lower\nPASSED test_generated.py::test_boundary_gold_above\nPASSED test_generated.py::test_boundary_silver_upper\nPASSED test_generated.py::test_boundary_silver_lower\nPASSED test_generated.py::test_boundary_silver_above\nFAILED test_generated.py::test_boundary_basic_upper - AssertionError: assert ...\nFAILED test_generated.py::test_boundary_zero - AssertionError: assert None ==...\nFAILED test_generated.py::test_negative_points - AssertionError: assert None ...\n3 failed, 6 passed in 0.23s",
+    "duration_ms": 5545,
+    "stdout": "......FFF\n=================================== FAILURES ===================================\n__________________________ test_boundary_basic_upper ___________________________\ntest_generated.py:22: in test_boundary_basic_upper\n    assert tier(49) == 'basic'\nE   AssertionError: assert None == 'basic'\nE    +  where None = tier(49)\n______________________________ test_boundary_zero ______________________________\ntest_generated.py:25: in test_boundary_zero\n    assert tier(0) == 'basic'\nE   AssertionError: assert None == 'basic'\nE    +  where None = tier(0)\n_____________________________ test_negative_points _____________________________\ntest_generated.py:28: in test_negative_points\n    assert tier(-1) == 'basic'\nE   AssertionError: assert None == 'basic'\nE    +  where None = tier(-1)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_boundary_gold_lower\nPASSED test_generated.py::test_boundary_gold_above\nPASSED test_generated.py::test_boundary_silver_upper\nPASSED test_generated.py::test_boundary_silver_lower\nPASSED test_generated.py::test_boundary_silver_above\nFAILED test_generated.py::test_boundary_basic_upper - AssertionError: assert ...\nFAILED test_generated.py::test_boundary_zero - AssertionError: assert None ==...\nFAILED test_generated.py::test_negative_points - AssertionError: assert None ...\n3 failed, 6 passed in 0.23s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_boundary_basic_upper",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'basic'\n +  where None = tier(49)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 22,
+            "function": "test_boundary_basic_upper",
+            "source": "assert tier(49) == 'basic'"
+          }
+        ],
+        "assertion_diff": "assert None == 'basic'\n +  where None = tier(49)"
+      },
+      {
+        "nodeid": "test_generated.py::test_boundary_zero",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'basic'\n +  where None = tier(0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 25,
+            "function": "test_boundary_zero",
+            "source": "assert tier(0) == 'basic'"
+          }
+        ],
+        "assertion_diff": "assert None == 'basic'\n +  where None = tier(0)"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_points",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'basic'\n +  where None = tier(-1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 28,
+            "function": "test_negative_points",
+            "source": "assert tier(-1) == 'basic'"
+          }
+        ],
+        "assertion_diff": "assert None == 'basic'\n +  where None = tier(-1)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "37ce7fdd-b088-436b-8dee-061885f08e22",
+    "started": "2026-11-27T08:41:16.799176+00:00",
+    "ended": "2026-11-27T08:41:22.344040+00:00",
+    "source_sha256": "1860a92251988a5e7f002f6c19ee0668984d048df10225874341b289a11f6e90",
+    "test_sha256": "26150bed4028aaf98cd618ad751c7bed731378e118eb7b71010814af1e7e2c60"
+  }
+}

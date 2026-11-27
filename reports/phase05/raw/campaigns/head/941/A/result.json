@@ -1,0 +1,13 @@
+{
+  "name": "head",
+  "seed": 941,
+  "arm": "A",
+  "planned": 3,
+  "baseline": false,
+  "score": null,
+  "reason": "no validated suite from assigned generator",
+  "outcomes": {},
+  "id": "20560f42-16b3-4efb-80e2-e95db52caad5",
+  "generated": "7b895548-ce0a-4b96-8281-241fb62366c2",
+  "finished": "2026-11-27T08:22:25.699150+00:00"
+}

@@ -1,0 +1,75 @@
+{
+  "status": "passed",
+  "passed": 10,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_expired_example",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_expired_at_limit",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_expired_below_limit",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_expired_above_limit",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_expired_custom_limit_at_limit",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_expired_custom_limit_above",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_expired_zero_age_zero_limit",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_expired_zero_age_positive_limit",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_expired_positive_age_zero_limit",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_expired_negative_age",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 2,
+  "total_lines": 2,
+  "coverage_pct": 100.0,
+  "log": "..........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_expired_example\nPASSED test_generated.py::test_expired_at_limit\nPASSED test_generated.py::test_expired_below_limit\nPASSED test_generated.py::test_expired_above_limit\nPASSED test_generated.py::test_expired_custom_limit_at_limit\nPASSED test_generated.py::test_expired_custom_limit_above\nPASSED test_generated.py::test_expired_zero_age_zero_limit\nPASSED test_generated.py::test_expired_zero_age_positive_limit\nPASSED test_generated.py::test_expired_positive_age_zero_limit\nPASSED test_generated.py::test_expired_negative_age\n10 passed in 0.16s",
+  "duration_ms": 5597,
+  "stdout": "..........\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_expired_example\nPASSED test_generated.py::test_expired_at_limit\nPASSED test_generated.py::test_expired_below_limit\nPASSED test_generated.py::test_expired_above_limit\nPASSED test_generated.py::test_expired_custom_limit_at_limit\nPASSED test_generated.py::test_expired_custom_limit_above\nPASSED test_generated.py::test_expired_zero_age_zero_limit\nPASSED test_generated.py::test_expired_zero_age_positive_limit\nPASSED test_generated.py::test_expired_positive_age_zero_limit\nPASSED test_generated.py::test_expired_negative_age\n10 passed in 0.16s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "47c8bc8f-c24c-48d4-b215-2e3ff542f950",
+  "started": "2026-11-27T08:36:17.235097+00:00",
+  "ended": "2026-11-27T08:36:22.832516+00:00",
+  "source_sha256": "fc3801b4ae2db4b3941f139593312f1125035aa39872a62f92d0b4caa0b86855",
+  "test_sha256": "f7e4f0bd473067ab171cfe1824f4830ad30180659d821c79ed04400d22db6a33"
+}

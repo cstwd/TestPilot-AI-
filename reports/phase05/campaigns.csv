@@ -1,0 +1,121 @@
+﻿arm,project,seed,planned,baseline,mode,model_requests,responses,generation_s,test_sha256,reason,feedback_reason,proposal_count,accepted_count,trial_passed,trial_failed,trial_errors,executions,complete_jobs,killed,survived,timeout,execution_error,equivalent_candidates,noscored,score_pct
+A,bonus,513,9,False,ai,2,2,36.67773170000146,,original rejected candidate suite,,0,0,0,1,0,1,1,0,0,0,0,0,9,
+A,bonus,727,9,False,template,2,2,4.302305299999716,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,9,
+A,bonus,941,9,False,template,2,2,0.6828903000023274,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,9,
+A,freight,513,2,False,template,2,2,0.7969639999973879,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,2,
+A,freight,727,2,False,template,2,2,4.3050389000018185,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,2,
+A,freight,941,2,False,template,2,2,0.38897699999870383,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,2,
+A,clamp,513,4,False,template,2,2,4.295523900000262,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,4,
+A,clamp,727,4,False,ai,1,1,0.9364854999985255,,original rejected candidate suite,,0,0,0,1,0,1,1,0,0,0,0,0,4,
+A,clamp,941,4,False,template,2,2,4.253197099998943,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,4,
+A,expiry,513,2,False,ai,1,1,1.4339651000009326,,original rejected candidate suite,,0,0,0,1,0,1,1,0,0,0,0,0,2,
+A,expiry,727,2,False,template,2,2,4.208412699998007,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,2,
+A,expiry,941,2,False,template,2,2,4.309684500000003,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,2,
+A,tax,513,3,False,template,2,2,2.064981200001057,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+A,tax,727,3,False,template,2,2,0.802921200000128,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+A,tax,941,3,False,template,2,2,4.2609632999992755,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+A,prefix,513,3,False,template,2,2,4.390535399998043,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+A,prefix,727,3,False,ai,2,2,0.7269412999994529,,original rejected candidate suite,,0,0,0,1,0,1,1,0,0,0,0,0,3,
+A,prefix,941,3,False,template,2,2,1.1243687999995018,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+A,pages,513,3,False,template,2,2,2.1309217999987595,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+A,pages,727,3,False,template,2,2,4.280494200000248,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+A,pages,941,3,False,template,2,2,1.0015846000023885,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+A,tier,513,7,False,template,2,2,12.48978039999929,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,7,
+A,tier,727,7,False,template,2,2,4.343459299998358,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,7,
+A,tier,941,7,False,template,2,2,4.343524600000819,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,7,
+A,head,513,3,False,template,2,2,4.266714800000045,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+A,head,727,3,False,ai,1,1,1.2987786999983655,,original rejected candidate suite,,0,0,0,1,0,1,1,0,0,0,0,0,3,
+A,head,941,3,False,template,2,2,2.6495749999994587,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+A,invoice,513,3,False,template,2,2,4.335274299999583,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+A,invoice,727,3,False,template,2,2,4.2676131000007445,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+A,invoice,941,3,False,template,2,2,4.422893499999191,,no validated suite from assigned generator,,0,0,,,,0,0,0,0,0,0,0,3,
+B,bonus,513,9,True,template,0,0,0.0011752999998861924,d90aecfce2fb6cef5a077380253ef77dfa1ebfaf72775ac3a14537f119c430e1,complete,,0,0,4,0,0,10,10,4,3,0,2,0,0,44.44
+B,bonus,727,9,True,template,0,0,0.0011033999981009401,d90aecfce2fb6cef5a077380253ef77dfa1ebfaf72775ac3a14537f119c430e1,complete,,0,0,4,0,0,10,10,4,3,0,2,0,0,44.44
+B,bonus,941,9,True,template,0,0,0.0010823000011441763,d90aecfce2fb6cef5a077380253ef77dfa1ebfaf72775ac3a14537f119c430e1,complete,,0,0,4,0,0,10,10,4,3,0,2,0,0,44.44
+B,freight,513,2,True,template,0,0,0.0014020999988133553,1ef6205cd9e0f820fe275487cfdca48bc524e48e04b6a3a4b44b5ca0c2a8cd77,complete,,0,0,4,0,0,3,3,2,0,0,0,0,0,100.0
+B,freight,727,2,True,template,0,0,0.0014676999999210238,1ef6205cd9e0f820fe275487cfdca48bc524e48e04b6a3a4b44b5ca0c2a8cd77,complete,,0,0,4,0,0,3,3,2,0,0,0,0,0,100.0
+B,freight,941,2,True,template,0,0,0.0012511999993876088,1ef6205cd9e0f820fe275487cfdca48bc524e48e04b6a3a4b44b5ca0c2a8cd77,complete,,0,0,4,0,0,3,3,2,0,0,0,0,0,100.0
+B,clamp,513,4,True,template,0,0,0.0010503999983484391,29dbf6a2fd18b95a02c2bb1847004719f5792376a96488fb39d52576925532e5,complete,,0,0,4,0,0,5,5,3,1,0,0,0,0,75.0
+B,clamp,727,4,True,template,0,0,0.0010125999979209155,29dbf6a2fd18b95a02c2bb1847004719f5792376a96488fb39d52576925532e5,complete,,0,0,4,0,0,5,5,3,1,0,0,0,0,75.0
+B,clamp,941,4,True,template,0,0,0.001021999996737577,29dbf6a2fd18b95a02c2bb1847004719f5792376a96488fb39d52576925532e5,complete,,0,0,4,0,0,5,5,3,1,0,0,0,0,75.0
+B,expiry,513,2,True,template,0,0,0.001357199998892611,b013e2a6f3b3b5555ef65f84e256ea1817c1d0bbd0cb06aaccf93ba347928729,complete,,0,0,4,0,0,3,3,1,1,0,0,0,0,50.0
+B,expiry,727,2,True,template,0,0,0.0009948999977495987,b013e2a6f3b3b5555ef65f84e256ea1817c1d0bbd0cb06aaccf93ba347928729,complete,,0,0,4,0,0,3,3,1,1,0,0,0,0,50.0
+B,expiry,941,2,True,template,0,0,0.001028700000460958,b013e2a6f3b3b5555ef65f84e256ea1817c1d0bbd0cb06aaccf93ba347928729,complete,,0,0,4,0,0,3,3,1,1,0,0,0,0,50.0
+B,tax,513,3,True,template,0,0,0.0029966000001877546,66dcbd743f3eade9bdef075b809538e1f5ed74cf57282fefbd2ea2fd0b659c61,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+B,tax,727,3,True,template,0,0,0.0012841999996453524,66dcbd743f3eade9bdef075b809538e1f5ed74cf57282fefbd2ea2fd0b659c61,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+B,tax,941,3,True,template,0,0,0.0012953000004927162,66dcbd743f3eade9bdef075b809538e1f5ed74cf57282fefbd2ea2fd0b659c61,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+B,prefix,513,3,True,template,0,0,0.002091199999995297,1aa07ac4f6b5e2f7c8bf8fed0f2f216f6df8471d3ea784f4a649fb28251d7756,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+B,prefix,727,3,True,template,0,0,0.0010374999983469024,1aa07ac4f6b5e2f7c8bf8fed0f2f216f6df8471d3ea784f4a649fb28251d7756,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+B,prefix,941,3,True,template,0,0,0.001055699998687487,1aa07ac4f6b5e2f7c8bf8fed0f2f216f6df8471d3ea784f4a649fb28251d7756,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+B,pages,513,3,True,template,0,0,0.0026307999978598673,1eda5033af52bd976e1c0c87d066358d99560f131ab6fa11ef9e26c036a761a6,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+B,pages,727,3,True,template,0,0,0.0017253999976674095,1eda5033af52bd976e1c0c87d066358d99560f131ab6fa11ef9e26c036a761a6,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+B,pages,941,3,True,template,0,0,0.0014527000021189451,1eda5033af52bd976e1c0c87d066358d99560f131ab6fa11ef9e26c036a761a6,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+B,tier,513,7,True,template,0,0,0.0019958000011683907,bb66f6df1f6f453ec235115d8175b449146146bc3e4f0e5d2fcbd0f41f16acb5,complete,,0,0,4,0,0,8,8,3,4,0,0,0,0,42.86
+B,tier,727,7,True,template,0,0,0.0018013000008068047,bb66f6df1f6f453ec235115d8175b449146146bc3e4f0e5d2fcbd0f41f16acb5,complete,,0,0,4,0,0,8,8,3,4,0,0,0,0,42.86
+B,tier,941,7,True,template,0,0,0.0013293000010889955,bb66f6df1f6f453ec235115d8175b449146146bc3e4f0e5d2fcbd0f41f16acb5,complete,,0,0,4,0,0,8,8,3,4,0,0,0,0,42.86
+B,head,513,3,True,template,0,0,0.0019961999969382305,4100bf896f96237cec631bc0628fcf75750e384d40c750d9aba18f6f0a8589da,complete,,0,0,4,0,0,4,4,2,0,0,1,0,0,66.67
+B,head,727,3,True,template,0,0,0.0010058000007120427,4100bf896f96237cec631bc0628fcf75750e384d40c750d9aba18f6f0a8589da,complete,,0,0,4,0,0,4,4,2,0,0,1,0,0,66.67
+B,head,941,3,True,template,0,0,0.0012514000009105075,4100bf896f96237cec631bc0628fcf75750e384d40c750d9aba18f6f0a8589da,complete,,0,0,4,0,0,4,4,2,0,0,1,0,0,66.67
+B,invoice,513,3,True,template,0,0,0.001280399999814108,3666ae13f018fbcf3331947e1f9bd6e9b38a8728c24e70ed6113b3aa91fc8fb2,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+B,invoice,727,3,True,template,0,0,0.0012963999979547225,3666ae13f018fbcf3331947e1f9bd6e9b38a8728c24e70ed6113b3aa91fc8fb2,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+B,invoice,941,3,True,template,0,0,0.001184199998533586,3666ae13f018fbcf3331947e1f9bd6e9b38a8728c24e70ed6113b3aa91fc8fb2,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+C,bonus,513,9,True,ai,1,1,34.23203099999955,78603e9eafba27c4269b13123ce6693c83320030a90a2ae06c928ae6990cefd0,complete,,0,0,12,0,0,10,10,7,0,0,2,0,0,77.78
+C,bonus,727,9,True,ai,1,1,6.040415299998131,b61e0295f63c9ce06565ccb8ae377b01bbdba91adccfda75eada3c6a48d7adfb,complete,,0,0,5,1,0,11,11,6,1,0,2,0,0,66.67
+C,bonus,941,9,True,ai,1,1,9.254911100000754,43729929a773be4bf3cff0e84a69f3c4e6ffad48d179ef9e9a8aae6484a9b0b6,complete,,0,0,9,0,0,10,10,7,0,0,2,0,0,77.78
+C,freight,513,2,True,ai,1,1,19.4715185999994,de4c6f06be1090d3d4fe8ff57e5c04a2e92cabebe17eb7875b261bd6b0d7902f,complete,,0,0,3,0,0,3,3,2,0,0,0,0,0,100.0
+C,freight,727,2,True,ai,1,1,3.4250414999987697,de4c6f06be1090d3d4fe8ff57e5c04a2e92cabebe17eb7875b261bd6b0d7902f,complete,,0,0,3,0,0,3,3,2,0,0,0,0,0,100.0
+C,freight,941,2,True,ai,1,1,3.278633699999773,de4c6f06be1090d3d4fe8ff57e5c04a2e92cabebe17eb7875b261bd6b0d7902f,complete,,0,0,3,0,0,3,3,2,0,0,0,0,0,100.0
+C,clamp,513,4,True,ai,1,1,15.608740799998486,d71972bf89ff58f54debc5d626cf751a4d977cb271fe9f4cdd9a201076c84a42,complete,,0,0,8,0,0,5,5,3,1,0,0,0,0,75.0
+C,clamp,727,4,True,ai,1,1,9.944724099997984,900a3e4d11a3303f98dfec92608d1bd9feedd44c250b1d69bdc45021f10a097b,complete,,0,0,10,0,0,5,5,3,1,0,0,0,0,75.0
+C,clamp,941,4,True,ai,1,1,7.823429299998679,a602d02346a569361dc99e682b65339625a114173d47594e9f0a23647fa666b0,complete,,0,0,7,0,0,5,5,3,1,0,0,0,0,75.0
+C,expiry,513,2,True,ai,1,1,15.366105299999617,25b5d1f1d2448540d5fc0fe98fd04bcec76ebe702b01d212637a26b75b0fb836,complete,,0,0,10,0,0,3,3,2,0,0,0,0,0,100.0
+C,expiry,727,2,True,ai,1,1,9.141324799998984,e6c596c14acb8a46a228f5572232ccc6277e84f8f3322052d0541a560c68aec7,complete,,0,0,10,0,0,3,3,2,0,0,0,0,0,100.0
+C,expiry,941,2,True,ai,1,1,9.803521900001215,f7e4f0bd473067ab171cfe1824f4830ad30180659d821c79ed04400d22db6a33,complete,,0,0,10,1,0,4,4,2,0,0,0,0,0,100.0
+C,tax,513,3,True,ai,1,1,10.590830999997706,cb943876eee6f9d24d8c2bb8e8c3c63a754d1c10f5a6b83dd68895087c0028a6,complete,,0,0,2,1,0,5,5,3,0,0,0,0,0,100.0
+C,tax,727,3,True,ai,1,1,3.4412698000014643,cb943876eee6f9d24d8c2bb8e8c3c63a754d1c10f5a6b83dd68895087c0028a6,complete,,0,0,2,1,0,5,5,3,0,0,0,0,0,100.0
+C,tax,941,3,True,ai,1,1,2.682283100002678,2057dbbb1ca94768f66274d0cfcf9d3ad9fd5f0f702250a708c4178461f98126,complete,,0,0,2,0,0,4,4,3,0,0,0,0,0,100.0
+C,prefix,513,3,True,ai,1,1,12.214614500000607,e430979fe8b4abc5161ea05f5031fbb5d4fff91a50033e4fd237a327fdfdbd9d,complete,,0,0,6,0,0,4,4,3,0,0,0,0,0,100.0
+C,prefix,727,3,True,ai,1,1,7.639947499999835,ecfd9b277add80ac362dc277682ac117c31d349e33af09f8edb6be1f64627120,complete,,0,0,7,0,0,4,4,3,0,0,0,0,0,100.0
+C,prefix,941,3,True,ai,1,1,8.565634200000204,b02ed577c48dc939ca6bfa7ba3ca7bebb48bad212aa3b1a83922b6b1253519f5,complete,,0,0,8,0,0,4,4,3,0,0,0,0,0,100.0
+C,pages,513,3,True,ai,1,1,9.248381800000061,4edc9dbf2df00bd28127f7cd6fb910f2485068e9bd8e0400bed7273cae67e899,complete,,0,0,1,1,0,5,5,3,0,0,0,0,0,100.0
+C,pages,727,3,True,ai,1,1,6.559042200002295,0fbb8603478f9b769723613aea3dbebbde773dcc3db2c816a32f75290cde855d,complete,,0,0,4,3,0,5,5,3,0,0,0,0,0,100.0
+C,pages,941,3,True,ai,1,1,6.718428299998777,cdb64889e317442d8563c7543a61cec84fc8e95cbd2f9af4829eee8a8ca7370e,complete,,0,0,4,3,0,5,5,3,0,0,0,0,0,100.0
+C,tier,513,7,True,ai,1,1,15.981284000001324,2d522493e5f00807bbff37c106a57cfc4031065f565a1c315fdab9c40d6aac21,complete,,0,0,8,0,0,8,8,7,0,0,0,0,0,100.0
+C,tier,727,7,True,ai,1,1,8.438114200002019,f0151d3bd6305b5a61d19230321cc2bdd52be9ce3792d9f3a6f6e461277d6ffd,complete,,0,0,8,1,0,9,9,7,0,0,0,0,0,100.0
+C,tier,941,7,True,ai,1,1,8.544648999999481,26150bed4028aaf98cd618ad751c7bed731378e118eb7b71010814af1e7e2c60,complete,,0,0,9,0,0,8,8,7,0,0,0,0,0,100.0
+C,head,513,3,True,ai,1,1,13.708362199999101,a50235d682f92db7212b9015f442dbbb0e846af44fcd940d4a014f8279716e65,complete,,0,0,5,0,0,4,4,2,0,0,1,0,0,66.67
+C,head,727,3,True,ai,1,1,5.653108599999541,b11fa39d2e001f3ba80990937da2b9466c064f09c7f00dbdd87763a7148b233e,complete,,0,0,5,0,0,4,4,2,0,0,1,0,0,66.67
+C,head,941,3,True,ai,1,1,5.001556299997901,8f6232cedb9a4c22b77702000389f63ca9a037302d7fbb5339ebb493ac79d1dc,complete,,0,0,5,0,0,4,4,2,0,0,1,0,0,66.67
+C,invoice,513,3,True,ai,1,1,11.438142500002868,d7cfa60b328beec8975f4d4b0e03d02bda620b1b8633eeac9b87b2df3393d2bc,complete,,0,0,9,0,0,4,4,3,0,0,0,0,0,100.0
+C,invoice,727,3,True,ai,1,1,10.645409099997778,673964b6dbb63ac235704a9a4d09a0e509a69920211769aec86aef754f44ff83,complete,,0,0,9,0,0,4,4,3,0,0,0,0,0,100.0
+C,invoice,941,3,True,ai,1,1,5.108436300000903,2b8bd93d20234daf2afdfddb8cfe587dd70b18dfc638a6ea2a650a568fc41404,complete,,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+D,bonus,513,9,True,paired-feedback,0,0,0.0005391999984567519,78603e9eafba27c4269b13123ce6693c83320030a90a2ae06c928ae6990cefd0,complete,no surviving mutant; replay the complete manifest,0,0,12,0,0,10,10,7,0,0,2,0,0,77.78
+D,bonus,727,9,True,paired-feedback,1,1,21.0120831000022,4cb269005d3772862a8ec8b82f278c0d905b307131055d160b68880b0ec6e421,complete,original calibration completed; replay full manifest,1,1,6,0,0,11,11,7,0,0,2,0,0,77.78
+D,bonus,941,9,True,paired-feedback,0,0,0.001219699999637669,43729929a773be4bf3cff0e84a69f3c4e6ffad48d179ef9e9a8aae6484a9b0b6,complete,no surviving mutant; replay the complete manifest,0,0,9,0,0,10,10,7,0,0,2,0,0,77.78
+D,freight,513,2,True,paired-feedback,0,0,0.0008777999973972328,de4c6f06be1090d3d4fe8ff57e5c04a2e92cabebe17eb7875b261bd6b0d7902f,complete,no surviving mutant; replay the complete manifest,0,0,3,0,0,3,3,2,0,0,0,0,0,100.0
+D,freight,727,2,True,paired-feedback,0,0,0.0012179000004834961,de4c6f06be1090d3d4fe8ff57e5c04a2e92cabebe17eb7875b261bd6b0d7902f,complete,no surviving mutant; replay the complete manifest,0,0,3,0,0,3,3,2,0,0,0,0,0,100.0
+D,freight,941,2,True,paired-feedback,0,0,0.0007862999991630204,de4c6f06be1090d3d4fe8ff57e5c04a2e92cabebe17eb7875b261bd6b0d7902f,complete,no surviving mutant; replay the complete manifest,0,0,3,0,0,3,3,2,0,0,0,0,0,100.0
+D,clamp,513,4,True,paired-feedback,1,1,12.392165199998999,d71972bf89ff58f54debc5d626cf751a4d977cb271fe9f4cdd9a201076c84a42,complete,no valid model candidates; replay initial suite,0,0,8,0,0,5,5,3,1,0,0,0,0,75.0
+D,clamp,727,4,True,paired-feedback,1,1,12.609029299997928,900a3e4d11a3303f98dfec92608d1bd9feedd44c250b1d69bdc45021f10a097b,complete,no valid model candidates; replay initial suite,0,0,10,0,0,5,5,3,1,0,0,0,0,75.0
+D,clamp,941,4,True,paired-feedback,1,1,12.181183799999417,a602d02346a569361dc99e682b65339625a114173d47594e9f0a23647fa666b0,complete,no valid model candidates; replay initial suite,0,0,7,0,0,5,5,3,1,0,0,0,0,75.0
+D,expiry,513,2,True,paired-feedback,0,0,0.0005792999982077163,25b5d1f1d2448540d5fc0fe98fd04bcec76ebe702b01d212637a26b75b0fb836,complete,no surviving mutant; replay the complete manifest,0,0,10,0,0,3,3,2,0,0,0,0,0,100.0
+D,expiry,727,2,True,paired-feedback,0,0,0.0009651999971538316,e6c596c14acb8a46a228f5572232ccc6277e84f8f3322052d0541a560c68aec7,complete,no surviving mutant; replay the complete manifest,0,0,10,0,0,3,3,2,0,0,0,0,0,100.0
+D,expiry,941,2,True,paired-feedback,0,0,0.0008130999995046295,f7e4f0bd473067ab171cfe1824f4830ad30180659d821c79ed04400d22db6a33,complete,no surviving mutant; replay the complete manifest,0,0,10,0,0,3,3,2,0,0,0,0,0,100.0
+D,tax,513,3,True,paired-feedback,0,0,0.0005942999996477738,cb943876eee6f9d24d8c2bb8e8c3c63a754d1c10f5a6b83dd68895087c0028a6,complete,no surviving mutant; replay the complete manifest,0,0,2,0,0,4,4,3,0,0,0,0,0,100.0
+D,tax,727,3,True,paired-feedback,0,0,0.0017625000000407454,cb943876eee6f9d24d8c2bb8e8c3c63a754d1c10f5a6b83dd68895087c0028a6,complete,no surviving mutant; replay the complete manifest,0,0,2,0,0,4,4,3,0,0,0,0,0,100.0
+D,tax,941,3,True,paired-feedback,0,0,0.0006857999978819862,2057dbbb1ca94768f66274d0cfcf9d3ad9fd5f0f702250a708c4178461f98126,complete,no surviving mutant; replay the complete manifest,0,0,2,0,0,4,4,3,0,0,0,0,0,100.0
+D,prefix,513,3,True,paired-feedback,0,0,0.0006098000012570992,e430979fe8b4abc5161ea05f5031fbb5d4fff91a50033e4fd237a327fdfdbd9d,complete,no surviving mutant; replay the complete manifest,0,0,6,0,0,4,4,3,0,0,0,0,0,100.0
+D,prefix,727,3,True,paired-feedback,0,0,0.000903600001038285,ecfd9b277add80ac362dc277682ac117c31d349e33af09f8edb6be1f64627120,complete,no surviving mutant; replay the complete manifest,0,0,7,0,0,4,4,3,0,0,0,0,0,100.0
+D,prefix,941,3,True,paired-feedback,0,0,0.0005831000016769394,b02ed577c48dc939ca6bfa7ba3ca7bebb48bad212aa3b1a83922b6b1253519f5,complete,no surviving mutant; replay the complete manifest,0,0,8,0,0,4,4,3,0,0,0,0,0,100.0
+D,pages,513,3,True,paired-feedback,0,0,0.0012600999980350025,4edc9dbf2df00bd28127f7cd6fb910f2485068e9bd8e0400bed7273cae67e899,complete,no surviving mutant; replay the complete manifest,0,0,1,0,0,4,4,3,0,0,0,0,0,100.0
+D,pages,727,3,True,paired-feedback,0,0,0.0012042000016663224,0fbb8603478f9b769723613aea3dbebbde773dcc3db2c816a32f75290cde855d,complete,no surviving mutant; replay the complete manifest,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+D,pages,941,3,True,paired-feedback,0,0,0.0016751000002841465,cdb64889e317442d8563c7543a61cec84fc8e95cbd2f9af4829eee8a8ca7370e,complete,no surviving mutant; replay the complete manifest,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
+D,tier,513,7,True,paired-feedback,0,0,0.0009762999980011955,2d522493e5f00807bbff37c106a57cfc4031065f565a1c315fdab9c40d6aac21,complete,no surviving mutant; replay the complete manifest,0,0,8,0,0,8,8,7,0,0,0,0,0,100.0
+D,tier,727,7,True,paired-feedback,0,0,0.010630000000674045,f0151d3bd6305b5a61d19230321cc2bdd52be9ce3792d9f3a6f6e461277d6ffd,complete,no surviving mutant; replay the complete manifest,0,0,8,0,0,8,8,7,0,0,0,0,0,100.0
+D,tier,941,7,True,paired-feedback,0,0,0.0013852000010956544,26150bed4028aaf98cd618ad751c7bed731378e118eb7b71010814af1e7e2c60,complete,no surviving mutant; replay the complete manifest,0,0,9,0,0,8,8,7,0,0,0,0,0,100.0
+D,head,513,3,True,paired-feedback,0,0,0.0007803000007697847,a50235d682f92db7212b9015f442dbbb0e846af44fcd940d4a014f8279716e65,complete,no surviving mutant; replay the complete manifest,0,0,5,0,0,4,4,2,0,0,1,0,0,66.67
+D,head,727,3,True,paired-feedback,0,0,0.0012521999997261446,b11fa39d2e001f3ba80990937da2b9466c064f09c7f00dbdd87763a7148b233e,complete,no surviving mutant; replay the complete manifest,0,0,5,0,0,4,4,2,0,0,1,0,0,66.67
+D,head,941,3,True,paired-feedback,0,0,0.0013475999985530507,8f6232cedb9a4c22b77702000389f63ca9a037302d7fbb5339ebb493ac79d1dc,complete,no surviving mutant; replay the complete manifest,0,0,5,0,0,4,4,2,0,0,1,0,0,66.67
+D,invoice,513,3,True,paired-feedback,0,0,0.0007889000007708091,d7cfa60b328beec8975f4d4b0e03d02bda620b1b8633eeac9b87b2df3393d2bc,complete,no surviving mutant; replay the complete manifest,0,0,9,0,0,4,4,3,0,0,0,0,0,100.0
+D,invoice,727,3,True,paired-feedback,0,0,0.0012647000003198627,673964b6dbb63ac235704a9a4d09a0e509a69920211769aec86aef754f44ff83,complete,no surviving mutant; replay the complete manifest,0,0,9,0,0,4,4,3,0,0,0,0,0,100.0
+D,invoice,941,3,True,paired-feedback,0,0,0.0011745999981940258,2b8bd93d20234daf2afdfddb8cfe587dd70b18dfc638a6ea2a650a568fc41404,complete,no surviving mutant; replay the complete manifest,0,0,4,0,0,4,4,3,0,0,0,0,0,100.0
