@@ -2,7 +2,7 @@
 """Adjudicate frozen AI suites offline after all product requests finish."""
 import argparse
 import ast
-from collections import defaultdict
+from collections import Counter, defaultdict
 from datetime import datetime, timezone
 import hashlib
 import json
@@ -56,10 +56,20 @@ def test_names(code, target, witnesses, executed):
             function_names.update(alias.asname or alias.name for alias in node.names if alias.name == target)
         if isinstance(node, ast.Import):
             module_names.update(alias.asname or alias.name for alias in node.names if alias.name == "subject")
-    rebound = {node.id for node in ast.walk(module) if isinstance(node, ast.Name)
-               and isinstance(node.ctx, (ast.Store, ast.Del))}
-    function_names -= rebound
-    module_names -= rebound
+    bindings = Counter()
+    written_modules = set()
+    for node in ast.walk(module):
+        if isinstance(node, (ast.Import, ast.ImportFrom)):
+            bindings.update(alias.asname or alias.name.split(".")[0] for alias in node.names)
+        elif isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef)):
+            bindings[node.name] += 1
+        elif isinstance(node, ast.Name) and isinstance(node.ctx, (ast.Store, ast.Del)):
+            bindings[node.id] += 1
+        elif (isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name)
+              and isinstance(node.ctx, (ast.Store, ast.Del))):
+            written_modules.add(node.value.id)
+    function_names = {name for name in function_names if bindings[name] == 1}
+    module_names = {name for name in module_names - written_modules if bindings[name] == 1}
     signatures = {}
     for witness in witnesses:
         call = ast.parse(witness["call"], mode="eval").body

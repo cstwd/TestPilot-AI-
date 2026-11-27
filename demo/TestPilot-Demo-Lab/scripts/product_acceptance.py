@@ -135,7 +135,7 @@ def assert_regression(client, project, version, suite, run, source, corrected, f
 def write_evidence(path, evidence):
     temporary = path.with_suffix(".tmp")
     temporary.write_text(json.dumps(evidence, ensure_ascii=False, indent=2) + "\n",
-                         encoding="utf-8")
+                         encoding="utf-8", newline="\n")
     temporary.replace(path)
 
 
