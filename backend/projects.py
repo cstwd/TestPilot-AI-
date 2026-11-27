@@ -55,28 +55,35 @@ def list_files(project_id: int, request: Request):
         return many(db, f"SELECT {FIELDS} FROM files WHERE project_id=? ORDER BY id DESC", (project_id,))
 
 
-@router.post("/projects/{project_id}/files")
-def import_file(project_id: int, item: FileInput, request: Request):
-    filename = item.filename
+def source_digest(filename, source):
     if not re.fullmatch(r"[\w-]+\.py", filename) or isreserved(filename):
         raise HTTPException(422, "仅支持单个 .py 文件名，不能含路径或保留设备名")
     try:
-        data = item.source.encode("utf-8")
+        data = source.encode("utf-8")
     except UnicodeError as exc:
         raise HTTPException(422, "源码须为有效的 UTF-8 文本") from exc
     if len(data) > 131072 or b"\0" in data:
         raise HTTPException(422, "源码须为 128 KiB 以内、不含 NUL 的文本")
-    digest = hashlib.sha256(data).hexdigest()
+    return hashlib.sha256(data).hexdigest()
+
+
+def save_revision(db, project_id, filename, source, digest, *, reuse_latest=True):
+    latest = db.execute("SELECT * FROM files WHERE project_id=? AND filename=? ORDER BY revision DESC LIMIT 1",
+                        (project_id, filename)).fetchone()
+    if reuse_latest and latest and latest["sha256"] == digest:
+        return dict(latest)
+    revision = latest["revision"] + 1 if latest else 1
+    key = db.execute("INSERT INTO files(project_id,filename,revision,source,sha256) VALUES (?,?,?,?,?)",
+                     (project_id, filename, revision, source, digest)).lastrowid
+    return one(db, "SELECT * FROM files WHERE id=?", (key,))
+
+
+@router.post("/projects/{project_id}/files")
+def import_file(project_id: int, item: FileInput, request: Request):
+    digest = source_digest(item.filename, item.source)
     with connect(request.app.state.db_path, write=True) as db:
         one(db, "SELECT id FROM projects WHERE id=?", (project_id,))
-        latest = db.execute("SELECT * FROM files WHERE project_id=? AND filename=? ORDER BY revision DESC LIMIT 1",
-                            (project_id, filename)).fetchone()
-        if latest and latest["sha256"] == digest:
-            return dict(latest)
-        revision = latest["revision"] + 1 if latest else 1
-        key = db.execute("INSERT INTO files(project_id,filename,revision,source,sha256) VALUES (?,?,?,?,?)",
-                         (project_id, filename, revision, item.source, digest)).lastrowid
-        return one(db, "SELECT * FROM files WHERE id=?", (key,))
+        return save_revision(db, project_id, item.filename, item.source, digest)
 
 
 @router.get("/files/{file_id}")

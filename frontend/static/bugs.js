@@ -1,6 +1,7 @@
 import {sameFilename} from "./runs.js";
 import {duration, element, labelStatus, readout, runState, setStatus} from "./run-evidence.js";
 import {assertionEvidence, renderDiff} from "./bug-evidence.js";
+import {bindAiRepair} from "./bug-repair.js";
 
 const issueLabels = {open: "待修复", resolved: "已解决", verified: "已验证", closed: "已关闭"};
 const issueLabel = status => issueLabels[status] || status;
@@ -284,7 +285,7 @@ export async function showBugs({$, api, link, syncModuleLinks, params, files, pr
     syncRoute();
     paintRegressionList();
     $("regression-facts").hidden = true;
-    $("regression-run").hidden = true;
+    $("regression-run").hidden = $("regression-log-box").hidden = true;
     if (!row) {
       $("regression-evidence").textContent = "暂无选中的回归记录。";
       return;
@@ -300,11 +301,14 @@ export async function showBugs({$, api, link, syncModuleLinks, params, files, pr
       $("regression-evidence").textContent = runState(run)[0] + " · 回归判定" + issueLabel(row.status);
       readout($("regression-facts"), [
         ["被测版本", "v" + row.revision + " · #" + row.file_id], ["该用例", outcome ? labelStatus(outcome) : "未记录"],
-        ["耗时", duration(run.duration_ms)], ["通过 / 失败 / 错误", [run.passed, run.failed, run.errors].map(value => value ?? "—").join(" / ")],
+        ["耗时", duration(run.duration_ms)], ["失败（修复前 → 修复后）", (originalRun.failed ?? "—") + " → " + (run.failed ?? "—")],
+        ["通过 / 失败 / 错误", [run.passed, run.failed, run.errors].map(value => value ?? "—").join(" / ")],
       ]);
       $("regression-facts").hidden = false;
       $("regression-run").href = runHref(row);
       $("regression-run").hidden = false;
+      $("regression-log").textContent = run.log || "";
+      $("regression-log-box").hidden = !run.log;
     } catch (error) {
       if (sequence === regressionSequence) $("regression-evidence").textContent = "无法读取回归运行：" + error.message;
     }
@@ -367,6 +371,12 @@ export async function showBugs({$, api, link, syncModuleLinks, params, files, pr
   const initialVersion = !requestedVersion || requestedVersion === String(original.id) ? fixes[0] :
     fixes.find(row => String(row.id) === requestedVersion);
   options(fix, fixes, fileLabel, initialVersion?.id, "尚无合法候选版本");
+  const updateAiRepair = bindAiRepair($, api, issue, original, readFile, async saved => {
+    index.set(saved.id, saved);
+    if (!fixes.some(row => row.id === saved.id)) fixes.unshift(saved);
+    options(fix, fixes, fileLabel, saved.id, "尚无合法候选版本");
+    await compare();
+  });
   fix.onchange = () => { void compare(); };
   $("retry-diff").onclick = () => { void compare(); };
   $("regress").onsubmit = event => {
@@ -391,6 +401,7 @@ export async function showBugs({$, api, link, syncModuleLinks, params, files, pr
         throw new Error("回归响应与原始缺陷的身份不一致。");
       }
       issue = saved;
+      updateAiRepair(regressions());
       const latest = await api(base + "/runs");
       for (const row of latest) byRun.set(row.id, row);
       const added = regressions().filter(row => !known.has(row.run_id) && row.file_id === submitted.id);

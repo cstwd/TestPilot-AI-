@@ -41,7 +41,13 @@
 .bug-pill[data-tone=warning] {color:var(--bug-warn)}
 .bug-pill[data-tone=pending] {color:var(--bug-link)}
 
-.bug-identity,.bug-original,.bug-history,.bug-compare,.bug-intake {padding:var(--space-3) var(--bug-gutter);border-bottom:1px solid var(--border)}
+.bug-identity,.bug-original,.bug-history,.bug-compare,.bug-intake,.bug-repair {padding:var(--space-3) var(--bug-gutter);border-bottom:1px solid var(--border)}
+.bug-repair .ai-facts,.bug-repair #ai-repair-preview {margin-top:var(--space-3)}
+.bug-repair .ai-facts>div {display:contents}
+.bug-repair .ai-facts dd {text-align:left}
+#ai-repair-preview {border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;background:var(--page)}
+#ai-repair-preview .bug-diff-meta strong {margin:0 6px 0 0}
+#ai-repair-reasons {list-style:disc;margin:.5rem 0 0 1.25rem;overflow-wrap:anywhere}
 .bug-identity {background:var(--panel);padding-block:12px}
 .bug-identity>div {display:flex;gap:8px;align-items:center}
 .bug-identity .row-version {margin-left:0;color:var(--violet)}

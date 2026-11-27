@@ -79,6 +79,26 @@
               <pre id="original-log" tabindex="0" aria-label="原始运行日志"></pre>
             </details>
           </section>
+          <section class="bug-repair" id="ai-repair" aria-labelledby="ai-repair-title" hidden>
+            <header class="bug-section-head"><div>{{ icon('code') }}<h2 id="ai-repair-title">AI 修复</h2></div></header>
+            <p class="bug-muted" id="ai-repair-status" role="status"></p>
+            <div class="bug-evidence-actions">
+              <button type="button" class="primary" id="ai-repair-generate">AI 分析并生成修复</button>
+              <button type="button" class="primary" id="ai-repair-apply" hidden>应用 AI 修复</button>
+            </div>
+            <dl class="ai-facts" id="ai-repair-findings" hidden></dl>
+            <div id="ai-repair-preview" hidden>
+              <div class="bug-diff-meta">
+                <div><strong>原始代码</strong><span id="ai-repair-base"></span></div>
+                <div><strong>AI 修复代码</strong><span class="bug-diff-summary" id="ai-repair-diff-summary" hidden></span></div>
+              </div>
+              <div class="bug-diff-body" id="ai-repair-diff-lines" tabindex="0" aria-label="AI 修复源码差异"></div>
+              <div class="bug-diff-pager" id="ai-repair-diff-pager" hidden>
+                <button type="button" data-step="-1">上一页</button><span></span><button type="button" data-step="1">下一页</button>
+              </div>
+              <ul id="ai-repair-reasons"></ul>
+            </div>
+          </section>
         </section>
 
         <section class="bug-compare" aria-label="源码 Diff">
@@ -125,6 +145,10 @@
             <h3>{{ icon('play') }}选中的回归</h3>
             <p class="bug-muted" id="regression-evidence">暂无选中的回归记录。</p>
             <dl class="ai-facts" id="regression-facts" hidden></dl>
+            <details id="regression-log-box" class="bug-log" hidden>
+              <summary>回归执行日志</summary>
+              <pre id="regression-log" tabindex="0" aria-label="回归执行日志"></pre>
+            </details>
             <a id="regression-run" class="bug-link" hidden>{{ icon('arrow') }}查看完整运行记录</a>
           </section>
         </div>

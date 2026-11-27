@@ -1,4 +1,6 @@
 """Track reviewed failures and preserve each regression against the original suite."""
+from hashlib import sha256
+
 from fastapi import APIRouter, HTTPException, Request
 from pydantic import BaseModel, Field
 
@@ -73,21 +75,36 @@ def regress_run(path, bug_id, file_id, *, detailed=False):
         new = one(db, "SELECT revision FROM files WHERE id=?", (file_id,))
         if new["revision"] <= old["revision"]:
             raise HTTPException(422, "请选择比缺陷版本更新的同名文件版本")
-        original = run_record(db, bug["run_id"]) if detailed else None
+        repair = db.execute("SELECT * FROM bug_repairs WHERE applied_file_id=?", (file_id,)).fetchone()
+        if repair:
+            evidence = [(one(db, "SELECT * FROM files WHERE id=?", (file_id,)), "candidate_sha")]
+            if all(repair[column] == bug[key] for column, key in (
+                ("project_id", "project_id"), ("base_file_id", "file_id"),
+                ("original_run_id", "run_id"), ("suite_id", "suite_id"),
+            )):
+                evidence.extend((
+                    (one(db, "SELECT * FROM files WHERE id=?", (bug["file_id"],)), "base_sha"),
+                    (one(db, "SELECT * FROM suites WHERE id=?", (bug["suite_id"],)), "suite_sha"),
+                ))
+            if any(row["sha256"] != repair[column] or sha256(row["source"].encode("utf-8")).hexdigest() != repair[column]
+                   for row, column in evidence):
+                raise HTTPException(409, "AI 修复的源码或测试证据已变更")
+        original = run_record(db, bug["run_id"]) if detailed or repair else None
 
     def link_regression(db, run):
         passed = run["status"] == "passed" and any(
             c["nodeid"] == bug["nodeid"] and c["outcome"] == "passed" for c in run["cases"]
         )
-        if detailed:
+        if original:
             expected = {case["nodeid"]: case["outcome"] == "skipped" for case in original["cases"]}
             observed = {case["nodeid"]: case["outcome"] == "skipped" for case in run["cases"]}
-            passed = passed and original["result_complete"] and run["result_complete"] and expected == observed
+            complete = original.get("result_complete", repair is not None)
+            passed = passed and complete and run["result_complete"] and expected == observed
         outcome = "resolved" if passed else "open"
         db.execute("INSERT INTO regressions(bug_id,run_id,status) VALUES (?,?,?)", (bug_id, run["id"], outcome))
         latest = bug_record(db, bug_id)["regressions"][0]
         db.execute("UPDATE bugs SET status=? WHERE id=?", (latest["status"], bug_id))
 
-    run_suite(path, bug["suite_id"], file_id, on_saved=link_regression, detailed=detailed)
+    run_suite(path, bug["suite_id"], file_id, on_saved=link_regression, detailed=detailed or repair is not None)
     with connect(path) as db:
         return bug_record(db, bug_id)

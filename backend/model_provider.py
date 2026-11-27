@@ -200,6 +200,7 @@ class ModelProvider:
                 raise ModelError("queue_timeout","模型排队超时")
             queued_s = time.monotonic()-start
             contract = schema.model_json_schema()
+            use_mmap = os.getenv("TESTPILOT_MODEL_USE_MMAP", "1") != "0"
             request_messages = list(messages)
             identity = None
             for attempt in range(1,3):
@@ -215,7 +216,7 @@ class ModelProvider:
                     "model":MODEL,"messages":request_messages,"format":contract,"stream":True,
                     "think":False,"keep_alive":"5m","options":{
                         "temperature":temperature,"seed":seed,"num_predict":max_tokens,
-                        "num_ctx":state["context"],"num_batch":64,"use_mmap":True}
+                        "num_ctx":state["context"],"num_batch":64,"use_mmap":use_mmap}
                 },deadline,stream=True)
                 end = result["end"]
                 raw = result["raw"]
@@ -226,7 +227,7 @@ class ModelProvider:
                         "generation_ns":end.get("eval_duration"),"load_ns":end.get("load_duration"),
                         "ttft_s":result["first_visible_s"],"elapsed_s":time.monotonic()-sent,
                         "seed":seed,"temperature":temperature,"schema":schema.__name__,
-                        "prompt":request_messages}
+                        "prompt":request_messages,"use_mmap":use_mmap}
                 attempts.append(note)
                 try:
                     if not end.get("done") or end.get("done_reason")=="length" or not raw.strip():
