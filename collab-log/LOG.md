@@ -2,6 +2,8 @@
 
 [20 条历史摘要及明细对照](COURSE_HISTORY.md) · [贡献分配](member_contributions.md) · [原始会话](../transcripts/README.md) · [课程验收](../docs/COURSE_FINAL_REPORT.md)
 
+2026-11-27，TP-COURSE-REPOSITORY-001（WP05）。王选中负责，Codex 按教师五张原图核对课程证据，恢复两份历史 Prompt、校验归档，执行固定提交回归并记录独立复核。[实际操作、提交与结果](../docs/COURSE_REPOSITORY_AUDIT.md)
+
 历史原始记录继续保存在 [PHASE-02](PHASE_02.md)、[PHASE-03](PHASE_03.md) 和 [PHASE-04](PHASE_04.md)。
 
 ## 五人个人操作日志

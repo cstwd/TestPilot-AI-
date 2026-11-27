@@ -1,6 +1,6 @@
 # TP-COURSE-FINAL-001 课程要求逐项核对
 
-范围来自原始任务书。项目组长人工签收独立办理。[原始任务书](../transcripts/TP-COURSE-FINAL-001.md) · [五人记录](../collab-log/COURSE_HISTORY.md) · [开工审计及验收基线](../reports/course-final/WORKTREE_AUDIT.md)
+本页是 TP-COURSE-FINAL-001 的历史工程核对，范围来自当时的原始任务书。教师五张原图的现行对照见[课程要求映射](COURSE_REQUIREMENTS_MAPPING.md)。项目组长人工签收独立办理。[原始任务书](../transcripts/TP-COURSE-FINAL-001.md) · [五人记录](../collab-log/COURSE_HISTORY.md) · [开工审计及验收基线](../reports/course-final/WORKTREE_AUDIT.md)
 
 | 课程要求 | 完成及核验状态 |
 |---|---|

@@ -24,7 +24,7 @@
 | 开发前审计 | 检查 F07–F12、SQLite、Pytest、WASI、Coverage、模型和测试基线。PHASE-01 至 PHASE-03 的归档保持原样。`f31a901`、`da798a4`、`7422857` 均为当前提交的祖先。[审计](docs/phase04/AUDIT.md) | `8eb13f9` |
 | 工具选型 | Win11 实装两者。mutmut 3.8.1 原生 CLI 以退出码 1 要求 WSL；Cosmic Ray 8.9.0 跑完 31 个原生作业，串行 28.715 秒，两分片 15.931 秒。两个工具均提取真实变异在 WASI 执行。采用 Cosmic Ray 静态算子，使用 F10 和测试断言证据独立判读。[选型报告与原始测量](docs/phase04/TOOL_SELECTION.md) | `b784715` |
 | 生成及评分 | 六类算子，SHA-256 验证的独立副本，稳定 UUID，不按覆盖率筛选。错误、超时、取消、未运行均在分母中，等价候选单独标注。[算子测试](reports/phase04/MUTATION_OPERATORS.md) · [模块报告](reports/phase04/F13_MODULE_ACCEPTANCE.md) | `5b757b9`、`6de6844` |
-| 本机 AI | 签名、契约、旧测试摘要及存活位置进入推理。选用本机模型时检查回环服务、GGUF、远端转发标志，保留模型答复与拒绝原因。[反馈适配](backend/mutation_feedback.py) · [本地验证接口](backend/local_ollama.py) | `5be8d12`、`d847cab`、`43c01c5` |
+| 本机 AI | 签名、契约、旧测试摘要及存活位置进入推理。选用本机模型时检查回环服务、GGUF、远端转发标志，保留模型答复与拒绝原因。[反馈适配](backend/mutation_feedback.py) · 历史验证接口 `git show 307d4bd:backend/local_ollama.py` | `5be8d12`、`d847cab`、`43c01c5` |
 | 服务与界面 | 运行 `main.py`，在已完成 F12 任务点击“评估变异测试与补测”。创建、运行、终止、继续、查询候选与下载完整 JSON 已接入同一服务。Edge 实测从 F12 打开 F13、计算 1/1、导出报告与查看失败反馈。额外浏览器测试使用标注的呈现夹具校验错误态，生成效果来自上表的真实模型推理。[运行说明](README.md) · [接口](backend/mutation_web.py) · [浏览器测试](tests/test_mutation_ui.py) | `f6daaa1` |
 | 中止与恢复 | 实测运行中终止 WASI worker、清理资源、同库并发返回 409。从运行中 SQLite 的一致性快照另启 `main.py`，续跑后清单项各保存一次。红基线保留执行结果，得分为 null。[生命周期证据](reports/phase04/lifecycle.txt) · [判读独测](reports/phase04/results-test.txt) | `6de6844`、`f6daaa1` |
 | 历史与复验 | 同时保留早期模型输出被拒、整套补测基线失败的会话，以及成功的前后对照、输出摘要、计分复算工具和原 89 个节点的重新执行。[失败首轮](reports/phase04/live-first-experiment.json) · [另一轮红基线](reports/phase04/ai-initial-campaign.json) · [原 89 项 JUnit](reports/phase04/original-89.xml) | `eab8f4f`、`bfc05d7` |
