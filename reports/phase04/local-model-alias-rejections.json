@@ -1,0 +1,320 @@
+{
+  "checked_at": "2026-11-27T07:24:20.632394+00:00",
+  "source": "def bonus(n: int, enabled: bool = True) -> int:\n    \"\"\"Reject negative n with ValueError. For nonnegative n return n + 1 if\n    enabled and n >= 2; otherwise return n.\n\n    >>> bonus(3)\n    4\n    \"\"\"\n    if n < 0:\n        raise ValueError(\"negative\")\n    if enabled and n >= 2:\n        return n + 1\n    return n\n",
+  "original_tests": "import pytest\nfrom subject import bonus as target\n\ndef test_example_1():\n    assert target(3) == 4\n\ndef test_normal_return_contract():\n    assert isinstance(target(n=2, enabled=True), int)\n\ndef test_boundary_return_contract():\n    assert isinstance(target(n=0, enabled=False), int)\n\ndef test_invalid_keyword():\n    with pytest.raises(TypeError):\n        target(_testpilot_unexpected=None)\n",
+  "model": "qwen2.5-coder:0.5b",
+  "baseline": {
+    "bad0575f-acc5-58a6-a467-7a1cb312a19b": {
+      "status": "passed",
+      "passed": 4,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "nodeid": "test_generated.py::test_example_1",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "test_generated.py::test_normal_return_contract",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "test_generated.py::test_boundary_return_contract",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "test_generated.py::test_invalid_keyword",
+          "outcome": "passed"
+        }
+      ],
+      "exit_code": 0,
+      "covered_lines": 5,
+      "total_lines": 6,
+      "coverage_pct": 83.33,
+      "log": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.07s",
+      "duration_ms": 5362,
+      "stdout": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.07s\n",
+      "stderr": "",
+      "diagnostic": "",
+      "result_complete": true,
+      "failures": [],
+      "failure_details_omitted": 0,
+      "covered_branches": 3,
+      "total_branches": 4,
+      "branch_pct": 75.0,
+      "environment": {
+        "platform": "wasi",
+        "python": "3.15.2",
+        "pytest": "9.2.0",
+        "coverage": "7.17.5"
+      }
+    },
+    "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb": {
+      "status": "passed",
+      "passed": 4,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "nodeid": "test_generated.py::test_example_1",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "test_generated.py::test_normal_return_contract",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "test_generated.py::test_boundary_return_contract",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "test_generated.py::test_invalid_keyword",
+          "outcome": "passed"
+        }
+      ],
+      "exit_code": 0,
+      "covered_lines": 5,
+      "total_lines": 6,
+      "coverage_pct": 83.33,
+      "log": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.07s",
+      "duration_ms": 5430,
+      "stdout": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.07s\n",
+      "stderr": "",
+      "diagnostic": "",
+      "result_complete": true,
+      "failures": [],
+      "failure_details_omitted": 0,
+      "covered_branches": 3,
+      "total_branches": 4,
+      "branch_pct": 75.0,
+      "environment": {
+        "platform": "wasi",
+        "python": "3.15.2",
+        "pytest": "9.2.0",
+        "coverage": "7.17.5"
+      }
+    },
+    "cba8892f-b4a9-5e37-8c64-c14034ca30b9": {
+      "status": "passed",
+      "passed": 4,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "cases": [
+        {
+          "nodeid": "test_generated.py::test_example_1",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "test_generated.py::test_normal_return_contract",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "test_generated.py::test_boundary_return_contract",
+          "outcome": "passed"
+        },
+        {
+          "nodeid": "test_generated.py::test_invalid_keyword",
+          "outcome": "passed"
+        }
+      ],
+      "exit_code": 0,
+      "covered_lines": 5,
+      "total_lines": 6,
+      "coverage_pct": 83.33,
+      "log": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.07s",
+      "duration_ms": 5372,
+      "stdout": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_normal_return_contract\nPASSED test_generated.py::test_boundary_return_contract\nPASSED test_generated.py::test_invalid_keyword\n4 passed in 0.07s\n",
+      "stderr": "",
+      "diagnostic": "",
+      "result_complete": true,
+      "failures": [],
+      "failure_details_omitted": 0,
+      "covered_branches": 3,
+      "total_branches": 4,
+      "branch_pct": 75.0,
+      "environment": {
+        "platform": "wasi",
+        "python": "3.15.2",
+        "pytest": "9.2.0",
+        "coverage": "7.17.5"
+      }
+    }
+  },
+  "supplemental": {},
+  "survivors": [
+    {
+      "id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+      "family": "exception",
+      "operator": "testpilot/SuppressRaise",
+      "line": 9,
+      "column": 9,
+      "before": "raise ValueError(\"negative\")",
+      "after": "pass",
+      "edit": {
+        "start": 222,
+        "end": 250,
+        "old": "raise ValueError(\"negative\")",
+        "new": "pass"
+      },
+      "mutated_sha256": "04c0e2301f3901f176fa4538422aad7fe5b64ec009a81790a9e105946c9ddb39",
+      "equivalent_candidate": false
+    },
+    {
+      "id": "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+      "family": "boolean",
+      "operator": "core/ReplaceAndWithOr",
+      "line": 10,
+      "column": 16,
+      "before": "and",
+      "after": "or",
+      "edit": {
+        "start": 266,
+        "end": 269,
+        "old": "and",
+        "new": "or"
+      },
+      "mutated_sha256": "fb03355a336b63592194fabb17842f19b66b429bd336a1311174b73de5f55878",
+      "equivalent_candidate": false
+    },
+    {
+      "id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+      "family": "comparison",
+      "operator": "core/ReplaceComparisonOperator_GtE_Gt",
+      "line": 10,
+      "column": 22,
+      "before": ">=",
+      "after": ">",
+      "edit": {
+        "start": 273,
+        "end": 274,
+        "old": "=",
+        "new": ""
+      },
+      "mutated_sha256": "ba36e530baeb394fadf040a2957a25d9d02d246026ee53a9bc121bb749f396b1",
+      "equivalent_candidate": false
+    }
+  ],
+  "feedback": {
+    "status": "rejected",
+    "mode": null,
+    "provider": "ollama",
+    "model": "qwen2.5-coder:0.5b",
+    "reason": "本次模型输出未产生可执行补测，详见逐位置尝试",
+    "code": null,
+    "added_code": null,
+    "cases": [],
+    "attempts": [
+      {
+        "number": 1,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Design one additional test which exposes the focused mutant and passes on the original. Use the original source contract as your oracle. Return a short JSON object with three keys: call (one literal Python call of the named function), expected (the actual expected JSON value or the string 'raises ValueError' for an expected exception; use its proper name), and reason (why the existing tests miss this case). No Markdown."
+          },
+          {
+            "role": "user",
+            "content": "{\"target\":\"bonus\",\"source\":\"def bonus(n: int, enabled: bool = True) -> int:\\n    \\\"\\\"\\\"Reject negative n with ValueError. For nonnegative n return n + 1 if\\n    enabled and n >= 2; otherwise return n.\\n\\n    >>> bonus(3)\\n    4\\n    \\\"\\\"\\\"\\n    if n < 0:\\n        raise ValueError(\\\"negative\\\")\\n    if enabled and n >= 2:\\n        return n + 1\\n    return n\\n\",\"existing_tests\":\"import pytest\\nfrom subject import bonus as target\\n\\ndef test_example_1():\\n    assert target(3) == 4\\n\\ndef test_normal_return_contract():\\n    assert isinstance(target(n=2, enabled=True), int)\\n\\ndef test_boundary_return_contract():\\n    assert isinstance(target(n=0, enabled=False), int)\\n\\ndef test_invalid_keyword():\\n    with pytest.raises(TypeError):\\n        target(_testpilot_unexpected=None)\\n\",\"surviving_mutations\":[{\"operator\":\"testpilot/SuppressRaise\",\"line\":9,\"before\":\"raise ValueError(\\\"negative\\\")\",\"after\":\"pass\",\"site\":1},{\"operator\":\"core/ReplaceAndWithOr\",\"line\":10,\"before\":\"and\",\"after\":\"or\",\"site\":2},{\"operator\":\"core/ReplaceComparisonOperator_GtE_Gt\",\"line\":10,\"before\":\">=\",\"after\":\">\",\"site\":3}],\"focus\":{\"operator\":\"testpilot/SuppressRaise\",\"line\":9,\"before\":\"raise ValueError(\\\"negative\\\")\",\"after\":\"pass\",\"site\":1}}"
+          }
+        ],
+        "options": {
+          "temperature": 0,
+          "seed": 23,
+          "num_predict": 160,
+          "num_ctx": 4096,
+          "num_batch": 128,
+          "num_gpu": 0
+        },
+        "mutant_ids": [
+          "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+          "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+          "cba8892f-b4a9-5e37-8c64-c14034ca30b9"
+        ],
+        "focus_id": "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+        "raw": "{\"call\":\"target(3)\",\"expected\":\"4\",\"reason\":\"The test case for `bonus` does not pass on the original source contract because it uses a different function name and argument order. The original contract uses `bonus(n: int, enabled: bool = True)` while the test case uses `target(n=2, enabled=True)`. This discrepancy leads to the `raises ValueError` exception being raised.\"}",
+        "elapsed_ms": 4288,
+        "response_model": "qwen2.5-coder:0.5b",
+        "prompt_eval_count": 436,
+        "eval_count": 85,
+        "done_reason": "stop",
+        "status": "rejected",
+        "reason": "模型候选无效：用例必须直接调用选定目标"
+      },
+      {
+        "number": 2,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Design one additional test which exposes the focused mutant and passes on the original. Use the original source contract as your oracle. Return a short JSON object with three keys: call (one literal Python call of the named function), expected (the actual expected JSON value or the string 'raises ValueError' for an expected exception; use its proper name), and reason (why the existing tests miss this case). No Markdown."
+          },
+          {
+            "role": "user",
+            "content": "{\"target\":\"bonus\",\"source\":\"def bonus(n: int, enabled: bool = True) -> int:\\n    \\\"\\\"\\\"Reject negative n with ValueError. For nonnegative n return n + 1 if\\n    enabled and n >= 2; otherwise return n.\\n\\n    >>> bonus(3)\\n    4\\n    \\\"\\\"\\\"\\n    if n < 0:\\n        raise ValueError(\\\"negative\\\")\\n    if enabled and n >= 2:\\n        return n + 1\\n    return n\\n\",\"existing_tests\":\"import pytest\\nfrom subject import bonus as target\\n\\ndef test_example_1():\\n    assert target(3) == 4\\n\\ndef test_normal_return_contract():\\n    assert isinstance(target(n=2, enabled=True), int)\\n\\ndef test_boundary_return_contract():\\n    assert isinstance(target(n=0, enabled=False), int)\\n\\ndef test_invalid_keyword():\\n    with pytest.raises(TypeError):\\n        target(_testpilot_unexpected=None)\\n\",\"surviving_mutations\":[{\"operator\":\"testpilot/SuppressRaise\",\"line\":9,\"before\":\"raise ValueError(\\\"negative\\\")\",\"after\":\"pass\",\"site\":1},{\"operator\":\"core/ReplaceAndWithOr\",\"line\":10,\"before\":\"and\",\"after\":\"or\",\"site\":2},{\"operator\":\"core/ReplaceComparisonOperator_GtE_Gt\",\"line\":10,\"before\":\">=\",\"after\":\">\",\"site\":3}],\"focus\":{\"operator\":\"core/ReplaceAndWithOr\",\"line\":10,\"before\":\"and\",\"after\":\"or\",\"site\":2}}"
+          }
+        ],
+        "options": {
+          "temperature": 0,
+          "seed": 23,
+          "num_predict": 160,
+          "num_ctx": 4096,
+          "num_batch": 128,
+          "num_gpu": 0
+        },
+        "mutant_ids": [
+          "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+          "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+          "cba8892f-b4a9-5e37-8c64-c14034ca30b9"
+        ],
+        "focus_id": "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+        "raw": "{\"call\":\"target(3)\",\"expected\":\"4\",\"reason\":\"The test case for `bonus` does not pass on the original source contract because it incorrectly raises a `ValueError` when `n` is negative.\"}",
+        "elapsed_ms": 682,
+        "response_model": "qwen2.5-coder:0.5b",
+        "prompt_eval_count": 433,
+        "eval_count": 46,
+        "done_reason": "stop",
+        "status": "rejected",
+        "reason": "模型候选无效：用例必须直接调用选定目标"
+      },
+      {
+        "number": 3,
+        "messages": [
+          {
+            "role": "system",
+            "content": "Design one additional test which exposes the focused mutant and passes on the original. Use the original source contract as your oracle. Return a short JSON object with three keys: call (one literal Python call of the named function), expected (the actual expected JSON value or the string 'raises ValueError' for an expected exception; use its proper name), and reason (why the existing tests miss this case). No Markdown."
+          },
+          {
+            "role": "user",
+            "content": "{\"target\":\"bonus\",\"source\":\"def bonus(n: int, enabled: bool = True) -> int:\\n    \\\"\\\"\\\"Reject negative n with ValueError. For nonnegative n return n + 1 if\\n    enabled and n >= 2; otherwise return n.\\n\\n    >>> bonus(3)\\n    4\\n    \\\"\\\"\\\"\\n    if n < 0:\\n        raise ValueError(\\\"negative\\\")\\n    if enabled and n >= 2:\\n        return n + 1\\n    return n\\n\",\"existing_tests\":\"import pytest\\nfrom subject import bonus as target\\n\\ndef test_example_1():\\n    assert target(3) == 4\\n\\ndef test_normal_return_contract():\\n    assert isinstance(target(n=2, enabled=True), int)\\n\\ndef test_boundary_return_contract():\\n    assert isinstance(target(n=0, enabled=False), int)\\n\\ndef test_invalid_keyword():\\n    with pytest.raises(TypeError):\\n        target(_testpilot_unexpected=None)\\n\",\"surviving_mutations\":[{\"operator\":\"testpilot/SuppressRaise\",\"line\":9,\"before\":\"raise ValueError(\\\"negative\\\")\",\"after\":\"pass\",\"site\":1},{\"operator\":\"core/ReplaceAndWithOr\",\"line\":10,\"before\":\"and\",\"after\":\"or\",\"site\":2},{\"operator\":\"core/ReplaceComparisonOperator_GtE_Gt\",\"line\":10,\"before\":\">=\",\"after\":\">\",\"site\":3}],\"focus\":{\"operator\":\"core/ReplaceComparisonOperator_GtE_Gt\",\"line\":10,\"before\":\">=\",\"after\":\">\",\"site\":3}}"
+          }
+        ],
+        "options": {
+          "temperature": 0,
+          "seed": 23,
+          "num_predict": 160,
+          "num_ctx": 4096,
+          "num_batch": 128,
+          "num_gpu": 0
+        },
+        "mutant_ids": [
+          "bad0575f-acc5-58a6-a467-7a1cb312a19b",
+          "5e4971c3-e9a9-5bf2-a016-1648f3d95cdb",
+          "cba8892f-b4a9-5e37-8c64-c14034ca30b9"
+        ],
+        "focus_id": "cba8892f-b4a9-5e37-8c64-c14034ca30b9",
+        "raw": "{\"call\":\"target(3)\",\"expected\":\"4\",\"reason\":\"The function `bonus` is designed to return `n + 1` if `enabled` is `True` and `n` is nonnegative. However, the function raises a `ValueError` if `n` is negative. The test case `test_example_1` checks if the function returns `4` when `n` is `3`, which is correct. The test case `test_normal_return_contract` checks if the function returns `4` when `n` is `2` and `enabled` is `True`, which is correct. The test case `test_boundary_return_contract` checks if the function returns `4` when `n` is `0` and `enabled` is `False`,",
+        "elapsed_ms": 1878,
+        "response_model": "qwen2.5-coder:0.5b",
+        "prompt_eval_count": 438,
+        "eval_count": 160,
+        "done_reason": "length",
+        "status": "rejected",
+        "reason": "模型候选无效：模型输出未完整结束"
+      }
+    ],
+    "endpoint": "http://127.0.0.1:11434",
+    "requested_model": "qwen2.5-coder:0.5b",
+    "model_digest": "4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09"
+  }
+}
