@@ -1,0 +1,65 @@
+GET /api/health {'status': 'ok', 'database': 'ok', 'mode': 'demo'}
+Second launch exit 1 ERROR testpilot 端口 61723 已被占用。请访问已有服务或停止占用进程后重新运行。
+POST /api/self-test {'status': 'passed', 'detail': '.                                                                        [100%]\n1 passed in 0.03s'}
+Graceful stop exit 0
+INFO testpilot 启动 demo 模式 http://127.0.0.1:61723
+INFO:     Started server process [42076]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:62039 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62040 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65166 - "POST /api/self-test HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [42076]
+
+GET /api/health {'status': 'ok', 'database': 'ok', 'mode': 'dev'}
+SQLite restart probe retained
+Graceful stop exit 0
+INFO testpilot 启动 dev 模式 http://127.0.0.1:61723
+INFO:     Started server process [36956]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:65186 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65187 - "GET / HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [36956]
+
+.Unwritable database path exit 3 INFO testpilot 启动 demo 模式 http://127.0.0.1:65190
+INFO:     Started server process [41472]
+INFO:     Waiting for application startup.
+ERROR:    Traceback (most recent call last):
+  File "D:\TestPilot AI\backend\app.py", line 32, in lifespan
+    database.initialize(path)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "D:\TestPilot AI\backend\database.py", line 12, in initialize
+    path.parent.mkdir(parents=True, exist_ok=True)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\89777\miniconda3\Lib\pathlib\_local.py", line 722, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileExistsError: [WinError 183] 当文件已存在时，无法创建该文件。: 'C:\\Users\\89777\\AppData\\Local\\Temp\\pytest-of-897772465\\pytest-5\\test_startup_failure0\\regular_file'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\TestPilot AI\.venv\Lib\site-packages\starlette\routing.py", line 661, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\89777\miniconda3\Lib\contextlib.py", line 214, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\backend\app.py", line 34, in lifespan
+    raise RuntimeError(f"无法初始化 SQLite 数据库 {path}。请检查目录和写入权限。") from exc
+RuntimeError: 无法初始化 SQLite 数据库 C:\Users\89777\AppData\Local\Temp\pytest-of-897772465\pytest-5\test_startup_failure0\regular_file\testpilot.sqlite3。请检查目录和写入权限。
+
+ERROR:    Application startup failed. Exiting.
+
+.Incompatible database exit 3 RuntimeError: SQLite 数据库版本不兼容：C:\Users\89777\AppData\Local\Temp\pytest-of-897772465\pytest-5\test_incompatible_database_pre0\testpilot.sqlite3 的 schema_version=2，本版本要求 1。请使用匹配的数据库或新的数据目录。
+.WARNING  testpilot:main.py:26 健康检查等待超时 (<urlopen error timed out>)。请检查 SQLite 和运行日志，服务就绪后访问 http://127.0.0.1:65202
+
+.
+4 passed in 7.23s

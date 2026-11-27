@@ -1,0 +1,13 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.11, pytest-9.2.0, pluggy-1.7.0 -- D:\TestPilot AI\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: D:\TestPilot AI
+plugins: anyio-4.16.0, hypothesis-6.170.17
+collecting ... collected 1 item
+
+tests/test_dashboard.py::test_dashboard Browser: msedge 158.0.4370.33; self-test response: .                                                                        [100%]
+1 passed in 0.03s
+PASSED
+
+============================= 1 passed in 34.33s ==============================

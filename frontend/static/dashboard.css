@@ -1,0 +1,73 @@
+:root {
+  color-scheme: light;
+  --ink: #172f40;
+  --muted: #506575;
+  --line: #d6dfe5;
+  --blue: #123f61;
+  --cyan: #93e3f1;
+  --success: #176541;
+  --error: #933c24;
+  font-family: "Barlow", "Microsoft YaHei UI", "Microsoft YaHei", system-ui, sans-serif;
+  background: #f3f6f8;
+  color: var(--ink);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.shell { width: min(1040px, calc(100% - 48px)); margin-inline: auto; }
+.masthead { background: white; border-bottom: 1px solid var(--line); }
+.masthead-inner { min-height: 66px; display: flex; align-items: center; justify-content: space-between; }
+.brand { display: flex; gap: 12px; align-items: center; font-size: 21px; font-weight: 750; letter-spacing: -.04em; }
+.brand-mark { position: relative; width: 29px; height: 29px; border-radius: 8px 3px; background: var(--blue); }
+.brand-mark::after {
+  content: ""; position: absolute; left: 8px; top: 7px;
+  width: 7px; height: 11px; border: solid var(--cyan); border-width: 0 3px 3px 0; transform: rotate(43deg);
+}
+.workspace { font-size: 13px; color: var(--muted); }
+.intro { padding: clamp(36px, 6vw, 68px) 0 30px; }
+.phase { font-size: 13px; color: var(--muted); }
+h1, h2, p, dl, dd, ul { margin: 0; }
+h1 { margin-block: 8px; font-size: clamp(33px, 4vw, 49px); line-height: 1.3; letter-spacing: -.05em; }
+.intro p { color: var(--muted); font-size: 16px; }
+.checks { display: grid; grid-template-columns: 1.13fr 1fr; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.connections, .runner { min-width: 0; padding: clamp(20px, 3vw, 34px); }
+.connections { background: white; }
+.runner { background: var(--blue); color: white; }
+.panel-title, .scope-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+h2 { font-size: 21px; line-height: 1.5; }
+button { font: inherit; font-size: 14px; cursor: pointer; }
+button:focus-visible { outline: 3px solid #e19123; outline-offset: 4px; }
+button:disabled { cursor: wait; opacity: .7; }
+.secondary { color: var(--blue); background: white; border: 1px solid #acc1cf; padding: 7px 12px; border-radius: 5px; }
+.secondary:hover:enabled { background: #f1f7fa; }
+.signals { margin-top: 18px; }
+.signals > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.signals dt { display: flex; align-items: baseline; gap: 9px; font-weight: 600; }
+.signals small, .module-id { color: var(--muted); font-size: 12px; font-weight: 450; }
+.signal { color: var(--muted); white-space: nowrap; font-size: 14px; }
+.signal::before { display: inline-block; content: ""; width: 7px; height: 7px; background: currentColor; margin-right: 7px; border-radius: 50%; }
+.signal[data-state="good"] { color: var(--success); }
+.signal[data-state="error"] { color: var(--error); }
+.footnote { font-size: 13px; margin-top: 16px; color: var(--muted); line-height: 1.65; }
+.runner-tech { font-size: 14px; color: var(--cyan); }
+.runner > p { color: #dceaf3; margin-top: 19px; line-height: 1.8; }
+.actions { display: flex; align-items: center; gap: 16px; margin-top: 25px; }
+.primary { border: 0; background: var(--cyan); color: var(--ink); font-weight: 700; border-radius: 5px; padding: 11px 21px; }
+.primary:hover:enabled { background: #aff4ff; }
+.runner-result, .runner .runner-detail { font-size: 13px; color: #def3fa; }
+.runner-result[data-state="error"] { color: #ffceaa; }
+.runner .runner-detail:empty { display: none; }
+.runner .runner-detail { margin-top: 12px; white-space: pre-line; overflow-wrap: anywhere; }
+.scope { padding: 34px 0 48px; }
+.scope-heading span { font-size: 13px; color: var(--muted); }
+.scope ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 28px; margin-top: 12px; }
+.scope li { display: flex; align-items: baseline; gap: 12px; padding: 15px 0; border-top: 1px solid var(--line); font-size: 14px; }
+.notice { color: var(--error); margin-bottom: 20px; }
+@media (max-width: 720px) {
+  .checks { grid-template-columns: 1fr; }
+  .scope ul { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 460px) {
+  .shell { width: calc(100% - 32px); }
+  .scope ul { grid-template-columns: 1fr; }
+  .scope-heading { align-items: baseline; gap: 8px; flex-wrap: wrap; }
+}

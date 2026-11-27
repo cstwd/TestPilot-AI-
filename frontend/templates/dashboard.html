@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Dashboard · TestPilot AI</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23123f61'/%3E%3Cpath d='m8 16 5 5 11-12' stroke='%2393e3f1' fill='none' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/dashboard.css">
+  <script src="/static/dashboard.js" defer></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="shell masthead-inner">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span>TestPilot AI</div>
+      <span class="workspace">{{ '开发调试模式' if mode == 'dev' else '本地演示模式' }}</span>
+    </div>
+  </header>
+  <main class="shell">
+    <div class="intro">
+      <span class="phase">TP-PHASE-01 / 工程初始化</span>
+      <h1>启动仪表盘</h1>
+      <p>智能软件测试生成与缺陷检测平台</p>
+    </div>
+    <div class="checks">
+      <section class="connections" aria-labelledby="connection-title">
+        <div class="panel-title">
+          <h2 id="connection-title">服务连接</h2>
+          <button type="button" id="refresh-button" class="secondary">重新检查</button>
+        </div>
+        <dl class="signals" aria-live="polite">
+          <div><dt>后端接口<small>FastAPI</small></dt><dd id="api-status" class="signal">待检查</dd></div>
+          <div><dt>项目数据库<small>SQLite</small></dt><dd id="database-status" class="signal">待检查</dd></div>
+        </dl>
+        <p id="connection-detail" class="footnote" aria-live="polite">页面加载后自动检查服务连接。</p>
+      </section>
+      <section class="runner" aria-labelledby="runner-title">
+        <div class="panel-title">
+          <h2 id="runner-title">测试执行自检</h2>
+          <span class="runner-tech">pytest</span>
+        </div>
+        <p>运行平台自带的测试样例，验证本地测试执行器能否正常工作。</p>
+        <div class="actions">
+          <button type="button" id="self-test-button" class="primary">运行自检</button>
+          <span id="self-test-status" class="runner-result" role="status">尚未运行</span>
+        </div>
+        <p id="self-test-detail" class="runner-detail" aria-live="polite"></p>
+      </section>
+    </div>
+    <section class="scope" aria-labelledby="scope-title">
+      <div class="scope-heading">
+        <h2 id="scope-title">业务模块规划</h2>
+        <span>初始化验收后开发</span>
+      </div>
+      <ul>
+        {% for code, name in [
+          ('F01', '项目管理与文件导入'), ('F02', 'Python AST 代码分析'),
+          ('F03', 'AI 测试用例生成'), ('F04', '自动化测试执行'),
+          ('F05', 'Bug 管理与回归验证'), ('F06', '质量评估与报告导出')
+        ] %}
+        <li><span class="module-id">{{ code }}</span>{{ name }}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    <noscript><p class="notice">请启用浏览器的 JavaScript 以检查连接或运行测试自检。</p></noscript>
+  </main>
+</body>
+</html>

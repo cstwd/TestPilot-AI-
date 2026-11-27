@@ -1,0 +1,2 @@
+* text=auto
+transcripts/original-main.py.txt -text whitespace=cr-at-eol

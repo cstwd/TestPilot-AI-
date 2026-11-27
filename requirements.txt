@@ -1,0 +1,7 @@
+fastapi==0.165.0
+uvicorn==0.54.0
+Jinja2==3.1.6
+pytest==9.2.0
+hypothesis==6.170.17
+coverage==7.17.5
+playwright==1.65.2
