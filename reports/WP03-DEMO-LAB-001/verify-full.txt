@@ -1,0 +1,2287 @@
+TestPilot WP05 verify | 2026-11-27T18:10:05.214029+08:00
+Windows-11-10.0.26200-SP0 | Python 3.13.11 | full
+
+$ "D:\TestPilot AI\.venv\Scripts\python.exe" -X utf8 -m compileall -q main.py backend tests hooks mcp-server eval/phase05 eval/phase06
+exit=0 elapsed=0.40s
+
+$ "D:\TestPilot AI\.venv\Scripts\python.exe" -X utf8 -m pytest -q -s tests eval/phase05/test_manifest.py
+EEEEEEEEEEE.{"jsonrpc": "2.0", "id": 0, "result": {"protocolVersion": "2025-11-25", "capabilities": {"tools": {}}, "serverInfo": {"name": "testpilot", "version": "1.0.0"}}}
+{"jsonrpc": "2.0", "id": 2, "result": {"tools": [{"description": "List up to 50 recent TestPilot project IDs and names.", "inputSchema": {"type": "object", "properties": {}, "additionalProperties": false}, "name": "list_projects", "annotations": {"readOnlyHint": true, "openWorldHint": false}}, {"description": "Read the status and test counts for one TestPilot execution.", "inputSchema": {"type": "object", "properties": {"run_id": {"type": "integer", "minimum": 1, "maximum": 9223372036854775807}}, "required": ["run_id"], "additionalProperties": false}, "name": "get_run", "annotations": {"readOnlyHint": true, "openWorldHint": false}}]}}
+{"jsonrpc": "2.0", "id": 3, "result": {"content": [{"type": "text", "text": "{\"projects\": [{\"id\": 1, \"name\": \"Regression\"}]}"}]}}
+{"jsonrpc": "2.0", "id": 4, "result": {"content": [{"type": "text", "text": "{\"id\": 1, \"status\": \"passed\", \"passed\": 6, \"failed\": 0, \"errors\": 0, \"skipped\": 1}"}]}}
+{"jsonrpc": "2.0", "id": 5, "result": {"isError": true, "content": [{"type": "text", "text": "run_id must be a positive SQLite integer"}]}}
+.FE..EEE...........................................WASI {'platform': 'wasi', 'python': '3.15.2', 'pytest': '9.2.0', 'coverage': '7.17.5'} line 3/4 branch 1/2 {'nodeid': 'test_generated.py::test_compare', 'phase': 'call', 'exception_type': 'AssertionError', 'message': "assert 'positive' == 'other'\n  \n  - other\n  + positive", 'frames': [{'path': 'test_generated.py', 'line': 8, 'function': 'test_compare', 'source': 'assert classify(2) == "other"'}], 'assertion_diff': "assert 'positive' == 'other'\n  \n  - other\n  + positive"} {'nodeid': 'test_generated.py::test_type', 'phase': 'call', 'exception_type': 'TypeError', 'message': "'>' not supported between instances of 'NoneType' and 'int'", 'frames': [{'path': 'test_generated.py', 'line': 11, 'function': 'test_type', 'source': 'classify(None)'}, {'path': 'subject.py', 'line': 2, 'function': 'classify', 'source': 'if n > 0:'}], 'assertion_diff': None}
+.collection failure {'nodeid': 'test_generated.py', 'phase': 'collect', 'exception_type': 'ImportError', 'message': "cannot import name 'missing' from 'subject' (/work/subject.py)", 'frames': [{'path': 'test_generated.py', 'line': 1, 'function': '<module>', 'source': 'from subject import missing'}], 'assertion_diff': None}
+.deadline WASI 停止执行：deadline case counts and coverage unavailable
+.[('test_wrong_output', 'program_defect', 'AssertionError'), ('test_wrong_input_assumption', 'test_error', 'ValueError'), ('test_wrong_expected', 'test_error', 'AssertionError'), ('test_unexpected_exception', 'program_defect', 'LookupError'), ('test_missing_exception', 'program_defect', 'Failed'), ('test_unknown_contract', 'undetermined', 'AssertionError'), ('test_test_code', 'test_error', 'NameError'), ('test_skip', 'skipped', None)]
+real traceback [{'path': 'test_generated.py', 'line': 15, 'function': 'test_unexpected_exception', 'source': 'assert target(4) == 25'}, {'path': 'subject.py', 'line': 20, 'function': 'units', 'source': 'raise LookupError("bad")'}]
+assertion difference assert 2 == 50
+ +  where 2 = target(n=2)
+.timeout WASI 停止执行：deadline
+.stateful setup undetermined assert 2 == 1
+ +  where 2 = advance()
+.....actual executions [('d9607e0c-7925-469f-a9c7-eddbfac2d2fa', 'failed', '6157dd2abfe707f3618c0edb42cbdeb98e79a6d45f5cfa8459cb828833c1b914'), ('8692193d-3425-4da4-bfa3-1e010f89ff8f', 'passed', 'd43dc8b67d8b1699070b516bc5b77ff586baa85432cc69bdf36180cf6c4592ea')]
+.....EEE...........FWASI: 3 passed on original, 3 failed on mutant; {'status': 'killed', 'reason': '原始通过节点在变异副本上触发测试断言', 'nodeids': ['test_generated.py::test_direct_binding', 'test_generated.py::test_local_alias', 'test_generated.py::test_module_alias']}
+.WASI: 2 passed on original, 2 failed on mutant; {'status': 'execution_error', 'reason': '失败没有完整的测试断言证据', 'nodeids': ['test_generated.py::test_custom_binding', 'test_generated.py::test_rebound_alias']}
+............E8 testpilot/NegateCondition 'n < 0' -> 'not (n < 0)'
+8 core/ReplaceComparisonOperator_Lt_LtE '<' -> '<='
+9 testpilot/SuppressRaise 'raise ValueError("negative")' -> 'pass'
+10 testpilot/NegateCondition 'enabled and n >= 2' -> 'not (enabled and n >= 2)'
+10 core/ReplaceAndWithOr 'and' -> 'or'
+10 core/ReplaceComparisonOperator_GtE_Gt '>=' -> '>'
+11 testpilot/ReturnNone 'return n + 1' -> 'return None'
+11 core/ReplaceBinaryOperator_Add_Sub '+' -> '-'
+12 testpilot/ReturnNone 'return n' -> 'return None'
+......EEWASI 'return x + 1' passed 0 {'status': 'survived', 'reason': '相同测试节点运行通过', 'nodeids': []}
+.WASI 'return x + 2' failed 1 {'status': 'killed', 'reason': '原始通过节点在变异副本上触发测试断言', 'nodeids': ['test_generated.py::test_value']}
+.WASI "return int('invalid')" failed 1 {'status': 'execution_error', 'reason': '失败没有完整的测试断言证据', 'nodeids': ['test_generated.py::test_value']}
+.exception removed DID NOT RAISE ValueError {'status': 'killed', 'reason': '原始通过节点在变异副本上触发测试断言', 'nodeids': ['test_generated.py::test_negative']}
+..invalid or timed-out mutant 2 {'status': 'execution_error', 'reason': '执行不完整或前后测试节点集合不同', 'nodeids': []}
+.invalid or timed-out mutant None {'status': 'timeout', 'reason': 'WASI 停止执行：deadline', 'nodeids': []}
+..live guest cancelled; worker reaped; job cleaned; result_complete=False
+.queued slot timeout returns retryable resource_busy; queued cancellation stops before spawn
+..EEEEEEEEEEEEEEEEEEE.FsWASI limits: [Errno 58] Not supported [Errno 58] wasi does not support processes. 300 MiB allocation denied
+.
+=================================== FAILURES ===================================
+______________________________ test_bad_contract _______________________________
+test_generated.py:14: in test_bad_contract
+    assert inc(1) == 99
+           ^^^^^^^^^^^^
+E   AssertionError
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED test_generated.py::test_value
+PASSED test_generated.py::test_capabilities
+SKIPPED [1] test_generated.py:17: no contract
+FAILED test_generated.py::test_bad_contract - AssertionError
+1 failed, 2 passed, 1 skipped in 0.42s
+
+TESTPILOT_RESULT {"environment": {"platform": "wasi", "python": "3.15.2", "pytest": "9.2.0", "coverage": "7.17.5"}, "cases": [{"nodeid": "test_generated.py::test_value", "outcome": "passed"}, {"nodeid": "test_generated.py::test_bad_contract", "outcome": "failed"}, {"nodeid": "test_generated.py::test_omitted", "outcome": "skipped"}, {"nodeid": "test_generated.py::test_capabilities", "outcome": "passed"}], "covered_lines": 3, "total_lines": 4}
+.F...INFO testpilot 启动 demo 模式 http://127.0.0.1:63217
+
+FFFWARNING  testpilot:main.py:26 健康检查等待超时 (<urlopen error [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。>)。请检查 SQLite 和运行日志，服务就绪后访问 http://127.0.0.1:60546
+
+.EEEEEEEEEE....
+=================================== ERRORS ====================================
+_______________ ERROR at setup of test_labels_and_replay_camera _______________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_labels_and_replay_camera0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:53138
+
+tests\test_dashboard.py:46: Failed
+________________ ERROR at setup of test_terminal_family_layout ________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_terminal_family_layout0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:54519
+
+tests\test_dashboard.py:46: Failed
+______________ ERROR at setup of test_console_and_timing_source _______________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_console_and_timing_source0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:50694
+
+tests\test_dashboard.py:46: Failed
+___________ ERROR at setup of test_fit_and_focus_last_dense_symbol ____________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_fit_and_focus_last_dense_0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:52751
+
+tests\test_dashboard.py:46: Failed
+________ ERROR at setup of test_replay_camera_pauses_with_presentation ________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_replay_camera_pauses_with0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:63582
+
+tests\test_dashboard.py:46: Failed
+__________________ ERROR at setup of test_file_to_generation __________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_file_to_generation0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:56226
+
+tests\test_dashboard.py:46: Failed
+_____________ ERROR at setup of test_revision_and_boundary_inputs _____________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_revision_and_boundary_inp0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:64906
+
+tests\test_dashboard.py:46: Failed
+____________ ERROR at setup of test_unavailable_context_and_retry _____________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_unavailable_context_and_r0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:60012
+
+tests\test_dashboard.py:46: Failed
+_________________ ERROR at setup of test_large_real_analysis __________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_large_real_analysis0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:65169
+
+tests\test_dashboard.py:46: Failed
+_________ ERROR at setup of test_dense_renderer_and_pointer_gestures __________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_dense_renderer_and_pointe0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:54561
+
+tests\test_dashboard.py:46: Failed
+________ ERROR at setup of test_issue_diff_and_real_regression_history ________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_issue_diff_and_real_regre0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:49781
+
+tests\test_dashboard.py:46: Failed
+______________________ ERROR at setup of test_dashboard _______________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_dashboard0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:64302
+
+tests\test_dashboard.py:46: Failed
+________ ERROR at setup of test_execution_history_log_and_case_handoff ________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_execution_history_log_and0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:54360
+
+tests\test_dashboard.py:46: Failed
+_______ ERROR at setup of test_real_worker_error_timeout_and_truncation _______
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_real_worker_error_timeout0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:50245
+
+tests\test_dashboard.py:46: Failed
+________ ERROR at setup of test_real_busy_and_explicit_fault_injection ________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_real_busy_and_explicit_fa0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:56515
+
+tests\test_dashboard.py:46: Failed
+_________ ERROR at setup of test_template_static_and_real_first_runs __________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_template_static_and_real_0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:60745
+
+tests\test_dashboard.py:46: Failed
+_____ ERROR at setup of test_rejected_generation_and_unavailable_context ______
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_rejected_generation_and_u0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:52350
+
+tests\test_dashboard.py:46: Failed
+________ ERROR at setup of test_busy_saves_candidate_without_first_run ________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_busy_saves_candidate_with0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:53570
+
+tests\test_dashboard.py:46: Failed
+_________________ ERROR at setup of test_mutation_experiment __________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_mutation_experiment0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:56872
+
+tests\test_dashboard.py:46: Failed
+_________ ERROR at setup of test_cancel_then_resume_a_real_checkpoint _________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_cancel_then_resume_a_real0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:64234
+
+tests\test_dashboard.py:46: Failed
+_____________ ERROR at setup of test_red_original_does_not_score ______________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_red_original_does_not_sco0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:59372
+
+tests\test_dashboard.py:46: Failed
+____________ ERROR at setup of test_open_run_and_export_mutations _____________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_open_run_and_export_mutat0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:54008
+
+tests\test_dashboard.py:46: Failed
+____________ ERROR at setup of test_feedback_summary_ui_and_export ____________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_feedback_summary_ui_and_e0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:57248
+
+tests\test_dashboard.py:46: Failed
+___________ ERROR at setup of test_real_defect_to_regression_report ___________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_real_defect_to_regression0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:53581
+
+tests\test_dashboard.py:46: Failed
+_________ ERROR at setup of test_diagnostics_history_and_local_access _________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_diagnostics_history_and_l0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:63200
+
+tests\test_dashboard.py:46: Failed
+____________________ ERROR at setup of test_engine_browser ____________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_engine_browser0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:56931
+
+tests\test_dashboard.py:46: Failed
+________ ERROR at setup of test_real_engine[quicksort-quicksort-False] ________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_real_engine_quicksort_qui0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:51198
+
+tests\test_dashboard.py:46: Failed
+_________ ERROR at setup of test_real_engine[negative-magnitude-True] _________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_real_engine_negative_magn0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:62854
+
+tests\test_dashboard.py:46: Failed
+_______ ERROR at setup of test_real_engine[empty-first_or_default-True] _______
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_real_engine_empty_first_o0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:52070
+
+tests\test_dashboard.py:46: Failed
+________ ERROR at setup of test_real_engine[boundary-valid_index-True] ________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_real_engine_boundary_vali0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:52106
+
+tests\test_dashboard.py:46: Failed
+_______ ERROR at setup of test_real_engine[exception-parse_count-True] ________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_real_engine_exception_par0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:58344
+
+tests\test_dashboard.py:46: Failed
+___ ERROR at setup of test_real_engine[branches-classify_temperature-False] ___
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_real_engine_branches_clas0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:59038
+
+tests\test_dashboard.py:46: Failed
+______ ERROR at setup of test_real_engine[repair-reciprocal_units-False] ______
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_real_engine_repair_recipr0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:57372
+
+tests\test_dashboard.py:46: Failed
+_____________ ERROR at setup of test_paged_source_and_case_group ______________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_paged_source_and_case_gro0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:65022
+
+tests\test_dashboard.py:46: Failed
+_________ ERROR at setup of test_mobile_recovery_from_startup_errors __________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_mobile_recovery_from_star0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:58584
+
+tests\test_dashboard.py:46: Failed
+_____________ ERROR at setup of test_import_history_and_analysis ______________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_import_history_and_analys0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:58272
+
+tests\test_dashboard.py:46: Failed
+_________ ERROR at setup of test_empty_invalid_network_and_membership _________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_empty_invalid_network_and0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:53075
+
+tests\test_dashboard.py:46: Failed
+_________ ERROR at setup of test_project_navigation_and_long_filename _________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_project_navigation_and_lo0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:50776
+
+tests\test_dashboard.py:46: Failed
+______ ERROR at setup of test_real_report_comparison_and_export_snapshot ______
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_real_report_comparison_an0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:54802
+
+tests\test_dashboard.py:46: Failed
+_______ ERROR at setup of test_zero_and_missing_metrics_from_real_wasi ________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_zero_and_missing_metrics_0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:56942
+
+tests\test_dashboard.py:46: Failed
+_______________ ERROR at setup of test_mobile_module_navigation _______________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_mobile_module_navigation0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:60550
+
+tests\test_dashboard.py:46: Failed
+________________ ERROR at setup of test_six_page_business_loop ________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_six_page_business_loop0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:58344
+
+tests\test_dashboard.py:46: Failed
+___________________ ERROR at setup of test_graph_lifecycle ____________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_graph_lifecycle0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:54341
+
+tests\test_dashboard.py:46: Failed
+_________________ ERROR at setup of test_real_long_log_mobile _________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_real_long_log_mobile0')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:62324
+
+tests\test_dashboard.py:46: Failed
+_________________________ ERROR at setup of test_f01 __________________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_f010')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:52282
+
+tests\test_dashboard.py:46: Failed
+_________________________ ERROR at setup of test_f02 __________________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_f020')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:55518
+
+tests\test_dashboard.py:46: Failed
+_________________________ ERROR at setup of test_f03 __________________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_f030')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:65477
+
+tests\test_dashboard.py:46: Failed
+_________________________ ERROR at setup of test_f04 __________________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_f040')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:63139
+
+tests\test_dashboard.py:46: Failed
+_________________________ ERROR at setup of test_f05 __________________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_f050')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:49239
+
+tests\test_dashboard.py:46: Failed
+_________________________ ERROR at setup of test_f06 __________________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_f060')
+
+    @pytest.fixture
+    def app_url(tmp_path):
+        with socket.socket() as probe:
+            probe.bind(("127.0.0.1", 0))
+            port = probe.getsockname()[1]
+    
+        url = f"http://127.0.0.1:{port}"
+        client = build_opener(ProxyHandler({}))
+        log_path = tmp_path / "service.log"
+        with log_path.open("wb") as log:
+            process = subprocess.Popen(
+                [sys.executable, str(ROOT / "main.py"), "--no-browser", "--port", str(port)],
+                cwd=ROOT,
+                env={**os.environ, "TESTPILOT_DATA_DIR": str(tmp_path), "PYTHONIOENCODING": "utf-8"},
+                stdout=log,
+                stderr=subprocess.STDOUT,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while process.poll() is None and time.monotonic() < deadline:
+                    try:
+                        with client.open(url + "/api/health", timeout=1) as response:
+                            if response.status == 200:
+                                break
+                    except (URLError, OSError):
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("服务未就绪\n" + log_path.read_text("utf-8", errors="replace"))
+E                   Failed: 服务未就绪
+E                   INFO testpilot 启动 demo 模式 http://127.0.0.1:60464
+
+tests\test_dashboard.py:46: Failed
+================================== FAILURES ===================================
+_____________________ test_pre_commit_rejects_and_accepts _____________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_pre_commit_rejects_and_ac0')
+
+    def test_pre_commit_rejects_and_accepts(tmp_path):
+        def git(*args, check=True):
+            return subprocess.run(
+                ["git", "-c", "user.name=TestPilot fixture", "-c", "user.email=fixture@example.invalid",
+                 "-c", "commit.gpgsign=false", "-c", f"core.hooksPath={(ROOT / 'hooks').as_posix()}", *args],
+                cwd=tmp_path, text=True, encoding="utf-8", errors="replace",
+                capture_output=True, timeout=15, check=check,
+            )
+    
+>       git("init", "-q")
+
+tests\test_course_toolchain.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\test_course_toolchain.py:56: in git
+    return subprocess.run(
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+input = None, capture_output = True, timeout = 15, check = True
+popenargs = (['git', '-c', 'user.name=TestPilot fixture', '-c', 'user.email=fixture@example.invalid', '-c', ...],)
+kwargs = {'cwd': WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2...t-of-897772465/pytest-0/test_pre_commit_rejects_and_ac0'), 'text': True, 'encoding': 'utf-8', 'errors': 'replace', ...}
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them,
+        or pass capture_output=True to capture both.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout (seconds) is given and the process takes too long,
+         a TimeoutExpired exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '['git', '-c', 'user.name=TestPilot fixture', '-c', 'user.email=fixture@example.invalid', '-c', 'commit.gpgsign=false', '-c', 'core.hooksPath=D:/TestPilot AI/hooks', 'init', '-q']' returned non-zero exit status 128.
+
+C:\Users\89777\miniconda3\Lib\subprocess.py:577: CalledProcessError
+___________________ test_transport_does_not_follow_redirect ___________________
+
+    def test_transport_does_not_follow_redirect():
+        requests=[]
+        class Handler(BaseHTTPRequestHandler):
+            def do_GET(self):
+                requests.append(self.path)
+                self.send_response(307)
+                self.send_header("Location","/forbidden")
+                self.end_headers()
+        with ThreadingHTTPServer(("127.0.0.1",0),Handler) as server:
+            thread=Thread(target=server.serve_forever,daemon=True)
+            thread.start()
+            try:
+>               with pytest.raises(ModelError,match="307"):
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E               AssertionError: Regex pattern did not match.
+E                 Expected regex: '307'
+E                 Actual message: '本机模型连接中断 (PermissionError)'
+
+tests\test_model_provider.py:162: AssertionError
+__________________________ test_deadline_and_cleanup __________________________
+
+    def test_deadline_and_cleanup():
+        before = set((ROOT / ".runtime").glob("job-*"))
+        result = execute("", "def test_deadline():\n    while True:\n        pass", timeout_s=3)
+        assert result["status"] == "timeout", result["log"]
+        assert "deadline" in result["log"]
+>       assert not set((ROOT / ".runtime").glob("job-*")) - before
+E       AssertionError: assert not ({WindowsPath('D:/TestPilot AI/.runtime/job-e47745mb'), WindowsPath('D:/TestPilot AI/.runtime/job-wzi_6hnj')} - {WindowsPath('D:/TestPilot AI/.runtime/job-em6f6e6s'), WindowsPath('D:/TestPilot AI/.runtime/job-wzi_6hnj')})
+E        +  where {WindowsPath('D:/TestPilot AI/.runtime/job-e47745mb'), WindowsPath('D:/TestPilot AI/.runtime/job-wzi_6hnj')} = set(<map object at 0x000002C5EA393460>)
+E        +    where <map object at 0x000002C5EA393460> = glob('job-*')
+E        +      where glob = (WindowsPath('D:/TestPilot AI') / '.runtime').glob
+
+tests\test_runner.py:56: AssertionError
+________________ test_entry_conflict_database_shutdown_restart ________________
+
+port = 63217
+data_dir = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76...ndbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_entry_conflict_database_s0/sqlite')
+log = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76...box.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_entry_conflict_database_s0/demo.log')
+mode = 'demo'
+
+    @contextmanager
+    def running_server(port, data_dir, log, mode):
+        url = f"http://127.0.0.1:{port}"
+        with log.open("w", encoding="utf-8") as stream:
+            process = subprocess.Popen(
+                [*launch_args(port), "--mode", mode], cwd=ROOT, env=launch_env(data_dir),
+                stdout=stream, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL,
+                creationflags=subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0,
+            )
+            try:
+                deadline = time.monotonic() + 20
+                while time.monotonic() < deadline:
+                    assert process.poll() is None, log.read_text(encoding="utf-8")
+                    try:
+                        with CLIENT.open(url + "/api/health", timeout=1) as response:
+                            health = json.load(response)
+                        break
+                    except URLError:
+                        time.sleep(0.1)
+                else:
+>                   pytest.fail("health readiness timeout")
+E                   Failed: health readiness timeout
+
+tests\test_startup.py:58: Failed
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_entry_conflict_database_s0')
+
+    def test_entry_conflict_database_shutdown_restart(tmp_path):
+        port = vacant_port()
+        data_dir = tmp_path / "sqlite"
+        db = data_dir / "testpilot.sqlite3"
+        for mode in ("demo", "dev"):
+>           with running_server(port, data_dir, tmp_path / f"{mode}.log", mode) as url:
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_startup.py:83: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\89777\miniconda3\Lib\contextlib.py:141: in __enter__
+    return next(self.gen)
+           ^^^^^^^^^^^^^^
+tests\test_startup.py:67: in running_server
+    process.wait(timeout=20)
+C:\Users\89777\miniconda3\Lib\subprocess.py:1280: in wait
+    return self._wait(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <Popen: returncode: 1 args: ['D:\\TestPilot AI\\.venv\\Scripts\\python.exe',...>
+timeout = 20
+
+    def _wait(self, timeout):
+        """Internal implementation of wait() on Windows."""
+        if timeout is None:
+            timeout_millis = _winapi.INFINITE
+        elif timeout <= 0:
+            timeout_millis = 0
+        else:
+            timeout_millis = int(timeout * 1000)
+        if self.returncode is None:
+            # API note: Returns immediately if timeout_millis == 0.
+            result = _winapi.WaitForSingleObject(self._handle,
+                                                 timeout_millis)
+            if result == _winapi.WAIT_TIMEOUT:
+>               raise TimeoutExpired(self.args, timeout)
+E               subprocess.TimeoutExpired: Command '['D:\\TestPilot AI\\.venv\\Scripts\\python.exe', 'D:\\TestPilot AI\\main.py', '--port', '63217', '--no-browser', '--mode', 'demo']' timed out after 20 seconds
+
+C:\Users\89777\miniconda3\Lib\subprocess.py:1609: TimeoutExpired
+____________________________ test_startup_failure _____________________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_startup_failure0')
+
+    def test_startup_failure(tmp_path):
+        bad_dir = tmp_path / "regular_file"
+        bad_dir.write_text("fixture", encoding="utf-8")
+>       failure = subprocess.run(launch_args(vacant_port()), cwd=ROOT, env=launch_env(bad_dir),
+                                 capture_output=True, encoding="utf-8", timeout=15)
+
+tests\test_startup.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\89777\miniconda3\Lib\subprocess.py:556: in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\89777\miniconda3\Lib\subprocess.py:1222: in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <Popen: returncode: 1 args: ['D:\\TestPilot AI\\.venv\\Scripts\\python.exe',...>
+input = None, endtime = 34025.5684794, orig_timeout = 15
+
+    def _communicate(self, input, endtime, orig_timeout):
+        # Start reader threads feeding into a list hanging off of this
+        # object, unless they've already been started.
+        if self.stdout and not hasattr(self, "_stdout_buff"):
+            self._stdout_buff = []
+            self.stdout_thread = \
+                    threading.Thread(target=self._readerthread,
+                                     args=(self.stdout, self._stdout_buff))
+            self.stdout_thread.daemon = True
+            self.stdout_thread.start()
+        if self.stderr and not hasattr(self, "_stderr_buff"):
+            self._stderr_buff = []
+            self.stderr_thread = \
+                    threading.Thread(target=self._readerthread,
+                                     args=(self.stderr, self._stderr_buff))
+            self.stderr_thread.daemon = True
+            self.stderr_thread.start()
+    
+        # Start writer thread to send input to stdin, unless already
+        # started.  The thread writes input and closes stdin when done,
+        # or continues in the background on timeout.
+        if self.stdin and not hasattr(self, "_stdin_thread"):
+            self._stdin_thread = \
+                    threading.Thread(target=self._writerthread,
+                                     args=(input,))
+            self._stdin_thread.daemon = True
+            self._stdin_thread.start()
+    
+        # Wait for the writer thread, or time out.  If we time out, the
+        # thread remains writing and the fd left open in case the user
+        # calls communicate again.
+        if hasattr(self, "_stdin_thread"):
+            self._stdin_thread.join(self._remaining_time(endtime))
+            if self._stdin_thread.is_alive():
+                raise TimeoutExpired(self.args, orig_timeout)
+    
+        # Wait for the reader threads, or time out.  If we time out, the
+        # threads remain reading and the fds left open in case the user
+        # calls communicate again.
+        if self.stdout is not None:
+            self.stdout_thread.join(self._remaining_time(endtime))
+            if self.stdout_thread.is_alive():
+>               raise TimeoutExpired(self.args, orig_timeout)
+E               subprocess.TimeoutExpired: Command '['D:\\TestPilot AI\\.venv\\Scripts\\python.exe', 'D:\\TestPilot AI\\main.py', '--port', '49260', '--no-browser']' timed out after 15 seconds
+
+C:\Users\89777\miniconda3\Lib\subprocess.py:1665: TimeoutExpired
+____________________ test_incompatible_database_preserved _____________________
+
+tmp_path = WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-1001/AppData/Local/Packages/OpenAI.Codex_2p2nqsd0c76g0/AC/#!sandbox.{5a3453ad-f5d6-4a10-84ff-fabbdf89c601}/Temp/pytest-of-897772465/pytest-0/test_incompatible_database_pre0')
+
+    def test_incompatible_database_preserved(tmp_path):
+        db = tmp_path / "testpilot.sqlite3"
+        with closing(sqlite3.connect(db)) as connection, connection:
+            connection.execute("CREATE TABLE app_metadata (key TEXT PRIMARY KEY, value TEXT NOT NULL)")
+            connection.execute("INSERT INTO app_metadata VALUES ('schema_version', '2')")
+        before = db.read_bytes()
+>       failure = subprocess.run(launch_args(vacant_port()), cwd=ROOT, env=launch_env(tmp_path),
+                                 capture_output=True, encoding="utf-8", timeout=15)
+
+tests\test_startup.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+C:\Users\89777\miniconda3\Lib\subprocess.py:556: in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+C:\Users\89777\miniconda3\Lib\subprocess.py:1222: in communicate
+    stdout, stderr = self._communicate(input, endtime, timeout)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <Popen: returncode: 1 args: ['D:\\TestPilot AI\\.venv\\Scripts\\python.exe',...>
+input = None, endtime = 34040.726265, orig_timeout = 15
+
+    def _communicate(self, input, endtime, orig_timeout):
+        # Start reader threads feeding into a list hanging off of this
+        # object, unless they've already been started.
+        if self.stdout and not hasattr(self, "_stdout_buff"):
+            self._stdout_buff = []
+            self.stdout_thread = \
+                    threading.Thread(target=self._readerthread,
+                                     args=(self.stdout, self._stdout_buff))
+            self.stdout_thread.daemon = True
+            self.stdout_thread.start()
+        if self.stderr and not hasattr(self, "_stderr_buff"):
+            self._stderr_buff = []
+            self.stderr_thread = \
+                    threading.Thread(target=self._readerthread,
+                                     args=(self.stderr, self._stderr_buff))
+            self.stderr_thread.daemon = True
+            self.stderr_thread.start()
+    
+        # Start writer thread to send input to stdin, unless already
+        # started.  The thread writes input and closes stdin when done,
+        # or continues in the background on timeout.
+        if self.stdin and not hasattr(self, "_stdin_thread"):
+            self._stdin_thread = \
+                    threading.Thread(target=self._writerthread,
+                                     args=(input,))
+            self._stdin_thread.daemon = True
+            self._stdin_thread.start()
+    
+        # Wait for the writer thread, or time out.  If we time out, the
+        # thread remains writing and the fd left open in case the user
+        # calls communicate again.
+        if hasattr(self, "_stdin_thread"):
+            self._stdin_thread.join(self._remaining_time(endtime))
+            if self._stdin_thread.is_alive():
+                raise TimeoutExpired(self.args, orig_timeout)
+    
+        # Wait for the reader threads, or time out.  If we time out, the
+        # threads remain reading and the fds left open in case the user
+        # calls communicate again.
+        if self.stdout is not None:
+            self.stdout_thread.join(self._remaining_time(endtime))
+            if self.stdout_thread.is_alive():
+>               raise TimeoutExpired(self.args, orig_timeout)
+E               subprocess.TimeoutExpired: Command '['D:\\TestPilot AI\\.venv\\Scripts\\python.exe', 'D:\\TestPilot AI\\main.py', '--port', '53102', '--no-browser']' timed out after 15 seconds
+
+C:\Users\89777\miniconda3\Lib\subprocess.py:1665: TimeoutExpired
+=========================== short test summary info ===========================
+FAILED tests/test_course_toolchain.py::test_pre_commit_rejects_and_accepts - ...
+FAILED tests/test_model_provider.py::test_transport_does_not_follow_redirect
+FAILED tests/test_runner.py::test_deadline_and_cleanup - AssertionError: asse...
+FAILED tests/test_startup.py::test_entry_conflict_database_shutdown_restart
+FAILED tests/test_startup.py::test_startup_failure - subprocess.TimeoutExpire...
+FAILED tests/test_startup.py::test_incompatible_database_preserved - subproce...
+ERROR tests/test_ast_canvas_refinement.py::test_labels_and_replay_camera - Fa...
+ERROR tests/test_ast_canvas_refinement.py::test_terminal_family_layout - Fail...
+ERROR tests/test_ast_refinement.py::test_console_and_timing_source - Failed: ...
+ERROR tests/test_ast_refinement.py::test_fit_and_focus_last_dense_symbol - Fa...
+ERROR tests/test_ast_refinement.py::test_replay_camera_pauses_with_presentation
+ERROR tests/test_ast_studio.py::test_file_to_generation - Failed: 服务未就绪
+ERROR tests/test_ast_studio.py::test_revision_and_boundary_inputs - Failed: ...
+ERROR tests/test_ast_studio.py::test_unavailable_context_and_retry - Failed: ...
+ERROR tests/test_ast_studio.py::test_large_real_analysis - Failed: 服务未就绪
+ERROR tests/test_ast_studio.py::test_dense_renderer_and_pointer_gestures - Fa...
+ERROR tests/test_bug_intelligence.py::test_issue_diff_and_real_regression_history
+ERROR tests/test_dashboard.py::test_dashboard - Failed: 服务未就绪
+ERROR tests/test_execution_center.py::test_execution_history_log_and_case_handoff
+ERROR tests/test_execution_center.py::test_real_worker_error_timeout_and_truncation
+ERROR tests/test_execution_center.py::test_real_busy_and_explicit_fault_injection
+ERROR tests/test_generation_studio.py::test_template_static_and_real_first_runs
+ERROR tests/test_generation_studio.py::test_rejected_generation_and_unavailable_context
+ERROR tests/test_generation_studio.py::test_busy_saves_candidate_without_first_run
+ERROR tests/test_mutation_flow.py::test_mutation_experiment - Failed: 服务未就绪
+ERROR tests/test_mutation_lifecycle.py::test_cancel_then_resume_a_real_checkpoint
+ERROR tests/test_mutation_lifecycle.py::test_red_original_does_not_score - Fa...
+ERROR tests/test_mutation_ui.py::test_open_run_and_export_mutations - Failed:...
+ERROR tests/test_mutation_ui.py::test_feedback_summary_ui_and_export - Failed...
+ERROR tests/test_phase02_flow.py::test_real_defect_to_regression_report - Fai...
+ERROR tests/test_phase03_api.py::test_diagnostics_history_and_local_access - ...
+ERROR tests/test_phase03_api.py::test_engine_browser - Failed: 服务未就绪
+ERROR tests/test_phase03_e2e.py::test_real_engine[quicksort-quicksort-False]
+ERROR tests/test_phase03_e2e.py::test_real_engine[negative-magnitude-True] - ...
+ERROR tests/test_phase03_e2e.py::test_real_engine[empty-first_or_default-True]
+ERROR tests/test_phase03_e2e.py::test_real_engine[boundary-valid_index-True]
+ERROR tests/test_phase03_e2e.py::test_real_engine[exception-parse_count-True]
+ERROR tests/test_phase03_e2e.py::test_real_engine[branches-classify_temperature-False]
+ERROR tests/test_phase03_e2e.py::test_real_engine[repair-reciprocal_units-False]
+ERROR tests/test_project_source_preview.py::test_paged_source_and_case_group
+ERROR tests/test_project_startup.py::test_mobile_recovery_from_startup_errors
+ERROR tests/test_project_workspace.py::test_import_history_and_analysis - Fai...
+ERROR tests/test_project_workspace.py::test_empty_invalid_network_and_membership
+ERROR tests/test_project_workspace.py::test_project_navigation_and_long_filename
+ERROR tests/test_quality_intelligence.py::test_real_report_comparison_and_export_snapshot
+ERROR tests/test_quality_intelligence.py::test_zero_and_missing_metrics_from_real_wasi
+ERROR tests/test_wp09_integration.py::test_mobile_module_navigation - Failed:...
+ERROR tests/test_wp09_integration.py::test_six_page_business_loop - Failed: ...
+ERROR tests/test_wp09_integration.py::test_graph_lifecycle - Failed: 服务未就绪
+ERROR tests/test_wp09_integration.py::test_real_long_log_mobile - Failed: 服...
+ERROR tests/ui_workbench.py::test_f01 - Failed: 服务未就绪
+ERROR tests/ui_workbench.py::test_f02 - Failed: 服务未就绪
+ERROR tests/ui_workbench.py::test_f03 - Failed: 服务未就绪
+ERROR tests/ui_workbench.py::test_f04 - Failed: 服务未就绪
+ERROR tests/ui_workbench.py::test_f05 - Failed: 服务未就绪
+ERROR tests/ui_workbench.py::test_f06 - Failed: 服务未就绪
+6 failed, 112 passed, 50 errors in 1372.03s (0:22:52)
+exit=1 elapsed=1374.31s
+
+$ node --test tests/bug_diff.test.mjs
+✔ aligns insertions, removals, replacements, and original line endings (3.881ms)
+✔ bounds highly dissimilar comparisons without speculative counts (4.2213ms)
+✔ uses a uniquely attributable real assertion block or stored structured evidence (2.9526ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 3
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 148.1141
+exit=0 elapsed=0.28s
+outcome=failed
