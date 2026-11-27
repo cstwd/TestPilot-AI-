@@ -37,8 +37,12 @@ def main():
             if chunk.cut:
                 cancel.set()
 
+        argv = ["-c", guest]
+        if sys.argv[3:] == ["detailed"]:
+            argv.append("detailed")
         result = run(
-            ["-c", guest], grants=[Grant(job / "work", "/work"), Grant(packages, "/deps")],
+            argv,
+            grants=[Grant(job / "work", "/work"), Grant(packages, "/deps")],
             import_path=["/deps/deps.zip"], root=False, env={"PYTEST_DISABLE_PLUGIN_AUTOLOAD": "1"},
             memory_bytes=256 << 20, deadline_s=int(sys.argv[1]), output_bytes=256 << 10,
             max_open_files=128, cache_dir=cache, on_output=capture, cancel=cancel,
