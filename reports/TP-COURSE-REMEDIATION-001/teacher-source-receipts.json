@@ -1,0 +1,31 @@
+{
+  "origin": "five original images attached by the user during TP-COURSE-REMEDIATION-001",
+  "ordered_by": "chat attachment order",
+  "images": [
+    {
+      "Name": "codex-clipboard-c49f09ef-105e-4b22-8a04-93ef189726f2.png",
+      "Bytes": 434095,
+      "SHA256": "5B9AAFC225CF560416BC588E877E34F1295B0237409497DA74C97886FF025170"
+    },
+    {
+      "Name": "codex-clipboard-d49f5259-7069-4f60-bdc3-ef03b233cf38.png",
+      "Bytes": 375797,
+      "SHA256": "ADBB2C01C42AAD9733FBA84AA66B6BAB6382F90956694AA05DCB15F883D134C2"
+    },
+    {
+      "Name": "codex-clipboard-e4366878-7f7e-46f0-9c0e-9ccead045484.png",
+      "Bytes": 260874,
+      "SHA256": "32C8FC8EDE70C6017B9867A9B9928E91E72363B431CA3D3EC1CD44734D0C6816"
+    },
+    {
+      "Name": "codex-clipboard-e3455b67-9194-4c7e-a85f-bec299854b4f.png",
+      "Bytes": 234888,
+      "SHA256": "ED3A149F69FCDE4BF9243FE4A5B19BD577E5EAE41B35CE4FF1B6C890DD548F53"
+    },
+    {
+      "Name": "codex-clipboard-d634f1d1-b406-4bf9-883f-8e112e3c6b32.png",
+      "Bytes": 297227,
+      "SHA256": "69F775491961DBAB5810C59AF02495288BE41AD5165A25ECE3DD408B3A0281E6"
+    }
+  ]
+}
