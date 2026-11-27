@@ -1,0 +1,100 @@
+F..F
+================================== FAILURES ===================================
+___________ test_repair_runs_both_versions_without_changing_subject ___________
+
+sample_workspace = (namespace(app=namespace(state=namespace(db_path=WindowsPath('E:/WpSystem/S-1-5-21-1988912037-805403816-2585479653-100...lename': 'magnitude.py', 'revision': 2, ...}], {'id': 1, 'file_id': 1, 'target': 'magnitude', 'mode': 'template', ...})
+
+    def test_repair_runs_both_versions_without_changing_subject(sample_workspace):
+        request, project, _, _ = sample_workspace
+        file = projects.import_file(project["id"], projects.FileInput(filename="unit.py", source=SOURCE), request)
+        task = engine_flow.run_task(request.app.state.db_path, file["id"], "reciprocal_units", 1, "template")
+        runs = [r for r in task["records"] if r["kind"] == RecordKind.execution.value]
+>       assert [r["status"] for r in runs] == ["failed", "passed"], task["records"][-1]
+E       AssertionError: {'id': 'd9c2a017-da59-4859-bf4f-726583b682ff', 'task_id': '0a03fcac-5c9b-4e24-957f-f706e943b5f7', 'parent_id': 'ee7b3dd7-608c-4797-8594-96cffd492326', 'kind': 'TestReport', ...}
+E       assert ['failed'] == ['failed', 'passed']
+E         
+E         Right contains one more item: 'passed'
+E         Use -v to get more diff
+
+tests\test_f12.py:21: AssertionError
+------------------------------ Captured log call ------------------------------
+ERROR    testpilot.engine:engine_flow.py:136 task=0a03fcac-5c9b-4e24-957f-f706e943b5f7 failed at RepairAttempt
+Traceback (most recent call last):
+  File "D:\TestPilot AI\backend\engine_flow.py", line 131, in run_task
+    flow.evaluate(*prepared)
+    ~~~~~~~~~~~~~^^^^^^^^^^^
+  File "D:\TestPilot AI\backend\engine_flow.py", line 102, in evaluate
+    candidate, reason, rejected = propose(self.file["source"], self.target, analysis,
+                                  ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                                          strategy, suite, findings["findings"], self.config)
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\backend\engine_feedback.py", line 86, in propose
+    expected, needs_model = allowed_edit(suite["code"], target, findings)
+                            ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\TestPilot AI\backend\engine_feedback.py", line 41, in allowed_edit
+    observed = tested_expression(tree, frame, target, aliases)
+TypeError: tested_expression() takes 3 positional arguments but 4 were given
+_______________ test_unsafe_regeneration_keeps_unrelated_tests ________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x0000021D13CE3360>
+
+    def test_unsafe_regeneration_keeps_unrelated_tests(monkeypatch):
+        target = "reciprocal_units"
+        before = checked("from subject import reciprocal_units as target\n"
+                         "def test_zero():\n    assert isinstance(target(x=0), int)\n"
+                         "def test_value():\n    assert target(2) == 50")
+        frames = [{"path": "test_generated.py", "function": "test_zero", "line": 4}]
+        analysis = analyze_source(SOURCE)
+        strategy = build_strategy(analysis, target)
+        key = "test_generated.py::test_zero"
+        run = {"status": "failed", "cases": [{"nodeid": key, "outcome": "failed"}], "failures": [
+            {"nodeid": key, "phase": "call", "frames": frames, "exception_type": "ValueError", "message": "zero"}]}
+        findings = analyze_failures(run, strategy, before, analysis)["findings"]
+        assert findings[0]["category"] == "test_error"
+        original = {"mode": "ai", "code": before, "sha256": hashlib.sha256(before.encode()).hexdigest()}
+        weakened = {"mode": "ai", "code": "def test_zero(): assert True", "sha256": "fixture-candidate"}
+        monkeypatch.setattr(engine_feedback, "generate_tests", lambda *args, **kwargs: weakened)
+>       corrected, _, rejected = engine_feedback.propose(SOURCE, target, analysis, strategy, original, findings, None)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_f12.py:71: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+backend\engine_feedback.py:86: in propose
+    expected, needs_model = allowed_edit(suite["code"], target, findings)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+previous = 'from subject import reciprocal_units as target\n\ndef test_zero():\n    assert isinstance(target(x=0), int)\n\ndef test_value():\n    assert target(2) == 50\n'
+target = 'reciprocal_units'
+findings = [{'nodeid': 'test_generated.py::test_zero', 'outcome': 'failed', 'phase': 'call', 'exception_type': 'ValueError', ...}]
+
+    def allowed_edit(previous, target, findings):
+        """A model edit must match an independently justified change at the failing line."""
+        tree = ast.parse(previous)
+        aliases = imports(tree, target)
+        tests = {n.name: n for n in tree.body if isinstance(n, ast.FunctionDef)}
+        needs_pytest = False
+        needs_model = False
+        edits = []
+        for finding in findings:
+            if finding["category"] != "test_error":
+                continue
+            name = finding["nodeid"].split("::")[-1]
+            fn = tests.get(name)
+            line = finding["test_line"]
+            if not fn or not line or fn.decorator_list:
+                raise ValueError("失败节点不能对应到单一顶层测试语句")
+            index = next((i for i, stmt in enumerate(fn.body) if stmt.lineno <= line <= stmt.end_lineno), None)
+            if index is None:
+                raise ValueError("无法定位失败语句")
+            frame = {"function": name, "line": line}
+            contract = finding.get("contract")
+>           observed = tested_expression(tree, frame, target, aliases)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           TypeError: tested_expression() takes 3 positional arguments but 4 were given
+
+backend\engine_feedback.py:41: TypeError
+=========================== short test summary info ===========================
+FAILED tests/test_f12.py::test_repair_runs_both_versions_without_changing_subject
+FAILED tests/test_f12.py::test_unsafe_regeneration_keeps_unrelated_tests - Ty...
+2 failed, 2 passed in 7.49s
