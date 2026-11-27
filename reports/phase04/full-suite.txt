@@ -1,0 +1,168 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.11, pytest-9.2.0, pluggy-1.7.0 -- D:\TestPilot AI\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: D:\TestPilot AI
+configfile: pytest.ini
+plugins: anyio-4.16.0, hypothesis-6.170.17
+collecting ... collected 130 items
+
+tests/test_ast_canvas_refinement.py::test_labels_and_replay_camera PASSED [  0%]
+tests/test_ast_canvas_refinement.py::test_terminal_family_layout PASSED  [  1%]
+tests/test_ast_refinement.py::test_console_and_timing_source PASSED      [  2%]
+tests/test_ast_refinement.py::test_fit_and_focus_last_dense_symbol PASSED [  3%]
+tests/test_ast_refinement.py::test_replay_camera_pauses_with_presentation PASSED [  3%]
+tests/test_ast_studio.py::test_file_to_generation PASSED                 [  4%]
+tests/test_ast_studio.py::test_revision_and_boundary_inputs PASSED       [  5%]
+tests/test_ast_studio.py::test_unavailable_context_and_retry PASSED      [  6%]
+tests/test_ast_studio.py::test_large_real_analysis PASSED                [  6%]
+tests/test_ast_studio.py::test_dense_renderer_and_pointer_gestures PASSED [  7%]
+tests/test_dashboard.py::test_dashboard PASSED                           [  8%]
+tests/test_engine_history.py::test_atomic_immutable_history PASSED       [  9%]
+tests/test_engine_history.py::test_report_references_own_execution PASSED [ 10%]
+tests/test_f01.py::test_project_versions PASSED                          [ 10%]
+tests/test_f01.py::test_bad_import[../bad.py] PASSED                     [ 11%]
+tests/test_f01.py::test_bad_import[C:bad.py] PASSED                      [ 12%]
+tests/test_f01.py::test_bad_import[CON.py] PASSED                        [ 13%]
+tests/test_f01.py::test_bad_import[file.txt] PASSED                      [ 13%]
+tests/test_f02.py::test_ast_without_execution PASSED                     [ 14%]
+tests/test_f02.py::test_invalid_and_empty PASSED                         [ 15%]
+tests/test_f02.py::test_conditional_definition PASSED                    [ 16%]
+tests/test_f03.py::test_templates_include_actual_spec PASSED             [ 16%]
+tests/test_f03.py::test_reject_bad_output_and_targets PASSED             [ 17%]
+tests/test_f04.py::test_real_execution_and_history PASSED                [ 18%]
+tests/test_f04.py::test_wrong_file_refused PASSED                        [ 19%]
+tests/test_f05.py::test_bug_regression PASSED                            [ 20%]
+tests/test_f05.py::test_regression_uses_database_filename_identity PASSED [ 20%]
+tests/test_f06.py::test_report_matches_real_run PASSED                   [ 21%]
+tests/test_f06.py::test_missing_measures[timeout] PASSED                 [ 22%]
+tests/test_f06.py::test_missing_measures[error] PASSED                   [ 23%]
+tests/test_f06.py::test_missing_measures[skipped] PASSED                 [ 23%]
+tests/test_f07.py::test_scope_and_dependencies PASSED                    [ 24%]
+tests/test_f07.py::test_literal_examples_are_not_executed PASSED         [ 25%]
+tests/test_f07.py::test_invalid_source[def bad(:-syntax] PASSED          [ 26%]
+tests/test_f07.py::test_invalid_source[\xff-encoding] PASSED             [ 26%]
+tests/test_f07.py::test_invalid_source[# coding: unknown_enc\n-encoding] PASSED [ 27%]
+tests/test_f07.py::test_invalid_source[return 1-syntax] PASSED           [ 28%]
+tests/test_f07.py::test_invalid_source[source4-unsupported] PASSED       [ 29%]
+tests/test_f07.py::test_invalid_source[source5-unsupported] PASSED       [ 30%]
+tests/test_f07.py::test_encoding_and_entries PASSED                      [ 30%]
+tests/test_f08.py::test_oracles_and_thresholds PASSED                    [ 31%]
+tests/test_f08.py::test_decorators_and_defaults PASSED                   [ 32%]
+tests/test_f08.py::test_kwargs_and_positional_only_inputs PASSED         [ 33%]
+tests/test_f08.py::test_no_strategy_for_invalid_target[if False:\n def f(): pass-f] PASSED [ 33%]
+tests/test_f08.py::test_no_strategy_for_invalid_target[def broken(:-f] PASSED [ 34%]
+tests/test_f08.py::test_no_strategy_for_invalid_target[class C:\n def f(self): pass-C.f] PASSED [ 35%]
+tests/test_f08.py::test_no_strategy_for_invalid_target[def f(): pass-g] PASSED [ 36%]
+tests/test_f09.py::test_provider_contract_and_provenance[ollama-/api/chat] PASSED [ 36%]
+tests/test_f09.py::test_provider_contract_and_provenance[openai-compatible-/v1/chat/completions] PASSED [ 37%]
+tests/test_f09.py::test_validation_retry_then_template PASSED            [ 38%]
+tests/test_f09.py::test_provider_and_template_failure_preserves_evidence PASSED [ 39%]
+tests/test_f09.py::test_no_redirect_and_no_plaintext_remote PASSED       [ 40%]
+tests/test_f09.py::test_reject_empty_or_unrelated_tests[] PASSED         [ 40%]
+tests/test_f09.py::test_reject_empty_or_unrelated_tests[def test_empty(): pass] PASSED [ 41%]
+tests/test_f09.py::test_reject_empty_or_unrelated_tests[def test_constant(): assert True] PASSED [ 42%]
+tests/test_f09.py::test_reject_empty_or_unrelated_tests[def test_unrelated(): assert len([]) == 0] PASSED [ 43%]
+tests/test_f09.py::test_reject_empty_or_unrelated_tests[candidate4] PASSED [ 43%]
+tests/test_f09.py::test_explicit_template_overrides_environment PASSED   [ 44%]
+tests/test_f09.py::test_analysis_and_template_agree_on_directed_doctests PASSED [ 45%]
+tests/test_f10.py::test_branch_evidence_and_runtime_failure_details PASSED [ 46%]
+tests/test_f10.py::test_collection_failure_is_structured PASSED          [ 46%]
+tests/test_f10.py::test_timeout_preserves_incomplete_evidence PASSED     [ 47%]
+tests/test_f11.py::test_real_failure_categories PASSED                   [ 48%]
+tests/test_f11.py::test_incomplete_execution PASSED                      [ 49%]
+tests/test_f11.py::test_stateful_setup_is_not_a_standalone_oracle PASSED [ 50%]
+tests/test_f11.py::test_ambiguous_target_binding[from subject import units as target\ndef test_f(target):\n    assert target(2) == 50] PASSED [ 50%]
+tests/test_f11.py::test_ambiguous_target_binding[from subject import units as target\ntarget = lambda n: 0\ndef test_f():\n    assert target(2) == 50] PASSED [ 51%]
+tests/test_f11.py::test_ambiguous_target_binding[from other import units as target\ndef test_f():\n    assert target(2) == 50] PASSED [ 52%]
+tests/test_f11.py::test_ambiguous_target_binding[source3] PASSED         [ 53%]
+tests/test_f12.py::test_repair_runs_both_versions_without_changing_subject PASSED [ 53%]
+tests/test_f12.py::test_never_repair_program_or_unknown PASSED           [ 54%]
+tests/test_f12.py::test_unknown_oracle_is_preserved PASSED               [ 55%]
+tests/test_f12.py::test_feedback_bound_and_duplicate_are_audited PASSED  [ 56%]
+tests/test_f12.py::test_unsafe_regeneration_keeps_unrelated_tests PASSED [ 56%]
+tests/test_mutation_feedback.py::test_only_local_endpoints[https://example.test] PASSED [ 57%]
+tests/test_mutation_feedback.py::test_only_local_endpoints[http://example.test:11434] PASSED [ 58%]
+tests/test_mutation_feedback.py::test_only_local_endpoints[http://token@127.0.0.1] PASSED [ 59%]
+tests/test_mutation_feedback.py::test_only_local_endpoints[http://127.0.0.1:11434/v1] PASSED [ 60%]
+tests/test_mutation_feedback.py::test_only_local_endpoints[http://localhost:11434?model=foo] PASSED [ 60%]
+tests/test_mutation_feedback.py::test_remote_model_alias_rejected_before_source PASSED [ 61%]
+tests/test_mutation_feedback.py::test_protocol_double_append_only_and_provenance PASSED [ 62%]
+tests/test_mutation_feedback.py::test_only_literal_test_cases[wrong(3)-6] PASSED [ 63%]
+tests/test_mutation_feedback.py::test_only_literal_test_cases[double(side_effect())-6] PASSED [ 63%]
+tests/test_mutation_feedback.py::test_only_literal_test_cases[double(2)-bad()] PASSED [ 64%]
+tests/test_mutation_feedback.py::test_only_literal_test_cases[double(1)-raises Unknown] PASSED [ 65%]
+tests/test_mutation_feedback.py::test_subject_names_do_not_shadow_raises[ValueError] PASSED [ 66%]
+tests/test_mutation_feedback.py::test_subject_names_do_not_shadow_raises[pytest] PASSED [ 66%]
+tests/test_mutation_flow.py::test_mutation_experiment PASSED             [ 67%]
+tests/test_mutation_generator.py::test_all_six_families_are_real_replayable_edits PASSED [ 68%]
+tests/test_mutation_generator.py::test_only_selected_function_unicode_line_offsets_and_candidates PASSED [ 69%]
+tests/test_mutation_generator.py::test_entire_manifest_rejected_when_oversize PASSED [ 70%]
+tests/test_mutation_generator.py::test_multiline_and_chained_comparisons PASSED [ 70%]
+tests/test_mutation_lifecycle.py::test_cancel_then_resume_a_real_checkpoint PASSED [ 71%]
+tests/test_mutation_lifecycle.py::test_red_original_does_not_score PASSED [ 72%]
+tests/test_mutation_results.py::test_real_outcomes[return x + 1-survived-None] PASSED [ 73%]
+tests/test_mutation_results.py::test_real_outcomes[return x + 2-killed-test_value] PASSED [ 73%]
+tests/test_mutation_results.py::test_real_outcomes[return int('invalid')-execution_error-test_value] PASSED [ 74%]
+tests/test_mutation_results.py::test_expected_exception_removed PASSED   [ 75%]
+tests/test_mutation_results.py::test_changed_evidence_cannot_score PASSED [ 76%]
+tests/test_mutation_results.py::test_unusable_mutant_execution[if-15-execution_error] PASSED [ 76%]
+tests/test_mutation_results.py::test_unusable_mutant_execution[while True:\n        pass-4-timeout] PASSED [ 77%]
+tests/test_mutation_results.py::test_manifest_denominator PASSED         [ 78%]
+tests/test_mutation_results.py::test_cancel_live_guest PASSED            [ 79%]
+tests/test_mutation_results.py::test_bounded_slot_wait_and_queue_cancellation PASSED [ 80%]
+tests/test_mutation_ui.py::test_open_run_and_export_mutations PASSED     [ 80%]
+tests/test_phase02_flow.py::test_real_defect_to_regression_report PASSED [ 81%]
+tests/test_phase03_api.py::test_diagnostics_history_and_local_access PASSED [ 82%]
+tests/test_phase03_api.py::test_engine_browser PASSED                    [ 83%]
+tests/test_phase03_e2e.py::test_real_engine[quicksort-quicksort-False] PASSED [ 83%]
+tests/test_phase03_e2e.py::test_real_engine[negative-magnitude-True] PASSED [ 84%]
+tests/test_phase03_e2e.py::test_real_engine[empty-first_or_default-True] PASSED [ 85%]
+tests/test_phase03_e2e.py::test_real_engine[boundary-valid_index-True] PASSED [ 86%]
+tests/test_phase03_e2e.py::test_real_engine[exception-parse_count-True] PASSED [ 86%]
+tests/test_phase03_e2e.py::test_real_engine[branches-classify_temperature-False] PASSED [ 87%]
+tests/test_phase03_e2e.py::test_real_engine[repair-reciprocal_units-False] PASSED [ 88%]
+tests/test_runner.py::test_results_coverage_and_isolation PASSED         [ 89%]
+tests/test_runner.py::test_deadline_and_cleanup FAILED                   [ 90%]
+tests/test_runner.py::test_collection_error PASSED                       [ 90%]
+tests/test_runner.py::test_output_budget PASSED                          [ 91%]
+tests/test_runner.py::test_all_skipped_is_not_a_pass PASSED              [ 92%]
+tests/test_startup.py::test_entry_conflict_database_shutdown_restart PASSED [ 93%]
+tests/test_startup.py::test_startup_failure PASSED                       [ 93%]
+tests/test_startup.py::test_incompatible_database_preserved PASSED       [ 94%]
+tests/test_startup.py::test_browser_wait_timeout PASSED                  [ 95%]
+tests/ui_workbench.py::test_f01 PASSED                                   [ 96%]
+tests/ui_workbench.py::test_f02 PASSED                                   [ 96%]
+tests/ui_workbench.py::test_f03 PASSED                                   [ 97%]
+tests/ui_workbench.py::test_f04 PASSED                                   [ 98%]
+tests/ui_workbench.py::test_f05 PASSED                                   [ 99%]
+tests/ui_workbench.py::test_f06 PASSED                                   [100%]
+
+================================== FAILURES ===================================
+__________________________ test_deadline_and_cleanup __________________________
+
+    def test_deadline_and_cleanup():
+        before = set((ROOT / ".runtime").glob("job-*"))
+        result = execute("", "def test_deadline():\n    while True:\n        pass", timeout_s=3)
+        assert result["status"] == "timeout", result["log"]
+        assert "deadline" in result["log"]
+>       assert not set((ROOT / ".runtime").glob("job-*")) - before
+E       AssertionError: assert not ({WindowsPath('D:/TestPilot AI/.runtime/job-uzl4jsk8')} - {WindowsPath('D:/TestPilot AI/.runtime/job-j939jq4x')})
+E        +  where {WindowsPath('D:/TestPilot AI/.runtime/job-uzl4jsk8')} = set(<map object at 0x0000020C1B0992D0>)
+E        +    where <map object at 0x0000020C1B0992D0> = glob('job-*')
+E        +      where glob = (WindowsPath('D:/TestPilot AI') / '.runtime').glob
+
+tests\test_runner.py:56: AssertionError
+----- generated xml file: D:\TestPilot AI\reports\phase04\full-suite.xml ------
+============================= slowest 8 durations =============================
+60.61s call     tests/test_mutation_flow.py::test_mutation_experiment
+48.96s call     tests/test_mutation_ui.py::test_open_run_and_export_mutations
+37.97s call     tests/test_phase03_api.py::test_engine_browser
+32.55s call     tests/test_dashboard.py::test_dashboard
+30.84s teardown tests/test_ast_studio.py::test_file_to_generation
+30.78s teardown tests/test_ast_studio.py::test_dense_renderer_and_pointer_gestures
+30.76s teardown tests/ui_workbench.py::test_f02
+30.75s teardown tests/test_ast_refinement.py::test_console_and_timing_source
+=========================== short test summary info ===========================
+FAILED tests/test_runner.py::test_deadline_and_cleanup - AssertionError: asse...
+================= 1 failed, 129 passed in 1079.42s (0:17:59) ==================
