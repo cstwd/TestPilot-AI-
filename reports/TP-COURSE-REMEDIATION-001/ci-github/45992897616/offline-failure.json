@@ -1,0 +1,4 @@
+{
+  "outcome": "failed",
+  "error": "ValueError: Run without Python optimization so archive assertions remain enabled"
+}
