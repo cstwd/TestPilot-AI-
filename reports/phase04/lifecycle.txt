@@ -1,0 +1,22 @@
+GET /api/health {'status': 'ok', 'database': 'ok', 'mode': 'demo'}
+Graceful stop exit 0
+INFO testpilot 启动 demo 模式 http://127.0.0.1:61131
+INFO:     Started server process [44048]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:65366 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65371 - "GET /api/mutations/403cf1ae-f7eb-4ade-a310-f2937dca84a5/report HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65374 - "POST /api/mutations/403cf1ae-f7eb-4ade-a310-f2937dca84a5/run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55643 - "GET /api/mutations/403cf1ae-f7eb-4ade-a310-f2937dca84a5/report HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55644 - "GET /api/files/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55645 - "POST /api/mutations/403cf1ae-f7eb-4ade-a310-f2937dca84a5/run HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55646 - "GET /api/mutations/403cf1ae-f7eb-4ade-a310-f2937dca84a5/report HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [44048]
+
+original stopped: {'killed': 1, 'survived': 0, 'timeout': 0, 'execution_error': 0, 'cancelled': 1, 'unrun': 0, 'total': 2, 'equivalent_candidates': 0, 'score_pct': 50.0} checkpoint events: 2 recovered events: 3 final: {'killed': 2, 'survived': 0, 'timeout': 0, 'execution_error': 0, 'cancelled': 0, 'unrun': 0, 'total': 2, 'equivalent_candidates': 0, 'score_pct': 100.0}
+.red baseline: two planned, zero observations, score unavailable; exit 1
+.
+2 passed in 40.13s

@@ -1,0 +1,12 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.11, pytest-9.2.0, pluggy-1.7.0 -- D:\TestPilot AI\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+hypothesis profile 'default'
+rootdir: D:\TestPilot AI
+configfile: pytest.ini
+plugins: anyio-4.16.0, hypothesis-6.170.17
+collecting ... collected 1 item
+
+tests/test_mutation_selection.py::test_partial_local_suggestions_keep_only_green_appended_tests PASSED [100%]
+
+============================= 1 passed in 16.58s ==============================

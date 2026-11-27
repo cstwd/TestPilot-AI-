@@ -48,7 +48,8 @@
         </dl>{% endif %}
         {% if findings %}<ul class="case-list">{% for issue in findings %}<li>{{ issue.nodeid }} · {{ issue.category }} · {{ issue.reason }}</li>{% endfor %}</ul>{% endif %}
         <div class="inline-links"><a href="/api/engine/tasks/{{ task.id }}/report" download>下载完整 JSON</a>
-          {% if generation %}<a href="/api/engine/tasks/{{ task.id }}/tests" download>下载 Pytest 文件</a>{% endif %}</div>
+          {% if generation %}<a href="/api/engine/tasks/{{ task.id }}/tests" download>下载 Pytest 文件</a>{% endif %}
+          {% if task.status == 'completed' and execution %}<a href="/mutations?task_id={{ task.id }}">评估变异测试与补测</a>{% endif %}</div>
       </section>
       <section><h2>证据链</h2>
         {% for item in task.records %}<details><summary>{{ loop.index }}. {{ item.kind }} · {{ item.status }}</summary><pre>{{ item.payload | tojson(indent=2) }}</pre></details>{% endfor %}

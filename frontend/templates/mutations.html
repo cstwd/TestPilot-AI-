@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>变异测试 · TestPilot AI</title><link rel="icon" href="data:,"><link rel="stylesheet" href="/static/dashboard.css">
+<link rel="stylesheet" href="/static/workbench.css"><script src="/static/mutations.js" defer></script>
+<style>
+  #feedback-panel { overflow-wrap: anywhere; }
+  #feedback-code { overflow: auto; max-height: 24rem; padding: 14px; background: #edf3f6; line-height: 1.6; }
+  #feedback-panel article p + p { margin-top: 6px; }
+</style></head>
+<body data-task="{{ task.id }}"><header class="masthead"><div class="shell masthead-inner"><a class="brand" href="/">TestPilot AI</a>
+<a href="/engine?task_id={{ task.id }}">返回原测试任务</a></div></header>
+<main class="shell"><div class="intro"><h1>变异测试</h1><p>{{ task.filename }} · v{{ task.revision }} · {{ task.target }}</p></div>
+<div class="bench-content"><section><form id="experiment"><label><input type="checkbox" name="feedback" checked> 将存活变异提交本机模型补测</label>
+<button class="secondary" type="submit">创建并运行</button></form>
+<label>历史会话 <select id="history"><option value="">选择会话</option>{% for row in sessions %}<option value="{{ row.id }}">{{ row.created_at }} · {{ row.status }}</option>{% endfor %}</select></label>
+<p id="status" role="status"></p><button class="secondary" id="resume" hidden>继续执行</button> <button class="secondary" id="cancel" hidden>终止会话</button>
+<a id="export" hidden>下载完整实验 JSON</a></section>
+<section><h2>变异得分</h2><p>分母包括清单内全部变异。超时、执行错误、未运行及等价候选均单独记录。</p><p id="before"></p><p id="after"></p></section>
+<section id="feedback-panel" hidden><h2>本地模型补测</h2><p id="feedback-status"></p>
+<div id="feedback-cases" class="records"></div>
+<details id="feedback-source" hidden><summary>查看模型提出的 Pytest 补测</summary><pre id="feedback-code"></pre></details>
+<div id="feedback-attempts" class="records"></div></section>
+<section id="baseline-panel" hidden><h2>原版验证</h2><div id="baseline-evidence" class="records"></div></section>
+<section><h2>变异位置与结果</h2><div id="sites" class="records"></div></section></div></main></body></html>
