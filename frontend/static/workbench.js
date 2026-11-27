@@ -50,6 +50,17 @@ function form(id, action) {
   });
 }
 
+function showEmpty(text, dest = "projects", label = "前往项目与文件") {
+  const section = document.createElement("section");
+  const prompt = document.createElement("p");
+  prompt.textContent = text;
+  const anchor = document.createElement("a");
+  anchor.href = link(dest);
+  anchor.textContent = label;
+  section.append(prompt, anchor);
+  $("content").replaceChildren(section);
+}
+
 async function showProjects() {
   form("create-project", async () => {
     const row = await api("/api/projects", {name: $("project-name").value});
@@ -82,6 +93,11 @@ async function start() {
   file.onchange = () => location.assign(link(page));
   document.querySelectorAll("[data-dest]").forEach(a => { a.href = link(a.dataset.dest); });
   if (page === "projects") await showProjects();
+  if (page === "analysis") {
+    const {showAnalysis} = await import("./analysis.js");
+    if (!file.value) return showEmpty("先导入一个 Python 文件，即可查看其函数、类和源码位置。");
+    await showAnalysis({$, api, link, fileId: file.value});
+  }
 }
 
 start().catch(error => message(error.message, true));

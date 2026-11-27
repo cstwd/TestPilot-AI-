@@ -22,6 +22,9 @@
 .bench-content section > * + * { margin-top: 12px; }
 .bench pre { overflow: auto; max-height: 26rem; padding: 16px; font: 13px/1.6 Consolas, monospace; background: #edf3f6; color: var(--ink); }
 .bench .hint, .bench .empty { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; line-height: 1.65; }
+.records article { padding: 12px 0; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
+.records h3 { font: 600 15px/1.6 Consolas, "Microsoft YaHei", monospace; margin: 0 0 4px; }
+.records article a { display: inline-block; margin-top: 8px; font-size: 14px; }
 #notice { min-height: 32px; padding: 6px 0; font-size: 14px; color: var(--success); overflow-wrap: anywhere; }
 #notice[data-error] { color: var(--error); }
 @media(max-width: 720px) {

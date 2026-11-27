@@ -31,7 +31,7 @@
       <p id="notice" role="status" aria-live="polite"></p>
       <noscript>请启用 JavaScript 以使用测试工作台。</noscript>
       <div id="content" class="bench-content">
-        {% if page == 'projects' %}{% include 'projects.html' %}{% endif %}
+        {% include page ~ '.html' ignore missing %}
       </div>
     </main>
   </div>
