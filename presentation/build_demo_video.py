@@ -1,4 +1,4 @@
-"""Build the backup MP4 from actual browser captures and the archived score chart."""
+"""Build the backup MP4 from the actual browser and model evidence captures."""
 import argparse
 from pathlib import Path
 import subprocess

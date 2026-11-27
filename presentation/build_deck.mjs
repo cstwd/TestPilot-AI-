@@ -1,11 +1,14 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.dirname(here);
 const runtime = process.env.TESTPILOT_ARTIFACT_RUNTIME;
 if (!runtime) throw new Error('Set TESTPILOT_ARTIFACT_RUNTIME to the bundled runtime dependencies directory.');
+const skill = process.env.TESTPILOT_PRESENTATIONS_SKILL;
+if (!skill) throw new Error('Set TESTPILOT_PRESENTATIONS_SKILL to the bundled Presentations skill directory.');
 const modulePath = path.join(runtime, 'node/node_modules/@oai/artifact-tool/dist/artifact_tool.mjs');
 const { Presentation, PresentationFile } = await import(pathToFileURL(modulePath).href);
 const preview = path.join(root, '.runtime/course-final/slides');
@@ -98,8 +101,7 @@ async function picture(slide, candidates, x,y,w,h, alt){
 }
 {
   const slide=page('F13 变异测试与反馈补测','来源  PHASE-04 F13 模块验收 · PHASE-05 反馈原始证据');
-  const options=['presentation/screenshots/07-mutation.png','reports/dashboard.png'];
-  await picture(slide,options,64,166,694,445,'真实浏览器操作记录');
+  await picture(slide,['presentation/screenshots/07-mutation.png'],64,166,694,445,'真实变异测试工作台');
   bullet(slide,'固定清单','六类算子生成候选，先验证未变异的原版。',805,178,408);
   bullet(slide,'逐项真实执行','保留杀死、存活、超时、错误和未运行。',805,306,408);
   bullet(slide,'反馈需校准','补测必须先在原版正确运行，再用同一分母复验。',805,434,408);
@@ -112,7 +114,7 @@ async function picture(slide, candidates, x,y,w,h, alt){
   slide.charts.add('bar',{
     position:{left:73,top:159,width:777,height:438},
     categories:labels,
-    series:[{name:'检出率',values:groups.map(g=>g.killed/117),fill:'#177D85',
+    series:[{name:'检出率',values:groups.map(g=>Number((g.all_manifest_detection/100).toFixed(4))),fill:'#177D85',
       valuesFormatCode:'0.00%'}],
     hasLegend:false,
     dataLabels:{showValue:true,position:'outEnd',numberFormatCode:'0.00%',textStyle:{fontSize:18,fill:color.ink}},
@@ -157,4 +159,11 @@ for(const [i,slide] of deck.slides.items.entries()){
   await fs.writeFile(path.join(preview,`slide-${String(i+1).padStart(2,'0')}.png`),new Uint8Array(await png.arrayBuffer()));
 }
 const pptx=await PresentationFile.exportPptx(deck);
-await pptx.save(path.join(here,'TestPilot_AI_课程汇报.pptx'));
+const build = await fs.mkdtemp(path.join(preview, 'pptx-'));
+const draft = path.join(build,'draft.pptx');
+const portable = path.join(build,'portable.pptx');
+await pptx.save(draft);
+const python = path.join(runtime,'python', process.platform === 'win32' ? 'python.exe' : 'bin/python3');
+execFileSync(python, [path.join(skill,'container_tools/materialize_literal_chart_workbooks.py'),
+  draft, portable, '--workspace', root, '--receipt', path.join(build,'chart-data.json')], {stdio:'inherit'});
+await fs.copyFile(portable,path.join(here,'TestPilot_AI_课程汇报.pptx'));

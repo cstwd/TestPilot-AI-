@@ -18,7 +18,7 @@
 | 05 需求与视觉研究 | Codex、Edge · [原始问答](../transcripts/requirements-interview.md) · [前端研究](../transcripts/TESTPILOT-FRONTEND-REFERENCE-001.md) | 根据同源工作台约束提取页面布局与组件设计 | `d937d4b` · [设计与页面映射](../docs/TESTPILOT-FRONTEND-REFERENCE-001/) | 保留来源截图和实际产品截图 |
 | 06 F01 项目与版本 | Codex、Edge、Playwright · [F01](../transcripts/WP04-F01-001.md) | 建项目中心、可浏览版本和共用 Studio 样式 | `9f048d0` · [桌面、平板、手机验收](../reports/WP04-F01-001/F01_BROWSER_ACCEPTANCE.md) | 窄屏按操作链分区 |
 | 07 F03 工作台 | Codex、Edge、Jinja2 · [F03](../transcripts/WP05-F03-001.md) | 提供准备、源码审阅、失败、重试和运行导航 | `7c796e7` · [9 项回归](../reports/WP05-F03-001/F03_REGRESSION_REPORT.md) | 源码区与目标输入分别命名 |
-| 08 F04/F05 交互 | Codex、Edge、Playwright · [F04](../transcripts/WP06-F04-001.md) · [F05](../transcripts/WP07-F05-001.md) | 展示运行节点、日志、失败版本差异及确认回归 | `9fdfa7e`, `c49dde2` · [F04](../reports/WP06-F04-001/F04_BROWSER_ACCEPTANCE.md) · [F05](../reports/WP07-F05-001/F05_BROWSER_ACCEPTANCE.md) | 注入状态证据单独标记 |
+| 08 F04–F06 交互 | Codex、Edge、Playwright · [F04](../transcripts/WP06-F04-001.md) · [F05](../transcripts/WP07-F05-001.md) · [F06](../transcripts/WP08-F06-001.md) | 展示运行节点、日志、失败版本差异、确认回归和质量对照 | `9fdfa7e`, `c49dde2`, `b7a8b40` · [F04](../reports/WP06-F04-001/F04_BROWSER_ACCEPTANCE.md) · [F05](../reports/WP07-F05-001/F05_BROWSER_ACCEPTANCE.md) · [F06](../reports/WP08-F06-001/F06_BROWSER_ACCEPTANCE.md) | 注入状态证据单独标记 |
 
 ## WP03 赵君豪
 

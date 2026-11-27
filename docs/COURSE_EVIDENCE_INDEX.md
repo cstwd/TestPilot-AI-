@@ -14,6 +14,8 @@
 
 ## 目录入口
 
+[完整 Git 路径清单](../reports/course-final/repository-index.txt) · [分支与工作树审计](../reports/course-final/WORKTREE_AUDIT.md)
+
 | 目录 | 内容 |
 |---|---|
 | `.run/`、`main.py` | PyCharm 共享启动、Uvicorn 入口 |
