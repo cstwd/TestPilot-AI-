@@ -1,13 +1,89 @@
-<section><h2>创建项目</h2>
-  <form id="create-project"><label>项目名称<input id="project-name" required maxlength="100" autocomplete="off"></label>
-    <button>创建项目</button></form>
-</section>
-<section><h2>导入 Python 文件</h2>
-  <p class="hint">选择 UTF-8 编码的 .py 文件，上限 128 KiB。同名文件有改动时将保存为新版本。</p>
-  <form id="import-file"><label>本地文件<input id="upload" type="file" accept=".py" required></label>
-    <button id="import-button" disabled>导入文件</button></form>
-</section>
-<section id="source-panel" hidden><div class="panel-title"><h2>源码预览</h2>
-  <a data-dest="analysis" href="/workbench/analysis">分析此版本</a></div>
-  <p id="digest" class="hint"></p><pre id="source" tabindex="0"></pre>
-</section>
+{% from "studio_components.html" import icon, icons, topbar, rail, search, pane_heading, state %}
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>项目中心 · TestPilot AI</title><link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/studio-system.css"><link rel="stylesheet" href="/static/projects.css">
+  <script type="module" src="/static/workbench.js"></script>
+</head>
+<body class="studio projects-page" data-page="projects" data-panel="projects">
+{{ icons() }}
+{% call topbar() %}
+  <div class="project-top-tools"><span id="connection-state" class="status-pill" data-state="loading">正在连接</span>
+    <details id="mobile-navigation"><summary aria-label="工作台导航" title="工作台导航">{{ icon('menu') }}</summary>
+      <nav aria-label="工作台导航">{% for slug,(code,name) in modules.items() %}
+        <a data-dest="{{ slug }}" href="/workbench/{{ slug }}" {% if slug == 'projects' %}aria-current="page"{% endif %}><span>{{ code }}</span>{{ name }}</a>
+      {% endfor %}</nav>
+    </details>
+  </div>
+{% endcall %}
+<div class="workspace-frame">
+  {{ rail(modules, 'projects') }}
+  <main class="workspace" id="content">
+    <header class="project-head">
+      <h1>项目中心</h1>
+      <form id="import-file">
+        <label class="upload-picker">{{ icon('file') }}<span id="upload-name">选择 .py 文件</span>
+          <input aria-label="本地文件" id="upload" type="file" accept=".py" required disabled></label>
+        <button id="import-button" class="primary" type="submit" disabled>{{ icon('upload') }}导入文件</button>
+      </form>
+    </header>
+    <nav id="project-panels" aria-label="项目中心面板">
+      <button type="button" data-panel="projects" aria-pressed="true">{{ icon('folder') }}项目</button>
+      <button type="button" data-panel="files" aria-pressed="false">{{ icon('layers') }}文件版本</button>
+      <button type="button" data-panel="details" aria-pressed="false">{{ icon('panel') }}详情</button>
+    </nav>
+    <div class="projects-grid">
+      <aside class="pane explorer projects-pane" aria-label="项目 Explorer">
+        {% call pane_heading('folder', 'Explorer') %}<span class="pc-count" id="project-total">—</span>{% endcall %}
+        <div class="project-filter">{{ search('project-search','搜索项目','搜索项目…') }}</div>
+        <div class="project-scroll"><div id="project-list"></div><p class="list-message" id="project-empty">正在读取项目…</p></div>
+        <form id="create-project" class="new-project">
+          <label for="project-name">项目名称</label>
+          <input id="project-name" placeholder="输入新项目名称" required maxlength="100" autocomplete="off">
+          <button id="create-button" disabled>{{ icon('plus') }}创建项目</button>
+        </form>
+      </aside>
+      <section class="pane files-pane" aria-label="文件与版本">
+        <div class="project-overview">
+          <span class="overview-mark">{{ icon('folder-open') }}</span>
+          <div class="overview-text"><h2 id="project-title">项目工作区</h2>
+            <div class="project-facts"><span id="project-key">—</span><span id="project-file-totals">等待读取</span></div>
+          </div>
+        </div>
+        <div class="versions-tools"><h2>{{ icon('layers') }}文件与版本</h2>{{ search('file-search','搜索文件名','搜索文件名…') }}</div>
+        <div id="file-scroll"><div id="file-groups"></div>
+          {{ state('files-empty','正在读取文件','正在获取当前项目的版本记录。','loading','layers') }}
+        </div>
+        <p class="import-hint">{{ icon('file') }}<span>导入单个 UTF-8 .py 文件，上限 128 KiB。</span></p>
+      </section>
+      <aside class="pane inspector details-pane" aria-label="文件 Inspector">
+        {{ pane_heading('panel','Inspector') }}
+        {{ state('inspect-empty','尚未选中文件','选择文件版本后，可核对摘要并预览源码。','empty','code') }}
+        <div id="source-panel" hidden>
+          <div class="inspect-identity ai-identity"><span class="file-mark">{{ icon('file') }}</span>
+            <div><span class="inspect-kind">Python</span><h3 id="inspect-file"></h3></div>
+          </div>
+          <dl class="metadata ai-facts">
+            <dt>项目名称</dt><dd id="inspect-project"></dd>
+            <dt>文件 ID</dt><dd id="file-id"></dd>
+            <dt>不可变版本 ID</dt><dd id="file-version-id"></dd>
+            <dt>修订版本</dt><dd id="revision"></dd>
+            <dt>源码大小 <small>UTF-8</small></dt><dd id="file-byte-size"></dd>
+          </dl>
+          <div id="digest"><div class="digest-head">{{ icon('hash') }}SHA-256<span id="digest-revision"></span></div><code id="digest-value"></code></div>
+          <div class="source-head"><h3>{{ icon('code') }}源码预览</h3>
+            <button type="button" id="copy-source" title="复制完整源码">{{ icon('copy') }}复制源码</button></div>
+          <div class="source-viewport ai-source-lines"><pre id="source" tabindex="0" aria-label="只读 Python 源码"></pre></div>
+          <p id="source-empty" class="list-message" hidden>此版本为空文件。</p>
+          <div id="source-pager" hidden><button id="source-prev" type="button">上一页</button><span id="source-page-range"></span><button id="source-next" type="button">下一页</button></div>
+        </div>
+        <div class="inspect-action"><a id="analyze-version" class="primary">{{ icon('graph') }}分析此版本{{ icon('arrow') }}</a></div>
+      </aside>
+    </div>
+    <div class="project-notice"><span>{{ icon('terminal') }}</span><p id="notice" role="status" aria-live="polite">正在读取项目与文件版本…</p><button type="button" id="project-retry" hidden>重新读取</button></div>
+    <noscript>请启用 JavaScript 以使用项目中心。</noscript>
+  </main>
+</div>
+</body></html>

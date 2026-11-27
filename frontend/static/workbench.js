@@ -63,40 +63,27 @@ function showEmpty(text, dest = "projects", label = "前往项目与文件") {
   $("content").replaceChildren(section);
 }
 
-async function showProjects() {
-  form("create-project", async () => {
-    const row = await api("/api/projects", {name: $("project-name").value});
-    location.assign(link(page, {project: row.id, file: ""}));
-  });
-  $("import-button").disabled = !project.value;
-  form("import-file", async () => {
-    const selected = $("upload").files[0];
-    if (selected.size > 131072) throw new Error("文件超过 128 KiB。");
-    let source;
-    try { source = new TextDecoder("utf-8", {fatal: true}).decode(await selected.arrayBuffer()); }
-    catch { throw new Error("无法读取 UTF-8 源码。请检查文件编码。"); }
-    const row = await api("/api/projects/" + project.value + "/files", {filename: selected.name, source});
-    location.assign(link(page, {file: row.id}));
-  });
-  if (file.value) {
-    const row = await api("/api/files/" + file.value);
-    $("digest").textContent = row.filename + " · v" + row.revision + " · SHA-256 " + row.sha256;
-    $("source").textContent = row.source;
-    $("source-panel").hidden = false;
-  }
-}
-
 async function start() {
+  const projectWorkspace = page === "projects" ? await import("./projects.js") : null;
+  if (projectWorkspace) projectWorkspace.bindProjectPanels($);
+  const changeProject = () => location.assign(link(page, {file: ""}));
   const projects = await api("/api/projects");
+  const requireExplicitMatch = page === "analysis" || page === "projects";
   populate(project, projects, row => row.name, params.get("project"), "请先创建项目");
-  if (page === "analysis" && params.get("project") && project.value !== params.get("project")) project.selectedIndex = -1;
+  if (requireExplicitMatch && params.get("project") && project.value !== params.get("project")) project.selectedIndex = -1;
+  if (projectWorkspace) {
+    project.onchange = changeProject;
+    projectWorkspace.showProjectList($, projects, project.value, link);
+  }
   const files = project.value ? await api("/api/projects/" + project.value + "/files") : [];
   populate(file, files, row => row.filename + " · v" + row.revision, params.get("file"), "请先导入文件");
-  if (page === "analysis" && params.get("file") && file.value !== params.get("file")) file.selectedIndex = -1;
-  project.onchange = () => location.assign(link(page, {file: ""}));
+  if (requireExplicitMatch && params.get("file") && file.value !== params.get("file")) file.selectedIndex = -1;
+  if (!projectWorkspace) project.onchange = changeProject;
   file.onchange = () => location.assign(link(page));
   document.querySelectorAll("[data-dest]").forEach(a => { a.href = link(a.dataset.dest); });
-  if (page === "projects") await showProjects();
+  if (projectWorkspace) {
+    await projectWorkspace.showProjects({$, api, link, projects, files, projectId: project.value, fileId: file.value, params, form, message});
+  }
   if (page === "analysis") {
     const {showAnalysis} = await import("./analysis.js");
     await showAnalysis({$, api, link, files, params, fileId: file.value, projectId: project.value});
@@ -125,6 +112,10 @@ async function start() {
 
 start().catch(async error => {
   message(error.message, true);
+  if (page === "projects") {
+    const {showProjectsError} = await import("./projects.js");
+    showProjectsError($, error);
+  }
   if (page === "analysis") {
     const {showAnalysisError} = await import("./analysis.js");
     showAnalysisError($, error);
