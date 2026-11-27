@@ -19,6 +19,8 @@
 
 FastAPI 通过 Uvicorn 在 Windows/PyCharm 单进程监听 `127.0.0.1:8000`，同源提供 Jinja2 与静态资源。SQLite 以项目 ID 与文件版本 ID 关联不可变源码、套件、运行和缺陷回归。智能引擎按任务 ID 存储类型化记录，变异会话和逐项事件保存原始编辑、清单、校准和执行结果。模型请求通过固定 Qwen3.8-27B Provider 发送到同机 Ollama，使用 Schema 和独立日志关联运行 ID。WASI CPython、Wasmtime 与 Pytest 承载所有产品业务测试。[架构图](ARCHITECTURE.md)
 
+PHASE-07 在 `/workbench/demo-lab` 提供 100 个冻结演示样本、公开合同和运行报告。演示复用 F01–F06 与 F13 服务，在独立 SQLite 内按运行 ID 保存阶段、真实输出、修复回归与变异证据。与主工作台的项目 ID 属于不同数据库。通过 `/api/demo-lab/runs/{id}/export` 可下载已保存的完整 JSON。[集成方案](phase07/INTEGRATION.md) · [演示手册](phase07/DEMO_MANUAL.md)
+
 ## 非功能标准
 
 - Windows 11 从根入口 Run 自动打开默认浏览器。Debug 与 Run 使用同一进程。停服应释放端口，端口已被占用时保留原服务并给出诊断。

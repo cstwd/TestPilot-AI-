@@ -1,0 +1,160 @@
+{
+  "report": {
+    "schema": "testpilot.demo-lab.v1",
+    "id": "3579d01e-947e-4d12-adeb-1d33983c5469",
+    "sample": "calculator",
+    "mode": "ai",
+    "status": "failed",
+    "created_at": "2026-11-27T11:46:22.294470+00:00",
+    "updated_at": "2026-11-27T11:46:28.112937+00:00",
+    "sample_info": {
+      "name": "calculator",
+      "tier": "good",
+      "domain": "math",
+      "domain_label": "数学计算",
+      "targets": [
+        "add",
+        "quotient"
+      ],
+      "target": "add",
+      "sha256": "6321439512e21bc7b5978049906891c6c52aeafa5d5cc29ff6af971febf5565a",
+      "repair_sha256": null,
+      "classroom": true,
+      "contract_count": 4
+    },
+    "options": {
+      "mode": "ai",
+      "mutation": false
+    },
+    "stages": {
+      "import": {
+        "status": "completed",
+        "started_at": "2026-11-27T11:46:22.309009+00:00",
+        "duration_ms": 19
+      },
+      "analysis": {
+        "status": "failed",
+        "started_at": "2026-11-27T11:46:22.346379+00:00",
+        "message": "Ollama 已触发 Windows 资源保护",
+        "duration_ms": 5721
+      },
+      "generation": {
+        "status": "skipped",
+        "message": "上一步未完成"
+      },
+      "execution": {
+        "status": "skipped",
+        "message": "上一步未完成"
+      },
+      "repair": {
+        "status": "skipped",
+        "message": "上一步未完成"
+      },
+      "regression": {
+        "status": "skipped",
+        "message": "上一步未完成"
+      },
+      "mutation": {
+        "status": "skipped",
+        "message": "上一步未完成"
+      },
+      "report": {
+        "status": "completed",
+        "started_at": "2026-11-27T11:46:28.087786+00:00",
+        "duration_ms": 0
+      }
+    },
+    "duration_ms": 5804,
+    "project": {
+      "id": 1,
+      "name": "Demo Lab · calculator · 3579d01e-947e-4d12-adeb-1d33983c5469"
+    },
+    "original": {
+      "id": 1,
+      "project_id": 1,
+      "filename": "calculator.py",
+      "revision": 1,
+      "source": "def add(a: int, b: int) -> int:\n    \"\"\"Add two signed integers.\n\n    >>> add(2, 3)\n    5\n    \"\"\"\n    return a + b\n\ndef quotient(a: int, b: int) -> int:\n    \"\"\"Return the floor quotient.\"\"\"\n    return a // b\n",
+      "sha256": "6321439512e21bc7b5978049906891c6c52aeafa5d5cc29ff6af971febf5565a"
+    },
+    "analysis": {
+      "static": {
+        "file_id": 1,
+        "filename": "calculator.py",
+        "revision": 1,
+        "sha256": "6321439512e21bc7b5978049906891c6c52aeafa5d5cc29ff6af971febf5565a",
+        "valid": true,
+        "symbols": [
+          {
+            "name": "add",
+            "kind": "function",
+            "line": 1,
+            "end_line": 7,
+            "parameters": [
+              {
+                "name": "a",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "b",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Add two signed integers.\n\n>>> add(2, 3)\n5"
+          },
+          {
+            "name": "quotient",
+            "kind": "function",
+            "line": 9,
+            "end_line": 11,
+            "parameters": [
+              {
+                "name": "a",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              },
+              {
+                "name": "b",
+                "kind": "positional_or_keyword",
+                "annotation": "int",
+                "default": null
+              }
+            ],
+            "returns": "int",
+            "docstring": "Return the floor quotient."
+          }
+        ],
+        "error": null
+      },
+      "ai": {
+        "status": "unavailable",
+        "kind": "resource",
+        "run_id": "eb6eec30-747e-4b69-916f-14bc75be6bd4",
+        "reason": "Ollama 已触发 Windows 资源保护"
+      }
+    },
+    "message": "Ollama 已触发 Windows 资源保护",
+    "quality": {}
+  },
+  "attestation": {
+    "status": "resource_guard",
+    "vulkan": true,
+    "resources": {
+      "physical_total_gib": 31.420948028564453,
+      "physical_free_gib": 0.984405517578125,
+      "physical_used_gib": 30.436542510986328,
+      "commit_limit_gib": 49.57860565185547,
+      "commit_free_gib": 5.1974639892578125,
+      "commit_used_gib": 44.381141662597656,
+      "gpu_used_mib": 33.15625,
+      "gpu_free_mib": 15969.84375,
+      "cpu_pct": 37.35408560311284
+    }
+  }
+}

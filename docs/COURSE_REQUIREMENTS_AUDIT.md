@@ -19,3 +19,5 @@
 | PPT、截图、备份视频 | 8 页可编辑 PPTX、PDF 预览、9 张截图、59 秒 H.264 备用演示。 [展示](../presentation/README.md) |
 
 复验范围与仍待签收事项见 [课程最终报告](COURSE_FINAL_REPORT.md)。
+
+PHASE-07 在正式产品中增加可重复的 Demo Lab 验收入口，现场操作、样本证据、报告导出和仓库回归见 [阶段验收](../reports/phase07/ACCEPTANCE.md)。

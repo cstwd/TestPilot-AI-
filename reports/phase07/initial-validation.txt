@@ -1,0 +1,11 @@
+PHASE07_CATALOG {"buggy": 50, "challenge": 25, "good": 25} domains=6, source hashes=100, repair hashes=75
+.PHASE07_RUN unit_scaling d364ccb7-3866-4663-a147-7d04729869f7 failed passed 100.0
+PHASE07_RUN calculator 9c628b3f-4f8d-47fc-b5da-412583d5e240 passed None 100.0
+PHASE07_RUN binary_search 5b405042-855b-45a0-bee0-d26a15a66bbe failed passed None
+PHASE07_RUN volume_discount b082962c-c9df-444e-8cbb-f02c69ebe392 failed passed None
+PHASE07_RUN booking_timezones 140b8d36-df3d-439b-9e61-b50d7a83fcb1 failed passed None
+PHASE07_RUN member_checkout 9b13ae66-08fc-48bb-8805-b3542fc7680c failed passed None
+PHASE07_RUN filtered_pagination 83e0961a-910e-4327-870f-f9cf63c20f89 failed passed None
+.PHASE07_EDGE 158.0.4370.33 b5d4dc22-28ba-479d-a38e-a1d4e90a08b8
+.
+3 passed in 182.64s (0:03:02)
