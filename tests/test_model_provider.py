@@ -7,7 +7,7 @@ import time
 
 import pytest
 
-from backend.model_identity import MODEL, MANIFEST_SHA256
+from backend.model_identity import MODEL, MANIFEST_SHA256, REVISION, WEIGHT_SHA256
 from backend.model_protocol import Probe, Understanding
 from backend.model_provider import ModelError, ModelProvider, json_load
 
@@ -76,6 +76,29 @@ def test_wrong_identity_stops_before_source(service,monkeypatch):
     with pytest.raises(ModelError) as err:
         p.infer("wrong",[],Probe,max_tokens=32)
     assert err.value.kind=="identity"
+
+
+def test_windows_snapshot_read_retries_without_trusting_stale_state(tmp_path,monkeypatch):
+    path = tmp_path/"attestation.json"
+    valid = {"status":"serving","at":time.time(),"vulkan":True,"model":MODEL,"manifest":MANIFEST_SHA256,
+             "weights":WEIGHT_SHA256,"revision":REVISION,"port":11763,"context":4096,"pid":1,
+             "resources":{"physical_free_gib":3,"commit_free_gib":3,"gpu_free_mib":600}}
+    path.write_text(json.dumps(valid),encoding="utf8")
+    cls=type(path)
+    reader=cls.read_bytes
+    calls=[]
+    def flaky(self):
+        if self==path:
+            calls.append(self)
+            if len(calls)==1:
+                raise PermissionError("sharing violation")
+        return reader(self)
+    monkeypatch.setattr(cls,"read_bytes",flaky)
+    p=ModelProvider(tmp_path)
+    assert p.attest()["pid"]==1 and len(calls)==2
+    path.write_text(json.dumps({**valid,"at":time.time()-20}),encoding="utf8")
+    with pytest.raises(ModelError,match="缺少有效"):
+        p.attest()
 
 
 def test_queue_rejects_overflow_and_waiter_recovers(service,monkeypatch):

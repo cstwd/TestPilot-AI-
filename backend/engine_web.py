@@ -89,7 +89,7 @@ def register(app, templates):
             file_id = task["file_id"]
         elif file_id is None and files:
             file_id = files[0]["id"]
-        configuration = DISPLAY_NAME + (" · 已验证真实推理" if provider.status["state"]=="ready" else " · 待验证")
+        configuration = DISPLAY_NAME + (" · 已验证真实推理" if provider.has_recent_inference() else " · 待验证")
         context = dict(task=task, files=files, file_id=file_id, analysis=None, history=[],
                        configuration=configuration)
         if file_id is not None:

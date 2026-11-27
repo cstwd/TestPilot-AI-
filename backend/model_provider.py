@@ -61,7 +61,15 @@ class ModelProvider:
 
     def attest(self):
         try:
-            s = json_load((self.directory/"attestation.json").read_bytes())
+            for attempt in range(6):
+                try:
+                    s = json_load((self.directory/"attestation.json").read_bytes())
+                    break
+                except PermissionError:
+                    # Windows readers can race a supervisor snapshot replacement.
+                    if attempt==5:
+                        raise
+                    time.sleep(.025)
             if s.get("status") == "resource_guard":
                 raise ModelError("resource", "Ollama 已触发 Windows 资源保护")
             if (s["status"] != "serving" or not 0 <= time.time()-s["at"] <= 4 or
@@ -200,7 +208,8 @@ class ModelProvider:
                         "tokens_in":end.get("prompt_eval_count"),"tokens_out":end.get("eval_count"),
                         "generation_ns":end.get("eval_duration"),"load_ns":end.get("load_duration"),
                         "ttft_s":result["first_visible_s"],"elapsed_s":time.monotonic()-sent,
-                        "seed":seed,"temperature":temperature,"schema":schema.__name__}
+                        "seed":seed,"temperature":temperature,"schema":schema.__name__,
+                        "prompt":request_messages}
                 attempts.append(note)
                 try:
                     if not end.get("done") or end.get("done_reason")=="length" or not raw.strip():
@@ -216,7 +225,7 @@ class ModelProvider:
                              "backend_version":version,"queue_s":queued_s,"at":time.time(),**note})
                 if note["status"] == "accepted":
                     self.status = {"state":"ready","model":DISPLAY_NAME,"manifest":MANIFEST_SHA256,
-                                   "backend_version":version,"at":time.time(),"run_id":run_id}
+                                   "backend_version":version,"at":time.time(),"run_id":run_id,"pid":state["pid"]}
                     return Reply(run_id,value,attempts)
                 request_messages = [*messages,{"role":"user","content":
                     f"Previous response rejected ({note['reason']}). Return a complete object matching this schema: "
@@ -246,6 +255,15 @@ class ModelProvider:
                     "context":s["context"],"size_vram":active["size_vram"],"resources":s["resources"]}
         except ModelError as exc:
             return {"state":"unavailable","model":DISPLAY_NAME,"kind":exc.kind,"reason":str(exc)}
+
+    def has_recent_inference(self):
+        try:
+            state = self.attest()
+        except ModelError:
+            return False
+        observed = self.status
+        return (observed["state"]=="ready" and observed["pid"]==state["pid"]
+                and time.time()-observed["at"]<=300)
 
 
 provider = ModelProvider()
