@@ -119,7 +119,7 @@ class Experiment:
             if (phase, "observation", mutant["id"]) in self.events:
                 continue
             measured = self.measure(apply_site(self.source, mutant), code)
-            verdict = classify(original, measured)
+            verdict = classify(original, measured, test_code=code)
             self.save(phase, "observation", verdict["status"], verdict["reason"],
                       {"execution": measured, "nodeids": verdict["nodeids"]}, mutant["id"])
         return not self.cancel.is_set()
