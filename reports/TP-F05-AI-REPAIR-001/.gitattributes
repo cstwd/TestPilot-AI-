@@ -1,0 +1,3 @@
+* text eol=lf
+*.png binary
+*.diff whitespace=-blank-at-eol

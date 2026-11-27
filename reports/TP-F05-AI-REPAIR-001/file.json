@@ -1,0 +1,8 @@
+{
+  "id": 17,
+  "project_id": 7,
+  "filename": "unit_scaling.py",
+  "revision": 2,
+  "source": "def metric_kilometers(meters: int) -> float:\n    \"\"\"Convert meters to kilometers, retaining fractional kilometers.\"\"\"\n    return meters / 1000\n\ndef fahrenheit(celsius: float) -> float:\n    \"\"\"Convert Celsius to Fahrenheit.\"\"\"\n    return celsius * 9 / 5\n",
+  "sha256": "7d89f9c815fbf2116407c92a72fe5fe575aac3a9c4c0e10437cc1b3edf5b1a09"
+}
