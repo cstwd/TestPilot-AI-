@@ -1,0 +1,9 @@
+{
+  "project": "freight",
+  "seed": 727,
+  "before": null,
+  "after": null,
+  "planned": 2,
+  "initial_run_id": "8ba9dd2f-2d40-460b-bb9a-e3ee75abca50",
+  "reason": "Ollama 已触发 Windows 资源保护"
+}

@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "passed": 6,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_page_count_one_item_returns_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_one_more_than_page_size_returns_two",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_nine_returns_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_twenty_one_returns_three",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_large_multiple_plus_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_non_integer_raises",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "......\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_page_count_one_item_returns_one\nPASSED test_generated.py::test_page_count_one_more_than_page_size_returns_two\nPASSED test_generated.py::test_page_count_nine_returns_one\nPASSED test_generated.py::test_page_count_twenty_one_returns_three\nPASSED test_generated.py::test_page_count_large_multiple_plus_one\nPASSED test_generated.py::test_page_count_non_integer_raises\n6 passed in 0.11s",
+  "duration_ms": 5810,
+  "stdout": "......\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_page_count_one_item_returns_one\nPASSED test_generated.py::test_page_count_one_more_than_page_size_returns_two\nPASSED test_generated.py::test_page_count_nine_returns_one\nPASSED test_generated.py::test_page_count_twenty_one_returns_three\nPASSED test_generated.py::test_page_count_large_multiple_plus_one\nPASSED test_generated.py::test_page_count_non_integer_raises\n6 passed in 0.11s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "3e7ad61c-7b39-4479-9946-1539d405e2a8",
+  "started": "2026-11-27T09:11:24.754323+00:00",
+  "ended": "2026-11-27T09:11:30.564396+00:00",
+  "source_sha256": "1379dd26ef046cd5341c7e2a7fc476e7d64f25a5a56ab200fb2a7a024e32d0b5",
+  "test_sha256": "3588a4339fe4edd215c4e83ec416e8ad0d845c3c1a987df2c0d733af7bae0151"
+}

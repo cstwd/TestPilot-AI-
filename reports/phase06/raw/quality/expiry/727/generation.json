@@ -1,0 +1,28 @@
+{
+  "code": "from subject import expired\n\ndef test_expired_at_limit_is_false():\n    \"\"\"An item is not expired at exactly its age limit.\"\"\"\n    assert expired(30) is False\n\ndef test_expired_beyond_limit_is_true():\n    \"\"\"An item is expired when age exceeds the limit.\"\"\"\n    assert expired(31) is True\n\ndef test_expired_with_custom_limit_at_boundary():\n    \"\"\"Custom limit: age equal to limit is not expired.\"\"\"\n    assert expired(age=2, limit=2) is False\n\ndef test_expired_with_custom_limit_beyond_boundary():\n    \"\"\"Custom limit: age greater than limit is expired.\"\"\"\n    assert expired(age=3, limit=2) is True\n\ndef test_expired_zero_age_zero_limit():\n    \"\"\"Zero age with zero limit is not expired.\"\"\"\n    assert expired(age=0, limit=0) is False\n\ndef test_expired_zero_age_positive_limit():\n    \"\"\"Zero age with positive limit is not expired.\"\"\"\n    assert expired(age=0, limit=2) is False\n\ndef test_expired_positive_age_zero_limit():\n    \"\"\"Positive age with zero limit is expired.\"\"\"\n    assert expired(age=1, limit=0) is True\n\ndef test_expired_negative_age():\n    \"\"\"Negative age with default limit is not expired.\"\"\"\n    assert expired(-1) is False\n\ndef test_expired_negative_age_negative_limit():\n    \"\"\"Negative age with negative limit: -1 > -5 is True.\"\"\"\n    assert expired(age=-1, limit=-5) is True\n\ndef test_expired_negative_age_equal_limit():\n    \"\"\"Negative age equal to negative limit is not expired.\"\"\"\n    assert expired(age=-5, limit=-5) is False\n\ndef test_expired_large_values():\n    \"\"\"Large age beyond large limit is expired.\"\"\"\n    assert expired(age=1000000, limit=999999) is True\n\ndef test_expired_large_values_at_boundary():\n    \"\"\"Large age equal to large limit is not expired.\"\"\"\n    assert expired(age=1000000, limit=1000000) is False\n",
+  "mode": "ai",
+  "sha256": "94bcf063cb10a8bc7f064987daa1ef2b753b1dc3b7b353c599abb86c7e8e3b80",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "adb258ac-2862-43e6-a932-6a53c0cc9b0e",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"from subject import expired\\n\\ndef test_expired_at_limit_is_false():\\n    \\\"\\\"\\\"An item is not expired at exactly its age limit.\\\"\\\"\\\"\\n    assert expired(30) is False\\n\\ndef test_expired_beyond_limit_is_true():\\n    \\\"\\\"\\\"An item is expired when age exceeds the limit.\\\"\\\"\\\"\\n    assert expired(31) is True\\n\\ndef test_expired_with_custom_limit_at_boundary():\\n    \\\"\\\"\\\"Custom limit: age equal to limit is not expired.\\\"\\\"\\\"\\n    assert expired(age=2, limit=2) is False\\n\\ndef test_expired_with_custom_limit_beyond_boundary():\\n    \\\"\\\"\\\"Custom limit: age greater than limit is expired.\\\"\\\"\\\"\\n    assert expired(age=3, limit=2) is True\\n\\ndef test_expired_zero_age_zero_limit():\\n    \\\"\\\"\\\"Zero age with zero limit is not expired.\\\"\\\"\\\"\\n    assert expired(age=0, limit=0) is False\\n\\ndef test_expired_zero_age_positive_limit():\\n    \\\"\\\"\\\"Zero age with positive limit is not expired.\\\"\\\"\\\"\\n    assert expired(age=0, limit=2) is False\\n\\ndef test_expired_positive_age_zero_limit():\\n    \\\"\\\"\\\"Positive age with zero limit is expired.\\\"\\\"\\\"\\n    assert expired(age=1, limit=0) is True\\n\\ndef test_expired_negative_age():\\n    \\\"\\\"\\\"Negative age with default limit is not expired.\\\"\\\"\\\"\\n    assert expired(-1) is False\\n\\ndef test_expired_negative_age_negative_limit():\\n    \\\"\\\"\\\"Negative age with negative limit: -1 > -5 is True.\\\"\\\"\\\"\\n    assert expired(age=-1, limit=-5) is True\\n\\ndef test_expired_negative_age_equal_limit():\\n    \\\"\\\"\\\"Negative age equal to negative limit is not expired.\\\"\\\"\\\"\\n    assert expired(age=-5, limit=-5) is False\\n\\ndef test_expired_large_values():\\n    \\\"\\\"\\\"Large age beyond large limit is expired.\\\"\\\"\\\"\\n    assert expired(age=1000000, limit=999999) is True\\n\\ndef test_expired_large_values_at_boundary():\\n    \\\"\\\"\\\"Large age equal to large limit is not expired.\\\"\\\"\\\"\\n    assert expired(age=1000000, limit=1000000) is False\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 374,
+      "tokens_out": 529,
+      "generation_ns": 21854460000,
+      "load_ns": 6465700,
+      "ttft_s": 1.6286261000022932,
+      "elapsed_s": 23.483165399997233,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "adb258ac-2862-43e6-a932-6a53c0cc9b0e",
+  "seconds": 23.549686999998812
+}

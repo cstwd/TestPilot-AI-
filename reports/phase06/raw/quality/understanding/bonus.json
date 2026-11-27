@@ -1,0 +1,81 @@
+{
+  "project": "bonus",
+  "predicted": {
+    "functions": [
+      "subject.py:bonus"
+    ],
+    "parameters": [
+      [
+        "n",
+        "int",
+        null
+      ],
+      [
+        "enabled",
+        "bool",
+        "True"
+      ]
+    ],
+    "return_value": 5,
+    "branch_lines": [
+      8,
+      10
+    ],
+    "boundary_value": 2,
+    "exception": "ValueError",
+    "defect_line": null
+  },
+  "expected": {
+    "functions": [
+      "subject.py:bonus"
+    ],
+    "parameters": [
+      [
+        "n",
+        "int",
+        null
+      ],
+      [
+        "enabled",
+        "bool",
+        "True"
+      ]
+    ],
+    "return_value": 5,
+    "branch_lines": [
+      8,
+      10
+    ],
+    "boundary_value": 2,
+    "exception": "ValueError",
+    "defect_line": null
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 1,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "run_id": "3ada8892-52e8-484c-a494-541b78831935",
+  "attempts": [
+    {
+      "run_id": "3ada8892-52e8-484c-a494-541b78831935",
+      "attempt": 1,
+      "raw": "{\n  \"boundary_value\": 2,\n  \"branch_lines\": [\n    8,\n    10\n  ],\n  \"defect_line\": null,\n  \"exception\": \"ValueError\",\n  \"functions\": [\n    \"subject.py:bonus\"\n  ],\n  \"parameters\": [\n    [\n      \"n\",\n      \"int\",\n      null\n    ],\n    [\n      \"enabled\",\n      \"bool\",\n      \"True\"\n    ]\n  ],\n  \"return_value\": 5\n}",
+      "finish": "stop",
+      "tokens_in": 408,
+      "tokens_out": 128,
+      "generation_ns": 5398063000,
+      "load_ns": 9811000,
+      "ttft_s": 6.363871600002312,
+      "elapsed_s": 11.761782400000811,
+      "seed": 23,
+      "temperature": 0,
+      "schema": "Understanding",
+      "status": "accepted"
+    }
+  ]
+}

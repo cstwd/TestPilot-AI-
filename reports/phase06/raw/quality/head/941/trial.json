@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "passed": 15,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_first_returns_first_item",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_returns_first_item_with_fallback",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_empty_list_returns_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_single_element_list",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_multiple_elements_returns_first",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_with_zero_as_first_element",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_with_negative_first_element",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_with_string_elements",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_with_none_as_first_element",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_with_fallback_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_empty_list_default_fallback",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_with_boolean_elements",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_with_mixed_types",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_with_large_list",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_first_with_float_elements",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 4,
+  "total_lines": 4,
+  "coverage_pct": 100.0,
+  "log": "...............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_first_returns_first_item\nPASSED test_generated.py::test_first_returns_first_item_with_fallback\nPASSED test_generated.py::test_first_empty_list_returns_zero\nPASSED test_generated.py::test_first_single_element_list\nPASSED test_generated.py::test_first_multiple_elements_returns_first\nPASSED test_generated.py::test_first_with_zero_as_first_element\nPASSED test_generated.py::test_first_with_negative_first_element\nPASSED test_generated.py::test_first_with_string_elements\nPASSED test_generated.py::test_first_with_none_as_first_element\nPASSED test_generated.py::test_first_with_fallback_zero\nPASSED test_generated.py::test_first_empty_list_default_fallback\nPASSED test_generated.py::test_first_with_boolean_elements\nPASSED test_generated.py::test_first_with_mixed_types\nPASSED test_generated.py::test_first_with_large_list\nPASSED test_generated.py::test_first_with_float_elements\n15 passed in 0.24s",
+  "duration_ms": 7104,
+  "stdout": "...............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_first_returns_first_item\nPASSED test_generated.py::test_first_returns_first_item_with_fallback\nPASSED test_generated.py::test_first_empty_list_returns_zero\nPASSED test_generated.py::test_first_single_element_list\nPASSED test_generated.py::test_first_multiple_elements_returns_first\nPASSED test_generated.py::test_first_with_zero_as_first_element\nPASSED test_generated.py::test_first_with_negative_first_element\nPASSED test_generated.py::test_first_with_string_elements\nPASSED test_generated.py::test_first_with_none_as_first_element\nPASSED test_generated.py::test_first_with_fallback_zero\nPASSED test_generated.py::test_first_empty_list_default_fallback\nPASSED test_generated.py::test_first_with_boolean_elements\nPASSED test_generated.py::test_first_with_mixed_types\nPASSED test_generated.py::test_first_with_large_list\nPASSED test_generated.py::test_first_with_float_elements\n15 passed in 0.24s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 2,
+  "total_branches": 2,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "7bd36e91-4b26-4705-b937-41a9b2a03b0a",
+  "started": "2026-11-27T09:17:45.978387+00:00",
+  "ended": "2026-11-27T09:17:53.082960+00:00",
+  "source_sha256": "d05c9cc3c81b72421224a9692352d19e0de27f385f616e2b75f1b6d4580c5aff",
+  "test_sha256": "c1af1d27b0966ca4e0fe17fc18013622f9304ebef34a2a2b1265311c43bd8d7d"
+}

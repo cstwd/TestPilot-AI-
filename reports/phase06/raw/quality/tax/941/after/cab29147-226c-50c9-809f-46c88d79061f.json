@@ -1,0 +1,333 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 2,
+    "failed": 14,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_tax_example_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_zero",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_one",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_100",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_101",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_199",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_200",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_1000",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_negative",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_1",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_2",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_19",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_20",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_large_value",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_returns_int",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_with_rate_5_percent",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "F.FFFFFFFFFFFF.F\n=================================== FAILURES ===================================\n______________________________ test_tax_example_1 ______________________________\ntest_generated.py:13: in test_tax_example_1\n    assert tax(100) == 5\nE   assert 50000 == 5\nE    +  where 50000 = tax(100)\n_________________________________ test_tax_one _________________________________\ntest_generated.py:21: in test_tax_one\n    assert tax(1) == 0\nE   assert 500 == 0\nE    +  where 500 = tax(1)\n_________________________________ test_tax_100 _________________________________\ntest_generated.py:25: in test_tax_100\n    assert tax(100) == 5\nE   assert 50000 == 5\nE    +  where 50000 = tax(100)\n_________________________________ test_tax_101 _________________________________\ntest_generated.py:29: in test_tax_101\n    assert tax(101) == 5\nE   assert 50500 == 5\nE    +  where 50500 = tax(101)\n_________________________________ test_tax_199 _________________________________\ntest_generated.py:33: in test_tax_199\n    assert tax(199) == 9\nE   assert 99500 == 9\nE    +  where 99500 = tax(199)\n_________________________________ test_tax_200 _________________________________\ntest_generated.py:37: in test_tax_200\n    assert tax(200) == 10\nE   assert 100000 == 10\nE    +  where 100000 = tax(200)\n________________________________ test_tax_1000 _________________________________\ntest_generated.py:41: in test_tax_1000\n    assert tax(1000) == 50\nE   assert 500000 == 50\nE    +  where 500000 = tax(1000)\n______________________________ test_tax_negative _______________________________\ntest_generated.py:45: in test_tax_negative\n    assert tax(-100) == -5\nE   assert -50000 == -5\nE    +  where -50000 = tax(-100)\n__________________________________ test_tax_1 __________________________________\ntest_generated.py:49: in test_tax_1\n    assert tax(1) == 0\nE   assert 500 == 0\nE    +  where 500 = tax(1)\n__________________________________ test_tax_2 __________________________________\ntest_generated.py:53: in test_tax_2\n    assert tax(2) == 0\nE   assert 1000 == 0\nE    +  where 1000 = tax(2)\n_________________________________ test_tax_19 __________________________________\ntest_generated.py:57: in test_tax_19\n    assert tax(19) == 0\nE   assert 9500 == 0\nE    +  where 9500 = tax(19)\n_________________________________ test_tax_20 __________________________________\ntest_generated.py:61: in test_tax_20\n    assert tax(20) == 1\nE   assert 10000 == 1\nE    +  where 10000 = tax(20)\n_____________________________ test_tax_large_value _____________________________\ntest_generated.py:65: in test_tax_large_value\n    assert tax(1000000) == 50000\nE   assert 500000000 == 50000\nE    +  where 500000000 = tax(1000000)\n_________________________ test_tax_with_rate_5_percent _________________________\ntest_generated.py:74: in test_tax_with_rate_5_percent\n    assert tax(1000) == 50\nE   assert 500000 == 50\nE    +  where 500000 = tax(1000)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tax_zero\nPASSED test_generated.py::test_tax_returns_int\nFAILED test_generated.py::test_tax_example_1 - assert 50000 == 5\nFAILED test_generated.py::test_tax_one - assert 500 == 0\nFAILED test_generated.py::test_tax_100 - assert 50000 == 5\nFAILED test_generated.py::test_tax_101 - assert 50500 == 5\nFAILED test_generated.py::test_tax_199 - assert 99500 == 9\nFAILED test_generated.py::test_tax_200 - assert 100000 == 10\nFAILED test_generated.py::test_tax_1000 - assert 500000 == 50\nFAILED test_generated.py::test_tax_negative - assert -50000 == -5\nFAILED test_generated.py::test_tax_1 - assert 500 == 0\nFAILED test_generated.py::test_tax_2 - assert 1000 == 0\nFAILED test_generated.py::test_tax_19 - assert 9500 == 0\nFAILED test_generated.py::test_tax_20 - assert 10000 == 1\nFAILED test_generated.py::test_tax_large_value - assert 500000000 == 50000\nFAILED test_generated.py::test_tax_with_rate_5_percent - assert 500000 == 50\n14 failed, 2 passed in 0.92s",
+    "duration_ms": 7418,
+    "stdout": "F.FFFFFFFFFFFF.F\n=================================== FAILURES ===================================\n______________________________ test_tax_example_1 ______________________________\ntest_generated.py:13: in test_tax_example_1\n    assert tax(100) == 5\nE   assert 50000 == 5\nE    +  where 50000 = tax(100)\n_________________________________ test_tax_one _________________________________\ntest_generated.py:21: in test_tax_one\n    assert tax(1) == 0\nE   assert 500 == 0\nE    +  where 500 = tax(1)\n_________________________________ test_tax_100 _________________________________\ntest_generated.py:25: in test_tax_100\n    assert tax(100) == 5\nE   assert 50000 == 5\nE    +  where 50000 = tax(100)\n_________________________________ test_tax_101 _________________________________\ntest_generated.py:29: in test_tax_101\n    assert tax(101) == 5\nE   assert 50500 == 5\nE    +  where 50500 = tax(101)\n_________________________________ test_tax_199 _________________________________\ntest_generated.py:33: in test_tax_199\n    assert tax(199) == 9\nE   assert 99500 == 9\nE    +  where 99500 = tax(199)\n_________________________________ test_tax_200 _________________________________\ntest_generated.py:37: in test_tax_200\n    assert tax(200) == 10\nE   assert 100000 == 10\nE    +  where 100000 = tax(200)\n________________________________ test_tax_1000 _________________________________\ntest_generated.py:41: in test_tax_1000\n    assert tax(1000) == 50\nE   assert 500000 == 50\nE    +  where 500000 = tax(1000)\n______________________________ test_tax_negative _______________________________\ntest_generated.py:45: in test_tax_negative\n    assert tax(-100) == -5\nE   assert -50000 == -5\nE    +  where -50000 = tax(-100)\n__________________________________ test_tax_1 __________________________________\ntest_generated.py:49: in test_tax_1\n    assert tax(1) == 0\nE   assert 500 == 0\nE    +  where 500 = tax(1)\n__________________________________ test_tax_2 __________________________________\ntest_generated.py:53: in test_tax_2\n    assert tax(2) == 0\nE   assert 1000 == 0\nE    +  where 1000 = tax(2)\n_________________________________ test_tax_19 __________________________________\ntest_generated.py:57: in test_tax_19\n    assert tax(19) == 0\nE   assert 9500 == 0\nE    +  where 9500 = tax(19)\n_________________________________ test_tax_20 __________________________________\ntest_generated.py:61: in test_tax_20\n    assert tax(20) == 1\nE   assert 10000 == 1\nE    +  where 10000 = tax(20)\n_____________________________ test_tax_large_value _____________________________\ntest_generated.py:65: in test_tax_large_value\n    assert tax(1000000) == 50000\nE   assert 500000000 == 50000\nE    +  where 500000000 = tax(1000000)\n_________________________ test_tax_with_rate_5_percent _________________________\ntest_generated.py:74: in test_tax_with_rate_5_percent\n    assert tax(1000) == 50\nE   assert 500000 == 50\nE    +  where 500000 = tax(1000)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tax_zero\nPASSED test_generated.py::test_tax_returns_int\nFAILED test_generated.py::test_tax_example_1 - assert 50000 == 5\nFAILED test_generated.py::test_tax_one - assert 500 == 0\nFAILED test_generated.py::test_tax_100 - assert 50000 == 5\nFAILED test_generated.py::test_tax_101 - assert 50500 == 5\nFAILED test_generated.py::test_tax_199 - assert 99500 == 9\nFAILED test_generated.py::test_tax_200 - assert 100000 == 10\nFAILED test_generated.py::test_tax_1000 - assert 500000 == 50\nFAILED test_generated.py::test_tax_negative - assert -50000 == -5\nFAILED test_generated.py::test_tax_1 - assert 500 == 0\nFAILED test_generated.py::test_tax_2 - assert 1000 == 0\nFAILED test_generated.py::test_tax_19 - assert 9500 == 0\nFAILED test_generated.py::test_tax_20 - assert 10000 == 1\nFAILED test_generated.py::test_tax_large_value - assert 500000000 == 50000\nFAILED test_generated.py::test_tax_with_rate_5_percent - assert 500000 == 50\n14 failed, 2 passed in 0.92s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_tax_example_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 50000 == 5\n +  where 50000 = tax(100)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 13,
+            "function": "test_tax_example_1",
+            "source": "assert tax(100) == 5"
+          }
+        ],
+        "assertion_diff": "assert 50000 == 5\n +  where 50000 = tax(100)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_one",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 500 == 0\n +  where 500 = tax(1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 21,
+            "function": "test_tax_one",
+            "source": "assert tax(1) == 0"
+          }
+        ],
+        "assertion_diff": "assert 500 == 0\n +  where 500 = tax(1)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_100",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 50000 == 5\n +  where 50000 = tax(100)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 25,
+            "function": "test_tax_100",
+            "source": "assert tax(100) == 5"
+          }
+        ],
+        "assertion_diff": "assert 50000 == 5\n +  where 50000 = tax(100)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_101",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 50500 == 5\n +  where 50500 = tax(101)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 29,
+            "function": "test_tax_101",
+            "source": "assert tax(101) == 5"
+          }
+        ],
+        "assertion_diff": "assert 50500 == 5\n +  where 50500 = tax(101)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_199",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 99500 == 9\n +  where 99500 = tax(199)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 33,
+            "function": "test_tax_199",
+            "source": "assert tax(199) == 9"
+          }
+        ],
+        "assertion_diff": "assert 99500 == 9\n +  where 99500 = tax(199)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_200",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 100000 == 10\n +  where 100000 = tax(200)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 37,
+            "function": "test_tax_200",
+            "source": "assert tax(200) == 10"
+          }
+        ],
+        "assertion_diff": "assert 100000 == 10\n +  where 100000 = tax(200)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_1000",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 500000 == 50\n +  where 500000 = tax(1000)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 41,
+            "function": "test_tax_1000",
+            "source": "assert tax(1000) == 50"
+          }
+        ],
+        "assertion_diff": "assert 500000 == 50\n +  where 500000 = tax(1000)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_negative",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert -50000 == -5\n +  where -50000 = tax(-100)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 45,
+            "function": "test_tax_negative",
+            "source": "assert tax(-100) == -5"
+          }
+        ],
+        "assertion_diff": "assert -50000 == -5\n +  where -50000 = tax(-100)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_1",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 500 == 0\n +  where 500 = tax(1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 49,
+            "function": "test_tax_1",
+            "source": "assert tax(1) == 0"
+          }
+        ],
+        "assertion_diff": "assert 500 == 0\n +  where 500 = tax(1)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_2",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 1000 == 0\n +  where 1000 = tax(2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 53,
+            "function": "test_tax_2",
+            "source": "assert tax(2) == 0"
+          }
+        ],
+        "assertion_diff": "assert 1000 == 0\n +  where 1000 = tax(2)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_19",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 9500 == 0\n +  where 9500 = tax(19)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 57,
+            "function": "test_tax_19",
+            "source": "assert tax(19) == 0"
+          }
+        ],
+        "assertion_diff": "assert 9500 == 0\n +  where 9500 = tax(19)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_20",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 10000 == 1\n +  where 10000 = tax(20)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 61,
+            "function": "test_tax_20",
+            "source": "assert tax(20) == 1"
+          }
+        ],
+        "assertion_diff": "assert 10000 == 1\n +  where 10000 = tax(20)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_large_value",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 500000000 == 50000\n +  where 500000000 = tax(1000000)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 65,
+            "function": "test_tax_large_value",
+            "source": "assert tax(1000000) == 50000"
+          }
+        ],
+        "assertion_diff": "assert 500000000 == 50000\n +  where 500000000 = tax(1000000)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_with_rate_5_percent",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 500000 == 50\n +  where 500000 = tax(1000)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 74,
+            "function": "test_tax_with_rate_5_percent",
+            "source": "assert tax(1000) == 50"
+          }
+        ],
+        "assertion_diff": "assert 500000 == 50\n +  where 500000 = tax(1000)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "22eeae19-d208-47a6-809f-d54c89e259e1",
+    "started": "2026-11-27T09:16:32.365525+00:00",
+    "ended": "2026-11-27T09:16:39.784002+00:00",
+    "source_sha256": "b437cd725da66bfb3564e5e18821e097da4a3d2bfa2be190c91f3457cea7bada",
+    "test_sha256": "ee817ecde782b6ee7b4c9d5beaed6f5412d96b845c952fca892481247ae1d80b"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_tax_1",
+      "test_generated.py::test_tax_100",
+      "test_generated.py::test_tax_1000",
+      "test_generated.py::test_tax_101",
+      "test_generated.py::test_tax_19",
+      "test_generated.py::test_tax_199",
+      "test_generated.py::test_tax_2",
+      "test_generated.py::test_tax_20",
+      "test_generated.py::test_tax_200",
+      "test_generated.py::test_tax_example_1",
+      "test_generated.py::test_tax_large_value",
+      "test_generated.py::test_tax_negative",
+      "test_generated.py::test_tax_one",
+      "test_generated.py::test_tax_with_rate_5_percent"
+    ]
+  },
+  "mutant": "cab29147-226c-50c9-809f-46c88d79061f"
+}

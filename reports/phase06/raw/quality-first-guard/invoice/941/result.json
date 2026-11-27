@@ -1,0 +1,9 @@
+{
+  "project": "invoice",
+  "seed": 941,
+  "before": null,
+  "after": null,
+  "planned": 3,
+  "initial_run_id": "96d848ca-f5c4-4913-b01c-c522a4fc081f",
+  "reason": "Ollama 已触发 Windows 资源保护"
+}

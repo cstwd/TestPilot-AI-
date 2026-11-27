@@ -1,0 +1,28 @@
+{
+  "code": "from subject import cap\n\ndef test_cap_returns_n_when_less_than_ceiling():\n    assert cap(5, 10) == 5\n\ndef test_cap_returns_ceiling_when_n_greater():\n    assert cap(12, 10) == 10\n\ndef test_cap_returns_ceiling_when_n_equals_ceiling():\n    assert cap(10, 10) == 10\n\ndef test_cap_with_default_ceiling():\n    assert cap(12) == 10\n\ndef test_cap_with_zero_n():\n    assert cap(0, 10) == 0\n\ndef test_cap_with_zero_ceiling():\n    assert cap(5, 0) == 0\n\ndef test_cap_with_negative_n():\n    assert cap(-5, 10) == -5\n\ndef test_cap_with_negative_ceiling():\n    assert cap(5, -10) == -10\n\ndef test_cap_with_both_negative():\n    assert cap(-5, -10) == -10\n\ndef test_cap_with_large_values():\n    assert cap(1000000, 500000) == 500000\n\ndef test_cap_with_same_large_values():\n    assert cap(1000000, 1000000) == 1000000\n\ndef test_cap_with_keyword_arguments():\n    assert cap(n=12, ceiling=10) == 10\n\ndef test_cap_with_mixed_keyword_arguments():\n    assert cap(12, ceiling=10) == 10\n\ndef test_cap_with_ceiling_as_keyword():\n    assert cap(n=12, ceiling=10) == 10\n\ndef test_cap_doctest_example():\n    assert cap(12) == 10\n",
+  "mode": "ai",
+  "sha256": "6aa320e19c85ee70f54b7f7ff571f34d0058f4bfd6e558c031bb863aeb5fe213",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "231f63ce-2052-47c4-8f5e-b5d6d3a8a52e",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"from subject import cap\\n\\ndef test_cap_returns_n_when_less_than_ceiling():\\n    assert cap(5, 10) == 5\\n\\ndef test_cap_returns_ceiling_when_n_greater():\\n    assert cap(12, 10) == 10\\n\\ndef test_cap_returns_ceiling_when_n_equals_ceiling():\\n    assert cap(10, 10) == 10\\n\\ndef test_cap_with_default_ceiling():\\n    assert cap(12) == 10\\n\\ndef test_cap_with_zero_n():\\n    assert cap(0, 10) == 0\\n\\ndef test_cap_with_zero_ceiling():\\n    assert cap(5, 0) == 0\\n\\ndef test_cap_with_negative_n():\\n    assert cap(-5, 10) == -5\\n\\ndef test_cap_with_negative_ceiling():\\n    assert cap(5, -10) == -10\\n\\ndef test_cap_with_both_negative():\\n    assert cap(-5, -10) == -10\\n\\ndef test_cap_with_large_values():\\n    assert cap(1000000, 500000) == 500000\\n\\ndef test_cap_with_same_large_values():\\n    assert cap(1000000, 1000000) == 1000000\\n\\ndef test_cap_with_keyword_arguments():\\n    assert cap(n=12, ceiling=10) == 10\\n\\ndef test_cap_with_mixed_keyword_arguments():\\n    assert cap(12, ceiling=10) == 10\\n\\ndef test_cap_with_ceiling_as_keyword():\\n    assert cap(n=12, ceiling=10) == 10\\n\\ndef test_cap_doctest_example():\\n    assert cap(12) == 10\"\n}",
+      "finish": "stop",
+      "tokens_in": 399,
+      "tokens_out": 439,
+      "generation_ns": 18093771000,
+      "load_ns": 5777000,
+      "ttft_s": 1.7320091000001412,
+      "elapsed_s": 19.825877999999648,
+      "seed": 941,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "231f63ce-2052-47c4-8f5e-b5d6d3a8a52e",
+  "seconds": 19.895346599998447
+}

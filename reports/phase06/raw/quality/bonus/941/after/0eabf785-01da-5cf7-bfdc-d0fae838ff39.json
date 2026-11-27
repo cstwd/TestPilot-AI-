@@ -1,0 +1,109 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 6,
+    "failed": 2,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_negative_n_raises_value_error",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_returns_zero_when_enabled",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_one_returns_one_when_enabled",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_returns_three_when_enabled",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_three_returns_four_when_enabled",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_returns_two_when_disabled",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_three_returns_three_when_disabled",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_n_raises_even_when_disabled",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 6,
+    "total_lines": 6,
+    "coverage_pct": 100.0,
+    "log": "...FF...\n=================================== FAILURES ===================================\n_____________________ test_two_returns_three_when_enabled ______________________\ntest_generated.py:19: in test_two_returns_three_when_enabled\n    assert bonus(2, enabled=True) == 3\nE   assert None == 3\nE    +  where None = bonus(2, enabled=True)\n_____________________ test_three_returns_four_when_enabled _____________________\ntest_generated.py:23: in test_three_returns_four_when_enabled\n    assert bonus(3, enabled=True) == 4\nE   assert None == 4\nE    +  where None = bonus(3, enabled=True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_negative_n_raises_value_error\nPASSED test_generated.py::test_zero_returns_zero_when_enabled\nPASSED test_generated.py::test_one_returns_one_when_enabled\nPASSED test_generated.py::test_two_returns_two_when_disabled\nPASSED test_generated.py::test_three_returns_three_when_disabled\nPASSED test_generated.py::test_negative_n_raises_even_when_disabled\nFAILED test_generated.py::test_two_returns_three_when_enabled - assert None == 3\nFAILED test_generated.py::test_three_returns_four_when_enabled - assert None ...\n2 failed, 6 passed in 0.34s",
+    "duration_ms": 7088,
+    "stdout": "...FF...\n=================================== FAILURES ===================================\n_____________________ test_two_returns_three_when_enabled ______________________\ntest_generated.py:19: in test_two_returns_three_when_enabled\n    assert bonus(2, enabled=True) == 3\nE   assert None == 3\nE    +  where None = bonus(2, enabled=True)\n_____________________ test_three_returns_four_when_enabled _____________________\ntest_generated.py:23: in test_three_returns_four_when_enabled\n    assert bonus(3, enabled=True) == 4\nE   assert None == 4\nE    +  where None = bonus(3, enabled=True)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_negative_n_raises_value_error\nPASSED test_generated.py::test_zero_returns_zero_when_enabled\nPASSED test_generated.py::test_one_returns_one_when_enabled\nPASSED test_generated.py::test_two_returns_two_when_disabled\nPASSED test_generated.py::test_three_returns_three_when_disabled\nPASSED test_generated.py::test_negative_n_raises_even_when_disabled\nFAILED test_generated.py::test_two_returns_three_when_enabled - assert None == 3\nFAILED test_generated.py::test_three_returns_four_when_enabled - assert None ...\n2 failed, 6 passed in 0.34s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_two_returns_three_when_enabled",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 3\n +  where None = bonus(2, enabled=True)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 19,
+            "function": "test_two_returns_three_when_enabled",
+            "source": "assert bonus(2, enabled=True) == 3"
+          }
+        ],
+        "assertion_diff": "assert None == 3\n +  where None = bonus(2, enabled=True)"
+      },
+      {
+        "nodeid": "test_generated.py::test_three_returns_four_when_enabled",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 4\n +  where None = bonus(3, enabled=True)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 23,
+            "function": "test_three_returns_four_when_enabled",
+            "source": "assert bonus(3, enabled=True) == 4"
+          }
+        ],
+        "assertion_diff": "assert None == 4\n +  where None = bonus(3, enabled=True)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "82e9d842-9de0-4dd0-8a7a-b5fb5b2c3ad7",
+    "started": "2026-11-27T09:15:22.032330+00:00",
+    "ended": "2026-11-27T09:15:29.119971+00:00",
+    "source_sha256": "185166b3a19937884a42ad122a0b48f351eb13f04fb4ae3af7aad3c89c09fdfe",
+    "test_sha256": "4d897eddabdb0e9b7e6215e7483b951a5550331a27813b41ae0e42ce46afdb98"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_three_returns_four_when_enabled",
+      "test_generated.py::test_two_returns_three_when_enabled"
+    ]
+  },
+  "mutant": "0eabf785-01da-5cf7-bfdc-d0fae838ff39"
+}

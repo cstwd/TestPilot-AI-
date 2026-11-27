@@ -1,0 +1,150 @@
+{
+  "before": {
+    "http": 200,
+    "body": {
+      "state": "ready",
+      "model": "Qwen3.8-27B UD-IQ3_XXS",
+      "manifest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+      "backend_version": "0.40.18",
+      "at": 1795771719.4298408,
+      "run_id": "a09c6834-5bae-4c68-8d6a-c33f84a8b046",
+      "vulkan": true,
+      "weight_sha256": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+      "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+      "context": 4096,
+      "size_vram": 10412978338,
+      "resources": {
+        "physical_total_gib": 31.420948028564453,
+        "physical_free_gib": 4.617938995361328,
+        "physical_used_gib": 26.803009033203125,
+        "commit_limit_gib": 49.57860565185547,
+        "commit_free_gib": 6.9010772705078125,
+        "commit_used_gib": 42.677528381347656,
+        "gpu_used_mib": 10048.34375,
+        "gpu_free_mib": 5954.65625,
+        "cpu_pct": 20.02567394094994
+      }
+    }
+  },
+  "offline_model": {
+    "http": 503,
+    "body": {
+      "state": "unavailable",
+      "model": "Qwen3.8-27B UD-IQ3_XXS",
+      "kind": "unavailable",
+      "reason": "缺少有效的本机 Ollama / Vulkan 身份和守护状态"
+    }
+  },
+  "offline_dashboard": {
+    "http": 200,
+    "body": {
+      "status": "ok",
+      "database": "ok",
+      "mode": "demo"
+    }
+  },
+  "8k_health": {
+    "http": 200,
+    "body": {
+      "state": "ready",
+      "model": "Qwen3.8-27B UD-IQ3_XXS",
+      "manifest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+      "backend_version": "0.40.18",
+      "at": 1795771753.9488454,
+      "run_id": "c6494d9a-0014-4190-9944-a79a1fd4ac83",
+      "vulkan": true,
+      "weight_sha256": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+      "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+      "context": 8192,
+      "size_vram": 10489000098,
+      "resources": {
+        "physical_total_gib": 31.420948028564453,
+        "physical_free_gib": 3.823230743408203,
+        "physical_used_gib": 27.59771728515625,
+        "commit_limit_gib": 49.57860565185547,
+        "commit_free_gib": 6.804718017578125,
+        "commit_used_gib": 42.773887634277344,
+        "gpu_used_mib": 10066.96875,
+        "gpu_free_mib": 5936.03125,
+        "cpu_pct": 36.848958333333336
+      }
+    }
+  },
+  "8k_pressure_exit": 0,
+  "8k_end_state": {
+    "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+    "manifest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+    "weights": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+    "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+    "port": 11763,
+    "context": 8192,
+    "vulkan": true,
+    "backend": "Ollama",
+    "at": 1795771792.978021,
+    "pid": 45568,
+    "resources": {
+      "physical_total_gib": 31.420948028564453,
+      "physical_free_gib": 3.4773178100585938,
+      "physical_used_gib": 27.94363021850586,
+      "commit_limit_gib": 49.57860565185547,
+      "commit_free_gib": 6.3878021240234375,
+      "commit_used_gib": 43.19080352783203,
+      "gpu_used_mib": 10120.84375,
+      "gpu_free_mib": 5882.15625,
+      "cpu_pct": 80.73510773130546
+    },
+    "status": "serving"
+  },
+  "16k_health": {
+    "http": 200,
+    "body": {
+      "state": "ready",
+      "model": "Qwen3.8-27B UD-IQ3_XXS",
+      "manifest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+      "backend_version": "0.40.18",
+      "at": 1795771821.0724022,
+      "run_id": "134f26a4-0af6-482d-bd4c-adeb9ff6a68b",
+      "vulkan": true,
+      "weight_sha256": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+      "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+      "context": 16384,
+      "size_vram": 10641043618,
+      "resources": {
+        "physical_total_gib": 31.420948028564453,
+        "physical_free_gib": 3.9601058959960938,
+        "physical_used_gib": 27.46084213256836,
+        "commit_limit_gib": 49.57860565185547,
+        "commit_free_gib": 6.956897735595703,
+        "commit_used_gib": 42.621707916259766,
+        "gpu_used_mib": 10211.96875,
+        "gpu_free_mib": 5791.03125,
+        "cpu_pct": 34.505208333333336
+      }
+    }
+  },
+  "16k_pressure_exit": 0,
+  "16k_end_state": {
+    "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+    "manifest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+    "weights": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+    "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+    "port": 11763,
+    "context": 16384,
+    "vulkan": true,
+    "backend": "Ollama",
+    "at": 1795771898.9978194,
+    "pid": 39424,
+    "resources": {
+      "physical_total_gib": 31.420948028564453,
+      "physical_free_gib": 4.059288024902344,
+      "physical_used_gib": 27.36166000366211,
+      "commit_limit_gib": 49.57860565185547,
+      "commit_free_gib": 6.591968536376953,
+      "commit_used_gib": 42.986637115478516,
+      "gpu_used_mib": 10265.84375,
+      "gpu_free_mib": 5737.15625,
+      "cpu_pct": 58.59375
+    },
+    "status": "serving"
+  }
+}

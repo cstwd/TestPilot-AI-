@@ -1,0 +1,48 @@
+{
+  "code": null,
+  "mode": "ai",
+  "sha256": null,
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "fb15deb0-17ab-4dd4-863b-17829b6e6421",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import prefix_length\\n\\n\\ndef test_prefix_length_empty_list():\\n    \\\"\\\"\\\"Test that an empty list returns 0.\\\"\\\"\\\"\\n    assert prefix_length([]) == 0\\n\\n\\ndef test_prefix_length_all_none():\\n    \\\"\\\"\\\"Test that a list starting with None returns 0.\\\"\\\"\\\"\\n    assert prefix_length([None, 1, 2]) == 0\\n\\n\\ndef test_prefix_length_no_none():\\n    \\\"\\\"\\\"Test that a list without None returns the full length.\\\"\\\"\\\"\\n    assert prefix_length([1, 2, 3]) == 3\\n\\n\\ndef test_prefix_length_single_element():\\n    \\\"\\\"\\\"Test that a single non-None element returns 1.\\\"\\\"\\\"\\n    assert prefix_length([42]) == 1\\n\\n\\ndef test_prefix_length_single_none():\\n    \\\"\\\"\\\"Test that a single None element returns 0.\\\"\\\"\\\"\\n    assert prefix_length([None]) == 0\\n\\n\\ndef test_prefix_length_none_in_middle():\\n    \\\"\\\"\\\"Test that None in the middle stops counting.\\\"\\\"\\\"\\n    assert prefix_length([1, 2, None, 4, 5]) == 2\\n\\n\\ndef test_prefix_length_none_at_end():\\n    \\\"\\\"\\\"Test that None at the end returns the count before it.\\\"\\\"\\\"\\n    assert prefix_length([1, 2, 3, None]) == 3\\n\\n\\ndef test_prefix_length_multiple_nones():\\n    \\\"\\\"\\\"Test that multiple Nones only count up to the first one.\\\"\\\"\\\"\\n    assert prefix_length([1, None, None, None]) == 1\\n\\n\\ndef test_prefix_length_with_zero():\\n    \\\"\\\"\\\"Test that zero values are counted as valid entries.\\\"\\\"\\\"\\n    assert prefix_length([0, 1, 2]) == 3\\n\\n\\ndef test_prefix_length_with_negative_numbers():\\n    \\\"\\\"\\\"Test that negative numbers are counted as valid entries.\\\"\\\"\\\"\\n    assert prefix_length([-1, -2, -3]) == 3\\n\\n\\ndef test_prefix_length_with_strings():\\n    \\\"\\\"\\\"Test that string values are counted as valid entries.\\\"\\\"\\\"\\n    assert prefix_length([\\\"a\\\", \\\"b\\\", \\\"c\\\"]) == 3\\n\\n\\ndef test_prefix_length_with_mixed_types():\\n    \\\"\\\"\\\"Test that mixed types before None are counted.\\\"\\\"\\\"\\n    assert prefix_length([1, \\\"two\\\", 3.0, None]) == 3\\n\\n\\ndef test_prefix_length_with_empty_string():\\n    \\\"\\\"\\\"Test that empty string is counted as a valid entry.\\\"\\\"\\\"\\n    assert prefix_length([\\\"\\\", \\\"a\\\", \\\"b\\\"]) == 3\\n\\n\\ndef test_prefix_length_with_false():\\n    \\\"\\\"\\\"Test that False is counted as a valid entry (not None).\\\"\\\"\\\"\\n    assert prefix_length([False, True, None]) == 2\\n\\n\\ndef test_prefix_length_with_none_and_false():\\n    \\\"\\\"\\\"Test that False before None is counted, but None stops counting.\\\"\\\"\\\"\\n    assert prefix_length([False, None, True]) == 1\\n\\n\\ndef test_prefix_length_with_none_and_empty_string():\\n    \\\"\\\"\\\"Test that empty string before None is counted.\\\"\\\"\\\"\\n    assert prefix_length([\\\"\\\", None, \\\"a\\\"]) == 1\\n\\n\\ndef test_prefix_length_with_none_and_zero():\\n    \\\"\\\"\\\"Test that zero before None is counted.\\\"\\\"\\\"\\n    assert prefix_length([0, None, 1]) == 1\\n\\n\\ndef test_prefix_length_with_none_and_negative():\\n    \\\"\\\"\\\"Test that negative numbers before None are counted.\\\"\\\"\\\"\\n    assert prefix_length([-1, None, 1]) == 1\\n\\n\\ndef test_prefix_length_with_none_and_float():\\n    \\\"\\\"\\\"Test that float values before None are counted.\\\"\\\"\\\"\\n    assert prefix_length([1.5, None, 2.5]) == 1\\n\\n\\ndef test_prefix_length_with_none_and_bool():\\n    \\\"\\\"\\\"Test that boolean values before None are counted.\\\"\\\"\\\"\\n    assert prefix_length([True, None, False]) == 1\\n\\n\\ndef test_prefix_length_with_none_and_list():\\n   ",
+      "finish": "length",
+      "tokens_in": 369,
+      "tokens_out": 950,
+      "generation_ns": 39242983000,
+      "load_ns": 10375200,
+      "ttft_s": 5.27759689999948,
+      "elapsed_s": 44.521255499999825,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "rejected",
+      "reason": "empty, incomplete or truncated response"
+    },
+    {
+      "run_id": "fb15deb0-17ab-4dd4-863b-17829b6e6421",
+      "attempt": 2,
+      "raw": "{\"code\": \"from subject import prefix_length\\n\\ndef test_prefix_length_empty_list():\\n    assert prefix_length([]) == 0\\n\\ndef test_prefix_length_all_none():\\n    assert prefix_length([None, None, None]) == 0\\n\\ndef test_prefix_length_no_none():\\n    assert prefix_length([1, 2, 3]) == 3\\n\\ndef test_prefix_length_none_at_start():\\n    assert prefix_length([None, 1, 2]) == 0\\n\\ndef test_prefix_length_none_in_middle():\\n    assert prefix_length([1, None, 2]) == 1\\n\\ndef test_prefix_length_none_at_end():\\n    assert prefix_length([1, 2, None]) == 2\\n\\ndef test_prefix_length_single_value():\\n    assert prefix_length([1]) == 1\\n\\ndef test_prefix_length_single_none():\\n    assert prefix_length([None]) == 0\\n\\ndef test_prefix_length_mixed_values():\\n    assert prefix_length([1, 2, None, 3, 4]) == 2\\n\\ndef test_prefix_length_with_zero():\\n    assert prefix_length([0, 1, None, 2]) == 2\\n\\ndef test_prefix_length_with_negative_numbers():\\n    assert prefix_length([-1, -2, None, 1]) == 2\\n\\ndef test_prefix_length_with_strings():\\n    assert prefix_length([\\\"a\\\", \\\"b\\\", None, \\\"c\\\"]) == 2\\n\\ndef test_prefix_length_with_booleans():\\n    assert prefix_length([True, False, None, True]) == 2\\n\\ndef test_prefix_length_with_floats():\\n    assert prefix_length([1.1, 2.2, None, 3.3]) == 2\\n\\ndef test_prefix_length_with_none_and_numbers():\\n    assert prefix_length([1, None, 2, None, 3]) == 1\\n\\ndef test_prefix_length_with_multiple_nones():\\n    assert prefix_length([1, 2, None, None, 3]) == 2\\n\\ndef test_prefix_length_with_none_and_empty_strings():\\n    assert prefix_length([\\\"\\\", \\\"\\\", None, \\\"a\\\"]) == 2\\n\\ndef test_prefix_length_with_none_and_lists():\\n    assert prefix_length([[], [], None, [1]]) == 2\\n\\ndef test_prefix_length_with_none_and_dicts():\\n    assert prefix_length([{}, {}, None, {\\\"a\\\": 1}]) == 2\\n\\ndef test_prefix_length_with_none_and_tuples():\\n    assert prefix_length([(), (), None, (1,)]) == 2\\n\\ndef test_prefix_length_with_none_and_sets():\\n    assert prefix_length([set(), set(), None, {1}]) == 2\\n\\ndef test_prefix_length_with_none_and_none_values():\\n    assert prefix_length([None, None, None]) == 0\\n\\ndef test_prefix_length_with_none_and_none_values_at_end():\\n    assert prefix_length([1, 2, 3, None, None]) == 3\\n\\ndef test_prefix_length_with_none_and_none_values_in_middle():\\n    assert prefix_length([1, None, None, 2, 3]) == 1\\n\\ndef test_prefix_length_with_none_and_none_values_at_start():\\n    assert prefix_length([None, None, 1, 2, 3]) == 0\\n\\ndef test_prefix_length_with_none_and_none_values_everywhere():\\n    assert prefix_length([None, 1, None, 2, None]) == 0\\n\\ndef test_prefix_length_with_none_and_none_values_and_numbers():\\n    assert prefix_length([1, 2, None, 3, 4, None, 5]) == 2\\n\\ndef test_prefix_length_with_none_and_none_values_and_strings():\\n    assert prefix_length([\\\"a\\\", \\\"b\\\", None, \\\"c\\\", \\\"d\\\", None, \\\"e\\\"]) == 2\\n\\ndef test_prefix_length_with_none_and_none_values_and_booleans():\\n    assert prefix_length([True, False, None, True, False, None, True]) == 2\\n\\ndef test_prefix_length_with_none_and_none_values_and_floats():\\n    assert prefix_length([1.1, 2.2, None, 3.3, 4.",
+      "finish": "length",
+      "tokens_in": 455,
+      "tokens_out": 950,
+      "generation_ns": 39335626000,
+      "load_ns": 9442900,
+      "ttft_s": 1.9686079999992216,
+      "elapsed_s": 41.305215500000486,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "rejected",
+      "reason": "empty, incomplete or truncated response"
+    }
+  ],
+  "fallback_reason": "模型响应无法通过冻结协议或模块校验",
+  "run_id": "fb15deb0-17ab-4dd4-863b-17829b6e6421",
+  "error": "模型响应无法通过冻结协议或模块校验",
+  "error_kind": "schema",
+  "seconds": 85.91068809999706
+}

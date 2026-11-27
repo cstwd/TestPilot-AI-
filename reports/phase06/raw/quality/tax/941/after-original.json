@@ -1,0 +1,99 @@
+{
+  "status": "passed",
+  "passed": 16,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_tax_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_100",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_101",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_199",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_200",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_1000",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_negative",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_2",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_19",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_20",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_large_value",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_returns_int",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_tax_with_rate_5_percent",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "................\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tax_example_1\nPASSED test_generated.py::test_tax_zero\nPASSED test_generated.py::test_tax_one\nPASSED test_generated.py::test_tax_100\nPASSED test_generated.py::test_tax_101\nPASSED test_generated.py::test_tax_199\nPASSED test_generated.py::test_tax_200\nPASSED test_generated.py::test_tax_1000\nPASSED test_generated.py::test_tax_negative\nPASSED test_generated.py::test_tax_1\nPASSED test_generated.py::test_tax_2\nPASSED test_generated.py::test_tax_19\nPASSED test_generated.py::test_tax_20\nPASSED test_generated.py::test_tax_large_value\nPASSED test_generated.py::test_tax_returns_int\nPASSED test_generated.py::test_tax_with_rate_5_percent\n16 passed in 0.27s",
+  "duration_ms": 6743,
+  "stdout": "................\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tax_example_1\nPASSED test_generated.py::test_tax_zero\nPASSED test_generated.py::test_tax_one\nPASSED test_generated.py::test_tax_100\nPASSED test_generated.py::test_tax_101\nPASSED test_generated.py::test_tax_199\nPASSED test_generated.py::test_tax_200\nPASSED test_generated.py::test_tax_1000\nPASSED test_generated.py::test_tax_negative\nPASSED test_generated.py::test_tax_1\nPASSED test_generated.py::test_tax_2\nPASSED test_generated.py::test_tax_19\nPASSED test_generated.py::test_tax_20\nPASSED test_generated.py::test_tax_large_value\nPASSED test_generated.py::test_tax_returns_int\nPASSED test_generated.py::test_tax_with_rate_5_percent\n16 passed in 0.27s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "bc216bef-020b-474a-8ae3-3591bb7b26d5",
+  "started": "2026-11-27T09:16:11.722814+00:00",
+  "ended": "2026-11-27T09:16:18.465622+00:00",
+  "source_sha256": "6d8d2166906fa703c3159bddf8aec959d022e6acf0b7e873683cb8a7ca8e0582",
+  "test_sha256": "ee817ecde782b6ee7b4c9d5beaed6f5412d96b845c952fca892481247ae1d80b"
+}

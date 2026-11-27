@@ -1,0 +1,109 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 6,
+    "failed": 2,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_negative_n_raises_value_error",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_zero_returns_zero_when_enabled",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_one_returns_one_when_enabled",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_returns_three_when_enabled",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_three_returns_four_when_enabled",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_two_returns_two_when_disabled",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_three_returns_three_when_disabled",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_n_raises_even_when_disabled",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 6,
+    "total_lines": 6,
+    "coverage_pct": 100.0,
+    "log": "F......F\n=================================== FAILURES ===================================\n______________________ test_negative_n_raises_value_error ______________________\ntest_generated.py:6: in test_negative_n_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n__________________ test_negative_n_raises_even_when_disabled ___________________\ntest_generated.py:35: in test_negative_n_raises_even_when_disabled\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_zero_returns_zero_when_enabled\nPASSED test_generated.py::test_one_returns_one_when_enabled\nPASSED test_generated.py::test_two_returns_three_when_enabled\nPASSED test_generated.py::test_three_returns_four_when_enabled\nPASSED test_generated.py::test_two_returns_two_when_disabled\nPASSED test_generated.py::test_three_returns_three_when_disabled\nFAILED test_generated.py::test_negative_n_raises_value_error - Failed: DID NO...\nFAILED test_generated.py::test_negative_n_raises_even_when_disabled - Failed:...\n2 failed, 6 passed in 0.27s",
+    "duration_ms": 6330,
+    "stdout": "F......F\n=================================== FAILURES ===================================\n______________________ test_negative_n_raises_value_error ______________________\ntest_generated.py:6: in test_negative_n_raises_value_error\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n__________________ test_negative_n_raises_even_when_disabled ___________________\ntest_generated.py:35: in test_negative_n_raises_even_when_disabled\n    with pytest.raises(ValueError):\n         ^^^^^^^^^^^^^^^^^^^^^^^^^\nE   Failed: DID NOT RAISE ValueError\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_zero_returns_zero_when_enabled\nPASSED test_generated.py::test_one_returns_one_when_enabled\nPASSED test_generated.py::test_two_returns_three_when_enabled\nPASSED test_generated.py::test_three_returns_four_when_enabled\nPASSED test_generated.py::test_two_returns_two_when_disabled\nPASSED test_generated.py::test_three_returns_three_when_disabled\nFAILED test_generated.py::test_negative_n_raises_value_error - Failed: DID NO...\nFAILED test_generated.py::test_negative_n_raises_even_when_disabled - Failed:...\n2 failed, 6 passed in 0.27s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_negative_n_raises_value_error",
+        "phase": "call",
+        "exception_type": "Failed",
+        "message": "DID NOT RAISE ValueError",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 6,
+            "function": "test_negative_n_raises_value_error",
+            "source": "with pytest.raises(ValueError):"
+          }
+        ],
+        "assertion_diff": null
+      },
+      {
+        "nodeid": "test_generated.py::test_negative_n_raises_even_when_disabled",
+        "phase": "call",
+        "exception_type": "Failed",
+        "message": "DID NOT RAISE ValueError",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 35,
+            "function": "test_negative_n_raises_even_when_disabled",
+            "source": "with pytest.raises(ValueError):"
+          }
+        ],
+        "assertion_diff": null
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "afc049cc-656c-496e-8523-61931a06afa0",
+    "started": "2026-11-27T09:14:56.126971+00:00",
+    "ended": "2026-11-27T09:15:02.457484+00:00",
+    "source_sha256": "04c0e2301f3901f176fa4538422aad7fe5b64ec009a81790a9e105946c9ddb39",
+    "test_sha256": "4d897eddabdb0e9b7e6215e7483b951a5550331a27813b41ae0e42ce46afdb98"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_negative_n_raises_even_when_disabled",
+      "test_generated.py::test_negative_n_raises_value_error"
+    ]
+  },
+  "mutant": "bad0575f-acc5-58a6-a467-7a1cb312a19b"
+}

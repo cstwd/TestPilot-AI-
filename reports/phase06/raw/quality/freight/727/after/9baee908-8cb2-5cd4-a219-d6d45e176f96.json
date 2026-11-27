@@ -1,0 +1,109 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 1,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_freight_doctest_example",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_zero_units",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_positive_units",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_negative_units",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "F.FF\n=================================== FAILURES ===================================\n_________________________ test_freight_doctest_example _________________________\ntest_generated.py:10: in test_freight_doctest_example\n    assert freight(3) == 8\nE   assert 2 == 8\nE    +  where 2 = freight(3)\n_________________________ test_freight_positive_units __________________________\ntest_generated.py:16: in test_freight_positive_units\n    assert freight(1) == 6\nE   assert 4 == 6\nE    +  where 4 = freight(1)\n_________________________ test_freight_negative_units __________________________\ntest_generated.py:19: in test_freight_negative_units\n    assert freight(-2) == 3\nE   assert 7 == 3\nE    +  where 7 = freight(-2)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_freight_zero_units\nFAILED test_generated.py::test_freight_doctest_example - assert 2 == 8\nFAILED test_generated.py::test_freight_positive_units - assert 4 == 6\nFAILED test_generated.py::test_freight_negative_units - assert 7 == 3\n3 failed, 1 passed in 0.31s",
+    "duration_ms": 7031,
+    "stdout": "F.FF\n=================================== FAILURES ===================================\n_________________________ test_freight_doctest_example _________________________\ntest_generated.py:10: in test_freight_doctest_example\n    assert freight(3) == 8\nE   assert 2 == 8\nE    +  where 2 = freight(3)\n_________________________ test_freight_positive_units __________________________\ntest_generated.py:16: in test_freight_positive_units\n    assert freight(1) == 6\nE   assert 4 == 6\nE    +  where 4 = freight(1)\n_________________________ test_freight_negative_units __________________________\ntest_generated.py:19: in test_freight_negative_units\n    assert freight(-2) == 3\nE   assert 7 == 3\nE    +  where 7 = freight(-2)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_freight_zero_units\nFAILED test_generated.py::test_freight_doctest_example - assert 2 == 8\nFAILED test_generated.py::test_freight_positive_units - assert 4 == 6\nFAILED test_generated.py::test_freight_negative_units - assert 7 == 3\n3 failed, 1 passed in 0.31s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_freight_doctest_example",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 2 == 8\n +  where 2 = freight(3)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_freight_doctest_example",
+            "source": "assert freight(3) == 8"
+          }
+        ],
+        "assertion_diff": "assert 2 == 8\n +  where 2 = freight(3)"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_positive_units",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 4 == 6\n +  where 4 = freight(1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 16,
+            "function": "test_freight_positive_units",
+            "source": "assert freight(1) == 6"
+          }
+        ],
+        "assertion_diff": "assert 4 == 6\n +  where 4 = freight(1)"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_negative_units",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 7 == 3\n +  where 7 = freight(-2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 19,
+            "function": "test_freight_negative_units",
+            "source": "assert freight(-2) == 3"
+          }
+        ],
+        "assertion_diff": "assert 7 == 3\n +  where 7 = freight(-2)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "5a40c4d8-3846-4229-8c87-0aebbbb5f308",
+    "started": "2026-11-27T09:07:48.714917+00:00",
+    "ended": "2026-11-27T09:07:55.745997+00:00",
+    "source_sha256": "015bdf237a987c017284f530644282cbf85cc8efbe1cfa2b059103ffccdb7fe6",
+    "test_sha256": "565850ef28e516711d3a6022c1236d5010506629015ea80c55a5c1508e31f58e"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_freight_doctest_example",
+      "test_generated.py::test_freight_negative_units",
+      "test_generated.py::test_freight_positive_units"
+    ]
+  },
+  "mutant": "9baee908-8cb2-5cd4-a219-d6d45e176f96"
+}

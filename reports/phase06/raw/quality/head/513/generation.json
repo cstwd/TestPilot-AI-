@@ -1,0 +1,48 @@
+{
+  "code": null,
+  "mode": "ai",
+  "sha256": null,
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "d39f8d12-6079-4bc4-a40d-c0ea08793100",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import first\\n\\n\\ndef test_first_returns_first_element():\\n    \\\"\\\"\\\"Test that first returns the first element of a non-empty list.\\\"\\\"\\\"\\n    result = first([1, 2, 3])\\n    assert result == 1\\n\\n\\ndef test_first_returns_single_element():\\n    \\\"\\\"\\\"Test that first returns the only element of a single-item list.\\\"\\\"\\\"\\n    result = first([42])\\n    assert result == 42\\n\\n\\ndef test_first_with_negative_numbers():\\n    \\\"\\\"\\\"Test that first works with negative numbers.\\\"\\\"\\\"\\n    result = first([-1, -2, -3])\\n    assert result == -1\\n\\n\\ndef test_first_with_zero():\\n    \\\"\\\"\\\"Test that first works when the first element is zero.\\\"\\\"\\\"\\n    result = first([0, 1, 2])\\n    assert result == 0\\n\\n\\ndef test_first_with_strings():\\n    \\\"\\\"\\\"Test that first works with string elements.\\\"\\\"\\\"\\n    result = first([\\\"a\\\", \\\"b\\\", \\\"c\\\"])\\n    assert result == \\\"a\\\"\\n\\n\\ndef test_first_with_mixed_types():\\n    \\\"\\\"\\\"Test that first works with mixed types.\\\"\\\"\\\"\\n    result = first([1, \\\"two\\\", 3.0])\\n    assert result == 1\\n\\n\\ndef test_first_empty_list_returns_zero():\\n    \\\"\\\"\\\"Test that first returns 0 for an empty list (per implementation).\\\"\\\"\\\"\\n    result = first([])\\n    assert result == 0\\n\\n\\ndef test_first_empty_list_with_fallback():\\n    \\\"\\\"\\\"Test that first returns 0 for an empty list even with fallback provided.\\\"\\\"\\\"\\n    result = first([], fallback=42)\\n    assert result == 0\\n\\n\\ndef test_first_fallback_not_used_for_non_empty():\\n    \\\"\\\"\\\"Test that fallback is not used when list is non-empty.\\\"\\\"\\\"\\n    result = first([1, 2, 3], fallback=99)\\n    assert result == 1\\n\\n\\ndef test_first_fallback_default_value():\\n    \\\"\\\"\\\"Test that first works with default fallback parameter.\\\"\\\"\\\"\\n    result = first([5])\\n    assert result == 5\\n\\n\\ndef test_first_fallback_zero():\\n    \\\"\\\"\\\"Test that first works with fallback set to zero.\\\"\\\"\\\"\\n    result = first([7], fallback=0)\\n    assert result == 7\\n\\n\\ndef test_first_fallback_negative():\\n    \\\"\\\"\\\"Test that first works with negative fallback value.\\\"\\\"\\\"\\n    result = first([3], fallback=-1)\\n    assert result == 3\\n\\n\\ndef test_first_large_list():\\n    \\\"\\\"\\\"Test that first works with a large list.\\\"\\\"\\\"\\n    large_list = list(range(1000))\\n    result = first(large_list)\\n    assert result == 0\\n\\n\\ndef test_first_does_not_modify_input():\\n    \\\"\\\"\\\"Test that first does not modify the input list.\\\"\\\"\\\"\\n    original = [1, 2, 3]\\n    result = first(original)\\n    assert original == [1, 2, 3]\\n    assert result == 1\\n\\n\\ndef test_first_with_boolean_values():\\n    \\\"\\\"\\\"Test that first works with boolean values.\\\"\\\"\\\"\\n    result = first([True, False, True])\\n    assert result is True\\n\\n\\ndef test_first_with_none_in_list():\\n    \\\"\\\"\\\"Test that first works when list contains None.\\\"\\\"\\\"\\n    result = first([None, 1, 2])\\n    assert result is None\\n\\n\\ndef test_first_with_nested_lists():\\n    \\\"\\\"\\\"Test that first works with nested lists.\\\"\\\"\\\"\\n    result = first([[1, 2], [3, 4]])\\n    assert result == [1, 2]\\n\\n\\ndef test_first_with_tuple_elements():\\n    \\\"\\\"\\\"Test that first works with tuple elements.\\\"\\\"\\\"\\n    result = first([(1, 2), (3, 4)])\\n    assert result == (1, 2)\\n\\n\\ndef test_first_with",
+      "finish": "length",
+      "tokens_in": 398,
+      "tokens_out": 950,
+      "generation_ns": 39291462000,
+      "load_ns": 18436000,
+      "ttft_s": 5.76900999999998,
+      "elapsed_s": 45.06920369999716,
+      "seed": 513,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "rejected",
+      "reason": "empty, incomplete or truncated response"
+    },
+    {
+      "run_id": "d39f8d12-6079-4bc4-a40d-c0ea08793100",
+      "attempt": 2,
+      "raw": "{\"code\": \"from subject import first\\n\\ndef test_first_returns_first_item():\\n    assert first([1, 2, 3]) == 1\\n\\ndef test_first_returns_fallback_for_empty_list():\\n    assert first([], fallback=42) == 42\\n\\ndef test_first_default_fallback_is_minus_one():\\n    assert first([]) == -1\\n\\ndef test_first_with_single_item():\\n    assert first([8]) == 8\\n\\ndef test_first_with_negative_numbers():\\n    assert first([-5, -10, -15]) == -5\\n\\ndef test_first_with_zero():\\n    assert first([0, 1, 2]) == 0\\n\\ndef test_first_with_strings():\\n    assert first([\\\"a\\\", \\\"b\\\", \\\"c\\\"]) == \\\"a\\\"\\n\\ndef test_first_with_mixed_types():\\n    assert first([1, \\\"two\\\", 3.0]) == 1\\n\\ndef test_first_with_none_values():\\n    assert first([None, 1, 2]) is None\\n\\ndef test_first_with_large_list():\\n    assert first(list(range(1000))) == 0\\n\\ndef test_first_with_duplicate_values():\\n    assert first([5, 5, 5]) == 5\\n\\ndef test_first_with_boolean_values():\\n    assert first([True, False, True]) is True\\n\\ndef test_first_with_falsy_values():\\n    assert first([0, \\\"\\\", None, []]) == 0\\n\\ndef test_first_with_fallback_zero():\\n    assert first([], fallback=0) == 0\\n\\ndef test_first_with_fallback_negative():\\n    assert first([], fallback=-100) == -100\\n\\ndef test_first_with_fallback_large():\\n    assert first([], fallback=999999) == 999999\\n\\ndef test_first_with_fallback_float():\\n    assert first([], fallback=3.14) == 3.14\\n\\ndef test_first_with_fallback_string():\\n    assert first([], fallback=\\\"default\\\") == \\\"default\\\"\\n\\ndef test_first_with_fallback_none():\\n    assert first([], fallback=None) is None\\n\\ndef test_first_with_fallback_boolean():\\n    assert first([], fallback=True) is True\\n\\ndef test_first_with_fallback_list():\\n    assert first([], fallback=[1, 2, 3]) == [1, 2, 3]\\n\\ndef test_first_with_fallback_dict():\\n    assert first([], fallback={\\\"key\\\": \\\"value\\\"}) == {\\\"key\\\": \\\"value\\\"}\\n\\ndef test_first_with_fallback_tuple():\\n    assert first([], fallback=(1, 2, 3)) == (1, 2, 3)\\n\\ndef test_first_with_fallback_set():\\n    assert first([], fallback={1, 2, 3}) == {1, 2, 3}\\n\\ndef test_first_with_fallback_custom_object():\\n    class Custom:\\n        def __init__(self, value):\\n            self.value = value\\n        def __eq__(self, other):\\n            return isinstance(other, Custom) and self.value == other.value\\n    custom_obj = Custom(42)\\n    assert first([], fallback=custom_obj) == custom_obj\\n\\ndef test_first_with_fallback_custom_object_not_equal():\\n    class Custom:\\n        def __init__(self, value):\\n            self.value = value\\n        def __eq__(self, other):\\n            return isinstance(other, Custom) and self.value == other.value\\n    custom_obj1 = Custom(42)\\n    custom_obj2 = Custom(43)\\n    assert first([], fallback=custom_obj1) != custom_obj2\\n\\ndef test_first_with_fallback_custom_object_equal():\\n    class Custom:\\n        def __init__(self, value):\\n            self.value = value\\n        def __eq__(self, other):\\n            return isinstance(other, Custom) and self.value == other.value\\n    custom_obj1 = Custom(42)\\n    custom_obj2 = Custom(42)\\n    assert first([], fallback=custom_obj1) == custom_obj2\\n\\ndef test_first_with_fallback_custom_object_hashable():\\n    class Custom:\\n",
+      "finish": "length",
+      "tokens_in": 484,
+      "tokens_out": 950,
+      "generation_ns": 39359925000,
+      "load_ns": 17628600,
+      "ttft_s": 9.001591299998836,
+      "elapsed_s": 48.36255370000072,
+      "seed": 513,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "rejected",
+      "reason": "empty, incomplete or truncated response"
+    }
+  ],
+  "fallback_reason": "模型响应无法通过冻结协议或模块校验",
+  "run_id": "d39f8d12-6079-4bc4-a40d-c0ea08793100",
+  "error": "模型响应无法通过冻结协议或模块校验",
+  "error_kind": "schema",
+  "seconds": 93.52588729999843
+}

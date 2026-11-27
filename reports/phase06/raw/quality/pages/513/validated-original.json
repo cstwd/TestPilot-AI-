@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "passed": 4,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_page_count_one_item",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_one_more_than_one_page",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_multiple_full_pages_plus_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_page_count_large_number",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_page_count_one_item\nPASSED test_generated.py::test_page_count_one_more_than_one_page\nPASSED test_generated.py::test_page_count_multiple_full_pages_plus_one\nPASSED test_generated.py::test_page_count_large_number\n4 passed in 0.19s",
+  "duration_ms": 7809,
+  "stdout": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_page_count_one_item\nPASSED test_generated.py::test_page_count_one_more_than_one_page\nPASSED test_generated.py::test_page_count_multiple_full_pages_plus_one\nPASSED test_generated.py::test_page_count_large_number\n4 passed in 0.19s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "33ce587e-ca75-471b-bc19-db9be663d509",
+  "started": "2026-11-27T09:04:48.783017+00:00",
+  "ended": "2026-11-27T09:04:56.592437+00:00",
+  "source_sha256": "1379dd26ef046cd5341c7e2a7fc476e7d64f25a5a56ab200fb2a7a024e32d0b5",
+  "test_sha256": "373e8de9cf7e6d850ee51152e1db188411cc29742f7f422f383082c6354e732a"
+}

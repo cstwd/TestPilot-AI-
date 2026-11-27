@@ -1,0 +1,28 @@
+{
+  "project": "clamp",
+  "seed": 941,
+  "before": {
+    "killed": 3,
+    "survived": 1,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 4,
+    "equivalent_candidates": 0,
+    "score_pct": 75.0
+  },
+  "after": {
+    "killed": 3,
+    "survived": 1,
+    "timeout": 0,
+    "execution_error": 0,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 4,
+    "equivalent_candidates": 0,
+    "score_pct": 75.0
+  },
+  "planned": 4,
+  "initial_run_id": "231f63ce-2052-47c4-8f5e-b5d6d3a8a52e"
+}

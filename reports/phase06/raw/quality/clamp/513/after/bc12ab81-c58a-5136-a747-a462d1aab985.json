@@ -1,0 +1,107 @@
+{
+  "execution": {
+    "status": "passed",
+    "passed": 16,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_cap_returns_ceiling_when_n_exceeds_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_returns_n_when_n_is_less_than_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_returns_ceiling_when_n_equals_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_custom_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_zero_n",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_zero_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_negative_n",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_negative_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_negative_n_and_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_large_values",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_with_keyword_arguments",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_returns_int_type",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_boundary_equal_values",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_boundary_zero_n_positive_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_cap_boundary_positive_n_zero_ceiling",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_mutation_9bd8518be37365d7",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 0,
+    "covered_lines": 4,
+    "total_lines": 4,
+    "coverage_pct": 100.0,
+    "log": "................\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_cap_returns_ceiling_when_n_exceeds_ceiling\nPASSED test_generated.py::test_cap_returns_n_when_n_is_less_than_ceiling\nPASSED test_generated.py::test_cap_returns_ceiling_when_n_equals_ceiling\nPASSED test_generated.py::test_cap_with_custom_ceiling\nPASSED test_generated.py::test_cap_with_zero_n\nPASSED test_generated.py::test_cap_with_zero_ceiling\nPASSED test_generated.py::test_cap_with_negative_n\nPASSED test_generated.py::test_cap_with_negative_ceiling\nPASSED test_generated.py::test_cap_with_negative_n_and_ceiling\nPASSED test_generated.py::test_cap_with_large_values\nPASSED test_generated.py::test_cap_with_keyword_arguments\nPASSED test_generated.py::test_cap_returns_int_type\nPASSED test_generated.py::test_cap_boundary_equal_values\nPASSED test_generated.py::test_cap_boundary_zero_n_positive_ceiling\nPASSED test_generated.py::test_cap_boundary_positive_n_zero_ceiling\nPASSED test_generated.py::test_mutation_9bd8518be37365d7\n16 passed in 0.44s",
+    "duration_ms": 8420,
+    "stdout": "................\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_cap_returns_ceiling_when_n_exceeds_ceiling\nPASSED test_generated.py::test_cap_returns_n_when_n_is_less_than_ceiling\nPASSED test_generated.py::test_cap_returns_ceiling_when_n_equals_ceiling\nPASSED test_generated.py::test_cap_with_custom_ceiling\nPASSED test_generated.py::test_cap_with_zero_n\nPASSED test_generated.py::test_cap_with_zero_ceiling\nPASSED test_generated.py::test_cap_with_negative_n\nPASSED test_generated.py::test_cap_with_negative_ceiling\nPASSED test_generated.py::test_cap_with_negative_n_and_ceiling\nPASSED test_generated.py::test_cap_with_large_values\nPASSED test_generated.py::test_cap_with_keyword_arguments\nPASSED test_generated.py::test_cap_returns_int_type\nPASSED test_generated.py::test_cap_boundary_equal_values\nPASSED test_generated.py::test_cap_boundary_zero_n_positive_ceiling\nPASSED test_generated.py::test_cap_boundary_positive_n_zero_ceiling\nPASSED test_generated.py::test_mutation_9bd8518be37365d7\n16 passed in 0.44s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [],
+    "failure_details_omitted": 0,
+    "covered_branches": 2,
+    "total_branches": 2,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "c70d9031-1a45-4de1-b2b1-f59f3e8d5d2a",
+    "started": "2026-11-27T09:03:10.608473+00:00",
+    "ended": "2026-11-27T09:03:19.028432+00:00",
+    "source_sha256": "7a5b2659fe189e419d6a851ea1179d5e03b54e5a742bf6a4e811b6209bb52742",
+    "test_sha256": "e7fd0f6b6b9b62ba3961bbb73a6746a8dfff81b1c36428dc85d1d81cf196c486"
+  },
+  "verdict": {
+    "status": "survived",
+    "reason": "相同测试节点运行通过",
+    "nodeids": []
+  },
+  "mutant": "bc12ab81-c58a-5136-a747-a462d1aab985"
+}

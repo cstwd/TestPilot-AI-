@@ -1,0 +1,93 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 2,
+    "failed": 2,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_freight_example",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_boundary_zero",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_missing_argument",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_keyword_argument",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "F..F\n=================================== FAILURES ===================================\n_____________________________ test_freight_example _____________________________\ntest_generated.py:12: in test_freight_example\n    assert freight(3) == 8\nE   assert 2 == 8\nE    +  where 2 = freight(3)\n________________________ test_freight_keyword_argument _________________________\ntest_generated.py:22: in test_freight_keyword_argument\n    assert freight(units=2) == BASE + 2\nE   assert 3 == (5 + 2)\nE    +  where 3 = freight(units=2)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_freight_boundary_zero\nPASSED test_generated.py::test_freight_missing_argument\nFAILED test_generated.py::test_freight_example - assert 2 == 8\nFAILED test_generated.py::test_freight_keyword_argument - assert 3 == (5 + 2)\n2 failed, 2 passed in 0.22s",
+    "duration_ms": 6530,
+    "stdout": "F..F\n=================================== FAILURES ===================================\n_____________________________ test_freight_example _____________________________\ntest_generated.py:12: in test_freight_example\n    assert freight(3) == 8\nE   assert 2 == 8\nE    +  where 2 = freight(3)\n________________________ test_freight_keyword_argument _________________________\ntest_generated.py:22: in test_freight_keyword_argument\n    assert freight(units=2) == BASE + 2\nE   assert 3 == (5 + 2)\nE    +  where 3 = freight(units=2)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_freight_boundary_zero\nPASSED test_generated.py::test_freight_missing_argument\nFAILED test_generated.py::test_freight_example - assert 2 == 8\nFAILED test_generated.py::test_freight_keyword_argument - assert 3 == (5 + 2)\n2 failed, 2 passed in 0.22s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_freight_example",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 2 == 8\n +  where 2 = freight(3)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 12,
+            "function": "test_freight_example",
+            "source": "assert freight(3) == 8"
+          }
+        ],
+        "assertion_diff": "assert 2 == 8\n +  where 2 = freight(3)"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_keyword_argument",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 3 == (5 + 2)\n +  where 3 = freight(units=2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 22,
+            "function": "test_freight_keyword_argument",
+            "source": "assert freight(units=2) == BASE + 2"
+          }
+        ],
+        "assertion_diff": "assert 3 == (5 + 2)\n +  where 3 = freight(units=2)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "923cb789-6ae7-4218-a364-dacb48b0dac1",
+    "started": "2026-11-27T09:13:48.913555+00:00",
+    "ended": "2026-11-27T09:13:55.443701+00:00",
+    "source_sha256": "015bdf237a987c017284f530644282cbf85cc8efbe1cfa2b059103ffccdb7fe6",
+    "test_sha256": "80d960cf50454ee6a14fcd4ace6c372233a4ebe648f57da1c46461d11ea0f50d"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_freight_example",
+      "test_generated.py::test_freight_keyword_argument"
+    ]
+  },
+  "mutant": "9baee908-8cb2-5cd4-a219-d6d45e176f96"
+}

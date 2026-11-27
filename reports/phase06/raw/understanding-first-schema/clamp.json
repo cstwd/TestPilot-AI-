@@ -1,0 +1,79 @@
+{
+  "project": "clamp",
+  "predicted": {
+    "functions": [
+      "subject.py:cap"
+    ],
+    "parameters": [
+      [
+        "n",
+        "int",
+        null
+      ],
+      [
+        "ceiling",
+        "int",
+        "10"
+      ]
+    ],
+    "return_value": "int",
+    "branch_lines": [
+      7
+    ],
+    "boundary_value": "cap(10)",
+    "exception": "cap(None)",
+    "defect_line": null
+  },
+  "expected": {
+    "functions": [
+      "subject.py:cap"
+    ],
+    "parameters": [
+      [
+        "n",
+        "int",
+        null
+      ],
+      [
+        "ceiling",
+        "int",
+        "10"
+      ]
+    ],
+    "return_value": 7,
+    "branch_lines": [
+      7
+    ],
+    "boundary_value": 10,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 1,
+    "return_value": 0,
+    "branch_lines": 1,
+    "boundary_value": 0,
+    "exception": 0,
+    "defect_line": 1
+  },
+  "run_id": "5db72505-42b2-4b8e-9b5e-82a9619aa4e6",
+  "attempts": [
+    {
+      "run_id": "5db72505-42b2-4b8e-9b5e-82a9619aa4e6",
+      "attempt": 1,
+      "raw": "{\"boundary_value\": \"cap(10)\", \"branch_lines\": [7], \"defect_line\": null, \"exception\": \"cap(None)\", \"functions\": [\"subject.py:cap\"], \"parameters\": [[\"n\", \"int\", null], [\"ceiling\", \"int\", \"10\"]], \"return_value\": \"int\"}",
+      "finish": "stop",
+      "tokens_in": 279,
+      "tokens_out": 76,
+      "generation_ns": 3533913000,
+      "load_ns": 7098900,
+      "ttft_s": 1.3428390999979456,
+      "elapsed_s": 4.877204099997471,
+      "seed": 23,
+      "temperature": 0,
+      "schema": "Understanding",
+      "status": "accepted"
+    }
+  ]
+}

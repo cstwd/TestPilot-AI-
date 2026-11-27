@@ -1,0 +1,28 @@
+{
+  "code": "from subject import cap\n\ndef test_cap_returns_ceiling_when_n_exceeds_ceiling():\n    assert cap(12) == 10\n\ndef test_cap_returns_n_when_n_is_less_than_ceiling():\n    assert cap(5) == 5\n\ndef test_cap_returns_ceiling_when_n_equals_ceiling():\n    assert cap(10) == 10\n\ndef test_cap_with_custom_ceiling():\n    assert cap(15, ceiling=20) == 15\n    assert cap(25, ceiling=20) == 20\n\ndef test_cap_with_zero_n():\n    assert cap(0) == 0\n\ndef test_cap_with_zero_ceiling():\n    assert cap(5, ceiling=0) == 0\n\ndef test_cap_with_negative_n():\n    assert cap(-5) == -5\n\ndef test_cap_with_negative_ceiling():\n    assert cap(5, ceiling=-1) == -1\n\ndef test_cap_with_negative_n_and_ceiling():\n    assert cap(-10, ceiling=-5) == -5\n\ndef test_cap_with_large_values():\n    assert cap(1000000) == 10\n    assert cap(1000000, ceiling=2000000) == 1000000\n",
+  "mode": "ai",
+  "sha256": "d9e9f951eae3caf8d31ff7d77f78b81f8bacebd31613b2576bd7f35942a4390e",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "7a71ddeb-fa1e-47be-bdc7-f516d5067819",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"from subject import cap\\n\\ndef test_cap_returns_ceiling_when_n_exceeds_ceiling():\\n    assert cap(12) == 10\\n\\ndef test_cap_returns_n_when_n_is_less_than_ceiling():\\n    assert cap(5) == 5\\n\\ndef test_cap_returns_ceiling_when_n_equals_ceiling():\\n    assert cap(10) == 10\\n\\ndef test_cap_with_custom_ceiling():\\n    assert cap(15, ceiling=20) == 15\\n    assert cap(25, ceiling=20) == 20\\n\\ndef test_cap_with_zero_n():\\n    assert cap(0) == 0\\n\\ndef test_cap_with_zero_ceiling():\\n    assert cap(5, ceiling=0) == 0\\n\\ndef test_cap_with_negative_n():\\n    assert cap(-5) == -5\\n\\ndef test_cap_with_negative_ceiling():\\n    assert cap(5, ceiling=-1) == -1\\n\\ndef test_cap_with_negative_n_and_ceiling():\\n    assert cap(-10, ceiling=-5) == -5\\n\\ndef test_cap_with_large_values():\\n    assert cap(1000000) == 10\\n    assert cap(1000000, ceiling=2000000) == 1000000\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 399,
+      "tokens_out": 320,
+      "generation_ns": 13204356000,
+      "load_ns": 5849100,
+      "ttft_s": 1.7573486999972374,
+      "elapsed_s": 14.9619746999997,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "7a71ddeb-fa1e-47be-bdc7-f516d5067819",
+  "seconds": 15.003345400000399
+}

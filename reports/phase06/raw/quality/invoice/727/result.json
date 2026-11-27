@@ -1,0 +1,9 @@
+{
+  "project": "invoice",
+  "seed": 727,
+  "before": null,
+  "after": null,
+  "planned": 3,
+  "initial_run_id": "e69ae42b-8eeb-4f5f-b996-bbbbe4ad151d",
+  "reason": "模型响应无法通过冻结协议或模块校验"
+}

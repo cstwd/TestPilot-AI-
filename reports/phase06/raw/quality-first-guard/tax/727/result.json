@@ -1,0 +1,9 @@
+{
+  "project": "tax",
+  "seed": 727,
+  "before": null,
+  "after": null,
+  "planned": 3,
+  "initial_run_id": "2a9627e7-a474-4a39-a574-6c1355b917a1",
+  "reason": "Ollama 已触发 Windows 资源保护"
+}

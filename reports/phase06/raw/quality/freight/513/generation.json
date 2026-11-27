@@ -1,0 +1,48 @@
+{
+  "code": null,
+  "mode": "ai",
+  "sha256": null,
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "cc112b26-48b5-497e-b429-b8046aab015d",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\nfrom tariff import BASE\\nfrom subject import freight\\n\\ndef test_freight_example():\\n    \\\"\\\"\\\"Test the documented example from the docstring.\\\"\\\"\\\"\\n    assert freight(3) == 8\\n\\ndef test_freight_returns_int():\\n    \\\"\\\"\\\"Test that the function returns an integer.\\\"\\\"\\\"\\n    result = freight(3)\\n    assert isinstance(result, int)\\n\\ndef test_freight_with_zero_units():\\n    \\\"\\\"\\\"Test boundary value with zero units.\\\"\\\"\\\"\\n    assert freight(0) == BASE\\n\\ndef test_freight_with_positive_units():\\n    \\\"\\\"\\\"Test with a positive number of units.\\\"\\\"\\\"\\n    assert freight(5) == BASE + 5\\n\\ndef test_freight_with_large_units():\\n    \\\"\\\"\\\"Test with a larger number of units.\\\"\\\"\\\"\\n    assert freight(100) == BASE + 100\\n\\ndef test_freight_with_negative_units():\\n    \\\"\\\"\\\"Test with negative units (boundary case).\\\"\\\"\\\"\\n    assert freight(-1) == BASE - 1\\n\\ndef test_freight_with_one_unit():\\n    \\\"\\\"\\\"Test with exactly one unit.\\\"\\\"\\\"\\n    assert freight(1) == BASE + 1\\n\\ndef test_freight_with_two_units():\\n    \\\"\\\"\\\"Test with two units.\\\"\\\"\\\"\\n    assert freight(2) == BASE + 2\\n\\ndef test_freight_with_four_units():\\n    \\\"\\\"\\\"Test with four units.\\\"\\\"\\\"\\n    assert freight(4) == BASE + 4\\n\\ndef test_freight_with_ten_units():\\n    \\\"\\\"\\\"Test with ten units.\\\"\\\"\\\"\\n    assert freight(10) == BASE + 10\\n\\ndef test_freight_with_hundred_units():\\n    \\\"\\\"\\\"Test with hundred units.\\\"\\\"\\\"\\n    assert freight(100) == BASE + 100\\n\\ndef test_freight_with_thousand_units():\\n    \\\"\\\"\\\"Test with thousand units.\\\"\\\"\\\"\\n    assert freight(1000) == BASE + 1000\\n\\ndef test_freight_with_negative_large_units():\\n    \\\"\\\"\\\"Test with a large negative number of units.\\\"\\\"\\\"\\n    assert freight(-100) == BASE - 100\\n\\ndef test_freight_with_very_negative_units():\\n    \\\"\\\"\\\"Test with a very negative number of units.\\\"\\\"\\\"\\n    assert freight(-1000) == BASE - 1000\\n\\ndef test_freight_with_float_units():\\n    \\\"\\\"\\\"Test that float input is handled (Python will convert to int in addition).\\\"\\\"\\\"\\n    # In Python, int + float returns float, but the function signature says int\\n    # Let's check what actually happens\\n    result = freight(3.0)\\n    assert result == BASE + 3.0\\n\\ndef test_freight_with_string_units():\\n    \\\"\\\"\\\"Test that string input raises a TypeError.\\\"\\\"\\\"\\n    with pytest.raises(TypeError):\\n        freight(\\\"3\\\")\\n\\ndef test_freight_with_none_units():\\n    \\\"\\\"\\\"Test that None input raises a TypeError.\\\"\\\"\\\"\\n    with pytest.raises(TypeError):\\n        freight(None)\\n\\ndef test_freight_with_list_units():\\n    \\\"\\\"\\\"Test that list input raises a TypeError.\\\"\\\"\\\"\\n    with pytest.raises(TypeError):\\n        freight([3])\\n\\ndef test_freight_with_tuple_units():\\n    \\\"\\\"\\\"Test that tuple input raises a TypeError.\\\"\\\"\\\"\\n    with pytest.raises(TypeError):\\n        freight((3,))\\n\\ndef test_freight_with_dict_units():\\n    \\\"\\\"\\\"Test that dict input raises a TypeError.\\\"\\\"\\\"\\n    with pytest.raises(TypeError):\\n        freight({\\\"a\\\": 3})\\n\\ndef test_freight_with_bool_units():\\n    \\\"\\\"\\\"Test that bool input is handled (bool is subclass of int in Python).\\\"\\\"\\\"\\n    # True == 1, False == 0\\n    assert freight(True) == BASE + 1\\n    assert freight(False) == BASE\\n\\ndef test_freight_with_keyword_argument():\\n    \\\"\\\"\\\"Test that the function works with keyword argument.\\\"\\\"\\\"\\n    assert freight(units=3) ==",
+      "finish": "length",
+      "tokens_in": 329,
+      "tokens_out": 950,
+      "generation_ns": 39216259000,
+      "load_ns": 12839700,
+      "ttft_s": 1.5460243000015907,
+      "elapsed_s": 40.76264549999905,
+      "seed": 513,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "rejected",
+      "reason": "empty, incomplete or truncated response"
+    },
+    {
+      "run_id": "cc112b26-48b5-497e-b429-b8046aab015d",
+      "attempt": 2,
+      "raw": "{\"code\": \"import pytest\\n\\nfrom tariff import BASE\\n\\ndef test_freight_example():\\n    \\\"\\\"\\\"Test the documented example: freight(3) should return 8.\\\"\\\"\\\"\\n    from subject import freight\\n    assert freight(3) == 8\\n\\ndef test_freight_boundary_zero():\\n    \\\"\\\"\\\"Test boundary value: freight(0) should return BASE.\\\"\\\"\\\"\\n    from subject import freight\\n    assert freight(0) == BASE\\n\\ndef test_freight_positive_units():\\n    \\\"\\\"\\\"Test with positive units: freight(10) should return BASE + 10.\\\"\\\"\\\"\\n    from subject import freight\\n    assert freight(10) == BASE + 10\\n\\ndef test_freight_negative_units():\\n    \\\"\\\"\\\"Test with negative units: freight(-1) should return BASE - 1.\\\"\\\"\\\"\\n    from subject import freight\\n    assert freight(-1) == BASE - 1\\n\\ndef test_freight_large_units():\\n    \\\"\\\"\\\"Test with large units: freight(1000) should return BASE + 1000.\\\"\\\"\\\"\\n    from subject import freight\\n    assert freight(1000) == BASE + 1000\\n\\ndef test_freight_returns_int():\\n    \\\"\\\"\\\"Test that the function returns an integer type.\\\"\\\"\\\"\\n    from subject import freight\\n    result = freight(5)\\n    assert isinstance(result, int)\\n\\ndef test_freight_missing_argument():\\n    \\\"\\\"\\\"Test that calling freight without required argument raises TypeError.\\\"\\\"\\\"\\n    from subject import freight\\n    with pytest.raises(TypeError):\\n        freight()\\n\\ndef test_freight_keyword_argument():\\n    \\\"\\\"\\\"Test that the function works with keyword argument.\\\"\\\"\\\"\\n    from subject import freight\\n    assert freight(units=3) == 8\\n\\ndef test_freight_multiple_calls():\\n    \\\"\\\"\\\"Test that the function is deterministic and works on multiple calls.\\\"\\\"\\\"\\n    from subject import freight\\n    result1 = freight(2)\\n    result2 = freight(2)\\n    assert result1 == result2 == BASE + 2\\n\\ndef test_freight_various_values():\\n    \\\"\\\"\\\"Test with various unit values to ensure correct addition.\\\"\\\"\\\"\\n    from subject import freight\\n    test_cases = [1, 5, 15, 100]\\n    for units in test_cases:\\n        assert freight(units) == BASE + units\\n\"}",
+      "finish": "stop",
+      "tokens_in": 415,
+      "tokens_out": 547,
+      "generation_ns": 22574388000,
+      "load_ns": 14475100,
+      "ttft_s": 8.489289400000416,
+      "elapsed_s": 31.063586000000214,
+      "seed": 513,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "rejected",
+      "reason": "测试须从 subject 导入并调用目标函数"
+    }
+  ],
+  "fallback_reason": "模型响应无法通过冻结协议或模块校验",
+  "run_id": "cc112b26-48b5-497e-b429-b8046aab015d",
+  "error": "模型响应无法通过冻结协议或模块校验",
+  "error_kind": "schema",
+  "seconds": 71.91087679999691
+}

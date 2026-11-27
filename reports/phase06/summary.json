@@ -1,0 +1,538 @@
+{
+  "attempts": 30,
+  "stages": {
+    "before": {
+      "killed": 93,
+      "survived": 3,
+      "timeout": 0,
+      "execution_error": 7,
+      "cancelled": 0,
+      "unrun": 0,
+      "total": 103,
+      "equivalent_candidates": 0,
+      "full_plan_pct": 79.49
+    },
+    "after": {
+      "killed": 93,
+      "survived": 3,
+      "timeout": 0,
+      "execution_error": 7,
+      "cancelled": 0,
+      "unrun": 0,
+      "total": 103,
+      "equivalent_candidates": 0,
+      "full_plan_pct": 79.49
+    }
+  },
+  "historical_kills": {
+    "B": 81,
+    "C": 104,
+    "D": 105
+  },
+  "feedback": {
+    "survivor_requests": 3,
+    "provider_attempts": 3,
+    "no_case": 0,
+    "candidates": 3,
+    "accepted": 3,
+    "net_kills": 0
+  },
+  "understanding": {
+    "projects": 10,
+    "points": 67,
+    "fields": {
+      "functions": 10,
+      "parameters": 10,
+      "return_value": 10,
+      "branch_lines": 9,
+      "boundary_value": 10,
+      "exception": 9,
+      "defect_line": 9
+    },
+    "retries": 0
+  },
+  "first_schema": {
+    "projects": 10,
+    "points": 56,
+    "fields": {
+      "functions": 10,
+      "parameters": 10,
+      "return_value": 7,
+      "branch_lines": 8,
+      "boundary_value": 3,
+      "exception": 8,
+      "defect_line": 10
+    },
+    "retries": 0
+  },
+  "observed": [
+    {
+      "project": "bonus",
+      "seed": 513,
+      "before": 7,
+      "after": 7
+    },
+    {
+      "project": "bonus",
+      "seed": 727,
+      "before": 7,
+      "after": 7
+    },
+    {
+      "project": "bonus",
+      "seed": 941,
+      "before": 7,
+      "after": 7
+    },
+    {
+      "project": "freight",
+      "seed": 513
+    },
+    {
+      "project": "freight",
+      "seed": 727,
+      "before": 2,
+      "after": 2
+    },
+    {
+      "project": "freight",
+      "seed": 941,
+      "before": 2,
+      "after": 2
+    },
+    {
+      "project": "clamp",
+      "seed": 513,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "project": "clamp",
+      "seed": 727,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "project": "clamp",
+      "seed": 941,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "project": "expiry",
+      "seed": 513,
+      "before": 2,
+      "after": 2
+    },
+    {
+      "project": "expiry",
+      "seed": 727,
+      "before": 2,
+      "after": 2
+    },
+    {
+      "project": "expiry",
+      "seed": 941,
+      "before": 2,
+      "after": 2
+    },
+    {
+      "project": "tax",
+      "seed": 513,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "project": "tax",
+      "seed": 727,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "project": "tax",
+      "seed": 941,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "project": "prefix",
+      "seed": 513,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "project": "prefix",
+      "seed": 727
+    },
+    {
+      "project": "prefix",
+      "seed": 941,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "project": "pages",
+      "seed": 513,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "project": "pages",
+      "seed": 727,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "project": "pages",
+      "seed": 941,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "project": "tier",
+      "seed": 513,
+      "before": 7,
+      "after": 7
+    },
+    {
+      "project": "tier",
+      "seed": 727,
+      "before": 7,
+      "after": 7
+    },
+    {
+      "project": "tier",
+      "seed": 941,
+      "before": 7,
+      "after": 7
+    },
+    {
+      "project": "head",
+      "seed": 513
+    },
+    {
+      "project": "head",
+      "seed": 727
+    },
+    {
+      "project": "head",
+      "seed": 941,
+      "before": 2,
+      "after": 2
+    },
+    {
+      "project": "invoice",
+      "seed": 513,
+      "before": 3,
+      "after": 3
+    },
+    {
+      "project": "invoice",
+      "seed": 727
+    },
+    {
+      "project": "invoice",
+      "seed": 941,
+      "before": 3,
+      "after": 3
+    }
+  ],
+  "workloads": {
+    "concurrency-4k": {
+      "rows": 7,
+      "ok": 5,
+      "errors": {
+        "queue": 2
+      },
+      "median_ttft_s": 1.081,
+      "mean_output_tps": 25.537,
+      "input_tokens": []
+    },
+    "pressure-16k": {
+      "rows": 2,
+      "ok": 2,
+      "errors": {},
+      "median_ttft_s": 38.413,
+      "mean_output_tps": 25.554,
+      "input_tokens": [
+        13140,
+        13140
+      ]
+    },
+    "pressure-4k": {
+      "rows": 2,
+      "ok": 2,
+      "errors": {},
+      "median_ttft_s": 18.59,
+      "mean_output_tps": 26.381,
+      "input_tokens": [
+        3309,
+        3309
+      ]
+    },
+    "pressure-8k": {
+      "rows": 2,
+      "ok": 2,
+      "errors": {},
+      "median_ttft_s": 18.995,
+      "mean_output_tps": 26.21,
+      "input_tokens": [
+        6586,
+        6586
+      ]
+    },
+    "soak-4k": {
+      "rows": 36,
+      "ok": 36,
+      "errors": {},
+      "median_ttft_s": 0.476,
+      "mean_output_tps": 24.675,
+      "input_tokens": []
+    },
+    "stability-4k-final": {
+      "rows": 100,
+      "ok": 100,
+      "errors": {},
+      "median_ttft_s": 0.206,
+      "mean_output_tps": 26.978,
+      "input_tokens": []
+    },
+    "stability-4k-optimized": {
+      "rows": 100,
+      "ok": 99,
+      "errors": {
+        "unavailable": 1
+      },
+      "median_ttft_s": 2.921,
+      "mean_output_tps": 27.429,
+      "input_tokens": []
+    },
+    "stability-4k": {
+      "rows": 12,
+      "ok": 11,
+      "errors": {
+        "resource": 1
+      },
+      "median_ttft_s": null,
+      "mean_output_tps": 22.667,
+      "input_tokens": []
+    }
+  },
+  "resources": {
+    "first-start": {
+      "peak_physical_gib": 18.663,
+      "min_physical_free_gib": 12.758,
+      "peak_commit_gib": 31.996,
+      "min_commit_free_gib": 17.583,
+      "peak_gpu_mib": 19.191,
+      "samples": 19,
+      "duration_s": 9.152
+    },
+    "resource-guard-4k": {
+      "peak_physical_gib": 29.432,
+      "min_physical_free_gib": 1.989,
+      "peak_commit_gib": 44.926,
+      "min_commit_free_gib": 4.653,
+      "peak_gpu_mib": 10009.156,
+      "samples": 325,
+      "duration_s": 165.101
+    },
+    "runtime-16k": {
+      "peak_physical_gib": 28.296,
+      "min_physical_free_gib": 3.125,
+      "peak_commit_gib": 43.472,
+      "min_commit_free_gib": 6.107,
+      "peak_gpu_mib": 10265.844,
+      "peak_cpu_pct": 100.0,
+      "mean_cpu_pct": 78.009,
+      "samples": 191,
+      "duration_s": 95.727
+    },
+    "runtime-4k": {
+      "peak_physical_gib": 29.065,
+      "min_physical_free_gib": 2.356,
+      "peak_commit_gib": 45.125,
+      "min_commit_free_gib": 4.453,
+      "peak_gpu_mib": 10107.578,
+      "peak_cpu_pct": 100.0,
+      "mean_cpu_pct": 46.835,
+      "samples": 3677,
+      "duration_s": 1907.161
+    },
+    "runtime-8k": {
+      "peak_physical_gib": 28.226,
+      "min_physical_free_gib": 3.195,
+      "peak_commit_gib": 43.268,
+      "min_commit_free_gib": 6.311,
+      "peak_gpu_mib": 10120.844,
+      "peak_cpu_pct": 100.0,
+      "mean_cpu_pct": 65.075,
+      "samples": 121,
+      "duration_s": 60.53
+    }
+  },
+  "recovery": {
+    "before": {
+      "http": 200,
+      "body": {
+        "state": "ready",
+        "model": "Qwen3.8-27B UD-IQ3_XXS",
+        "manifest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+        "backend_version": "0.40.18",
+        "at": 1795771719.4298408,
+        "run_id": "a09c6834-5bae-4c68-8d6a-c33f84a8b046",
+        "vulkan": true,
+        "weight_sha256": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+        "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+        "context": 4096,
+        "size_vram": 10412978338,
+        "resources": {
+          "physical_total_gib": 31.420948028564453,
+          "physical_free_gib": 4.617938995361328,
+          "physical_used_gib": 26.803009033203125,
+          "commit_limit_gib": 49.57860565185547,
+          "commit_free_gib": 6.9010772705078125,
+          "commit_used_gib": 42.677528381347656,
+          "gpu_used_mib": 10048.34375,
+          "gpu_free_mib": 5954.65625,
+          "cpu_pct": 20.02567394094994
+        }
+      }
+    },
+    "offline_model": {
+      "http": 503,
+      "body": {
+        "state": "unavailable",
+        "model": "Qwen3.8-27B UD-IQ3_XXS",
+        "kind": "unavailable",
+        "reason": "缺少有效的本机 Ollama / Vulkan 身份和守护状态"
+      }
+    },
+    "offline_dashboard": {
+      "http": 200,
+      "body": {
+        "status": "ok",
+        "database": "ok",
+        "mode": "demo"
+      }
+    },
+    "8k_health": {
+      "http": 200,
+      "body": {
+        "state": "ready",
+        "model": "Qwen3.8-27B UD-IQ3_XXS",
+        "manifest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+        "backend_version": "0.40.18",
+        "at": 1795771753.9488454,
+        "run_id": "c6494d9a-0014-4190-9944-a79a1fd4ac83",
+        "vulkan": true,
+        "weight_sha256": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+        "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+        "context": 8192,
+        "size_vram": 10489000098,
+        "resources": {
+          "physical_total_gib": 31.420948028564453,
+          "physical_free_gib": 3.823230743408203,
+          "physical_used_gib": 27.59771728515625,
+          "commit_limit_gib": 49.57860565185547,
+          "commit_free_gib": 6.804718017578125,
+          "commit_used_gib": 42.773887634277344,
+          "gpu_used_mib": 10066.96875,
+          "gpu_free_mib": 5936.03125,
+          "cpu_pct": 36.848958333333336
+        }
+      }
+    },
+    "8k_pressure_exit": 0,
+    "8k_end_state": {
+      "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+      "manifest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+      "weights": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+      "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+      "port": 11763,
+      "context": 8192,
+      "vulkan": true,
+      "backend": "Ollama",
+      "at": 1795771792.978021,
+      "pid": 45568,
+      "resources": {
+        "physical_total_gib": 31.420948028564453,
+        "physical_free_gib": 3.4773178100585938,
+        "physical_used_gib": 27.94363021850586,
+        "commit_limit_gib": 49.57860565185547,
+        "commit_free_gib": 6.3878021240234375,
+        "commit_used_gib": 43.19080352783203,
+        "gpu_used_mib": 10120.84375,
+        "gpu_free_mib": 5882.15625,
+        "cpu_pct": 80.73510773130546
+      },
+      "status": "serving"
+    },
+    "16k_health": {
+      "http": 200,
+      "body": {
+        "state": "ready",
+        "model": "Qwen3.8-27B UD-IQ3_XXS",
+        "manifest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+        "backend_version": "0.40.18",
+        "at": 1795771821.0724022,
+        "run_id": "134f26a4-0af6-482d-bd4c-adeb9ff6a68b",
+        "vulkan": true,
+        "weight_sha256": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+        "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+        "context": 16384,
+        "size_vram": 10641043618,
+        "resources": {
+          "physical_total_gib": 31.420948028564453,
+          "physical_free_gib": 3.9601058959960938,
+          "physical_used_gib": 27.46084213256836,
+          "commit_limit_gib": 49.57860565185547,
+          "commit_free_gib": 6.956897735595703,
+          "commit_used_gib": 42.621707916259766,
+          "gpu_used_mib": 10211.96875,
+          "gpu_free_mib": 5791.03125,
+          "cpu_pct": 34.505208333333336
+        }
+      }
+    },
+    "16k_pressure_exit": 0,
+    "16k_end_state": {
+      "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+      "manifest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+      "weights": "8e9d04d41fd6bd47787aad7919ae8594a3d7488d4adc859f6fb00ef07416526c",
+      "revision": "33a91d0e6fa53bf04accf398fde7b8ee1a1c9294",
+      "port": 11763,
+      "context": 16384,
+      "vulkan": true,
+      "backend": "Ollama",
+      "at": 1795771898.9978194,
+      "pid": 39424,
+      "resources": {
+        "physical_total_gib": 31.420948028564453,
+        "physical_free_gib": 4.059288024902344,
+        "physical_used_gib": 27.36166000366211,
+        "commit_limit_gib": 49.57860565185547,
+        "commit_free_gib": 6.591968536376953,
+        "commit_used_gib": 42.986637115478516,
+        "gpu_used_mib": 10265.84375,
+        "gpu_free_mib": 5737.15625,
+        "cpu_pct": 58.59375
+      },
+      "status": "serving"
+    }
+  },
+  "live_keys": [
+    "model",
+    "F01/project",
+    "F01/file",
+    "F02/ast",
+    "F02/ai",
+    "F03/suite",
+    "F04/execution",
+    "F09/configured",
+    "F13/explicit-template",
+    "F13/plan",
+    "F13/run",
+    "F13/evidence"
+  ]
+}

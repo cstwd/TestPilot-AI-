@@ -1,0 +1,28 @@
+{
+  "project": "head",
+  "seed": 941,
+  "before": {
+    "killed": 2,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 1,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 3,
+    "equivalent_candidates": 0,
+    "score_pct": 66.67
+  },
+  "after": {
+    "killed": 2,
+    "survived": 0,
+    "timeout": 0,
+    "execution_error": 1,
+    "cancelled": 0,
+    "unrun": 0,
+    "total": 3,
+    "equivalent_candidates": 0,
+    "score_pct": 66.67
+  },
+  "planned": 3,
+  "initial_run_id": "2bd84337-6402-4397-9e95-b8c5809e718e"
+}

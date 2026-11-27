@@ -1,0 +1,65 @@
+{
+  "project": "freight",
+  "predicted": {
+    "functions": [
+      "subject.py:freight"
+    ],
+    "parameters": [
+      [
+        "units",
+        "int",
+        null
+      ]
+    ],
+    "return_value": 11,
+    "branch_lines": [],
+    "boundary_value": 5,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "expected": {
+    "functions": [
+      "subject.py:freight"
+    ],
+    "parameters": [
+      [
+        "units",
+        "int",
+        null
+      ]
+    ],
+    "return_value": 11,
+    "branch_lines": [],
+    "boundary_value": 5,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 1,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "run_id": "acf425ea-804e-43ab-9bf9-9f734a06c626",
+  "attempts": [
+    {
+      "run_id": "acf425ea-804e-43ab-9bf9-9f734a06c626",
+      "attempt": 1,
+      "raw": "{\"boundary_value\":5,\"branch_lines\":[],\"defect_line\":null,\"exception\":\"TypeError\",\"functions\":[\"subject.py:freight\"],\"parameters\":[[\"units\",\"int\",null]],\"return_value\":11}",
+      "finish": "stop",
+      "tokens_in": 362,
+      "tokens_out": 45,
+      "generation_ns": 1846244000,
+      "load_ns": 12609400,
+      "ttft_s": 25.482174099997792,
+      "elapsed_s": 27.328913999997894,
+      "seed": 23,
+      "temperature": 0,
+      "schema": "Understanding",
+      "status": "accepted"
+    }
+  ]
+}

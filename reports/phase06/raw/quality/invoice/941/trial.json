@@ -1,0 +1,115 @@
+{
+  "status": "passed",
+  "passed": 20,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_example_1",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_empty_values_with_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_single_value_no_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_discount_exceeds_total",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_negative_values_ignored",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_mixed_values",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_zero_value",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_large_values",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_default_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_all_negative_values",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_discount_equals_total",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_single_negative_value",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_float_values",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_zero_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_large_discount",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_multiple_zero_values",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_positive_and_negative_pairs",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_single_large_value",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_discount_as_float",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_values_with_zeros_and_negatives",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 7,
+  "total_lines": 7,
+  "coverage_pct": 100.0,
+  "log": "....................\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_empty_values_with_discount\nPASSED test_generated.py::test_single_value_no_discount\nPASSED test_generated.py::test_discount_exceeds_total\nPASSED test_generated.py::test_negative_values_ignored\nPASSED test_generated.py::test_mixed_values\nPASSED test_generated.py::test_zero_value\nPASSED test_generated.py::test_large_values\nPASSED test_generated.py::test_default_discount\nPASSED test_generated.py::test_all_negative_values\nPASSED test_generated.py::test_discount_equals_total\nPASSED test_generated.py::test_single_negative_value\nPASSED test_generated.py::test_float_values\nPASSED test_generated.py::test_zero_discount\nPASSED test_generated.py::test_large_discount\nPASSED test_generated.py::test_multiple_zero_values\nPASSED test_generated.py::test_positive_and_negative_pairs\nPASSED test_generated.py::test_single_large_value\nPASSED test_generated.py::test_discount_as_float\nPASSED test_generated.py::test_values_with_zeros_and_negatives\n20 passed in 0.43s",
+  "duration_ms": 6727,
+  "stdout": "....................\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_example_1\nPASSED test_generated.py::test_empty_values_with_discount\nPASSED test_generated.py::test_single_value_no_discount\nPASSED test_generated.py::test_discount_exceeds_total\nPASSED test_generated.py::test_negative_values_ignored\nPASSED test_generated.py::test_mixed_values\nPASSED test_generated.py::test_zero_value\nPASSED test_generated.py::test_large_values\nPASSED test_generated.py::test_default_discount\nPASSED test_generated.py::test_all_negative_values\nPASSED test_generated.py::test_discount_equals_total\nPASSED test_generated.py::test_single_negative_value\nPASSED test_generated.py::test_float_values\nPASSED test_generated.py::test_zero_discount\nPASSED test_generated.py::test_large_discount\nPASSED test_generated.py::test_multiple_zero_values\nPASSED test_generated.py::test_positive_and_negative_pairs\nPASSED test_generated.py::test_single_large_value\nPASSED test_generated.py::test_discount_as_float\nPASSED test_generated.py::test_values_with_zeros_and_negatives\n20 passed in 0.43s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "4598461c-bcfc-4a9b-b5dd-6ed10d1397bf",
+  "started": "2026-11-27T09:18:44.146866+00:00",
+  "ended": "2026-11-27T09:18:50.874074+00:00",
+  "source_sha256": "f5ee842f2490510d65f5f38552a0e5fedcd0905e9ca0702c83a56102c945cd7e",
+  "test_sha256": "7afae4a4a689aef9e1490012a09c358bb90db6abc625b6b4d365697189d1d44d"
+}

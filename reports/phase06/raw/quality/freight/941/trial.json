@@ -1,0 +1,51 @@
+{
+  "status": "passed",
+  "passed": 4,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_freight_example",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_freight_boundary_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_freight_missing_argument",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_freight_keyword_argument",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 3,
+  "total_lines": 3,
+  "coverage_pct": 100.0,
+  "log": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_freight_example\nPASSED test_generated.py::test_freight_boundary_zero\nPASSED test_generated.py::test_freight_missing_argument\nPASSED test_generated.py::test_freight_keyword_argument\n4 passed in 0.10s",
+  "duration_ms": 6292,
+  "stdout": "....\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_freight_example\nPASSED test_generated.py::test_freight_boundary_zero\nPASSED test_generated.py::test_freight_missing_argument\nPASSED test_generated.py::test_freight_keyword_argument\n4 passed in 0.10s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 0,
+  "total_branches": 0,
+  "branch_pct": null,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "d65d7411-7623-4f11-8fef-00aca69ecaa1",
+  "started": "2026-11-27T09:13:36.112974+00:00",
+  "ended": "2026-11-27T09:13:42.405077+00:00",
+  "source_sha256": "917c066df9bb1c369085a82a1076a1a08cda8af5aedd9f15fdf0046c6855c19a",
+  "test_sha256": "80d960cf50454ee6a14fcd4ace6c372233a4ebe648f57da1c46461d11ea0f50d"
+}

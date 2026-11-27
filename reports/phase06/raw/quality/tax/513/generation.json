@@ -1,0 +1,45 @@
+{
+  "code": "import pytest\nfrom subject import tax\nfrom policy import RATE\n\ndef test_tax_doctest_example():\n    assert tax(100) == 5\n\ndef test_tax_zero():\n    assert tax(0) == 0\n\ndef test_tax_one():\n    assert tax(1) == 0\n\ndef test_tax_ninety_nine():\n    assert tax(99) == 4\n\ndef test_tax_one_hundred():\n    assert tax(100) == 5\n\ndef test_tax_one_hundred_one():\n    assert tax(101) == 5\n\ndef test_tax_uses_policy_rate():\n    assert tax(100) == 100 * RATE // 100\n\ndef test_tax_is_integer():\n    assert isinstance(tax(100), int)\n\ndef test_tax_negative():\n    assert tax(-100) == -5\n\ndef test_tax_large_value():\n    assert tax(1000000) == 50000\n\ndef test_tax_missing_argument():\n    with pytest.raises(TypeError):\n        tax()\n\ndef test_tax_wrong_type():\n    with pytest.raises(TypeError):\n        tax('100')\n\ndef test_tax_float_input():\n    with pytest.raises(TypeError):\n        tax(100.5)\n",
+  "mode": "ai",
+  "sha256": "bb57d1f7f1c56e51f45c75270fd4aeaf6284e575de888fb021253913a5190be5",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "7b837ecf-1440-44f7-863d-9c2f91d83f79",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\nfrom policy import RATE\\nfrom subject import tax\\n\\ndef test_tax_100():\\n    assert tax(100) == 5\\n\\ndef test_tax_zero():\\n    assert tax(0) == 0\\n\\ndef test_tax_1():\\n    assert tax(1) == 0\\n\\ndef test_tax_2():\\n    assert tax(2) == 0\\n\\ndef test_tax_19():\\n    assert tax(19) == 0\\n\\ndef test_tax_20():\\n    assert tax(20) == 1\\n\\ndef test_tax_99():\\n    assert tax(99) == 4\\n\\ndef test_tax_101():\\n    assert tax(101) == 5\\n\\ndef test_tax_negative():\\n    assert tax(-100) == -5\\n\\ndef test_tax_large():\\n    assert tax(1000000) == 50000\\n\\ndef test_tax_returns_int():\\n    assert isinstance(tax(100), int)\\n\\ndef test_tax_no_args_raises():\\n    with pytest.raises(TypeError):\\n        tax()\\n\\ndef test_tax_wrong_type():\\n    with pytest.raises(TypeError):\\n        tax(\\\"100\\\")\\n\\ndef test_tax_float():\\n    with pytest.raises(TypeError):\\n        tax(100.5)\\n\\ndef test_tax_none():\\n    with pytest.raises(TypeError):\\n        tax(None)\\n\\ndef test_tax_bool():\\n    with pytest.raises(TypeError):\\n        tax(True)\\n\\ndef test_tax_list():\\n    with pytest.raises(TypeError):\\n        tax([100])\\n\\ndef test_tax_dict():\\n    with pytest.raises(TypeError):\\n        tax({\\\"a\\\": 100})\\n\\ndef test_tax_tuple():\\n    with pytest.raises(TypeError):\\n        tax((100,))\\n\\ndef test_tax_set():\\n    with pytest.raises(TypeError):\\n        tax({100})\\n\\ndef test_tax_bytes():\\n    with pytest.raises(TypeError):\\n        tax(b\\\"100\\\")\\n\\ndef test_tax_bytearray():\\n    with pytest.raises(TypeError):\\n        tax(bytearray(b\\\"100\\\"))\\n\\ndef test_tax_memoryview():\\n    with pytest.raises(TypeError):\\n        tax(memoryview(b\\\"100\\\"))\\n\\ndef test_tax_complex():\\n    with pytest.raises(TypeError):\\n        tax(100 + 0j)\\n\\ndef test_tax_decimal():\\n    from decimal import Decimal\\n    with pytest.raises(TypeError):\\n        tax(Decimal(\\\"100\\\"))\\n\\ndef test_tax_fraction():\\n    from fractions import Fraction\\n    with pytest.raises(TypeError):\\n        tax(Fraction(100, 1))\\n\\ndef test_tax_custom_object():\\n    class Custom:\\n        pass\\n    with pytest.raises(TypeError):\\n        tax(Custom())\\n\\ndef test_tax_keyword_only():\\n    assert tax(cents=100) == 5\\n\\ndef test_tax_multiple_args():\\n    with pytest.raises(TypeError):\\n        tax(100, 200)\\n\\ndef test_tax_positional_keyword():\\n    with pytest.raises(TypeError):\\n        tax(100, cents=200)\\n\\ndef test_tax_extra_keyword():\\n    with pytest.raises(TypeError):\\n        tax(100, extra=200)\\n\\ndef test_tax_none_keyword():\\n    with pytest.raises(TypeError):\\n        tax(cents=None)\\n\\ndef test_tax_empty_string():\\n    with pytest.raises(TypeError):\\n        tax(\\\"\\\")\\n\\ndef test_tax_whitespace_string():\\n    with pytest.raises(TypeError):\\n        tax(\\\"  \\\")\\n\\ndef test_tax_string_number():\\n    with pytest.raises(TypeError):\\n        tax(\\\"100\\\")\\n\\ndef test_tax_string_with_spaces():\\n    with pytest.raises(TypeError):\\n        tax(\\\" 100 \\\")\\n\\ndef test_tax_string_negative():\\n    with pytest.raises(TypeError):\\n        tax(\\\"-100\\\")\\n\\ndef test_tax_string_float():\\n    with pytest",
+      "finish": "length",
+      "tokens_in": 340,
+      "tokens_out": 950,
+      "generation_ns": 39270282000,
+      "load_ns": 13521200,
+      "ttft_s": 5.336632399998052,
+      "elapsed_s": 44.60705650000091,
+      "seed": 513,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "rejected",
+      "reason": "empty, incomplete or truncated response"
+    },
+    {
+      "run_id": "7b837ecf-1440-44f7-863d-9c2f91d83f79",
+      "attempt": 2,
+      "raw": "{\"code\": \"import pytest\\n\\nfrom subject import tax\\nfrom policy import RATE\\n\\ndef test_tax_doctest_example():\\n    assert tax(100) == 5\\n\\ndef test_tax_zero():\\n    assert tax(0) == 0\\n\\ndef test_tax_one():\\n    assert tax(1) == 0\\n\\ndef test_tax_ninety_nine():\\n    assert tax(99) == 4\\n\\ndef test_tax_one_hundred():\\n    assert tax(100) == 5\\n\\ndef test_tax_one_hundred_one():\\n    assert tax(101) == 5\\n\\ndef test_tax_uses_policy_rate():\\n    assert tax(100) == 100 * RATE // 100\\n\\ndef test_tax_is_integer():\\n    assert isinstance(tax(100), int)\\n\\ndef test_tax_negative():\\n    assert tax(-100) == -5\\n\\ndef test_tax_large_value():\\n    assert tax(1000000) == 50000\\n\\ndef test_tax_missing_argument():\\n    with pytest.raises(TypeError):\\n        tax()\\n\\ndef test_tax_wrong_type():\\n    with pytest.raises(TypeError):\\n        tax(\\\"100\\\")\\n\\ndef test_tax_float_input():\\n    with pytest.raises(TypeError):\\n        tax(100.5)\\n\"}",
+      "finish": "stop",
+      "tokens_in": 426,
+      "tokens_out": 320,
+      "generation_ns": 13174002000,
+      "load_ns": 8248600,
+      "ttft_s": 16.7717604999998,
+      "elapsed_s": 29.945920599999226,
+      "seed": 513,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "7b837ecf-1440-44f7-863d-9c2f91d83f79",
+  "seconds": 74.64654969999901
+}

@@ -1,0 +1,205 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 0,
+    "failed": 8,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_tier_gold_above_threshold",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_gold_at_threshold",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_above_threshold",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_at_threshold",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_basic_below_silver",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_basic_at_zero",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_gold_above_100",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_below_gold",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 5,
+    "total_lines": 6,
+    "coverage_pct": 83.33,
+    "log": "FFFFFFFF\n=================================== FAILURES ===================================\n________________________ test_tier_gold_above_threshold ________________________\ntest_generated.py:4: in test_tier_gold_above_threshold\n    assert tier(120) == 'gold'\nE   AssertionError: assert 'silver' == 'gold'\nE     \nE     - gold\nE     + silver\n_________________________ test_tier_gold_at_threshold __________________________\ntest_generated.py:7: in test_tier_gold_at_threshold\n    assert tier(100) == 'gold'\nE   AssertionError: assert 'silver' == 'gold'\nE     \nE     - gold\nE     + silver\n_______________________ test_tier_silver_above_threshold _______________________\ntest_generated.py:10: in test_tier_silver_above_threshold\n    assert tier(51) == 'silver'\nE   AssertionError: assert 'gold' == 'silver'\nE     \nE     - silver\nE     + gold\n________________________ test_tier_silver_at_threshold _________________________\ntest_generated.py:13: in test_tier_silver_at_threshold\n    assert tier(50) == 'silver'\nE   AssertionError: assert 'gold' == 'silver'\nE     \nE     - silver\nE     + gold\n_________________________ test_tier_basic_below_silver _________________________\ntest_generated.py:16: in test_tier_basic_below_silver\n    assert tier(49) == 'basic'\nE   AssertionError: assert 'gold' == 'basic'\nE     \nE     - basic\nE     + gold\n___________________________ test_tier_basic_at_zero ____________________________\ntest_generated.py:19: in test_tier_basic_at_zero\n    assert tier(0) == 'basic'\nE   AssertionError: assert 'gold' == 'basic'\nE     \nE     - basic\nE     + gold\n___________________________ test_tier_gold_above_100 ___________________________\ntest_generated.py:22: in test_tier_gold_above_100\n    assert tier(101) == 'gold'\nE   AssertionError: assert 'silver' == 'gold'\nE     \nE     - gold\nE     + silver\n_________________________ test_tier_silver_below_gold __________________________\ntest_generated.py:25: in test_tier_silver_below_gold\n    assert tier(99) == 'silver'\nE   AssertionError: assert 'gold' == 'silver'\nE     \nE     - silver\nE     + gold\n=========================== short test summary info ============================\nFAILED test_generated.py::test_tier_gold_above_threshold - AssertionError: as...\nFAILED test_generated.py::test_tier_gold_at_threshold - AssertionError: asser...\nFAILED test_generated.py::test_tier_silver_above_threshold - AssertionError: ...\nFAILED test_generated.py::test_tier_silver_at_threshold - AssertionError: ass...\nFAILED test_generated.py::test_tier_basic_below_silver - AssertionError: asse...\nFAILED test_generated.py::test_tier_basic_at_zero - AssertionError: assert 'g...\nFAILED test_generated.py::test_tier_gold_above_100 - AssertionError: assert '...\nFAILED test_generated.py::test_tier_silver_below_gold - AssertionError: asser...\n8 failed in 0.44s",
+    "duration_ms": 6539,
+    "stdout": "FFFFFFFF\n=================================== FAILURES ===================================\n________________________ test_tier_gold_above_threshold ________________________\ntest_generated.py:4: in test_tier_gold_above_threshold\n    assert tier(120) == 'gold'\nE   AssertionError: assert 'silver' == 'gold'\nE     \nE     - gold\nE     + silver\n_________________________ test_tier_gold_at_threshold __________________________\ntest_generated.py:7: in test_tier_gold_at_threshold\n    assert tier(100) == 'gold'\nE   AssertionError: assert 'silver' == 'gold'\nE     \nE     - gold\nE     + silver\n_______________________ test_tier_silver_above_threshold _______________________\ntest_generated.py:10: in test_tier_silver_above_threshold\n    assert tier(51) == 'silver'\nE   AssertionError: assert 'gold' == 'silver'\nE     \nE     - silver\nE     + gold\n________________________ test_tier_silver_at_threshold _________________________\ntest_generated.py:13: in test_tier_silver_at_threshold\n    assert tier(50) == 'silver'\nE   AssertionError: assert 'gold' == 'silver'\nE     \nE     - silver\nE     + gold\n_________________________ test_tier_basic_below_silver _________________________\ntest_generated.py:16: in test_tier_basic_below_silver\n    assert tier(49) == 'basic'\nE   AssertionError: assert 'gold' == 'basic'\nE     \nE     - basic\nE     + gold\n___________________________ test_tier_basic_at_zero ____________________________\ntest_generated.py:19: in test_tier_basic_at_zero\n    assert tier(0) == 'basic'\nE   AssertionError: assert 'gold' == 'basic'\nE     \nE     - basic\nE     + gold\n___________________________ test_tier_gold_above_100 ___________________________\ntest_generated.py:22: in test_tier_gold_above_100\n    assert tier(101) == 'gold'\nE   AssertionError: assert 'silver' == 'gold'\nE     \nE     - gold\nE     + silver\n_________________________ test_tier_silver_below_gold __________________________\ntest_generated.py:25: in test_tier_silver_below_gold\n    assert tier(99) == 'silver'\nE   AssertionError: assert 'gold' == 'silver'\nE     \nE     - silver\nE     + gold\n=========================== short test summary info ============================\nFAILED test_generated.py::test_tier_gold_above_threshold - AssertionError: as...\nFAILED test_generated.py::test_tier_gold_at_threshold - AssertionError: asser...\nFAILED test_generated.py::test_tier_silver_above_threshold - AssertionError: ...\nFAILED test_generated.py::test_tier_silver_at_threshold - AssertionError: ass...\nFAILED test_generated.py::test_tier_basic_below_silver - AssertionError: asse...\nFAILED test_generated.py::test_tier_basic_at_zero - AssertionError: assert 'g...\nFAILED test_generated.py::test_tier_gold_above_100 - AssertionError: assert '...\nFAILED test_generated.py::test_tier_silver_below_gold - AssertionError: asser...\n8 failed in 0.44s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_tier_gold_above_threshold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'silver' == 'gold'\n  \n  - gold\n  + silver",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 4,
+            "function": "test_tier_gold_above_threshold",
+            "source": "assert tier(120) == 'gold'"
+          }
+        ],
+        "assertion_diff": "assert 'silver' == 'gold'\n  \n  - gold\n  + silver"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_gold_at_threshold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'silver' == 'gold'\n  \n  - gold\n  + silver",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 7,
+            "function": "test_tier_gold_at_threshold",
+            "source": "assert tier(100) == 'gold'"
+          }
+        ],
+        "assertion_diff": "assert 'silver' == 'gold'\n  \n  - gold\n  + silver"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_above_threshold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'gold' == 'silver'\n  \n  - silver\n  + gold",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 10,
+            "function": "test_tier_silver_above_threshold",
+            "source": "assert tier(51) == 'silver'"
+          }
+        ],
+        "assertion_diff": "assert 'gold' == 'silver'\n  \n  - silver\n  + gold"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_at_threshold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'gold' == 'silver'\n  \n  - silver\n  + gold",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 13,
+            "function": "test_tier_silver_at_threshold",
+            "source": "assert tier(50) == 'silver'"
+          }
+        ],
+        "assertion_diff": "assert 'gold' == 'silver'\n  \n  - silver\n  + gold"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_basic_below_silver",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'gold' == 'basic'\n  \n  - basic\n  + gold",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 16,
+            "function": "test_tier_basic_below_silver",
+            "source": "assert tier(49) == 'basic'"
+          }
+        ],
+        "assertion_diff": "assert 'gold' == 'basic'\n  \n  - basic\n  + gold"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_basic_at_zero",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'gold' == 'basic'\n  \n  - basic\n  + gold",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 19,
+            "function": "test_tier_basic_at_zero",
+            "source": "assert tier(0) == 'basic'"
+          }
+        ],
+        "assertion_diff": "assert 'gold' == 'basic'\n  \n  - basic\n  + gold"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_gold_above_100",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'silver' == 'gold'\n  \n  - gold\n  + silver",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 22,
+            "function": "test_tier_gold_above_100",
+            "source": "assert tier(101) == 'gold'"
+          }
+        ],
+        "assertion_diff": "assert 'silver' == 'gold'\n  \n  - gold\n  + silver"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_below_gold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 'gold' == 'silver'\n  \n  - silver\n  + gold",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 25,
+            "function": "test_tier_silver_below_gold",
+            "source": "assert tier(99) == 'silver'"
+          }
+        ],
+        "assertion_diff": "assert 'gold' == 'silver'\n  \n  - silver\n  + gold"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 3,
+    "total_branches": 4,
+    "branch_pct": 75.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "80ad70bd-ecf8-49e6-9bf5-d21e449234e8",
+    "started": "2026-11-27T09:17:27.840974+00:00",
+    "ended": "2026-11-27T09:17:34.379834+00:00",
+    "source_sha256": "b52cca384d8c02e3a2f91558a4493863e350209e683a59b5fe87e429a8fdeb62",
+    "test_sha256": "f97e8c39f977e8f9e225b0b0cf1cc58a1b19568c82b1bf070d2b3631a8188835"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_tier_basic_at_zero",
+      "test_generated.py::test_tier_basic_below_silver",
+      "test_generated.py::test_tier_gold_above_100",
+      "test_generated.py::test_tier_gold_above_threshold",
+      "test_generated.py::test_tier_gold_at_threshold",
+      "test_generated.py::test_tier_silver_above_threshold",
+      "test_generated.py::test_tier_silver_at_threshold",
+      "test_generated.py::test_tier_silver_below_gold"
+    ]
+  },
+  "mutant": "2c991105-9bf9-5bf9-b052-0a5994a361f2"
+}

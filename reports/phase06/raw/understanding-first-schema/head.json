@@ -1,0 +1,79 @@
+{
+  "project": "head",
+  "predicted": {
+    "functions": [
+      "subject.py:first"
+    ],
+    "parameters": [
+      [
+        "items",
+        "list",
+        null
+      ],
+      [
+        "fallback",
+        "int",
+        "-1"
+      ]
+    ],
+    "return_value": 6,
+    "branch_lines": [
+      7
+    ],
+    "boundary_value": 0,
+    "exception": null,
+    "defect_line": 8
+  },
+  "expected": {
+    "functions": [
+      "subject.py:first"
+    ],
+    "parameters": [
+      [
+        "items",
+        "list",
+        null
+      ],
+      [
+        "fallback",
+        "int",
+        "-1"
+      ]
+    ],
+    "return_value": 6,
+    "branch_lines": [
+      7
+    ],
+    "boundary_value": 0,
+    "exception": null,
+    "defect_line": 8
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 1,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "run_id": "21331b3c-bf75-492e-8750-85890241d2f1",
+  "attempts": [
+    {
+      "run_id": "21331b3c-bf75-492e-8750-85890241d2f1",
+      "attempt": 1,
+      "raw": "{\"boundary_value\": 0, \"branch_lines\": [7], \"defect_line\": 8, \"exception\": null, \"functions\": [\"subject.py:first\"], \"parameters\": [[\"items\", \"list\", null], [\"fallback\", \"int\", \"-1\"]], \"return_value\": 6}",
+      "finish": "stop",
+      "tokens_in": 284,
+      "tokens_out": 69,
+      "generation_ns": 3169460000,
+      "load_ns": 13787300,
+      "ttft_s": 1.3798755999996501,
+      "elapsed_s": 4.550006599998596,
+      "seed": 23,
+      "temperature": 0,
+      "schema": "Understanding",
+      "status": "accepted"
+    }
+  ]
+}

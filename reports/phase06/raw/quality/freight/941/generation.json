@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom tariff import BASE\nfrom subject import freight\n\ndef test_freight_example():\n    assert freight(3) == 8\n\ndef test_freight_boundary_zero():\n    assert freight(0) == BASE\n\ndef test_freight_missing_argument():\n    with pytest.raises(TypeError):\n        freight()\n\ndef test_freight_keyword_argument():\n    assert freight(units=2) == BASE + 2\n",
+  "mode": "ai",
+  "sha256": "cba2c48d04a14629566a3a75abb95e179fb8de320d446af77184833aa0857881",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "0c122d05-2865-4942-bb40-f5236dcaa16e",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\nfrom tariff import BASE\\nfrom subject import freight\\n\\n\\ndef test_freight_example():\\n    assert freight(3) == 8\\n\\n\\ndef test_freight_boundary_zero():\\n    assert freight(0) == BASE\\n\\n\\ndef test_freight_missing_argument():\\n    with pytest.raises(TypeError):\\n        freight()\\n\\n\\ndef test_freight_keyword_argument():\\n    assert freight(units=2) == BASE + 2\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 329,
+      "tokens_out": 110,
+      "generation_ns": 4488391000,
+      "load_ns": 8788300,
+      "ttft_s": 1.5604566000001796,
+      "elapsed_s": 6.0490566000007675,
+      "seed": 941,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "0c122d05-2865-4942-bb40-f5236dcaa16e",
+  "seconds": 6.096560799996951
+}

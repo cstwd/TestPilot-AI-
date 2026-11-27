@@ -1,0 +1,45 @@
+{
+  "status": "generated",
+  "mode": "ai",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "model_digest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+  "reason": "候选等待 WASI 原版校验",
+  "code": "from subject import cap\n\ndef test_cap_returns_n_when_less_than_ceiling():\n    assert cap(5, 10) == 5\n\ndef test_cap_returns_ceiling_when_n_greater():\n    assert cap(12, 10) == 10\n\ndef test_cap_returns_ceiling_when_n_equals_ceiling():\n    assert cap(10, 10) == 10\n\ndef test_cap_with_default_ceiling():\n    assert cap(12) == 10\n\ndef test_cap_with_zero_n():\n    assert cap(0, 10) == 0\n\ndef test_cap_with_zero_ceiling():\n    assert cap(5, 0) == 0\n\ndef test_cap_with_negative_n():\n    assert cap(-5, 10) == -5\n\ndef test_cap_with_negative_ceiling():\n    assert cap(5, -10) == -10\n\ndef test_cap_with_both_negative():\n    assert cap(-5, -10) == -10\n\ndef test_cap_with_large_values():\n    assert cap(1000000, 500000) == 500000\n\ndef test_cap_with_same_large_values():\n    assert cap(1000000, 1000000) == 1000000\n\ndef test_cap_with_keyword_arguments():\n    assert cap(n=12, ceiling=10) == 10\n\ndef test_cap_with_mixed_keyword_arguments():\n    assert cap(12, ceiling=10) == 10\n\ndef test_cap_with_ceiling_as_keyword():\n    assert cap(n=12, ceiling=10) == 10\n\ndef test_cap_doctest_example():\n    assert cap(12) == 10\n\n\ndef test_mutation_9bd8518be37365d7():\n    from subject import cap\n    assert cap(0, 0) == 0\n",
+  "added_code": "def test_mutation_9bd8518be37365d7():\n    from subject import cap\n    assert cap(0, 0) == 0\n",
+  "cases": [
+    {
+      "site": 1,
+      "call": "cap(0, 0)",
+      "reason": "Original returns 0; mutated version returns ceiling (0), same result.",
+      "expected": "0",
+      "mutant_id": "bc12ab81-c58a-5136-a747-a462d1aab985",
+      "test_name": "test_mutation_9bd8518be37365d7"
+    }
+  ],
+  "attempts": [
+    {
+      "focus_id": "bc12ab81-c58a-5136-a747-a462d1aab985",
+      "run_id": "3cab726b-977e-4929-9ce8-d7998fade682",
+      "status": "accepted",
+      "responses": [
+        {
+          "run_id": "3cab726b-977e-4929-9ce8-d7998fade682",
+          "attempt": 1,
+          "raw": "{\"call\": \"cap(0, 0)\", \"disposition\": \"test\", \"expected\": 0, \"reason\": \"Original returns 0; mutated version returns ceiling (0), same result.\"}",
+          "finish": "stop",
+          "tokens_in": 777,
+          "tokens_out": 45,
+          "generation_ns": 1833496000,
+          "load_ns": 8238500,
+          "ttft_s": 4.568430999999691,
+          "elapsed_s": 6.402297000000544,
+          "seed": 941,
+          "temperature": 0,
+          "schema": "MutationCase",
+          "status": "accepted"
+        }
+      ]
+    }
+  ]
+}

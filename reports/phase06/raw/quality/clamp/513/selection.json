@@ -1,0 +1,7 @@
+{
+  "code": "import pytest\nfrom subject import cap\n\ndef test_cap_returns_ceiling_when_n_exceeds_ceiling():\n    assert cap(12) == 10\n\ndef test_cap_returns_n_when_n_is_less_than_ceiling():\n    assert cap(5) == 5\n\ndef test_cap_returns_ceiling_when_n_equals_ceiling():\n    assert cap(10) == 10\n\ndef test_cap_with_custom_ceiling():\n    assert cap(15, 20) == 15\n    assert cap(25, 20) == 20\n\ndef test_cap_with_zero_n():\n    assert cap(0) == 0\n\ndef test_cap_with_zero_ceiling():\n    assert cap(5, 0) == 0\n\ndef test_cap_with_negative_n():\n    assert cap(-5) == -5\n\ndef test_cap_with_negative_ceiling():\n    assert cap(5, -10) == -10\n\ndef test_cap_with_negative_n_and_ceiling():\n    assert cap(-5, -10) == -10\n\ndef test_cap_with_large_values():\n    assert cap(1000000, 500000) == 500000\n    assert cap(400000, 500000) == 400000\n\ndef test_cap_with_keyword_arguments():\n    assert cap(n=12, ceiling=10) == 10\n    assert cap(n=5, ceiling=10) == 5\n\ndef test_cap_returns_int_type():\n    result = cap(12)\n    assert isinstance(result, int)\n\ndef test_cap_boundary_equal_values():\n    assert cap(n=2, ceiling=2) == 2\n\ndef test_cap_boundary_zero_n_positive_ceiling():\n    assert cap(n=0, ceiling=2) == 0\n\ndef test_cap_boundary_positive_n_zero_ceiling():\n    assert cap(n=2, ceiling=0) == 0\n\n\ndef test_mutation_9bd8518be37365d7():\n    from subject import cap\n    assert cap(0, 0) == 0\n",
+  "accepted_names": [
+    "test_mutation_9bd8518be37365d7"
+  ],
+  "rejected_names": []
+}

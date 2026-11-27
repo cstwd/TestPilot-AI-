@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom subject import tier\n\ndef test_tier_gold_above_threshold():\n    assert tier(120) == 'gold'\n\ndef test_tier_gold_at_threshold():\n    assert tier(100) == 'gold'\n\ndef test_tier_silver_above_threshold():\n    assert tier(51) == 'silver'\n\ndef test_tier_silver_at_threshold():\n    assert tier(50) == 'silver'\n\ndef test_tier_basic_below_silver_threshold():\n    assert tier(49) == 'basic'\n\ndef test_tier_basic_zero_points():\n    assert tier(0) == 'basic'\n\ndef test_tier_basic_negative_points():\n    assert tier(-1) == 'basic'\n\ndef test_tier_gold_just_above_threshold():\n    assert tier(101) == 'gold'\n\ndef test_tier_silver_just_below_gold_threshold():\n    assert tier(99) == 'silver'\n",
+  "mode": "ai",
+  "sha256": "1d40398577f08a30939292ada5e7a46d53118f6defa0396162423d677e5fda95",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "7524e874-6744-4b22-a902-5c22f7ddc1bd",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import tier\\n\\n\\ndef test_tier_gold_above_threshold():\\n    assert tier(120) == \\\"gold\\\"\\n\\n\\ndef test_tier_gold_at_threshold():\\n    assert tier(100) == \\\"gold\\\"\\n\\n\\ndef test_tier_silver_above_threshold():\\n    assert tier(51) == \\\"silver\\\"\\n\\n\\ndef test_tier_silver_at_threshold():\\n    assert tier(50) == \\\"silver\\\"\\n\\n\\ndef test_tier_basic_below_silver_threshold():\\n    assert tier(49) == \\\"basic\\\"\\n\\n\\ndef test_tier_basic_zero_points():\\n    assert tier(0) == \\\"basic\\\"\\n\\n\\ndef test_tier_basic_negative_points():\\n    assert tier(-1) == \\\"basic\\\"\\n\\n\\ndef test_tier_gold_just_above_threshold():\\n    assert tier(101) == \\\"gold\\\"\\n\\n\\ndef test_tier_silver_just_below_gold_threshold():\\n    assert tier(99) == \\\"silver\\\"\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 418,
+      "tokens_out": 247,
+      "generation_ns": 10182288000,
+      "load_ns": 13144500,
+      "ttft_s": 1.7606898999983969,
+      "elapsed_s": 11.942996300000232,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "7524e874-6744-4b22-a902-5c22f7ddc1bd",
+  "seconds": 12.056383600000117
+}

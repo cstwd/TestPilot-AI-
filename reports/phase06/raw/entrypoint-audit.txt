@@ -1,0 +1,10 @@
+Production inference transport references
+backend\model_provider.py:97:        connection = http.client.HTTPConnection("127.0.0.1", port, timeout=remaining())
+backend\model_provider.py:197:                result = self._fetch(state["port"],"/api/chat",{
+Original 27B identity pin and Provider call sites
+backend\engine_llm.py:79:        response = provider.infer("test-repair" if previous_code is not None else "test-generation",messages,
+backend\model_identity.py:2:MODEL = "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest"
+backend\model_understanding.py:25:    return provider.infer("source-understanding", messages, Understanding, max_tokens=512)
+backend\mutation_feedback.py:181:            response=provider.infer("mutation-feedback",msgs,MutationCase,max_tokens=260,seed=seed,validate=validate)
+Legacy model selectors in production sources
+Zero matches

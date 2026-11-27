@@ -1,0 +1,71 @@
+{
+  "project": "prefix",
+  "predicted": {
+    "functions": [
+      "subject.py:prefix_length"
+    ],
+    "parameters": [
+      [
+        "values",
+        "list",
+        null
+      ]
+    ],
+    "return_value": 2,
+    "branch_lines": [
+      8,
+      9
+    ],
+    "boundary_value": 0,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "expected": {
+    "functions": [
+      "subject.py:prefix_length"
+    ],
+    "parameters": [
+      [
+        "values",
+        "list",
+        null
+      ]
+    ],
+    "return_value": 2,
+    "branch_lines": [
+      8,
+      9
+    ],
+    "boundary_value": 0,
+    "exception": "TypeError",
+    "defect_line": null
+  },
+  "scores": {
+    "functions": 1,
+    "parameters": 1,
+    "return_value": 1,
+    "branch_lines": 1,
+    "boundary_value": 1,
+    "exception": 1,
+    "defect_line": 1
+  },
+  "run_id": "b350fb2f-c5ae-4b7f-9ea2-a3ef39b73c21",
+  "attempts": [
+    {
+      "run_id": "b350fb2f-c5ae-4b7f-9ea2-a3ef39b73c21",
+      "attempt": 1,
+      "raw": "{\"boundary_value\":0,\"branch_lines\":[8,9],\"defect_line\":null,\"exception\":\"TypeError\",\"functions\":[\"subject.py:prefix_length\"],\"parameters\":[[\"values\",\"list\",null]],\"return_value\":2}",
+      "finish": "stop",
+      "tokens_in": 390,
+      "tokens_out": 50,
+      "generation_ns": 2177610000,
+      "load_ns": 10848700,
+      "ttft_s": 27.693256200000178,
+      "elapsed_s": 29.871158199999627,
+      "seed": 23,
+      "temperature": 0,
+      "schema": "Understanding",
+      "status": "accepted"
+    }
+  ]
+}

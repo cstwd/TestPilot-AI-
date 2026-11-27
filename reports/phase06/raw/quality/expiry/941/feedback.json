@@ -1,0 +1,12 @@
+{
+  "status": "not_needed",
+  "mode": null,
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "model_digest": "a9d632842caa805667b010be2b685525a3f8c8fd363988dcda9e80ce334fcfc7",
+  "reason": "没有存活变异",
+  "code": null,
+  "added_code": null,
+  "cases": [],
+  "attempts": []
+}

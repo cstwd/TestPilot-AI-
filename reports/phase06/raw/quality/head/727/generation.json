@@ -1,0 +1,48 @@
+{
+  "code": null,
+  "mode": "ai",
+  "sha256": null,
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "83b7e1ca-df82-4212-ae81-e62fdb8fe74a",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import first\\n\\n\\ndef test_first_returns_first_element():\\n    assert first([1, 2, 3]) == 1\\n\\n\\ndef test_first_returns_single_element():\\n    assert first([42]) == 42\\n\\n\\ndef test_first_with_empty_list_returns_zero():\\n    assert first([]) == 0\\n\\n\\ndef test_first_with_empty_list_and_fallback_returns_zero():\\n    assert first([], fallback=99) == 0\\n\\n\\ndef test_first_with_non_integer_items():\\n    assert first(['a', 'b']) == 'a'\\n\\n\\ndef test_first_with_float_items():\\n    assert first([1.5, 2.5]) == 1.5\\n\\n\\ndef test_first_with_negative_numbers():\\n    assert first([-1, -2, -3]) == -1\\n\\n\\ndef test_first_with_zero():\\n    assert first([0, 1, 2]) == 0\\n\\n\\ndef test_first_with_large_list():\\n    large_list = list(range(1000))\\n    assert first(large_list) == 0\\n\\n\\ndef test_first_with_duplicates():\\n    assert first([5, 5, 5]) == 5\\n\\n\\ndef test_first_with_mixed_types():\\n    assert first([1, 'a', 2.0]) == 1\\n\\n\\ndef test_first_with_none_in_list():\\n    assert first([None, 1, 2]) is None\\n\\n\\ndef test_first_with_empty_tuple():\\n    # The function expects a list, but let's see what happens with a tuple\\n    # Actually, the signature says list, so we should stick to lists\\n    # But let's test with a list of tuples\\n    assert first([(1, 2), (3, 4)]) == (1, 2)\\n\\n\\ndef test_first_with_nested_lists():\\n    assert first([[1, 2], [3, 4]]) == [1, 2]\\n\\n\\ndef test_first_with_string():\\n    assert first(['hello', 'world']) == 'hello'\\n\\n\\ndef test_first_with_boolean():\\n    assert first([True, False]) is True\\n\\n\\ndef test_first_with_none_fallback():\\n    # fallback is typed as int, but let's see if it handles None\\n    # Actually, the signature says int, so we should stick to ints\\n    # But let's test with a list and see if fallback is ignored\\n    assert first([1], fallback=None) == 1\\n\\n\\ndef test_first_with_negative_fallback():\\n    assert first([1], fallback=-10) == 1\\n\\n\\ndef test_first_with_zero_fallback():\\n    assert first([1], fallback=0) == 1\\n\\n\\ndef test_first_with_large_fallback():\\n    assert first([1], fallback=10**18) == 1\\n\\n\\ndef test_first_with_empty_list_and_negative_fallback():\\n    assert first([], fallback=-5) == 0\\n\\n\\ndef test_first_with_empty_list_and_zero_fallback():\\n    assert first([], fallback=0) == 0\\n\\n\\ndef test_first_with_empty_list_and_large_fallback():\\n    assert first([], fallback=10**18) == 0\\n\\n\\ndef test_first_with_list_of_lists():\\n    assert first([[], [1, 2]]) == []\\n\\n\\ndef test_first_with_list_of_tuples():\\n    assert first([(), (1, 2)]) == ()\\n\\n\\ndef test_first_with_list_of_strings():\\n    assert first(['', 'a']) == ''\\n\\n\\ndef test_first_with_list_of_none():\\n    assert first([None, None]) is None\\n\\n\\ndef test_first_with_list_of_booleans():\\n    assert first([False, True]) is False\\n\\n\\ndef test_first_with_list_of_floats():\\n    assert first([0.0, 1.0]) == 0.0\\n\\n\\ndef test_first_with_list_of_integers():\\n    assert first([0, 1]) == 0\\n\\n\\ndef test_first_with_list_of_mixed_numbers():\\n    assert first([1, ",
+      "finish": "length",
+      "tokens_in": 398,
+      "tokens_out": 950,
+      "generation_ns": 39348892000,
+      "load_ns": 8308800,
+      "ttft_s": 1.7212877999991179,
+      "elapsed_s": 41.070239100001345,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "rejected",
+      "reason": "empty, incomplete or truncated response"
+    },
+    {
+      "run_id": "83b7e1ca-df82-4212-ae81-e62fdb8fe74a",
+      "attempt": 2,
+      "raw": "{\"code\": \"import pytest\\nfrom subject import first\\n\\ndef test_first_returns_first_item():\\n    \\\"\\\"\\\"Test that first returns the first item of a non-empty list.\\\"\\\"\\\"\\n    assert first([8]) == 8\\n\\ndef test_first_returns_fallback_for_empty_list():\\n    \\\"\\\"\\\"Test that first returns the fallback value for an empty list.\\\"\\\"\\\"\\n    assert first([], fallback=42) == 42\\n\\ndef test_first_default_fallback_is_minus_one():\\n    \\\"\\\"\\\"Test that the default fallback is -1 when not specified.\\\"\\\"\\\"\\n    assert first([]) == -1\\n\\ndef test_first_with_single_element():\\n    \\\"\\\"\\\"Test that first returns the only element in a single-element list.\\\"\\\"\\\"\\n    assert first([100]) == 100\\n\\ndef test_first_with_multiple_elements():\\n    \\\"\\\"\\\"Test that first returns the first element from a multi-element list.\\\"\\\"\\\"\\n    assert first([1, 2, 3, 4, 5]) == 1\\n\\ndef test_first_with_negative_numbers():\\n    \\\"\\\"\\\"Test that first works with negative numbers.\\\"\\\"\\\"\\n    assert first([-5, -10, -15]) == -5\\n\\ndef test_first_with_zero():\\n    \\\"\\\"\\\"Test that first works with zero as the first element.\\\"\\\"\\\"\\n    assert first([0, 1, 2]) == 0\\n\\ndef test_first_with_fallback_zero():\\n    \\\"\\\"\\\"Test that first returns 0 when fallback is 0 and list is empty.\\\"\\\"\\\"\\n    assert first([], fallback=0) == 0\\n\\ndef test_first_with_negative_fallback():\\n    \\\"\\\"\\\"Test that first returns a negative fallback when list is empty.\\\"\\\"\\\"\\n    assert first([], fallback=-100) == -100\\n\\ndef test_first_with_float_values():\\n    \\\"\\\"\\\"Test that first works with float values.\\\"\\\"\\\"\\n    assert first([3.14, 2.71, 1.41]) == 3.14\\n\\ndef test_first_with_mixed_types():\\n    \\\"\\\"\\\"Test that first returns the first element regardless of type.\\\"\\\"\\\"\\n    assert first([\\\"a\\\", 1, True]) == \\\"a\\\"\\n\\ndef test_first_with_none_values():\\n    \\\"\\\"\\\"Test that first works with None values in the list.\\\"\\\"\\\"\\n    assert first([None, 1, 2]) is None\\n\\ndef test_first_with_large_list():\\n    \\\"\\\"\\\"Test that first works with a large list.\\\"\\\"\\\"\\n    large_list = list(range(10000))\\n    assert first(large_list) == 0\\n\\ndef test_first_with_two_elements():\\n    \\\"\\\"\\\"Test that first returns the first of two elements.\\\"\\\"\\\"\\n    assert first([42, 99]) == 42\\n\\ndef test_first_with_strings():\\n    \\\"\\\"\\\"Test that first works with string elements.\\\"\\\"\\\"\\n    assert first([\\\"hello\\\", \\\"world\\\"]) == \\\"hello\\\"\\n\\ndef test_first_with_nested_lists():\\n    \\\"\\\"\\\"Test that first returns the first nested list.\\\"\\\"\\\"\\n    result = first([[1, 2], [3, 4]])\\n    assert result == [1, 2]\\n\\ndef test_first_with_tuples():\\n    \\\"\\\"\\\"Test that first works with tuple elements.\\\"\\\"\\\"\\n    assert first([(1, 2), (3, 4)]) == (1, 2)\\n\\ndef test_first_with_boolean_values():\\n    \\\"\\\"\\\"Test that first works with boolean values.\\\"\\\"\\\"\\n    assert first([True, False, True]) is True\\n\\ndef test_first_with_fallback_positive():\\n    \\\"\\\"\\\"Test that first returns a positive fallback when list is empty.\\\"\\\"\\\"\\n    assert first([], fallback=10) == 10\\n\\ndef test_first_with_fallback_large_number():\\n    \\\"\\\"\\\"Test that first returns a large fallback number when list is empty.\\\"\\\"\\\"\\n    assert first([], fallback=999999) == 999999\\n\\ndef test_first_with_fallback_small_number():\\n    \\\"\\\"\\\"Test that first returns a small",
+      "finish": "length",
+      "tokens_in": 484,
+      "tokens_out": 950,
+      "generation_ns": 39373050000,
+      "load_ns": 5850700,
+      "ttft_s": 2.063886399999319,
+      "elapsed_s": 41.43710949999877,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "rejected",
+      "reason": "empty, incomplete or truncated response"
+    }
+  ],
+  "fallback_reason": "模型响应无法通过冻结协议或模块校验",
+  "run_id": "83b7e1ca-df82-4212-ae81-e62fdb8fe74a",
+  "error": "模型响应无法通过冻结协议或模块校验",
+  "error_kind": "schema",
+  "seconds": 82.5873786000011
+}

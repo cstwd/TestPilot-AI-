@@ -1,0 +1,2 @@
+{"at": 1795771722.8240263, "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest", "operation": "health", "run_id": "925b6bc3-1d88-45d3-af11-929941d8cc16", "status": "error", "kind": "unavailable", "reason": "找不到有效的本机模型运行状态"}
+{"at": 1795771723.2393851, "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest", "operation": "health", "run_id": "d33fdcf8-a790-44d3-8241-908dd1a1a14e", "status": "error", "kind": "unavailable", "reason": "找不到有效的本机模型运行状态"}

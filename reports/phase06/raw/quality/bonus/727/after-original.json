@@ -1,0 +1,91 @@
+{
+  "status": "passed",
+  "passed": 14,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "cases": [
+    {
+      "nodeid": "test_generated.py::test_bonus_negative_raises_value_error",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_zero_enabled_returns_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_one_enabled_returns_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_two_enabled_returns_three",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_three_enabled_returns_four",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_two_disabled_returns_two",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_three_disabled_returns_three",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_zero_disabled_returns_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_negative_one_raises_value_error",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_negative_large_raises_value_error",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_default_enabled_is_true",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_default_enabled_zero",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_default_enabled_one",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_generated.py::test_bonus_default_enabled_two",
+      "outcome": "passed"
+    }
+  ],
+  "exit_code": 0,
+  "covered_lines": 6,
+  "total_lines": 6,
+  "coverage_pct": 100.0,
+  "log": "..............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_zero_enabled_returns_zero\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_two_enabled_returns_three\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_negative_one_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_default_enabled_zero\nPASSED test_generated.py::test_bonus_default_enabled_one\nPASSED test_generated.py::test_bonus_default_enabled_two\n14 passed in 0.20s",
+  "duration_ms": 5977,
+  "stdout": "..............\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_bonus_negative_raises_value_error\nPASSED test_generated.py::test_bonus_zero_enabled_returns_zero\nPASSED test_generated.py::test_bonus_one_enabled_returns_one\nPASSED test_generated.py::test_bonus_two_enabled_returns_three\nPASSED test_generated.py::test_bonus_three_enabled_returns_four\nPASSED test_generated.py::test_bonus_two_disabled_returns_two\nPASSED test_generated.py::test_bonus_three_disabled_returns_three\nPASSED test_generated.py::test_bonus_zero_disabled_returns_zero\nPASSED test_generated.py::test_bonus_negative_one_raises_value_error\nPASSED test_generated.py::test_bonus_negative_large_raises_value_error\nPASSED test_generated.py::test_bonus_default_enabled_is_true\nPASSED test_generated.py::test_bonus_default_enabled_zero\nPASSED test_generated.py::test_bonus_default_enabled_one\nPASSED test_generated.py::test_bonus_default_enabled_two\n14 passed in 0.20s\n",
+  "stderr": "",
+  "diagnostic": "",
+  "result_complete": true,
+  "failures": [],
+  "failure_details_omitted": 0,
+  "covered_branches": 4,
+  "total_branches": 4,
+  "branch_pct": 100.0,
+  "environment": {
+    "platform": "wasi",
+    "python": "3.15.2",
+    "pytest": "9.2.0",
+    "coverage": "7.17.5"
+  },
+  "job_id": "da58f30b-42f9-47e9-9fc2-309e089b5a04",
+  "started": "2026-11-27T09:08:02.729717+00:00",
+  "ended": "2026-11-27T09:08:08.707161+00:00",
+  "source_sha256": "6e35907cec8eac40250fb30175de48a12fef3aed25a9ca6d4afa0427c02f2bf2",
+  "test_sha256": "b1f56a294ab3f6fa6caa6a27bd6023bf9fbd4aa4cf93ce8a2ab14bc5a00205e7"
+}

@@ -1,0 +1,221 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 4,
+    "failed": 8,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_tax_doctest_example",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_zero",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_one",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_ninety_nine",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_one_hundred",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_one_hundred_one",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_uses_policy_rate",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_is_integer",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_negative",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_large_value",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_missing_argument",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_wrong_type",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "F.FFFFF.FF..\n=================================== FAILURES ===================================\n___________________________ test_tax_doctest_example ___________________________\ntest_generated.py:12: in test_tax_doctest_example\n    assert tax(100) == 5\nE   assert 100 == 5\nE    +  where 100 = tax(100)\n_________________________________ test_tax_one _________________________________\ntest_generated.py:18: in test_tax_one\n    assert tax(1) == 0\nE   assert 1 == 0\nE    +  where 1 = tax(1)\n_____________________________ test_tax_ninety_nine _____________________________\ntest_generated.py:21: in test_tax_ninety_nine\n    assert tax(99) == 4\nE   assert 99 == 4\nE    +  where 99 = tax(99)\n_____________________________ test_tax_one_hundred _____________________________\ntest_generated.py:24: in test_tax_one_hundred\n    assert tax(100) == 5\nE   assert 100 == 5\nE    +  where 100 = tax(100)\n___________________________ test_tax_one_hundred_one ___________________________\ntest_generated.py:27: in test_tax_one_hundred_one\n    assert tax(101) == 5\nE   assert 101 == 5\nE    +  where 101 = tax(101)\n__________________________ test_tax_uses_policy_rate ___________________________\ntest_generated.py:30: in test_tax_uses_policy_rate\n    assert tax(100) == 100 * RATE // 100\nE   assert 100 == ((100 * 5) // 100)\nE    +  where 100 = tax(100)\n______________________________ test_tax_negative _______________________________\ntest_generated.py:36: in test_tax_negative\n    assert tax(-100) == -5\nE   assert -100 == -5\nE    +  where -100 = tax(-100)\n_____________________________ test_tax_large_value _____________________________\ntest_generated.py:39: in test_tax_large_value\n    assert tax(1000000) == 50000\nE   assert 1000000 == 50000\nE    +  where 1000000 = tax(1000000)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tax_zero\nPASSED test_generated.py::test_tax_is_integer\nPASSED test_generated.py::test_tax_missing_argument\nPASSED test_generated.py::test_tax_wrong_type\nFAILED test_generated.py::test_tax_doctest_example - assert 100 == 5\nFAILED test_generated.py::test_tax_one - assert 1 == 0\nFAILED test_generated.py::test_tax_ninety_nine - assert 99 == 4\nFAILED test_generated.py::test_tax_one_hundred - assert 100 == 5\nFAILED test_generated.py::test_tax_one_hundred_one - assert 101 == 5\nFAILED test_generated.py::test_tax_uses_policy_rate - assert 100 == ((100 * 5...\nFAILED test_generated.py::test_tax_negative - assert -100 == -5\nFAILED test_generated.py::test_tax_large_value - assert 1000000 == 50000\n8 failed, 4 passed in 0.82s",
+    "duration_ms": 8313,
+    "stdout": "F.FFFFF.FF..\n=================================== FAILURES ===================================\n___________________________ test_tax_doctest_example ___________________________\ntest_generated.py:12: in test_tax_doctest_example\n    assert tax(100) == 5\nE   assert 100 == 5\nE    +  where 100 = tax(100)\n_________________________________ test_tax_one _________________________________\ntest_generated.py:18: in test_tax_one\n    assert tax(1) == 0\nE   assert 1 == 0\nE    +  where 1 = tax(1)\n_____________________________ test_tax_ninety_nine _____________________________\ntest_generated.py:21: in test_tax_ninety_nine\n    assert tax(99) == 4\nE   assert 99 == 4\nE    +  where 99 = tax(99)\n_____________________________ test_tax_one_hundred _____________________________\ntest_generated.py:24: in test_tax_one_hundred\n    assert tax(100) == 5\nE   assert 100 == 5\nE    +  where 100 = tax(100)\n___________________________ test_tax_one_hundred_one ___________________________\ntest_generated.py:27: in test_tax_one_hundred_one\n    assert tax(101) == 5\nE   assert 101 == 5\nE    +  where 101 = tax(101)\n__________________________ test_tax_uses_policy_rate ___________________________\ntest_generated.py:30: in test_tax_uses_policy_rate\n    assert tax(100) == 100 * RATE // 100\nE   assert 100 == ((100 * 5) // 100)\nE    +  where 100 = tax(100)\n______________________________ test_tax_negative _______________________________\ntest_generated.py:36: in test_tax_negative\n    assert tax(-100) == -5\nE   assert -100 == -5\nE    +  where -100 = tax(-100)\n_____________________________ test_tax_large_value _____________________________\ntest_generated.py:39: in test_tax_large_value\n    assert tax(1000000) == 50000\nE   assert 1000000 == 50000\nE    +  where 1000000 = tax(1000000)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tax_zero\nPASSED test_generated.py::test_tax_is_integer\nPASSED test_generated.py::test_tax_missing_argument\nPASSED test_generated.py::test_tax_wrong_type\nFAILED test_generated.py::test_tax_doctest_example - assert 100 == 5\nFAILED test_generated.py::test_tax_one - assert 1 == 0\nFAILED test_generated.py::test_tax_ninety_nine - assert 99 == 4\nFAILED test_generated.py::test_tax_one_hundred - assert 100 == 5\nFAILED test_generated.py::test_tax_one_hundred_one - assert 101 == 5\nFAILED test_generated.py::test_tax_uses_policy_rate - assert 100 == ((100 * 5...\nFAILED test_generated.py::test_tax_negative - assert -100 == -5\nFAILED test_generated.py::test_tax_large_value - assert 1000000 == 50000\n8 failed, 4 passed in 0.82s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_tax_doctest_example",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 100 == 5\n +  where 100 = tax(100)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 12,
+            "function": "test_tax_doctest_example",
+            "source": "assert tax(100) == 5"
+          }
+        ],
+        "assertion_diff": "assert 100 == 5\n +  where 100 = tax(100)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_one",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 1 == 0\n +  where 1 = tax(1)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 18,
+            "function": "test_tax_one",
+            "source": "assert tax(1) == 0"
+          }
+        ],
+        "assertion_diff": "assert 1 == 0\n +  where 1 = tax(1)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_ninety_nine",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 99 == 4\n +  where 99 = tax(99)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 21,
+            "function": "test_tax_ninety_nine",
+            "source": "assert tax(99) == 4"
+          }
+        ],
+        "assertion_diff": "assert 99 == 4\n +  where 99 = tax(99)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_one_hundred",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 100 == 5\n +  where 100 = tax(100)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 24,
+            "function": "test_tax_one_hundred",
+            "source": "assert tax(100) == 5"
+          }
+        ],
+        "assertion_diff": "assert 100 == 5\n +  where 100 = tax(100)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_one_hundred_one",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 101 == 5\n +  where 101 = tax(101)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 27,
+            "function": "test_tax_one_hundred_one",
+            "source": "assert tax(101) == 5"
+          }
+        ],
+        "assertion_diff": "assert 101 == 5\n +  where 101 = tax(101)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_uses_policy_rate",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 100 == ((100 * 5) // 100)\n +  where 100 = tax(100)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 30,
+            "function": "test_tax_uses_policy_rate",
+            "source": "assert tax(100) == 100 * RATE // 100"
+          }
+        ],
+        "assertion_diff": "assert 100 == ((100 * 5) // 100)\n +  where 100 = tax(100)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_negative",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert -100 == -5\n +  where -100 = tax(-100)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 36,
+            "function": "test_tax_negative",
+            "source": "assert tax(-100) == -5"
+          }
+        ],
+        "assertion_diff": "assert -100 == -5\n +  where -100 = tax(-100)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tax_large_value",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert 1000000 == 50000\n +  where 1000000 = tax(1000000)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 39,
+            "function": "test_tax_large_value",
+            "source": "assert tax(1000000) == 50000"
+          }
+        ],
+        "assertion_diff": "assert 1000000 == 50000\n +  where 1000000 = tax(1000000)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "d379df3f-b9b1-4fd0-b77d-caf719dfe794",
+    "started": "2026-11-27T09:04:23.070814+00:00",
+    "ended": "2026-11-27T09:04:31.384238+00:00",
+    "source_sha256": "d5576ecd075d818e303cbd8a83a204f654dbfeafa031045853d5f9525f80ed87",
+    "test_sha256": "5a5543d2c4f54756e4a46da1c377a4f12424cd6080b260cfc36a715801d7660d"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_tax_doctest_example",
+      "test_generated.py::test_tax_large_value",
+      "test_generated.py::test_tax_negative",
+      "test_generated.py::test_tax_ninety_nine",
+      "test_generated.py::test_tax_one",
+      "test_generated.py::test_tax_one_hundred",
+      "test_generated.py::test_tax_one_hundred_one",
+      "test_generated.py::test_tax_uses_policy_rate"
+    ]
+  },
+  "mutant": "25c2d628-9aec-5a60-bc97-40cd7bb9a6d8"
+}

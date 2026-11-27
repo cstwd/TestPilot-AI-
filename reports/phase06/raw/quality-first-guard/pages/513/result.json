@@ -1,0 +1,9 @@
+{
+  "project": "pages",
+  "seed": 513,
+  "before": null,
+  "after": null,
+  "planned": 3,
+  "initial_run_id": "bb9fe423-57b0-40a3-b214-165ffa23028c",
+  "reason": "Ollama 已触发 Windows 资源保护"
+}

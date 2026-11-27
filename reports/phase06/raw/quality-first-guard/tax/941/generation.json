@@ -1,0 +1,13 @@
+{
+  "code": null,
+  "mode": "ai",
+  "sha256": null,
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [],
+  "fallback_reason": "Ollama 已触发 Windows 资源保护",
+  "run_id": "b0ab34b4-90c4-4984-a6ba-6792393a4cd8",
+  "error": "Ollama 已触发 Windows 资源保护",
+  "error_kind": "resource",
+  "seconds": 0.0014093999998294748
+}

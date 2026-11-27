@@ -1,0 +1,1 @@
+stopped {'physical_total_gib': 31.420948028564453, 'physical_free_gib': 3.4773178100585938, 'physical_used_gib': 27.94363021850586, 'commit_limit_gib': 49.57860565185547, 'commit_free_gib': 6.3878021240234375, 'commit_used_gib': 43.19080352783203, 'gpu_used_mib': 10120.84375, 'gpu_free_mib': 5882.15625, 'cpu_pct': 80.73510773130546}

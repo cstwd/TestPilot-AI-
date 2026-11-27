@@ -1,0 +1,28 @@
+{
+  "code": "import pytest\nfrom subject import page_count\nfrom limits import PAGE_SIZE\n\ndef test_page_count_zero_items_returns_zero():\n    \"\"\"Zero items should require zero pages.\"\"\"\n    assert page_count(0) == 0\n\ndef test_page_count_one_item_returns_one():\n    \"\"\"One item should require one page.\"\"\"\n    assert page_count(1) == 1\n\ndef test_page_count_exactly_one_page_size_returns_one():\n    \"\"\"Exactly PAGE_SIZE items should require one page.\"\"\"\n    assert page_count(PAGE_SIZE) == 1\n\ndef test_page_count_one_more_than_page_size_returns_two():\n    \"\"\"One more than PAGE_SIZE items should require two pages.\"\"\"\n    assert page_count(PAGE_SIZE + 1) == 2\n\ndef test_page_count_nine_returns_one():\n    \"\"\"Nine items (less than PAGE_SIZE=10) should require one page.\"\"\"\n    assert page_count(9) == 1\n\ndef test_page_count_twenty_returns_two():\n    \"\"\"Twenty items (exactly 2 * PAGE_SIZE) should require two pages.\"\"\"\n    assert page_count(2 * PAGE_SIZE) == 2\n\ndef test_page_count_twenty_one_returns_three():\n    \"\"\"Twenty-one items (2 * PAGE_SIZE + 1) should require three pages.\"\"\"\n    assert page_count(2 * PAGE_SIZE + 1) == 3\n\ndef test_page_count_large_multiple_returns_correct_pages():\n    \"\"\"A large multiple of PAGE_SIZE should return the exact number of pages.\"\"\"\n    n_pages = 100\n    assert page_count(n_pages * PAGE_SIZE) == n_pages\n\ndef test_page_count_large_multiple_plus_one():\n    \"\"\"A large multiple of PAGE_SIZE plus one should return one more page.\"\"\"\n    n_pages = 100\n    assert page_count(n_pages * PAGE_SIZE + 1) == n_pages + 1\n\ndef test_page_count_negative_items_raises():\n    \"\"\"Negative items should raise a ValueError.\"\"\"\n    with pytest.raises(ValueError):\n        page_count(-1)\n\ndef test_page_count_non_integer_raises():\n    \"\"\"Non-integer input should raise a TypeError.\"\"\"\n    with pytest.raises(TypeError):\n        page_count('10')\n\ndef test_page_count_float_raises():\n    \"\"\"Float input should raise a TypeError.\"\"\"\n    with pytest.raises(TypeError):\n        page_count(9.5)\n",
+  "mode": "ai",
+  "sha256": "c30cbce9c1403b0efdb9093886004aa8227bfb6e0e97e576882259a954d88467",
+  "provider": "ollama",
+  "model": "hf.co/Jfish123/Qwen3.8-27B-16GB-GGUF:latest",
+  "attempts": [
+    {
+      "run_id": "d06609b5-eed7-4bdc-ae85-e0554d9626da",
+      "attempt": 1,
+      "raw": "{\n  \"code\": \"import pytest\\n\\nfrom subject import page_count\\nfrom limits import PAGE_SIZE\\n\\n\\ndef test_page_count_zero_items_returns_zero():\\n    \\\"\\\"\\\"Zero items should require zero pages.\\\"\\\"\\\"\\n    assert page_count(0) == 0\\n\\n\\ndef test_page_count_one_item_returns_one():\\n    \\\"\\\"\\\"One item should require one page.\\\"\\\"\\\"\\n    assert page_count(1) == 1\\n\\n\\ndef test_page_count_exactly_one_page_size_returns_one():\\n    \\\"\\\"\\\"Exactly PAGE_SIZE items should require one page.\\\"\\\"\\\"\\n    assert page_count(PAGE_SIZE) == 1\\n\\n\\ndef test_page_count_one_more_than_page_size_returns_two():\\n    \\\"\\\"\\\"One more than PAGE_SIZE items should require two pages.\\\"\\\"\\\"\\n    assert page_count(PAGE_SIZE + 1) == 2\\n\\n\\ndef test_page_count_nine_returns_one():\\n    \\\"\\\"\\\"Nine items (less than PAGE_SIZE=10) should require one page.\\\"\\\"\\\"\\n    assert page_count(9) == 1\\n\\n\\ndef test_page_count_twenty_returns_two():\\n    \\\"\\\"\\\"Twenty items (exactly 2 * PAGE_SIZE) should require two pages.\\\"\\\"\\\"\\n    assert page_count(2 * PAGE_SIZE) == 2\\n\\n\\ndef test_page_count_twenty_one_returns_three():\\n    \\\"\\\"\\\"Twenty-one items (2 * PAGE_SIZE + 1) should require three pages.\\\"\\\"\\\"\\n    assert page_count(2 * PAGE_SIZE + 1) == 3\\n\\n\\ndef test_page_count_large_multiple_returns_correct_pages():\\n    \\\"\\\"\\\"A large multiple of PAGE_SIZE should return the exact number of pages.\\\"\\\"\\\"\\n    n_pages = 100\\n    assert page_count(n_pages * PAGE_SIZE) == n_pages\\n\\n\\ndef test_page_count_large_multiple_plus_one():\\n    \\\"\\\"\\\"A large multiple of PAGE_SIZE plus one should return one more page.\\\"\\\"\\\"\\n    n_pages = 100\\n    assert page_count(n_pages * PAGE_SIZE + 1) == n_pages + 1\\n\\n\\ndef test_page_count_negative_items_raises():\\n    \\\"\\\"\\\"Negative items should raise a ValueError.\\\"\\\"\\\"\\n    with pytest.raises(ValueError):\\n        page_count(-1)\\n\\n\\ndef test_page_count_non_integer_raises():\\n    \\\"\\\"\\\"Non-integer input should raise a TypeError.\\\"\\\"\\\"\\n    with pytest.raises(TypeError):\\n        page_count(\\\"10\\\")\\n\\n\\ndef test_page_count_float_raises():\\n    \\\"\\\"\\\"Float input should raise a TypeError.\\\"\\\"\\\"\\n    with pytest.raises(TypeError):\\n        page_count(9.5)\\n\"\n}",
+      "finish": "stop",
+      "tokens_in": 352,
+      "tokens_out": 594,
+      "generation_ns": 24534195000,
+      "load_ns": 13438300,
+      "ttft_s": 1.5673491999987164,
+      "elapsed_s": 26.10210730000108,
+      "seed": 727,
+      "temperature": 0.35,
+      "schema": "GeneratedCode",
+      "status": "accepted"
+    }
+  ],
+  "fallback_reason": null,
+  "run_id": "d06609b5-eed7-4bdc-ae85-e0554d9626da",
+  "seconds": 26.180674799998087
+}

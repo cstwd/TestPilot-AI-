@@ -103,6 +103,8 @@ def main():
     traces={}
     for p in RAW.glob("*.ndjson"):
         traces[p.stem]=workload(lines(p))
+        if p.stem=="stability-4k":
+            traces[p.stem]["median_ttft_s"]=None
     inputs={"attempts":attempts,"stages":{k:dict(v) for k,v in stages.items()},"historical_kills":old,
             "feedback":dict(feedback),"understanding":semantic(QUALITY/"understanding"),
             "first_schema":semantic(RAW/"understanding-first-schema"),

@@ -1,0 +1,109 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 1,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_freight_example",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_boundary_zero",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_missing_argument",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_keyword_argument",
+        "outcome": "failed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 3,
+    "total_lines": 3,
+    "coverage_pct": 100.0,
+    "log": "FF.F\n=================================== FAILURES ===================================\n_____________________________ test_freight_example _____________________________\ntest_generated.py:12: in test_freight_example\n    assert freight(3) == 8\nE   assert None == 8\nE    +  where None = freight(3)\n__________________________ test_freight_boundary_zero __________________________\ntest_generated.py:15: in test_freight_boundary_zero\n    assert freight(0) == BASE\nE   assert None == 5\nE    +  where None = freight(0)\n________________________ test_freight_keyword_argument _________________________\ntest_generated.py:22: in test_freight_keyword_argument\n    assert freight(units=2) == BASE + 2\nE   assert None == (5 + 2)\nE    +  where None = freight(units=2)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_freight_missing_argument\nFAILED test_generated.py::test_freight_example - assert None == 8\nFAILED test_generated.py::test_freight_boundary_zero - assert None == 5\nFAILED test_generated.py::test_freight_keyword_argument - assert None == (5 + 2)\n3 failed, 1 passed in 0.31s",
+    "duration_ms": 6660,
+    "stdout": "FF.F\n=================================== FAILURES ===================================\n_____________________________ test_freight_example _____________________________\ntest_generated.py:12: in test_freight_example\n    assert freight(3) == 8\nE   assert None == 8\nE    +  where None = freight(3)\n__________________________ test_freight_boundary_zero __________________________\ntest_generated.py:15: in test_freight_boundary_zero\n    assert freight(0) == BASE\nE   assert None == 5\nE    +  where None = freight(0)\n________________________ test_freight_keyword_argument _________________________\ntest_generated.py:22: in test_freight_keyword_argument\n    assert freight(units=2) == BASE + 2\nE   assert None == (5 + 2)\nE    +  where None = freight(units=2)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_freight_missing_argument\nFAILED test_generated.py::test_freight_example - assert None == 8\nFAILED test_generated.py::test_freight_boundary_zero - assert None == 5\nFAILED test_generated.py::test_freight_keyword_argument - assert None == (5 + 2)\n3 failed, 1 passed in 0.31s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_freight_example",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 8\n +  where None = freight(3)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 12,
+            "function": "test_freight_example",
+            "source": "assert freight(3) == 8"
+          }
+        ],
+        "assertion_diff": "assert None == 8\n +  where None = freight(3)"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_boundary_zero",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 5\n +  where None = freight(0)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 15,
+            "function": "test_freight_boundary_zero",
+            "source": "assert freight(0) == BASE"
+          }
+        ],
+        "assertion_diff": "assert None == 5\n +  where None = freight(0)"
+      },
+      {
+        "nodeid": "test_generated.py::test_freight_keyword_argument",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == (5 + 2)\n +  where None = freight(units=2)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 22,
+            "function": "test_freight_keyword_argument",
+            "source": "assert freight(units=2) == BASE + 2"
+          }
+        ],
+        "assertion_diff": "assert None == (5 + 2)\n +  where None = freight(units=2)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 0,
+    "total_branches": 0,
+    "branch_pct": null,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "d9067532-8f84-4a66-afed-44ac4feaf8de",
+    "started": "2026-11-27T09:14:02.181938+00:00",
+    "ended": "2026-11-27T09:14:08.842123+00:00",
+    "source_sha256": "1b0177b065209c2a76a000c635efac58727879ade4c31767217ae7a225ee5919",
+    "test_sha256": "80d960cf50454ee6a14fcd4ace6c372233a4ebe648f57da1c46461d11ea0f50d"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_freight_boundary_zero",
+      "test_generated.py::test_freight_example",
+      "test_generated.py::test_freight_keyword_argument"
+    ]
+  },
+  "mutant": "5f2627d6-c830-5a5c-84ac-6fc4c289ccee"
+}

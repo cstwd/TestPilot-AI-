@@ -1,0 +1,129 @@
+{
+  "execution": {
+    "status": "failed",
+    "passed": 6,
+    "failed": 3,
+    "errors": 0,
+    "skipped": 0,
+    "cases": [
+      {
+        "nodeid": "test_generated.py::test_tier_gold_above_threshold",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_gold_at_threshold",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_above_threshold",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_at_threshold",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_basic_below_silver_threshold",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_basic_zero_points",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_basic_negative_points",
+        "outcome": "passed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_gold_just_above_threshold",
+        "outcome": "failed"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_silver_just_below_gold_threshold",
+        "outcome": "passed"
+      }
+    ],
+    "exit_code": 1,
+    "covered_lines": 6,
+    "total_lines": 6,
+    "coverage_pct": 100.0,
+    "log": "FF.....F.\n=================================== FAILURES ===================================\n________________________ test_tier_gold_above_threshold ________________________\ntest_generated.py:5: in test_tier_gold_above_threshold\n    assert tier(120) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = tier(120)\n_________________________ test_tier_gold_at_threshold __________________________\ntest_generated.py:8: in test_tier_gold_at_threshold\n    assert tier(100) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = tier(100)\n_____________________ test_tier_gold_just_above_threshold ______________________\ntest_generated.py:26: in test_tier_gold_just_above_threshold\n    assert tier(101) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = tier(101)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tier_silver_above_threshold\nPASSED test_generated.py::test_tier_silver_at_threshold\nPASSED test_generated.py::test_tier_basic_below_silver_threshold\nPASSED test_generated.py::test_tier_basic_zero_points\nPASSED test_generated.py::test_tier_basic_negative_points\nPASSED test_generated.py::test_tier_silver_just_below_gold_threshold\nFAILED test_generated.py::test_tier_gold_above_threshold - AssertionError: as...\nFAILED test_generated.py::test_tier_gold_at_threshold - AssertionError: asser...\nFAILED test_generated.py::test_tier_gold_just_above_threshold - AssertionErro...\n3 failed, 6 passed in 0.24s",
+    "duration_ms": 5685,
+    "stdout": "FF.....F.\n=================================== FAILURES ===================================\n________________________ test_tier_gold_above_threshold ________________________\ntest_generated.py:5: in test_tier_gold_above_threshold\n    assert tier(120) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = tier(120)\n_________________________ test_tier_gold_at_threshold __________________________\ntest_generated.py:8: in test_tier_gold_at_threshold\n    assert tier(100) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = tier(100)\n_____________________ test_tier_gold_just_above_threshold ______________________\ntest_generated.py:26: in test_tier_gold_just_above_threshold\n    assert tier(101) == 'gold'\nE   AssertionError: assert None == 'gold'\nE    +  where None = tier(101)\n==================================== PASSES ====================================\n=========================== short test summary info ============================\nPASSED test_generated.py::test_tier_silver_above_threshold\nPASSED test_generated.py::test_tier_silver_at_threshold\nPASSED test_generated.py::test_tier_basic_below_silver_threshold\nPASSED test_generated.py::test_tier_basic_zero_points\nPASSED test_generated.py::test_tier_basic_negative_points\nPASSED test_generated.py::test_tier_silver_just_below_gold_threshold\nFAILED test_generated.py::test_tier_gold_above_threshold - AssertionError: as...\nFAILED test_generated.py::test_tier_gold_at_threshold - AssertionError: asser...\nFAILED test_generated.py::test_tier_gold_just_above_threshold - AssertionErro...\n3 failed, 6 passed in 0.24s\n",
+    "stderr": "",
+    "diagnostic": "",
+    "result_complete": true,
+    "failures": [
+      {
+        "nodeid": "test_generated.py::test_tier_gold_above_threshold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'gold'\n +  where None = tier(120)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 5,
+            "function": "test_tier_gold_above_threshold",
+            "source": "assert tier(120) == 'gold'"
+          }
+        ],
+        "assertion_diff": "assert None == 'gold'\n +  where None = tier(120)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_gold_at_threshold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'gold'\n +  where None = tier(100)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 8,
+            "function": "test_tier_gold_at_threshold",
+            "source": "assert tier(100) == 'gold'"
+          }
+        ],
+        "assertion_diff": "assert None == 'gold'\n +  where None = tier(100)"
+      },
+      {
+        "nodeid": "test_generated.py::test_tier_gold_just_above_threshold",
+        "phase": "call",
+        "exception_type": "AssertionError",
+        "message": "assert None == 'gold'\n +  where None = tier(101)",
+        "frames": [
+          {
+            "path": "test_generated.py",
+            "line": 26,
+            "function": "test_tier_gold_just_above_threshold",
+            "source": "assert tier(101) == 'gold'"
+          }
+        ],
+        "assertion_diff": "assert None == 'gold'\n +  where None = tier(101)"
+      }
+    ],
+    "failure_details_omitted": 0,
+    "covered_branches": 4,
+    "total_branches": 4,
+    "branch_pct": 100.0,
+    "environment": {
+      "platform": "wasi",
+      "python": "3.15.2",
+      "pytest": "9.2.0",
+      "coverage": "7.17.5"
+    },
+    "job_id": "c133b908-b92a-4653-9e67-ac6400d79c26",
+    "started": "2026-11-27T09:12:08.171683+00:00",
+    "ended": "2026-11-27T09:12:13.856804+00:00",
+    "source_sha256": "c390908f9ba38c44890a3581f08f149338211bf2048cf018fac1450907958ee8",
+    "test_sha256": "1d40398577f08a30939292ada5e7a46d53118f6defa0396162423d677e5fda95"
+  },
+  "verdict": {
+    "status": "killed",
+    "reason": "原始通过节点在变异副本上触发测试断言",
+    "nodeids": [
+      "test_generated.py::test_tier_gold_above_threshold",
+      "test_generated.py::test_tier_gold_at_threshold",
+      "test_generated.py::test_tier_gold_just_above_threshold"
+    ]
+  },
+  "mutant": "f95da074-ef89-5b7f-915a-8f0dd4190fc1"
+}
