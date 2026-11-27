@@ -30,7 +30,7 @@
       <section><h2>运行测试</h2><p>{{ configuration }}</p>
         <form id="run-engine" data-file-id="{{ file_id }}">
           <label>测试目标<select name="target" required>{% for symbol in analysis.symbols if symbol.testable %}<option>{{ symbol.name }}</option>{% endfor %}</select></label>
-          <label>生成方式<select name="generation_mode"><option value="configured">使用已配置模型，必要时降级</option><option value="template">仅本地模板</option></select></label>
+          <label>生成方式<select name="generation_mode"><option value="configured">使用本机 Qwen3.8-27B</option><option value="template">仅本地模板</option></select></label>
           <label>最多修正次数<select name="max_repairs"><option>0</option><option selected>1</option><option>2</option><option>3</option></select></label>
           <button {% if not analysis.symbols|selectattr('testable')|list %}disabled{% endif %}>生成并运行</button>
         </form>

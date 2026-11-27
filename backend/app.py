@@ -5,7 +5,7 @@ import os
 import sqlite3
 from contextlib import asynccontextmanager
 from pathlib import Path
-from threading import Lock
+from threading import Lock, Thread
 
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
@@ -15,6 +15,7 @@ from starlette.middleware.trustedhost import TrustedHostMiddleware
 
 from backend import database, workbench
 from backend.self_test import run_self_test
+from backend.model_provider import provider
 
 ROOT = Path(__file__).resolve().parent.parent
 LOG = logging.getLogger("testpilot.self_test")
@@ -33,6 +34,7 @@ def create_app(mode: str = "demo", db_path: Path | None = None) -> FastAPI:
             workbench.initialize(path)
         except (OSError, sqlite3.Error) as exc:
             raise RuntimeError(f"无法初始化 SQLite 数据库 {path}。请检查目录和写入权限。") from exc
+        Thread(target=provider.probe, daemon=True, name="testpilot-model-probe").start()
         yield
 
     app = FastAPI(title="TestPilot AI", lifespan=lifespan,
@@ -76,5 +78,10 @@ def create_app(mode: str = "demo", db_path: Path | None = None) -> FastAPI:
                                 status_code=503)
         finally:
             running_test.release()
+
+    @app.get("/api/model/health")
+    def model_health():
+        state = provider.probe()
+        return JSONResponse(state, status_code=200 if state["state"]=="ready" else 503)
 
     return app

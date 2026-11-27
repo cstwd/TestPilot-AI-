@@ -31,6 +31,18 @@ class ModelAdapter(Protocol):
     def generate(self, source: str, target: str) -> tuple[str, list[str]]: ...
 
 
+class AIAdapter:
+    def generate(self, source, target):
+        from .engine_analyzer import analyze_source
+        from .engine_strategy import build_strategy
+        from .engine_llm import generate_tests
+
+        analysis = analyze_source(source)
+        strategy = build_strategy(analysis,target)
+        result = generate_tests(source,target,analysis,strategy)
+        return result["code"], [f"本机 AI 运行 ID {result['run_id']}"]
+
+
 def example_tests(fn, *, respect_directives=False):
     result = []
     for example in doctest.DocTestParser().get_examples(ast.get_docstring(fn) or ""):
