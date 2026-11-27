@@ -89,16 +89,17 @@ async function showProjects() {
 async function start() {
   const projects = await api("/api/projects");
   populate(project, projects, row => row.name, params.get("project"), "请先创建项目");
+  if (page === "analysis" && params.get("project") && project.value !== params.get("project")) project.selectedIndex = -1;
   const files = project.value ? await api("/api/projects/" + project.value + "/files") : [];
   populate(file, files, row => row.filename + " · v" + row.revision, params.get("file"), "请先导入文件");
+  if (page === "analysis" && params.get("file") && file.value !== params.get("file")) file.selectedIndex = -1;
   project.onchange = () => location.assign(link(page, {file: ""}));
   file.onchange = () => location.assign(link(page));
   document.querySelectorAll("[data-dest]").forEach(a => { a.href = link(a.dataset.dest); });
   if (page === "projects") await showProjects();
   if (page === "analysis") {
     const {showAnalysis} = await import("./analysis.js");
-    if (!file.value) return showEmpty("先导入一个 Python 文件，即可查看其函数、类和源码位置。");
-    await showAnalysis({$, api, link, fileId: file.value});
+    await showAnalysis({$, api, link, files, params, fileId: file.value, projectId: project.value});
   }
   if (page === "generation") {
     const {showGeneration} = await import("./generation.js");
@@ -122,4 +123,10 @@ async function start() {
   }
 }
 
-start().catch(error => message(error.message, true));
+start().catch(async error => {
+  message(error.message, true);
+  if (page === "analysis") {
+    const {showAnalysisError} = await import("./analysis.js");
+    showAnalysisError($, error);
+  }
+});

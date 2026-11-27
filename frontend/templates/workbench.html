@@ -1,4 +1,7 @@
 {% from "modules.html" import modules %}
+{% if page == 'analysis' %}
+{% include "analysis.html" %}
+{% else %}
 <!doctype html>
 <html lang="zh-CN">
 <head>
@@ -37,3 +40,4 @@
   </div>
 </body>
 </html>
+{% endif %}
