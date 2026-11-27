@@ -62,6 +62,7 @@ button:disabled { cursor: wait; opacity: .7; }
 .scope ul { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0 28px; margin-top: 12px; }
 .scope li { display: flex; align-items: baseline; gap: 12px; padding: 15px 0; border-top: 1px solid var(--line); font-size: 14px; }
 .notice { color: var(--error); margin-bottom: 20px; }
+.scope a { color: var(--blue); text-underline-offset: 3px; }
 @media (max-width: 720px) {
   .checks { grid-template-columns: 1fr; }
   .scope ul { grid-template-columns: repeat(2, 1fr); }

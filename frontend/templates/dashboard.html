@@ -18,7 +18,6 @@
   </header>
   <main class="shell">
     <div class="intro">
-      <span class="phase">TP-PHASE-01 / 工程初始化</span>
       <h1>启动仪表盘</h1>
       <p>智能软件测试生成与缺陷检测平台</p>
     </div>
@@ -49,16 +48,12 @@
     </div>
     <section class="scope" aria-labelledby="scope-title">
       <div class="scope-heading">
-        <h2 id="scope-title">业务模块规划</h2>
-        <span>初始化验收后开发</span>
+        <h2 id="scope-title">测试工作台</h2>
       </div>
       <ul>
-        {% for code, name in [
-          ('F01', '项目管理与文件导入'), ('F02', 'Python AST 代码分析'),
-          ('F03', 'AI 测试用例生成'), ('F04', '自动化测试执行'),
-          ('F05', 'Bug 管理与回归验证'), ('F06', '质量评估与报告导出')
-        ] %}
-        <li><span class="module-id">{{ code }}</span>{{ name }}</li>
+        {% from "modules.html" import modules %}
+        {% for slug, (code, name) in modules.items() %}
+        <li><span class="module-id">{{ code }}</span><a href="/workbench/{{ slug }}">{{ name }}</a></li>
         {% endfor %}
       </ul>
     </section>

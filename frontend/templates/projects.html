@@ -1,0 +1,13 @@
+<section><h2>创建项目</h2>
+  <form id="create-project"><label>项目名称<input id="project-name" required maxlength="100" autocomplete="off"></label>
+    <button>创建项目</button></form>
+</section>
+<section><h2>导入 Python 文件</h2>
+  <p class="hint">选择 UTF-8 编码的 .py 文件，上限 128 KiB。同名文件有改动时将保存为新版本。</p>
+  <form id="import-file"><label>本地文件<input id="upload" type="file" accept=".py" required></label>
+    <button id="import-button" disabled>导入文件</button></form>
+</section>
+<section id="source-panel" hidden><div class="panel-title"><h2>源码预览</h2>
+  <a data-dest="analysis" href="/workbench/analysis">分析此版本</a></div>
+  <p id="digest" class="hint"></p><pre id="source" tabindex="0"></pre>
+</section>

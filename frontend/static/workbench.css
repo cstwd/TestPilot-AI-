@@ -1,0 +1,33 @@
+.brand, .scope a { color: var(--ink); text-decoration: none; }
+.scope a:hover, .brand:hover { text-decoration: underline; }
+.bench { display: grid; grid-template-columns: 165px minmax(0,1fr); gap: 38px; padding: 42px 0 72px; }
+.bench nav { align-self: start; display: grid; gap: 5px; }
+.bench nav a { display: flex; gap: 12px; padding: 12px 14px; text-decoration: none; color: var(--muted); border-radius: 5px; }
+.bench nav span { font-size: 12px; align-self: center; }
+.bench nav [aria-current] { color: white; background: var(--blue); }
+.bench nav a:hover:not([aria-current]) { background: #e6eef3; }
+.bench h1 { margin: 0 0 20px; font-size: clamp(30px,4vw,42px); }
+.bench h2 { font-size: 19px; }
+.bench a { color: var(--blue); }
+.bench label { display: grid; gap: 6px; color: var(--muted); font-size: 13px; }
+.bench input, .bench select, .bench textarea { font: inherit; font-size: 14px; background: white; color: var(--ink); border: 1px solid #aabdc9; border-radius: 5px; padding: 9px; min-width: 0; max-width: 100%; }
+.bench :focus-visible { outline: 3px solid #d38316; outline-offset: 2px; }
+.bench .selectors, .bench form { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; }
+.selectors label, .bench form label { flex: 1 1 190px; min-width: 0; }
+.bench button { padding: 10px 16px; color: white; background: var(--blue); border: none; border-radius: 5px; }
+.bench button:disabled { opacity: .55; cursor: default; }
+.bench-content { background: white; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.bench-content section { padding: 22px; min-width: 0; }
+.bench-content section + section { border-top: 1px solid var(--line); }
+.bench-content section > * + * { margin-top: 12px; }
+.bench pre { overflow: auto; max-height: 26rem; padding: 16px; font: 13px/1.6 Consolas, monospace; background: #edf3f6; color: var(--ink); }
+.bench .hint, .bench .empty { color: var(--muted); font-size: 13px; overflow-wrap: anywhere; line-height: 1.65; }
+#notice { min-height: 32px; padding: 6px 0; font-size: 14px; color: var(--success); overflow-wrap: anywhere; }
+#notice[data-error] { color: var(--error); }
+@media(max-width: 720px) {
+  .bench { display: block; padding-top: 16px; }
+  .bench nav { grid-template-columns: repeat(3,minmax(0,1fr)); margin-bottom: 24px; }
+  .bench nav a { font-size: 13px; padding: 9px 4px; justify-content: center; gap: 4px; }
+  .bench nav span { display: none; }
+  .bench-content section { padding: 16px; }
+}

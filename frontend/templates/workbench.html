@@ -1,0 +1,39 @@
+{% from "modules.html" import modules %}
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ modules[page][1] }} · TestPilot AI</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/dashboard.css">
+  <link rel="stylesheet" href="/static/workbench.css">
+  <script type="module" src="/static/workbench.js"></script>
+</head>
+<body data-page="{{ page }}">
+  <header class="masthead"><div class="shell masthead-inner">
+    <a class="brand" href="/"><span class="brand-mark" aria-hidden="true"></span>TestPilot AI</a>
+    <span class="workspace">{{ '开发调试模式' if mode == 'dev' else '本地演示模式' }}</span>
+  </div></header>
+  <div class="shell bench">
+    <nav aria-label="测试工作台">
+      {% for slug, (code, name) in modules.items() %}
+      <a data-dest="{{ slug }}" href="/workbench/{{ slug }}" {% if slug==page %}aria-current="page"{% endif %}>
+        <span>{{ code }}</span>{{ name }}
+      </a>{% endfor %}
+    </nav>
+    <main>
+      <h1>{{ modules[page][1] }}</h1>
+      <div class="selectors">
+        <label>当前项目<select id="project" disabled></select></label>
+        <label>文件版本<select id="file" disabled></select></label>
+      </div>
+      <p id="notice" role="status" aria-live="polite"></p>
+      <noscript>请启用 JavaScript 以使用测试工作台。</noscript>
+      <div id="content" class="bench-content">
+        {% if page == 'projects' %}{% include 'projects.html' %}{% endif %}
+      </div>
+    </main>
+  </div>
+</body>
+</html>

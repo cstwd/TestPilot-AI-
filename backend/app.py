@@ -13,7 +13,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from starlette.middleware.trustedhost import TrustedHostMiddleware
 
-from backend import database
+from backend import database, workbench
 from backend.self_test import run_self_test
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -30,6 +30,7 @@ def create_app(mode: str = "demo", db_path: Path | None = None) -> FastAPI:
     async def lifespan(app: FastAPI):
         try:
             database.initialize(path)
+            workbench.initialize(path)
         except (OSError, sqlite3.Error) as exc:
             raise RuntimeError(f"无法初始化 SQLite 数据库 {path}。请检查目录和写入权限。") from exc
         yield
@@ -38,6 +39,7 @@ def create_app(mode: str = "demo", db_path: Path | None = None) -> FastAPI:
                   docs_url="/docs" if mode == "dev" else None, redoc_url=None)
     app.add_middleware(TrustedHostMiddleware, allowed_hosts=["127.0.0.1", "localhost"])
     app.mount("/static", StaticFiles(directory=ROOT / "frontend" / "static"), name="static")
+    workbench.register(app, templates, path, mode)
 
     @app.get("/", include_in_schema=False)
     def dashboard(request: Request):
