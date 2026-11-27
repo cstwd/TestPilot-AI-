@@ -1,0 +1,11 @@
+8 testpilot/NegateCondition 'n < 0' -> 'not (n < 0)'
+8 core/ReplaceComparisonOperator_Lt_LtE '<' -> '<='
+9 testpilot/SuppressRaise 'raise ValueError("negative")' -> 'pass'
+10 testpilot/NegateCondition 'enabled and n >= 2' -> 'not (enabled and n >= 2)'
+10 core/ReplaceAndWithOr 'and' -> 'or'
+10 core/ReplaceComparisonOperator_GtE_Gt '>=' -> '>'
+11 testpilot/ReturnNone 'return n + 1' -> 'return None'
+11 core/ReplaceBinaryOperator_Add_Sub '+' -> '-'
+12 testpilot/ReturnNone 'return n' -> 'return None'
+....
+4 passed in 0.42s

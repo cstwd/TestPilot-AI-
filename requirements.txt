@@ -7,3 +7,4 @@ coverage==7.17.5
 playwright==1.65.2
 wasi-python==0.1.6
 wasmtime==51.0.0
+cosmic-ray==8.9.0
