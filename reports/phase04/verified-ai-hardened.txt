@@ -1,0 +1,25 @@
+Session 6151a7c2-6c8c-4731-9df8-b9db2762eed1 completed task c9638b45-3f74-4bf0-b452-0670a7921f31 initial ai
+Feedback generated qwen2.5-coder:0.5b 4ff64a7f502a08b7616edb8ca0a79eb1853fc363d842b7df4b46915d11a3fb09
+Accepted by original baseline: ['test_mutation_0473d9a7eced8496'] rejected: ['test_mutation_e804e2b2ec3c23bd', 'test_mutation_e49b8cc7b59c304a', 'test_mutation_e4acf0e00c4dc92a']
+before baseline passed: 1
+  L8:8 n < 0 -> not (n < 0): execution_error test_generated.py::test_bonus
+  L8:10 < -> <=: survived 
+  L9:9 raise ValueError("negative") -> pass: survived 
+  L10:8 enabled and n >= 2 -> not (enabled and n >= 2): killed test_generated.py::test_bonus
+  L10:16 and -> or: survived 
+  L10:22 >= -> >: survived 
+  L11:9 return n + 1 -> return None: killed test_generated.py::test_bonus
+  L11:18 + -> -: killed test_generated.py::test_bonus
+  L12:5 return n -> return None: survived 
+  full denominator 9 score 33.33 verified
+after baseline passed: 2
+  L8:8 n < 0 -> not (n < 0): execution_error test_generated.py::test_bonus, test_generated.py::test_mutation_0473d9a7eced8496
+  L8:10 < -> <=: survived 
+  L9:9 raise ValueError("negative") -> pass: killed test_generated.py::test_mutation_0473d9a7eced8496
+  L10:8 enabled and n >= 2 -> not (enabled and n >= 2): killed test_generated.py::test_bonus
+  L10:16 and -> or: survived 
+  L10:22 >= -> >: survived 
+  L11:9 return n + 1 -> return None: killed test_generated.py::test_bonus
+  L11:18 + -> -: killed test_generated.py::test_bonus
+  L12:5 return n -> return None: survived 
+  full denominator 9 score 44.44 verified
