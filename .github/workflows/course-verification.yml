@@ -56,6 +56,13 @@ jobs:
           Get-Content reports/ci/runner.txt
       - name: Replay the frozen AI evaluation
         run: python -m eval.phase05.verify_frozen --report reports/ci/offline-evaluation.json
+      - name: Confirm replay validation failure returns a nonzero exit
+        run: |
+          $PSNativeCommandUseErrorActionPreference = $false
+          python -O -m eval.phase05.verify_frozen --report reports/ci/offline-failure.json
+          $replayExit = $LASTEXITCODE
+          if ($replayExit -ne 1) { throw "Expected replay validation exit 1, got $replayExit" }
+          exit 0
       - name: Verify independent Demo Lab scoring
         if: ${{ !cancelled() && steps.dependencies.outcome == 'success' }}
         run: python -m pytest -q demo/TestPilot-Demo-Lab/tests/regression/test_evaluator.py --junitxml=reports/ci/demo-scoring.xml
