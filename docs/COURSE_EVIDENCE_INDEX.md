@@ -12,6 +12,19 @@
 | F06 质量工作台升级 | 实测指标、运行对照和质量导出 | `b7a8b40` · [浏览器](../reports/WP08-F06-001/) |
 | 课程交付 | 验收、五人记录、工程工具、Bug 案例、截图、PPT 与视频 | [要求审计](COURSE_REQUIREMENTS_AUDIT.md) · [验收报告](COURSE_FINAL_REPORT.md) · [工作记录](../collab-log/LOG.md) · [会话索引](../transcripts/README.md) · [展示材料](../presentation/README.md) |
 
+
+## 五人个人操作日志证据
+
+| 工作包与成员 | 日志证据范围 | 原始任务与复验入口 |
+| --- | --- | --- |
+| [WP01 陈帅廷](../collab-log/members/陈帅廷_WP01_个人操作日志.md) | 立项与集成、模型部署及统一 Provider，9 条 | [原始会话](../transcripts/TP-PHASE-01.md) · [复验证据](../reports/phase06/TP_PHASE_06_ACCEPTANCE.md) |
+| [WP02 陈万策](../collab-log/members/陈万策_WP02_个人操作日志.md) | 需求、各页改版及浏览器终验，10 条 | [原始会话](../transcripts/WP08-F06-001.md) · [复验证据](../reports/WP09-001/FRONTEND_V1_FINAL_ACCEPTANCE.md) |
+| [WP03 赵君豪](../collab-log/members/赵君豪_WP03_个人操作日志.md) | AST、套件、属性测试及冻结理解评分，11 条 | [原始会话](../transcripts/TP-PHASE-03.md) · [复验证据](../reports/phase05/T02_SOURCE_UNDERSTANDING.md) |
+| [WP04 马雪朋](../collab-log/members/马雪朋_WP04_个人操作日志.md) | WASI、缺陷回归、F13 与固定分母，9 条 | [原始会话](../transcripts/TP-PHASE-04.md) · [复验证据](../reports/phase06/MUTATIONS.md) |
+| [WP05 王选中](../collab-log/members/王选中_WP05_个人操作日志.md) | 工作包、Git、会话和工程工具链，10 条 | [原始会话](../transcripts/TP-COURSE-FINAL-001.md) · [复验证据](../reports/course-final/TOOLCHAIN.md) |
+
+[五人总索引](../collab-log/LOG.md) · [20 条历史摘要与明细对照](../collab-log/COURSE_HISTORY.md) · [日志校验脚本](../hooks/verify_member_logs.py)
+
 ## 目录入口
 
 [完整 Git 路径清单](../reports/course-final/repository-index.txt) · [分支与工作树审计](../reports/course-final/WORKTREE_AUDIT.md)
