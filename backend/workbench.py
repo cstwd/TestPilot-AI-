@@ -1,10 +1,10 @@
 """Register the phase 02 business modules on the existing application."""
 from fastapi import HTTPException, Request
 
-from . import analysis, projects
+from . import analysis, generation, projects
 from .store import connect
 
-MODULES = (projects, analysis)
+MODULES = (projects, analysis, generation)
 PAGES = {"projects", "analysis", "generation", "runs", "bugs", "reports"}
 
 
@@ -17,6 +17,7 @@ def initialize(path):
 
 def register(app, templates, path, mode):
     app.state.db_path = path
+    app.state.generators = {"template": generation.TemplateAdapter()}
     for module in MODULES:
         app.include_router(module.router)
 

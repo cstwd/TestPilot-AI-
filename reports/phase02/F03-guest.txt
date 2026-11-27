@@ -1,0 +1,22 @@
+start
+1 None pytest 9.2.0 3.15.2 (main, Jan  1 2026, 00:00:00) [Clang 23.1.0-wasi-sdk (https://github.com/llvm/llvm-project 895aa2c896ada719451
+============================= test session starts ==============================
+platform wasi -- Python 3.15.2, pytest-9.2.0, pluggy-1.7.0
+rootdir: /work
+collected 7 items
+
+test_generated.py ..F...s                                                [100%]
+
+=================================== FAILURES ===================================
+________________________________ test_example_3 ________________________________
+
+    def test_example_3():
+>       assert target(-3) == 3
+               ^^^^^^^^^^^^^^^
+E       AssertionError
+
+test_generated.py:11: AssertionError
+=========================== short test summary info ============================
+FAILED test_generated.py::test_example_3 - AssertionError
+==================== 1 failed, 5 passed, 1 skipped in 1.16s ====================
+ 

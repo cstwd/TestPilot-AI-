@@ -25,6 +25,8 @@
 .records article { padding: 12px 0; border-top: 1px solid var(--line); overflow-wrap: anywhere; }
 .records h3 { font: 600 15px/1.6 Consolas, "Microsoft YaHei", monospace; margin: 0 0 4px; }
 .records article a { display: inline-block; margin-top: 8px; font-size: 14px; }
+#suite-panel > * { margin-block: 12px; }
+#suggestions { padding-left: 20px; line-height: 1.65; }
 #notice { min-height: 32px; padding: 6px 0; font-size: 14px; color: var(--success); overflow-wrap: anywhere; }
 #notice[data-error] { color: var(--error); }
 @media(max-width: 720px) {

@@ -98,6 +98,11 @@ async function start() {
     if (!file.value) return showEmpty("先导入一个 Python 文件，即可查看其函数、类和源码位置。");
     await showAnalysis({$, api, link, fileId: file.value});
   }
+  if (page === "generation") {
+    const {showGeneration} = await import("./generation.js");
+    if (!file.value) return showEmpty("请先选择项目并导入需要生成测试的文件。");
+    await showGeneration({$, api, link, form, populate, params, fileId: file.value});
+  }
 }
 
 start().catch(error => message(error.message, true));

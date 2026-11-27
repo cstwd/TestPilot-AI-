@@ -53,3 +53,18 @@ def test_f02(page):
     expect(page.locator("#symbols")).to_contain_text("第 1–2 行")
     page.get_by_label("文件版本").select_option(str(second))
     expect(page.locator("#symbols")).to_contain_text("语法错误 · 行 1")
+
+
+def test_f03(page):
+    project = page.request.post("/api/projects", data={"name": "生成评审"}).json()["id"]
+    source = "def magnitude(x: int) -> int:\n    return abs(x)\n"
+    file = import_source(page, project, source)
+    page.goto(f"/workbench/analysis?project={project}&file={file}")
+    page.get_by_role("link", name="为此函数生成测试").click()
+    expect(page.get_by_label("目标函数")).to_have_value("magnitude")
+    page.get_by_role("button", name="生成测试").click()
+    expect(page.locator("#test-source")).to_contain_text("def test_")
+    expect(page.locator("#suite-detail")).to_contain_text("template")
+    expect(page.get_by_role("link", name="前往执行此测试")).to_have_attribute("href", f"/workbench/runs?project={project}&file={file}&suite=1")
+    page.reload()
+    expect(page.locator("#suite-detail")).to_contain_text("语法检查通过")

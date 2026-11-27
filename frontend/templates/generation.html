@@ -1,0 +1,19 @@
+<section>
+  <h2>生成测试草稿</h2>
+  <p class="hint">本地模板模式根据函数签名生成候选测试。请核对断言，再进入执行页面查看实际结果。</p>
+  <form id="generate">
+    <label>目标函数<select id="target" required></select></label>
+    <button id="generate-button" disabled>生成测试</button>
+  </form>
+  <p class="hint" id="generation-hint"></p>
+</section>
+<section>
+  <h2>已保存的测试</h2>
+  <label>测试版本<select id="suite"></select></label>
+  <div id="suite-panel" hidden>
+    <p class="hint" id="suite-detail"></p>
+    <pre id="test-source" tabindex="0"></pre>
+    <h3>属性测试建议</h3><ul id="suggestions"></ul>
+    <p><a id="run-suite" href="/workbench/runs">前往执行此测试</a></p>
+  </div>
+</section>
